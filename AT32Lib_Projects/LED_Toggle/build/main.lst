@@ -1,0 +1,135 @@
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSN9ieJ.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"main.c"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.text.main,"ax",%progbits
+  17              		.align	1
+  18              		.global	main
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu fpv4-sp-d16
+  24              	main:
+  25              	.LFB126:
+  26              		.file 1 "Src/main.c"
+   1:Src/main.c    **** /**
+   2:Src/main.c    ****   ******************************************************************************
+   3:Src/main.c    ****   * @file    GPIO/LED_Toggle/main.c
+   4:Src/main.c    ****   * @author  Artery Technology
+   5:Src/main.c    ****   * @version V1.1.2
+   6:Src/main.c    ****   * @date    2019-01-04
+   7:Src/main.c    ****   * @brief   Main program body
+   8:Src/main.c    ****   ******************************************************************************
+   9:Src/main.c    ****   * @attention
+  10:Src/main.c    ****   *
+  11:Src/main.c    ****   * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
+  12:Src/main.c    ****   * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
+  13:Src/main.c    ****   * TIME. AS A RESULT, ARTERYTEK SHALL NOT BE HELD LIABLE FOR ANY
+  14:Src/main.c    ****   * DIRECT, INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
+  15:Src/main.c    ****   * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
+  16:Src/main.c    ****   * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
+  17:Src/main.c    ****   *
+  18:Src/main.c    ****   * <h2><center>&copy; COPYRIGHT 2018 ArteryTek</center></h2>
+  19:Src/main.c    ****   ******************************************************************************
+  20:Src/main.c    ****   */
+  21:Src/main.c    **** 
+  22:Src/main.c    **** #include <stdio.h>
+  23:Src/main.c    **** #include "at32f4xx.h"
+  24:Src/main.c    **** #include "at32_hoverboard.h"
+  25:Src/main.c    **** 
+  26:Src/main.c    **** /** @addtogroup AT32F403_StdPeriph_Examples
+  27:Src/main.c    ****   * @{
+  28:Src/main.c    ****   */
+  29:Src/main.c    **** 
+  30:Src/main.c    **** /** @addtogroup GPIO_LEDToggle
+  31:Src/main.c    ****   * @{
+  32:Src/main.c    ****   */
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSN9ieJ.s 			page 2
+
+
+  33:Src/main.c    **** 
+  34:Src/main.c    **** /* Private typedef -----------------------------------------------------------*/
+  35:Src/main.c    **** /* Private define ------------------------------------------------------------*/
+  36:Src/main.c    **** /* Private macro -------------------------------------------------------------*/
+  37:Src/main.c    **** /* Private variables ---------------------------------------------------------*/
+  38:Src/main.c    **** /* Private function prototypes -----------------------------------------------*/
+  39:Src/main.c    **** /* Private functions ---------------------------------------------------------*/
+  40:Src/main.c    **** 
+  41:Src/main.c    **** /**
+  42:Src/main.c    ****   * @brief  Main Function.
+  43:Src/main.c    ****   * @param  None
+  44:Src/main.c    ****   * @retval None
+  45:Src/main.c    ****   */
+  46:Src/main.c    **** int main(void)
+  47:Src/main.c    **** {
+  27              		.loc 1 47 0
+  28              		.cfi_startproc
+  29              		@ Volatile: function does not return.
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 3, -8
+  36              		.cfi_offset 14, -4
+  48:Src/main.c    ****   AT32_Hoverboard_Init();
+  37              		.loc 1 48 0
+  38 0002 FFF7FEFF 		bl	AT32_Hoverboard_Init
+  39              	.LVL0:
+  40              	.L2:
+  49:Src/main.c    **** 
+  50:Src/main.c    ****   for(;;)
+  51:Src/main.c    ****   {
+  52:Src/main.c    ****     AT32_LEDn_Toggle(LED2);
+  41              		.loc 1 52 0 discriminator 1
+  42 0006 0120     		movs	r0, #1
+  43 0008 FFF7FEFF 		bl	AT32_LEDn_Toggle
+  44              	.LVL1:
+  53:Src/main.c    ****     Delay_ms(1000);
+  45              		.loc 1 53 0 discriminator 1
+  46 000c 4FF47A70 		mov	r0, #1000
+  47 0010 FFF7FEFF 		bl	Delay_ms
+  48              	.LVL2:
+  49 0014 F7E7     		b	.L2
+  50              		.cfi_endproc
+  51              	.LFE126:
+  53              		.text
+  54              	.Letext0:
+  55              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
+  56              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
+  57              		.file 4 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
+  58              		.file 5 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h
+  59              		.file 6 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
+  60              		.file 7 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
+  61              		.file 8 "../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h"
+  62              		.file 9 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
+  63              		.file 10 "Inc/at32_hoverboard.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSN9ieJ.s 			page 3
+
+
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSN9ieJ.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 main.c
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSN9ieJ.s:17     .text.main:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSN9ieJ.s:24     .text.main:0000000000000000 main
+
+UNDEFINED SYMBOLS
+AT32_Hoverboard_Init
+AT32_LEDn_Toggle
+Delay_ms
