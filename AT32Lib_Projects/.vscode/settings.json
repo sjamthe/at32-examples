@@ -1,5 +1,9 @@
 {
     "files.associations": {
-        "at32f4xx.h": "c"
+        "at32f4xx.h": "c",
+        "freertos.h": "c",
+        "portable.h": "c",
+        "at32_hoverboard.h": "c",
+        "bsp.h": "c"
     }
 }

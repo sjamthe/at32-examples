@@ -1,0 +1,873 @@
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"main.c"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.text.RCC_Configuration,"ax",%progbits
+  17              		.align	1
+  18              		.global	RCC_Configuration
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu fpv4-sp-d16
+  24              	RCC_Configuration:
+  25              	.LFB124:
+  26              		.file 1 "Src/main.c"
+   1:Src/main.c    **** /**
+   2:Src/main.c    ****   ******************************************************************************
+   3:Src/main.c    ****   * @file    USART/Interrupt/main.c 
+   4:Src/main.c    ****   * @author  Artery Technology 
+   5:Src/main.c    ****   * @version V1.1.2
+   6:Src/main.c    ****   * @date    2019-01-04
+   7:Src/main.c    ****   * @brief   Main program body
+   8:Src/main.c    ****   ******************************************************************************
+   9:Src/main.c    ****   * @attention
+  10:Src/main.c    ****   *
+  11:Src/main.c    ****   * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
+  12:Src/main.c    ****   * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
+  13:Src/main.c    ****   * TIME. AS A RESULT, ARTERYTEK SHALL NOT BE HELD LIABLE FOR ANY
+  14:Src/main.c    ****   * DIRECT, INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
+  15:Src/main.c    ****   * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
+  16:Src/main.c    ****   * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
+  17:Src/main.c    ****   *
+  18:Src/main.c    ****   * <h2><center>&copy; COPYRIGHT 2018 ArteryTek</center></h2>
+  19:Src/main.c    ****   ******************************************************************************
+  20:Src/main.c    ****   */ 
+  21:Src/main.c    ****   
+  22:Src/main.c    **** /* Includes ------------------------------------------------------------------*/
+  23:Src/main.c    **** #include "at32f4xx.h"
+  24:Src/main.c    **** //#include "at32_board.h"
+  25:Src/main.c    **** 
+  26:Src/main.c    **** /** @addtogroup AT32F403_StdPeriph_Examples
+  27:Src/main.c    ****   * @{
+  28:Src/main.c    ****   */
+  29:Src/main.c    **** 
+  30:Src/main.c    **** /** @addtogroup USART_Interrupt
+  31:Src/main.c    ****   * @{
+  32:Src/main.c    ****   */ 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s 			page 2
+
+
+  33:Src/main.c    ****   
+  34:Src/main.c    **** /* Private typedef -----------------------------------------------------------*/
+  35:Src/main.c    **** typedef enum { FAILED = 0, PASSED = !FAILED} TestStatus;
+  36:Src/main.c    **** 
+  37:Src/main.c    **** /* Private define ------------------------------------------------------------*/
+  38:Src/main.c    **** #define TxBufferSize1   (countof(TxBuffer1) - 1)
+  39:Src/main.c    **** #define TxBufferSize2   (countof(TxBuffer2) - 1)
+  40:Src/main.c    **** #define RxBufferSize1   TxBufferSize2
+  41:Src/main.c    **** #define RxBufferSize2   TxBufferSize1
+  42:Src/main.c    **** 
+  43:Src/main.c    **** /* Private macro -------------------------------------------------------------*/
+  44:Src/main.c    **** #define countof(a)   (sizeof(a) / sizeof(*(a)))
+  45:Src/main.c    **** 
+  46:Src/main.c    **** /* Private variables ---------------------------------------------------------*/
+  47:Src/main.c    **** USART_InitType USART_InitStructure;
+  48:Src/main.c    **** uint8_t TxBuffer1[] = "USART Interrupt Example: USART2 -> USART3 using Interrupt";
+  49:Src/main.c    **** uint8_t TxBuffer2[] = "USART Interrupt Example: USART3 -> USART2 using Interrupt";
+  50:Src/main.c    **** uint8_t RxBuffer1[RxBufferSize1];
+  51:Src/main.c    **** uint8_t RxBuffer2[RxBufferSize2];
+  52:Src/main.c    **** __IO uint8_t TxCounter1 = 0x00;
+  53:Src/main.c    **** __IO uint8_t TxCounter2 = 0x00;
+  54:Src/main.c    **** __IO uint8_t RxCounter1 = 0x00; 
+  55:Src/main.c    **** __IO uint8_t RxCounter2 = 0x00;
+  56:Src/main.c    **** uint8_t NbrOfDataToTransfer1 = TxBufferSize1;
+  57:Src/main.c    **** uint8_t NbrOfDataToTransfer2 = TxBufferSize2;
+  58:Src/main.c    **** uint8_t NbrOfDataToRead1 = RxBufferSize1;
+  59:Src/main.c    **** uint8_t NbrOfDataToRead2 = RxBufferSize2;
+  60:Src/main.c    **** __IO TestStatus TransferStatus1 = FAILED; 
+  61:Src/main.c    **** __IO TestStatus TransferStatus2 = FAILED;
+  62:Src/main.c    **** 
+  63:Src/main.c    **** /* Private function prototypes -----------------------------------------------*/
+  64:Src/main.c    **** void RCC_Configuration(void);
+  65:Src/main.c    **** void GPIO_Configuration(void);
+  66:Src/main.c    **** void NVIC_Configuration(void);
+  67:Src/main.c    **** TestStatus Buffercmp(uint8_t* pBuffer1, uint8_t* pBuffer2, uint16_t BufferLength);
+  68:Src/main.c    **** 
+  69:Src/main.c    **** /* Private functions ---------------------------------------------------------*/
+  70:Src/main.c    **** 
+  71:Src/main.c    **** /**
+  72:Src/main.c    ****   * @brief   Main program
+  73:Src/main.c    ****   * @param  None
+  74:Src/main.c    ****   * @retval None
+  75:Src/main.c    ****   */
+  76:Src/main.c    **** int main(void)
+  77:Src/main.c    **** {  
+  78:Src/main.c    ****   /* System Clocks Configuration */
+  79:Src/main.c    ****   RCC_Configuration();
+  80:Src/main.c    ****        
+  81:Src/main.c    ****   /* NVIC configuration */
+  82:Src/main.c    ****   NVIC_Configuration();
+  83:Src/main.c    **** 
+  84:Src/main.c    ****   /* Configure the GPIO ports */
+  85:Src/main.c    ****   GPIO_Configuration();
+  86:Src/main.c    **** 
+  87:Src/main.c    ****   /* Initialize Leds mounted on board */
+  88:Src/main.c    ****   //AT32_Board_Init();
+  89:Src/main.c    ****   
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s 			page 3
+
+
+  90:Src/main.c    ****   /* USART2 and USART3 configuration ------------------------------------------------------*/
+  91:Src/main.c    ****   /* USART2 and USART3 configured as follow:
+  92:Src/main.c    ****         - BaudRate = 9600 baud  
+  93:Src/main.c    ****         - Word Length = 8 Bits
+  94:Src/main.c    ****         - One Stop Bit
+  95:Src/main.c    ****         - No parity
+  96:Src/main.c    ****         - Hardware flow control disabled (RTS and CTS signals)
+  97:Src/main.c    ****         - Receive and transmit enabled
+  98:Src/main.c    ****   */
+  99:Src/main.c    ****   USART_StructInit(&USART_InitStructure);
+ 100:Src/main.c    ****   USART_InitStructure.USART_BaudRate = 9600;
+ 101:Src/main.c    ****   USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+ 102:Src/main.c    ****   USART_InitStructure.USART_StopBits = USART_StopBits_1;
+ 103:Src/main.c    ****   USART_InitStructure.USART_Parity = USART_Parity_No;
+ 104:Src/main.c    ****   USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+ 105:Src/main.c    ****   USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
+ 106:Src/main.c    **** 
+ 107:Src/main.c    ****   /* Configure USART2 */
+ 108:Src/main.c    ****   USART_Init(USART2, &USART_InitStructure);
+ 109:Src/main.c    ****   /* Configure USART3 */
+ 110:Src/main.c    ****   USART_Init(USART3, &USART_InitStructure);
+ 111:Src/main.c    ****   
+ 112:Src/main.c    ****   /* Enable USART2 Receive and Transmit interrupts */
+ 113:Src/main.c    ****   USART_INTConfig(USART2, USART_INT_RDNE, ENABLE);
+ 114:Src/main.c    ****   USART_INTConfig(USART2, USART_INT_TDE, ENABLE);
+ 115:Src/main.c    **** 
+ 116:Src/main.c    ****   /* Enable USART3 Receive and Transmit interrupts */
+ 117:Src/main.c    ****   USART_INTConfig(USART3, USART_INT_RDNE, ENABLE);
+ 118:Src/main.c    ****   USART_INTConfig(USART3, USART_INT_TDE, ENABLE);
+ 119:Src/main.c    **** 
+ 120:Src/main.c    ****   /* Enable the USART2 */
+ 121:Src/main.c    ****   USART_Cmd(USART2, ENABLE);
+ 122:Src/main.c    ****   /* Enable the USART3 */
+ 123:Src/main.c    ****   USART_Cmd(USART3, ENABLE);
+ 124:Src/main.c    **** 
+ 125:Src/main.c    ****   /* Wait until end of transmission from USART2 to USART3 */
+ 126:Src/main.c    ****   while(RxCounter2 < RxBufferSize2)
+ 127:Src/main.c    ****   {
+ 128:Src/main.c    ****   }
+ 129:Src/main.c    **** 
+ 130:Src/main.c    ****   /* Wait until end of transmission from USART3 to USART2 */
+ 131:Src/main.c    ****   while(RxCounter1 < RxBufferSize1)
+ 132:Src/main.c    ****   {
+ 133:Src/main.c    ****   }
+ 134:Src/main.c    ****   
+ 135:Src/main.c    ****   /* Check the received data with the send ones */
+ 136:Src/main.c    ****   TransferStatus1 = Buffercmp(TxBuffer2, RxBuffer1, RxBufferSize1);
+ 137:Src/main.c    ****   /* TransferStatus1 = PASSED, if the data transmitted from USART3 and  
+ 138:Src/main.c    ****      received by USART2 are the same */
+ 139:Src/main.c    ****   /* TransferStatus1 = FAILED, if the data transmitted from USART3 and 
+ 140:Src/main.c    ****      received by USART2 are different */
+ 141:Src/main.c    ****   TransferStatus2 = Buffercmp(TxBuffer1, RxBuffer2, RxBufferSize2);
+ 142:Src/main.c    ****   /* TransferStatus2 = PASSED, if the data transmitted from USART2 and  
+ 143:Src/main.c    ****      received by USART3 are the same */
+ 144:Src/main.c    ****   /* TransferStatus2 = FAILED, if the data transmitted from USART2 and 
+ 145:Src/main.c    ****      received by USART3 are different */
+ 146:Src/main.c    **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s 			page 4
+
+
+ 147:Src/main.c    ****   /* Judge whether the result is correct */
+ 148:Src/main.c    ****   // if((TransferStatus1 == PASSED)&&(TransferStatus2 == PASSED))
+ 149:Src/main.c    ****   // {
+ 150:Src/main.c    ****   //   /*Trun on the LED*/
+ 151:Src/main.c    ****   //   AT32_LEDn_ON(LED2);
+ 152:Src/main.c    ****   //   AT32_LEDn_ON(LED3);
+ 153:Src/main.c    ****   //   AT32_LEDn_ON(LED4);
+ 154:Src/main.c    ****   // }
+ 155:Src/main.c    **** }
+ 156:Src/main.c    **** 
+ 157:Src/main.c    **** /**
+ 158:Src/main.c    ****   * @brief  Configures the different system clocks.
+ 159:Src/main.c    ****   * @param  None
+ 160:Src/main.c    ****   * @retval None
+ 161:Src/main.c    ****   */
+ 162:Src/main.c    **** void RCC_Configuration(void)
+ 163:Src/main.c    **** {   
+  27              		.loc 1 163 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 08B5     		push	{r3, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+ 164:Src/main.c    ****   /* Enable GPIO clock */
+ 165:Src/main.c    ****   RCC_APB2PeriphClockCmd(RCC_APB2PERIPH_GPIOA | RCC_APB2PERIPH_GPIOB | RCC_APB2PERIPH_AFIO, ENABLE)
+  36              		.loc 1 165 0
+  37 0002 0121     		movs	r1, #1
+  38 0004 0D20     		movs	r0, #13
+  39 0006 FFF7FEFF 		bl	RCC_APB2PeriphClockCmd
+  40              	.LVL0:
+ 166:Src/main.c    **** 
+ 167:Src/main.c    ****   /* Enable USART2 Clock */
+ 168:Src/main.c    ****   RCC_APB1PeriphClockCmd(RCC_APB1PERIPH_USART2, ENABLE); 
+  41              		.loc 1 168 0
+  42 000a 0121     		movs	r1, #1
+  43 000c 4FF40030 		mov	r0, #131072
+  44 0010 FFF7FEFF 		bl	RCC_APB1PeriphClockCmd
+  45              	.LVL1:
+ 169:Src/main.c    **** 
+ 170:Src/main.c    ****   /* Enable USART3 Clock */
+ 171:Src/main.c    ****   RCC_APB1PeriphClockCmd(RCC_APB1PERIPH_USART3, ENABLE);  
+  46              		.loc 1 171 0
+  47 0014 0121     		movs	r1, #1
+  48 0016 4FF48020 		mov	r0, #262144
+  49 001a FFF7FEFF 		bl	RCC_APB1PeriphClockCmd
+  50              	.LVL2:
+ 172:Src/main.c    **** }
+  51              		.loc 1 172 0
+  52 001e 08BD     		pop	{r3, pc}
+  53              		.cfi_endproc
+  54              	.LFE124:
+  56              		.section	.text.GPIO_Configuration,"ax",%progbits
+  57              		.align	1
+  58              		.global	GPIO_Configuration
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s 			page 5
+
+
+  59              		.syntax unified
+  60              		.thumb
+  61              		.thumb_func
+  62              		.fpu fpv4-sp-d16
+  64              	GPIO_Configuration:
+  65              	.LFB125:
+ 173:Src/main.c    **** 
+ 174:Src/main.c    **** /**
+ 175:Src/main.c    ****   * @brief  Configures the different GPIO ports.
+ 176:Src/main.c    ****   * @param  None
+ 177:Src/main.c    ****   * @retval None
+ 178:Src/main.c    ****   */
+ 179:Src/main.c    **** void GPIO_Configuration(void)
+ 180:Src/main.c    **** {
+  66              		.loc 1 180 0
+  67              		.cfi_startproc
+  68              		@ args = 0, pretend = 0, frame = 8
+  69              		@ frame_needed = 0, uses_anonymous_args = 0
+  70 0000 70B5     		push	{r4, r5, r6, lr}
+  71              	.LCFI1:
+  72              		.cfi_def_cfa_offset 16
+  73              		.cfi_offset 4, -16
+  74              		.cfi_offset 5, -12
+  75              		.cfi_offset 6, -8
+  76              		.cfi_offset 14, -4
+  77 0002 82B0     		sub	sp, sp, #8
+  78              	.LCFI2:
+  79              		.cfi_def_cfa_offset 24
+ 181:Src/main.c    ****   GPIO_InitType GPIO_InitStructure;
+ 182:Src/main.c    **** 
+ 183:Src/main.c    ****   /* Enable the USART3 Pins Software Remapping */
+ 184:Src/main.c    ****   //GPIO_PinsRemapConfig(GPIO_PartialRemap_USART3, ENABLE); --NO MAPPING
+ 185:Src/main.c    ****   
+ 186:Src/main.c    ****   /* Enable the USART2 Pins Software Remapping */
+ 187:Src/main.c    ****   //GPIO_PinsRemapConfig(GPIO_Remap_USART2, ENABLE);  --NO MAPPING
+ 188:Src/main.c    **** 
+ 189:Src/main.c    **** 
+ 190:Src/main.c    ****   /* Configure USART2 Rx as input floating */
+ 191:Src/main.c    ****   GPIO_InitStructure.GPIO_Pins = GPIO_Pins_3;
+  80              		.loc 1 191 0
+  81 0004 0823     		movs	r3, #8
+  82 0006 ADF80430 		strh	r3, [sp, #4]	@ movhi
+ 192:Src/main.c    ****   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+  83              		.loc 1 192 0
+  84 000a 0426     		movs	r6, #4
+  85 000c 8DF80760 		strb	r6, [sp, #7]
+ 193:Src/main.c    ****   GPIO_Init(GPIOA, &GPIO_InitStructure);
+  86              		.loc 1 193 0
+  87 0010 134D     		ldr	r5, .L5
+  88 0012 0DEB0601 		add	r1, sp, r6
+  89 0016 2846     		mov	r0, r5
+  90 0018 FFF7FEFF 		bl	GPIO_Init
+  91              	.LVL3:
+ 194:Src/main.c    ****   
+ 195:Src/main.c    ****   /* Configure USART3 Rx as input floating */
+ 196:Src/main.c    ****   GPIO_InitStructure.GPIO_Pins = GPIO_Pins_11;
+  92              		.loc 1 196 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s 			page 6
+
+
+  93 001c 4FF40063 		mov	r3, #2048
+  94 0020 ADF80430 		strh	r3, [sp, #4]	@ movhi
+ 197:Src/main.c    ****   GPIO_Init(GPIOB, &GPIO_InitStructure);  
+  95              		.loc 1 197 0
+  96 0024 0F4C     		ldr	r4, .L5+4
+  97 0026 0DEB0601 		add	r1, sp, r6
+  98 002a 2046     		mov	r0, r4
+  99 002c FFF7FEFF 		bl	GPIO_Init
+ 100              	.LVL4:
+ 198:Src/main.c    ****   
+ 199:Src/main.c    ****   /* Configure USART2 Tx as alternate function push-pull */
+ 200:Src/main.c    ****   GPIO_InitStructure.GPIO_Pins = GPIO_Pins_2;
+ 101              		.loc 1 200 0
+ 102 0030 ADF80460 		strh	r6, [sp, #4]	@ movhi
+ 201:Src/main.c    ****   GPIO_InitStructure.GPIO_MaxSpeed = GPIO_MaxSpeed_50MHz;
+ 103              		.loc 1 201 0
+ 104 0034 0223     		movs	r3, #2
+ 105 0036 8DF80630 		strb	r3, [sp, #6]
+ 202:Src/main.c    ****   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+ 106              		.loc 1 202 0
+ 107 003a 1823     		movs	r3, #24
+ 108 003c 8DF80730 		strb	r3, [sp, #7]
+ 203:Src/main.c    ****   GPIO_Init(GPIOA, &GPIO_InitStructure);
+ 109              		.loc 1 203 0
+ 110 0040 0DEB0601 		add	r1, sp, r6
+ 111 0044 2846     		mov	r0, r5
+ 112 0046 FFF7FEFF 		bl	GPIO_Init
+ 113              	.LVL5:
+ 204:Src/main.c    **** 
+ 205:Src/main.c    ****   /* Configure USART3 Tx as alternate function push-pull */
+ 206:Src/main.c    ****   GPIO_InitStructure.GPIO_Pins = GPIO_Pins_10;
+ 114              		.loc 1 206 0
+ 115 004a 4FF48063 		mov	r3, #1024
+ 116 004e ADF80430 		strh	r3, [sp, #4]	@ movhi
+ 207:Src/main.c    ****   GPIO_Init(GPIOB, &GPIO_InitStructure);  
+ 117              		.loc 1 207 0
+ 118 0052 0DEB0601 		add	r1, sp, r6
+ 119 0056 2046     		mov	r0, r4
+ 120 0058 FFF7FEFF 		bl	GPIO_Init
+ 121              	.LVL6:
+ 208:Src/main.c    **** }
+ 122              		.loc 1 208 0
+ 123 005c 02B0     		add	sp, sp, #8
+ 124              	.LCFI3:
+ 125              		.cfi_def_cfa_offset 16
+ 126              		@ sp needed
+ 127 005e 70BD     		pop	{r4, r5, r6, pc}
+ 128              	.L6:
+ 129              		.align	2
+ 130              	.L5:
+ 131 0060 00080140 		.word	1073809408
+ 132 0064 000C0140 		.word	1073810432
+ 133              		.cfi_endproc
+ 134              	.LFE125:
+ 136              		.section	.text.NVIC_Configuration,"ax",%progbits
+ 137              		.align	1
+ 138              		.global	NVIC_Configuration
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s 			page 7
+
+
+ 139              		.syntax unified
+ 140              		.thumb
+ 141              		.thumb_func
+ 142              		.fpu fpv4-sp-d16
+ 144              	NVIC_Configuration:
+ 145              	.LFB126:
+ 209:Src/main.c    **** /**
+ 210:Src/main.c    ****   * @brief  Configures the nested vectored interrupt controller.
+ 211:Src/main.c    ****   * @param  None
+ 212:Src/main.c    ****   * @retval None
+ 213:Src/main.c    ****   */
+ 214:Src/main.c    **** void NVIC_Configuration(void)
+ 215:Src/main.c    **** {
+ 146              		.loc 1 215 0
+ 147              		.cfi_startproc
+ 148              		@ args = 0, pretend = 0, frame = 8
+ 149              		@ frame_needed = 0, uses_anonymous_args = 0
+ 150 0000 30B5     		push	{r4, r5, lr}
+ 151              	.LCFI4:
+ 152              		.cfi_def_cfa_offset 12
+ 153              		.cfi_offset 4, -12
+ 154              		.cfi_offset 5, -8
+ 155              		.cfi_offset 14, -4
+ 156 0002 83B0     		sub	sp, sp, #12
+ 157              	.LCFI5:
+ 158              		.cfi_def_cfa_offset 24
+ 216:Src/main.c    ****   NVIC_InitType NVIC_InitStructure;
+ 217:Src/main.c    **** 
+ 218:Src/main.c    ****   /* Configure the NVIC Preemption Priority Bits */  
+ 219:Src/main.c    ****   NVIC_PriorityGroupConfig(NVIC_PriorityGroup_0);
+ 159              		.loc 1 219 0
+ 160 0004 4FF4E060 		mov	r0, #1792
+ 161 0008 FFF7FEFF 		bl	NVIC_PriorityGroupConfig
+ 162              	.LVL7:
+ 220:Src/main.c    ****   
+ 221:Src/main.c    ****   /* Enable the USART2 Interrupt */
+ 222:Src/main.c    ****   NVIC_InitStructure.NVIC_IRQChannel = USART2_IRQn;
+ 163              		.loc 1 222 0
+ 164 000c 2623     		movs	r3, #38
+ 165 000e 8DF80430 		strb	r3, [sp, #4]
+ 223:Src/main.c    ****   NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+ 166              		.loc 1 223 0
+ 167 0012 0025     		movs	r5, #0
+ 168 0014 8DF80550 		strb	r5, [sp, #5]
+ 224:Src/main.c    ****   NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+ 169              		.loc 1 224 0
+ 170 0018 8DF80650 		strb	r5, [sp, #6]
+ 225:Src/main.c    ****   NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+ 171              		.loc 1 225 0
+ 172 001c 0124     		movs	r4, #1
+ 173 001e 8DF80740 		strb	r4, [sp, #7]
+ 226:Src/main.c    ****   NVIC_Init(&NVIC_InitStructure);
+ 174              		.loc 1 226 0
+ 175 0022 01A8     		add	r0, sp, #4
+ 176 0024 FFF7FEFF 		bl	NVIC_Init
+ 177              	.LVL8:
+ 227:Src/main.c    **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s 			page 8
+
+
+ 228:Src/main.c    ****   /* Enable the USART3 Interrupt */
+ 229:Src/main.c    ****   NVIC_InitStructure.NVIC_IRQChannel = USART3_IRQn;
+ 178              		.loc 1 229 0
+ 179 0028 2723     		movs	r3, #39
+ 180 002a 8DF80430 		strb	r3, [sp, #4]
+ 230:Src/main.c    ****   NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+ 181              		.loc 1 230 0
+ 182 002e 8DF80550 		strb	r5, [sp, #5]
+ 231:Src/main.c    ****   NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
+ 183              		.loc 1 231 0
+ 184 0032 8DF80640 		strb	r4, [sp, #6]
+ 232:Src/main.c    ****   NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+ 185              		.loc 1 232 0
+ 186 0036 8DF80740 		strb	r4, [sp, #7]
+ 233:Src/main.c    ****   NVIC_Init(&NVIC_InitStructure);
+ 187              		.loc 1 233 0
+ 188 003a 01A8     		add	r0, sp, #4
+ 189 003c FFF7FEFF 		bl	NVIC_Init
+ 190              	.LVL9:
+ 234:Src/main.c    **** }
+ 191              		.loc 1 234 0
+ 192 0040 03B0     		add	sp, sp, #12
+ 193              	.LCFI6:
+ 194              		.cfi_def_cfa_offset 12
+ 195              		@ sp needed
+ 196 0042 30BD     		pop	{r4, r5, pc}
+ 197              		.cfi_endproc
+ 198              	.LFE126:
+ 200              		.section	.text.Buffercmp,"ax",%progbits
+ 201              		.align	1
+ 202              		.global	Buffercmp
+ 203              		.syntax unified
+ 204              		.thumb
+ 205              		.thumb_func
+ 206              		.fpu fpv4-sp-d16
+ 208              	Buffercmp:
+ 209              	.LFB127:
+ 235:Src/main.c    **** 
+ 236:Src/main.c    **** /**
+ 237:Src/main.c    ****   * @brief  Compares two buffers.
+ 238:Src/main.c    ****   * @param  pBuffer1, pBuffer2: buffers to be compared.
+ 239:Src/main.c    ****   * @param  BufferLength: buffer's length
+ 240:Src/main.c    ****   * @retval PASSED: pBuffer1 identical to pBuffer2
+ 241:Src/main.c    ****   *         FAILED: pBuffer1 differs from pBuffer2
+ 242:Src/main.c    ****   */
+ 243:Src/main.c    **** TestStatus Buffercmp(uint8_t* pBuffer1, uint8_t* pBuffer2, uint16_t BufferLength)
+ 244:Src/main.c    **** {
+ 210              		.loc 1 244 0
+ 211              		.cfi_startproc
+ 212              		@ args = 0, pretend = 0, frame = 0
+ 213              		@ frame_needed = 0, uses_anonymous_args = 0
+ 214              		@ link register save eliminated.
+ 215              	.LVL10:
+ 245:Src/main.c    ****   while(BufferLength--)
+ 216              		.loc 1 245 0
+ 217 0000 531E     		subs	r3, r2, #1
+ 218 0002 9BB2     		uxth	r3, r3
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s 			page 9
+
+
+ 219              	.LVL11:
+ 220 0004 8AB1     		cbz	r2, .L18
+ 244:Src/main.c    ****   while(BufferLength--)
+ 221              		.loc 1 244 0
+ 222 0006 10B4     		push	{r4}
+ 223              	.LCFI7:
+ 224              		.cfi_def_cfa_offset 4
+ 225              		.cfi_offset 4, -4
+ 226              	.L12:
+ 246:Src/main.c    ****   {
+ 247:Src/main.c    ****     if(*pBuffer1 != *pBuffer2)
+ 227              		.loc 1 247 0
+ 228 0008 0478     		ldrb	r4, [r0]	@ zero_extendqisi2
+ 229 000a 0A78     		ldrb	r2, [r1]	@ zero_extendqisi2
+ 230 000c 9442     		cmp	r4, r2
+ 231 000e 0AD1     		bne	.L13
+ 248:Src/main.c    ****     {
+ 249:Src/main.c    ****       return FAILED;
+ 250:Src/main.c    ****     }
+ 251:Src/main.c    **** 
+ 252:Src/main.c    ****     pBuffer1++;
+ 232              		.loc 1 252 0
+ 233 0010 0130     		adds	r0, r0, #1
+ 234              	.LVL12:
+ 253:Src/main.c    ****     pBuffer2++;
+ 235              		.loc 1 253 0
+ 236 0012 0131     		adds	r1, r1, #1
+ 237              	.LVL13:
+ 245:Src/main.c    ****   {
+ 238              		.loc 1 245 0
+ 239 0014 1A46     		mov	r2, r3
+ 240 0016 013B     		subs	r3, r3, #1
+ 241              	.LVL14:
+ 242 0018 9BB2     		uxth	r3, r3
+ 243              	.LVL15:
+ 244 001a 002A     		cmp	r2, #0
+ 245 001c F4D1     		bne	.L12
+ 254:Src/main.c    ****   }
+ 255:Src/main.c    **** 
+ 256:Src/main.c    ****   return PASSED;
+ 246              		.loc 1 256 0
+ 247 001e 0120     		movs	r0, #1
+ 248              	.LVL16:
+ 249              	.L11:
+ 257:Src/main.c    **** }
+ 250              		.loc 1 257 0
+ 251 0020 5DF8044B 		ldr	r4, [sp], #4
+ 252              	.LCFI8:
+ 253              		.cfi_remember_state
+ 254              		.cfi_restore 4
+ 255              		.cfi_def_cfa_offset 0
+ 256 0024 7047     		bx	lr
+ 257              	.LVL17:
+ 258              	.L13:
+ 259              	.LCFI9:
+ 260              		.cfi_restore_state
+ 249:Src/main.c    ****     }
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s 			page 10
+
+
+ 261              		.loc 1 249 0
+ 262 0026 0020     		movs	r0, #0
+ 263              	.LVL18:
+ 264 0028 FAE7     		b	.L11
+ 265              	.LVL19:
+ 266              	.L18:
+ 267              	.LCFI10:
+ 268              		.cfi_def_cfa_offset 0
+ 269              		.cfi_restore 4
+ 256:Src/main.c    **** }
+ 270              		.loc 1 256 0
+ 271 002a 0120     		movs	r0, #1
+ 272              	.LVL20:
+ 273              		.loc 1 257 0
+ 274 002c 7047     		bx	lr
+ 275              		.cfi_endproc
+ 276              	.LFE127:
+ 278              		.section	.text.main,"ax",%progbits
+ 279              		.align	1
+ 280              		.global	main
+ 281              		.syntax unified
+ 282              		.thumb
+ 283              		.thumb_func
+ 284              		.fpu fpv4-sp-d16
+ 286              	main:
+ 287              	.LFB123:
+  77:Src/main.c    ****   /* System Clocks Configuration */
+ 288              		.loc 1 77 0
+ 289              		.cfi_startproc
+ 290              		@ args = 0, pretend = 0, frame = 0
+ 291              		@ frame_needed = 0, uses_anonymous_args = 0
+ 292 0000 70B5     		push	{r4, r5, r6, lr}
+ 293              	.LCFI11:
+ 294              		.cfi_def_cfa_offset 16
+ 295              		.cfi_offset 4, -16
+ 296              		.cfi_offset 5, -12
+ 297              		.cfi_offset 6, -8
+ 298              		.cfi_offset 14, -4
+  79:Src/main.c    ****        
+ 299              		.loc 1 79 0
+ 300 0002 FFF7FEFF 		bl	RCC_Configuration
+ 301              	.LVL21:
+  82:Src/main.c    **** 
+ 302              		.loc 1 82 0
+ 303 0006 FFF7FEFF 		bl	NVIC_Configuration
+ 304              	.LVL22:
+  85:Src/main.c    **** 
+ 305              		.loc 1 85 0
+ 306 000a FFF7FEFF 		bl	GPIO_Configuration
+ 307              	.LVL23:
+  99:Src/main.c    ****   USART_InitStructure.USART_BaudRate = 9600;
+ 308              		.loc 1 99 0
+ 309 000e 294C     		ldr	r4, .L23
+ 310 0010 2046     		mov	r0, r4
+ 311 0012 FFF7FEFF 		bl	USART_StructInit
+ 312              	.LVL24:
+ 100:Src/main.c    ****   USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s 			page 11
+
+
+ 313              		.loc 1 100 0
+ 314 0016 4FF41653 		mov	r3, #9600
+ 315 001a 2360     		str	r3, [r4]
+ 101:Src/main.c    ****   USART_InitStructure.USART_StopBits = USART_StopBits_1;
+ 316              		.loc 1 101 0
+ 317 001c 0023     		movs	r3, #0
+ 318 001e A380     		strh	r3, [r4, #4]	@ movhi
+ 102:Src/main.c    ****   USART_InitStructure.USART_Parity = USART_Parity_No;
+ 319              		.loc 1 102 0
+ 320 0020 E380     		strh	r3, [r4, #6]	@ movhi
+ 103:Src/main.c    ****   USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+ 321              		.loc 1 103 0
+ 322 0022 2381     		strh	r3, [r4, #8]	@ movhi
+ 104:Src/main.c    ****   USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
+ 323              		.loc 1 104 0
+ 324 0024 A381     		strh	r3, [r4, #12]	@ movhi
+ 105:Src/main.c    **** 
+ 325              		.loc 1 105 0
+ 326 0026 0C23     		movs	r3, #12
+ 327 0028 6381     		strh	r3, [r4, #10]	@ movhi
+ 108:Src/main.c    ****   /* Configure USART3 */
+ 328              		.loc 1 108 0
+ 329 002a 234E     		ldr	r6, .L23+4
+ 330 002c 2146     		mov	r1, r4
+ 331 002e 3046     		mov	r0, r6
+ 332 0030 FFF7FEFF 		bl	USART_Init
+ 333              	.LVL25:
+ 110:Src/main.c    ****   
+ 334              		.loc 1 110 0
+ 335 0034 214D     		ldr	r5, .L23+8
+ 336 0036 2146     		mov	r1, r4
+ 337 0038 2846     		mov	r0, r5
+ 338 003a FFF7FEFF 		bl	USART_Init
+ 339              	.LVL26:
+ 113:Src/main.c    ****   USART_INTConfig(USART2, USART_INT_TDE, ENABLE);
+ 340              		.loc 1 113 0
+ 341 003e 0122     		movs	r2, #1
+ 342 0040 40F22551 		movw	r1, #1317
+ 343 0044 3046     		mov	r0, r6
+ 344 0046 FFF7FEFF 		bl	USART_INTConfig
+ 345              	.LVL27:
+ 114:Src/main.c    **** 
+ 346              		.loc 1 114 0
+ 347 004a 0122     		movs	r2, #1
+ 348 004c 40F22771 		movw	r1, #1831
+ 349 0050 3046     		mov	r0, r6
+ 350 0052 FFF7FEFF 		bl	USART_INTConfig
+ 351              	.LVL28:
+ 117:Src/main.c    ****   USART_INTConfig(USART3, USART_INT_TDE, ENABLE);
+ 352              		.loc 1 117 0
+ 353 0056 0122     		movs	r2, #1
+ 354 0058 40F22551 		movw	r1, #1317
+ 355 005c 2846     		mov	r0, r5
+ 356 005e FFF7FEFF 		bl	USART_INTConfig
+ 357              	.LVL29:
+ 118:Src/main.c    **** 
+ 358              		.loc 1 118 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s 			page 12
+
+
+ 359 0062 0122     		movs	r2, #1
+ 360 0064 40F22771 		movw	r1, #1831
+ 361 0068 2846     		mov	r0, r5
+ 362 006a FFF7FEFF 		bl	USART_INTConfig
+ 363              	.LVL30:
+ 121:Src/main.c    ****   /* Enable the USART3 */
+ 364              		.loc 1 121 0
+ 365 006e 0121     		movs	r1, #1
+ 366 0070 3046     		mov	r0, r6
+ 367 0072 FFF7FEFF 		bl	USART_Cmd
+ 368              	.LVL31:
+ 123:Src/main.c    **** 
+ 369              		.loc 1 123 0
+ 370 0076 0121     		movs	r1, #1
+ 371 0078 2846     		mov	r0, r5
+ 372 007a FFF7FEFF 		bl	USART_Cmd
+ 373              	.LVL32:
+ 374              	.L20:
+ 126:Src/main.c    ****   {
+ 375              		.loc 1 126 0 discriminator 1
+ 376 007e 104B     		ldr	r3, .L23+12
+ 377 0080 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 378 0082 DBB2     		uxtb	r3, r3
+ 379 0084 382B     		cmp	r3, #56
+ 380 0086 FAD9     		bls	.L20
+ 381              	.L21:
+ 131:Src/main.c    ****   {
+ 382              		.loc 1 131 0 discriminator 1
+ 383 0088 0E4B     		ldr	r3, .L23+16
+ 384 008a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 385 008c DBB2     		uxtb	r3, r3
+ 386 008e 382B     		cmp	r3, #56
+ 387 0090 FAD9     		bls	.L21
+ 136:Src/main.c    ****   /* TransferStatus1 = PASSED, if the data transmitted from USART3 and  
+ 388              		.loc 1 136 0
+ 389 0092 3922     		movs	r2, #57
+ 390 0094 0C49     		ldr	r1, .L23+20
+ 391 0096 0D48     		ldr	r0, .L23+24
+ 392 0098 FFF7FEFF 		bl	Buffercmp
+ 393              	.LVL33:
+ 394 009c 0C4B     		ldr	r3, .L23+28
+ 395 009e 1870     		strb	r0, [r3]
+ 141:Src/main.c    ****   /* TransferStatus2 = PASSED, if the data transmitted from USART2 and  
+ 396              		.loc 1 141 0
+ 397 00a0 3922     		movs	r2, #57
+ 398 00a2 0C49     		ldr	r1, .L23+32
+ 399 00a4 0C48     		ldr	r0, .L23+36
+ 400 00a6 FFF7FEFF 		bl	Buffercmp
+ 401              	.LVL34:
+ 402 00aa 0C4B     		ldr	r3, .L23+40
+ 403 00ac 1870     		strb	r0, [r3]
+ 155:Src/main.c    **** 
+ 404              		.loc 1 155 0
+ 405 00ae 0020     		movs	r0, #0
+ 406 00b0 70BD     		pop	{r4, r5, r6, pc}
+ 407              	.L24:
+ 408 00b2 00BF     		.align	2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s 			page 13
+
+
+ 409              	.L23:
+ 410 00b4 00000000 		.word	USART_InitStructure
+ 411 00b8 00440040 		.word	1073759232
+ 412 00bc 00480040 		.word	1073760256
+ 413 00c0 00000000 		.word	.LANCHOR0
+ 414 00c4 00000000 		.word	.LANCHOR1
+ 415 00c8 00000000 		.word	RxBuffer1
+ 416 00cc 00000000 		.word	.LANCHOR2
+ 417 00d0 00000000 		.word	.LANCHOR3
+ 418 00d4 00000000 		.word	RxBuffer2
+ 419 00d8 00000000 		.word	.LANCHOR4
+ 420 00dc 00000000 		.word	.LANCHOR5
+ 421              		.cfi_endproc
+ 422              	.LFE123:
+ 424              		.global	TransferStatus2
+ 425              		.global	TransferStatus1
+ 426              		.global	NbrOfDataToRead2
+ 427              		.global	NbrOfDataToRead1
+ 428              		.global	NbrOfDataToTransfer2
+ 429              		.global	NbrOfDataToTransfer1
+ 430              		.global	RxCounter2
+ 431              		.global	RxCounter1
+ 432              		.global	TxCounter2
+ 433              		.global	TxCounter1
+ 434              		.comm	RxBuffer2,57,4
+ 435              		.comm	RxBuffer1,57,4
+ 436              		.global	TxBuffer2
+ 437              		.global	TxBuffer1
+ 438              		.comm	USART_InitStructure,16,4
+ 439              		.section	.bss.RxCounter1,"aw",%nobits
+ 440              		.set	.LANCHOR1,. + 0
+ 443              	RxCounter1:
+ 444 0000 00       		.space	1
+ 445              		.section	.bss.RxCounter2,"aw",%nobits
+ 446              		.set	.LANCHOR0,. + 0
+ 449              	RxCounter2:
+ 450 0000 00       		.space	1
+ 451              		.section	.bss.TransferStatus1,"aw",%nobits
+ 452              		.set	.LANCHOR3,. + 0
+ 455              	TransferStatus1:
+ 456 0000 00       		.space	1
+ 457              		.section	.bss.TransferStatus2,"aw",%nobits
+ 458              		.set	.LANCHOR5,. + 0
+ 461              	TransferStatus2:
+ 462 0000 00       		.space	1
+ 463              		.section	.bss.TxCounter1,"aw",%nobits
+ 466              	TxCounter1:
+ 467 0000 00       		.space	1
+ 468              		.section	.bss.TxCounter2,"aw",%nobits
+ 471              	TxCounter2:
+ 472 0000 00       		.space	1
+ 473              		.section	.data.NbrOfDataToRead1,"aw",%progbits
+ 476              	NbrOfDataToRead1:
+ 477 0000 39       		.byte	57
+ 478              		.section	.data.NbrOfDataToRead2,"aw",%progbits
+ 481              	NbrOfDataToRead2:
+ 482 0000 39       		.byte	57
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s 			page 14
+
+
+ 483              		.section	.data.NbrOfDataToTransfer1,"aw",%progbits
+ 486              	NbrOfDataToTransfer1:
+ 487 0000 39       		.byte	57
+ 488              		.section	.data.NbrOfDataToTransfer2,"aw",%progbits
+ 491              	NbrOfDataToTransfer2:
+ 492 0000 39       		.byte	57
+ 493              		.section	.data.TxBuffer1,"aw",%progbits
+ 494              		.align	2
+ 495              		.set	.LANCHOR4,. + 0
+ 498              	TxBuffer1:
+ 499 0000 55534152 		.ascii	"USART Interrupt Example: USART2 -> USART3 using Int"
+ 499      5420496E 
+ 499      74657272 
+ 499      75707420 
+ 499      4578616D 
+ 500 0033 65727275 		.ascii	"errupt\000"
+ 500      707400
+ 501              		.section	.data.TxBuffer2,"aw",%progbits
+ 502              		.align	2
+ 503              		.set	.LANCHOR2,. + 0
+ 506              	TxBuffer2:
+ 507 0000 55534152 		.ascii	"USART Interrupt Example: USART3 -> USART2 using Int"
+ 507      5420496E 
+ 507      74657272 
+ 507      75707420 
+ 507      4578616D 
+ 508 0033 65727275 		.ascii	"errupt\000"
+ 508      707400
+ 509              		.text
+ 510              	.Letext0:
+ 511              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
+ 512              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
+ 513              		.file 4 "../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h"
+ 514              		.file 5 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
+ 515              		.file 6 "../Libraries/CMSIS/CM4/DeviceSupport/at32f4xx.h"
+ 516              		.file 7 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_gpio.h"
+ 517              		.file 8 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_usart.h"
+ 518              		.file 9 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/misc.h"
+ 519              		.file 10 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_rcc.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s 			page 15
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 main.c
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s:17     .text.RCC_Configuration:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s:24     .text.RCC_Configuration:0000000000000000 RCC_Configuration
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s:57     .text.GPIO_Configuration:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s:64     .text.GPIO_Configuration:0000000000000000 GPIO_Configuration
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s:131    .text.GPIO_Configuration:0000000000000060 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s:137    .text.NVIC_Configuration:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s:144    .text.NVIC_Configuration:0000000000000000 NVIC_Configuration
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s:201    .text.Buffercmp:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s:208    .text.Buffercmp:0000000000000000 Buffercmp
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s:279    .text.main:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s:286    .text.main:0000000000000000 main
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s:410    .text.main:00000000000000b4 $d
+                            *COM*:0000000000000010 USART_InitStructure
+                            *COM*:0000000000000039 RxBuffer1
+                            *COM*:0000000000000039 RxBuffer2
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s:461    .bss.TransferStatus2:0000000000000000 TransferStatus2
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s:455    .bss.TransferStatus1:0000000000000000 TransferStatus1
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s:481    .data.NbrOfDataToRead2:0000000000000000 NbrOfDataToRead2
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s:476    .data.NbrOfDataToRead1:0000000000000000 NbrOfDataToRead1
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s:491    .data.NbrOfDataToTransfer2:0000000000000000 NbrOfDataToTransfer2
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s:486    .data.NbrOfDataToTransfer1:0000000000000000 NbrOfDataToTransfer1
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s:449    .bss.RxCounter2:0000000000000000 RxCounter2
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s:443    .bss.RxCounter1:0000000000000000 RxCounter1
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s:471    .bss.TxCounter2:0000000000000000 TxCounter2
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s:466    .bss.TxCounter1:0000000000000000 TxCounter1
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s:506    .data.TxBuffer2:0000000000000000 TxBuffer2
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s:498    .data.TxBuffer1:0000000000000000 TxBuffer1
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s:444    .bss.RxCounter1:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s:450    .bss.RxCounter2:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s:456    .bss.TransferStatus1:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s:462    .bss.TransferStatus2:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s:467    .bss.TxCounter1:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s:472    .bss.TxCounter2:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s:494    .data.TxBuffer1:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5cTwoT.s:502    .data.TxBuffer2:0000000000000000 $d
+
+UNDEFINED SYMBOLS
+RCC_APB2PeriphClockCmd
+RCC_APB1PeriphClockCmd
+GPIO_Init
+NVIC_PriorityGroupConfig
+NVIC_Init
+USART_StructInit
+USART_Init
+USART_INTConfig
+USART_Cmd

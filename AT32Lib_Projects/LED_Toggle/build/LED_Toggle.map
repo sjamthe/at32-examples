@@ -645,15 +645,15 @@ LOAD /usr/local/Cellar/gcc-arm-none-eabi/20180627/bin/../lib/gcc/arm-none-eabi/7
                 0x00000000000001fa       0x22 /usr/local/Cellar/gcc-arm-none-eabi/20180627/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/softfp/crtn.o
 OUTPUT(build/LED_Toggle.elf elf32-littlearm)
 
-.debug_info     0x0000000000000000     0x3f30
- .debug_info    0x0000000000000000     0x15c4 build/at32_hoverboard.o
- .debug_info    0x00000000000015c4      0x4e6 build/system_at32f4xx.o
- .debug_info    0x0000000000001aaa      0x899 build/at32f4xx_gpio.o
- .debug_info    0x0000000000002343      0xa35 build/at32f4xx_rcc.o
- .debug_info    0x0000000000002d78      0x5bf build/misc.o
- .debug_info    0x0000000000003337      0xa5e build/main.o
- .debug_info    0x0000000000003d95      0x179 build/at32f4xx_it.o
- .debug_info    0x0000000000003f0e       0x22 build/startup_at32f403xe.o
+.debug_info     0x0000000000000000     0x3f4c
+ .debug_info    0x0000000000000000     0x15e0 build/at32_hoverboard.o
+ .debug_info    0x00000000000015e0      0x4e6 build/system_at32f4xx.o
+ .debug_info    0x0000000000001ac6      0x899 build/at32f4xx_gpio.o
+ .debug_info    0x000000000000235f      0xa35 build/at32f4xx_rcc.o
+ .debug_info    0x0000000000002d94      0x5bf build/misc.o
+ .debug_info    0x0000000000003353      0xa5e build/main.o
+ .debug_info    0x0000000000003db1      0x179 build/at32f4xx_it.o
+ .debug_info    0x0000000000003f2a       0x22 build/startup_at32f403xe.o
 
 .debug_abbrev   0x0000000000000000      0xd6b
  .debug_abbrev  0x0000000000000000      0x339 build/at32_hoverboard.o
@@ -701,32 +701,32 @@ OUTPUT(build/LED_Toggle.elf elf32-littlearm)
  .debug_ranges  0x0000000000000290       0x50 build/at32f4xx_it.o
  .debug_ranges  0x00000000000002e0       0x20 build/startup_at32f403xe.o
 
-.debug_line     0x0000000000000000     0x15ee
- .debug_line    0x0000000000000000      0x423 build/at32_hoverboard.o
- .debug_line    0x0000000000000423      0x214 build/system_at32f4xx.o
- .debug_line    0x0000000000000637      0x420 build/at32f4xx_gpio.o
- .debug_line    0x0000000000000a57      0x51b build/at32f4xx_rcc.o
- .debug_line    0x0000000000000f72      0x22d build/misc.o
- .debug_line    0x000000000000119f      0x1fa build/main.o
- .debug_line    0x0000000000001399      0x1e2 build/at32f4xx_it.o
- .debug_line    0x000000000000157b       0x73 build/startup_at32f403xe.o
+.debug_line     0x0000000000000000     0x15fe
+ .debug_line    0x0000000000000000      0x429 build/at32_hoverboard.o
+ .debug_line    0x0000000000000429      0x214 build/system_at32f4xx.o
+ .debug_line    0x000000000000063d      0x420 build/at32f4xx_gpio.o
+ .debug_line    0x0000000000000a5d      0x51b build/at32f4xx_rcc.o
+ .debug_line    0x0000000000000f78      0x22d build/misc.o
+ .debug_line    0x00000000000011a5      0x204 build/main.o
+ .debug_line    0x00000000000013a9      0x1e2 build/at32f4xx_it.o
+ .debug_line    0x000000000000158b       0x73 build/startup_at32f403xe.o
 
-.debug_str      0x0000000000000000     0x143e
- .debug_str     0x0000000000000000      0xaa0 build/at32_hoverboard.o
-                                        0xb25 (size before relaxing)
- .debug_str     0x0000000000000aa0      0x151 build/system_at32f4xx.o
+.debug_str      0x0000000000000000     0x1448
+ .debug_str     0x0000000000000000      0xad8 build/at32_hoverboard.o
+                                        0xb5d (size before relaxing)
+ .debug_str     0x0000000000000ad8      0x151 build/system_at32f4xx.o
                                         0x35d (size before relaxing)
- .debug_str     0x0000000000000bf1      0x205 build/at32f4xx_gpio.o
+ .debug_str     0x0000000000000c29      0x1ee build/at32f4xx_gpio.o
                                         0x59d (size before relaxing)
- .debug_str     0x0000000000000df6      0x3e4 build/at32f4xx_rcc.o
+ .debug_str     0x0000000000000e17      0x3cd build/at32f4xx_rcc.o
                                         0x6ea (size before relaxing)
- .debug_str     0x00000000000011da      0x18c build/misc.o
+ .debug_str     0x00000000000011e4      0x18c build/misc.o
                                         0x446 (size before relaxing)
- .debug_str     0x0000000000001366       0x10 build/main.o
+ .debug_str     0x0000000000001370       0x10 build/main.o
                                         0x605 (size before relaxing)
- .debug_str     0x0000000000001376       0xa2 build/at32f4xx_it.o
+ .debug_str     0x0000000000001380       0xa2 build/at32f4xx_it.o
                                         0x267 (size before relaxing)
- .debug_str     0x0000000000001418       0x26 build/startup_at32f403xe.o
+ .debug_str     0x0000000000001422       0x26 build/startup_at32f403xe.o
                                          0x69 (size before relaxing)
 
 .comment        0x0000000000000000       0x7f
@@ -842,6 +842,7 @@ RCC_AHBCLKConfig                                  build/at32f4xx_rcc.o
 RCC_AHBPeriphClockCmd                             build/at32f4xx_rcc.o
 RCC_APB1CLKConfig                                 build/at32f4xx_rcc.o
 RCC_APB1PeriphClockCmd                            build/at32f4xx_rcc.o
+                                                  build/at32_hoverboard.o
 RCC_APB1PeriphResetCmd                            build/at32f4xx_rcc.o
                                                   build/at32f4xx_usart.o
 RCC_APB2CLKConfig                                 build/at32f4xx_rcc.o
@@ -850,6 +851,7 @@ RCC_APB2PeriphClockCmd                            build/at32f4xx_rcc.o
 RCC_APB2PeriphResetCmd                            build/at32f4xx_rcc.o
                                                   build/at32f4xx_usart.o
                                                   build/at32f4xx_gpio.o
+                                                  build/at32_hoverboard.o
 RCC_BackupResetCmd                                build/at32f4xx_rcc.o
 RCC_CLKOUTConfig                                  build/at32f4xx_rcc.o
 RCC_ClearFlag                                     build/at32f4xx_rcc.o

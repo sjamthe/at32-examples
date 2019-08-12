@@ -1,0 +1,1606 @@
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"at32_hoverboard.c"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.text.__io_putchar,"ax",%progbits
+  17              		.align	1
+  18              		.global	__io_putchar
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu fpv4-sp-d16
+  24              	__io_putchar:
+  25              	.LFB126:
+  26              		.file 1 "../hoverboard/at32_hoverboard.c"
+   1:../hoverboard/at32_hoverboard.c **** /*
+   2:../hoverboard/at32_hoverboard.c ****  **************************************************************************
+   3:../hoverboard/at32_hoverboard.c ****  * File Name    : at32_hoverboard.c
+   4:../hoverboard/at32_hoverboard.c ****  * Description  : 1. Set of firmware functions to manage Leds, push-button and COM ports.
+   5:../hoverboard/at32_hoverboard.c ****  * Date         : 2019-08-10
+   6:../hoverboard/at32_hoverboard.c ****  * Version      : V1.0.0
+   7:../hoverboard/at32_hoverboard.c ****  **************************************************************************
+   8:../hoverboard/at32_hoverboard.c ****  */
+   9:../hoverboard/at32_hoverboard.c **** 
+  10:../hoverboard/at32_hoverboard.c **** #include "at32_hoverboard.h"
+  11:../hoverboard/at32_hoverboard.c **** #include "stdio.h"
+  12:../hoverboard/at32_hoverboard.c **** #include "misc.h"
+  13:../hoverboard/at32_hoverboard.c **** 
+  14:../hoverboard/at32_hoverboard.c **** #ifdef __GNUC__
+  15:../hoverboard/at32_hoverboard.c ****   /* With GCC/RAISONANCE, small printf (option LD Linker->Libraries->Small printf
+  16:../hoverboard/at32_hoverboard.c ****      set to 'Yes') calls __io_putchar() */
+  17:../hoverboard/at32_hoverboard.c ****   #define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
+  18:../hoverboard/at32_hoverboard.c **** #else
+  19:../hoverboard/at32_hoverboard.c ****   #define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
+  20:../hoverboard/at32_hoverboard.c **** #endif /* __GNUC__ */
+  21:../hoverboard/at32_hoverboard.c **** 
+  22:../hoverboard/at32_hoverboard.c **** /*delay macros*/
+  23:../hoverboard/at32_hoverboard.c **** #define STEP_DELAY_MS	500
+  24:../hoverboard/at32_hoverboard.c **** 
+  25:../hoverboard/at32_hoverboard.c **** /*AT-START LED resouce array*/
+  26:../hoverboard/at32_hoverboard.c **** GPIO_Type *LED_GPIO_PORT[LED_NUM] = {LED1_GPIO, LED2_GPIO, LED3_GPIO, LED4_GPIO};
+  27:../hoverboard/at32_hoverboard.c **** uint16_t LED_GPIO_PIN[LED_NUM]    = {LED1_PIN, LED2_PIN, LED3_PIN, LED4_PIN};
+  28:../hoverboard/at32_hoverboard.c **** uint32_t LED_GPIO_RCC_CLK[LED_NUM] = {LED1_GPIO_RCC_CLK, LED2_GPIO_RCC_CLK, LED3_GPIO_RCC_CLK, LED4
+  29:../hoverboard/at32_hoverboard.c **** 
+  30:../hoverboard/at32_hoverboard.c **** /*AT-START Button resouce arry*/
+  31:../hoverboard/at32_hoverboard.c **** GPIO_Type *BUTTON_GPIO_PORT[BUTTON_NUM] = {BUTTON_WAKEUP_GPIO, BUTTON_USER_KEY_GPIO};
+  32:../hoverboard/at32_hoverboard.c **** uint16_t BUTTON_GPIO_PIN[BUTTON_NUM]    = {BUTTON_WAKEUP_PIN, BUTTON_USER_KEY_PIN};
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s 			page 2
+
+
+  33:../hoverboard/at32_hoverboard.c **** uint32_t BUTTON_GPIO_RCC_CLK [BUTTON_NUM] = {BUTTON_WAKEUP_RCC_CLK, BUTTON_USER_KEY_RCC_CLK};
+  34:../hoverboard/at32_hoverboard.c **** 
+  35:../hoverboard/at32_hoverboard.c **** /*delay variable*/
+  36:../hoverboard/at32_hoverboard.c **** static __IO float fac_us;
+  37:../hoverboard/at32_hoverboard.c **** static __IO float fac_ms;
+  38:../hoverboard/at32_hoverboard.c **** 
+  39:../hoverboard/at32_hoverboard.c **** /**
+  40:../hoverboard/at32_hoverboard.c ****   * @brief  Retargets the C library printf function to the USART.
+  41:../hoverboard/at32_hoverboard.c ****   * @param  None
+  42:../hoverboard/at32_hoverboard.c ****   * @retval None
+  43:../hoverboard/at32_hoverboard.c ****   */
+  44:../hoverboard/at32_hoverboard.c **** PUTCHAR_PROTOTYPE
+  45:../hoverboard/at32_hoverboard.c **** {
+  27              		.loc 1 45 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              	.LVL0:
+  32 0000 10B5     		push	{r4, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 4, -8
+  36              		.cfi_offset 14, -4
+  37 0002 0446     		mov	r4, r0
+  46:../hoverboard/at32_hoverboard.c ****     USART_SendData(AT32_PRINT_UART, ch);
+  38              		.loc 1 46 0
+  39 0004 81B2     		uxth	r1, r0
+  40 0006 0548     		ldr	r0, .L4
+  41              	.LVL1:
+  42 0008 FFF7FEFF 		bl	USART_SendData
+  43              	.LVL2:
+  44              	.L2:
+  47:../hoverboard/at32_hoverboard.c ****     while ( USART_GetFlagStatus(AT32_PRINT_UART, USART_FLAG_TRAC) == RESET ) ;
+  45              		.loc 1 47 0 discriminator 1
+  46 000c 4021     		movs	r1, #64
+  47 000e 0348     		ldr	r0, .L4
+  48 0010 FFF7FEFF 		bl	USART_GetFlagStatus
+  49              	.LVL3:
+  50 0014 0028     		cmp	r0, #0
+  51 0016 F9D0     		beq	.L2
+  48:../hoverboard/at32_hoverboard.c **** 	return ch;
+  49:../hoverboard/at32_hoverboard.c **** }
+  52              		.loc 1 49 0
+  53 0018 2046     		mov	r0, r4
+  54 001a 10BD     		pop	{r4, pc}
+  55              	.LVL4:
+  56              	.L5:
+  57              		.align	2
+  58              	.L4:
+  59 001c 00440040 		.word	1073759232
+  60              		.cfi_endproc
+  61              	.LFE126:
+  63              		.section	.text.Board_Init,"ax",%progbits
+  64              		.align	1
+  65              		.global	Board_Init
+  66              		.syntax unified
+  67              		.thumb
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s 			page 3
+
+
+  68              		.thumb_func
+  69              		.fpu fpv4-sp-d16
+  71              	Board_Init:
+  72              	.LFB128:
+  50:../hoverboard/at32_hoverboard.c **** 
+  51:../hoverboard/at32_hoverboard.c **** /**
+  52:../hoverboard/at32_hoverboard.c ****   * @brief  Board initialize interface
+  53:../hoverboard/at32_hoverboard.c ****   *         init LED and BUTTON
+  54:../hoverboard/at32_hoverboard.c ****   * @param  None
+  55:../hoverboard/at32_hoverboard.c ****   * @retval None
+  56:../hoverboard/at32_hoverboard.c ****   */
+  57:../hoverboard/at32_hoverboard.c **** void AT32_Hoverboard_Init()
+  58:../hoverboard/at32_hoverboard.c **** {
+  59:../hoverboard/at32_hoverboard.c ****     /*initialize Delay Function*/
+  60:../hoverboard/at32_hoverboard.c ****     Delay_init();
+  61:../hoverboard/at32_hoverboard.c **** 
+  62:../hoverboard/at32_hoverboard.c ****     /* hold board power pin high */
+  63:../hoverboard/at32_hoverboard.c ****     Board_Init();
+  64:../hoverboard/at32_hoverboard.c **** 
+  65:../hoverboard/at32_hoverboard.c ****     /*Configure LED in AT_START_BOARD*/
+  66:../hoverboard/at32_hoverboard.c ****     AT32_LEDn_Init(LED2);
+  67:../hoverboard/at32_hoverboard.c ****     AT32_LEDn_Init(LED3);
+  68:../hoverboard/at32_hoverboard.c ****     AT32_LEDn_Init(LED4);
+  69:../hoverboard/at32_hoverboard.c ****     AT32_LEDn_OFF(LED2);
+  70:../hoverboard/at32_hoverboard.c ****     AT32_LEDn_OFF(LED3);
+  71:../hoverboard/at32_hoverboard.c ****     AT32_LEDn_OFF(LED4);
+  72:../hoverboard/at32_hoverboard.c **** 
+  73:../hoverboard/at32_hoverboard.c ****     /*Configure Button in AT_START_BOARD*/
+  74:../hoverboard/at32_hoverboard.c ****     AT32_BUTTON_Init(BUTTON_WAKEUP); /*PA5*/
+  75:../hoverboard/at32_hoverboard.c ****     AT32_BUTTON_Init(BUTTON_USER_KEY); /*PC13*/
+  76:../hoverboard/at32_hoverboard.c **** 
+  77:../hoverboard/at32_hoverboard.c **** }
+  78:../hoverboard/at32_hoverboard.c **** 
+  79:../hoverboard/at32_hoverboard.c **** /**
+  80:../hoverboard/at32_hoverboard.c ****  * 
+  81:../hoverboard/at32_hoverboard.c ****  * 
+  82:../hoverboard/at32_hoverboard.c ****  */
+  83:../hoverboard/at32_hoverboard.c **** void Board_Init()
+  84:../hoverboard/at32_hoverboard.c **** {
+  73              		.loc 1 84 0
+  74              		.cfi_startproc
+  75              		@ args = 0, pretend = 0, frame = 8
+  76              		@ frame_needed = 0, uses_anonymous_args = 0
+  77 0000 00B5     		push	{lr}
+  78              	.LCFI1:
+  79              		.cfi_def_cfa_offset 4
+  80              		.cfi_offset 14, -4
+  81 0002 83B0     		sub	sp, sp, #12
+  82              	.LCFI2:
+  83              		.cfi_def_cfa_offset 16
+  85:../hoverboard/at32_hoverboard.c ****     GPIO_InitType GPIO_InitStructure;
+  86:../hoverboard/at32_hoverboard.c **** 
+  87:../hoverboard/at32_hoverboard.c ****     /*Enable the Button Clock*/
+  88:../hoverboard/at32_hoverboard.c ****     RCC_APB2PeriphClockCmd(POWER_RCC_CLK, ENABLE);
+  84              		.loc 1 88 0
+  85 0004 0121     		movs	r1, #1
+  86 0006 0420     		movs	r0, #4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s 			page 4
+
+
+  87 0008 FFF7FEFF 		bl	RCC_APB2PeriphClockCmd
+  88              	.LVL5:
+  89:../hoverboard/at32_hoverboard.c **** 
+  90:../hoverboard/at32_hoverboard.c ****     /*Configure Button pin as input with pull-up/pull-down*/
+  91:../hoverboard/at32_hoverboard.c ****     GPIO_StructInit(&GPIO_InitStructure);
+  89              		.loc 1 91 0
+  90 000c 01A8     		add	r0, sp, #4
+  91 000e FFF7FEFF 		bl	GPIO_StructInit
+  92              	.LVL6:
+  92:../hoverboard/at32_hoverboard.c ****     GPIO_InitStructure.GPIO_Pins = POWER_PIN;
+  93              		.loc 1 92 0
+  94 0012 2023     		movs	r3, #32
+  95 0014 ADF80430 		strh	r3, [sp, #4]	@ movhi
+  93:../hoverboard/at32_hoverboard.c ****     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_PU; //hold high for board to stay in power on mode
+  96              		.loc 1 93 0
+  97 0018 4823     		movs	r3, #72
+  98 001a 8DF80730 		strb	r3, [sp, #7]
+  94:../hoverboard/at32_hoverboard.c ****     GPIO_Init(POWER_GPIO, &GPIO_InitStructure);
+  99              		.loc 1 94 0
+ 100 001e 01A9     		add	r1, sp, #4
+ 101 0020 0248     		ldr	r0, .L8
+ 102 0022 FFF7FEFF 		bl	GPIO_Init
+ 103              	.LVL7:
+  95:../hoverboard/at32_hoverboard.c **** 
+  96:../hoverboard/at32_hoverboard.c ****     //set it high
+  97:../hoverboard/at32_hoverboard.c ****    // GPIO_SetBits(POWER_GPIO, POWER_PIN);
+  98:../hoverboard/at32_hoverboard.c **** 
+  99:../hoverboard/at32_hoverboard.c **** }
+ 104              		.loc 1 99 0
+ 105 0026 03B0     		add	sp, sp, #12
+ 106              	.LCFI3:
+ 107              		.cfi_def_cfa_offset 4
+ 108              		@ sp needed
+ 109 0028 5DF804FB 		ldr	pc, [sp], #4
+ 110              	.L9:
+ 111              		.align	2
+ 112              	.L8:
+ 113 002c 00080140 		.word	1073809408
+ 114              		.cfi_endproc
+ 115              	.LFE128:
+ 117              		.section	.text.AT32_USB_GPIO_init,"ax",%progbits
+ 118              		.align	1
+ 119              		.global	AT32_USB_GPIO_init
+ 120              		.syntax unified
+ 121              		.thumb
+ 122              		.thumb_func
+ 123              		.fpu fpv4-sp-d16
+ 125              	AT32_USB_GPIO_init:
+ 126              	.LFB129:
+ 100:../hoverboard/at32_hoverboard.c **** 
+ 101:../hoverboard/at32_hoverboard.c **** /**
+ 102:../hoverboard/at32_hoverboard.c ****   * @brief  USB GPIO initialize
+ 103:../hoverboard/at32_hoverboard.c ****   *         USB use DP->PA12, DM->PA11
+ 104:../hoverboard/at32_hoverboard.c ****   * @param  None
+ 105:../hoverboard/at32_hoverboard.c ****   * @retval None
+ 106:../hoverboard/at32_hoverboard.c ****   */
+ 107:../hoverboard/at32_hoverboard.c **** void AT32_USB_GPIO_init()
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s 			page 5
+
+
+ 108:../hoverboard/at32_hoverboard.c **** {
+ 127              		.loc 1 108 0
+ 128              		.cfi_startproc
+ 129              		@ args = 0, pretend = 0, frame = 8
+ 130              		@ frame_needed = 0, uses_anonymous_args = 0
+ 131 0000 10B5     		push	{r4, lr}
+ 132              	.LCFI4:
+ 133              		.cfi_def_cfa_offset 8
+ 134              		.cfi_offset 4, -8
+ 135              		.cfi_offset 14, -4
+ 136 0002 82B0     		sub	sp, sp, #8
+ 137              	.LCFI5:
+ 138              		.cfi_def_cfa_offset 16
+ 109:../hoverboard/at32_hoverboard.c ****     GPIO_InitType GPIO_InitStructure;
+ 110:../hoverboard/at32_hoverboard.c ****     /* Enable the USB Clock*/
+ 111:../hoverboard/at32_hoverboard.c ****     RCC_APB2PeriphClockCmd(USB_GPIO_RCC_CLK, ENABLE);
+ 139              		.loc 1 111 0
+ 140 0004 0121     		movs	r1, #1
+ 141 0006 0420     		movs	r0, #4
+ 142 0008 FFF7FEFF 		bl	RCC_APB2PeriphClockCmd
+ 143              	.LVL8:
+ 112:../hoverboard/at32_hoverboard.c **** 
+ 113:../hoverboard/at32_hoverboard.c ****     /*Configure DP, DM pin as GPIO_Mode_OUT_PP*/
+ 114:../hoverboard/at32_hoverboard.c ****     GPIO_StructInit(&GPIO_InitStructure);
+ 144              		.loc 1 114 0
+ 145 000c 01A8     		add	r0, sp, #4
+ 146 000e FFF7FEFF 		bl	GPIO_StructInit
+ 147              	.LVL9:
+ 115:../hoverboard/at32_hoverboard.c ****     GPIO_InitStructure.GPIO_Pins  = USB_DP_PIN | USB_DM_PIN;
+ 148              		.loc 1 115 0
+ 149 0012 4FF4C053 		mov	r3, #6144
+ 150 0016 ADF80430 		strh	r3, [sp, #4]	@ movhi
+ 116:../hoverboard/at32_hoverboard.c ****     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT_PP;
+ 151              		.loc 1 116 0
+ 152 001a 1023     		movs	r3, #16
+ 153 001c 8DF80730 		strb	r3, [sp, #7]
+ 117:../hoverboard/at32_hoverboard.c ****     GPIO_InitStructure.GPIO_MaxSpeed = GPIO_MaxSpeed_50MHz;
+ 154              		.loc 1 117 0
+ 155 0020 0223     		movs	r3, #2
+ 156 0022 8DF80630 		strb	r3, [sp, #6]
+ 118:../hoverboard/at32_hoverboard.c ****     GPIO_Init(USB_GPIO, &GPIO_InitStructure);
+ 157              		.loc 1 118 0
+ 158 0026 064C     		ldr	r4, .L12
+ 159 0028 01A9     		add	r1, sp, #4
+ 160 002a 2046     		mov	r0, r4
+ 161 002c FFF7FEFF 		bl	GPIO_Init
+ 162              	.LVL10:
+ 119:../hoverboard/at32_hoverboard.c ****     GPIO_ResetBits(USB_GPIO, USB_DP_PIN);
+ 163              		.loc 1 119 0
+ 164 0030 4FF48051 		mov	r1, #4096
+ 165 0034 2046     		mov	r0, r4
+ 166 0036 FFF7FEFF 		bl	GPIO_ResetBits
+ 167              	.LVL11:
+ 120:../hoverboard/at32_hoverboard.c **** 
+ 121:../hoverboard/at32_hoverboard.c **** }
+ 168              		.loc 1 121 0
+ 169 003a 02B0     		add	sp, sp, #8
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s 			page 6
+
+
+ 170              	.LCFI6:
+ 171              		.cfi_def_cfa_offset 8
+ 172              		@ sp needed
+ 173 003c 10BD     		pop	{r4, pc}
+ 174              	.L13:
+ 175 003e 00BF     		.align	2
+ 176              	.L12:
+ 177 0040 00080140 		.word	1073809408
+ 178              		.cfi_endproc
+ 179              	.LFE129:
+ 181              		.section	.text.AT32_BUTTON_Init,"ax",%progbits
+ 182              		.align	1
+ 183              		.global	AT32_BUTTON_Init
+ 184              		.syntax unified
+ 185              		.thumb
+ 186              		.thumb_func
+ 187              		.fpu fpv4-sp-d16
+ 189              	AT32_BUTTON_Init:
+ 190              	.LFB130:
+ 122:../hoverboard/at32_hoverboard.c **** 
+ 123:../hoverboard/at32_hoverboard.c **** /**
+ 124:../hoverboard/at32_hoverboard.c ****   * @brief  Configure Button GPIO
+ 125:../hoverboard/at32_hoverboard.c ****   * @param  Button: Specifies the Button to be configured.
+ 126:../hoverboard/at32_hoverboard.c ****   * @retval None
+ 127:../hoverboard/at32_hoverboard.c ****   */
+ 128:../hoverboard/at32_hoverboard.c **** void AT32_BUTTON_Init(BUTTON_Type button)
+ 129:../hoverboard/at32_hoverboard.c **** {
+ 191              		.loc 1 129 0
+ 192              		.cfi_startproc
+ 193              		@ args = 0, pretend = 0, frame = 8
+ 194              		@ frame_needed = 0, uses_anonymous_args = 0
+ 195              	.LVL12:
+ 196 0000 10B5     		push	{r4, lr}
+ 197              	.LCFI7:
+ 198              		.cfi_def_cfa_offset 8
+ 199              		.cfi_offset 4, -8
+ 200              		.cfi_offset 14, -4
+ 201 0002 82B0     		sub	sp, sp, #8
+ 202              	.LCFI8:
+ 203              		.cfi_def_cfa_offset 16
+ 204 0004 0446     		mov	r4, r0
+ 130:../hoverboard/at32_hoverboard.c ****     GPIO_InitType GPIO_InitStructure;
+ 131:../hoverboard/at32_hoverboard.c **** 
+ 132:../hoverboard/at32_hoverboard.c ****     /*Enable the Button Clock*/
+ 133:../hoverboard/at32_hoverboard.c ****     RCC_APB2PeriphClockCmd(BUTTON_GPIO_RCC_CLK[button], ENABLE);
+ 205              		.loc 1 133 0
+ 206 0006 0121     		movs	r1, #1
+ 207 0008 0B4B     		ldr	r3, .L16
+ 208 000a 53F82000 		ldr	r0, [r3, r0, lsl #2]
+ 209              	.LVL13:
+ 210 000e FFF7FEFF 		bl	RCC_APB2PeriphClockCmd
+ 211              	.LVL14:
+ 134:../hoverboard/at32_hoverboard.c **** 
+ 135:../hoverboard/at32_hoverboard.c ****     /*Configure Button pin as input with pull-up/pull-down*/
+ 136:../hoverboard/at32_hoverboard.c ****     GPIO_StructInit(&GPIO_InitStructure);
+ 212              		.loc 1 136 0
+ 213 0012 01A8     		add	r0, sp, #4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s 			page 7
+
+
+ 214 0014 FFF7FEFF 		bl	GPIO_StructInit
+ 215              	.LVL15:
+ 137:../hoverboard/at32_hoverboard.c ****     GPIO_InitStructure.GPIO_Pins = BUTTON_GPIO_PIN[button];
+ 216              		.loc 1 137 0
+ 217 0018 084B     		ldr	r3, .L16+4
+ 218 001a 33F81430 		ldrh	r3, [r3, r4, lsl #1]
+ 219 001e ADF80430 		strh	r3, [sp, #4]	@ movhi
+ 138:../hoverboard/at32_hoverboard.c ****     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_PD;
+ 220              		.loc 1 138 0
+ 221 0022 2823     		movs	r3, #40
+ 222 0024 8DF80730 		strb	r3, [sp, #7]
+ 139:../hoverboard/at32_hoverboard.c ****     GPIO_Init(BUTTON_GPIO_PORT[button], &GPIO_InitStructure);
+ 223              		.loc 1 139 0
+ 224 0028 01A9     		add	r1, sp, #4
+ 225 002a 054B     		ldr	r3, .L16+8
+ 226 002c 53F82400 		ldr	r0, [r3, r4, lsl #2]
+ 227 0030 FFF7FEFF 		bl	GPIO_Init
+ 228              	.LVL16:
+ 140:../hoverboard/at32_hoverboard.c **** }
+ 229              		.loc 1 140 0
+ 230 0034 02B0     		add	sp, sp, #8
+ 231              	.LCFI9:
+ 232              		.cfi_def_cfa_offset 8
+ 233              		@ sp needed
+ 234 0036 10BD     		pop	{r4, pc}
+ 235              	.L17:
+ 236              		.align	2
+ 237              	.L16:
+ 238 0038 00000000 		.word	.LANCHOR0
+ 239 003c 00000000 		.word	.LANCHOR1
+ 240 0040 00000000 		.word	.LANCHOR2
+ 241              		.cfi_endproc
+ 242              	.LFE130:
+ 244              		.section	.text.AT32_BUTTON_State,"ax",%progbits
+ 245              		.align	1
+ 246              		.global	AT32_BUTTON_State
+ 247              		.syntax unified
+ 248              		.thumb
+ 249              		.thumb_func
+ 250              		.fpu fpv4-sp-d16
+ 252              	AT32_BUTTON_State:
+ 253              	.LFB131:
+ 141:../hoverboard/at32_hoverboard.c **** 
+ 142:../hoverboard/at32_hoverboard.c **** /**
+ 143:../hoverboard/at32_hoverboard.c ****   * @brief  Returns the selected button state
+ 144:../hoverboard/at32_hoverboard.c ****   * @param  Button: Specifies the Button to be Checked
+ 145:../hoverboard/at32_hoverboard.c ****   * @retval The Button GPIO Pin value
+ 146:../hoverboard/at32_hoverboard.c ****   */
+ 147:../hoverboard/at32_hoverboard.c **** uint8_t AT32_BUTTON_State(BUTTON_Type button)
+ 148:../hoverboard/at32_hoverboard.c **** {
+ 254              		.loc 1 148 0
+ 255              		.cfi_startproc
+ 256              		@ args = 0, pretend = 0, frame = 0
+ 257              		@ frame_needed = 0, uses_anonymous_args = 0
+ 258              	.LVL17:
+ 259 0000 08B5     		push	{r3, lr}
+ 260              	.LCFI10:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s 			page 8
+
+
+ 261              		.cfi_def_cfa_offset 8
+ 262              		.cfi_offset 3, -8
+ 263              		.cfi_offset 14, -4
+ 149:../hoverboard/at32_hoverboard.c ****     return GPIO_ReadInputDataBit(BUTTON_GPIO_PORT[button], BUTTON_GPIO_PIN[button]);
+ 264              		.loc 1 149 0
+ 265 0002 044B     		ldr	r3, .L20
+ 266 0004 33F81010 		ldrh	r1, [r3, r0, lsl #1]
+ 267 0008 034B     		ldr	r3, .L20+4
+ 268 000a 53F82000 		ldr	r0, [r3, r0, lsl #2]
+ 269              	.LVL18:
+ 270 000e FFF7FEFF 		bl	GPIO_ReadInputDataBit
+ 271              	.LVL19:
+ 150:../hoverboard/at32_hoverboard.c **** }
+ 272              		.loc 1 150 0
+ 273 0012 08BD     		pop	{r3, pc}
+ 274              	.L21:
+ 275              		.align	2
+ 276              	.L20:
+ 277 0014 00000000 		.word	.LANCHOR1
+ 278 0018 00000000 		.word	.LANCHOR2
+ 279              		.cfi_endproc
+ 280              	.LFE131:
+ 282              		.section	.text.AT32_LEDn_Init,"ax",%progbits
+ 283              		.align	1
+ 284              		.global	AT32_LEDn_Init
+ 285              		.syntax unified
+ 286              		.thumb
+ 287              		.thumb_func
+ 288              		.fpu fpv4-sp-d16
+ 290              	AT32_LEDn_Init:
+ 291              	.LFB133:
+ 151:../hoverboard/at32_hoverboard.c **** 
+ 152:../hoverboard/at32_hoverboard.c **** /**
+ 153:../hoverboard/at32_hoverboard.c ****   * @brief  Returns which Button have press down
+ 154:../hoverboard/at32_hoverboard.c ****   * @param  None
+ 155:../hoverboard/at32_hoverboard.c ****   * @retval The Button have press down
+ 156:../hoverboard/at32_hoverboard.c ****   */
+ 157:../hoverboard/at32_hoverboard.c **** BUTTON_Type AT32_BUTTON_Press()
+ 158:../hoverboard/at32_hoverboard.c **** {
+ 159:../hoverboard/at32_hoverboard.c ****     static uint8_t Pressed = 1;
+ 160:../hoverboard/at32_hoverboard.c ****     /*Get Button state in AT_START board*/
+ 161:../hoverboard/at32_hoverboard.c ****     if ((Pressed == 1) && ((AT32_BUTTON_State(BUTTON_WAKEUP) == Bit_SET ) || (AT32_BUTTON_State(BUT
+ 162:../hoverboard/at32_hoverboard.c ****     {
+ 163:../hoverboard/at32_hoverboard.c ****         /*debounce*/
+ 164:../hoverboard/at32_hoverboard.c ****         Pressed = 0;
+ 165:../hoverboard/at32_hoverboard.c ****         Delay_ms(10);
+ 166:../hoverboard/at32_hoverboard.c ****         if (AT32_BUTTON_State(BUTTON_WAKEUP) == Bit_SET)
+ 167:../hoverboard/at32_hoverboard.c ****             return BUTTON_WAKEUP;
+ 168:../hoverboard/at32_hoverboard.c ****         if (AT32_BUTTON_State(BUTTON_USER_KEY) == Bit_SET)
+ 169:../hoverboard/at32_hoverboard.c ****             return BUTTON_USER_KEY;
+ 170:../hoverboard/at32_hoverboard.c ****     }else if((AT32_BUTTON_State(BUTTON_USER_KEY) == Bit_RESET) && (AT32_BUTTON_State(BUTTON_WAKEUP)
+ 171:../hoverboard/at32_hoverboard.c ****     {
+ 172:../hoverboard/at32_hoverboard.c ****         Pressed = 1;
+ 173:../hoverboard/at32_hoverboard.c ****     }
+ 174:../hoverboard/at32_hoverboard.c ****     return NO_BUTTON;
+ 175:../hoverboard/at32_hoverboard.c **** }
+ 176:../hoverboard/at32_hoverboard.c **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s 			page 9
+
+
+ 177:../hoverboard/at32_hoverboard.c **** /**
+ 178:../hoverboard/at32_hoverboard.c ****   * @brief  Configure LED GPIO
+ 179:../hoverboard/at32_hoverboard.c ****   * @param  led: Specifies the LED to be configured.
+ 180:../hoverboard/at32_hoverboard.c ****   * @retval None
+ 181:../hoverboard/at32_hoverboard.c ****   */
+ 182:../hoverboard/at32_hoverboard.c **** void AT32_LEDn_Init(LED_Type led)
+ 183:../hoverboard/at32_hoverboard.c **** {
+ 292              		.loc 1 183 0
+ 293              		.cfi_startproc
+ 294              		@ args = 0, pretend = 0, frame = 8
+ 295              		@ frame_needed = 0, uses_anonymous_args = 0
+ 296              	.LVL20:
+ 297 0000 10B5     		push	{r4, lr}
+ 298              	.LCFI11:
+ 299              		.cfi_def_cfa_offset 8
+ 300              		.cfi_offset 4, -8
+ 301              		.cfi_offset 14, -4
+ 302 0002 82B0     		sub	sp, sp, #8
+ 303              	.LCFI12:
+ 304              		.cfi_def_cfa_offset 16
+ 305 0004 0446     		mov	r4, r0
+ 184:../hoverboard/at32_hoverboard.c ****     GPIO_InitType GPIO_InitStructure;
+ 185:../hoverboard/at32_hoverboard.c ****     /*Enable the LED Clock*/
+ 186:../hoverboard/at32_hoverboard.c ****     RCC_APB2PeriphClockCmd(LED_GPIO_RCC_CLK[led], ENABLE);
+ 306              		.loc 1 186 0
+ 307 0006 0121     		movs	r1, #1
+ 308 0008 0D4B     		ldr	r3, .L24
+ 309 000a 53F82000 		ldr	r0, [r3, r0, lsl #2]
+ 310              	.LVL21:
+ 311 000e FFF7FEFF 		bl	RCC_APB2PeriphClockCmd
+ 312              	.LVL22:
+ 187:../hoverboard/at32_hoverboard.c **** 
+ 188:../hoverboard/at32_hoverboard.c ****     /*Configure the LED pin as ouput push-pull*/
+ 189:../hoverboard/at32_hoverboard.c ****     GPIO_StructInit(&GPIO_InitStructure);
+ 313              		.loc 1 189 0
+ 314 0012 01A8     		add	r0, sp, #4
+ 315 0014 FFF7FEFF 		bl	GPIO_StructInit
+ 316              	.LVL23:
+ 190:../hoverboard/at32_hoverboard.c ****     GPIO_InitStructure.GPIO_Pins = LED_GPIO_PIN[led];
+ 317              		.loc 1 190 0
+ 318 0018 0A4B     		ldr	r3, .L24+4
+ 319 001a 33F81430 		ldrh	r3, [r3, r4, lsl #1]
+ 320 001e ADF80430 		strh	r3, [sp, #4]	@ movhi
+ 191:../hoverboard/at32_hoverboard.c ****     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT_PP;
+ 321              		.loc 1 191 0
+ 322 0022 1023     		movs	r3, #16
+ 323 0024 8DF80730 		strb	r3, [sp, #7]
+ 192:../hoverboard/at32_hoverboard.c ****     GPIO_InitStructure.GPIO_MaxSpeed = GPIO_MaxSpeed_50MHz;
+ 324              		.loc 1 192 0
+ 325 0028 0223     		movs	r3, #2
+ 326 002a 8DF80630 		strb	r3, [sp, #6]
+ 193:../hoverboard/at32_hoverboard.c ****     GPIO_Init(LED_GPIO_PORT[led], &GPIO_InitStructure);
+ 327              		.loc 1 193 0
+ 328 002e 01A9     		add	r1, sp, #4
+ 329 0030 054B     		ldr	r3, .L24+8
+ 330 0032 53F82400 		ldr	r0, [r3, r4, lsl #2]
+ 331 0036 FFF7FEFF 		bl	GPIO_Init
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s 			page 10
+
+
+ 332              	.LVL24:
+ 194:../hoverboard/at32_hoverboard.c **** }
+ 333              		.loc 1 194 0
+ 334 003a 02B0     		add	sp, sp, #8
+ 335              	.LCFI13:
+ 336              		.cfi_def_cfa_offset 8
+ 337              		@ sp needed
+ 338 003c 10BD     		pop	{r4, pc}
+ 339              	.L25:
+ 340 003e 00BF     		.align	2
+ 341              	.L24:
+ 342 0040 00000000 		.word	.LANCHOR3
+ 343 0044 00000000 		.word	.LANCHOR4
+ 344 0048 00000000 		.word	.LANCHOR5
+ 345              		.cfi_endproc
+ 346              	.LFE133:
+ 348              		.section	.text.AT32_LEDn_ON,"ax",%progbits
+ 349              		.align	1
+ 350              		.global	AT32_LEDn_ON
+ 351              		.syntax unified
+ 352              		.thumb
+ 353              		.thumb_func
+ 354              		.fpu fpv4-sp-d16
+ 356              	AT32_LEDn_ON:
+ 357              	.LFB134:
+ 195:../hoverboard/at32_hoverboard.c **** 
+ 196:../hoverboard/at32_hoverboard.c **** /**
+ 197:../hoverboard/at32_hoverboard.c ****   * @brief  Turns selected LED On.
+ 198:../hoverboard/at32_hoverboard.c ****   * @param  Led: Specifies the Led to be set on.
+ 199:../hoverboard/at32_hoverboard.c ****   *   This parameter can be one of following parameters:
+ 200:../hoverboard/at32_hoverboard.c ****   *     @arg LED1
+ 201:../hoverboard/at32_hoverboard.c ****   *     @arg LED2
+ 202:../hoverboard/at32_hoverboard.c ****   *     @arg LED3
+ 203:../hoverboard/at32_hoverboard.c ****   *     @arg LED4
+ 204:../hoverboard/at32_hoverboard.c ****   * @retval None
+ 205:../hoverboard/at32_hoverboard.c ****   */
+ 206:../hoverboard/at32_hoverboard.c **** void AT32_LEDn_ON(LED_Type led)
+ 207:../hoverboard/at32_hoverboard.c **** {
+ 358              		.loc 1 207 0
+ 359              		.cfi_startproc
+ 360              		@ args = 0, pretend = 0, frame = 0
+ 361              		@ frame_needed = 0, uses_anonymous_args = 0
+ 362              		@ link register save eliminated.
+ 363              	.LVL25:
+ 208:../hoverboard/at32_hoverboard.c ****     if ( led > (LED_NUM - 1))
+ 364              		.loc 1 208 0
+ 365 0000 0328     		cmp	r0, #3
+ 366 0002 07D8     		bhi	.L26
+ 209:../hoverboard/at32_hoverboard.c ****         return;
+ 210:../hoverboard/at32_hoverboard.c ****     if ( LED_GPIO_PIN[led] )
+ 367              		.loc 1 210 0
+ 368 0004 044B     		ldr	r3, .L28
+ 369 0006 33F81030 		ldrh	r3, [r3, r0, lsl #1]
+ 370 000a 1BB1     		cbz	r3, .L26
+ 211:../hoverboard/at32_hoverboard.c ****         LED_GPIO_PORT[led]->BSRE = LED_GPIO_PIN[led];
+ 371              		.loc 1 211 0
+ 372 000c 034A     		ldr	r2, .L28+4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s 			page 11
+
+
+ 373 000e 52F82020 		ldr	r2, [r2, r0, lsl #2]
+ 374 0012 1361     		str	r3, [r2, #16]
+ 375              	.L26:
+ 212:../hoverboard/at32_hoverboard.c **** }
+ 376              		.loc 1 212 0
+ 377 0014 7047     		bx	lr
+ 378              	.L29:
+ 379 0016 00BF     		.align	2
+ 380              	.L28:
+ 381 0018 00000000 		.word	.LANCHOR4
+ 382 001c 00000000 		.word	.LANCHOR5
+ 383              		.cfi_endproc
+ 384              	.LFE134:
+ 386              		.section	.text.AT32_LEDn_OFF,"ax",%progbits
+ 387              		.align	1
+ 388              		.global	AT32_LEDn_OFF
+ 389              		.syntax unified
+ 390              		.thumb
+ 391              		.thumb_func
+ 392              		.fpu fpv4-sp-d16
+ 394              	AT32_LEDn_OFF:
+ 395              	.LFB135:
+ 213:../hoverboard/at32_hoverboard.c **** 
+ 214:../hoverboard/at32_hoverboard.c **** /**
+ 215:../hoverboard/at32_hoverboard.c ****   * @brief  Turns selected LED Off.
+ 216:../hoverboard/at32_hoverboard.c ****   * @param  Led: Specifies the Led to be set off.
+ 217:../hoverboard/at32_hoverboard.c ****   *   This parameter can be one of following parameters:
+ 218:../hoverboard/at32_hoverboard.c ****   *     @arg LED1
+ 219:../hoverboard/at32_hoverboard.c ****   *     @arg LED2
+ 220:../hoverboard/at32_hoverboard.c ****   *     @arg LED3
+ 221:../hoverboard/at32_hoverboard.c ****   *     @arg LED4
+ 222:../hoverboard/at32_hoverboard.c ****   * @retval None
+ 223:../hoverboard/at32_hoverboard.c ****   */
+ 224:../hoverboard/at32_hoverboard.c **** void AT32_LEDn_OFF(LED_Type led)
+ 225:../hoverboard/at32_hoverboard.c **** {
+ 396              		.loc 1 225 0
+ 397              		.cfi_startproc
+ 398              		@ args = 0, pretend = 0, frame = 0
+ 399              		@ frame_needed = 0, uses_anonymous_args = 0
+ 400              		@ link register save eliminated.
+ 401              	.LVL26:
+ 226:../hoverboard/at32_hoverboard.c ****     if ( led > (LED_NUM - 1))
+ 402              		.loc 1 226 0
+ 403 0000 0328     		cmp	r0, #3
+ 404 0002 07D8     		bhi	.L30
+ 227:../hoverboard/at32_hoverboard.c ****         return;
+ 228:../hoverboard/at32_hoverboard.c ****     if ( LED_GPIO_PIN[led] )
+ 405              		.loc 1 228 0
+ 406 0004 044B     		ldr	r3, .L32
+ 407 0006 33F81030 		ldrh	r3, [r3, r0, lsl #1]
+ 408 000a 1BB1     		cbz	r3, .L30
+ 229:../hoverboard/at32_hoverboard.c ****         LED_GPIO_PORT[led]->BRE = LED_GPIO_PIN[led];
+ 409              		.loc 1 229 0
+ 410 000c 034A     		ldr	r2, .L32+4
+ 411 000e 52F82020 		ldr	r2, [r2, r0, lsl #2]
+ 412 0012 5361     		str	r3, [r2, #20]
+ 413              	.L30:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s 			page 12
+
+
+ 230:../hoverboard/at32_hoverboard.c **** }
+ 414              		.loc 1 230 0
+ 415 0014 7047     		bx	lr
+ 416              	.L33:
+ 417 0016 00BF     		.align	2
+ 418              	.L32:
+ 419 0018 00000000 		.word	.LANCHOR4
+ 420 001c 00000000 		.word	.LANCHOR5
+ 421              		.cfi_endproc
+ 422              	.LFE135:
+ 424              		.section	.text.AT32_LEDn_Toggle,"ax",%progbits
+ 425              		.align	1
+ 426              		.global	AT32_LEDn_Toggle
+ 427              		.syntax unified
+ 428              		.thumb
+ 429              		.thumb_func
+ 430              		.fpu fpv4-sp-d16
+ 432              	AT32_LEDn_Toggle:
+ 433              	.LFB136:
+ 231:../hoverboard/at32_hoverboard.c **** 
+ 232:../hoverboard/at32_hoverboard.c **** /**
+ 233:../hoverboard/at32_hoverboard.c ****   * @brief  Turns selected LED Tooggle.
+ 234:../hoverboard/at32_hoverboard.c ****   * @param  Led: Specifies the Led to be set off.
+ 235:../hoverboard/at32_hoverboard.c ****   *   This parameter can be one of following parameters:
+ 236:../hoverboard/at32_hoverboard.c ****   *     @arg LED1
+ 237:../hoverboard/at32_hoverboard.c ****   *     @arg LED2
+ 238:../hoverboard/at32_hoverboard.c ****   *     @arg LED3
+ 239:../hoverboard/at32_hoverboard.c ****   *     @arg LED4
+ 240:../hoverboard/at32_hoverboard.c ****   * @retval None
+ 241:../hoverboard/at32_hoverboard.c ****   */
+ 242:../hoverboard/at32_hoverboard.c **** void AT32_LEDn_Toggle(LED_Type led)
+ 243:../hoverboard/at32_hoverboard.c **** {
+ 434              		.loc 1 243 0
+ 435              		.cfi_startproc
+ 436              		@ args = 0, pretend = 0, frame = 0
+ 437              		@ frame_needed = 0, uses_anonymous_args = 0
+ 438              		@ link register save eliminated.
+ 439              	.LVL27:
+ 244:../hoverboard/at32_hoverboard.c ****     if ( led > (LED_NUM - 1))
+ 440              		.loc 1 244 0
+ 441 0000 0328     		cmp	r0, #3
+ 442 0002 09D8     		bhi	.L34
+ 245:../hoverboard/at32_hoverboard.c ****         return;
+ 246:../hoverboard/at32_hoverboard.c ****     if ( LED_GPIO_PIN[led] )
+ 443              		.loc 1 246 0
+ 444 0004 054B     		ldr	r3, .L36
+ 445 0006 33F81030 		ldrh	r3, [r3, r0, lsl #1]
+ 446 000a 2BB1     		cbz	r3, .L34
+ 247:../hoverboard/at32_hoverboard.c ****         LED_GPIO_PORT[led]->OPTDT ^= LED_GPIO_PIN[led];
+ 447              		.loc 1 247 0
+ 448 000c 044A     		ldr	r2, .L36+4
+ 449 000e 52F82010 		ldr	r1, [r2, r0, lsl #2]
+ 450 0012 CA68     		ldr	r2, [r1, #12]
+ 451 0014 5340     		eors	r3, r3, r2
+ 452 0016 CB60     		str	r3, [r1, #12]
+ 453              	.L34:
+ 248:../hoverboard/at32_hoverboard.c **** }
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s 			page 13
+
+
+ 454              		.loc 1 248 0
+ 455 0018 7047     		bx	lr
+ 456              	.L37:
+ 457 001a 00BF     		.align	2
+ 458              	.L36:
+ 459 001c 00000000 		.word	.LANCHOR4
+ 460 0020 00000000 		.word	.LANCHOR5
+ 461              		.cfi_endproc
+ 462              	.LFE136:
+ 464              		.section	.text.UART_Print_Init,"ax",%progbits
+ 465              		.align	1
+ 466              		.global	UART_Print_Init
+ 467              		.syntax unified
+ 468              		.thumb
+ 469              		.thumb_func
+ 470              		.fpu fpv4-sp-d16
+ 472              	UART_Print_Init:
+ 473              	.LFB137:
+ 249:../hoverboard/at32_hoverboard.c **** 
+ 250:../hoverboard/at32_hoverboard.c **** /**
+ 251:../hoverboard/at32_hoverboard.c ****   * @brief  initialize UART2
+ 252:../hoverboard/at32_hoverboard.c ****   * @param  bound: UART BaudRate
+ 253:../hoverboard/at32_hoverboard.c ****   * @retval None
+ 254:../hoverboard/at32_hoverboard.c ****   */
+ 255:../hoverboard/at32_hoverboard.c **** void UART_Print_Init(uint32_t bound)
+ 256:../hoverboard/at32_hoverboard.c **** {
+ 474              		.loc 1 256 0
+ 475              		.cfi_startproc
+ 476              		@ args = 0, pretend = 0, frame = 24
+ 477              		@ frame_needed = 0, uses_anonymous_args = 0
+ 478              	.LVL28:
+ 479 0000 70B5     		push	{r4, r5, r6, lr}
+ 480              	.LCFI14:
+ 481              		.cfi_def_cfa_offset 16
+ 482              		.cfi_offset 4, -16
+ 483              		.cfi_offset 5, -12
+ 484              		.cfi_offset 6, -8
+ 485              		.cfi_offset 14, -4
+ 486 0002 86B0     		sub	sp, sp, #24
+ 487              	.LCFI15:
+ 488              		.cfi_def_cfa_offset 40
+ 489 0004 0646     		mov	r6, r0
+ 257:../hoverboard/at32_hoverboard.c ****     GPIO_InitType GPIO_InitStructure;
+ 258:../hoverboard/at32_hoverboard.c ****     USART_InitType USART_InitStructure;
+ 259:../hoverboard/at32_hoverboard.c **** 
+ 260:../hoverboard/at32_hoverboard.c ****     /*Enable the UART Clock*/
+ 261:../hoverboard/at32_hoverboard.c ****     RCC_APB2PeriphResetCmd(AT32_PRINT_UARTTX_GPIO_RCC | AT32_PRINT_UARTRX_GPIO_RCC, ENABLE);
+ 490              		.loc 1 261 0
+ 491 0006 0121     		movs	r1, #1
+ 492 0008 0420     		movs	r0, #4
+ 493              	.LVL29:
+ 494 000a FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+ 495              	.LVL30:
+ 262:../hoverboard/at32_hoverboard.c ****     RCC_APB1PeriphClockCmd(AT32_PRINT_UART_RCC, ENABLE);
+ 496              		.loc 1 262 0
+ 497 000e 0121     		movs	r1, #1
+ 498 0010 4FF40030 		mov	r0, #131072
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s 			page 14
+
+
+ 499 0014 FFF7FEFF 		bl	RCC_APB1PeriphClockCmd
+ 500              	.LVL31:
+ 263:../hoverboard/at32_hoverboard.c **** 
+ 264:../hoverboard/at32_hoverboard.c ****     /* Configure the UART2 RX pin */
+ 265:../hoverboard/at32_hoverboard.c ****     GPIO_StructInit(&GPIO_InitStructure);
+ 501              		.loc 1 265 0
+ 502 0018 05A8     		add	r0, sp, #20
+ 503 001a FFF7FEFF 		bl	GPIO_StructInit
+ 504              	.LVL32:
+ 266:../hoverboard/at32_hoverboard.c ****     GPIO_InitStructure.GPIO_Pins = AT32_PRINT_UARTTX_PIN;
+ 505              		.loc 1 266 0
+ 506 001e 0425     		movs	r5, #4
+ 507 0020 ADF81450 		strh	r5, [sp, #20]	@ movhi
+ 267:../hoverboard/at32_hoverboard.c ****     GPIO_InitStructure.GPIO_MaxSpeed = GPIO_MaxSpeed_50MHz;
+ 508              		.loc 1 267 0
+ 509 0024 0223     		movs	r3, #2
+ 510 0026 8DF81630 		strb	r3, [sp, #22]
+ 268:../hoverboard/at32_hoverboard.c ****     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+ 511              		.loc 1 268 0
+ 512 002a 1823     		movs	r3, #24
+ 513 002c 8DF81730 		strb	r3, [sp, #23]
+ 269:../hoverboard/at32_hoverboard.c ****     GPIO_Init(AT32_PRINT_UARTTX_GPIO, &GPIO_InitStructure);
+ 514              		.loc 1 269 0
+ 515 0030 184C     		ldr	r4, .L40
+ 516 0032 05A9     		add	r1, sp, #20
+ 517 0034 2046     		mov	r0, r4
+ 518 0036 FFF7FEFF 		bl	GPIO_Init
+ 519              	.LVL33:
+ 270:../hoverboard/at32_hoverboard.c **** 
+ 271:../hoverboard/at32_hoverboard.c ****     /* Configure the UART2 TX pin */
+ 272:../hoverboard/at32_hoverboard.c ****     GPIO_InitStructure.GPIO_Pins = AT32_PRINT_UARTRX_PIN;//PA3
+ 520              		.loc 1 272 0
+ 521 003a 0823     		movs	r3, #8
+ 522 003c ADF81430 		strh	r3, [sp, #20]	@ movhi
+ 273:../hoverboard/at32_hoverboard.c ****     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+ 523              		.loc 1 273 0
+ 524 0040 8DF81750 		strb	r5, [sp, #23]
+ 274:../hoverboard/at32_hoverboard.c ****     GPIO_Init(AT32_PRINT_UARTRX_GPIO, &GPIO_InitStructure);
+ 525              		.loc 1 274 0
+ 526 0044 05A9     		add	r1, sp, #20
+ 527 0046 2046     		mov	r0, r4
+ 528 0048 FFF7FEFF 		bl	GPIO_Init
+ 529              	.LVL34:
+ 275:../hoverboard/at32_hoverboard.c **** 
+ 276:../hoverboard/at32_hoverboard.c ****     /*Configure UART param*/
+ 277:../hoverboard/at32_hoverboard.c ****     USART_StructInit(&USART_InitStructure);
+ 530              		.loc 1 277 0
+ 531 004c 0DEB0500 		add	r0, sp, r5
+ 532 0050 FFF7FEFF 		bl	USART_StructInit
+ 533              	.LVL35:
+ 278:../hoverboard/at32_hoverboard.c ****     USART_InitStructure.USART_BaudRate = bound;
+ 534              		.loc 1 278 0
+ 535 0054 0196     		str	r6, [sp, #4]
+ 279:../hoverboard/at32_hoverboard.c ****     USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+ 536              		.loc 1 279 0
+ 537 0056 0023     		movs	r3, #0
+ 538 0058 ADF80830 		strh	r3, [sp, #8]	@ movhi
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s 			page 15
+
+
+ 280:../hoverboard/at32_hoverboard.c ****     USART_InitStructure.USART_StopBits = USART_StopBits_1;
+ 539              		.loc 1 280 0
+ 540 005c ADF80A30 		strh	r3, [sp, #10]	@ movhi
+ 281:../hoverboard/at32_hoverboard.c ****     USART_InitStructure.USART_Parity = USART_Parity_No;
+ 541              		.loc 1 281 0
+ 542 0060 ADF80C30 		strh	r3, [sp, #12]	@ movhi
+ 282:../hoverboard/at32_hoverboard.c ****     USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+ 543              		.loc 1 282 0
+ 544 0064 ADF81030 		strh	r3, [sp, #16]	@ movhi
+ 283:../hoverboard/at32_hoverboard.c ****     USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
+ 545              		.loc 1 283 0
+ 546 0068 0C23     		movs	r3, #12
+ 547 006a ADF80E30 		strh	r3, [sp, #14]	@ movhi
+ 284:../hoverboard/at32_hoverboard.c **** 
+ 285:../hoverboard/at32_hoverboard.c ****     USART_Init(AT32_PRINT_UART, &USART_InitStructure);
+ 548              		.loc 1 285 0
+ 549 006e A4F54444 		sub	r4, r4, #50176
+ 550 0072 0DEB0501 		add	r1, sp, r5
+ 551 0076 2046     		mov	r0, r4
+ 552 0078 FFF7FEFF 		bl	USART_Init
+ 553              	.LVL36:
+ 286:../hoverboard/at32_hoverboard.c ****     USART_INTConfig(AT32_PRINT_UART, USART_INT_RDNE, ENABLE);
+ 554              		.loc 1 286 0
+ 555 007c 0122     		movs	r2, #1
+ 556 007e 40F22551 		movw	r1, #1317
+ 557 0082 2046     		mov	r0, r4
+ 558 0084 FFF7FEFF 		bl	USART_INTConfig
+ 559              	.LVL37:
+ 287:../hoverboard/at32_hoverboard.c ****     USART_Cmd(AT32_PRINT_UART, ENABLE);
+ 560              		.loc 1 287 0
+ 561 0088 0121     		movs	r1, #1
+ 562 008a 2046     		mov	r0, r4
+ 563 008c FFF7FEFF 		bl	USART_Cmd
+ 564              	.LVL38:
+ 288:../hoverboard/at32_hoverboard.c **** }
+ 565              		.loc 1 288 0
+ 566 0090 06B0     		add	sp, sp, #24
+ 567              	.LCFI16:
+ 568              		.cfi_def_cfa_offset 16
+ 569              		@ sp needed
+ 570 0092 70BD     		pop	{r4, r5, r6, pc}
+ 571              	.LVL39:
+ 572              	.L41:
+ 573              		.align	2
+ 574              	.L40:
+ 575 0094 00080140 		.word	1073809408
+ 576              		.cfi_endproc
+ 577              	.LFE137:
+ 579              		.section	.text.Delay_init,"ax",%progbits
+ 580              		.align	1
+ 581              		.global	Delay_init
+ 582              		.syntax unified
+ 583              		.thumb
+ 584              		.thumb_func
+ 585              		.fpu fpv4-sp-d16
+ 587              	Delay_init:
+ 588              	.LFB138:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s 			page 16
+
+
+ 289:../hoverboard/at32_hoverboard.c **** 
+ 290:../hoverboard/at32_hoverboard.c **** /**
+ 291:../hoverboard/at32_hoverboard.c ****   * @brief  initialize Delay function
+ 292:../hoverboard/at32_hoverboard.c ****   * @param  None
+ 293:../hoverboard/at32_hoverboard.c ****   * @retval None
+ 294:../hoverboard/at32_hoverboard.c ****   */
+ 295:../hoverboard/at32_hoverboard.c **** void Delay_init()
+ 296:../hoverboard/at32_hoverboard.c **** {
+ 589              		.loc 1 296 0
+ 590              		.cfi_startproc
+ 591              		@ args = 0, pretend = 0, frame = 0
+ 592              		@ frame_needed = 0, uses_anonymous_args = 0
+ 593 0000 08B5     		push	{r3, lr}
+ 594              	.LCFI17:
+ 595              		.cfi_def_cfa_offset 8
+ 596              		.cfi_offset 3, -8
+ 597              		.cfi_offset 14, -4
+ 297:../hoverboard/at32_hoverboard.c ****     /*Config Systick*/
+ 298:../hoverboard/at32_hoverboard.c ****     SysTick_CLKSourceConfig(SysTick_CLKSource_HCLK_Div8);
+ 598              		.loc 1 298 0
+ 599 0002 6FF00400 		mvn	r0, #4
+ 600 0006 FFF7FEFF 		bl	SysTick_CLKSourceConfig
+ 601              	.LVL40:
+ 299:../hoverboard/at32_hoverboard.c ****     fac_us=(float)SystemCoreClock/(192 * 1000000);
+ 602              		.loc 1 299 0
+ 603 000a 0B4B     		ldr	r3, .L44
+ 604 000c D3ED007A 		vldr.32	s15, [r3]	@ int
+ 605 0010 F8EE677A 		vcvt.f32.u32	s15, s15
+ 606 0014 DFED096A 		vldr.32	s13, .L44+4
+ 607 0018 87EEA67A 		vdiv.f32	s14, s15, s13
+ 608 001c 084B     		ldr	r3, .L44+8
+ 609 001e 83ED007A 		vstr.32	s14, [r3]
+ 300:../hoverboard/at32_hoverboard.c ****     fac_ms=fac_us*1000;
+ 610              		.loc 1 300 0
+ 611 0022 D3ED007A 		vldr.32	s15, [r3]
+ 612 0026 9FED077A 		vldr.32	s14, .L44+12
+ 613 002a 67EE877A 		vmul.f32	s15, s15, s14
+ 614 002e 064B     		ldr	r3, .L44+16
+ 615 0030 C3ED007A 		vstr.32	s15, [r3]
+ 301:../hoverboard/at32_hoverboard.c **** }
+ 616              		.loc 1 301 0
+ 617 0034 08BD     		pop	{r3, pc}
+ 618              	.L45:
+ 619 0036 00BF     		.align	2
+ 620              	.L44:
+ 621 0038 00000000 		.word	SystemCoreClock
+ 622 003c 001B374D 		.word	1295457024
+ 623 0040 00000000 		.word	.LANCHOR6
+ 624 0044 00007A44 		.word	1148846080
+ 625 0048 00000000 		.word	.LANCHOR7
+ 626              		.cfi_endproc
+ 627              	.LFE138:
+ 629              		.section	.text.AT32_Hoverboard_Init,"ax",%progbits
+ 630              		.align	1
+ 631              		.global	AT32_Hoverboard_Init
+ 632              		.syntax unified
+ 633              		.thumb
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s 			page 17
+
+
+ 634              		.thumb_func
+ 635              		.fpu fpv4-sp-d16
+ 637              	AT32_Hoverboard_Init:
+ 638              	.LFB127:
+  58:../hoverboard/at32_hoverboard.c ****     /*initialize Delay Function*/
+ 639              		.loc 1 58 0
+ 640              		.cfi_startproc
+ 641              		@ args = 0, pretend = 0, frame = 0
+ 642              		@ frame_needed = 0, uses_anonymous_args = 0
+ 643 0000 08B5     		push	{r3, lr}
+ 644              	.LCFI18:
+ 645              		.cfi_def_cfa_offset 8
+ 646              		.cfi_offset 3, -8
+ 647              		.cfi_offset 14, -4
+  60:../hoverboard/at32_hoverboard.c **** 
+ 648              		.loc 1 60 0
+ 649 0002 FFF7FEFF 		bl	Delay_init
+ 650              	.LVL41:
+  63:../hoverboard/at32_hoverboard.c **** 
+ 651              		.loc 1 63 0
+ 652 0006 FFF7FEFF 		bl	Board_Init
+ 653              	.LVL42:
+  66:../hoverboard/at32_hoverboard.c ****     AT32_LEDn_Init(LED3);
+ 654              		.loc 1 66 0
+ 655 000a 0120     		movs	r0, #1
+ 656 000c FFF7FEFF 		bl	AT32_LEDn_Init
+ 657              	.LVL43:
+  67:../hoverboard/at32_hoverboard.c ****     AT32_LEDn_Init(LED4);
+ 658              		.loc 1 67 0
+ 659 0010 0220     		movs	r0, #2
+ 660 0012 FFF7FEFF 		bl	AT32_LEDn_Init
+ 661              	.LVL44:
+  68:../hoverboard/at32_hoverboard.c ****     AT32_LEDn_OFF(LED2);
+ 662              		.loc 1 68 0
+ 663 0016 0320     		movs	r0, #3
+ 664 0018 FFF7FEFF 		bl	AT32_LEDn_Init
+ 665              	.LVL45:
+  69:../hoverboard/at32_hoverboard.c ****     AT32_LEDn_OFF(LED3);
+ 666              		.loc 1 69 0
+ 667 001c 0120     		movs	r0, #1
+ 668 001e FFF7FEFF 		bl	AT32_LEDn_OFF
+ 669              	.LVL46:
+  70:../hoverboard/at32_hoverboard.c ****     AT32_LEDn_OFF(LED4);
+ 670              		.loc 1 70 0
+ 671 0022 0220     		movs	r0, #2
+ 672 0024 FFF7FEFF 		bl	AT32_LEDn_OFF
+ 673              	.LVL47:
+  71:../hoverboard/at32_hoverboard.c **** 
+ 674              		.loc 1 71 0
+ 675 0028 0320     		movs	r0, #3
+ 676 002a FFF7FEFF 		bl	AT32_LEDn_OFF
+ 677              	.LVL48:
+  74:../hoverboard/at32_hoverboard.c ****     AT32_BUTTON_Init(BUTTON_USER_KEY); /*PC13*/
+ 678              		.loc 1 74 0
+ 679 002e 0020     		movs	r0, #0
+ 680 0030 FFF7FEFF 		bl	AT32_BUTTON_Init
+ 681              	.LVL49:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s 			page 18
+
+
+  75:../hoverboard/at32_hoverboard.c **** 
+ 682              		.loc 1 75 0
+ 683 0034 0120     		movs	r0, #1
+ 684 0036 FFF7FEFF 		bl	AT32_BUTTON_Init
+ 685              	.LVL50:
+  77:../hoverboard/at32_hoverboard.c **** 
+ 686              		.loc 1 77 0
+ 687 003a 08BD     		pop	{r3, pc}
+ 688              		.cfi_endproc
+ 689              	.LFE127:
+ 691              		.section	.text.Delay_us,"ax",%progbits
+ 692              		.align	1
+ 693              		.global	Delay_us
+ 694              		.syntax unified
+ 695              		.thumb
+ 696              		.thumb_func
+ 697              		.fpu fpv4-sp-d16
+ 699              	Delay_us:
+ 700              	.LFB139:
+ 302:../hoverboard/at32_hoverboard.c **** 
+ 303:../hoverboard/at32_hoverboard.c **** /**
+ 304:../hoverboard/at32_hoverboard.c ****   * @brief  Inserts a delay time.
+ 305:../hoverboard/at32_hoverboard.c ****   * @param  nus: specifies the delay time length, in microsecond.
+ 306:../hoverboard/at32_hoverboard.c ****   * @retval None
+ 307:../hoverboard/at32_hoverboard.c ****   */
+ 308:../hoverboard/at32_hoverboard.c **** void Delay_us(u32 nus)
+ 309:../hoverboard/at32_hoverboard.c **** {
+ 701              		.loc 1 309 0
+ 702              		.cfi_startproc
+ 703              		@ args = 0, pretend = 0, frame = 0
+ 704              		@ frame_needed = 0, uses_anonymous_args = 0
+ 705              		@ link register save eliminated.
+ 706              	.LVL51:
+ 310:../hoverboard/at32_hoverboard.c ****     u32 temp;
+ 311:../hoverboard/at32_hoverboard.c ****     SysTick->LOAD = nus*fac_us;
+ 707              		.loc 1 311 0
+ 708 0000 104B     		ldr	r3, .L50
+ 709 0002 93ED007A 		vldr.32	s14, [r3]
+ 710 0006 07EE900A 		vmov	s15, r0	@ int
+ 711 000a F8EE677A 		vcvt.f32.u32	s15, s15
+ 712 000e 67EE877A 		vmul.f32	s15, s15, s14
+ 713 0012 FCEEE77A 		vcvt.u32.f32	s15, s15
+ 714 0016 0C4B     		ldr	r3, .L50+4
+ 715 0018 C3ED017A 		vstr.32	s15, [r3, #4]	@ int
+ 312:../hoverboard/at32_hoverboard.c ****     SysTick->VAL = 0x00;
+ 716              		.loc 1 312 0
+ 717 001c 0022     		movs	r2, #0
+ 718 001e 9A60     		str	r2, [r3, #8]
+ 313:../hoverboard/at32_hoverboard.c ****     SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk ;
+ 719              		.loc 1 313 0
+ 720 0020 1A68     		ldr	r2, [r3]
+ 721 0022 42F00102 		orr	r2, r2, #1
+ 722 0026 1A60     		str	r2, [r3]
+ 723              	.L49:
+ 314:../hoverboard/at32_hoverboard.c ****     do
+ 315:../hoverboard/at32_hoverboard.c ****     {
+ 316:../hoverboard/at32_hoverboard.c ****         temp = SysTick->CTRL;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s 			page 19
+
+
+ 724              		.loc 1 316 0 discriminator 1
+ 725 0028 074B     		ldr	r3, .L50+4
+ 726 002a 1B68     		ldr	r3, [r3]
+ 727              	.LVL52:
+ 317:../hoverboard/at32_hoverboard.c ****     }while((temp & 0x01) &&! (temp & (1<<16)));
+ 728              		.loc 1 317 0 discriminator 1
+ 729 002c 03F00113 		and	r3, r3, #65537
+ 730              	.LVL53:
+ 731 0030 012B     		cmp	r3, #1
+ 732 0032 F9D0     		beq	.L49
+ 318:../hoverboard/at32_hoverboard.c **** 
+ 319:../hoverboard/at32_hoverboard.c ****     SysTick->CTRL &= ~SysTick_CTRL_ENABLE_Msk;
+ 733              		.loc 1 319 0
+ 734 0034 044B     		ldr	r3, .L50+4
+ 735 0036 1A68     		ldr	r2, [r3]
+ 736 0038 22F00102 		bic	r2, r2, #1
+ 737 003c 1A60     		str	r2, [r3]
+ 320:../hoverboard/at32_hoverboard.c ****     SysTick->VAL = 0X00;
+ 738              		.loc 1 320 0
+ 739 003e 0022     		movs	r2, #0
+ 740 0040 9A60     		str	r2, [r3, #8]
+ 321:../hoverboard/at32_hoverboard.c **** }
+ 741              		.loc 1 321 0
+ 742 0042 7047     		bx	lr
+ 743              	.L51:
+ 744              		.align	2
+ 745              	.L50:
+ 746 0044 00000000 		.word	.LANCHOR6
+ 747 0048 10E000E0 		.word	-536813552
+ 748              		.cfi_endproc
+ 749              	.LFE139:
+ 751              		.section	.text.Delay_ms,"ax",%progbits
+ 752              		.align	1
+ 753              		.global	Delay_ms
+ 754              		.syntax unified
+ 755              		.thumb
+ 756              		.thumb_func
+ 757              		.fpu fpv4-sp-d16
+ 759              	Delay_ms:
+ 760              	.LFB140:
+ 322:../hoverboard/at32_hoverboard.c **** 
+ 323:../hoverboard/at32_hoverboard.c **** /**
+ 324:../hoverboard/at32_hoverboard.c ****   * @brief  Inserts a delay time.
+ 325:../hoverboard/at32_hoverboard.c ****   * @param  nms: specifies the delay time length, in milliseconds.
+ 326:../hoverboard/at32_hoverboard.c ****   * @retval None
+ 327:../hoverboard/at32_hoverboard.c ****   */
+ 328:../hoverboard/at32_hoverboard.c **** void Delay_ms(u16 nms)
+ 329:../hoverboard/at32_hoverboard.c **** {
+ 761              		.loc 1 329 0
+ 762              		.cfi_startproc
+ 763              		@ args = 0, pretend = 0, frame = 0
+ 764              		@ frame_needed = 0, uses_anonymous_args = 0
+ 765              		@ link register save eliminated.
+ 766              	.LVL54:
+ 330:../hoverboard/at32_hoverboard.c ****     u32 temp;
+ 331:../hoverboard/at32_hoverboard.c ****     while(nms)
+ 767              		.loc 1 331 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s 			page 20
+
+
+ 768 0000 22E0     		b	.L53
+ 769              	.L54:
+ 332:../hoverboard/at32_hoverboard.c ****     {
+ 333:../hoverboard/at32_hoverboard.c ****         if(nms > STEP_DELAY_MS)
+ 334:../hoverboard/at32_hoverboard.c ****         {
+ 335:../hoverboard/at32_hoverboard.c ****             SysTick->LOAD = (u32)STEP_DELAY_MS * fac_ms;
+ 336:../hoverboard/at32_hoverboard.c ****             nms -= STEP_DELAY_MS;
+ 337:../hoverboard/at32_hoverboard.c ****         }
+ 338:../hoverboard/at32_hoverboard.c ****         else
+ 339:../hoverboard/at32_hoverboard.c ****         {
+ 340:../hoverboard/at32_hoverboard.c ****             SysTick->LOAD = (u32)nms * fac_ms;
+ 770              		.loc 1 340 0
+ 771 0002 1C4B     		ldr	r3, .L59
+ 772 0004 93ED007A 		vldr.32	s14, [r3]
+ 773 0008 07EE900A 		vmov	s15, r0	@ int
+ 774 000c F8EE677A 		vcvt.f32.u32	s15, s15
+ 775 0010 67EE877A 		vmul.f32	s15, s15, s14
+ 776 0014 FCEEE77A 		vcvt.u32.f32	s15, s15
+ 777 0018 174B     		ldr	r3, .L59+4
+ 778 001a C3ED017A 		vstr.32	s15, [r3, #4]	@ int
+ 779              	.LVL55:
+ 341:../hoverboard/at32_hoverboard.c ****             nms = 0;
+ 780              		.loc 1 341 0
+ 781 001e 0020     		movs	r0, #0
+ 782              	.LVL56:
+ 783              	.L55:
+ 342:../hoverboard/at32_hoverboard.c ****         }
+ 343:../hoverboard/at32_hoverboard.c ****         SysTick->VAL = 0x00;
+ 784              		.loc 1 343 0
+ 785 0020 154B     		ldr	r3, .L59+4
+ 786 0022 0022     		movs	r2, #0
+ 787 0024 9A60     		str	r2, [r3, #8]
+ 344:../hoverboard/at32_hoverboard.c ****         SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk;
+ 788              		.loc 1 344 0
+ 789 0026 1A68     		ldr	r2, [r3]
+ 790 0028 42F00102 		orr	r2, r2, #1
+ 791 002c 1A60     		str	r2, [r3]
+ 792              	.L56:
+ 345:../hoverboard/at32_hoverboard.c ****         do
+ 346:../hoverboard/at32_hoverboard.c ****         {
+ 347:../hoverboard/at32_hoverboard.c ****             temp = SysTick->CTRL;
+ 793              		.loc 1 347 0 discriminator 1
+ 794 002e 124B     		ldr	r3, .L59+4
+ 795 0030 1B68     		ldr	r3, [r3]
+ 796              	.LVL57:
+ 348:../hoverboard/at32_hoverboard.c ****         }while( (temp & 0x01) && !(temp & (1<<16)) );
+ 797              		.loc 1 348 0 discriminator 1
+ 798 0032 03F00113 		and	r3, r3, #65537
+ 799              	.LVL58:
+ 800 0036 012B     		cmp	r3, #1
+ 801 0038 F9D0     		beq	.L56
+ 349:../hoverboard/at32_hoverboard.c **** 
+ 350:../hoverboard/at32_hoverboard.c ****         SysTick->CTRL &= ~SysTick_CTRL_ENABLE_Msk;
+ 802              		.loc 1 350 0
+ 803 003a 0F4B     		ldr	r3, .L59+4
+ 804 003c 1A68     		ldr	r2, [r3]
+ 805 003e 22F00102 		bic	r2, r2, #1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s 			page 21
+
+
+ 806 0042 1A60     		str	r2, [r3]
+ 351:../hoverboard/at32_hoverboard.c ****         SysTick->VAL = 0X00;
+ 807              		.loc 1 351 0
+ 808 0044 0022     		movs	r2, #0
+ 809 0046 9A60     		str	r2, [r3, #8]
+ 810              	.L53:
+ 331:../hoverboard/at32_hoverboard.c ****     {
+ 811              		.loc 1 331 0
+ 812 0048 90B1     		cbz	r0, .L58
+ 333:../hoverboard/at32_hoverboard.c ****         {
+ 813              		.loc 1 333 0
+ 814 004a B0F5FA7F 		cmp	r0, #500
+ 815 004e D8D9     		bls	.L54
+ 335:../hoverboard/at32_hoverboard.c ****             nms -= STEP_DELAY_MS;
+ 816              		.loc 1 335 0
+ 817 0050 084B     		ldr	r3, .L59
+ 818 0052 D3ED007A 		vldr.32	s15, [r3]
+ 819 0056 9FED097A 		vldr.32	s14, .L59+8
+ 820 005a 67EE877A 		vmul.f32	s15, s15, s14
+ 821 005e FCEEE77A 		vcvt.u32.f32	s15, s15
+ 822 0062 054B     		ldr	r3, .L59+4
+ 823 0064 C3ED017A 		vstr.32	s15, [r3, #4]	@ int
+ 336:../hoverboard/at32_hoverboard.c ****         }
+ 824              		.loc 1 336 0
+ 825 0068 A0F5FA70 		sub	r0, r0, #500
+ 826              	.LVL59:
+ 827 006c 80B2     		uxth	r0, r0
+ 828              	.LVL60:
+ 829 006e D7E7     		b	.L55
+ 830              	.L58:
+ 352:../hoverboard/at32_hoverboard.c ****     }
+ 353:../hoverboard/at32_hoverboard.c **** }
+ 831              		.loc 1 353 0
+ 832 0070 7047     		bx	lr
+ 833              	.L60:
+ 834 0072 00BF     		.align	2
+ 835              	.L59:
+ 836 0074 00000000 		.word	.LANCHOR7
+ 837 0078 10E000E0 		.word	-536813552
+ 838 007c 0000FA43 		.word	1140457472
+ 839              		.cfi_endproc
+ 840              	.LFE140:
+ 842              		.section	.text.AT32_BUTTON_Press,"ax",%progbits
+ 843              		.align	1
+ 844              		.global	AT32_BUTTON_Press
+ 845              		.syntax unified
+ 846              		.thumb
+ 847              		.thumb_func
+ 848              		.fpu fpv4-sp-d16
+ 850              	AT32_BUTTON_Press:
+ 851              	.LFB132:
+ 158:../hoverboard/at32_hoverboard.c ****     static uint8_t Pressed = 1;
+ 852              		.loc 1 158 0
+ 853              		.cfi_startproc
+ 854              		@ args = 0, pretend = 0, frame = 0
+ 855              		@ frame_needed = 0, uses_anonymous_args = 0
+ 856 0000 10B5     		push	{r4, lr}
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s 			page 22
+
+
+ 857              	.LCFI19:
+ 858              		.cfi_def_cfa_offset 8
+ 859              		.cfi_offset 4, -8
+ 860              		.cfi_offset 14, -4
+ 161:../hoverboard/at32_hoverboard.c ****     {
+ 861              		.loc 1 161 0
+ 862 0002 194B     		ldr	r3, .L71
+ 863 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 864 0006 012B     		cmp	r3, #1
+ 865 0008 0BD0     		beq	.L70
+ 866              	.L62:
+ 170:../hoverboard/at32_hoverboard.c ****     {
+ 867              		.loc 1 170 0
+ 868 000a 0120     		movs	r0, #1
+ 869 000c FFF7FEFF 		bl	AT32_BUTTON_State
+ 870              	.LVL61:
+ 871 0010 28BB     		cbnz	r0, .L67
+ 170:../hoverboard/at32_hoverboard.c ****     {
+ 872              		.loc 1 170 0 is_stmt 0 discriminator 1
+ 873 0012 FFF7FEFF 		bl	AT32_BUTTON_State
+ 874              	.LVL62:
+ 875 0016 20BB     		cbnz	r0, .L68
+ 172:../hoverboard/at32_hoverboard.c ****     }
+ 876              		.loc 1 172 0 is_stmt 1
+ 877 0018 134B     		ldr	r3, .L71
+ 878 001a 0122     		movs	r2, #1
+ 879 001c 1A70     		strb	r2, [r3]
+ 174:../hoverboard/at32_hoverboard.c **** }
+ 880              		.loc 1 174 0
+ 881 001e 0420     		movs	r0, #4
+ 882 0020 1EE0     		b	.L64
+ 883              	.L70:
+ 161:../hoverboard/at32_hoverboard.c ****     {
+ 884              		.loc 1 161 0 discriminator 1
+ 885 0022 0020     		movs	r0, #0
+ 886 0024 FFF7FEFF 		bl	AT32_BUTTON_State
+ 887              	.LVL63:
+ 888 0028 0128     		cmp	r0, #1
+ 889 002a 04D0     		beq	.L63
+ 161:../hoverboard/at32_hoverboard.c ****     {
+ 890              		.loc 1 161 0 is_stmt 0 discriminator 2
+ 891 002c 0120     		movs	r0, #1
+ 892 002e FFF7FEFF 		bl	AT32_BUTTON_State
+ 893              	.LVL64:
+ 894 0032 0128     		cmp	r0, #1
+ 895 0034 E9D1     		bne	.L62
+ 896              	.L63:
+ 164:../hoverboard/at32_hoverboard.c ****         Delay_ms(10);
+ 897              		.loc 1 164 0 is_stmt 1
+ 898 0036 0024     		movs	r4, #0
+ 899 0038 0B4B     		ldr	r3, .L71
+ 900 003a 1C70     		strb	r4, [r3]
+ 165:../hoverboard/at32_hoverboard.c ****         if (AT32_BUTTON_State(BUTTON_WAKEUP) == Bit_SET)
+ 901              		.loc 1 165 0
+ 902 003c 0A20     		movs	r0, #10
+ 903 003e FFF7FEFF 		bl	Delay_ms
+ 904              	.LVL65:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s 			page 23
+
+
+ 166:../hoverboard/at32_hoverboard.c ****             return BUTTON_WAKEUP;
+ 905              		.loc 1 166 0
+ 906 0042 2046     		mov	r0, r4
+ 907 0044 FFF7FEFF 		bl	AT32_BUTTON_State
+ 908              	.LVL66:
+ 909 0048 0128     		cmp	r0, #1
+ 910 004a 06D0     		beq	.L65
+ 168:../hoverboard/at32_hoverboard.c ****             return BUTTON_USER_KEY;
+ 911              		.loc 1 168 0
+ 912 004c 0120     		movs	r0, #1
+ 913 004e FFF7FEFF 		bl	AT32_BUTTON_State
+ 914              	.LVL67:
+ 915 0052 0128     		cmp	r0, #1
+ 916 0054 04D0     		beq	.L64
+ 174:../hoverboard/at32_hoverboard.c **** }
+ 917              		.loc 1 174 0
+ 918 0056 0420     		movs	r0, #4
+ 919 0058 02E0     		b	.L64
+ 920              	.L65:
+ 167:../hoverboard/at32_hoverboard.c ****         if (AT32_BUTTON_State(BUTTON_USER_KEY) == Bit_SET)
+ 921              		.loc 1 167 0
+ 922 005a 0020     		movs	r0, #0
+ 923 005c 00E0     		b	.L64
+ 924              	.L67:
+ 174:../hoverboard/at32_hoverboard.c **** }
+ 925              		.loc 1 174 0
+ 926 005e 0420     		movs	r0, #4
+ 927              	.L64:
+ 175:../hoverboard/at32_hoverboard.c **** 
+ 928              		.loc 1 175 0
+ 929 0060 10BD     		pop	{r4, pc}
+ 930              	.L68:
+ 174:../hoverboard/at32_hoverboard.c **** }
+ 931              		.loc 1 174 0
+ 932 0062 0420     		movs	r0, #4
+ 933 0064 FCE7     		b	.L64
+ 934              	.L72:
+ 935 0066 00BF     		.align	2
+ 936              	.L71:
+ 937 0068 00000000 		.word	.LANCHOR8
+ 938              		.cfi_endproc
+ 939              	.LFE132:
+ 941              		.section	.text.Delay_sec,"ax",%progbits
+ 942              		.align	1
+ 943              		.global	Delay_sec
+ 944              		.syntax unified
+ 945              		.thumb
+ 946              		.thumb_func
+ 947              		.fpu fpv4-sp-d16
+ 949              	Delay_sec:
+ 950              	.LFB141:
+ 354:../hoverboard/at32_hoverboard.c **** 
+ 355:../hoverboard/at32_hoverboard.c **** /**
+ 356:../hoverboard/at32_hoverboard.c ****   * @brief  Inserts a delay time.
+ 357:../hoverboard/at32_hoverboard.c ****   * @param  sec: specifies the delay time length, in seconds.
+ 358:../hoverboard/at32_hoverboard.c ****   * @retval None
+ 359:../hoverboard/at32_hoverboard.c ****   */
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s 			page 24
+
+
+ 360:../hoverboard/at32_hoverboard.c **** void Delay_sec(u16 sec)
+ 361:../hoverboard/at32_hoverboard.c **** {
+ 951              		.loc 1 361 0
+ 952              		.cfi_startproc
+ 953              		@ args = 0, pretend = 0, frame = 0
+ 954              		@ frame_needed = 0, uses_anonymous_args = 0
+ 955              	.LVL68:
+ 956 0000 38B5     		push	{r3, r4, r5, lr}
+ 957              	.LCFI20:
+ 958              		.cfi_def_cfa_offset 16
+ 959              		.cfi_offset 3, -16
+ 960              		.cfi_offset 4, -12
+ 961              		.cfi_offset 5, -8
+ 962              		.cfi_offset 14, -4
+ 963 0002 0546     		mov	r5, r0
+ 964              	.LVL69:
+ 362:../hoverboard/at32_hoverboard.c ****     u16 i;
+ 363:../hoverboard/at32_hoverboard.c ****     for(i=0; i<sec; i++)
+ 965              		.loc 1 363 0
+ 966 0004 0024     		movs	r4, #0
+ 967 0006 09E0     		b	.L74
+ 968              	.LVL70:
+ 969              	.L75:
+ 364:../hoverboard/at32_hoverboard.c ****     {
+ 365:../hoverboard/at32_hoverboard.c ****         Delay_ms(500);
+ 970              		.loc 1 365 0 discriminator 3
+ 971 0008 4FF4FA70 		mov	r0, #500
+ 972 000c FFF7FEFF 		bl	Delay_ms
+ 973              	.LVL71:
+ 366:../hoverboard/at32_hoverboard.c ****         Delay_ms(500);
+ 974              		.loc 1 366 0 discriminator 3
+ 975 0010 4FF4FA70 		mov	r0, #500
+ 976 0014 FFF7FEFF 		bl	Delay_ms
+ 977              	.LVL72:
+ 363:../hoverboard/at32_hoverboard.c ****     {
+ 978              		.loc 1 363 0 discriminator 3
+ 979 0018 0134     		adds	r4, r4, #1
+ 980              	.LVL73:
+ 981 001a A4B2     		uxth	r4, r4
+ 982              	.LVL74:
+ 983              	.L74:
+ 363:../hoverboard/at32_hoverboard.c ****     {
+ 984              		.loc 1 363 0 is_stmt 0 discriminator 1
+ 985 001c AC42     		cmp	r4, r5
+ 986 001e F3D3     		bcc	.L75
+ 367:../hoverboard/at32_hoverboard.c ****     }
+ 368:../hoverboard/at32_hoverboard.c **** }
+ 987              		.loc 1 368 0 is_stmt 1
+ 988 0020 38BD     		pop	{r3, r4, r5, pc}
+ 989              		.cfi_endproc
+ 990              	.LFE141:
+ 992              		.global	BUTTON_GPIO_RCC_CLK
+ 993              		.global	BUTTON_GPIO_PIN
+ 994              		.global	BUTTON_GPIO_PORT
+ 995              		.global	LED_GPIO_RCC_CLK
+ 996              		.global	LED_GPIO_PIN
+ 997              		.global	LED_GPIO_PORT
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s 			page 25
+
+
+ 998              		.section	.bss.fac_ms,"aw",%nobits
+ 999              		.align	2
+ 1000              		.set	.LANCHOR7,. + 0
+ 1003              	fac_ms:
+ 1004 0000 00000000 		.space	4
+ 1005              		.section	.bss.fac_us,"aw",%nobits
+ 1006              		.align	2
+ 1007              		.set	.LANCHOR6,. + 0
+ 1010              	fac_us:
+ 1011 0000 00000000 		.space	4
+ 1012              		.section	.data.BUTTON_GPIO_PIN,"aw",%progbits
+ 1013              		.align	2
+ 1014              		.set	.LANCHOR1,. + 0
+ 1017              	BUTTON_GPIO_PIN:
+ 1018 0000 0100     		.short	1
+ 1019 0002 0002     		.short	512
+ 1020              		.section	.data.BUTTON_GPIO_PORT,"aw",%progbits
+ 1021              		.align	2
+ 1022              		.set	.LANCHOR2,. + 0
+ 1025              	BUTTON_GPIO_PORT:
+ 1026 0000 00080140 		.word	1073809408
+ 1027 0004 000C0140 		.word	1073810432
+ 1028              		.section	.data.BUTTON_GPIO_RCC_CLK,"aw",%progbits
+ 1029              		.align	2
+ 1030              		.set	.LANCHOR0,. + 0
+ 1033              	BUTTON_GPIO_RCC_CLK:
+ 1034 0000 04000000 		.word	4
+ 1035 0004 08000000 		.word	8
+ 1036              		.section	.data.LED_GPIO_PIN,"aw",%progbits
+ 1037              		.align	2
+ 1038              		.set	.LANCHOR4,. + 0
+ 1041              	LED_GPIO_PIN:
+ 1042 0000 0000     		.short	0
+ 1043 0002 0020     		.short	8192
+ 1044 0004 0040     		.short	16384
+ 1045 0006 0080     		.short	-32768
+ 1046              		.section	.data.LED_GPIO_PORT,"aw",%progbits
+ 1047              		.align	2
+ 1048              		.set	.LANCHOR5,. + 0
+ 1051              	LED_GPIO_PORT:
+ 1052 0000 00000000 		.word	0
+ 1053 0004 00100140 		.word	1073811456
+ 1054 0008 00100140 		.word	1073811456
+ 1055 000c 00100140 		.word	1073811456
+ 1056              		.section	.data.LED_GPIO_RCC_CLK,"aw",%progbits
+ 1057              		.align	2
+ 1058              		.set	.LANCHOR3,. + 0
+ 1061              	LED_GPIO_RCC_CLK:
+ 1062 0000 00000000 		.word	0
+ 1063 0004 10000000 		.word	16
+ 1064 0008 10000000 		.word	16
+ 1065 000c 10000000 		.word	16
+ 1066              		.section	.data.Pressed.9379,"aw",%progbits
+ 1067              		.set	.LANCHOR8,. + 0
+ 1070              	Pressed.9379:
+ 1071 0000 01       		.byte	1
+ 1072              		.text
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s 			page 26
+
+
+ 1073              	.Letext0:
+ 1074              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
+ 1075              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
+ 1076              		.file 4 "../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h"
+ 1077              		.file 5 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
+ 1078              		.file 6 "../Libraries/CMSIS/CM4/DeviceSupport/at32f4xx.h"
+ 1079              		.file 7 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_gpio.h"
+ 1080              		.file 8 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_usart.h"
+ 1081              		.file 9 "../hoverboard/at32_hoverboard.h"
+ 1082              		.file 10 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
+ 1083              		.file 11 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
+ 1084              		.file 12 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.
+ 1085              		.file 13 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
+ 1086              		.file 14 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/misc.h"
+ 1087              		.file 15 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_rcc.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s 			page 27
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 at32_hoverboard.c
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:17     .text.__io_putchar:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:24     .text.__io_putchar:0000000000000000 __io_putchar
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:59     .text.__io_putchar:000000000000001c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:64     .text.Board_Init:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:71     .text.Board_Init:0000000000000000 Board_Init
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:113    .text.Board_Init:000000000000002c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:118    .text.AT32_USB_GPIO_init:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:125    .text.AT32_USB_GPIO_init:0000000000000000 AT32_USB_GPIO_init
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:177    .text.AT32_USB_GPIO_init:0000000000000040 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:182    .text.AT32_BUTTON_Init:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:189    .text.AT32_BUTTON_Init:0000000000000000 AT32_BUTTON_Init
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:238    .text.AT32_BUTTON_Init:0000000000000038 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:245    .text.AT32_BUTTON_State:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:252    .text.AT32_BUTTON_State:0000000000000000 AT32_BUTTON_State
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:277    .text.AT32_BUTTON_State:0000000000000014 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:283    .text.AT32_LEDn_Init:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:290    .text.AT32_LEDn_Init:0000000000000000 AT32_LEDn_Init
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:342    .text.AT32_LEDn_Init:0000000000000040 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:349    .text.AT32_LEDn_ON:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:356    .text.AT32_LEDn_ON:0000000000000000 AT32_LEDn_ON
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:381    .text.AT32_LEDn_ON:0000000000000018 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:387    .text.AT32_LEDn_OFF:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:394    .text.AT32_LEDn_OFF:0000000000000000 AT32_LEDn_OFF
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:419    .text.AT32_LEDn_OFF:0000000000000018 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:425    .text.AT32_LEDn_Toggle:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:432    .text.AT32_LEDn_Toggle:0000000000000000 AT32_LEDn_Toggle
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:459    .text.AT32_LEDn_Toggle:000000000000001c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:465    .text.UART_Print_Init:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:472    .text.UART_Print_Init:0000000000000000 UART_Print_Init
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:575    .text.UART_Print_Init:0000000000000094 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:580    .text.Delay_init:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:587    .text.Delay_init:0000000000000000 Delay_init
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:621    .text.Delay_init:0000000000000038 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:630    .text.AT32_Hoverboard_Init:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:637    .text.AT32_Hoverboard_Init:0000000000000000 AT32_Hoverboard_Init
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:692    .text.Delay_us:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:699    .text.Delay_us:0000000000000000 Delay_us
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:746    .text.Delay_us:0000000000000044 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:752    .text.Delay_ms:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:759    .text.Delay_ms:0000000000000000 Delay_ms
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:836    .text.Delay_ms:0000000000000074 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:843    .text.AT32_BUTTON_Press:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:850    .text.AT32_BUTTON_Press:0000000000000000 AT32_BUTTON_Press
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:937    .text.AT32_BUTTON_Press:0000000000000068 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:942    .text.Delay_sec:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:949    .text.Delay_sec:0000000000000000 Delay_sec
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:1033   .data.BUTTON_GPIO_RCC_CLK:0000000000000000 BUTTON_GPIO_RCC_CLK
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:1017   .data.BUTTON_GPIO_PIN:0000000000000000 BUTTON_GPIO_PIN
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:1025   .data.BUTTON_GPIO_PORT:0000000000000000 BUTTON_GPIO_PORT
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:1061   .data.LED_GPIO_RCC_CLK:0000000000000000 LED_GPIO_RCC_CLK
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:1041   .data.LED_GPIO_PIN:0000000000000000 LED_GPIO_PIN
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:1051   .data.LED_GPIO_PORT:0000000000000000 LED_GPIO_PORT
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:999    .bss.fac_ms:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:1003   .bss.fac_ms:0000000000000000 fac_ms
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:1006   .bss.fac_us:0000000000000000 $d
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s 			page 28
+
+
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:1010   .bss.fac_us:0000000000000000 fac_us
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:1013   .data.BUTTON_GPIO_PIN:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:1021   .data.BUTTON_GPIO_PORT:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:1029   .data.BUTTON_GPIO_RCC_CLK:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:1037   .data.LED_GPIO_PIN:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:1047   .data.LED_GPIO_PORT:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:1057   .data.LED_GPIO_RCC_CLK:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2CSO9I.s:1070   .data.Pressed.9379:0000000000000000 Pressed.9379
+
+UNDEFINED SYMBOLS
+USART_SendData
+USART_GetFlagStatus
+RCC_APB2PeriphClockCmd
+GPIO_StructInit
+GPIO_Init
+GPIO_ResetBits
+GPIO_ReadInputDataBit
+RCC_APB2PeriphResetCmd
+RCC_APB1PeriphClockCmd
+USART_StructInit
+USART_Init
+USART_INTConfig
+USART_Cmd
+SysTick_CLKSourceConfig
+SystemCoreClock

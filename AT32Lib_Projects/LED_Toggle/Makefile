@@ -35,7 +35,7 @@ BUILD_DIR = build
 ######################################
 # C sources
 C_SOURCES =  \
-../at32_hoverboard.c \
+../hoverboard/at32_hoverboard.c \
 ../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c \
 ../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_gpio.c \
 ../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_rcc.c \
@@ -101,6 +101,7 @@ AS_INCLUDES =
 # C includes
 C_INCLUDES =  \
 -IInc \
+-I../hoverboard \
 -I../Libraries/AT32F4xx_StdPeriph_Driver/inc \
 -I../Libraries/CMSIS/CM4/DeviceSupport \
 -I../Libraries/CMSIS/CM4/CoreSupport 

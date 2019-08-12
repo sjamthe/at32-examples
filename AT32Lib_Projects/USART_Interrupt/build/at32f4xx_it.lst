@@ -1,0 +1,698 @@
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceKgsY2.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"at32f4xx_it.c"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.text.NMI_Handler,"ax",%progbits
+  17              		.align	1
+  18              		.global	NMI_Handler
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu fpv4-sp-d16
+  24              	NMI_Handler:
+  25              	.LFB123:
+  26              		.file 1 "Src/at32f4xx_it.c"
+   1:Src/at32f4xx_it.c **** /**
+   2:Src/at32f4xx_it.c ****   ******************************************************************************
+   3:Src/at32f4xx_it.c ****   * @file    USART/Interrupt/at32f4xx_it.c
+   4:Src/at32f4xx_it.c ****   * @author  Artery Technology
+   5:Src/at32f4xx_it.c ****   * @version V1.1.2
+   6:Src/at32f4xx_it.c ****   * @date    2019-01-04
+   7:Src/at32f4xx_it.c ****   * @brief   Main Interrupt Service Routines.
+   8:Src/at32f4xx_it.c ****   *          This file provides template for all exceptions handler and peripherals
+   9:Src/at32f4xx_it.c ****   *          interrupt service routine.
+  10:Src/at32f4xx_it.c ****   ******************************************************************************
+  11:Src/at32f4xx_it.c ****   * @attention
+  12:Src/at32f4xx_it.c ****   *
+  13:Src/at32f4xx_it.c ****   * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
+  14:Src/at32f4xx_it.c ****   * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
+  15:Src/at32f4xx_it.c ****   * TIME. AS A RESULT, ARTERYTEK SHALL NOT BE HELD LIABLE FOR ANY
+  16:Src/at32f4xx_it.c ****   * DIRECT, INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
+  17:Src/at32f4xx_it.c ****   * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
+  18:Src/at32f4xx_it.c ****   * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
+  19:Src/at32f4xx_it.c ****   *
+  20:Src/at32f4xx_it.c ****   * <h2><center>&copy; COPYRIGHT 2018 ArteryTek</center></h2>
+  21:Src/at32f4xx_it.c ****   ******************************************************************************
+  22:Src/at32f4xx_it.c ****   */ 
+  23:Src/at32f4xx_it.c **** 
+  24:Src/at32f4xx_it.c **** /* Includes ------------------------------------------------------------------*/
+  25:Src/at32f4xx_it.c **** #include "at32f4xx_it.h"
+  26:Src/at32f4xx_it.c **** 
+  27:Src/at32f4xx_it.c **** /** @addtogroup AT32F403_StdPeriph_Examples
+  28:Src/at32f4xx_it.c ****   * @{
+  29:Src/at32f4xx_it.c ****   */
+  30:Src/at32f4xx_it.c **** 
+  31:Src/at32f4xx_it.c **** 
+  32:Src/at32f4xx_it.c **** /** @addtogroup USART_Interrupt
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceKgsY2.s 			page 2
+
+
+  33:Src/at32f4xx_it.c ****   * @{
+  34:Src/at32f4xx_it.c ****   */ 
+  35:Src/at32f4xx_it.c **** 
+  36:Src/at32f4xx_it.c **** /* Private typedef -----------------------------------------------------------*/
+  37:Src/at32f4xx_it.c **** /* Private define ------------------------------------------------------------*/
+  38:Src/at32f4xx_it.c **** /* Private macro -------------------------------------------------------------*/
+  39:Src/at32f4xx_it.c **** /* Private variables ---------------------------------------------------------*/
+  40:Src/at32f4xx_it.c **** extern uint8_t TxBuffer1[]; 
+  41:Src/at32f4xx_it.c **** extern uint8_t TxBuffer2[]; 
+  42:Src/at32f4xx_it.c **** extern uint8_t RxBuffer1[];
+  43:Src/at32f4xx_it.c **** extern uint8_t RxBuffer2[];
+  44:Src/at32f4xx_it.c **** extern __IO uint8_t TxCounter1;
+  45:Src/at32f4xx_it.c **** extern __IO uint8_t TxCounter2;
+  46:Src/at32f4xx_it.c **** extern __IO uint8_t RxCounter1; 
+  47:Src/at32f4xx_it.c **** extern __IO uint8_t RxCounter2;
+  48:Src/at32f4xx_it.c **** extern uint8_t NbrOfDataToTransfer1;
+  49:Src/at32f4xx_it.c **** extern uint8_t NbrOfDataToTransfer2;
+  50:Src/at32f4xx_it.c **** extern uint8_t NbrOfDataToRead1;
+  51:Src/at32f4xx_it.c **** extern uint8_t NbrOfDataToRead2;
+  52:Src/at32f4xx_it.c **** 
+  53:Src/at32f4xx_it.c **** /* Private function prototypes -----------------------------------------------*/
+  54:Src/at32f4xx_it.c **** /* Private functions ---------------------------------------------------------*/
+  55:Src/at32f4xx_it.c **** 
+  56:Src/at32f4xx_it.c **** /**
+  57:Src/at32f4xx_it.c ****   * @brief  This function handles NMI exception.
+  58:Src/at32f4xx_it.c ****   * @param  None
+  59:Src/at32f4xx_it.c ****   * @retval None
+  60:Src/at32f4xx_it.c ****   */
+  61:Src/at32f4xx_it.c **** void NMI_Handler(void)
+  62:Src/at32f4xx_it.c **** {
+  27              		.loc 1 62 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  63:Src/at32f4xx_it.c **** }
+  32              		.loc 1 63 0
+  33 0000 7047     		bx	lr
+  34              		.cfi_endproc
+  35              	.LFE123:
+  37              		.section	.text.HardFault_Handler,"ax",%progbits
+  38              		.align	1
+  39              		.global	HardFault_Handler
+  40              		.syntax unified
+  41              		.thumb
+  42              		.thumb_func
+  43              		.fpu fpv4-sp-d16
+  45              	HardFault_Handler:
+  46              	.LFB124:
+  64:Src/at32f4xx_it.c **** 
+  65:Src/at32f4xx_it.c **** /**
+  66:Src/at32f4xx_it.c ****   * @brief  This function handles Hard Fault exception.
+  67:Src/at32f4xx_it.c ****   * @param  None
+  68:Src/at32f4xx_it.c ****   * @retval None
+  69:Src/at32f4xx_it.c ****   */
+  70:Src/at32f4xx_it.c **** void HardFault_Handler(void)
+  71:Src/at32f4xx_it.c **** {
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceKgsY2.s 			page 3
+
+
+  47              		.loc 1 71 0
+  48              		.cfi_startproc
+  49              		@ Volatile: function does not return.
+  50              		@ args = 0, pretend = 0, frame = 0
+  51              		@ frame_needed = 0, uses_anonymous_args = 0
+  52              		@ link register save eliminated.
+  53              	.L3:
+  54 0000 FEE7     		b	.L3
+  55              		.cfi_endproc
+  56              	.LFE124:
+  58              		.section	.text.MemManage_Handler,"ax",%progbits
+  59              		.align	1
+  60              		.global	MemManage_Handler
+  61              		.syntax unified
+  62              		.thumb
+  63              		.thumb_func
+  64              		.fpu fpv4-sp-d16
+  66              	MemManage_Handler:
+  67              	.LFB125:
+  72:Src/at32f4xx_it.c ****   /* Go to infinite loop when Hard Fault exception occurs */
+  73:Src/at32f4xx_it.c ****   while (1)
+  74:Src/at32f4xx_it.c ****   {
+  75:Src/at32f4xx_it.c ****   }
+  76:Src/at32f4xx_it.c **** }
+  77:Src/at32f4xx_it.c **** 
+  78:Src/at32f4xx_it.c **** /**
+  79:Src/at32f4xx_it.c ****   * @brief  This function handles Memory Manage exception.
+  80:Src/at32f4xx_it.c ****   * @param  None
+  81:Src/at32f4xx_it.c ****   * @retval None
+  82:Src/at32f4xx_it.c ****   */
+  83:Src/at32f4xx_it.c **** void MemManage_Handler(void)
+  84:Src/at32f4xx_it.c **** {
+  68              		.loc 1 84 0
+  69              		.cfi_startproc
+  70              		@ Volatile: function does not return.
+  71              		@ args = 0, pretend = 0, frame = 0
+  72              		@ frame_needed = 0, uses_anonymous_args = 0
+  73              		@ link register save eliminated.
+  74              	.L5:
+  75 0000 FEE7     		b	.L5
+  76              		.cfi_endproc
+  77              	.LFE125:
+  79              		.section	.text.BusFault_Handler,"ax",%progbits
+  80              		.align	1
+  81              		.global	BusFault_Handler
+  82              		.syntax unified
+  83              		.thumb
+  84              		.thumb_func
+  85              		.fpu fpv4-sp-d16
+  87              	BusFault_Handler:
+  88              	.LFB126:
+  85:Src/at32f4xx_it.c ****   /* Go to infinite loop when Memory Manage exception occurs */
+  86:Src/at32f4xx_it.c ****   while (1)
+  87:Src/at32f4xx_it.c ****   {
+  88:Src/at32f4xx_it.c ****   }
+  89:Src/at32f4xx_it.c **** }
+  90:Src/at32f4xx_it.c **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceKgsY2.s 			page 4
+
+
+  91:Src/at32f4xx_it.c **** /**
+  92:Src/at32f4xx_it.c ****   * @brief  This function handles Bus Fault exception.
+  93:Src/at32f4xx_it.c ****   * @param  None
+  94:Src/at32f4xx_it.c ****   * @retval None
+  95:Src/at32f4xx_it.c ****   */
+  96:Src/at32f4xx_it.c **** void BusFault_Handler(void)
+  97:Src/at32f4xx_it.c **** {
+  89              		.loc 1 97 0
+  90              		.cfi_startproc
+  91              		@ Volatile: function does not return.
+  92              		@ args = 0, pretend = 0, frame = 0
+  93              		@ frame_needed = 0, uses_anonymous_args = 0
+  94              		@ link register save eliminated.
+  95              	.L7:
+  96 0000 FEE7     		b	.L7
+  97              		.cfi_endproc
+  98              	.LFE126:
+ 100              		.section	.text.UsageFault_Handler,"ax",%progbits
+ 101              		.align	1
+ 102              		.global	UsageFault_Handler
+ 103              		.syntax unified
+ 104              		.thumb
+ 105              		.thumb_func
+ 106              		.fpu fpv4-sp-d16
+ 108              	UsageFault_Handler:
+ 109              	.LFB127:
+  98:Src/at32f4xx_it.c ****   /* Go to infinite loop when Bus Fault exception occurs */
+  99:Src/at32f4xx_it.c ****   while (1)
+ 100:Src/at32f4xx_it.c ****   {
+ 101:Src/at32f4xx_it.c ****   }
+ 102:Src/at32f4xx_it.c **** }
+ 103:Src/at32f4xx_it.c **** 
+ 104:Src/at32f4xx_it.c **** /**
+ 105:Src/at32f4xx_it.c ****   * @brief  This function handles Usage Fault exception.
+ 106:Src/at32f4xx_it.c ****   * @param  None
+ 107:Src/at32f4xx_it.c ****   * @retval None
+ 108:Src/at32f4xx_it.c ****   */
+ 109:Src/at32f4xx_it.c **** void UsageFault_Handler(void)
+ 110:Src/at32f4xx_it.c **** {
+ 110              		.loc 1 110 0
+ 111              		.cfi_startproc
+ 112              		@ Volatile: function does not return.
+ 113              		@ args = 0, pretend = 0, frame = 0
+ 114              		@ frame_needed = 0, uses_anonymous_args = 0
+ 115              		@ link register save eliminated.
+ 116              	.L9:
+ 117 0000 FEE7     		b	.L9
+ 118              		.cfi_endproc
+ 119              	.LFE127:
+ 121              		.section	.text.SVC_Handler,"ax",%progbits
+ 122              		.align	1
+ 123              		.global	SVC_Handler
+ 124              		.syntax unified
+ 125              		.thumb
+ 126              		.thumb_func
+ 127              		.fpu fpv4-sp-d16
+ 129              	SVC_Handler:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceKgsY2.s 			page 5
+
+
+ 130              	.LFB128:
+ 111:Src/at32f4xx_it.c ****   /* Go to infinite loop when Usage Fault exception occurs */
+ 112:Src/at32f4xx_it.c ****   while (1)
+ 113:Src/at32f4xx_it.c ****   {
+ 114:Src/at32f4xx_it.c ****   }
+ 115:Src/at32f4xx_it.c **** }
+ 116:Src/at32f4xx_it.c **** 
+ 117:Src/at32f4xx_it.c **** /**
+ 118:Src/at32f4xx_it.c ****   * @brief  This function handles SVCall exception.
+ 119:Src/at32f4xx_it.c ****   * @param  None
+ 120:Src/at32f4xx_it.c ****   * @retval None
+ 121:Src/at32f4xx_it.c ****   */
+ 122:Src/at32f4xx_it.c **** void SVC_Handler(void)
+ 123:Src/at32f4xx_it.c **** {
+ 131              		.loc 1 123 0
+ 132              		.cfi_startproc
+ 133              		@ args = 0, pretend = 0, frame = 0
+ 134              		@ frame_needed = 0, uses_anonymous_args = 0
+ 135              		@ link register save eliminated.
+ 124:Src/at32f4xx_it.c **** }
+ 136              		.loc 1 124 0
+ 137 0000 7047     		bx	lr
+ 138              		.cfi_endproc
+ 139              	.LFE128:
+ 141              		.section	.text.DebugMon_Handler,"ax",%progbits
+ 142              		.align	1
+ 143              		.global	DebugMon_Handler
+ 144              		.syntax unified
+ 145              		.thumb
+ 146              		.thumb_func
+ 147              		.fpu fpv4-sp-d16
+ 149              	DebugMon_Handler:
+ 150              	.LFB129:
+ 125:Src/at32f4xx_it.c **** 
+ 126:Src/at32f4xx_it.c **** /**
+ 127:Src/at32f4xx_it.c ****   * @brief  This function handles Debug Monitor exception.
+ 128:Src/at32f4xx_it.c ****   * @param  None
+ 129:Src/at32f4xx_it.c ****   * @retval None
+ 130:Src/at32f4xx_it.c ****   */
+ 131:Src/at32f4xx_it.c **** void DebugMon_Handler(void)
+ 132:Src/at32f4xx_it.c **** {
+ 151              		.loc 1 132 0
+ 152              		.cfi_startproc
+ 153              		@ args = 0, pretend = 0, frame = 0
+ 154              		@ frame_needed = 0, uses_anonymous_args = 0
+ 155              		@ link register save eliminated.
+ 133:Src/at32f4xx_it.c **** }
+ 156              		.loc 1 133 0
+ 157 0000 7047     		bx	lr
+ 158              		.cfi_endproc
+ 159              	.LFE129:
+ 161              		.section	.text.PendSV_Handler,"ax",%progbits
+ 162              		.align	1
+ 163              		.global	PendSV_Handler
+ 164              		.syntax unified
+ 165              		.thumb
+ 166              		.thumb_func
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceKgsY2.s 			page 6
+
+
+ 167              		.fpu fpv4-sp-d16
+ 169              	PendSV_Handler:
+ 170              	.LFB130:
+ 134:Src/at32f4xx_it.c **** 
+ 135:Src/at32f4xx_it.c **** /**
+ 136:Src/at32f4xx_it.c ****   * @brief  This function handles PendSV_Handler exception.
+ 137:Src/at32f4xx_it.c ****   * @param  None
+ 138:Src/at32f4xx_it.c ****   * @retval None
+ 139:Src/at32f4xx_it.c ****   */
+ 140:Src/at32f4xx_it.c **** void PendSV_Handler(void)
+ 141:Src/at32f4xx_it.c **** {
+ 171              		.loc 1 141 0
+ 172              		.cfi_startproc
+ 173              		@ args = 0, pretend = 0, frame = 0
+ 174              		@ frame_needed = 0, uses_anonymous_args = 0
+ 175              		@ link register save eliminated.
+ 142:Src/at32f4xx_it.c **** }
+ 176              		.loc 1 142 0
+ 177 0000 7047     		bx	lr
+ 178              		.cfi_endproc
+ 179              	.LFE130:
+ 181              		.section	.text.SysTick_Handler,"ax",%progbits
+ 182              		.align	1
+ 183              		.global	SysTick_Handler
+ 184              		.syntax unified
+ 185              		.thumb
+ 186              		.thumb_func
+ 187              		.fpu fpv4-sp-d16
+ 189              	SysTick_Handler:
+ 190              	.LFB131:
+ 143:Src/at32f4xx_it.c **** 
+ 144:Src/at32f4xx_it.c **** /**
+ 145:Src/at32f4xx_it.c ****   * @brief  This function handles SysTick Handler.
+ 146:Src/at32f4xx_it.c ****   * @param  None
+ 147:Src/at32f4xx_it.c ****   * @retval None
+ 148:Src/at32f4xx_it.c ****   */
+ 149:Src/at32f4xx_it.c **** void SysTick_Handler(void)
+ 150:Src/at32f4xx_it.c **** {
+ 191              		.loc 1 150 0
+ 192              		.cfi_startproc
+ 193              		@ args = 0, pretend = 0, frame = 0
+ 194              		@ frame_needed = 0, uses_anonymous_args = 0
+ 195              		@ link register save eliminated.
+ 151:Src/at32f4xx_it.c **** }
+ 196              		.loc 1 151 0
+ 197 0000 7047     		bx	lr
+ 198              		.cfi_endproc
+ 199              	.LFE131:
+ 201              		.section	.text.USART2_IRQHandler,"ax",%progbits
+ 202              		.align	1
+ 203              		.global	USART2_IRQHandler
+ 204              		.syntax unified
+ 205              		.thumb
+ 206              		.thumb_func
+ 207              		.fpu fpv4-sp-d16
+ 209              	USART2_IRQHandler:
+ 210              	.LFB132:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceKgsY2.s 			page 7
+
+
+ 152:Src/at32f4xx_it.c **** 
+ 153:Src/at32f4xx_it.c **** /**
+ 154:Src/at32f4xx_it.c ****   * @brief  This function handles USART2 global interrupt request.
+ 155:Src/at32f4xx_it.c ****   * @param  None
+ 156:Src/at32f4xx_it.c ****   * @retval None
+ 157:Src/at32f4xx_it.c ****   */
+ 158:Src/at32f4xx_it.c **** void USART2_IRQHandler(void)
+ 159:Src/at32f4xx_it.c **** {
+ 211              		.loc 1 159 0
+ 212              		.cfi_startproc
+ 213              		@ args = 0, pretend = 0, frame = 0
+ 214              		@ frame_needed = 0, uses_anonymous_args = 0
+ 215 0000 10B5     		push	{r4, lr}
+ 216              	.LCFI0:
+ 217              		.cfi_def_cfa_offset 8
+ 218              		.cfi_offset 4, -8
+ 219              		.cfi_offset 14, -4
+ 160:Src/at32f4xx_it.c ****   if(USART_GetITStatus(USART2, USART_INT_RDNE) != RESET)
+ 220              		.loc 1 160 0
+ 221 0002 40F22551 		movw	r1, #1317
+ 222 0006 1D48     		ldr	r0, .L20
+ 223 0008 FFF7FEFF 		bl	USART_GetITStatus
+ 224              	.LVL0:
+ 225 000c 30B9     		cbnz	r0, .L18
+ 226              	.L15:
+ 161:Src/at32f4xx_it.c ****   {
+ 162:Src/at32f4xx_it.c ****     /* Read one byte from the receive data register */
+ 163:Src/at32f4xx_it.c ****     RxBuffer1[RxCounter1++] = USART_ReceiveData(USART2);
+ 164:Src/at32f4xx_it.c **** 
+ 165:Src/at32f4xx_it.c ****     if(RxCounter1 == NbrOfDataToRead1)
+ 166:Src/at32f4xx_it.c ****     {
+ 167:Src/at32f4xx_it.c ****       /* Disable the USART2 Receive interrupt */
+ 168:Src/at32f4xx_it.c ****       USART_INTConfig(USART2, USART_INT_RDNE, DISABLE);
+ 169:Src/at32f4xx_it.c ****     }
+ 170:Src/at32f4xx_it.c ****   }
+ 171:Src/at32f4xx_it.c ****   
+ 172:Src/at32f4xx_it.c ****   if(USART_GetITStatus(USART2, USART_INT_TDE) != RESET)
+ 227              		.loc 1 172 0
+ 228 000e 40F22771 		movw	r1, #1831
+ 229 0012 1A48     		ldr	r0, .L20
+ 230 0014 FFF7FEFF 		bl	USART_GetITStatus
+ 231              	.LVL1:
+ 232 0018 C0B9     		cbnz	r0, .L19
+ 233              	.L14:
+ 173:Src/at32f4xx_it.c ****   {   
+ 174:Src/at32f4xx_it.c ****     /* Write one byte to the transmit data register */
+ 175:Src/at32f4xx_it.c ****     USART_SendData(USART2, TxBuffer1[TxCounter1++]);
+ 176:Src/at32f4xx_it.c **** 
+ 177:Src/at32f4xx_it.c ****     if(TxCounter1 == NbrOfDataToTransfer1)
+ 178:Src/at32f4xx_it.c ****     {
+ 179:Src/at32f4xx_it.c ****       /* Disable the USART2 Transmit interrupt */
+ 180:Src/at32f4xx_it.c ****       USART_INTConfig(USART2, USART_INT_TDE, DISABLE);
+ 181:Src/at32f4xx_it.c ****     }    
+ 182:Src/at32f4xx_it.c ****   }
+ 183:Src/at32f4xx_it.c **** }
+ 234              		.loc 1 183 0
+ 235 001a 10BD     		pop	{r4, pc}
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceKgsY2.s 			page 8
+
+
+ 236              	.L18:
+ 163:Src/at32f4xx_it.c **** 
+ 237              		.loc 1 163 0
+ 238 001c 1748     		ldr	r0, .L20
+ 239 001e FFF7FEFF 		bl	USART_ReceiveData
+ 240              	.LVL2:
+ 241 0022 174A     		ldr	r2, .L20+4
+ 242 0024 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 243 0026 DBB2     		uxtb	r3, r3
+ 244 0028 591C     		adds	r1, r3, #1
+ 245 002a C9B2     		uxtb	r1, r1
+ 246 002c 1170     		strb	r1, [r2]
+ 247 002e 1549     		ldr	r1, .L20+8
+ 248 0030 C854     		strb	r0, [r1, r3]
+ 165:Src/at32f4xx_it.c ****     {
+ 249              		.loc 1 165 0
+ 250 0032 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 251 0034 DBB2     		uxtb	r3, r3
+ 252 0036 144A     		ldr	r2, .L20+12
+ 253 0038 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 254 003a 9342     		cmp	r3, r2
+ 255 003c E7D1     		bne	.L15
+ 168:Src/at32f4xx_it.c ****     }
+ 256              		.loc 1 168 0
+ 257 003e 0022     		movs	r2, #0
+ 258 0040 40F22551 		movw	r1, #1317
+ 259 0044 0D48     		ldr	r0, .L20
+ 260 0046 FFF7FEFF 		bl	USART_INTConfig
+ 261              	.LVL3:
+ 262 004a E0E7     		b	.L15
+ 263              	.L19:
+ 175:Src/at32f4xx_it.c **** 
+ 264              		.loc 1 175 0
+ 265 004c 0F4C     		ldr	r4, .L20+16
+ 266 004e 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 267 0050 DBB2     		uxtb	r3, r3
+ 268 0052 5A1C     		adds	r2, r3, #1
+ 269 0054 D2B2     		uxtb	r2, r2
+ 270 0056 2270     		strb	r2, [r4]
+ 271 0058 0D4A     		ldr	r2, .L20+20
+ 272 005a D15C     		ldrb	r1, [r2, r3]	@ zero_extendqisi2
+ 273 005c 0748     		ldr	r0, .L20
+ 274 005e FFF7FEFF 		bl	USART_SendData
+ 275              	.LVL4:
+ 177:Src/at32f4xx_it.c ****     {
+ 276              		.loc 1 177 0
+ 277 0062 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 278 0064 DBB2     		uxtb	r3, r3
+ 279 0066 0B4A     		ldr	r2, .L20+24
+ 280 0068 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 281 006a 9342     		cmp	r3, r2
+ 282 006c D5D1     		bne	.L14
+ 180:Src/at32f4xx_it.c ****     }    
+ 283              		.loc 1 180 0
+ 284 006e 0022     		movs	r2, #0
+ 285 0070 40F22771 		movw	r1, #1831
+ 286 0074 0148     		ldr	r0, .L20
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceKgsY2.s 			page 9
+
+
+ 287 0076 FFF7FEFF 		bl	USART_INTConfig
+ 288              	.LVL5:
+ 289              		.loc 1 183 0
+ 290 007a CEE7     		b	.L14
+ 291              	.L21:
+ 292              		.align	2
+ 293              	.L20:
+ 294 007c 00440040 		.word	1073759232
+ 295 0080 00000000 		.word	RxCounter1
+ 296 0084 00000000 		.word	RxBuffer1
+ 297 0088 00000000 		.word	NbrOfDataToRead1
+ 298 008c 00000000 		.word	TxCounter1
+ 299 0090 00000000 		.word	TxBuffer1
+ 300 0094 00000000 		.word	NbrOfDataToTransfer1
+ 301              		.cfi_endproc
+ 302              	.LFE132:
+ 304              		.section	.text.USART3_IRQHandler,"ax",%progbits
+ 305              		.align	1
+ 306              		.global	USART3_IRQHandler
+ 307              		.syntax unified
+ 308              		.thumb
+ 309              		.thumb_func
+ 310              		.fpu fpv4-sp-d16
+ 312              	USART3_IRQHandler:
+ 313              	.LFB133:
+ 184:Src/at32f4xx_it.c **** 
+ 185:Src/at32f4xx_it.c **** /**
+ 186:Src/at32f4xx_it.c ****   * @brief  This function handles USART3 global interrupt request.
+ 187:Src/at32f4xx_it.c ****   * @param  None
+ 188:Src/at32f4xx_it.c ****   * @retval None
+ 189:Src/at32f4xx_it.c ****   */
+ 190:Src/at32f4xx_it.c **** void USART3_IRQHandler(void)
+ 191:Src/at32f4xx_it.c **** {
+ 314              		.loc 1 191 0
+ 315              		.cfi_startproc
+ 316              		@ args = 0, pretend = 0, frame = 0
+ 317              		@ frame_needed = 0, uses_anonymous_args = 0
+ 318 0000 10B5     		push	{r4, lr}
+ 319              	.LCFI1:
+ 320              		.cfi_def_cfa_offset 8
+ 321              		.cfi_offset 4, -8
+ 322              		.cfi_offset 14, -4
+ 192:Src/at32f4xx_it.c ****   if(USART_GetITStatus(USART3, USART_INT_RDNE) != RESET)
+ 323              		.loc 1 192 0
+ 324 0002 40F22551 		movw	r1, #1317
+ 325 0006 1D48     		ldr	r0, .L28
+ 326 0008 FFF7FEFF 		bl	USART_GetITStatus
+ 327              	.LVL6:
+ 328 000c 30B9     		cbnz	r0, .L26
+ 329              	.L23:
+ 193:Src/at32f4xx_it.c ****   {
+ 194:Src/at32f4xx_it.c ****     /* Read one byte from the receive data register */
+ 195:Src/at32f4xx_it.c ****     RxBuffer2[RxCounter2++] = USART_ReceiveData(USART3);
+ 196:Src/at32f4xx_it.c **** 
+ 197:Src/at32f4xx_it.c ****     if(RxCounter2 == NbrOfDataToRead1)
+ 198:Src/at32f4xx_it.c ****     {
+ 199:Src/at32f4xx_it.c ****       /* Disable the USART3 Receive interrupt */
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceKgsY2.s 			page 10
+
+
+ 200:Src/at32f4xx_it.c ****       USART_INTConfig(USART3, USART_INT_RDNE, DISABLE);
+ 201:Src/at32f4xx_it.c ****     }
+ 202:Src/at32f4xx_it.c ****   }
+ 203:Src/at32f4xx_it.c ****   
+ 204:Src/at32f4xx_it.c ****   if(USART_GetITStatus(USART3, USART_INT_TDE) != RESET)
+ 330              		.loc 1 204 0
+ 331 000e 40F22771 		movw	r1, #1831
+ 332 0012 1A48     		ldr	r0, .L28
+ 333 0014 FFF7FEFF 		bl	USART_GetITStatus
+ 334              	.LVL7:
+ 335 0018 C0B9     		cbnz	r0, .L27
+ 336              	.L22:
+ 205:Src/at32f4xx_it.c ****   {   
+ 206:Src/at32f4xx_it.c ****     /* Write one byte to the transmit data register */
+ 207:Src/at32f4xx_it.c ****     USART_SendData(USART3, TxBuffer2[TxCounter2++]);
+ 208:Src/at32f4xx_it.c **** 
+ 209:Src/at32f4xx_it.c ****     if(TxCounter2 == NbrOfDataToTransfer2)
+ 210:Src/at32f4xx_it.c ****     {
+ 211:Src/at32f4xx_it.c ****       /* Disable the USART3 Transmit interrupt */
+ 212:Src/at32f4xx_it.c ****       USART_INTConfig(USART3, USART_INT_TDE, DISABLE);
+ 213:Src/at32f4xx_it.c ****     }
+ 214:Src/at32f4xx_it.c ****   }
+ 215:Src/at32f4xx_it.c **** }
+ 337              		.loc 1 215 0
+ 338 001a 10BD     		pop	{r4, pc}
+ 339              	.L26:
+ 195:Src/at32f4xx_it.c **** 
+ 340              		.loc 1 195 0
+ 341 001c 1748     		ldr	r0, .L28
+ 342 001e FFF7FEFF 		bl	USART_ReceiveData
+ 343              	.LVL8:
+ 344 0022 174A     		ldr	r2, .L28+4
+ 345 0024 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 346 0026 DBB2     		uxtb	r3, r3
+ 347 0028 591C     		adds	r1, r3, #1
+ 348 002a C9B2     		uxtb	r1, r1
+ 349 002c 1170     		strb	r1, [r2]
+ 350 002e 1549     		ldr	r1, .L28+8
+ 351 0030 C854     		strb	r0, [r1, r3]
+ 197:Src/at32f4xx_it.c ****     {
+ 352              		.loc 1 197 0
+ 353 0032 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 354 0034 DBB2     		uxtb	r3, r3
+ 355 0036 144A     		ldr	r2, .L28+12
+ 356 0038 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 357 003a 9342     		cmp	r3, r2
+ 358 003c E7D1     		bne	.L23
+ 200:Src/at32f4xx_it.c ****     }
+ 359              		.loc 1 200 0
+ 360 003e 0022     		movs	r2, #0
+ 361 0040 40F22551 		movw	r1, #1317
+ 362 0044 0D48     		ldr	r0, .L28
+ 363 0046 FFF7FEFF 		bl	USART_INTConfig
+ 364              	.LVL9:
+ 365 004a E0E7     		b	.L23
+ 366              	.L27:
+ 207:Src/at32f4xx_it.c **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceKgsY2.s 			page 11
+
+
+ 367              		.loc 1 207 0
+ 368 004c 0F4C     		ldr	r4, .L28+16
+ 369 004e 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 370 0050 DBB2     		uxtb	r3, r3
+ 371 0052 5A1C     		adds	r2, r3, #1
+ 372 0054 D2B2     		uxtb	r2, r2
+ 373 0056 2270     		strb	r2, [r4]
+ 374 0058 0D4A     		ldr	r2, .L28+20
+ 375 005a D15C     		ldrb	r1, [r2, r3]	@ zero_extendqisi2
+ 376 005c 0748     		ldr	r0, .L28
+ 377 005e FFF7FEFF 		bl	USART_SendData
+ 378              	.LVL10:
+ 209:Src/at32f4xx_it.c ****     {
+ 379              		.loc 1 209 0
+ 380 0062 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 381 0064 DBB2     		uxtb	r3, r3
+ 382 0066 0B4A     		ldr	r2, .L28+24
+ 383 0068 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 384 006a 9342     		cmp	r3, r2
+ 385 006c D5D1     		bne	.L22
+ 212:Src/at32f4xx_it.c ****     }
+ 386              		.loc 1 212 0
+ 387 006e 0022     		movs	r2, #0
+ 388 0070 40F22771 		movw	r1, #1831
+ 389 0074 0148     		ldr	r0, .L28
+ 390 0076 FFF7FEFF 		bl	USART_INTConfig
+ 391              	.LVL11:
+ 392              		.loc 1 215 0
+ 393 007a CEE7     		b	.L22
+ 394              	.L29:
+ 395              		.align	2
+ 396              	.L28:
+ 397 007c 00480040 		.word	1073760256
+ 398 0080 00000000 		.word	RxCounter2
+ 399 0084 00000000 		.word	RxBuffer2
+ 400 0088 00000000 		.word	NbrOfDataToRead1
+ 401 008c 00000000 		.word	TxCounter2
+ 402 0090 00000000 		.word	TxBuffer2
+ 403 0094 00000000 		.word	NbrOfDataToTransfer2
+ 404              		.cfi_endproc
+ 405              	.LFE133:
+ 407              		.text
+ 408              	.Letext0:
+ 409              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
+ 410              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
+ 411              		.file 4 "../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h"
+ 412              		.file 5 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
+ 413              		.file 6 "../Libraries/CMSIS/CM4/DeviceSupport/at32f4xx.h"
+ 414              		.file 7 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_usart.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceKgsY2.s 			page 12
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 at32f4xx_it.c
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceKgsY2.s:17     .text.NMI_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceKgsY2.s:24     .text.NMI_Handler:0000000000000000 NMI_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceKgsY2.s:38     .text.HardFault_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceKgsY2.s:45     .text.HardFault_Handler:0000000000000000 HardFault_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceKgsY2.s:59     .text.MemManage_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceKgsY2.s:66     .text.MemManage_Handler:0000000000000000 MemManage_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceKgsY2.s:80     .text.BusFault_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceKgsY2.s:87     .text.BusFault_Handler:0000000000000000 BusFault_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceKgsY2.s:101    .text.UsageFault_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceKgsY2.s:108    .text.UsageFault_Handler:0000000000000000 UsageFault_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceKgsY2.s:122    .text.SVC_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceKgsY2.s:129    .text.SVC_Handler:0000000000000000 SVC_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceKgsY2.s:142    .text.DebugMon_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceKgsY2.s:149    .text.DebugMon_Handler:0000000000000000 DebugMon_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceKgsY2.s:162    .text.PendSV_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceKgsY2.s:169    .text.PendSV_Handler:0000000000000000 PendSV_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceKgsY2.s:182    .text.SysTick_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceKgsY2.s:189    .text.SysTick_Handler:0000000000000000 SysTick_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceKgsY2.s:202    .text.USART2_IRQHandler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceKgsY2.s:209    .text.USART2_IRQHandler:0000000000000000 USART2_IRQHandler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceKgsY2.s:294    .text.USART2_IRQHandler:000000000000007c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceKgsY2.s:305    .text.USART3_IRQHandler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceKgsY2.s:312    .text.USART3_IRQHandler:0000000000000000 USART3_IRQHandler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceKgsY2.s:397    .text.USART3_IRQHandler:000000000000007c $d
+
+UNDEFINED SYMBOLS
+USART_GetITStatus
+USART_ReceiveData
+USART_INTConfig
+USART_SendData
+RxCounter1
+RxBuffer1
+NbrOfDataToRead1
+TxCounter1
+TxBuffer1
+NbrOfDataToTransfer1
+RxCounter2
+RxBuffer2
+TxCounter2
+TxBuffer2
+NbrOfDataToTransfer2

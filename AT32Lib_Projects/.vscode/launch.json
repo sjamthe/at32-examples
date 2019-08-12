@@ -4,10 +4,62 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
+
+
+
         {
-            "name": "Cortex Debug",
+            "name": "LED_Toggle",
             "cwd": "${workspaceRoot}",
             "executable": "./LED_Toggle/build/LED_Toggle.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "configFiles": [
+                "interface/stlink.cfg",
+                "target/stm32f3x.cfg"
+            ]
+        },
+        {
+            "name": "FreeRTOS_SafelyPrint",
+            "cwd": "${workspaceRoot}",
+            "executable": "./FreeRTOS_SafelyPrint/build/FreeRTOS_SafelyPrint.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "configFiles": [
+                "interface/stlink.cfg",
+                "target/stm32f3x.cfg"
+            ]
+        },
+        {
+            "name": "USART_Printf",
+            "cwd": "${workspaceRoot}",
+            "executable": "./USART_Printf/build/USART_Printf.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "configFiles": [
+                "interface/stlink.cfg",
+                "target/stm32f3x.cfg"
+            ]
+        },
+        {
+            "name": "USART_Polling",
+            "cwd": "${workspaceRoot}",
+            "executable": "./USART_Polling/build/USART_Polling.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "configFiles": [
+                "interface/stlink.cfg",
+                "target/stm32f3x.cfg"
+            ]
+        },
+        {
+            "name": "USART_Interrupt",
+            "cwd": "${workspaceRoot}",
+            "executable": "./USART_Interrupt/build/USART_Interrupt.elf",
             "request": "launch",
             "type": "cortex-debug",
             "servertype": "openocd",
