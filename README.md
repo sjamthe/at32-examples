@@ -12,3 +12,5 @@ I decided to switch to that as it may have better support!
 1. AT32Lib_Projects/LED_Toggle working on hoverboard
 2. AT32Lib_Projects/USART_Interrupt works on hoverboard
 3. AT32Lib_Projects/USART_Printf works on hoverboard
+4. FreeRTOS_SafelyPrint works on hoverboard
+

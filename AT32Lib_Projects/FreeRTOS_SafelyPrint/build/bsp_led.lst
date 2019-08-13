@@ -1,0 +1,499 @@
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccZCfCvY.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"bsp_led.c"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.text.bsp_LedOn,"ax",%progbits
+  17              		.align	1
+  18              		.global	bsp_LedOn
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu fpv4-sp-d16
+  24              	bsp_LedOn:
+  25              	.LFB132:
+  26              		.file 1 "bsp/src/bsp_led.c"
+   1:bsp/src/bsp_led.c **** /**
+   2:bsp/src/bsp_led.c ****   ******************************************************************************
+   3:bsp/src/bsp_led.c ****   * @file    FreeRTOS/bsp/bsp_led.c 
+   4:bsp/src/bsp_led.c ****   * @author  Artery Technology 
+   5:bsp/src/bsp_led.c ****   * @version V1.1.2
+   6:bsp/src/bsp_led.c ****   * @date    2019-01-04
+   7:bsp/src/bsp_led.c ****   * @brief   Bsp Service Routines.
+   8:bsp/src/bsp_led.c ****   ******************************************************************************
+   9:bsp/src/bsp_led.c ****   * @attention
+  10:bsp/src/bsp_led.c ****   *
+  11:bsp/src/bsp_led.c ****   * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
+  12:bsp/src/bsp_led.c ****   * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
+  13:bsp/src/bsp_led.c ****   * TIME. AS A RESULT, ARTERYTEK SHALL NOT BE HELD LIABLE FOR ANY
+  14:bsp/src/bsp_led.c ****   * DIRECT, INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
+  15:bsp/src/bsp_led.c ****   * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
+  16:bsp/src/bsp_led.c ****   * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
+  17:bsp/src/bsp_led.c ****   *
+  18:bsp/src/bsp_led.c ****   * <h2><center>&copy; COPYRIGHT 2018 ArteryTek</center></h2>
+  19:bsp/src/bsp_led.c ****   ******************************************************************************
+  20:bsp/src/bsp_led.c ****   */ 
+  21:bsp/src/bsp_led.c ****   
+  22:bsp/src/bsp_led.c **** /* Includes ------------------------------------------------------------------*/
+  23:bsp/src/bsp_led.c **** #include "bsp.h"
+  24:bsp/src/bsp_led.c **** #include "at32_hoverboard.h"
+  25:bsp/src/bsp_led.c **** 
+  26:bsp/src/bsp_led.c **** /** @addtogroup AT32F403_StdPeriph_Examples
+  27:bsp/src/bsp_led.c ****   * @{
+  28:bsp/src/bsp_led.c ****   */
+  29:bsp/src/bsp_led.c **** 
+  30:bsp/src/bsp_led.c **** /** @addtogroup FreeRTOS_ResManagement_SafelyPrint
+  31:bsp/src/bsp_led.c ****   * @{
+  32:bsp/src/bsp_led.c ****   */ 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccZCfCvY.s 			page 2
+
+
+  33:bsp/src/bsp_led.c ****   
+  34:bsp/src/bsp_led.c **** /* Private typedef -----------------------------------------------------------*/
+  35:bsp/src/bsp_led.c **** /* Private define ------------------------------------------------------------*/ 
+  36:bsp/src/bsp_led.c **** /* Private macro -------------------------------------------------------------*/
+  37:bsp/src/bsp_led.c **** /* Private variables ---------------------------------------------------------*/
+  38:bsp/src/bsp_led.c **** /* Private function prototypes -----------------------------------------------*/
+  39:bsp/src/bsp_led.c **** /* Private functions ---------------------------------------------------------*/
+  40:bsp/src/bsp_led.c **** 
+  41:bsp/src/bsp_led.c **** /**
+  42:bsp/src/bsp_led.c ****   * @brief  Initialize led io port
+  43:bsp/src/bsp_led.c ****   * @param  None
+  44:bsp/src/bsp_led.c ****   * @retval None
+  45:bsp/src/bsp_led.c ****   */
+  46:bsp/src/bsp_led.c **** void bsp_InitLed(void)
+  47:bsp/src/bsp_led.c **** {
+  48:bsp/src/bsp_led.c **** 	GPIO_InitType GPIO_InitStructure;
+  49:bsp/src/bsp_led.c **** 
+  50:bsp/src/bsp_led.c **** 	RCC_APB2PeriphClockCmd(LED2_GPIO_RCC_CLK, ENABLE);
+  51:bsp/src/bsp_led.c **** 	RCC_APB2PeriphClockCmd(LED3_GPIO_RCC_CLK, ENABLE);
+  52:bsp/src/bsp_led.c **** 	RCC_APB2PeriphClockCmd(LED4_GPIO_RCC_CLK, ENABLE);  
+  53:bsp/src/bsp_led.c ****  
+  54:bsp/src/bsp_led.c **** 	bsp_LedOff(2);
+  55:bsp/src/bsp_led.c **** 	bsp_LedOff(3);
+  56:bsp/src/bsp_led.c **** 	bsp_LedOff(4);
+  57:bsp/src/bsp_led.c **** 
+  58:bsp/src/bsp_led.c **** 	GPIO_InitStructure.GPIO_MaxSpeed    = GPIO_MaxSpeed_50MHz;
+  59:bsp/src/bsp_led.c **** 	GPIO_InitStructure.GPIO_Mode        = GPIO_Mode_OUT_PP;	
+  60:bsp/src/bsp_led.c **** 
+  61:bsp/src/bsp_led.c **** 	GPIO_InitStructure.GPIO_Pins = LED2_PIN;
+  62:bsp/src/bsp_led.c **** 	GPIO_Init(LED2_GPIO, &GPIO_InitStructure);
+  63:bsp/src/bsp_led.c **** 
+  64:bsp/src/bsp_led.c **** 	GPIO_InitStructure.GPIO_Pins = LED3_PIN;
+  65:bsp/src/bsp_led.c **** 	GPIO_Init(LED3_GPIO, &GPIO_InitStructure);
+  66:bsp/src/bsp_led.c **** 
+  67:bsp/src/bsp_led.c **** 	GPIO_InitStructure.GPIO_Pins = LED4_PIN;
+  68:bsp/src/bsp_led.c **** 	GPIO_Init(LED4_GPIO, &GPIO_InitStructure);
+  69:bsp/src/bsp_led.c **** }
+  70:bsp/src/bsp_led.c **** 
+  71:bsp/src/bsp_led.c **** /**
+  72:bsp/src/bsp_led.c ****   * @brief  Turn on led
+  73:bsp/src/bsp_led.c ****   * @param  _no:Led number
+  74:bsp/src/bsp_led.c ****   * @retval None
+  75:bsp/src/bsp_led.c ****   */
+  76:bsp/src/bsp_led.c **** void bsp_LedOn(uint8_t _no)
+  77:bsp/src/bsp_led.c **** {
+  27              		.loc 1 77 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  32              	.LVL0:
+  78:bsp/src/bsp_led.c **** 	switch(_no)
+  33              		.loc 1 78 0
+  34 0000 0328     		cmp	r0, #3
+  35 0002 09D0     		beq	.L3
+  36 0004 0428     		cmp	r0, #4
+  37 0006 0CD0     		beq	.L4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccZCfCvY.s 			page 3
+
+
+  38 0008 0228     		cmp	r0, #2
+  39 000a 00D0     		beq	.L6
+  40              	.L1:
+  79:bsp/src/bsp_led.c **** 	{
+  80:bsp/src/bsp_led.c **** 	    case 2:
+  81:bsp/src/bsp_led.c **** 		    LED2_GPIO->BRE = LED2_PIN;
+  82:bsp/src/bsp_led.c **** 		    break;
+  83:bsp/src/bsp_led.c **** 		case 3:
+  84:bsp/src/bsp_led.c **** 		    LED3_GPIO->BRE = LED3_PIN;
+  85:bsp/src/bsp_led.c **** 		    break;
+  86:bsp/src/bsp_led.c **** 		case 4:
+  87:bsp/src/bsp_led.c **** 		    LED4_GPIO->BRE = LED4_PIN;
+  88:bsp/src/bsp_led.c **** 		    break;
+  89:bsp/src/bsp_led.c **** 		default:
+  90:bsp/src/bsp_led.c **** 		    break;
+  91:bsp/src/bsp_led.c **** 	}
+  92:bsp/src/bsp_led.c **** 
+  93:bsp/src/bsp_led.c **** }
+  41              		.loc 1 93 0
+  42 000c 7047     		bx	lr
+  43              	.L6:
+  81:bsp/src/bsp_led.c **** 		    break;
+  44              		.loc 1 81 0
+  45 000e 074B     		ldr	r3, .L7
+  46 0010 4FF40052 		mov	r2, #8192
+  47 0014 5A61     		str	r2, [r3, #20]
+  82:bsp/src/bsp_led.c **** 		case 3:
+  48              		.loc 1 82 0
+  49 0016 7047     		bx	lr
+  50              	.L3:
+  84:bsp/src/bsp_led.c **** 		    break;
+  51              		.loc 1 84 0
+  52 0018 044B     		ldr	r3, .L7
+  53 001a 4FF48042 		mov	r2, #16384
+  54 001e 5A61     		str	r2, [r3, #20]
+  85:bsp/src/bsp_led.c **** 		case 4:
+  55              		.loc 1 85 0
+  56 0020 7047     		bx	lr
+  57              	.L4:
+  87:bsp/src/bsp_led.c **** 		    break;
+  58              		.loc 1 87 0
+  59 0022 024B     		ldr	r3, .L7
+  60 0024 4FF40042 		mov	r2, #32768
+  61 0028 5A61     		str	r2, [r3, #20]
+  62              		.loc 1 93 0
+  63 002a EFE7     		b	.L1
+  64              	.L8:
+  65              		.align	2
+  66              	.L7:
+  67 002c 00100140 		.word	1073811456
+  68              		.cfi_endproc
+  69              	.LFE132:
+  71              		.section	.text.bsp_LedOff,"ax",%progbits
+  72              		.align	1
+  73              		.global	bsp_LedOff
+  74              		.syntax unified
+  75              		.thumb
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccZCfCvY.s 			page 4
+
+
+  76              		.thumb_func
+  77              		.fpu fpv4-sp-d16
+  79              	bsp_LedOff:
+  80              	.LFB133:
+  94:bsp/src/bsp_led.c **** 
+  95:bsp/src/bsp_led.c **** /**
+  96:bsp/src/bsp_led.c ****   * @brief  Turn off led
+  97:bsp/src/bsp_led.c ****   * @param  _no:Led number
+  98:bsp/src/bsp_led.c ****   * @retval None
+  99:bsp/src/bsp_led.c ****   */
+ 100:bsp/src/bsp_led.c **** void bsp_LedOff(uint8_t _no)
+ 101:bsp/src/bsp_led.c **** {
+  81              		.loc 1 101 0
+  82              		.cfi_startproc
+  83              		@ args = 0, pretend = 0, frame = 0
+  84              		@ frame_needed = 0, uses_anonymous_args = 0
+  85              		@ link register save eliminated.
+  86              	.LVL1:
+ 102:bsp/src/bsp_led.c **** 	switch(_no)
+  87              		.loc 1 102 0
+  88 0000 0328     		cmp	r0, #3
+  89 0002 09D0     		beq	.L11
+  90 0004 0428     		cmp	r0, #4
+  91 0006 0CD0     		beq	.L12
+  92 0008 0228     		cmp	r0, #2
+  93 000a 00D0     		beq	.L14
+  94              	.L9:
+ 103:bsp/src/bsp_led.c **** 	{
+ 104:bsp/src/bsp_led.c **** 	  case 2:
+ 105:bsp/src/bsp_led.c **** 		    LED2_GPIO->BSRE = LED2_PIN;
+ 106:bsp/src/bsp_led.c **** 		    break;
+ 107:bsp/src/bsp_led.c **** 		case 3:
+ 108:bsp/src/bsp_led.c **** 		    LED3_GPIO->BSRE = LED3_PIN;
+ 109:bsp/src/bsp_led.c **** 		    break;
+ 110:bsp/src/bsp_led.c **** 		case 4:
+ 111:bsp/src/bsp_led.c **** 		    LED4_GPIO->BSRE = LED4_PIN;
+ 112:bsp/src/bsp_led.c **** 		    break;
+ 113:bsp/src/bsp_led.c **** 		default:
+ 114:bsp/src/bsp_led.c **** 		    break;
+ 115:bsp/src/bsp_led.c **** 	}
+ 116:bsp/src/bsp_led.c **** }
+  95              		.loc 1 116 0
+  96 000c 7047     		bx	lr
+  97              	.L14:
+ 105:bsp/src/bsp_led.c **** 		    break;
+  98              		.loc 1 105 0
+  99 000e 074B     		ldr	r3, .L15
+ 100 0010 4FF40052 		mov	r2, #8192
+ 101 0014 1A61     		str	r2, [r3, #16]
+ 106:bsp/src/bsp_led.c **** 		case 3:
+ 102              		.loc 1 106 0
+ 103 0016 7047     		bx	lr
+ 104              	.L11:
+ 108:bsp/src/bsp_led.c **** 		    break;
+ 105              		.loc 1 108 0
+ 106 0018 044B     		ldr	r3, .L15
+ 107 001a 4FF48042 		mov	r2, #16384
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccZCfCvY.s 			page 5
+
+
+ 108 001e 1A61     		str	r2, [r3, #16]
+ 109:bsp/src/bsp_led.c **** 		case 4:
+ 109              		.loc 1 109 0
+ 110 0020 7047     		bx	lr
+ 111              	.L12:
+ 111:bsp/src/bsp_led.c **** 		    break;
+ 112              		.loc 1 111 0
+ 113 0022 024B     		ldr	r3, .L15
+ 114 0024 4FF40042 		mov	r2, #32768
+ 115 0028 1A61     		str	r2, [r3, #16]
+ 116              		.loc 1 116 0
+ 117 002a EFE7     		b	.L9
+ 118              	.L16:
+ 119              		.align	2
+ 120              	.L15:
+ 121 002c 00100140 		.word	1073811456
+ 122              		.cfi_endproc
+ 123              	.LFE133:
+ 125              		.section	.text.bsp_InitLed,"ax",%progbits
+ 126              		.align	1
+ 127              		.global	bsp_InitLed
+ 128              		.syntax unified
+ 129              		.thumb
+ 130              		.thumb_func
+ 131              		.fpu fpv4-sp-d16
+ 133              	bsp_InitLed:
+ 134              	.LFB131:
+  47:bsp/src/bsp_led.c **** 	GPIO_InitType GPIO_InitStructure;
+ 135              		.loc 1 47 0
+ 136              		.cfi_startproc
+ 137              		@ args = 0, pretend = 0, frame = 8
+ 138              		@ frame_needed = 0, uses_anonymous_args = 0
+ 139 0000 30B5     		push	{r4, r5, lr}
+ 140              	.LCFI0:
+ 141              		.cfi_def_cfa_offset 12
+ 142              		.cfi_offset 4, -12
+ 143              		.cfi_offset 5, -8
+ 144              		.cfi_offset 14, -4
+ 145 0002 83B0     		sub	sp, sp, #12
+ 146              	.LCFI1:
+ 147              		.cfi_def_cfa_offset 24
+  50:bsp/src/bsp_led.c **** 	RCC_APB2PeriphClockCmd(LED3_GPIO_RCC_CLK, ENABLE);
+ 148              		.loc 1 50 0
+ 149 0004 0121     		movs	r1, #1
+ 150 0006 1020     		movs	r0, #16
+ 151 0008 FFF7FEFF 		bl	RCC_APB2PeriphClockCmd
+ 152              	.LVL2:
+  51:bsp/src/bsp_led.c **** 	RCC_APB2PeriphClockCmd(LED4_GPIO_RCC_CLK, ENABLE);  
+ 153              		.loc 1 51 0
+ 154 000c 0121     		movs	r1, #1
+ 155 000e 1020     		movs	r0, #16
+ 156 0010 FFF7FEFF 		bl	RCC_APB2PeriphClockCmd
+ 157              	.LVL3:
+  52:bsp/src/bsp_led.c ****  
+ 158              		.loc 1 52 0
+ 159 0014 0121     		movs	r1, #1
+ 160 0016 1020     		movs	r0, #16
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccZCfCvY.s 			page 6
+
+
+ 161 0018 FFF7FEFF 		bl	RCC_APB2PeriphClockCmd
+ 162              	.LVL4:
+  54:bsp/src/bsp_led.c **** 	bsp_LedOff(3);
+ 163              		.loc 1 54 0
+ 164 001c 0220     		movs	r0, #2
+ 165 001e FFF7FEFF 		bl	bsp_LedOff
+ 166              	.LVL5:
+  55:bsp/src/bsp_led.c **** 	bsp_LedOff(4);
+ 167              		.loc 1 55 0
+ 168 0022 0320     		movs	r0, #3
+ 169 0024 FFF7FEFF 		bl	bsp_LedOff
+ 170              	.LVL6:
+  56:bsp/src/bsp_led.c **** 
+ 171              		.loc 1 56 0
+ 172 0028 0420     		movs	r0, #4
+ 173 002a FFF7FEFF 		bl	bsp_LedOff
+ 174              	.LVL7:
+  58:bsp/src/bsp_led.c **** 	GPIO_InitStructure.GPIO_Mode        = GPIO_Mode_OUT_PP;	
+ 175              		.loc 1 58 0
+ 176 002e 0223     		movs	r3, #2
+ 177 0030 8DF80630 		strb	r3, [sp, #6]
+  59:bsp/src/bsp_led.c **** 
+ 178              		.loc 1 59 0
+ 179 0034 1023     		movs	r3, #16
+ 180 0036 8DF80730 		strb	r3, [sp, #7]
+  61:bsp/src/bsp_led.c **** 	GPIO_Init(LED2_GPIO, &GPIO_InitStructure);
+ 181              		.loc 1 61 0
+ 182 003a 02AC     		add	r4, sp, #8
+ 183 003c 4FF40053 		mov	r3, #8192
+ 184 0040 24F8043D 		strh	r3, [r4, #-4]!	@ movhi
+  62:bsp/src/bsp_led.c **** 
+ 185              		.loc 1 62 0
+ 186 0044 0B4D     		ldr	r5, .L19
+ 187 0046 2146     		mov	r1, r4
+ 188 0048 2846     		mov	r0, r5
+ 189 004a FFF7FEFF 		bl	GPIO_Init
+ 190              	.LVL8:
+  64:bsp/src/bsp_led.c **** 	GPIO_Init(LED3_GPIO, &GPIO_InitStructure);
+ 191              		.loc 1 64 0
+ 192 004e 4FF48043 		mov	r3, #16384
+ 193 0052 ADF80430 		strh	r3, [sp, #4]	@ movhi
+  65:bsp/src/bsp_led.c **** 
+ 194              		.loc 1 65 0
+ 195 0056 2146     		mov	r1, r4
+ 196 0058 2846     		mov	r0, r5
+ 197 005a FFF7FEFF 		bl	GPIO_Init
+ 198              	.LVL9:
+  67:bsp/src/bsp_led.c **** 	GPIO_Init(LED4_GPIO, &GPIO_InitStructure);
+ 199              		.loc 1 67 0
+ 200 005e 4FF40043 		mov	r3, #32768
+ 201 0062 ADF80430 		strh	r3, [sp, #4]	@ movhi
+  68:bsp/src/bsp_led.c **** }
+ 202              		.loc 1 68 0
+ 203 0066 2146     		mov	r1, r4
+ 204 0068 2846     		mov	r0, r5
+ 205 006a FFF7FEFF 		bl	GPIO_Init
+ 206              	.LVL10:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccZCfCvY.s 			page 7
+
+
+  69:bsp/src/bsp_led.c **** 
+ 207              		.loc 1 69 0
+ 208 006e 03B0     		add	sp, sp, #12
+ 209              	.LCFI2:
+ 210              		.cfi_def_cfa_offset 12
+ 211              		@ sp needed
+ 212 0070 30BD     		pop	{r4, r5, pc}
+ 213              	.L20:
+ 214 0072 00BF     		.align	2
+ 215              	.L19:
+ 216 0074 00100140 		.word	1073811456
+ 217              		.cfi_endproc
+ 218              	.LFE131:
+ 220              		.section	.text.bsp_LedToggle,"ax",%progbits
+ 221              		.align	1
+ 222              		.global	bsp_LedToggle
+ 223              		.syntax unified
+ 224              		.thumb
+ 225              		.thumb_func
+ 226              		.fpu fpv4-sp-d16
+ 228              	bsp_LedToggle:
+ 229              	.LFB134:
+ 117:bsp/src/bsp_led.c **** 
+ 118:bsp/src/bsp_led.c **** /**
+ 119:bsp/src/bsp_led.c ****   * @brief  Toggle led
+ 120:bsp/src/bsp_led.c ****   * @param  _no:Led number
+ 121:bsp/src/bsp_led.c ****   * @retval None
+ 122:bsp/src/bsp_led.c ****   */
+ 123:bsp/src/bsp_led.c **** void bsp_LedToggle(uint8_t _no)
+ 124:bsp/src/bsp_led.c **** {
+ 230              		.loc 1 124 0
+ 231              		.cfi_startproc
+ 232              		@ args = 0, pretend = 0, frame = 0
+ 233              		@ frame_needed = 0, uses_anonymous_args = 0
+ 234              		@ link register save eliminated.
+ 235              	.LVL11:
+ 125:bsp/src/bsp_led.c **** 	switch(_no)
+ 236              		.loc 1 125 0
+ 237 0000 0328     		cmp	r0, #3
+ 238 0002 0AD0     		beq	.L23
+ 239 0004 0428     		cmp	r0, #4
+ 240 0006 0ED0     		beq	.L24
+ 241 0008 0228     		cmp	r0, #2
+ 242 000a 00D0     		beq	.L26
+ 243              	.L21:
+ 126:bsp/src/bsp_led.c **** 	{
+ 127:bsp/src/bsp_led.c **** 	    case 2:
+ 128:bsp/src/bsp_led.c **** 		    LED2_GPIO->OPTDT ^= LED2_PIN;
+ 129:bsp/src/bsp_led.c **** 		    break;
+ 130:bsp/src/bsp_led.c **** 		case 3:
+ 131:bsp/src/bsp_led.c **** 		    LED3_GPIO->OPTDT ^= LED3_PIN;
+ 132:bsp/src/bsp_led.c **** 		    break;
+ 133:bsp/src/bsp_led.c **** 		case 4:
+ 134:bsp/src/bsp_led.c **** 		    LED4_GPIO->OPTDT ^= LED4_PIN;
+ 135:bsp/src/bsp_led.c **** 		    break;
+ 136:bsp/src/bsp_led.c **** 		default:
+ 137:bsp/src/bsp_led.c **** 		    break;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccZCfCvY.s 			page 8
+
+
+ 138:bsp/src/bsp_led.c **** 	}
+ 139:bsp/src/bsp_led.c **** 
+ 140:bsp/src/bsp_led.c **** }
+ 244              		.loc 1 140 0
+ 245 000c 7047     		bx	lr
+ 246              	.L26:
+ 128:bsp/src/bsp_led.c **** 		    break;
+ 247              		.loc 1 128 0
+ 248 000e 094A     		ldr	r2, .L27
+ 249 0010 D368     		ldr	r3, [r2, #12]
+ 250 0012 83F40053 		eor	r3, r3, #8192
+ 251 0016 D360     		str	r3, [r2, #12]
+ 129:bsp/src/bsp_led.c **** 		case 3:
+ 252              		.loc 1 129 0
+ 253 0018 7047     		bx	lr
+ 254              	.L23:
+ 131:bsp/src/bsp_led.c **** 		    break;
+ 255              		.loc 1 131 0
+ 256 001a 064A     		ldr	r2, .L27
+ 257 001c D368     		ldr	r3, [r2, #12]
+ 258 001e 83F48043 		eor	r3, r3, #16384
+ 259 0022 D360     		str	r3, [r2, #12]
+ 132:bsp/src/bsp_led.c **** 		case 4:
+ 260              		.loc 1 132 0
+ 261 0024 7047     		bx	lr
+ 262              	.L24:
+ 134:bsp/src/bsp_led.c **** 		    break;
+ 263              		.loc 1 134 0
+ 264 0026 034A     		ldr	r2, .L27
+ 265 0028 D368     		ldr	r3, [r2, #12]
+ 266 002a 83F40043 		eor	r3, r3, #32768
+ 267 002e D360     		str	r3, [r2, #12]
+ 268              		.loc 1 140 0
+ 269 0030 ECE7     		b	.L21
+ 270              	.L28:
+ 271 0032 00BF     		.align	2
+ 272              	.L27:
+ 273 0034 00100140 		.word	1073811456
+ 274              		.cfi_endproc
+ 275              	.LFE134:
+ 277              		.text
+ 278              	.Letext0:
+ 279              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
+ 280              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
+ 281              		.file 4 "../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h"
+ 282              		.file 5 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
+ 283              		.file 6 "../Libraries/CMSIS/CM4/DeviceSupport/at32f4xx.h"
+ 284              		.file 7 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_gpio.h"
+ 285              		.file 8 "Inc/FreeRTOSConfig.h"
+ 286              		.file 9 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
+ 287              		.file 10 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
+ 288              		.file 11 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.
+ 289              		.file 12 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
+ 290              		.file 13 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdlib.h"
+ 291              		.file 14 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_rcc.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccZCfCvY.s 			page 9
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 bsp_led.c
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccZCfCvY.s:17     .text.bsp_LedOn:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccZCfCvY.s:24     .text.bsp_LedOn:0000000000000000 bsp_LedOn
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccZCfCvY.s:67     .text.bsp_LedOn:000000000000002c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccZCfCvY.s:72     .text.bsp_LedOff:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccZCfCvY.s:79     .text.bsp_LedOff:0000000000000000 bsp_LedOff
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccZCfCvY.s:121    .text.bsp_LedOff:000000000000002c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccZCfCvY.s:126    .text.bsp_InitLed:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccZCfCvY.s:133    .text.bsp_InitLed:0000000000000000 bsp_InitLed
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccZCfCvY.s:216    .text.bsp_InitLed:0000000000000074 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccZCfCvY.s:221    .text.bsp_LedToggle:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccZCfCvY.s:228    .text.bsp_LedToggle:0000000000000000 bsp_LedToggle
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccZCfCvY.s:273    .text.bsp_LedToggle:0000000000000034 $d
+
+UNDEFINED SYMBOLS
+RCC_APB2PeriphClockCmd
+GPIO_Init

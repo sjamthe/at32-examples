@@ -1,0 +1,1566 @@
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"main.c"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.text.AppTaskCreate,"ax",%progbits
+  17              		.align	1
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  21              		.fpu fpv4-sp-d16
+  23              	AppTaskCreate:
+  24              	.LFB135:
+  25              		.file 1 "Src/main.c"
+   1:Src/main.c    **** /**
+   2:Src/main.c    ****   ******************************************************************************
+   3:Src/main.c    ****   * @file    FreeRTOS/ResManagement_SafelyPrint/main.c 
+   4:Src/main.c    ****   * @author  Artery Technology
+   5:Src/main.c    ****   * @version V1.1.2
+   6:Src/main.c    ****   * @date    2019-01-04
+   7:Src/main.c    ****   * @brief   Main program body
+   8:Src/main.c    ****   ******************************************************************************
+   9:Src/main.c    ****   * @attention
+  10:Src/main.c    ****   *
+  11:Src/main.c    ****   * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
+  12:Src/main.c    ****   * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
+  13:Src/main.c    ****   * TIME. AS A RESULT, ARTERYTEK SHALL NOT BE HELD LIABLE FOR ANY
+  14:Src/main.c    ****   * DIRECT, INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
+  15:Src/main.c    ****   * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
+  16:Src/main.c    ****   * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
+  17:Src/main.c    ****   *
+  18:Src/main.c    ****   * <h2><center>&copy; COPYRIGHT 2018 ArteryTek</center></h2>
+  19:Src/main.c    ****   ******************************************************************************
+  20:Src/main.c    ****   */ 
+  21:Src/main.c    **** 
+  22:Src/main.c    **** #include "includes.h"
+  23:Src/main.c    **** /** @addtogroup AT32F403_StdPeriph_Examples
+  24:Src/main.c    ****   * @{
+  25:Src/main.c    ****   */
+  26:Src/main.c    **** 
+  27:Src/main.c    **** /** @addtogroup FreeRTOS_ResManagement_SafelyPrint
+  28:Src/main.c    ****   * @{
+  29:Src/main.c    ****   */
+  30:Src/main.c    **** 
+  31:Src/main.c    **** 
+  32:Src/main.c    **** /* Private macro -------------------------------------------------------------*/
+  33:Src/main.c    **** /* Private variables ---------------------------------------------------------*/ 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s 			page 2
+
+
+  34:Src/main.c    **** static void AppTaskCreate (void);
+  35:Src/main.c    **** static void AppObjCreate(void);
+  36:Src/main.c    **** void App_Printf(const char *format, ...);
+  37:Src/main.c    **** 
+  38:Src/main.c    **** static void vTaskLED(void *pvParameters);
+  39:Src/main.c    **** static void vTaskMsgProcess(void *pvParameters);
+  40:Src/main.c    **** static void vTaskCtrolProcess(void *pvParameters);
+  41:Src/main.c    **** static void TMR_CallBack1(void);
+  42:Src/main.c    **** static void TMR_CallBack2(void);
+  43:Src/main.c    **** /* Private typedef -----------------------------------------------------------*/
+  44:Src/main.c    **** /* Private define ------------------------------------------------------------*/
+  45:Src/main.c    **** /* Declare variables that are used to hold the handle of task */
+  46:Src/main.c    **** static TaskHandle_t xHandleTaskLED          = NULL;
+  47:Src/main.c    **** static TaskHandle_t xHandleTaskMsgProcess   = NULL;
+  48:Src/main.c    **** static TaskHandle_t xHandleTaskCtrolProcess      = NULL;
+  49:Src/main.c    **** static SemaphoreHandle_t xHandleMutexPrint = NULL;
+  50:Src/main.c    **** 
+  51:Src/main.c    **** /**
+  52:Src/main.c    ****  * @brief   Main program
+  53:Src/main.c    ****  * @param   None
+  54:Src/main.c    ****  * @retval  None
+  55:Src/main.c    ****  */
+  56:Src/main.c    **** int main(void)
+  57:Src/main.c    **** {
+  58:Src/main.c    **** 	__set_PRIMASK(1); //disable global interrupts 
+  59:Src/main.c    **** 	
+  60:Src/main.c    **** 	/* Perform any hardware setup necessary */
+  61:Src/main.c    **** 	bsp_Init(); 
+  62:Src/main.c    **** 
+  63:Src/main.c    ****     /* setup a timer for gather task statistics */
+  64:Src/main.c    **** 	vTimerInitForRunTimeState();
+  65:Src/main.c    **** 	
+  66:Src/main.c    **** 	/* Application tasks created */
+  67:Src/main.c    **** 	AppTaskCreate();
+  68:Src/main.c    **** 
+  69:Src/main.c    ****     /* Application communication mechanism created */
+  70:Src/main.c    **** 	AppObjCreate();
+  71:Src/main.c    **** 	
+  72:Src/main.c    ****     /* Start the created tasks running */
+  73:Src/main.c    ****     vTaskStartScheduler();
+  74:Src/main.c    **** 
+  75:Src/main.c    ****     /* If all is well then main() will never reach here as the scheduler will
+  76:Src/main.c    ****      * now be running the tasks. If main() does reach here then it is likely
+  77:Src/main.c    ****      * that there was insufficient heap memory available for the idle task to be 
+  78:Src/main.c    ****      * created
+  79:Src/main.c    ****      */
+  80:Src/main.c    **** 	while(1);
+  81:Src/main.c    ****     //return 0;
+  82:Src/main.c    **** }
+  83:Src/main.c    **** 
+  84:Src/main.c    **** /**
+  85:Src/main.c    ****  * @brief   LED task
+  86:Src/main.c    ****  * @param   pvParameters: passed to the task
+  87:Src/main.c    ****  * @retval  None
+  88:Src/main.c    ****  */
+  89:Src/main.c    **** 
+  90:Src/main.c    **** static void vTaskLED(void *pvParameters)
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s 			page 3
+
+
+  91:Src/main.c    **** {
+  92:Src/main.c    ****     while(1)
+  93:Src/main.c    ****     {
+  94:Src/main.c    **** 		bsp_LedToggle(2);//LED2
+  95:Src/main.c    **** 		vTaskDelay(pdMS_TO_TICKS(1000));//delay in ms
+  96:Src/main.c    **** 		App_Printf("This is LED Task, lower priority than Ctrol task and longer information needed to pri
+  97:Src/main.c    **** 	}
+  98:Src/main.c    **** }
+  99:Src/main.c    **** 
+ 100:Src/main.c    **** /**
+ 101:Src/main.c    ****  * @brief   obtain task run-time statistics 
+ 102:Src/main.c    ****  * @param   pvParameters: passed to the task
+ 103:Src/main.c    ****  * @retval  None
+ 104:Src/main.c    ****  */
+ 105:Src/main.c    **** static void vTaskMsgProcess(void *pvParameters)
+ 106:Src/main.c    **** {
+ 107:Src/main.c    ****     uint8_t ucCommandValue=0xFF;
+ 108:Src/main.c    ****     uint8_t pcWriteBuffer[500];
+ 109:Src/main.c    ****     
+ 110:Src/main.c    ****     App_Printf("\r\n1. Print task run-time statistics\r\n");    
+ 111:Src/main.c    ****     App_Printf("2. Enable Timer CC1 interrupt\r\n");  
+ 112:Src/main.c    ****     App_Printf("3. Enable Timer CC2 interrupt\r\n");  
+ 113:Src/main.c    ****     while(1)
+ 114:Src/main.c    ****     {
+ 115:Src/main.c    ****         comGetChar(COM1,&ucCommandValue);
+ 116:Src/main.c    ****         switch(ucCommandValue)
+ 117:Src/main.c    ****         {
+ 118:Src/main.c    ****             case '1':
+ 119:Src/main.c    ****                 App_Printf("==================================================\r\n");
+ 120:Src/main.c    ****                 App_Printf("Name                  State  Priority  Stack   Num\r\n");
+ 121:Src/main.c    ****                 vTaskList((char*)pcWriteBuffer);
+ 122:Src/main.c    ****                 App_Printf("%s\r\n", pcWriteBuffer);
+ 123:Src/main.c    **** 
+ 124:Src/main.c    ****                 App_Printf("\r\n");
+ 125:Src/main.c    ****                 App_Printf("Task                  Abs Time         %%Time      \r\n");
+ 126:Src/main.c    ****                 App_Printf("***************************************************\r\n");
+ 127:Src/main.c    ****                 vTaskGetRunTimeStats((char*)pcWriteBuffer);
+ 128:Src/main.c    ****                 App_Printf("%s\r\n", pcWriteBuffer);
+ 129:Src/main.c    ****                 break;
+ 130:Src/main.c    ****             case '2':
+ 131:Src/main.c    ****                 bsp_StartHardTimer(1, 50000, (void*)TMR_CallBack1);//after 50ms to execute ISR, and
+ 132:Src/main.c    ****                 break;
+ 133:Src/main.c    ****             case '3':
+ 134:Src/main.c    ****                 bsp_StartHardTimer(2, 50000, (void*)TMR_CallBack2);//after 50ms to execute ISR, and
+ 135:Src/main.c    ****                 break;
+ 136:Src/main.c    ****             default:
+ 137:Src/main.c    ****                 break;
+ 138:Src/main.c    ****         }
+ 139:Src/main.c    **** 
+ 140:Src/main.c    ****         if(ucCommandValue =='1' || ucCommandValue =='2' || ucCommandValue =='3')
+ 141:Src/main.c    ****         {
+ 142:Src/main.c    ****             App_Printf("1. Print task run-time statistics\r\n");
+ 143:Src/main.c    ****             App_Printf("2. Enable Timer CC1 interrupt\r\n");  
+ 144:Src/main.c    ****             App_Printf("3. Enable Timer CC2 interrupt\r\n"); 
+ 145:Src/main.c    ****             comClearRxFifo(COM1);
+ 146:Src/main.c    ****             ucCommandValue = 0xFF;
+ 147:Src/main.c    ****         }
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s 			page 4
+
+
+ 148:Src/main.c    ****            
+ 149:Src/main.c    ****         vTaskDelay(pdMS_TO_TICKS(100));
+ 150:Src/main.c    ****     }
+ 151:Src/main.c    **** }
+ 152:Src/main.c    **** 
+ 153:Src/main.c    **** /**
+ 154:Src/main.c    ****  * @brief   Empty task
+ 155:Src/main.c    ****  * @param   pvParameters: passed to the task
+ 156:Src/main.c    ****  * @retval  None
+ 157:Src/main.c    ****  */
+ 158:Src/main.c    **** static void vTaskCtrolProcess(void *pvParameters)
+ 159:Src/main.c    **** {
+ 160:Src/main.c    ****     while(1)
+ 161:Src/main.c    ****     {
+ 162:Src/main.c    ****         vTaskDelay(pdMS_TO_TICKS(1000));
+ 163:Src/main.c    **** 		App_Printf("This is Ctrol Task\r\n");
+ 164:Src/main.c    ****     }
+ 165:Src/main.c    **** }
+ 166:Src/main.c    **** 
+ 167:Src/main.c    **** /**
+ 168:Src/main.c    ****  * @brief   Create tasks
+ 169:Src/main.c    ****  * @param   None
+ 170:Src/main.c    ****  * @retval  None
+ 171:Src/main.c    ****  */
+ 172:Src/main.c    **** static void AppTaskCreate (void)
+ 173:Src/main.c    **** {
+  26              		.loc 1 173 0
+  27              		.cfi_startproc
+  28              		@ args = 0, pretend = 0, frame = 0
+  29              		@ frame_needed = 0, uses_anonymous_args = 0
+  30 0000 00B5     		push	{lr}
+  31              	.LCFI0:
+  32              		.cfi_def_cfa_offset 4
+  33              		.cfi_offset 14, -4
+  34 0002 83B0     		sub	sp, sp, #12
+  35              	.LCFI1:
+  36              		.cfi_def_cfa_offset 16
+ 174:Src/main.c    ****     BaseType_t xReturn;
+ 175:Src/main.c    ****     
+ 176:Src/main.c    ****     xReturn = xTaskCreate(  vTaskLED,   	    // function of task
+  37              		.loc 1 176 0
+  38 0004 164B     		ldr	r3, .L9
+  39 0006 0193     		str	r3, [sp, #4]
+  40 0008 0223     		movs	r3, #2
+  41 000a 0093     		str	r3, [sp]
+  42 000c 0023     		movs	r3, #0
+  43 000e 4FF40072 		mov	r2, #512
+  44 0012 1449     		ldr	r1, .L9+4
+  45 0014 1448     		ldr	r0, .L9+8
+  46 0016 FFF7FEFF 		bl	xTaskCreate
+  47              	.LVL0:
+ 177:Src/main.c    ****                             "vTaskLED",         // task name. used for debugging aid only*/
+ 178:Src/main.c    ****                             512,               	// stack size. specify the number of words(32bits) 
+ 179:Src/main.c    ****                             NULL,              	// task parameter*/
+ 180:Src/main.c    ****                             2,                 	// task priority. Note: the smaller number, the low
+ 181:Src/main.c    ****                             &xHandleTaskLED );  // task handle. used to reference the task in API c
+ 182:Src/main.c    **** 	if(xReturn != pdPASS)
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s 			page 5
+
+
+  48              		.loc 1 182 0
+  49 001a 0128     		cmp	r0, #1
+  50 001c 00D0     		beq	.L2
+  51              	.L3:
+  52 001e FEE7     		b	.L3
+  53              	.L2:
+ 183:Src/main.c    **** 	{
+ 184:Src/main.c    **** 	    while(1);//There is insufficient heap memory
+ 185:Src/main.c    **** 	}
+ 186:Src/main.c    **** 	xReturn = xTaskCreate(  vTaskMsgProcess,     		
+  54              		.loc 1 186 0
+  55 0020 124B     		ldr	r3, .L9+12
+  56 0022 0193     		str	r3, [sp, #4]
+  57 0024 0323     		movs	r3, #3
+  58 0026 0093     		str	r3, [sp]
+  59 0028 0023     		movs	r3, #0
+  60 002a 4FF40072 		mov	r2, #512
+  61 002e 1049     		ldr	r1, .L9+16
+  62 0030 1048     		ldr	r0, .L9+20
+  63              	.LVL1:
+  64 0032 FFF7FEFF 		bl	xTaskCreate
+  65              	.LVL2:
+ 187:Src/main.c    ****                             "vTaskMsgProcess",   		
+ 188:Src/main.c    ****                             512,             		
+ 189:Src/main.c    ****                             NULL,           		
+ 190:Src/main.c    ****                             3,               		
+ 191:Src/main.c    ****                             &xHandleTaskMsgProcess );  
+ 192:Src/main.c    ****     if(xReturn != pdPASS)
+  66              		.loc 1 192 0
+  67 0036 0128     		cmp	r0, #1
+  68 0038 00D0     		beq	.L4
+  69              	.L5:
+  70 003a FEE7     		b	.L5
+  71              	.L4:
+ 193:Src/main.c    **** 	{
+ 194:Src/main.c    **** 	    while(1);//There is insufficient heap memory
+ 195:Src/main.c    **** 	}
+ 196:Src/main.c    **** 	
+ 197:Src/main.c    **** 	xReturn = xTaskCreate(  vTaskCtrolProcess,     		
+  72              		.loc 1 197 0
+  73 003c 0E4B     		ldr	r3, .L9+24
+  74 003e 0193     		str	r3, [sp, #4]
+  75 0040 0423     		movs	r3, #4
+  76 0042 0093     		str	r3, [sp]
+  77 0044 0023     		movs	r3, #0
+  78 0046 4FF40072 		mov	r2, #512
+  79 004a 0C49     		ldr	r1, .L9+28
+  80 004c 0C48     		ldr	r0, .L9+32
+  81              	.LVL3:
+  82 004e FFF7FEFF 		bl	xTaskCreate
+  83              	.LVL4:
+ 198:Src/main.c    ****                             "vTaskCtrolProcess",   		
+ 199:Src/main.c    ****                             512,            		
+ 200:Src/main.c    ****                             NULL,           		
+ 201:Src/main.c    ****                             4,              		
+ 202:Src/main.c    ****                             &xHandleTaskCtrolProcess ); 
+ 203:Src/main.c    ****     if(xReturn != pdPASS)
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s 			page 6
+
+
+  84              		.loc 1 203 0
+  85 0052 0128     		cmp	r0, #1
+  86 0054 00D0     		beq	.L1
+  87              	.L7:
+  88 0056 FEE7     		b	.L7
+  89              	.L1:
+ 204:Src/main.c    **** 	{
+ 205:Src/main.c    **** 	    while(1);//There is insufficient heap memory
+ 206:Src/main.c    **** 	}
+ 207:Src/main.c    **** 	
+ 208:Src/main.c    **** }
+  90              		.loc 1 208 0
+  91 0058 03B0     		add	sp, sp, #12
+  92              	.LCFI2:
+  93              		.cfi_def_cfa_offset 4
+  94              		@ sp needed
+  95 005a 5DF804FB 		ldr	pc, [sp], #4
+  96              	.L10:
+  97 005e 00BF     		.align	2
+  98              	.L9:
+  99 0060 00000000 		.word	.LANCHOR0
+ 100 0064 00000000 		.word	.LC0
+ 101 0068 00000000 		.word	vTaskLED
+ 102 006c 00000000 		.word	.LANCHOR1
+ 103 0070 0C000000 		.word	.LC1
+ 104 0074 00000000 		.word	vTaskMsgProcess
+ 105 0078 00000000 		.word	.LANCHOR2
+ 106 007c 1C000000 		.word	.LC2
+ 107 0080 00000000 		.word	vTaskCtrolProcess
+ 108              		.cfi_endproc
+ 109              	.LFE135:
+ 111              		.section	.text.TMR_CallBack2,"ax",%progbits
+ 112              		.align	1
+ 113              		.syntax unified
+ 114              		.thumb
+ 115              		.thumb_func
+ 116              		.fpu fpv4-sp-d16
+ 118              	TMR_CallBack2:
+ 119              	.LFB139:
+ 209:Src/main.c    **** 
+ 210:Src/main.c    **** /**
+ 211:Src/main.c    ****  * @brief   Create semaphore
+ 212:Src/main.c    ****  * @param   None
+ 213:Src/main.c    ****  * @retval  None
+ 214:Src/main.c    ****  */
+ 215:Src/main.c    **** static void AppObjCreate(void)
+ 216:Src/main.c    **** {
+ 217:Src/main.c    ****     xHandleMutexPrint = xSemaphoreCreateMutex();
+ 218:Src/main.c    **** 
+ 219:Src/main.c    ****     if(xHandleMutexPrint == NULL)
+ 220:Src/main.c    ****     {
+ 221:Src/main.c    ****         printf("There is insufficient heap memory\r\n");
+ 222:Src/main.c    ****     }
+ 223:Src/main.c    **** }
+ 224:Src/main.c    **** 
+ 225:Src/main.c    **** /**
+ 226:Src/main.c    ****  * @brief   Print function
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s 			page 7
+
+
+ 227:Src/main.c    ****  * @param   format: things to print
+ 228:Src/main.c    ****  * @retval  None
+ 229:Src/main.c    ****  */
+ 230:Src/main.c    **** void App_Printf(const char *format, ...)
+ 231:Src/main.c    **** {
+ 232:Src/main.c    ****     char buf_str[200+1];//max number contain character is 200
+ 233:Src/main.c    ****     va_list v_args;
+ 234:Src/main.c    **** 
+ 235:Src/main.c    ****     va_start(v_args, format);
+ 236:Src/main.c    ****     
+ 237:Src/main.c    ****     (void)vsnprintf((char*)&buf_str[0],
+ 238:Src/main.c    ****                     (size_t)sizeof(buf_str),
+ 239:Src/main.c    ****                     (char const*)format,
+ 240:Src/main.c    ****                                 v_args);
+ 241:Src/main.c    ****     va_end(v_args);
+ 242:Src/main.c    **** 
+ 243:Src/main.c    ****     xSemaphoreTake(xHandleMutexPrint, portMAX_DELAY);//block indefinitely until mutex be obtained
+ 244:Src/main.c    ****     printf("%s", buf_str);
+ 245:Src/main.c    ****     xSemaphoreGive(xHandleMutexPrint);//the mutex must be given back
+ 246:Src/main.c    **** }
+ 247:Src/main.c    **** 
+ 248:Src/main.c    **** /**
+ 249:Src/main.c    ****  * @brief   Toggle led3
+ 250:Src/main.c    ****  * @param   None
+ 251:Src/main.c    ****  * @retval  None
+ 252:Src/main.c    ****  */
+ 253:Src/main.c    **** static void TMR_CallBack1(void)
+ 254:Src/main.c    **** {
+ 255:Src/main.c    ****     bsp_LedToggle(3);
+ 256:Src/main.c    ****     printf("In callback 1\n");
+ 257:Src/main.c    **** }
+ 258:Src/main.c    **** 
+ 259:Src/main.c    **** /**
+ 260:Src/main.c    ****  * @brief   Toggle led4
+ 261:Src/main.c    ****  * @param   None
+ 262:Src/main.c    ****  * @retval  None
+ 263:Src/main.c    ****  */
+ 264:Src/main.c    **** static void TMR_CallBack2(void)
+ 265:Src/main.c    **** {
+ 120              		.loc 1 265 0
+ 121              		.cfi_startproc
+ 122              		@ args = 0, pretend = 0, frame = 0
+ 123              		@ frame_needed = 0, uses_anonymous_args = 0
+ 124 0000 08B5     		push	{r3, lr}
+ 125              	.LCFI3:
+ 126              		.cfi_def_cfa_offset 8
+ 127              		.cfi_offset 3, -8
+ 128              		.cfi_offset 14, -4
+ 266:Src/main.c    ****     bsp_LedToggle(4);
+ 129              		.loc 1 266 0
+ 130 0002 0420     		movs	r0, #4
+ 131 0004 FFF7FEFF 		bl	bsp_LedToggle
+ 132              	.LVL5:
+ 267:Src/main.c    ****     printf("In callback 2\n"); //CANNOT USE App_Printf in interrupt callback as we deadlock on mute
+ 133              		.loc 1 267 0
+ 134 0008 0148     		ldr	r0, .L13
+ 135 000a FFF7FEFF 		bl	puts
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s 			page 8
+
+
+ 136              	.LVL6:
+ 268:Src/main.c    **** }
+ 137              		.loc 1 268 0
+ 138 000e 08BD     		pop	{r3, pc}
+ 139              	.L14:
+ 140              		.align	2
+ 141              	.L13:
+ 142 0010 00000000 		.word	.LC3
+ 143              		.cfi_endproc
+ 144              	.LFE139:
+ 146              		.section	.text.TMR_CallBack1,"ax",%progbits
+ 147              		.align	1
+ 148              		.syntax unified
+ 149              		.thumb
+ 150              		.thumb_func
+ 151              		.fpu fpv4-sp-d16
+ 153              	TMR_CallBack1:
+ 154              	.LFB138:
+ 254:Src/main.c    ****     bsp_LedToggle(3);
+ 155              		.loc 1 254 0
+ 156              		.cfi_startproc
+ 157              		@ args = 0, pretend = 0, frame = 0
+ 158              		@ frame_needed = 0, uses_anonymous_args = 0
+ 159 0000 08B5     		push	{r3, lr}
+ 160              	.LCFI4:
+ 161              		.cfi_def_cfa_offset 8
+ 162              		.cfi_offset 3, -8
+ 163              		.cfi_offset 14, -4
+ 255:Src/main.c    ****     printf("In callback 1\n");
+ 164              		.loc 1 255 0
+ 165 0002 0320     		movs	r0, #3
+ 166 0004 FFF7FEFF 		bl	bsp_LedToggle
+ 167              	.LVL7:
+ 256:Src/main.c    **** }
+ 168              		.loc 1 256 0
+ 169 0008 0148     		ldr	r0, .L17
+ 170 000a FFF7FEFF 		bl	puts
+ 171              	.LVL8:
+ 257:Src/main.c    **** 
+ 172              		.loc 1 257 0
+ 173 000e 08BD     		pop	{r3, pc}
+ 174              	.L18:
+ 175              		.align	2
+ 176              	.L17:
+ 177 0010 00000000 		.word	.LC4
+ 178              		.cfi_endproc
+ 179              	.LFE138:
+ 181              		.section	.text.AppObjCreate,"ax",%progbits
+ 182              		.align	1
+ 183              		.syntax unified
+ 184              		.thumb
+ 185              		.thumb_func
+ 186              		.fpu fpv4-sp-d16
+ 188              	AppObjCreate:
+ 189              	.LFB136:
+ 216:Src/main.c    ****     xHandleMutexPrint = xSemaphoreCreateMutex();
+ 190              		.loc 1 216 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s 			page 9
+
+
+ 191              		.cfi_startproc
+ 192              		@ args = 0, pretend = 0, frame = 0
+ 193              		@ frame_needed = 0, uses_anonymous_args = 0
+ 194 0000 08B5     		push	{r3, lr}
+ 195              	.LCFI5:
+ 196              		.cfi_def_cfa_offset 8
+ 197              		.cfi_offset 3, -8
+ 198              		.cfi_offset 14, -4
+ 217:Src/main.c    **** 
+ 199              		.loc 1 217 0
+ 200 0002 0120     		movs	r0, #1
+ 201 0004 FFF7FEFF 		bl	xQueueCreateMutex
+ 202              	.LVL9:
+ 203 0008 034B     		ldr	r3, .L23
+ 204 000a 1860     		str	r0, [r3]
+ 219:Src/main.c    ****     {
+ 205              		.loc 1 219 0
+ 206 000c 00B1     		cbz	r0, .L22
+ 207              	.L19:
+ 223:Src/main.c    **** 
+ 208              		.loc 1 223 0
+ 209 000e 08BD     		pop	{r3, pc}
+ 210              	.L22:
+ 221:Src/main.c    ****     }
+ 211              		.loc 1 221 0
+ 212 0010 0248     		ldr	r0, .L23+4
+ 213 0012 FFF7FEFF 		bl	puts
+ 214              	.LVL10:
+ 223:Src/main.c    **** 
+ 215              		.loc 1 223 0
+ 216 0016 FAE7     		b	.L19
+ 217              	.L24:
+ 218              		.align	2
+ 219              	.L23:
+ 220 0018 00000000 		.word	.LANCHOR3
+ 221 001c 00000000 		.word	.LC5
+ 222              		.cfi_endproc
+ 223              	.LFE136:
+ 225              		.section	.text.main,"ax",%progbits
+ 226              		.align	1
+ 227              		.global	main
+ 228              		.syntax unified
+ 229              		.thumb
+ 230              		.thumb_func
+ 231              		.fpu fpv4-sp-d16
+ 233              	main:
+ 234              	.LFB131:
+  57:Src/main.c    **** 	__set_PRIMASK(1); //disable global interrupts 
+ 235              		.loc 1 57 0
+ 236              		.cfi_startproc
+ 237              		@ Volatile: function does not return.
+ 238              		@ args = 0, pretend = 0, frame = 0
+ 239              		@ frame_needed = 0, uses_anonymous_args = 0
+ 240 0000 08B5     		push	{r3, lr}
+ 241              	.LCFI6:
+ 242              		.cfi_def_cfa_offset 8
+ 243              		.cfi_offset 3, -8
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s 			page 10
+
+
+ 244              		.cfi_offset 14, -4
+ 245              	.LVL11:
+ 246              	.LBB4:
+ 247              	.LBB5:
+ 248              		.file 2 "../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h"
+   1:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** /**************************************************************************//**
+   2:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****  * @file     cmsis_gcc.h
+   3:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****  * @brief    CMSIS Cortex-M Core Function/Instruction Header File
+   4:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****  * @version  V4.30
+   5:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****  * @date     20. October 2015
+   6:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****  ******************************************************************************/
+   7:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** /* Copyright (c) 2009 - 2015 ARM LIMITED
+   8:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+   9:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****    All rights reserved.
+  10:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****    Redistribution and use in source and binary forms, with or without
+  11:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****    modification, are permitted provided that the following conditions are met:
+  12:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****    - Redistributions of source code must retain the above copyright
+  13:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****      notice, this list of conditions and the following disclaimer.
+  14:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****    - Redistributions in binary form must reproduce the above copyright
+  15:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****      notice, this list of conditions and the following disclaimer in the
+  16:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****      documentation and/or other materials provided with the distribution.
+  17:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****    - Neither the name of ARM nor the names of its contributors may be used
+  18:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****      to endorse or promote products derived from this software without
+  19:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****      specific prior written permission.
+  20:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****    *
+  21:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+  22:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****    AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+  23:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****    IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+  24:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****    ARE DISCLAIMED. IN NO EVENT SHALL COPYRIGHT HOLDERS AND CONTRIBUTORS BE
+  25:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****    LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  26:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****    CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  27:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****    SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+  28:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****    INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+  29:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****    CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  30:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****    ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  31:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****    POSSIBILITY OF SUCH DAMAGE.
+  32:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****    ---------------------------------------------------------------------------*/
+  33:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+  34:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+  35:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** #ifndef __CMSIS_GCC_H
+  36:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** #define __CMSIS_GCC_H
+  37:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+  38:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** /* ignore some GCC warnings */
+  39:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** #if defined ( __GNUC__ )
+  40:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** #pragma GCC diagnostic push
+  41:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wsign-conversion"
+  42:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wconversion"
+  43:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wunused-parameter"
+  44:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** #endif
+  45:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+  46:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+  47:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** /* ###########################  Core Function Access  ########################### */
+  48:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** /** \ingroup  CMSIS_Core_FunctionInterface
+  49:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****     \defgroup CMSIS_Core_RegAccFunctions CMSIS Core Register Access Functions
+  50:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   @{
+  51:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****  */
+  52:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s 			page 11
+
+
+  53:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** /**
+  54:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \brief   Enable IRQ Interrupts
+  55:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
+  56:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****            Can only be executed in Privileged modes.
+  57:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****  */
+  58:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** __attribute__( ( always_inline ) ) __STATIC_INLINE void __enable_irq(void)
+  59:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** {
+  60:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   __ASM volatile ("cpsie i" : : : "memory");
+  61:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** }
+  62:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+  63:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+  64:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** /**
+  65:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \brief   Disable IRQ Interrupts
+  66:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \details Disables IRQ interrupts by setting the I-bit in the CPSR.
+  67:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   Can only be executed in Privileged modes.
+  68:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****  */
+  69:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** __attribute__( ( always_inline ) ) __STATIC_INLINE void __disable_irq(void)
+  70:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** {
+  71:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   __ASM volatile ("cpsid i" : : : "memory");
+  72:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** }
+  73:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+  74:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+  75:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** /**
+  76:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \brief   Get Control Register
+  77:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \details Returns the content of the Control Register.
+  78:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \return               Control Register value
+  79:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****  */
+  80:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** __attribute__( ( always_inline ) ) __STATIC_INLINE uint32_t __get_CONTROL(void)
+  81:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** {
+  82:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   uint32_t result;
+  83:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+  84:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   __ASM volatile ("MRS %0, control" : "=r" (result) );
+  85:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   return(result);
+  86:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** }
+  87:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+  88:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+  89:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** /**
+  90:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \brief   Set Control Register
+  91:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \details Writes the given value to the Control Register.
+  92:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \param [in]    control  Control Register value to set
+  93:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****  */
+  94:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** __attribute__( ( always_inline ) ) __STATIC_INLINE void __set_CONTROL(uint32_t control)
+  95:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** {
+  96:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   __ASM volatile ("MSR control, %0" : : "r" (control) : "memory");
+  97:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** }
+  98:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+  99:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+ 100:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** /**
+ 101:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \brief   Get IPSR Register
+ 102:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \details Returns the content of the IPSR Register.
+ 103:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \return               IPSR Register value
+ 104:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****  */
+ 105:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** __attribute__( ( always_inline ) ) __STATIC_INLINE uint32_t __get_IPSR(void)
+ 106:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** {
+ 107:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   uint32_t result;
+ 108:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+ 109:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   __ASM volatile ("MRS %0, ipsr" : "=r" (result) );
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s 			page 12
+
+
+ 110:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   return(result);
+ 111:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** }
+ 112:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+ 113:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+ 114:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** /**
+ 115:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \brief   Get APSR Register
+ 116:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \details Returns the content of the APSR Register.
+ 117:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \return               APSR Register value
+ 118:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****  */
+ 119:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** __attribute__( ( always_inline ) ) __STATIC_INLINE uint32_t __get_APSR(void)
+ 120:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** {
+ 121:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   uint32_t result;
+ 122:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+ 123:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   __ASM volatile ("MRS %0, apsr" : "=r" (result) );
+ 124:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   return(result);
+ 125:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** }
+ 126:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+ 127:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+ 128:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** /**
+ 129:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \brief   Get xPSR Register
+ 130:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \details Returns the content of the xPSR Register.
+ 131:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+ 132:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****     \return               xPSR Register value
+ 133:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****  */
+ 134:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** __attribute__( ( always_inline ) ) __STATIC_INLINE uint32_t __get_xPSR(void)
+ 135:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** {
+ 136:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   uint32_t result;
+ 137:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+ 138:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   __ASM volatile ("MRS %0, xpsr" : "=r" (result) );
+ 139:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   return(result);
+ 140:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** }
+ 141:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+ 142:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+ 143:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** /**
+ 144:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \brief   Get Process Stack Pointer
+ 145:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \details Returns the current value of the Process Stack Pointer (PSP).
+ 146:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \return               PSP Register value
+ 147:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****  */
+ 148:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** __attribute__( ( always_inline ) ) __STATIC_INLINE uint32_t __get_PSP(void)
+ 149:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** {
+ 150:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   register uint32_t result;
+ 151:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+ 152:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   __ASM volatile ("MRS %0, psp\n"  : "=r" (result) );
+ 153:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   return(result);
+ 154:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** }
+ 155:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+ 156:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+ 157:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** /**
+ 158:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \brief   Set Process Stack Pointer
+ 159:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \details Assigns the given value to the Process Stack Pointer (PSP).
+ 160:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \param [in]    topOfProcStack  Process Stack Pointer value to set
+ 161:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****  */
+ 162:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** __attribute__( ( always_inline ) ) __STATIC_INLINE void __set_PSP(uint32_t topOfProcStack)
+ 163:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** {
+ 164:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   __ASM volatile ("MSR psp, %0\n" : : "r" (topOfProcStack) : "sp");
+ 165:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** }
+ 166:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s 			page 13
+
+
+ 167:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+ 168:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** /**
+ 169:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \brief   Get Main Stack Pointer
+ 170:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \details Returns the current value of the Main Stack Pointer (MSP).
+ 171:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \return               MSP Register value
+ 172:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****  */
+ 173:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** __attribute__( ( always_inline ) ) __STATIC_INLINE uint32_t __get_MSP(void)
+ 174:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** {
+ 175:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   register uint32_t result;
+ 176:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+ 177:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   __ASM volatile ("MRS %0, msp\n" : "=r" (result) );
+ 178:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   return(result);
+ 179:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** }
+ 180:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+ 181:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+ 182:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** /**
+ 183:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \brief   Set Main Stack Pointer
+ 184:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \details Assigns the given value to the Main Stack Pointer (MSP).
+ 185:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+ 186:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****     \param [in]    topOfMainStack  Main Stack Pointer value to set
+ 187:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****  */
+ 188:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** __attribute__( ( always_inline ) ) __STATIC_INLINE void __set_MSP(uint32_t topOfMainStack)
+ 189:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** {
+ 190:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   __ASM volatile ("MSR msp, %0\n" : : "r" (topOfMainStack) : "sp");
+ 191:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** }
+ 192:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+ 193:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+ 194:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** /**
+ 195:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \brief   Get Priority Mask
+ 196:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \details Returns the current state of the priority mask bit from the Priority Mask Register.
+ 197:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \return               Priority Mask value
+ 198:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****  */
+ 199:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** __attribute__( ( always_inline ) ) __STATIC_INLINE uint32_t __get_PRIMASK(void)
+ 200:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** {
+ 201:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   uint32_t result;
+ 202:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+ 203:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   __ASM volatile ("MRS %0, primask" : "=r" (result) );
+ 204:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   return(result);
+ 205:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** }
+ 206:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+ 207:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
+ 208:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** /**
+ 209:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \brief   Set Priority Mask
+ 210:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \details Assigns the given value to the Priority Mask Register.
+ 211:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \param [in]    priMask  Priority Mask
+ 212:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****  */
+ 213:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** __attribute__( ( always_inline ) ) __STATIC_INLINE void __set_PRIMASK(uint32_t priMask)
+ 214:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** {
+ 215:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   __ASM volatile ("MSR primask, %0" : : "r" (priMask) : "memory");
+ 249              		.loc 2 215 0
+ 250 0002 0123     		movs	r3, #1
+ 251              		.syntax unified
+ 252              	@ 215 "../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h" 1
+ 253 0004 83F31088 		MSR primask, r3
+ 254              	@ 0 "" 2
+ 255              	.LVL12:
+ 256              		.thumb
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s 			page 14
+
+
+ 257              		.syntax unified
+ 258              	.LBE5:
+ 259              	.LBE4:
+  61:Src/main.c    **** 
+ 260              		.loc 1 61 0
+ 261 0008 FFF7FEFF 		bl	bsp_Init
+ 262              	.LVL13:
+  64:Src/main.c    **** 	
+ 263              		.loc 1 64 0
+ 264 000c FFF7FEFF 		bl	vTimerInitForRunTimeState
+ 265              	.LVL14:
+  67:Src/main.c    **** 
+ 266              		.loc 1 67 0
+ 267 0010 FFF7FEFF 		bl	AppTaskCreate
+ 268              	.LVL15:
+  70:Src/main.c    **** 	
+ 269              		.loc 1 70 0
+ 270 0014 FFF7FEFF 		bl	AppObjCreate
+ 271              	.LVL16:
+  73:Src/main.c    **** 
+ 272              		.loc 1 73 0
+ 273 0018 FFF7FEFF 		bl	vTaskStartScheduler
+ 274              	.LVL17:
+ 275              	.L26:
+ 276 001c FEE7     		b	.L26
+ 277              		.cfi_endproc
+ 278              	.LFE131:
+ 280              		.section	.text.App_Printf,"ax",%progbits
+ 281              		.align	1
+ 282              		.global	App_Printf
+ 283              		.syntax unified
+ 284              		.thumb
+ 285              		.thumb_func
+ 286              		.fpu fpv4-sp-d16
+ 288              	App_Printf:
+ 289              	.LFB137:
+ 231:Src/main.c    ****     char buf_str[200+1];//max number contain character is 200
+ 290              		.loc 1 231 0
+ 291              		.cfi_startproc
+ 292              		@ args = 4, pretend = 16, frame = 208
+ 293              		@ frame_needed = 0, uses_anonymous_args = 1
+ 294              	.LVL18:
+ 295 0000 0FB4     		push	{r0, r1, r2, r3}
+ 296              	.LCFI7:
+ 297              		.cfi_def_cfa_offset 16
+ 298              		.cfi_offset 0, -16
+ 299              		.cfi_offset 1, -12
+ 300              		.cfi_offset 2, -8
+ 301              		.cfi_offset 3, -4
+ 302 0002 10B5     		push	{r4, lr}
+ 303              	.LCFI8:
+ 304              		.cfi_def_cfa_offset 24
+ 305              		.cfi_offset 4, -24
+ 306              		.cfi_offset 14, -20
+ 307 0004 B4B0     		sub	sp, sp, #208
+ 308              	.LCFI9:
+ 309              		.cfi_def_cfa_offset 232
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s 			page 15
+
+
+ 310 0006 36AB     		add	r3, sp, #216
+ 311 0008 53F8042B 		ldr	r2, [r3], #4
+ 235:Src/main.c    ****     
+ 312              		.loc 1 235 0
+ 313 000c 0093     		str	r3, [sp]
+ 237:Src/main.c    ****                     (size_t)sizeof(buf_str),
+ 314              		.loc 1 237 0
+ 315 000e C921     		movs	r1, #201
+ 316 0010 01A8     		add	r0, sp, #4
+ 317 0012 FFF7FEFF 		bl	vsnprintf
+ 318              	.LVL19:
+ 243:Src/main.c    ****     printf("%s", buf_str);
+ 319              		.loc 1 243 0
+ 320 0016 0B4C     		ldr	r4, .L30
+ 321 0018 0023     		movs	r3, #0
+ 322 001a 4FF0FF32 		mov	r2, #-1
+ 323 001e 1946     		mov	r1, r3
+ 324 0020 2068     		ldr	r0, [r4]
+ 325 0022 FFF7FEFF 		bl	xQueueGenericReceive
+ 326              	.LVL20:
+ 244:Src/main.c    ****     xSemaphoreGive(xHandleMutexPrint);//the mutex must be given back
+ 327              		.loc 1 244 0
+ 328 0026 01A9     		add	r1, sp, #4
+ 329 0028 0748     		ldr	r0, .L30+4
+ 330 002a FFF7FEFF 		bl	printf
+ 331              	.LVL21:
+ 245:Src/main.c    **** }
+ 332              		.loc 1 245 0
+ 333 002e 0023     		movs	r3, #0
+ 334 0030 1A46     		mov	r2, r3
+ 335 0032 1946     		mov	r1, r3
+ 336 0034 2068     		ldr	r0, [r4]
+ 337 0036 FFF7FEFF 		bl	xQueueGenericSend
+ 338              	.LVL22:
+ 246:Src/main.c    **** 
+ 339              		.loc 1 246 0
+ 340 003a 34B0     		add	sp, sp, #208
+ 341              	.LCFI10:
+ 342              		.cfi_def_cfa_offset 24
+ 343              		@ sp needed
+ 344 003c BDE81040 		pop	{r4, lr}
+ 345              	.LCFI11:
+ 346              		.cfi_restore 14
+ 347              		.cfi_restore 4
+ 348              		.cfi_def_cfa_offset 16
+ 349 0040 04B0     		add	sp, sp, #16
+ 350              	.LCFI12:
+ 351              		.cfi_restore 3
+ 352              		.cfi_restore 2
+ 353              		.cfi_restore 1
+ 354              		.cfi_restore 0
+ 355              		.cfi_def_cfa_offset 0
+ 356 0042 7047     		bx	lr
+ 357              	.L31:
+ 358              		.align	2
+ 359              	.L30:
+ 360 0044 00000000 		.word	.LANCHOR3
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s 			page 16
+
+
+ 361 0048 00000000 		.word	.LC6
+ 362              		.cfi_endproc
+ 363              	.LFE137:
+ 365              		.section	.text.vTaskCtrolProcess,"ax",%progbits
+ 366              		.align	1
+ 367              		.syntax unified
+ 368              		.thumb
+ 369              		.thumb_func
+ 370              		.fpu fpv4-sp-d16
+ 372              	vTaskCtrolProcess:
+ 373              	.LFB134:
+ 159:Src/main.c    ****     while(1)
+ 374              		.loc 1 159 0
+ 375              		.cfi_startproc
+ 376              		@ Volatile: function does not return.
+ 377              		@ args = 0, pretend = 0, frame = 0
+ 378              		@ frame_needed = 0, uses_anonymous_args = 0
+ 379              	.LVL23:
+ 380 0000 08B5     		push	{r3, lr}
+ 381              	.LCFI13:
+ 382              		.cfi_def_cfa_offset 8
+ 383              		.cfi_offset 3, -8
+ 384              		.cfi_offset 14, -4
+ 385              	.LVL24:
+ 386              	.L33:
+ 162:Src/main.c    **** 		App_Printf("This is Ctrol Task\r\n");
+ 387              		.loc 1 162 0 discriminator 1
+ 388 0002 4FF47A70 		mov	r0, #1000
+ 389 0006 FFF7FEFF 		bl	vTaskDelay
+ 390              	.LVL25:
+ 163:Src/main.c    ****     }
+ 391              		.loc 1 163 0 discriminator 1
+ 392 000a 0248     		ldr	r0, .L35
+ 393 000c FFF7FEFF 		bl	App_Printf
+ 394              	.LVL26:
+ 395 0010 F7E7     		b	.L33
+ 396              	.L36:
+ 397 0012 00BF     		.align	2
+ 398              	.L35:
+ 399 0014 00000000 		.word	.LC7
+ 400              		.cfi_endproc
+ 401              	.LFE134:
+ 403              		.section	.text.vTaskMsgProcess,"ax",%progbits
+ 404              		.align	1
+ 405              		.syntax unified
+ 406              		.thumb
+ 407              		.thumb_func
+ 408              		.fpu fpv4-sp-d16
+ 410              	vTaskMsgProcess:
+ 411              	.LFB133:
+ 106:Src/main.c    ****     uint8_t ucCommandValue=0xFF;
+ 412              		.loc 1 106 0
+ 413              		.cfi_startproc
+ 414              		@ Volatile: function does not return.
+ 415              		@ args = 0, pretend = 0, frame = 504
+ 416              		@ frame_needed = 0, uses_anonymous_args = 0
+ 417              	.LVL27:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s 			page 17
+
+
+ 418 0000 00B5     		push	{lr}
+ 419              	.LCFI14:
+ 420              		.cfi_def_cfa_offset 4
+ 421              		.cfi_offset 14, -4
+ 422 0002 FFB0     		sub	sp, sp, #508
+ 423              	.LCFI15:
+ 424              		.cfi_def_cfa_offset 512
+ 107:Src/main.c    ****     uint8_t pcWriteBuffer[500];
+ 425              		.loc 1 107 0
+ 426 0004 FF23     		movs	r3, #255
+ 427 0006 8DF8F731 		strb	r3, [sp, #503]
+ 110:Src/main.c    ****     App_Printf("2. Enable Timer CC1 interrupt\r\n");  
+ 428              		.loc 1 110 0
+ 429 000a 2E48     		ldr	r0, .L47
+ 430              	.LVL28:
+ 431 000c FFF7FEFF 		bl	App_Printf
+ 432              	.LVL29:
+ 111:Src/main.c    ****     App_Printf("3. Enable Timer CC2 interrupt\r\n");  
+ 433              		.loc 1 111 0
+ 434 0010 2D48     		ldr	r0, .L47+4
+ 435 0012 FFF7FEFF 		bl	App_Printf
+ 436              	.LVL30:
+ 112:Src/main.c    ****     while(1)
+ 437              		.loc 1 112 0
+ 438 0016 2D48     		ldr	r0, .L47+8
+ 439 0018 FFF7FEFF 		bl	App_Printf
+ 440              	.LVL31:
+ 441 001c 26E0     		b	.L43
+ 442              	.L46:
+ 119:Src/main.c    ****                 App_Printf("Name                  State  Priority  Stack   Num\r\n");
+ 443              		.loc 1 119 0
+ 444 001e 2C48     		ldr	r0, .L47+12
+ 445 0020 FFF7FEFF 		bl	App_Printf
+ 446              	.LVL32:
+ 120:Src/main.c    ****                 vTaskList((char*)pcWriteBuffer);
+ 447              		.loc 1 120 0
+ 448 0024 2B48     		ldr	r0, .L47+16
+ 449 0026 FFF7FEFF 		bl	App_Printf
+ 450              	.LVL33:
+ 121:Src/main.c    ****                 App_Printf("%s\r\n", pcWriteBuffer);
+ 451              		.loc 1 121 0
+ 452 002a 6846     		mov	r0, sp
+ 453 002c FFF7FEFF 		bl	vTaskList
+ 454              	.LVL34:
+ 122:Src/main.c    **** 
+ 455              		.loc 1 122 0
+ 456 0030 294C     		ldr	r4, .L47+20
+ 457 0032 6946     		mov	r1, sp
+ 458 0034 2046     		mov	r0, r4
+ 459 0036 FFF7FEFF 		bl	App_Printf
+ 460              	.LVL35:
+ 124:Src/main.c    ****                 App_Printf("Task                  Abs Time         %%Time      \r\n");
+ 461              		.loc 1 124 0
+ 462 003a 2848     		ldr	r0, .L47+24
+ 463 003c FFF7FEFF 		bl	App_Printf
+ 464              	.LVL36:
+ 125:Src/main.c    ****                 App_Printf("***************************************************\r\n");
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s 			page 18
+
+
+ 465              		.loc 1 125 0
+ 466 0040 2748     		ldr	r0, .L47+28
+ 467 0042 FFF7FEFF 		bl	App_Printf
+ 468              	.LVL37:
+ 126:Src/main.c    ****                 vTaskGetRunTimeStats((char*)pcWriteBuffer);
+ 469              		.loc 1 126 0
+ 470 0046 2748     		ldr	r0, .L47+32
+ 471 0048 FFF7FEFF 		bl	App_Printf
+ 472              	.LVL38:
+ 127:Src/main.c    ****                 App_Printf("%s\r\n", pcWriteBuffer);
+ 473              		.loc 1 127 0
+ 474 004c 6846     		mov	r0, sp
+ 475 004e FFF7FEFF 		bl	vTaskGetRunTimeStats
+ 476              	.LVL39:
+ 128:Src/main.c    ****                 break;
+ 477              		.loc 1 128 0
+ 478 0052 6946     		mov	r1, sp
+ 479 0054 2046     		mov	r0, r4
+ 480 0056 FFF7FEFF 		bl	App_Printf
+ 481              	.LVL40:
+ 482              	.L38:
+ 140:Src/main.c    ****         {
+ 483              		.loc 1 140 0
+ 484 005a 9DF8F731 		ldrb	r3, [sp, #503]	@ zero_extendqisi2
+ 485 005e 313B     		subs	r3, r3, #49
+ 486 0060 DBB2     		uxtb	r3, r3
+ 487 0062 022B     		cmp	r3, #2
+ 488 0064 1ED9     		bls	.L45
+ 489              	.L42:
+ 149:Src/main.c    ****     }
+ 490              		.loc 1 149 0
+ 491 0066 6420     		movs	r0, #100
+ 492 0068 FFF7FEFF 		bl	vTaskDelay
+ 493              	.LVL41:
+ 494              	.L43:
+ 115:Src/main.c    ****         switch(ucCommandValue)
+ 495              		.loc 1 115 0
+ 496 006c 0DF2F711 		addw	r1, sp, #503
+ 497 0070 0020     		movs	r0, #0
+ 498 0072 FFF7FEFF 		bl	comGetChar
+ 499              	.LVL42:
+ 116:Src/main.c    ****         {
+ 500              		.loc 1 116 0
+ 501 0076 9DF8F731 		ldrb	r3, [sp, #503]	@ zero_extendqisi2
+ 502 007a 322B     		cmp	r3, #50
+ 503 007c 04D0     		beq	.L39
+ 504 007e 332B     		cmp	r3, #51
+ 505 0080 09D0     		beq	.L40
+ 506 0082 312B     		cmp	r3, #49
+ 507 0084 E9D1     		bne	.L38
+ 508 0086 CAE7     		b	.L46
+ 509              	.L39:
+ 131:Src/main.c    ****                 break;
+ 510              		.loc 1 131 0
+ 511 0088 174A     		ldr	r2, .L47+36
+ 512 008a 4CF25031 		movw	r1, #50000
+ 513 008e 0120     		movs	r0, #1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s 			page 19
+
+
+ 514 0090 FFF7FEFF 		bl	bsp_StartHardTimer
+ 515              	.LVL43:
+ 132:Src/main.c    ****             case '3':
+ 516              		.loc 1 132 0
+ 517 0094 E1E7     		b	.L38
+ 518              	.L40:
+ 134:Src/main.c    ****                 break;
+ 519              		.loc 1 134 0
+ 520 0096 154A     		ldr	r2, .L47+40
+ 521 0098 4CF25031 		movw	r1, #50000
+ 522 009c 0220     		movs	r0, #2
+ 523 009e FFF7FEFF 		bl	bsp_StartHardTimer
+ 524              	.LVL44:
+ 135:Src/main.c    ****             default:
+ 525              		.loc 1 135 0
+ 526 00a2 DAE7     		b	.L38
+ 527              	.L45:
+ 142:Src/main.c    ****             App_Printf("2. Enable Timer CC1 interrupt\r\n");  
+ 528              		.loc 1 142 0
+ 529 00a4 1248     		ldr	r0, .L47+44
+ 530 00a6 FFF7FEFF 		bl	App_Printf
+ 531              	.LVL45:
+ 143:Src/main.c    ****             App_Printf("3. Enable Timer CC2 interrupt\r\n"); 
+ 532              		.loc 1 143 0
+ 533 00aa 0748     		ldr	r0, .L47+4
+ 534 00ac FFF7FEFF 		bl	App_Printf
+ 535              	.LVL46:
+ 144:Src/main.c    ****             comClearRxFifo(COM1);
+ 536              		.loc 1 144 0
+ 537 00b0 0648     		ldr	r0, .L47+8
+ 538 00b2 FFF7FEFF 		bl	App_Printf
+ 539              	.LVL47:
+ 145:Src/main.c    ****             ucCommandValue = 0xFF;
+ 540              		.loc 1 145 0
+ 541 00b6 0020     		movs	r0, #0
+ 542 00b8 FFF7FEFF 		bl	comClearRxFifo
+ 543              	.LVL48:
+ 146:Src/main.c    ****         }
+ 544              		.loc 1 146 0
+ 545 00bc FF23     		movs	r3, #255
+ 546 00be 8DF8F731 		strb	r3, [sp, #503]
+ 547 00c2 D0E7     		b	.L42
+ 548              	.L48:
+ 549              		.align	2
+ 550              	.L47:
+ 551 00c4 00000000 		.word	.LC8
+ 552 00c8 28000000 		.word	.LC9
+ 553 00cc 48000000 		.word	.LC10
+ 554 00d0 68000000 		.word	.LC11
+ 555 00d4 A0000000 		.word	.LC12
+ 556 00d8 D8000000 		.word	.LC13
+ 557 00dc E0000000 		.word	.LC14
+ 558 00e0 E4000000 		.word	.LC15
+ 559 00e4 1C010000 		.word	.LC16
+ 560 00e8 00000000 		.word	TMR_CallBack1
+ 561 00ec 00000000 		.word	TMR_CallBack2
+ 562 00f0 54010000 		.word	.LC17
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s 			page 20
+
+
+ 563              		.cfi_endproc
+ 564              	.LFE133:
+ 566              		.section	.text.vTaskLED,"ax",%progbits
+ 567              		.align	1
+ 568              		.syntax unified
+ 569              		.thumb
+ 570              		.thumb_func
+ 571              		.fpu fpv4-sp-d16
+ 573              	vTaskLED:
+ 574              	.LFB132:
+  91:Src/main.c    ****     while(1)
+ 575              		.loc 1 91 0
+ 576              		.cfi_startproc
+ 577              		@ Volatile: function does not return.
+ 578              		@ args = 0, pretend = 0, frame = 0
+ 579              		@ frame_needed = 0, uses_anonymous_args = 0
+ 580              	.LVL49:
+ 581 0000 08B5     		push	{r3, lr}
+ 582              	.LCFI16:
+ 583              		.cfi_def_cfa_offset 8
+ 584              		.cfi_offset 3, -8
+ 585              		.cfi_offset 14, -4
+ 586              	.LVL50:
+ 587              	.L50:
+  94:Src/main.c    **** 		vTaskDelay(pdMS_TO_TICKS(1000));//delay in ms
+ 588              		.loc 1 94 0 discriminator 1
+ 589 0002 0220     		movs	r0, #2
+ 590 0004 FFF7FEFF 		bl	bsp_LedToggle
+ 591              	.LVL51:
+  95:Src/main.c    **** 		App_Printf("This is LED Task, lower priority than Ctrol task and longer information needed to pri
+ 592              		.loc 1 95 0 discriminator 1
+ 593 0008 4FF47A70 		mov	r0, #1000
+ 594 000c FFF7FEFF 		bl	vTaskDelay
+ 595              	.LVL52:
+  96:Src/main.c    **** 	}
+ 596              		.loc 1 96 0 discriminator 1
+ 597 0010 0148     		ldr	r0, .L52
+ 598 0012 FFF7FEFF 		bl	App_Printf
+ 599              	.LVL53:
+ 600 0016 F4E7     		b	.L50
+ 601              	.L53:
+ 602              		.align	2
+ 603              	.L52:
+ 604 0018 00000000 		.word	.LC18
+ 605              		.cfi_endproc
+ 606              	.LFE132:
+ 608              		.section	.text.vApplicationMallocFailedHook,"ax",%progbits
+ 609              		.align	1
+ 610              		.global	vApplicationMallocFailedHook
+ 611              		.syntax unified
+ 612              		.thumb
+ 613              		.thumb_func
+ 614              		.fpu fpv4-sp-d16
+ 616              	vApplicationMallocFailedHook:
+ 617              	.LFB140:
+ 269:Src/main.c    **** 
+ 270:Src/main.c    **** #if ( configUSE_IDLE_HOOK == 1 )
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s 			page 21
+
+
+ 271:Src/main.c    **** /* Call the user defined function from within the idle task.  This
+ 272:Src/main.c    ****  * allows the application designer to add background functionality
+ 273:Src/main.c    ****  * without the overhead of a separate task.
+ 274:Src/main.c    ****  *  
+ 275:Src/main.c    ****  * NOTE: vApplicationIdleHook() MUST NOT, UNDER ANY CIRCUMSTANCES,
+ 276:Src/main.c    ****  * CALL A FUNCTION THAT MIGHT BLOCK. THE FUNCTION NAME IS FIXED*/
+ 277:Src/main.c    **** 
+ 278:Src/main.c    **** void vApplicationIdleHook( void )
+ 279:Src/main.c    **** {
+ 280:Src/main.c    ****     while(1);
+ 281:Src/main.c    **** }
+ 282:Src/main.c    **** 
+ 283:Src/main.c    **** #endif /* configUSE_IDLE_HOOK */
+ 284:Src/main.c    **** 
+ 285:Src/main.c    **** #if ( configUSE_TICK_HOOK == 1 )
+ 286:Src/main.c    **** /* The tick hook gets called at regular intervals, even if the
+ 287:Src/main.c    ****  * scheduler is locked. 
+ 288:Src/main.c    ****  * NOTE: THE FUNCTION NAME IS FIXED */
+ 289:Src/main.c    **** 
+ 290:Src/main.c    **** void vApplicationTickHook( void )
+ 291:Src/main.c    **** {
+ 292:Src/main.c    ****     while(1);
+ 293:Src/main.c    **** }
+ 294:Src/main.c    **** 
+ 295:Src/main.c    **** #endif /* configUSE_TICK_HOOK */
+ 296:Src/main.c    **** 
+ 297:Src/main.c    **** #if ( configUSE_MALLOC_FAILED_HOOK == 1 )
+ 298:Src/main.c    **** /* NOTE: THE FUNCTION NAME IS FIXED */
+ 299:Src/main.c    **** 
+ 300:Src/main.c    **** void vApplicationMallocFailedHook(void)
+ 301:Src/main.c    **** {
+ 618              		.loc 1 301 0
+ 619              		.cfi_startproc
+ 620              		@ Volatile: function does not return.
+ 621              		@ args = 0, pretend = 0, frame = 0
+ 622              		@ frame_needed = 0, uses_anonymous_args = 0
+ 623              		@ link register save eliminated.
+ 624              	.L55:
+ 625 0000 FEE7     		b	.L55
+ 626              		.cfi_endproc
+ 627              	.LFE140:
+ 629              		.section	.text.vApplicationStackOverflowHook,"ax",%progbits
+ 630              		.align	1
+ 631              		.global	vApplicationStackOverflowHook
+ 632              		.syntax unified
+ 633              		.thumb
+ 634              		.thumb_func
+ 635              		.fpu fpv4-sp-d16
+ 637              	vApplicationStackOverflowHook:
+ 638              	.LFB141:
+ 302:Src/main.c    ****     while(1);
+ 303:Src/main.c    **** }
+ 304:Src/main.c    **** 
+ 305:Src/main.c    **** #endif /* configUSE_MALLOC_FAILED_HOOK */
+ 306:Src/main.c    **** 
+ 307:Src/main.c    **** #if (  configCHECK_FOR_STACK_OVERFLOW > 0 )
+ 308:Src/main.c    **** /* The stack overflow hook function.
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s 			page 22
+
+
+ 309:Src/main.c    ****  * xTask: handle of the task that has exceeded its stack space
+ 310:Src/main.c    ****  * pcTaskName: name of the task that has exceeded its stack sapce
+ 311:Src/main.c    ****  * NOTE: stack overflow checking can only be used on architectures
+ 312:Src/main.c    ****  *       that have a linear memory map
+ 313:Src/main.c    ****  */
+ 314:Src/main.c    **** void vApplicationStackOverflowHook( TaskHandle_t xTask, char *pcTaskName )
+ 315:Src/main.c    **** {
+ 639              		.loc 1 315 0
+ 640              		.cfi_startproc
+ 641              		@ args = 0, pretend = 0, frame = 0
+ 642              		@ frame_needed = 0, uses_anonymous_args = 0
+ 643              	.LVL54:
+ 644              		.loc 1 315 0
+ 645 0000 08B5     		push	{r3, lr}
+ 646              	.LCFI17:
+ 647              		.cfi_def_cfa_offset 8
+ 648              		.cfi_offset 3, -8
+ 649              		.cfi_offset 14, -4
+ 316:Src/main.c    ****     App_Printf("task: %s stack is overFlow\r\n",pcTaskName);
+ 650              		.loc 1 316 0
+ 651 0002 0248     		ldr	r0, .L58
+ 652              	.LVL55:
+ 653 0004 FFF7FEFF 		bl	App_Printf
+ 654              	.LVL56:
+ 317:Src/main.c    **** }
+ 655              		.loc 1 317 0
+ 656 0008 08BD     		pop	{r3, pc}
+ 657              	.L59:
+ 658 000a 00BF     		.align	2
+ 659              	.L58:
+ 660 000c 00000000 		.word	.LC19
+ 661              		.cfi_endproc
+ 662              	.LFE141:
+ 664              		.section	.bss.xHandleMutexPrint,"aw",%nobits
+ 665              		.align	2
+ 666              		.set	.LANCHOR3,. + 0
+ 669              	xHandleMutexPrint:
+ 670 0000 00000000 		.space	4
+ 671              		.section	.bss.xHandleTaskCtrolProcess,"aw",%nobits
+ 672              		.align	2
+ 673              		.set	.LANCHOR2,. + 0
+ 676              	xHandleTaskCtrolProcess:
+ 677 0000 00000000 		.space	4
+ 678              		.section	.bss.xHandleTaskLED,"aw",%nobits
+ 679              		.align	2
+ 680              		.set	.LANCHOR0,. + 0
+ 683              	xHandleTaskLED:
+ 684 0000 00000000 		.space	4
+ 685              		.section	.bss.xHandleTaskMsgProcess,"aw",%nobits
+ 686              		.align	2
+ 687              		.set	.LANCHOR1,. + 0
+ 690              	xHandleTaskMsgProcess:
+ 691 0000 00000000 		.space	4
+ 692              		.section	.rodata.AppObjCreate.str1.4,"aMS",%progbits,1
+ 693              		.align	2
+ 694              	.LC5:
+ 695 0000 54686572 		.ascii	"There is insufficient heap memory\015\000"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s 			page 23
+
+
+ 695      65206973 
+ 695      20696E73 
+ 695      75666669 
+ 695      6369656E 
+ 696              		.section	.rodata.AppTaskCreate.str1.4,"aMS",%progbits,1
+ 697              		.align	2
+ 698              	.LC0:
+ 699 0000 76546173 		.ascii	"vTaskLED\000"
+ 699      6B4C4544 
+ 699      00
+ 700 0009 000000   		.space	3
+ 701              	.LC1:
+ 702 000c 76546173 		.ascii	"vTaskMsgProcess\000"
+ 702      6B4D7367 
+ 702      50726F63 
+ 702      65737300 
+ 703              	.LC2:
+ 704 001c 76546173 		.ascii	"vTaskCtrolProcess\000"
+ 704      6B437472 
+ 704      6F6C5072 
+ 704      6F636573 
+ 704      7300
+ 705              		.section	.rodata.App_Printf.str1.4,"aMS",%progbits,1
+ 706              		.align	2
+ 707              	.LC6:
+ 708 0000 257300   		.ascii	"%s\000"
+ 709              		.section	.rodata.TMR_CallBack1.str1.4,"aMS",%progbits,1
+ 710              		.align	2
+ 711              	.LC4:
+ 712 0000 496E2063 		.ascii	"In callback 1\000"
+ 712      616C6C62 
+ 712      61636B20 
+ 712      3100
+ 713              		.section	.rodata.TMR_CallBack2.str1.4,"aMS",%progbits,1
+ 714              		.align	2
+ 715              	.LC3:
+ 716 0000 496E2063 		.ascii	"In callback 2\000"
+ 716      616C6C62 
+ 716      61636B20 
+ 716      3200
+ 717              		.section	.rodata.vApplicationStackOverflowHook.str1.4,"aMS",%progbits,1
+ 718              		.align	2
+ 719              	.LC19:
+ 720 0000 7461736B 		.ascii	"task: %s stack is overFlow\015\012\000"
+ 720      3A202573 
+ 720      20737461 
+ 720      636B2069 
+ 720      73206F76 
+ 721              		.section	.rodata.vTaskCtrolProcess.str1.4,"aMS",%progbits,1
+ 722              		.align	2
+ 723              	.LC7:
+ 724 0000 54686973 		.ascii	"This is Ctrol Task\015\012\000"
+ 724      20697320 
+ 724      4374726F 
+ 724      6C205461 
+ 724      736B0D0A 
+ 725              		.section	.rodata.vTaskLED.str1.4,"aMS",%progbits,1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s 			page 24
+
+
+ 726              		.align	2
+ 727              	.LC18:
+ 728 0000 54686973 		.ascii	"This is LED Task, lower priority than Ctrol task an"
+ 728      20697320 
+ 728      4C454420 
+ 728      5461736B 
+ 728      2C206C6F 
+ 729 0033 64206C6F 		.ascii	"d longer information needed to print on standard ou"
+ 729      6E676572 
+ 729      20696E66 
+ 729      6F726D61 
+ 729      74696F6E 
+ 730 0066 74707574 		.ascii	"tput\015\012\000"
+ 730      0D0A00
+ 731              		.section	.rodata.vTaskMsgProcess.str1.4,"aMS",%progbits,1
+ 732              		.align	2
+ 733              	.LC8:
+ 734 0000 0D0A312E 		.ascii	"\015\0121. Print task run-time statistics\015\012\000"
+ 734      20507269 
+ 734      6E742074 
+ 734      61736B20 
+ 734      72756E2D 
+ 735 0026 0000     		.space	2
+ 736              	.LC9:
+ 737 0028 322E2045 		.ascii	"2. Enable Timer CC1 interrupt\015\012\000"
+ 737      6E61626C 
+ 737      65205469 
+ 737      6D657220 
+ 737      43433120 
+ 738              	.LC10:
+ 739 0048 332E2045 		.ascii	"3. Enable Timer CC2 interrupt\015\012\000"
+ 739      6E61626C 
+ 739      65205469 
+ 739      6D657220 
+ 739      43433220 
+ 740              	.LC11:
+ 741 0068 3D3D3D3D 		.ascii	"==================================================\015"
+ 741      3D3D3D3D 
+ 741      3D3D3D3D 
+ 741      3D3D3D3D 
+ 741      3D3D3D3D 
+ 742 009b 0A00     		.ascii	"\012\000"
+ 743 009d 000000   		.space	3
+ 744              	.LC12:
+ 745 00a0 4E616D65 		.ascii	"Name                  State  Priority  Stack   Num\015"
+ 745      20202020 
+ 745      20202020 
+ 745      20202020 
+ 745      20202020 
+ 746 00d3 0A00     		.ascii	"\012\000"
+ 747 00d5 000000   		.space	3
+ 748              	.LC13:
+ 749 00d8 25730D0A 		.ascii	"%s\015\012\000"
+ 749      00
+ 750 00dd 000000   		.space	3
+ 751              	.LC14:
+ 752 00e0 0D0A00   		.ascii	"\015\012\000"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s 			page 25
+
+
+ 753 00e3 00       		.space	1
+ 754              	.LC15:
+ 755 00e4 5461736B 		.ascii	"Task                  Abs Time         %%Time      "
+ 755      20202020 
+ 755      20202020 
+ 755      20202020 
+ 755      20202020 
+ 756 0117 0D0A00   		.ascii	"\015\012\000"
+ 757 011a 0000     		.space	2
+ 758              	.LC16:
+ 759 011c 2A2A2A2A 		.ascii	"***************************************************"
+ 759      2A2A2A2A 
+ 759      2A2A2A2A 
+ 759      2A2A2A2A 
+ 759      2A2A2A2A 
+ 760 014f 0D0A00   		.ascii	"\015\012\000"
+ 761 0152 0000     		.space	2
+ 762              	.LC17:
+ 763 0154 312E2050 		.ascii	"1. Print task run-time statistics\015\012\000"
+ 763      72696E74 
+ 763      20746173 
+ 763      6B207275 
+ 763      6E2D7469 
+ 764              		.text
+ 765              	.Letext0:
+ 766              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stdarg.h
+ 767              		.file 4 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
+ 768              		.file 5 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h
+ 769              		.file 6 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
+ 770              		.file 7 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
+ 771              		.file 8 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
+ 772              		.file 9 "<built-in>"
+ 773              		.file 10 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
+ 774              		.file 11 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdlib.h"
+ 775              		.file 12 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/math.h"
+ 776              		.file 13 "../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h"
+ 777              		.file 14 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
+ 778              		.file 15 "Inc/FreeRTOSConfig.h"
+ 779              		.file 16 "../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h"
+ 780              		.file 17 "../Middlewares/FreeRTOS//Source/include/task.h"
+ 781              		.file 18 "../Middlewares/FreeRTOS//Source/include/queue.h"
+ 782              		.file 19 "../Middlewares/FreeRTOS//Source/include/semphr.h"
+ 783              		.file 20 "bsp/inc/bsp_led.h"
+ 784              		.file 21 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdio.h"
+ 785              		.file 22 "bsp/inc/bsp_uart_fifo.h"
+ 786              		.file 23 "bsp/inc/bsp_timer.h"
+ 787              		.file 24 "bsp/inc/bsp.h"
+ 788              		.file 25 "Inc/includes.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s 			page 26
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 main.c
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:17     .text.AppTaskCreate:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:23     .text.AppTaskCreate:0000000000000000 AppTaskCreate
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:99     .text.AppTaskCreate:0000000000000060 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:573    .text.vTaskLED:0000000000000000 vTaskLED
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:410    .text.vTaskMsgProcess:0000000000000000 vTaskMsgProcess
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:372    .text.vTaskCtrolProcess:0000000000000000 vTaskCtrolProcess
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:112    .text.TMR_CallBack2:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:118    .text.TMR_CallBack2:0000000000000000 TMR_CallBack2
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:142    .text.TMR_CallBack2:0000000000000010 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:147    .text.TMR_CallBack1:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:153    .text.TMR_CallBack1:0000000000000000 TMR_CallBack1
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:177    .text.TMR_CallBack1:0000000000000010 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:182    .text.AppObjCreate:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:188    .text.AppObjCreate:0000000000000000 AppObjCreate
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:220    .text.AppObjCreate:0000000000000018 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:226    .text.main:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:233    .text.main:0000000000000000 main
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:281    .text.App_Printf:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:288    .text.App_Printf:0000000000000000 App_Printf
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:360    .text.App_Printf:0000000000000044 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:366    .text.vTaskCtrolProcess:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:399    .text.vTaskCtrolProcess:0000000000000014 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:404    .text.vTaskMsgProcess:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:551    .text.vTaskMsgProcess:00000000000000c4 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:567    .text.vTaskLED:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:604    .text.vTaskLED:0000000000000018 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:609    .text.vApplicationMallocFailedHook:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:616    .text.vApplicationMallocFailedHook:0000000000000000 vApplicationMallocFailedHook
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:630    .text.vApplicationStackOverflowHook:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:637    .text.vApplicationStackOverflowHook:0000000000000000 vApplicationStackOverflowHook
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:660    .text.vApplicationStackOverflowHook:000000000000000c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:665    .bss.xHandleMutexPrint:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:669    .bss.xHandleMutexPrint:0000000000000000 xHandleMutexPrint
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:672    .bss.xHandleTaskCtrolProcess:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:676    .bss.xHandleTaskCtrolProcess:0000000000000000 xHandleTaskCtrolProcess
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:679    .bss.xHandleTaskLED:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:683    .bss.xHandleTaskLED:0000000000000000 xHandleTaskLED
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:686    .bss.xHandleTaskMsgProcess:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:690    .bss.xHandleTaskMsgProcess:0000000000000000 xHandleTaskMsgProcess
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:693    .rodata.AppObjCreate.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:697    .rodata.AppTaskCreate.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:706    .rodata.App_Printf.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:710    .rodata.TMR_CallBack1.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:714    .rodata.TMR_CallBack2.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:718    .rodata.vApplicationStackOverflowHook.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:722    .rodata.vTaskCtrolProcess.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:726    .rodata.vTaskLED.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s:732    .rodata.vTaskMsgProcess.str1.4:0000000000000000 $d
+
+UNDEFINED SYMBOLS
+xTaskCreate
+bsp_LedToggle
+puts
+xQueueCreateMutex
+bsp_Init
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSU7IIF.s 			page 27
+
+
+vTimerInitForRunTimeState
+vTaskStartScheduler
+vsnprintf
+xQueueGenericReceive
+printf
+xQueueGenericSend
+vTaskDelay
+vTaskList
+vTaskGetRunTimeStats
+comGetChar
+bsp_StartHardTimer
+comClearRxFifo
