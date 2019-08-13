@@ -1,0 +1,2195 @@
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"system_at32f4xx.c"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.text.SetSysClockTo192M,"ax",%progbits
+  17              		.align	1
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  21              		.fpu fpv4-sp-d16
+  23              	SetSysClockTo192M:
+  24              	.LFB127:
+  25              		.file 1 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c"
+   1:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /**
+   2:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****  **************************************************************************
+   3:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****  * File Name    : system_at32f4xx.c
+   4:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****  * Description  : CMSIS Cortex-M4 system source file.
+   5:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****  * Date         : 2018-02-26
+   6:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****  * Version      : V1.0.4
+   7:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****  **************************************************************************
+   8:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****  */
+   9:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+  10:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+  11:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /** @addtogroup CMSIS
+  12:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @{
+  13:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
+  14:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+  15:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /** @addtogroup at32f4xx_system
+  16:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @{
+  17:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
+  18:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+  19:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /** @addtogroup at32f4xx_System_Private_Includes
+  20:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @{
+  21:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
+  22:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+  23:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #include "at32f4xx.h"
+  24:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+  25:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /**
+  26:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @}
+  27:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
+  28:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+  29:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /** @addtogroup at32f4xx_System_Private_TypesDefinitions
+  30:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @{
+  31:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
+  32:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+  33:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /**
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 2
+
+
+  34:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @}
+  35:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
+  36:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+  37:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /** @addtogroup at32f4xx_System_Private_Defines
+  38:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @{
+  39:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
+  40:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+  41:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /*!< Uncomment the line corresponding to the desired System clock (SYSCLK)
+  42:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****    frequency (after reset the HSI is used as SYSCLK source)
+  43:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+  44:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****    IMPORTANT NOTE:
+  45:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****    ==============
+  46:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****    1. After each device reset the HSI is used as System clock source.
+  47:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+  48:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****    2. Please make sure that the selected System clock doesn't exceed your device's
+  49:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****       maximum frequency.
+  50:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+  51:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****    3. If none of the define below is enabled, the HSI is used as System clock
+  52:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     source.
+  53:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+  54:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****    4. The System clock configuration functions provided within this file assume that:
+  55:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****         - For at32f4xx devices, an external 8MHz crystal is used to drive the System clock.
+  56:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****      If you are using different crystal you have to adapt those functions accordingly.
+  57:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+  58:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****       Clock (MHz)
+  59:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****           PLL from HSE or HSI
+  60:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****           SYSCLK	    HCLK	PCLK2	PCLK1
+  61:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****           24	        24	    24	    24
+  62:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****           36	        36	    36	    36
+  63:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****           48	        48	    48	    24
+  64:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****           56	        56	    56	    28
+  65:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****           72	        72	    72	    36
+  66:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****           96	        96	    96	    48
+  67:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****           108	        108	    108	    54
+  68:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****           120	        120	    60	    60
+  69:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****           144	        144	    72	    72
+  70:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****           168	        168	    84	    84
+  71:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****           176	        176	    88	    88
+  72:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****           192	        192	    96	    96
+  73:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****           200	        200	    100	    100
+  74:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     */
+  75:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+  76:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /* #define SYSCLK_FREQ_HSE          HSE_VALUE */
+  77:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /* #define SYSCLK_FREQ_24MHz        24000000 */
+  78:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /* #define SYSCLK_FREQ_36MHz        36000000 */
+  79:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /* #define SYSCLK_FREQ_48MHz        48000000 */
+  80:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /* #define SYSCLK_FREQ_56MHz        56000000 */
+  81:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /* #define SYSCLK_FREQ_72MHz        72000000 */
+  82:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /* #define SYSCLK_FREQ_96MHz        96000000 */
+  83:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /* #define SYSCLK_FREQ_108MHz       108000000 */
+  84:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /* #define SYSCLK_FREQ_120MHz       120000000 */
+  85:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /* #define SYSCLK_FREQ_144MHz       144000000 */
+  86:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /* #define SYSCLK_FREQ_168MHz       168000000 */
+  87:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /* #define SYSCLK_FREQ_176MHz       176000000 */
+  88:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #define SYSCLK_FREQ_192MHz       192000000 
+  89:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /* #define SYSCLK_FREQ_200MHz       200000000 */
+  90:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /* #define SYSCLK_FREQ_24MHz_HSI    24000000 */
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 3
+
+
+  91:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /* #define SYSCLK_FREQ_36MHz_HSI    36000000 */
+  92:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /* #define SYSCLK_FREQ_48MHz_HSI    48000000 */
+  93:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /* #define SYSCLK_FREQ_56MHz_HSI    56000000 */
+  94:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /* #define SYSCLK_FREQ_72MHz_HSI    72000000 */
+  95:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /* #define SYSCLK_FREQ_96MHz_HSI    96000000 */
+  96:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /* #define SYSCLK_FREQ_108MHz_HSI   108000000 */
+  97:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /* #define SYSCLK_FREQ_120MHz_HSI   120000000 */
+  98:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /* #define SYSCLK_FREQ_144MHz_HSI   144000000 */
+  99:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /* #define SYSCLK_FREQ_168MHz_HSI   168000000 */
+ 100:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /* #define SYSCLK_FREQ_176MHz_HSI   176000000 */
+ 101:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /* #define SYSCLK_FREQ_192MHz_HSI   192000000 */
+ 102:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /* #define SYSCLK_FREQ_200MHz_HSI   200000000 */
+ 103:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 104:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /*!< Uncomment the following line if you need to use external SRAM mounted
+ 105:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****      (AT32 High density and XL-density devices) as data memory */
+ 106:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 107:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /* #define DATA_IN_ExtSRAM */
+ 108:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 109:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /*!< Uncomment the following line if you need to relocate your vector Table in
+ 110:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****      Internal SRAM. */
+ 111:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /* #define VECT_TAB_SRAM */
+ 112:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #define VECT_TAB_OFFSET  0x0 /*!< Vector Table base offset field. 
+ 113:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** This value must be a multiple of 0x200. */
+ 114:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 115:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 116:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /**
+ 117:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @}
+ 118:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
+ 119:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 120:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /** @addtogroup at32f4xx_System_Private_Macros
+ 121:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @{
+ 122:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
+ 123:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 124:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /**
+ 125:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @}
+ 126:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
+ 127:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 128:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /** @addtogroup at32f4xx_System_Private_Variables
+ 129:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @{
+ 130:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
+ 131:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 132:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /*******************************************************************************
+ 133:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** *  Clock Definitions
+ 134:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** *******************************************************************************/
+ 135:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef SYSCLK_FREQ_HSE
+ 136:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_HSE;        /*!< System Clock Frequency (Core Clock)
+ 137:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_24MHz
+ 138:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_24MHz;        /*!< System Clock Frequency (Core Cloc
+ 139:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_36MHz
+ 140:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_36MHz;        /*!< System Clock Frequency (Core Cloc
+ 141:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_48MHz
+ 142:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_48MHz;        /*!< System Clock Frequency (Core Cloc
+ 143:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_56MHz
+ 144:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_56MHz;        /*!< System Clock Frequency (Core Cloc
+ 145:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_72MHz
+ 146:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_72MHz;        /*!< System Clock Frequency (Core Cloc
+ 147:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_96MHz
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 4
+
+
+ 148:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_96MHz;        /*!< System Clock Frequency (Core Cloc
+ 149:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_108MHz
+ 150:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_108MHz;       /*!< System Clock Frequency (Core Cloc
+ 151:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_120MHz
+ 152:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_120MHz;       /*!< System Clock Frequency (Core Cloc
+ 153:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_144MHz
+ 154:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_144MHz;       /*!< System Clock Frequency (Core Cloc
+ 155:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_168MHz
+ 156:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_168MHz;       /*!< System Clock Frequency (Core Cloc
+ 157:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_176MHz
+ 158:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_176MHz;       /*!< System Clock Frequency (Core Cloc
+ 159:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_192MHz
+ 160:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_192MHz;       /*!< System Clock Frequency (Core Cloc
+ 161:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_200MHz
+ 162:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_200MHz;       /*!< System Clock Frequency (Core Cloc
+ 163:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_24MHz_HSI
+ 164:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_24MHz_HSI;    /*!< System Clock Frequency (Core Cloc
+ 165:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_36MHz_HSI
+ 166:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_36MHz_HSI;    /*!< System Clock Frequency (Core Cloc
+ 167:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_48MHz_HSI
+ 168:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_48MHz_HSI;    /*!< System Clock Frequency (Core Cloc
+ 169:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_56MHz_HSI
+ 170:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_56MHz_HSI;    /*!< System Clock Frequency (Core Cloc
+ 171:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_72MHz_HSI
+ 172:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_72MHz_HSI;    /*!< System Clock Frequency (Core Cloc
+ 173:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_96MHz_HSI
+ 174:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_96MHz_HSI;    /*!< System Clock Frequency (Core Cloc
+ 175:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_108MHz_HSI
+ 176:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_108MHz_HSI;    /*!< System Clock Frequency (Core Clo
+ 177:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_120MHz_HSI
+ 178:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_120MHz_HSI;    /*!< System Clock Frequency (Core Clo
+ 179:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_144MHz_HSI
+ 180:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_144MHz_HSI;    /*!< System Clock Frequency (Core Clo
+ 181:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_168MHz_HSI
+ 182:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_168MHz_HSI;    /*!< System Clock Frequency (Core Clo
+ 183:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_176MHz_HSI
+ 184:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_176MHz_HSI;    /*!< System Clock Frequency (Core Clo
+ 185:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_192MHz_HSI
+ 186:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_192MHz_HSI;    /*!< System Clock Frequency (Core Clo
+ 187:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_200MHz_HSI
+ 188:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_200MHz_HSI;    /*!< System Clock Frequency (Core Clo
+ 189:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 190:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #else /*!< HSI Selected as System Clock source */
+ 191:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #define SYSCLK_FREQ_HSI            HSI_VALUE
+ 192:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** uint32_t SystemCoreClock         = HSI_VALUE;        /*!< System Clock Frequency (Core Clock) */
+ 193:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+ 194:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 195:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** __I uint8_t AHBPscTable[16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9};
+ 196:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /**
+ 197:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @}
+ 198:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
+ 199:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 200:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /** @addtogroup at32f4xx_System_Private_FunctionPrototypes
+ 201:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @{
+ 202:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
+ 203:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 204:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClock(void);
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 5
+
+
+ 205:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 206:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef SYSCLK_FREQ_HSE
+ 207:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockToHSE(void);
+ 208:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_24MHz
+ 209:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo24M(void);
+ 210:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_36MHz
+ 211:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo36M(void);
+ 212:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_48MHz
+ 213:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo48M(void);
+ 214:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_56MHz
+ 215:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo56M(void);
+ 216:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_72MHz
+ 217:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo72M(void);
+ 218:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_96MHz
+ 219:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo96M(void);
+ 220:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_108MHz
+ 221:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo108M(void);
+ 222:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_120MHz
+ 223:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo120M(void);
+ 224:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_144MHz
+ 225:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo144M(void);
+ 226:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_168MHz
+ 227:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo168M(void);
+ 228:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_176MHz
+ 229:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo176M(void);
+ 230:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_192MHz
+ 231:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo192M(void);
+ 232:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_200MHz
+ 233:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo200M(void);
+ 234:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_24MHz_HSI
+ 235:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo24MHSI(void);
+ 236:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_36MHz_HSI
+ 237:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo36MHSI(void);
+ 238:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_48MHz_HSI
+ 239:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo48MHSI(void);
+ 240:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_56MHz_HSI
+ 241:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo56MHSI(void);
+ 242:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_72MHz_HSI
+ 243:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo72MHSI(void);
+ 244:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_96MHz_HSI
+ 245:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo96MHSI(void);
+ 246:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_108MHz_HSI
+ 247:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo108MHSI(void);
+ 248:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_120MHz_HSI
+ 249:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo120MHSI(void);
+ 250:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_144MHz_HSI
+ 251:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo144MHSI(void);
+ 252:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_168MHz_HSI
+ 253:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo168MHSI(void);
+ 254:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_176MHz_HSI
+ 255:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo176MHSI(void);
+ 256:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_192MHz_HSI
+ 257:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo192MHSI(void);
+ 258:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_200MHz_HSI
+ 259:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo200MHSI(void);
+ 260:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+ 261:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 6
+
+
+ 262:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef DATA_IN_ExtSRAM
+ 263:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SystemInit_ExtMemCtrl(void);
+ 264:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif /* DATA_IN_ExtSRAM */
+ 265:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 266:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /**
+ 267:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @}
+ 268:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
+ 269:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 270:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /** @addtogroup at32f4xx_System_Private_Functions
+ 271:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @{
+ 272:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
+ 273:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 274:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /**
+ 275:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @brief  Setup the microcontroller system
+ 276:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *         Initialize the Embedded Flash Interface, the PLL and update the
+ 277:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *         SystemCoreClock variable.
+ 278:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @note   This function should be used only after reset.
+ 279:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @param  None
+ 280:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @retval None
+ 281:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
+ 282:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** void SystemInit (void)
+ 283:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** {
+ 284:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #if defined (__FPU_USED) && (__FPU_USED == 1U)
+ 285:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SCB->CPACR |= ((3U << 10U * 2U) |         /* set CP10 Full Access */
+ 286:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****                  (3U << 11U * 2U)  );       /* set CP11 Full Access */
+ 287:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+ 288:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 289:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Reset the RCC clock configuration to the default reset state(for debug purpose) */
+ 290:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Set HSIEN bit */
+ 291:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   BIT_SET(RCC->CTRL, RCC_CTRL_HSIEN);
+ 292:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 293:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Reset SW, AHBPSC, APB1PSC, APB2PSC, ADCPSC and CLKOUT bits */
+ 294:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   BIT_CLEAR(RCC->CFG, RCC_CFG_SYSCLKSEL | RCC_CFG_AHBPSC | \
+ 295:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****             RCC_CFG_APB1PSC | RCC_CFG_APB2PSC | \
+ 296:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****             RCC_CFG_ADCPSC | RCC_CFG_CLKOUT);
+ 297:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 298:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Reset HSEEN, HSECFDEN and PLLEN bits */
+ 299:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   BIT_CLEAR(RCC->CTRL, RCC_CTRL_HSEEN | RCC_CTRL_HSECFDEN | \
+ 300:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****             RCC_CTRL_PLLEN);
+ 301:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 302:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Reset HSEBYPS bit */
+ 303:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   BIT_CLEAR(RCC->CTRL, RCC_CTRL_HSEBYPS);
+ 304:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 305:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Reset PLLRC, PLLHSEPSC, PLLMUL, USBPSC and PLLRANGE bits */
+ 306:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   BIT_CLEAR(RCC->CFG, RCC_CFG_PLLRC | RCC_CFG_PLLHSEPSC | \
+ 307:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****             RCC_CFG_PLLMULT | RCC_CFG_USBPSC | RCC_CFG_PLLRANGE);
+ 308:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 309:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Reset USB768B, CLKOUT[3], HSICAL_KEY[7:0] */
+ 310:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   BIT_CLEAR(RCC->MISC, 0x010100FF);
+ 311:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 312:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Disable all interrupts and clear pending bits  */
+ 313:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   RCC->CLKINT = RCC_CLKINT_LSISTBLFC | RCC_CLKINT_LSESTBLFC | \
+ 314:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****                 RCC_CLKINT_HSISTBLFC | RCC_CLKINT_HSESTBLFC | \
+ 315:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****                 RCC_CLKINT_PLLSTBLFC | RCC_CLKINT_HSECFDFC;
+ 316:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 317:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef DATA_IN_ExtSRAM
+ 318:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SystemInit_ExtMemCtrl();
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 7
+
+
+ 319:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif /* DATA_IN_ExtSRAM */
+ 320:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 321:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Configure the System clock frequency, HCLK, PCLK2 and PCLK1 prescalers */
+ 322:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Configure the Flash Latency cycles and enable prefetch buffer */
+ 323:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SetSysClock();
+ 324:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 325:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef VECT_TAB_SRAM
+ 326:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SCB->VTOR = SRAM_BASE | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal SRAM. */
+ 327:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #else
+ 328:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SCB->VTOR = FLASH_BASE | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal FLASH. */
+ 329:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+ 330:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** }
+ 331:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 332:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /**
+ 333:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @brief  Update SystemCoreClock variable according to Clock Register Values.
+ 334:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *         The SystemCoreClock variable contains the core clock (HCLK), it can
+ 335:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *         be used by the user application to setup the SysTick timer or configure
+ 336:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *         other parameters.
+ 337:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *
+ 338:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @note   Each time the core clock (HCLK) changes, this function must be called
+ 339:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *         to update SystemCoreClock variable value. Otherwise, any configuration
+ 340:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *         based on this variable will be incorrect.
+ 341:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *
+ 342:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @note   - The system frequency computed by this function is not the real
+ 343:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *           frequency in the chip. It is calculated based on the predefined
+ 344:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *           constant and the selected clock source:
+ 345:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *
+ 346:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *           - If SYSCLK source is HSI, SystemCoreClock will contain the HSI_VALUE(*)
+ 347:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *
+ 348:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *           - If SYSCLK source is HSE, SystemCoreClock will contain the HSE_VALUE(**)
+ 349:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *
+ 350:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *           - If SYSCLK source is PLL, SystemCoreClock will contain the HSE_VALUE(**)
+ 351:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *             or HSI_VALUE(*) multiplied by the PLL factors.
+ 352:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *
+ 353:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *         (*) HSI_VALUE is a constant defined in at32f4xx.h file (default value
+ 354:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *             8 MHz) but the real value may vary depending on the variations
+ 355:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *             in voltage and temperature.
+ 356:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *
+ 357:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *         (**) HSE_VALUE is a constant defined in at32f4xx.h file (default value
+ 358:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *              8 MHz or 25 MHz, depedning on the product used), user has to ensure
+ 359:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *              that HSE_VALUE is same as the real frequency of the crystal used.
+ 360:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *              Otherwise, this function may have wrong result.
+ 361:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *
+ 362:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *         - The result of this function could be not correct when using fractional
+ 363:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *           value for HSE crystal.
+ 364:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @param  None
+ 365:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @retval None
+ 366:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
+ 367:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** void SystemCoreClockUpdate (void)
+ 368:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** {
+ 369:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   uint32_t tmp = 0, pllmult = 0, pllrefclk = 0;
+ 370:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 371:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Get SYSCLK source -------------------------------------------------------*/
+ 372:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   tmp = RCC->CFG & RCC_CFG_SYSCLKSTS;
+ 373:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 374:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   switch (tmp)
+ 375:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 8
+
+
+ 376:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   case RCC_CFG_SYSCLKSTS_HSI:  /* HSI used as system clock */
+ 377:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     SystemCoreClock = HSI_VALUE;
+ 378:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     break;
+ 379:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 380:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   case RCC_CFG_SYSCLKSTS_HSE:  /* HSE used as system clock */
+ 381:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     SystemCoreClock = HSE_VALUE;
+ 382:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     break;
+ 383:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 384:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   case RCC_CFG_SYSCLKSTS_PLL:  /* PLL used as system clock */
+ 385:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Get PLL clock source and multiplication factor ----------------------*/
+ 386:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     pllrefclk = RCC->CFG & RCC_CFG_PLLRC;
+ 387:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     pllmult = RCC_GET_PLLMULT(RCC->CFG);
+ 388:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 389:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     if (pllrefclk == RCC_PLLRefClk_HSI_Div2)
+ 390:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     {
+ 391:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****       /* HSI oscillator clock divided by 2 selected as PLL clock entry */
+ 392:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****       SystemCoreClock = (HSI_VALUE >> 1) * pllmult;
+ 393:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     }
+ 394:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     else
+ 395:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     {
+ 396:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****       /* HSE selected as PLL clock entry */
+ 397:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****       if ((RCC->CFG & RCC_CFG_PLLHSEPSC) != (uint32_t)RESET)
+ 398:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****       {
+ 399:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****         /* HSE oscillator clock divided by 2 */
+ 400:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****         SystemCoreClock = (HSE_VALUE >> 1) * pllmult;
+ 401:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****       }
+ 402:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****       else
+ 403:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****       {
+ 404:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****         SystemCoreClock = HSE_VALUE * pllmult;
+ 405:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****       }
+ 406:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     }
+ 407:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 408:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     break;
+ 409:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 410:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   default:
+ 411:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     SystemCoreClock = HSI_VALUE;
+ 412:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     break;
+ 413:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+ 414:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 415:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Compute HCLK clock frequency ----------------*/
+ 416:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Get HCLK prescaler */
+ 417:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   tmp = AHBPscTable[((RCC->CFG & RCC_CFG_AHBPSC) >> 4)];
+ 418:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* HCLK clock frequency */
+ 419:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SystemCoreClock >>= tmp;
+ 420:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** }
+ 421:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 422:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /**
+ 423:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @brief  Configures the System clock frequency, HCLK, PCLK2 and PCLK1 prescalers.
+ 424:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @param  None
+ 425:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @retval None
+ 426:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
+ 427:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClock(void)
+ 428:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** {
+ 429:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef SYSCLK_FREQ_HSE
+ 430:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SetSysClockToHSE();
+ 431:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_24MHz
+ 432:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SetSysClockTo24M();
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 9
+
+
+ 433:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_36MHz
+ 434:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SetSysClockTo36M();
+ 435:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_48MHz
+ 436:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SetSysClockTo48M();
+ 437:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_56MHz
+ 438:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SetSysClockTo56M();
+ 439:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_72MHz
+ 440:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SetSysClockTo72M();
+ 441:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_96MHz
+ 442:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SetSysClockTo96M();
+ 443:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_108MHz
+ 444:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SetSysClockTo108M();
+ 445:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_120MHz
+ 446:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SetSysClockTo120M();
+ 447:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_144MHz
+ 448:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SetSysClockTo144M();
+ 449:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_168MHz
+ 450:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SetSysClockTo168M();
+ 451:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_176MHz
+ 452:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SetSysClockTo176M();
+ 453:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_192MHz
+ 454:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SetSysClockTo192M();
+ 455:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_200MHz
+ 456:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SetSysClockTo200M();
+ 457:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_24MHz_HSI
+ 458:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SetSysClockTo24MHSI();
+ 459:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_36MHz_HSI
+ 460:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SetSysClockTo36MHSI();
+ 461:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_48MHz_HSI
+ 462:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SetSysClockTo48MHSI();
+ 463:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_56MHz_HSI
+ 464:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SetSysClockTo56MHSI();
+ 465:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_72MHz_HSI
+ 466:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SetSysClockTo72MHSI();
+ 467:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_96MHz_HSI
+ 468:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SetSysClockTo96MHSI();
+ 469:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_108MHz_HSI
+ 470:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SetSysClockTo108MHSI();
+ 471:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_120MHz_HSI
+ 472:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SetSysClockTo120MHSI();
+ 473:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_144MHz_HSI
+ 474:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SetSysClockTo144MHSI();
+ 475:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_168MHz_HSI
+ 476:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SetSysClockTo168MHSI();
+ 477:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_176MHz_HSI
+ 478:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SetSysClockTo176MHSI();
+ 479:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_192MHz_HSI
+ 480:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SetSysClockTo192MHSI();
+ 481:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_200MHz_HSI
+ 482:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SetSysClockTo200MHSI();
+ 483:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+ 484:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 485:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* If none of the define above is enabled, the HSI is used as System clock
+ 486:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****      source (default after reset) */
+ 487:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** }
+ 488:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 489:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /**
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 10
+
+
+ 490:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @brief  Setup the external memory controller. Called in startup_at32f4xx.s
+ 491:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *          before jump to __main
+ 492:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @param  None
+ 493:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @retval None
+ 494:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
+ 495:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef DATA_IN_ExtSRAM
+ 496:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /**
+ 497:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @brief  Setup the external memory controller.
+ 498:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *         Called in startup_at32f4xx_xx.s/.c before jump to main.
+ 499:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * 	      This function configures the external SRAM mounted
+ 500:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *         (AT32 High density devices). This SRAM will be used as program
+ 501:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *         data memory (including heap and stack).
+ 502:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @param  None
+ 503:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @retval None
+ 504:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
+ 505:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** void SystemInit_ExtMemCtrl(void)
+ 506:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** {
+ 507:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Enable XMC clock */
+ 508:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   RCC->AHBEN = RCC_AHBEN_SRAMEN | RCC_AHBEN_FLASHEN | RCC_AHBEN_XMCEN;
+ 509:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 510:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Enable GPIOD, GPIOE, GPIOF and GPIOG clocks */
+ 511:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   RCC->APB2EN = RCC_APB2EN_GPIODEN | RCC_APB2EN_GPIOEEN | RCC_APB2EN_GPIOFEN | RCC_APB2EN_GPIOGEN;
+ 512:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 513:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* ---------------  SRAM Data lines, NOE and NWE configuration ---------------*/
+ 514:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /*----------------  SRAM Address lines configuration -------------------------*/
+ 515:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /*----------------  NOE and NWE configuration --------------------------------*/
+ 516:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /*----------------  NE3 configuration ----------------------------------------*/
+ 517:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /*----------------  NBL0, NBL1 configuration ---------------------------------*/
+ 518:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 519:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   GPIOD->CTRLL = 0x44BB44BB;
+ 520:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   GPIOD->CTRLH = 0xBBBBBBBB;
+ 521:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 522:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   GPIOE->CTRLL = 0xB44444BB;
+ 523:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   GPIOE->CTRLH = 0xBBBBBBBB;
+ 524:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 525:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   GPIOF->CTRLL = 0x44BBBBBB;
+ 526:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   GPIOF->CTRLH = 0xBBBB4444;
+ 527:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 528:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   GPIOG->CTRLL = 0x44BBBBBB;
+ 529:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   GPIOG->CTRLH = 0x44444B44;
+ 530:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 531:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /*----------------  XMC Configuration ---------------------------------------*/
+ 532:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /*----------------  Enable XMC Bank1_SRAM Bank ------------------------------*/
+ 533:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 534:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   XMC_Bank1->BK1CTRLR[4] = 0x00001011;
+ 535:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   XMC_Bank1->BK1CTRLR[5] = 0x00000200;
+ 536:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** }
+ 537:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif /* DATA_IN_ExtSRAM */
+ 538:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 539:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifndef SYSCLK_FREQ_HSI
+ 540:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F403xx
+ 541:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /**
+ 542:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @brief  Delay to wait for HSE stable.
+ 543:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @note   This function should be used before reading the HSESTBL flag.
+ 544:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @param  None
+ 545:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @retval None
+ 546:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 11
+
+
+ 547:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void WaitHseStbl(uint32_t delay)
+ 548:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** {
+ 549:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   uint32_t i;
+ 550:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 551:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   for(i = 0; i < delay; i++)
+ 552:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     ;
+ 553:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** }
+ 554:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+ 555:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif /* SYSCLK_FREQ_HSI */
+ 556:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 557:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef SYSCLK_FREQ_HSE
+ 558:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /**
+ 559:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @brief  Selects HSE as System clock source and configure HCLK, PCLK2
+ 560:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *         and PCLK1 prescalers.
+ 561:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @note   This function should be used only after reset.
+ 562:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @param  None
+ 563:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @retval None
+ 564:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
+ 565:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockToHSE(void)
+ 566:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** {
+ 567:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
+ 568:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 569:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration ---------------------------*/
+ 570:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Enable HSE */
+ 571:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   RCC->CTRL |= ((uint32_t)RCC_CTRL_HSEEN);
+ 572:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 573:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Wait till HSE is ready and if Time out is reached exit */
+ 574:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   do
+ 575:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+ 576:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = RCC->CTRL & RCC_CTRL_HSESTBL;
+ 577:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     StartUpCounter++;
+ 578:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+ 579:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
+ 580:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F403xx 
+ 581:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   WaitHseStbl(HSE_STABLE_DELAY);
+ 582:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+ 583:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   if ((RCC->CTRL & RCC_CTRL_HSESTBL) != RESET)
+ 584:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+ 585:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x01;
+ 586:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+ 587:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   else
+ 588:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+ 589:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x00;
+ 590:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+ 591:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 592:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   if (HSEStatus == (uint32_t)0x01)
+ 593:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+ 594:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* HCLK = SYSCLK */
+ 595:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_AHBPSC_DIV1;
+ 596:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 597:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* PCLK2 = HCLK */
+ 598:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= 0xFFFFC7FF;
+ 599:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_APB2PSC_DIV1;
+ 600:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 601:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* PCLK1 = HCLK */
+ 602:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= 0xFFFFF8FF;
+ 603:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_APB1PSC_DIV1;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 12
+
+
+ 604:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 605:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Select HSE as system clock source */
+ 606:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= (uint32_t)((uint32_t)~(RCC_CFG_SYSCLKSEL));
+ 607:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_SYSCLKSEL_HSE;
+ 608:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 609:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Wait till HSE is used as system clock source */
+ 610:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     while ((RCC->CFG & (uint32_t)RCC_CFG_SYSCLKSTS) != (uint32_t)0x04)
+ 611:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     {
+ 612:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     }
+ 613:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+ 614:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   else
+ 615:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+ 616:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* If HSE fails to start-up, the application will have wrong clock
+ 617:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****          configuration. User can add here some code to deal with this error */
+ 618:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+ 619:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** }
+ 620:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_24MHz
+ 621:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /**
+ 622:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @brief  Sets System clock frequency to 24MHz and configure HCLK, PCLK2
+ 623:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *         and PCLK1 prescalers.
+ 624:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @note   This function should be used only after reset.
+ 625:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @param  None
+ 626:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @retval None
+ 627:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
+ 628:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo24M(void)
+ 629:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** {
+ 630:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
+ 631:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 632:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration ---------------------------*/
+ 633:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Enable HSE */
+ 634:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   RCC->CTRL |= ((uint32_t)RCC_CTRL_HSEEN);
+ 635:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 636:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Wait till HSE is ready and if Time out is reached exit */
+ 637:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   do
+ 638:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+ 639:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = RCC->CTRL & RCC_CTRL_HSESTBL;
+ 640:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     StartUpCounter++;
+ 641:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+ 642:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
+ 643:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F403xx 
+ 644:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   WaitHseStbl(HSE_STABLE_DELAY);
+ 645:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+ 646:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   if ((RCC->CTRL & RCC_CTRL_HSESTBL) != RESET)
+ 647:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+ 648:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x01;
+ 649:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+ 650:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   else
+ 651:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+ 652:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x00;
+ 653:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+ 654:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 655:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   if (HSEStatus == (uint32_t)0x01)
+ 656:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+ 657:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* HCLK = SYSCLK */
+ 658:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_AHBPSC_DIV1;
+ 659:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 660:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* PCLK2 = HCLK */
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 13
+
+
+ 661:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= 0xFFFFC7FF;
+ 662:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_APB2PSC_DIV1;
+ 663:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 664:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* PCLK1 = HCLK */
+ 665:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= 0xFFFFF8FF;
+ 666:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_APB1PSC_DIV1;
+ 667:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 668:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /*  PLL configuration:  = (HSE / 2) * 6 = 24 MHz */
+ 669:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= RCC_CFG_PLLCFG_MASK;
+ 670:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)(RCC_CFG_PLLRC_HSE | RCC_CFG_PLLHSEPSC_HSE_DIV2 | RCC_CFG_PLLMULT6);
+ 671:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 672:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Enable PLL */
+ 673:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CTRL |= RCC_CTRL_PLLEN;
+ 674:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 675:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Wait till PLL is ready */
+ 676:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     while((RCC->CTRL & RCC_CTRL_PLLSTBL) == 0)
+ 677:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     {
+ 678:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     }
+ 679:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 680:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Select PLL as system clock source */
+ 681:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= (uint32_t)((uint32_t)~(RCC_CFG_SYSCLKSEL));
+ 682:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_SYSCLKSEL_PLL;
+ 683:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 684:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Wait till PLL is used as system clock source */
+ 685:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     while ((RCC->CFG & (uint32_t)RCC_CFG_SYSCLKSTS) != RCC_CFG_SYSCLKSTS_PLL)
+ 686:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     {
+ 687:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     }
+ 688:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F403xx
+ 689:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     WaitHseStbl(PLL_STABLE_DELAY);
+ 690:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+ 691:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+ 692:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   else
+ 693:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+ 694:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* If HSE fails to start-up, the application will have wrong clock
+ 695:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****          configuration. User can add here some code to deal with this error */
+ 696:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+ 697:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** }
+ 698:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_36MHz
+ 699:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /**
+ 700:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @brief  Sets System clock frequency to 36MHz and configure HCLK, PCLK2
+ 701:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *         and PCLK1 prescalers.
+ 702:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @note   This function should be used only after reset.
+ 703:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @param  None
+ 704:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @retval None
+ 705:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
+ 706:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo36M(void)
+ 707:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** {
+ 708:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
+ 709:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 710:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration ---------------------------*/
+ 711:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Enable HSE */
+ 712:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   RCC->CTRL |= ((uint32_t)RCC_CTRL_HSEEN);
+ 713:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 714:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Wait till HSE is ready and if Time out is reached exit */
+ 715:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   do
+ 716:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+ 717:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = RCC->CTRL & RCC_CTRL_HSESTBL;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 14
+
+
+ 718:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     StartUpCounter++;
+ 719:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+ 720:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
+ 721:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F403xx 
+ 722:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   WaitHseStbl(HSE_STABLE_DELAY);
+ 723:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+ 724:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   if ((RCC->CTRL & RCC_CTRL_HSESTBL) != RESET)
+ 725:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+ 726:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x01;
+ 727:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+ 728:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   else
+ 729:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+ 730:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x00;
+ 731:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+ 732:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 733:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   if (HSEStatus == (uint32_t)0x01)
+ 734:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+ 735:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* HCLK = SYSCLK */
+ 736:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_AHBPSC_DIV1;
+ 737:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 738:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* PCLK2 = HCLK */
+ 739:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= 0xFFFFC7FF;
+ 740:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_APB2PSC_DIV1;
+ 741:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 742:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* PCLK1 = HCLK */
+ 743:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= 0xFFFFF8FF;
+ 744:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_APB1PSC_DIV1;
+ 745:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 746:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /*  PLL configuration: PLLCLK = (HSE / 2) * 9 = 36 MHz */
+ 747:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= RCC_CFG_PLLCFG_MASK;
+ 748:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)(RCC_CFG_PLLRC_HSE | RCC_CFG_PLLHSEPSC_HSE_DIV2 | RCC_CFG_PLLMULT9);
+ 749:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 750:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Enable PLL */
+ 751:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CTRL |= RCC_CTRL_PLLEN;
+ 752:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 753:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Wait till PLL is ready */
+ 754:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     while((RCC->CTRL & RCC_CTRL_PLLSTBL) == 0)
+ 755:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     {
+ 756:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     }
+ 757:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 758:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Select PLL as system clock source */
+ 759:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= (uint32_t)((uint32_t)~(RCC_CFG_SYSCLKSEL));
+ 760:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_SYSCLKSEL_PLL;
+ 761:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 762:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Wait till PLL is used as system clock source */
+ 763:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     while ((RCC->CFG & (uint32_t)RCC_CFG_SYSCLKSTS) != RCC_CFG_SYSCLKSTS_PLL)
+ 764:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     {
+ 765:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     }
+ 766:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F403xx
+ 767:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     WaitHseStbl(PLL_STABLE_DELAY);
+ 768:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+ 769:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+ 770:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   else
+ 771:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+ 772:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* If HSE fails to start-up, the application will have wrong clock
+ 773:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****          configuration. User can add here some code to deal with this error */
+ 774:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 15
+
+
+ 775:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** }
+ 776:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_48MHz
+ 777:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /**
+ 778:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @brief  Sets System clock frequency to 48MHz and configure HCLK, PCLK2
+ 779:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *         and PCLK1 prescalers.
+ 780:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @note   This function should be used only after reset.
+ 781:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @param  None
+ 782:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @retval None
+ 783:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
+ 784:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo48M(void)
+ 785:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** {
+ 786:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
+ 787:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 788:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration ---------------------------*/
+ 789:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Enable HSE */
+ 790:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   RCC->CTRL |= ((uint32_t)RCC_CTRL_HSEEN);
+ 791:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 792:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Wait till HSE is ready and if Time out is reached exit */
+ 793:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   do
+ 794:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+ 795:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = RCC->CTRL & RCC_CTRL_HSESTBL;
+ 796:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     StartUpCounter++;
+ 797:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+ 798:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
+ 799:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F403xx 
+ 800:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   WaitHseStbl(HSE_STABLE_DELAY);
+ 801:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+ 802:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   if ((RCC->CTRL & RCC_CTRL_HSESTBL) != RESET)
+ 803:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+ 804:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x01;
+ 805:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+ 806:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   else
+ 807:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+ 808:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x00;
+ 809:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+ 810:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 811:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   if (HSEStatus == (uint32_t)0x01)
+ 812:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+ 813:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* HCLK = SYSCLK */
+ 814:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_AHBPSC_DIV1;
+ 815:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 816:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* PCLK2 = HCLK */
+ 817:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= 0xFFFFC7FF;
+ 818:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_APB2PSC_DIV1;
+ 819:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 820:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* PCLK1 = HCLK/2 */
+ 821:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= 0xFFFFF8FF;
+ 822:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_APB1PSC_DIV2;
+ 823:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 824:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /*  PLL configuration: PLLCLK = HSE * 6 = 48 MHz */
+ 825:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= RCC_CFG_PLLCFG_MASK;
+ 826:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)(RCC_CFG_PLLRC_HSE | RCC_CFG_PLLMULT6);
+ 827:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 828:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Enable PLL */
+ 829:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CTRL |= RCC_CTRL_PLLEN;
+ 830:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 831:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Wait till PLL is ready */
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 16
+
+
+ 832:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     while((RCC->CTRL & RCC_CTRL_PLLSTBL) == 0)
+ 833:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     {
+ 834:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     }
+ 835:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 836:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Select PLL as system clock source */
+ 837:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= (uint32_t)((uint32_t)~(RCC_CFG_SYSCLKSEL));
+ 838:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_SYSCLKSEL_PLL;
+ 839:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 840:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Wait till PLL is used as system clock source */
+ 841:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     while ((RCC->CFG & (uint32_t)RCC_CFG_SYSCLKSTS) != RCC_CFG_SYSCLKSTS_PLL)
+ 842:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     {
+ 843:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     }
+ 844:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F403xx
+ 845:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     WaitHseStbl(PLL_STABLE_DELAY);
+ 846:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+ 847:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+ 848:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   else
+ 849:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+ 850:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* If HSE fails to start-up, the application will have wrong clock
+ 851:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****          configuration. User can add here some code to deal with this error */
+ 852:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+ 853:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** }
+ 854:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 855:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_56MHz
+ 856:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /**
+ 857:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @brief  Sets System clock frequency to 56MHz and configure HCLK, PCLK2
+ 858:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *         and PCLK1 prescalers.
+ 859:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @note   This function should be used only after reset.
+ 860:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @param  None
+ 861:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @retval None
+ 862:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
+ 863:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo56M(void)
+ 864:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** {
+ 865:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
+ 866:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 867:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration ---------------------------*/
+ 868:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Enable HSE */
+ 869:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   RCC->CTRL |= ((uint32_t)RCC_CTRL_HSEEN);
+ 870:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 871:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Wait till HSE is ready and if Time out is reached exit */
+ 872:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   do
+ 873:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+ 874:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = RCC->CTRL & RCC_CTRL_HSESTBL;
+ 875:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     StartUpCounter++;
+ 876:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+ 877:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
+ 878:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F403xx 
+ 879:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   WaitHseStbl(HSE_STABLE_DELAY);
+ 880:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+ 881:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   if ((RCC->CTRL & RCC_CTRL_HSESTBL) != RESET)
+ 882:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+ 883:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x01;
+ 884:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+ 885:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   else
+ 886:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+ 887:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x00;
+ 888:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 17
+
+
+ 889:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 890:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   if (HSEStatus == (uint32_t)0x01)
+ 891:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+ 892:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* HCLK = SYSCLK */
+ 893:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_AHBPSC_DIV1;
+ 894:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 895:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* PCLK2 = HCLK */
+ 896:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= 0xFFFFC7FF;
+ 897:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_APB2PSC_DIV1;
+ 898:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 899:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* PCLK1 = HCLK/2 */
+ 900:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= 0xFFFFF8FF;
+ 901:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_APB1PSC_DIV2;
+ 902:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 903:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* PLL configuration: PLLCLK = HSE * 7 = 56 MHz */
+ 904:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= RCC_CFG_PLLCFG_MASK;
+ 905:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)(RCC_CFG_PLLRC_HSE | RCC_CFG_PLLMULT7);
+ 906:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 907:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Enable PLL */
+ 908:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CTRL |= RCC_CTRL_PLLEN;
+ 909:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 910:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Wait till PLL is ready */
+ 911:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     while((RCC->CTRL & RCC_CTRL_PLLSTBL) == 0)
+ 912:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     {
+ 913:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     }
+ 914:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 915:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Select PLL as system clock source */
+ 916:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= (uint32_t)((uint32_t)~(RCC_CFG_SYSCLKSEL));
+ 917:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_SYSCLKSEL_PLL;
+ 918:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 919:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Wait till PLL is used as system clock source */
+ 920:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     while ((RCC->CFG & (uint32_t)RCC_CFG_SYSCLKSTS) != RCC_CFG_SYSCLKSTS_PLL)
+ 921:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     {
+ 922:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     }
+ 923:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F403xx
+ 924:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     WaitHseStbl(PLL_STABLE_DELAY);
+ 925:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+ 926:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+ 927:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   else
+ 928:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+ 929:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* If HSE fails to start-up, the application will have wrong clock
+ 930:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****          configuration. User can add here some code to deal with this error */
+ 931:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+ 932:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** }
+ 933:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 934:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_72MHz
+ 935:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /**
+ 936:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @brief  Sets System clock frequency to 72MHz and configure HCLK, PCLK2
+ 937:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *         and PCLK1 prescalers.
+ 938:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @note   This function should be used only after reset.
+ 939:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @param  None
+ 940:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @retval None
+ 941:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
+ 942:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo72M(void)
+ 943:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** {
+ 944:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
+ 945:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 18
+
+
+ 946:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration ---------------------------*/
+ 947:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Enable HSE */
+ 948:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   RCC->CTRL |= ((uint32_t)RCC_CTRL_HSEEN);
+ 949:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 950:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Wait till HSE is ready and if Time out is reached exit */
+ 951:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   do
+ 952:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+ 953:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = RCC->CTRL & RCC_CTRL_HSESTBL;
+ 954:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     StartUpCounter++;
+ 955:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+ 956:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
+ 957:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F403xx 
+ 958:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   WaitHseStbl(HSE_STABLE_DELAY);
+ 959:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+ 960:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   if ((RCC->CTRL & RCC_CTRL_HSESTBL) != RESET)
+ 961:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+ 962:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x01;
+ 963:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+ 964:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   else
+ 965:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+ 966:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x00;
+ 967:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+ 968:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 969:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   if (HSEStatus == (uint32_t)0x01)
+ 970:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+ 971:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* HCLK = SYSCLK */
+ 972:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_AHBPSC_DIV1;
+ 973:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 974:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* PCLK2 = HCLK */
+ 975:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= 0xFFFFC7FF;
+ 976:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_APB2PSC_DIV1;
+ 977:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 978:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* PCLK1 = HCLK/2 */
+ 979:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= 0xFFFFF8FF;
+ 980:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_APB1PSC_DIV2;
+ 981:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 982:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /*  PLL configuration: PLLCLK = HSE * 9 = 72 MHz */
+ 983:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= RCC_CFG_PLLCFG_MASK;
+ 984:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)(RCC_CFG_PLLRC_HSE | RCC_CFG_PLLMULT9);
+ 985:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 986:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Enable PLL */
+ 987:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CTRL |= RCC_CTRL_PLLEN;
+ 988:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 989:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Wait till PLL is ready */
+ 990:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     while((RCC->CTRL & RCC_CTRL_PLLSTBL) == 0)
+ 991:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     {
+ 992:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     }
+ 993:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 994:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Select PLL as system clock source */
+ 995:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= (uint32_t)((uint32_t)~(RCC_CFG_SYSCLKSEL));
+ 996:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_SYSCLKSEL_PLL;
+ 997:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 998:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Wait till PLL is used as system clock source */
+ 999:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     while ((RCC->CFG & (uint32_t)RCC_CFG_SYSCLKSTS) != RCC_CFG_SYSCLKSTS_PLL)
+1000:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     {
+1001:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     }
+1002:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F403xx
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 19
+
+
+1003:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     WaitHseStbl(PLL_STABLE_DELAY);
+1004:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+1005:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1006:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   else
+1007:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+1008:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* If HSE fails to start-up, the application will have wrong clock
+1009:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****          configuration. User can add here some code to deal with this error */
+1010:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1011:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** }
+1012:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1013:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_96MHz
+1014:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /**
+1015:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @brief  Sets System clock frequency to 96MHz and configure HCLK, PCLK2
+1016:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *         and PCLK1 prescalers.
+1017:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @note   This function should be used only after reset.
+1018:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @param  None
+1019:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @retval None
+1020:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
+1021:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo96M(void)
+1022:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** {
+1023:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
+1024:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1025:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration ---------------------------*/
+1026:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Enable HSE */
+1027:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   RCC->CTRL |= ((uint32_t)RCC_CTRL_HSEEN);
+1028:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1029:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Wait till HSE is ready and if Time out is reached exit */
+1030:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   do
+1031:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+1032:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = RCC->CTRL & RCC_CTRL_HSESTBL;
+1033:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     StartUpCounter++;
+1034:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1035:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
+1036:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F403xx 
+1037:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   WaitHseStbl(HSE_STABLE_DELAY);
+1038:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+1039:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   if ((RCC->CTRL & RCC_CTRL_HSESTBL) != RESET)
+1040:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+1041:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x01;
+1042:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1043:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   else
+1044:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+1045:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x00;
+1046:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1047:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1048:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   if (HSEStatus == (uint32_t)0x01)
+1049:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+1050:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* HCLK = SYSCLK */
+1051:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_AHBPSC_DIV1;
+1052:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1053:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* PCLK2 = HCLK */
+1054:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= 0xFFFFC7FF;
+1055:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_APB2PSC_DIV1;
+1056:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1057:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* PCLK1 = HCLK/2 */
+1058:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= 0xFFFFF8FF;
+1059:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_APB1PSC_DIV2;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 20
+
+
+1060:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1061:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /*  PLL configuration: PLLCLK = HSE * 12 = 96 MHz */
+1062:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= RCC_CFG_PLLCFG_MASK;
+1063:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)(RCC_CFG_PLLRC_HSE | RCC_CFG_PLLMULT12 | RCC_CFG_PLLRANGE_GT72MHZ);
+1064:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1065:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Enable PLL */
+1066:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CTRL |= RCC_CTRL_PLLEN;
+1067:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1068:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Wait till PLL is ready */
+1069:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     while((RCC->CTRL & RCC_CTRL_PLLSTBL) == 0)
+1070:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     {
+1071:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     }
+1072:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1073:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Select PLL as system clock source */
+1074:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= (uint32_t)((uint32_t)~(RCC_CFG_SYSCLKSEL));
+1075:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_SYSCLKSEL_PLL;
+1076:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1077:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Wait till PLL is used as system clock source */
+1078:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     while ((RCC->CFG & (uint32_t)RCC_CFG_SYSCLKSTS) != RCC_CFG_SYSCLKSTS_PLL)
+1079:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     {
+1080:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     }
+1081:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F403xx
+1082:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     WaitHseStbl(PLL_STABLE_DELAY);
+1083:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+1084:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1085:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   else
+1086:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+1087:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* If HSE fails to start-up, the application will have wrong clock
+1088:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****          configuration. User can add here some code to deal with this error */
+1089:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1090:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** }
+1091:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1092:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_108MHz
+1093:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /**
+1094:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @brief  Sets System clock frequency to 108MHz and configure HCLK, PCLK2
+1095:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *         and PCLK1 prescalers.
+1096:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @note   This function should be used only after reset.
+1097:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @param  None
+1098:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @retval None
+1099:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
+1100:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo108M(void)
+1101:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** {
+1102:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
+1103:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1104:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration ---------------------------*/
+1105:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Enable HSE */
+1106:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   RCC->CTRL |= ((uint32_t)RCC_CTRL_HSEEN);
+1107:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1108:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Wait till HSE is ready and if Time out is reached exit */
+1109:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   do
+1110:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+1111:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = RCC->CTRL & RCC_CTRL_HSESTBL;
+1112:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     StartUpCounter++;
+1113:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1114:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
+1115:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F403xx 
+1116:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   WaitHseStbl(HSE_STABLE_DELAY);
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 21
+
+
+1117:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+1118:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   if ((RCC->CTRL & RCC_CTRL_HSESTBL) != RESET)
+1119:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+1120:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x01;
+1121:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1122:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   else
+1123:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+1124:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x00;
+1125:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1126:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1127:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   if (HSEStatus == (uint32_t)0x01)
+1128:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+1129:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* HCLK = SYSCLK */
+1130:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_AHBPSC_DIV1;
+1131:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1132:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* PCLK2 = HCLK */
+1133:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= 0xFFFFC7FF;
+1134:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_APB2PSC_DIV1;
+1135:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1136:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* PCLK1 = HCLK/2 */
+1137:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= 0xFFFFF8FF;
+1138:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_APB1PSC_DIV2;
+1139:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1140:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /*  PLL configuration: PLLCLK = (HSE/2) * 27 = 108 MHz */
+1141:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= RCC_CFG_PLLCFG_MASK;
+1142:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)(RCC_CFG_PLLRC_HSE | RCC_CFG_PLLHSEPSC_HSE_DIV2 | RCC_CFG_PLLMULT27 | RCC
+1143:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1144:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Enable PLL */
+1145:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CTRL |= RCC_CTRL_PLLEN;
+1146:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1147:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Wait till PLL is ready */
+1148:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     while((RCC->CTRL & RCC_CTRL_PLLSTBL) == 0)
+1149:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     {
+1150:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     }
+1151:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1152:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Select PLL as system clock source */
+1153:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= (uint32_t)((uint32_t)~(RCC_CFG_SYSCLKSEL));
+1154:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_SYSCLKSEL_PLL;
+1155:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1156:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Wait till PLL is used as system clock source */
+1157:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     while ((RCC->CFG & (uint32_t)RCC_CFG_SYSCLKSTS) != RCC_CFG_SYSCLKSTS_PLL)
+1158:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     {
+1159:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     }
+1160:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F403xx
+1161:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     WaitHseStbl(PLL_STABLE_DELAY);
+1162:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+1163:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1164:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   else
+1165:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+1166:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* If HSE fails to start-up, the application will have wrong clock
+1167:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****          configuration. User can add here some code to deal with this error */
+1168:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1169:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** }
+1170:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1171:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_120MHz
+1172:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /**
+1173:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @brief  Sets System clock frequency to 120MHz and configure HCLK, PCLK2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 22
+
+
+1174:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *         and PCLK1 prescalers.
+1175:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @note   This function should be used only after reset.
+1176:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @param  None
+1177:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @retval None
+1178:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
+1179:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo120M(void)
+1180:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** {
+1181:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
+1182:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1183:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration ---------------------------*/
+1184:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Enable HSE */
+1185:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   RCC->CTRL |= ((uint32_t)RCC_CTRL_HSEEN);
+1186:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1187:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Wait till HSE is ready and if Time out is reached exit */
+1188:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   do
+1189:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+1190:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = RCC->CTRL & RCC_CTRL_HSESTBL;
+1191:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     StartUpCounter++;
+1192:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1193:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
+1194:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F403xx 
+1195:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   WaitHseStbl(HSE_STABLE_DELAY);
+1196:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+1197:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   if ((RCC->CTRL & RCC_CTRL_HSESTBL) != RESET)
+1198:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+1199:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x01;
+1200:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1201:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   else
+1202:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+1203:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x00;
+1204:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1205:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1206:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   if (HSEStatus == (uint32_t)0x01)
+1207:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+1208:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* HCLK = SYSCLK */
+1209:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_AHBPSC_DIV1;
+1210:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1211:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* PCLK2 = HCLK/2 */
+1212:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= 0xFFFFC7FF;
+1213:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_APB2PSC_DIV2;
+1214:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1215:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* PCLK1 = HCLK/2 */
+1216:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= 0xFFFFF8FF;
+1217:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_APB1PSC_DIV2;
+1218:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1219:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /*  PLL configuration: PLLCLK = HSE * 15 = 120 MHz */
+1220:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= RCC_CFG_PLLCFG_MASK;
+1221:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)(RCC_CFG_PLLRC_HSE | RCC_CFG_PLLMULT15 | RCC_CFG_PLLRANGE_GT72MHZ);
+1222:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1223:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Enable PLL */
+1224:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CTRL |= RCC_CTRL_PLLEN;
+1225:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1226:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Wait till PLL is ready */
+1227:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     while((RCC->CTRL & RCC_CTRL_PLLSTBL) == 0)
+1228:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     {
+1229:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     }
+1230:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F413xx
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 23
+
+
+1231:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC_StepModeCmd(ENABLE);
+1232:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+1233:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Select PLL as system clock source */
+1234:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= (uint32_t)((uint32_t)~(RCC_CFG_SYSCLKSEL));
+1235:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_SYSCLKSEL_PLL;
+1236:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1237:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Wait till PLL is used as system clock source */
+1238:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     while ((RCC->CFG & (uint32_t)RCC_CFG_SYSCLKSTS) != RCC_CFG_SYSCLKSTS_PLL)
+1239:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     {
+1240:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     }
+1241:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F403xx
+1242:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     WaitHseStbl(PLL_STABLE_DELAY);
+1243:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+1244:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F413xx
+1245:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC_StepModeCmd(DISABLE);
+1246:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+1247:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1248:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   else
+1249:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+1250:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* If HSE fails to start-up, the application will have wrong clock
+1251:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****          configuration. User can add here some code to deal with this error */
+1252:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1253:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** }
+1254:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1255:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_144MHz
+1256:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /**
+1257:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @brief  Sets System clock frequency to 144MHz and configure HCLK, PCLK2
+1258:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *         and PCLK1 prescalers.
+1259:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @note   This function should be used only after reset.
+1260:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @param  None
+1261:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @retval None
+1262:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
+1263:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo144M(void)
+1264:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** {
+1265:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
+1266:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1267:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration ---------------------------*/
+1268:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Enable HSE */
+1269:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   RCC->CTRL |= ((uint32_t)RCC_CTRL_HSEEN);
+1270:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1271:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Wait till HSE is ready and if Time out is reached exit */
+1272:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   do
+1273:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+1274:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = RCC->CTRL & RCC_CTRL_HSESTBL;
+1275:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     StartUpCounter++;
+1276:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1277:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
+1278:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F403xx 
+1279:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   WaitHseStbl(HSE_STABLE_DELAY);
+1280:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+1281:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   if ((RCC->CTRL & RCC_CTRL_HSESTBL) != RESET)
+1282:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+1283:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x01;
+1284:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1285:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   else
+1286:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+1287:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x00;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 24
+
+
+1288:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1289:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1290:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   if (HSEStatus == (uint32_t)0x01)
+1291:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+1292:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* HCLK = SYSCLK */
+1293:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_AHBPSC_DIV1;
+1294:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1295:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* PCLK2 = HCLK/2 */
+1296:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= 0xFFFFC7FF;
+1297:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_APB2PSC_DIV2;
+1298:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1299:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* PCLK1 = HCLK/2 */
+1300:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= 0xFFFFF8FF;
+1301:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_APB1PSC_DIV2;
+1302:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1303:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /*  PLL configuration: PLLCLK = HSE * 18 = 144 MHz */
+1304:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= RCC_CFG_PLLCFG_MASK;
+1305:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)(RCC_CFG_PLLRC_HSE | RCC_CFG_PLLMULT18 | RCC_CFG_PLLRANGE_GT72MHZ);
+1306:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1307:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Enable PLL */
+1308:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CTRL |= RCC_CTRL_PLLEN;
+1309:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1310:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Wait till PLL is ready */
+1311:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     while((RCC->CTRL & RCC_CTRL_PLLSTBL) == 0)
+1312:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     {
+1313:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     }
+1314:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F413xx
+1315:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC_StepModeCmd(ENABLE);
+1316:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+1317:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Select PLL as system clock source */
+1318:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= (uint32_t)((uint32_t)~(RCC_CFG_SYSCLKSEL));
+1319:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_SYSCLKSEL_PLL;
+1320:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1321:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Wait till PLL is used as system clock source */
+1322:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     while ((RCC->CFG & (uint32_t)RCC_CFG_SYSCLKSTS) != RCC_CFG_SYSCLKSTS_PLL)
+1323:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     {
+1324:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     }
+1325:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F403xx
+1326:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     WaitHseStbl(PLL_STABLE_DELAY);
+1327:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+1328:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F413xx
+1329:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC_StepModeCmd(DISABLE);
+1330:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+1331:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1332:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   else
+1333:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+1334:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* If HSE fails to start-up, the application will have wrong clock
+1335:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****          configuration. User can add here some code to deal with this error */
+1336:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1337:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** }
+1338:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1339:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_168MHz
+1340:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /**
+1341:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @brief  Sets System clock frequency to 168MHz and configure HCLK, PCLK2
+1342:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *         and PCLK1 prescalers.
+1343:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @note   This function should be used only after reset.
+1344:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @param  None
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 25
+
+
+1345:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @retval None
+1346:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
+1347:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo168M(void)
+1348:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** {
+1349:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
+1350:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1351:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration ---------------------------*/
+1352:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Enable HSE */
+1353:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   RCC->CTRL |= ((uint32_t)RCC_CTRL_HSEEN);
+1354:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1355:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Wait till HSE is ready and if Time out is reached exit */
+1356:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   do
+1357:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+1358:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = RCC->CTRL & RCC_CTRL_HSESTBL;
+1359:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     StartUpCounter++;
+1360:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1361:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
+1362:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F403xx 
+1363:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   WaitHseStbl(HSE_STABLE_DELAY);
+1364:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+1365:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   if ((RCC->CTRL & RCC_CTRL_HSESTBL) != RESET)
+1366:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+1367:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x01;
+1368:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1369:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   else
+1370:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+1371:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x00;
+1372:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1373:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1374:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   if (HSEStatus == (uint32_t)0x01)
+1375:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+1376:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* HCLK = SYSCLK */
+1377:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_AHBPSC_DIV1;
+1378:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1379:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* PCLK2 = HCLK/2 */
+1380:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= 0xFFFFC7FF;
+1381:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_APB2PSC_DIV2;
+1382:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1383:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* PCLK1 = HCLK/2 */
+1384:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= 0xFFFFF8FF;
+1385:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_APB1PSC_DIV2;
+1386:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1387:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /*  PLL configuration: PLLCLK = HSE * 21 = 168 MHz */
+1388:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= RCC_CFG_PLLCFG_MASK;
+1389:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)(RCC_CFG_PLLRC_HSE | RCC_CFG_PLLMULT21 | RCC_CFG_PLLRANGE_GT72MHZ);
+1390:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1391:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Enable PLL */
+1392:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CTRL |= RCC_CTRL_PLLEN;
+1393:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1394:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Wait till PLL is ready */
+1395:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     while((RCC->CTRL & RCC_CTRL_PLLSTBL) == 0)
+1396:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     {
+1397:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     }
+1398:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F413xx
+1399:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC_StepModeCmd(ENABLE);
+1400:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+1401:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Select PLL as system clock source */
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 26
+
+
+1402:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= (uint32_t)((uint32_t)~(RCC_CFG_SYSCLKSEL));
+1403:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_SYSCLKSEL_PLL;
+1404:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1405:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Wait till PLL is used as system clock source */
+1406:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     while ((RCC->CFG & (uint32_t)RCC_CFG_SYSCLKSTS) != RCC_CFG_SYSCLKSTS_PLL)
+1407:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     {
+1408:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     }
+1409:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F403xx
+1410:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     WaitHseStbl(PLL_STABLE_DELAY);
+1411:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+1412:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F413xx
+1413:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC_StepModeCmd(DISABLE);
+1414:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+1415:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1416:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   else
+1417:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+1418:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* If HSE fails to start-up, the application will have wrong clock
+1419:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****          configuration. User can add here some code to deal with this error */
+1420:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1421:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** }
+1422:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1423:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_176MHz
+1424:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /**
+1425:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @brief  Sets System clock frequency to 176MHz and configure HCLK, PCLK2
+1426:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *         and PCLK1 prescalers.
+1427:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @note   This function should be used only after reset.
+1428:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @param  None
+1429:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @retval None
+1430:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
+1431:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo176M(void)
+1432:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** {
+1433:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
+1434:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1435:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration ---------------------------*/
+1436:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Enable HSE */
+1437:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   RCC->CTRL |= ((uint32_t)RCC_CTRL_HSEEN);
+1438:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1439:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Wait till HSE is ready and if Time out is reached exit */
+1440:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   do
+1441:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+1442:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = RCC->CTRL & RCC_CTRL_HSESTBL;
+1443:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     StartUpCounter++;
+1444:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1445:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
+1446:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F403xx 
+1447:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   WaitHseStbl(HSE_STABLE_DELAY);
+1448:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+1449:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   if ((RCC->CTRL & RCC_CTRL_HSESTBL) != RESET)
+1450:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+1451:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x01;
+1452:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1453:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   else
+1454:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+1455:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x00;
+1456:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1457:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1458:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   if (HSEStatus == (uint32_t)0x01)
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 27
+
+
+1459:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+1460:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* HCLK = SYSCLK */
+1461:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_AHBPSC_DIV1;
+1462:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1463:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* PCLK2 = HCLK/2 */
+1464:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= 0xFFFFC7FF;
+1465:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_APB2PSC_DIV2;
+1466:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1467:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* PCLK1 = HCLK/2 */
+1468:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= 0xFFFFF8FF;
+1469:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_APB1PSC_DIV2;
+1470:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1471:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /*  PLL configuration: PLLCLK = HSE * 22 = 176 MHz */
+1472:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= RCC_CFG_PLLCFG_MASK;
+1473:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)(RCC_CFG_PLLRC_HSE | RCC_CFG_PLLMULT22 | RCC_CFG_PLLRANGE_GT72MHZ);
+1474:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1475:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Enable PLL */
+1476:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CTRL |= RCC_CTRL_PLLEN;
+1477:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1478:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Wait till PLL is ready */
+1479:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     while((RCC->CTRL & RCC_CTRL_PLLSTBL) == 0)
+1480:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     {
+1481:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     }
+1482:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F413xx
+1483:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC_StepModeCmd(ENABLE);
+1484:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+1485:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Select PLL as system clock source */
+1486:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= (uint32_t)((uint32_t)~(RCC_CFG_SYSCLKSEL));
+1487:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_SYSCLKSEL_PLL;
+1488:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1489:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Wait till PLL is used as system clock source */
+1490:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     while ((RCC->CFG & (uint32_t)RCC_CFG_SYSCLKSTS) != RCC_CFG_SYSCLKSTS_PLL)
+1491:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     {
+1492:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     }
+1493:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F403xx
+1494:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     WaitHseStbl(PLL_STABLE_DELAY);
+1495:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+1496:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F413xx
+1497:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC_StepModeCmd(DISABLE);
+1498:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+1499:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1500:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   else
+1501:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+1502:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* If HSE fails to start-up, the application will have wrong clock
+1503:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****          configuration. User can add here some code to deal with this error */
+1504:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1505:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** }
+1506:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1507:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_192MHz
+1508:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /**
+1509:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @brief  Sets System clock frequency to 192MHz and configure HCLK, PCLK2
+1510:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *         and PCLK1 prescalers.
+1511:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @note   This function should be used only after reset.
+1512:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @param  None
+1513:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @retval None
+1514:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
+1515:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo192M(void)
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 28
+
+
+1516:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** {
+  26              		.loc 1 1516 0
+  27              		.cfi_startproc
+  28              		@ args = 0, pretend = 0, frame = 8
+  29              		@ frame_needed = 0, uses_anonymous_args = 0
+  30              		@ link register save eliminated.
+  31 0000 82B0     		sub	sp, sp, #8
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 8
+1517:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
+  34              		.loc 1 1517 0
+  35 0002 0023     		movs	r3, #0
+  36 0004 0193     		str	r3, [sp, #4]
+  37 0006 0093     		str	r3, [sp]
+1518:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1519:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration ---------------------------*/
+1520:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Enable HSE */
+1521:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   RCC->CTRL |= ((uint32_t)RCC_CTRL_HSEEN);
+  38              		.loc 1 1521 0
+  39 0008 2C4A     		ldr	r2, .L11
+  40 000a 1368     		ldr	r3, [r2]
+  41 000c 43F48033 		orr	r3, r3, #65536
+  42 0010 1360     		str	r3, [r2]
+  43              	.L3:
+1522:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1523:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Wait till HSE is ready and if Time out is reached exit */
+1524:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   do
+1525:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+1526:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = RCC->CTRL & RCC_CTRL_HSESTBL;
+  44              		.loc 1 1526 0 discriminator 2
+  45 0012 2A4B     		ldr	r3, .L11
+  46 0014 1B68     		ldr	r3, [r3]
+  47 0016 03F40033 		and	r3, r3, #131072
+  48 001a 0093     		str	r3, [sp]
+1527:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     StartUpCounter++;
+  49              		.loc 1 1527 0 discriminator 2
+  50 001c 019B     		ldr	r3, [sp, #4]
+  51 001e 0133     		adds	r3, r3, #1
+  52 0020 0193     		str	r3, [sp, #4]
+1528:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1529:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
+  53              		.loc 1 1529 0 discriminator 2
+  54 0022 009B     		ldr	r3, [sp]
+  55 0024 1BB9     		cbnz	r3, .L2
+  56              		.loc 1 1529 0 is_stmt 0 discriminator 1
+  57 0026 019B     		ldr	r3, [sp, #4]
+  58 0028 B3F5A06F 		cmp	r3, #1280
+  59 002c F1D1     		bne	.L3
+  60              	.L2:
+1530:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F403xx 
+1531:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   WaitHseStbl(HSE_STABLE_DELAY);
+1532:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+1533:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   if ((RCC->CTRL & RCC_CTRL_HSESTBL) != RESET)
+  61              		.loc 1 1533 0 is_stmt 1
+  62 002e 234B     		ldr	r3, .L11
+  63 0030 1B68     		ldr	r3, [r3]
+  64 0032 13F4003F 		tst	r3, #131072
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 29
+
+
+  65 0036 06D0     		beq	.L4
+1534:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+1535:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x01;
+  66              		.loc 1 1535 0
+  67 0038 0123     		movs	r3, #1
+  68 003a 0093     		str	r3, [sp]
+  69              	.L5:
+1536:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1537:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   else
+1538:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+1539:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x00;
+1540:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1541:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1542:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   if (HSEStatus == (uint32_t)0x01)
+  70              		.loc 1 1542 0
+  71 003c 009B     		ldr	r3, [sp]
+  72 003e 012B     		cmp	r3, #1
+  73 0040 04D0     		beq	.L10
+  74              	.L1:
+1543:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+1544:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* HCLK = SYSCLK */
+1545:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_AHBPSC_DIV1;
+1546:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1547:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* PCLK2 = HCLK/2 */
+1548:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= 0xFFFFC7FF;
+1549:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_APB2PSC_DIV2;
+1550:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1551:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* PCLK1 = HCLK/2 */
+1552:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= 0xFFFFF8FF;
+1553:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_APB1PSC_DIV2;
+1554:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1555:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /*  PLL configuration: PLLCLK = HSE * 24 = 192 MHz */
+1556:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= RCC_CFG_PLLCFG_MASK;
+1557:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)(RCC_CFG_PLLRC_HSE | RCC_CFG_PLLMULT24 | RCC_CFG_PLLRANGE_GT72MHZ);
+1558:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1559:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Enable PLL */
+1560:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CTRL |= RCC_CTRL_PLLEN;
+1561:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1562:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Wait till PLL is ready */
+1563:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     while((RCC->CTRL & RCC_CTRL_PLLSTBL) == 0)
+1564:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     {
+1565:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     }
+1566:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F413xx
+1567:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC_StepModeCmd(ENABLE);
+1568:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+1569:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Select PLL as system clock source */
+1570:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= (uint32_t)((uint32_t)~(RCC_CFG_SYSCLKSEL));
+1571:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_SYSCLKSEL_PLL;
+1572:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+1573:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Wait till PLL is used as system clock source */
+1574:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     while ((RCC->CFG & (uint32_t)RCC_CFG_SYSCLKSTS) != RCC_CFG_SYSCLKSTS_PLL)
+1575:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     {
+1576:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     }
+1577:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F403xx
+1578:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     WaitHseStbl(PLL_STABLE_DELAY);
+1579:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+1580:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F413xx
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 30
+
+
+1581:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC_StepModeCmd(DISABLE);
+1582:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+1583:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1584:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   else
+1585:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+1586:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* If HSE fails to start-up, the application will have wrong clock
+1587:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****          configuration. User can add here some code to deal with this error */
+1588:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+1589:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** }
+  75              		.loc 1 1589 0
+  76 0042 02B0     		add	sp, sp, #8
+  77              	.LCFI1:
+  78              		.cfi_remember_state
+  79              		.cfi_def_cfa_offset 0
+  80              		@ sp needed
+  81 0044 7047     		bx	lr
+  82              	.L4:
+  83              	.LCFI2:
+  84              		.cfi_restore_state
+1539:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+  85              		.loc 1 1539 0
+  86 0046 0023     		movs	r3, #0
+  87 0048 0093     		str	r3, [sp]
+  88 004a F7E7     		b	.L5
+  89              	.L10:
+1545:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+  90              		.loc 1 1545 0
+  91 004c 1B4B     		ldr	r3, .L11
+  92 004e 5A68     		ldr	r2, [r3, #4]
+  93 0050 5A60     		str	r2, [r3, #4]
+1548:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_APB2PSC_DIV2;
+  94              		.loc 1 1548 0
+  95 0052 5A68     		ldr	r2, [r3, #4]
+  96 0054 22F46052 		bic	r2, r2, #14336
+  97 0058 5A60     		str	r2, [r3, #4]
+1549:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+  98              		.loc 1 1549 0
+  99 005a 5A68     		ldr	r2, [r3, #4]
+ 100 005c 42F40052 		orr	r2, r2, #8192
+ 101 0060 5A60     		str	r2, [r3, #4]
+1552:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_APB1PSC_DIV2;
+ 102              		.loc 1 1552 0
+ 103 0062 5A68     		ldr	r2, [r3, #4]
+ 104 0064 22F4E062 		bic	r2, r2, #1792
+ 105 0068 5A60     		str	r2, [r3, #4]
+1553:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 106              		.loc 1 1553 0
+ 107 006a 5A68     		ldr	r2, [r3, #4]
+ 108 006c 42F48062 		orr	r2, r2, #1024
+ 109 0070 5A60     		str	r2, [r3, #4]
+1556:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)(RCC_CFG_PLLRC_HSE | RCC_CFG_PLLMULT24 | RCC_CFG_PLLRANGE_GT72MHZ);
+ 110              		.loc 1 1556 0
+ 111 0072 5A68     		ldr	r2, [r3, #4]
+ 112 0074 22F06042 		bic	r2, r2, #-536870912
+ 113 0078 22F47C12 		bic	r2, r2, #4128768
+ 114 007c 5A60     		str	r2, [r3, #4]
+1557:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 31
+
+
+ 115              		.loc 1 1557 0
+ 116 007e 5A68     		ldr	r2, [r3, #4]
+ 117 0080 42F02042 		orr	r2, r2, #-1610612736
+ 118 0084 42F4E812 		orr	r2, r2, #1900544
+ 119 0088 5A60     		str	r2, [r3, #4]
+1560:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 120              		.loc 1 1560 0
+ 121 008a 1A68     		ldr	r2, [r3]
+ 122 008c 42F08072 		orr	r2, r2, #16777216
+ 123 0090 1A60     		str	r2, [r3]
+ 124              	.L7:
+1563:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     {
+ 125              		.loc 1 1563 0 discriminator 1
+ 126 0092 0A4B     		ldr	r3, .L11
+ 127 0094 1B68     		ldr	r3, [r3]
+ 128 0096 13F0007F 		tst	r3, #33554432
+ 129 009a FAD0     		beq	.L7
+1570:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_SYSCLKSEL_PLL;
+ 130              		.loc 1 1570 0
+ 131 009c 074B     		ldr	r3, .L11
+ 132 009e 5A68     		ldr	r2, [r3, #4]
+ 133 00a0 22F00302 		bic	r2, r2, #3
+ 134 00a4 5A60     		str	r2, [r3, #4]
+1571:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 135              		.loc 1 1571 0
+ 136 00a6 5A68     		ldr	r2, [r3, #4]
+ 137 00a8 42F00202 		orr	r2, r2, #2
+ 138 00ac 5A60     		str	r2, [r3, #4]
+ 139              	.L8:
+1574:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     {
+ 140              		.loc 1 1574 0 discriminator 1
+ 141 00ae 034B     		ldr	r3, .L11
+ 142 00b0 5B68     		ldr	r3, [r3, #4]
+ 143 00b2 03F00C03 		and	r3, r3, #12
+ 144 00b6 082B     		cmp	r3, #8
+ 145 00b8 F9D1     		bne	.L8
+ 146 00ba C2E7     		b	.L1
+ 147              	.L12:
+ 148              		.align	2
+ 149              	.L11:
+ 150 00bc 00100240 		.word	1073876992
+ 151              		.cfi_endproc
+ 152              	.LFE127:
+ 154              		.section	.text.SetSysClock,"ax",%progbits
+ 155              		.align	1
+ 156              		.syntax unified
+ 157              		.thumb
+ 158              		.thumb_func
+ 159              		.fpu fpv4-sp-d16
+ 161              	SetSysClock:
+ 162              	.LFB125:
+ 428:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef SYSCLK_FREQ_HSE
+ 163              		.loc 1 428 0
+ 164              		.cfi_startproc
+ 165              		@ args = 0, pretend = 0, frame = 0
+ 166              		@ frame_needed = 0, uses_anonymous_args = 0
+ 167 0000 08B5     		push	{r3, lr}
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 32
+
+
+ 168              	.LCFI3:
+ 169              		.cfi_def_cfa_offset 8
+ 170              		.cfi_offset 3, -8
+ 171              		.cfi_offset 14, -4
+ 454:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_200MHz
+ 172              		.loc 1 454 0
+ 173 0002 FFF7FEFF 		bl	SetSysClockTo192M
+ 174              	.LVL0:
+ 487:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 175              		.loc 1 487 0
+ 176 0006 08BD     		pop	{r3, pc}
+ 177              		.cfi_endproc
+ 178              	.LFE125:
+ 180              		.section	.text.SystemInit,"ax",%progbits
+ 181              		.align	1
+ 182              		.global	SystemInit
+ 183              		.syntax unified
+ 184              		.thumb
+ 185              		.thumb_func
+ 186              		.fpu fpv4-sp-d16
+ 188              	SystemInit:
+ 189              	.LFB123:
+ 283:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #if defined (__FPU_USED) && (__FPU_USED == 1U)
+ 190              		.loc 1 283 0
+ 191              		.cfi_startproc
+ 192              		@ args = 0, pretend = 0, frame = 0
+ 193              		@ frame_needed = 0, uses_anonymous_args = 0
+ 194 0000 10B5     		push	{r4, lr}
+ 195              	.LCFI4:
+ 196              		.cfi_def_cfa_offset 8
+ 197              		.cfi_offset 4, -8
+ 198              		.cfi_offset 14, -4
+ 285:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****                  (3U << 11U * 2U)  );       /* set CP11 Full Access */
+ 199              		.loc 1 285 0
+ 200 0002 164C     		ldr	r4, .L17
+ 201 0004 D4F88830 		ldr	r3, [r4, #136]
+ 202 0008 43F47003 		orr	r3, r3, #15728640
+ 203 000c C4F88830 		str	r3, [r4, #136]
+ 291:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 204              		.loc 1 291 0
+ 205 0010 134B     		ldr	r3, .L17+4
+ 206 0012 1A68     		ldr	r2, [r3]
+ 207 0014 42F00102 		orr	r2, r2, #1
+ 208 0018 1A60     		str	r2, [r3]
+ 294:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****             RCC_CFG_APB1PSC | RCC_CFG_APB2PSC | \
+ 209              		.loc 1 294 0
+ 210 001a 5968     		ldr	r1, [r3, #4]
+ 211 001c 114A     		ldr	r2, .L17+8
+ 212 001e 0A40     		ands	r2, r2, r1
+ 213 0020 5A60     		str	r2, [r3, #4]
+ 299:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****             RCC_CTRL_PLLEN);
+ 214              		.loc 1 299 0
+ 215 0022 1A68     		ldr	r2, [r3]
+ 216 0024 22F08472 		bic	r2, r2, #17301504
+ 217 0028 22F48032 		bic	r2, r2, #65536
+ 218 002c 1A60     		str	r2, [r3]
+ 303:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 33
+
+
+ 219              		.loc 1 303 0
+ 220 002e 1A68     		ldr	r2, [r3]
+ 221 0030 22F48022 		bic	r2, r2, #262144
+ 222 0034 1A60     		str	r2, [r3]
+ 306:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****             RCC_CFG_PLLMULT | RCC_CFG_USBPSC | RCC_CFG_PLLRANGE);
+ 223              		.loc 1 306 0
+ 224 0036 5A68     		ldr	r2, [r3, #4]
+ 225 0038 22F06842 		bic	r2, r2, #-402653184
+ 226 003c 22F47F02 		bic	r2, r2, #16711680
+ 227 0040 5A60     		str	r2, [r3, #4]
+ 310:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 228              		.loc 1 310 0
+ 229 0042 196B     		ldr	r1, [r3, #48]
+ 230 0044 084A     		ldr	r2, .L17+12
+ 231 0046 0A40     		ands	r2, r2, r1
+ 232 0048 1A63     		str	r2, [r3, #48]
+ 313:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****                 RCC_CLKINT_HSISTBLFC | RCC_CLKINT_HSESTBLFC | \
+ 233              		.loc 1 313 0
+ 234 004a 4FF41F02 		mov	r2, #10420224
+ 235 004e 9A60     		str	r2, [r3, #8]
+ 323:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 236              		.loc 1 323 0
+ 237 0050 FFF7FEFF 		bl	SetSysClock
+ 238              	.LVL1:
+ 328:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
+ 239              		.loc 1 328 0
+ 240 0054 4FF00063 		mov	r3, #134217728
+ 241 0058 A360     		str	r3, [r4, #8]
+ 330:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 242              		.loc 1 330 0
+ 243 005a 10BD     		pop	{r4, pc}
+ 244              	.L18:
+ 245              		.align	2
+ 246              	.L17:
+ 247 005c 00ED00E0 		.word	-536810240
+ 248 0060 00100240 		.word	1073876992
+ 249 0064 0C00FFE8 		.word	-385941492
+ 250 0068 00FFFEFE 		.word	-16843008
+ 251              		.cfi_endproc
+ 252              	.LFE123:
+ 254              		.section	.text.SystemCoreClockUpdate,"ax",%progbits
+ 255              		.align	1
+ 256              		.global	SystemCoreClockUpdate
+ 257              		.syntax unified
+ 258              		.thumb
+ 259              		.thumb_func
+ 260              		.fpu fpv4-sp-d16
+ 262              	SystemCoreClockUpdate:
+ 263              	.LFB124:
+ 368:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   uint32_t tmp = 0, pllmult = 0, pllrefclk = 0;
+ 264              		.loc 1 368 0
+ 265              		.cfi_startproc
+ 266              		@ args = 0, pretend = 0, frame = 0
+ 267              		@ frame_needed = 0, uses_anonymous_args = 0
+ 268              		@ link register save eliminated.
+ 269              	.LVL2:
+ 372:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 34
+
+
+ 270              		.loc 1 372 0
+ 271 0000 294B     		ldr	r3, .L34
+ 272 0002 5B68     		ldr	r3, [r3, #4]
+ 273 0004 03F00C03 		and	r3, r3, #12
+ 274              	.LVL3:
+ 374:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+ 275              		.loc 1 374 0
+ 276 0008 042B     		cmp	r3, #4
+ 277 000a 15D0     		beq	.L21
+ 278 000c 082B     		cmp	r3, #8
+ 279 000e 17D0     		beq	.L22
+ 280 0010 1BB1     		cbz	r3, .L31
+ 411:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     break;
+ 281              		.loc 1 411 0
+ 282 0012 264B     		ldr	r3, .L34+4
+ 283              	.LVL4:
+ 284 0014 264A     		ldr	r2, .L34+8
+ 285 0016 1A60     		str	r2, [r3]
+ 412:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+ 286              		.loc 1 412 0
+ 287 0018 02E0     		b	.L24
+ 288              	.LVL5:
+ 289              	.L31:
+ 377:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     break;
+ 290              		.loc 1 377 0
+ 291 001a 244B     		ldr	r3, .L34+4
+ 292              	.LVL6:
+ 293 001c 244A     		ldr	r2, .L34+8
+ 294 001e 1A60     		str	r2, [r3]
+ 295              	.LVL7:
+ 296              	.L24:
+ 417:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* HCLK clock frequency */
+ 297              		.loc 1 417 0
+ 298 0020 214B     		ldr	r3, .L34
+ 299 0022 5B68     		ldr	r3, [r3, #4]
+ 300 0024 C3F30313 		ubfx	r3, r3, #4, #4
+ 301 0028 224A     		ldr	r2, .L34+12
+ 302 002a D35C     		ldrb	r3, [r2, r3]	@ zero_extendqisi2
+ 303 002c DAB2     		uxtb	r2, r3
+ 304              	.LVL8:
+ 419:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** }
+ 305              		.loc 1 419 0
+ 306 002e 1F49     		ldr	r1, .L34+4
+ 307 0030 0B68     		ldr	r3, [r1]
+ 308 0032 D340     		lsrs	r3, r3, r2
+ 309 0034 0B60     		str	r3, [r1]
+ 420:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 310              		.loc 1 420 0
+ 311 0036 7047     		bx	lr
+ 312              	.LVL9:
+ 313              	.L21:
+ 381:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     break;
+ 314              		.loc 1 381 0
+ 315 0038 1C4B     		ldr	r3, .L34+4
+ 316              	.LVL10:
+ 317 003a 1D4A     		ldr	r2, .L34+8
+ 318 003c 1A60     		str	r2, [r3]
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 35
+
+
+ 382:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 319              		.loc 1 382 0
+ 320 003e EFE7     		b	.L24
+ 321              	.LVL11:
+ 322              	.L22:
+ 386:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     pllmult = RCC_GET_PLLMULT(RCC->CFG);
+ 323              		.loc 1 386 0
+ 324 0040 1949     		ldr	r1, .L34
+ 325 0042 4868     		ldr	r0, [r1, #4]
+ 326 0044 00F48030 		and	r0, r0, #65536
+ 327              	.LVL12:
+ 387:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 328              		.loc 1 387 0
+ 329 0048 4B68     		ldr	r3, [r1, #4]
+ 330              	.LVL13:
+ 331 004a C3F38343 		ubfx	r3, r3, #18, #4
+ 332 004e 4A68     		ldr	r2, [r1, #4]
+ 333 0050 520E     		lsrs	r2, r2, #25
+ 334 0052 02F03002 		and	r2, r2, #48
+ 335 0056 1343     		orrs	r3, r3, r2
+ 336 0058 4A68     		ldr	r2, [r1, #4]
+ 337 005a 12F0C04F 		tst	r2, #1610612736
+ 338 005e 09D1     		bne	.L28
+ 387:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 339              		.loc 1 387 0 is_stmt 0 discriminator 1
+ 340 0060 4A68     		ldr	r2, [r1, #4]
+ 341 0062 02F47012 		and	r2, r2, #3932160
+ 342 0066 B2F5701F 		cmp	r2, #3932160
+ 343 006a 01D0     		beq	.L32
+ 387:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 344              		.loc 1 387 0
+ 345 006c 0222     		movs	r2, #2
+ 346 006e 02E0     		b	.L25
+ 347              	.L32:
+ 348 0070 0122     		movs	r2, #1
+ 349 0072 00E0     		b	.L25
+ 350              	.L28:
+ 351 0074 0122     		movs	r2, #1
+ 352              	.L25:
+ 387:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ 353              		.loc 1 387 0 discriminator 6
+ 354 0076 1344     		add	r3, r3, r2
+ 355              	.LVL14:
+ 389:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     {
+ 356              		.loc 1 389 0 is_stmt 1 discriminator 6
+ 357 0078 50B1     		cbz	r0, .L33
+ 397:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****       {
+ 358              		.loc 1 397 0
+ 359 007a 0B4A     		ldr	r2, .L34
+ 360 007c 5268     		ldr	r2, [r2, #4]
+ 361 007e 12F4003F 		tst	r2, #131072
+ 362 0082 0BD0     		beq	.L27
+ 400:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****       }
+ 363              		.loc 1 400 0
+ 364 0084 0C4A     		ldr	r2, .L34+16
+ 365 0086 02FB03F3 		mul	r3, r2, r3
+ 366              	.LVL15:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 36
+
+
+ 367 008a 084A     		ldr	r2, .L34+4
+ 368 008c 1360     		str	r3, [r2]
+ 369 008e C7E7     		b	.L24
+ 370              	.LVL16:
+ 371              	.L33:
+ 392:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     }
+ 372              		.loc 1 392 0
+ 373 0090 094A     		ldr	r2, .L34+16
+ 374 0092 02FB03F3 		mul	r3, r2, r3
+ 375              	.LVL17:
+ 376 0096 054A     		ldr	r2, .L34+4
+ 377 0098 1360     		str	r3, [r2]
+ 378 009a C1E7     		b	.L24
+ 379              	.LVL18:
+ 380              	.L27:
+ 404:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****       }
+ 381              		.loc 1 404 0
+ 382 009c 044A     		ldr	r2, .L34+8
+ 383 009e 02FB03F3 		mul	r3, r2, r3
+ 384              	.LVL19:
+ 385 00a2 024A     		ldr	r2, .L34+4
+ 386 00a4 1360     		str	r3, [r2]
+ 387 00a6 BBE7     		b	.L24
+ 388              	.L35:
+ 389              		.align	2
+ 390              	.L34:
+ 391 00a8 00100240 		.word	1073876992
+ 392 00ac 00000000 		.word	.LANCHOR0
+ 393 00b0 00127A00 		.word	8000000
+ 394 00b4 00000000 		.word	.LANCHOR1
+ 395 00b8 00093D00 		.word	4000000
+ 396              		.cfi_endproc
+ 397              	.LFE124:
+ 399              		.global	AHBPscTable
+ 400              		.global	SystemCoreClock
+ 401              		.section	.data.AHBPscTable,"aw",%progbits
+ 402              		.align	2
+ 403              		.set	.LANCHOR1,. + 0
+ 406              	AHBPscTable:
+ 407 0000 00       		.byte	0
+ 408 0001 00       		.byte	0
+ 409 0002 00       		.byte	0
+ 410 0003 00       		.byte	0
+ 411 0004 00       		.byte	0
+ 412 0005 00       		.byte	0
+ 413 0006 00       		.byte	0
+ 414 0007 00       		.byte	0
+ 415 0008 01       		.byte	1
+ 416 0009 02       		.byte	2
+ 417 000a 03       		.byte	3
+ 418 000b 04       		.byte	4
+ 419 000c 06       		.byte	6
+ 420 000d 07       		.byte	7
+ 421 000e 08       		.byte	8
+ 422 000f 09       		.byte	9
+ 423              		.section	.data.SystemCoreClock,"aw",%progbits
+ 424              		.align	2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 37
+
+
+ 425              		.set	.LANCHOR0,. + 0
+ 428              	SystemCoreClock:
+ 429 0000 00B0710B 		.word	192000000
+ 430              		.text
+ 431              	.Letext0:
+ 432              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
+ 433              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
+ 434              		.file 4 "../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h"
+ 435              		.file 5 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
+ 436              		.file 6 "../Libraries/CMSIS/CM4/DeviceSupport/at32f4xx.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s 			page 38
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 system_at32f4xx.c
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s:17     .text.SetSysClockTo192M:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s:23     .text.SetSysClockTo192M:0000000000000000 SetSysClockTo192M
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s:150    .text.SetSysClockTo192M:00000000000000bc $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s:155    .text.SetSysClock:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s:161    .text.SetSysClock:0000000000000000 SetSysClock
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s:181    .text.SystemInit:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s:188    .text.SystemInit:0000000000000000 SystemInit
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s:247    .text.SystemInit:000000000000005c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s:255    .text.SystemCoreClockUpdate:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s:262    .text.SystemCoreClockUpdate:0000000000000000 SystemCoreClockUpdate
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s:391    .text.SystemCoreClockUpdate:00000000000000a8 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s:406    .data.AHBPscTable:0000000000000000 AHBPscTable
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s:428    .data.SystemCoreClock:0000000000000000 SystemCoreClock
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s:402    .data.AHBPscTable:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGtsl1F.s:424    .data.SystemCoreClock:0000000000000000 $d
+
+NO UNDEFINED SYMBOLS

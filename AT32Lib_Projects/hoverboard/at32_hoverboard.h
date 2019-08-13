@@ -20,7 +20,7 @@
 * This header include define support list:
 * 	1. AT32F403 based Hoverboard
 */
-#define AT32F403Rx_HD 
+//#define AT32F403Rx_HD 
 
 #if !defined (AT32F403Rx_HD)
 #error "Please compile with -DAT32F403Rx_HD for hoverboard support"

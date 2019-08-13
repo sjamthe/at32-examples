@@ -48,6 +48,26 @@ PUTCHAR_PROTOTYPE
 	return ch;
 }
 
+int _write(int file, char *data, int len)
+{
+  int bytes_written;
+  char ch;
+
+  if ((file != 1) && (file != 2))
+  {
+    return -1;
+  }
+
+  for (bytes_written = 0; bytes_written < len; bytes_written++)
+  {
+    ch = *data;
+    data++;
+    __io_putchar(ch);
+  }
+
+  return bytes_written;
+}
+
 /**
   * @brief  Board initialize interface
   *         init LED and BUTTON
@@ -258,7 +278,7 @@ void UART_Print_Init(uint32_t bound)
     USART_InitType USART_InitStructure;
 
     /*Enable the UART Clock*/
-    RCC_APB2PeriphResetCmd(AT32_PRINT_UARTTX_GPIO_RCC | AT32_PRINT_UARTRX_GPIO_RCC, ENABLE);
+    RCC_APB2PeriphClockCmd(AT32_PRINT_UARTTX_GPIO_RCC | AT32_PRINT_UARTRX_GPIO_RCC, ENABLE);
     RCC_APB1PeriphClockCmd(AT32_PRINT_UART_RCC, ENABLE);
 
     /* Configure the UART2 RX pin */
@@ -282,8 +302,11 @@ void UART_Print_Init(uint32_t bound)
     USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
     USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
 
+  /* Enable USART2 Receive and Transmit interrupts */
     USART_Init(AT32_PRINT_UART, &USART_InitStructure);
     USART_INTConfig(AT32_PRINT_UART, USART_INT_RDNE, ENABLE);
+    USART_INTConfig(AT32_PRINT_UART, USART_INT_TDE, ENABLE);
+
     USART_Cmd(AT32_PRINT_UART, ENABLE);
 }
 
