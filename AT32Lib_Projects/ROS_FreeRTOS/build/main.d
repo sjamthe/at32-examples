@@ -46,20 +46,7 @@ build/main.o: Src/main.c Inc/includes.h \
  ../Middlewares/FreeRTOS//Source/include/queue.h \
  ../Middlewares/FreeRTOS//Source/include/timers.h bsp/inc/bsp.h \
  bsp/inc/bsp_uart_fifo.h bsp/inc/bsp_led.h bsp/inc/bsp_timer.h \
- bsp/inc/bsp_key.h bsp/inc/bsp_tim_pwm.h ROSTasks/Inc/spin_task.h \
- ../Middlewares/FreeRTOS//Source/CMSIS_RTOS/cmsis_os.h \
- ../Libraries/ROSSerial/ros.h ../Libraries/ROSSerial/stm32hardware.h \
- ../Libraries/ROSSerial/ros/node_handle.h \
- ../Libraries/ROSSerial/std_msgs/Time.h ../Libraries/ROSSerial/ros/msg.h \
- ../Libraries/ROSSerial/ros/time.h ../Libraries/ROSSerial/ros/duration.h \
- ../Libraries/ROSSerial/rosserial_msgs/TopicInfo.h \
- ../Libraries/ROSSerial/rosserial_msgs/Log.h \
- ../Libraries/ROSSerial/rosserial_msgs/RequestParam.h \
- ../Libraries/ROSSerial/ros/publisher.h \
- ../Libraries/ROSSerial/ros/node_handle.h \
- ../Libraries/ROSSerial/ros/subscriber.h \
- ../Libraries/ROSSerial/ros/service_server.h \
- ../Libraries/ROSSerial/ros/service_client.h
+ bsp/inc/bsp_key.h bsp/inc/bsp_tim_pwm.h
 
 Inc/includes.h:
 
@@ -168,37 +155,3 @@ bsp/inc/bsp_timer.h:
 bsp/inc/bsp_key.h:
 
 bsp/inc/bsp_tim_pwm.h:
-
-ROSTasks/Inc/spin_task.h:
-
-../Middlewares/FreeRTOS//Source/CMSIS_RTOS/cmsis_os.h:
-
-../Libraries/ROSSerial/ros.h:
-
-../Libraries/ROSSerial/stm32hardware.h:
-
-../Libraries/ROSSerial/ros/node_handle.h:
-
-../Libraries/ROSSerial/std_msgs/Time.h:
-
-../Libraries/ROSSerial/ros/msg.h:
-
-../Libraries/ROSSerial/ros/time.h:
-
-../Libraries/ROSSerial/ros/duration.h:
-
-../Libraries/ROSSerial/rosserial_msgs/TopicInfo.h:
-
-../Libraries/ROSSerial/rosserial_msgs/Log.h:
-
-../Libraries/ROSSerial/rosserial_msgs/RequestParam.h:
-
-../Libraries/ROSSerial/ros/publisher.h:
-
-../Libraries/ROSSerial/ros/node_handle.h:
-
-../Libraries/ROSSerial/ros/subscriber.h:
-
-../Libraries/ROSSerial/ros/service_server.h:
-
-../Libraries/ROSSerial/ros/service_client.h:

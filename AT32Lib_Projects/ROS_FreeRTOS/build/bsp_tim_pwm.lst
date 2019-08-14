@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -16,17 +16,16 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 1
   13              		.text
   14              	.Ltext0:
   15              		.cfi_sections	.debug_frame
-  16              		.section	.text._Z16bsp_GetRCCofGPIOP9GPIO_Type,"ax",%progbits
+  16              		.section	.text.bsp_GetRCCofGPIO,"ax",%progbits
   17              		.align	1
-  18              		.global	_Z16bsp_GetRCCofGPIOP9GPIO_Type
+  18              		.global	bsp_GetRCCofGPIO
   19              		.syntax unified
   20              		.thumb
   21              		.thumb_func
   22              		.fpu fpv4-sp-d16
-  24              	_Z16bsp_GetRCCofGPIOP9GPIO_Type:
-  25              		.fnstart
-  26              	.LFB136:
-  27              		.file 1 "bsp/src/bsp_tim_pwm.c"
+  24              	bsp_GetRCCofGPIO:
+  25              	.LFB131:
+  26              		.file 1 "bsp/src/bsp_tim_pwm.c"
    1:bsp/src/bsp_tim_pwm.c **** /**
    2:bsp/src/bsp_tim_pwm.c ****   ******************************************************************************
    3:bsp/src/bsp_tim_pwm.c ****   * @file    FreeRTOS/bsp/bsp_tim_pwm.c 
@@ -58,10 +57,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 1
   29:bsp/src/bsp_tim_pwm.c ****   * @{
   30:bsp/src/bsp_tim_pwm.c ****   */ 
   31:bsp/src/bsp_tim_pwm.c ****   
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 2
-
-
   32:bsp/src/bsp_tim_pwm.c **** /* Private typedef -----------------------------------------------------------*/
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 2
+
+
   33:bsp/src/bsp_tim_pwm.c **** /* Private define ------------------------------------------------------------*/
   34:bsp/src/bsp_tim_pwm.c **** /* Private macro -------------------------------------------------------------*/
   35:bsp/src/bsp_tim_pwm.c **** /* Private variables ---------------------------------------------------------*/
@@ -75,151 +74,148 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 1
   43:bsp/src/bsp_tim_pwm.c ****   */
   44:bsp/src/bsp_tim_pwm.c **** uint32_t bsp_GetRCCofGPIO(GPIO_Type* GPIOx)
   45:bsp/src/bsp_tim_pwm.c **** {
-  28              		.loc 1 45 0
-  29              		.cfi_startproc
-  30              		@ args = 0, pretend = 0, frame = 0
-  31              		@ frame_needed = 0, uses_anonymous_args = 0
-  32              		@ link register save eliminated.
-  33              	.LVL0:
+  27              		.loc 1 45 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  32              	.LVL0:
   46:bsp/src/bsp_tim_pwm.c **** 	uint32_t rcc = 0;
   47:bsp/src/bsp_tim_pwm.c **** 
   48:bsp/src/bsp_tim_pwm.c **** 	if (GPIOx == GPIOA)
-  34              		.loc 1 48 0
-  35 0000 154B     		ldr	r3, .L10
-  36 0002 9842     		cmp	r0, r3
-  37 0004 19D0     		beq	.L3
+  33              		.loc 1 48 0
+  34 0000 154B     		ldr	r3, .L10
+  35 0002 9842     		cmp	r0, r3
+  36 0004 19D0     		beq	.L3
   49:bsp/src/bsp_tim_pwm.c **** 	{
   50:bsp/src/bsp_tim_pwm.c **** 		rcc = RCC_APB2PERIPH_GPIOA;
   51:bsp/src/bsp_tim_pwm.c **** 	}
   52:bsp/src/bsp_tim_pwm.c **** 	else if (GPIOx == GPIOB)
-  38              		.loc 1 52 0
-  39 0006 03F58063 		add	r3, r3, #1024
-  40 000a 9842     		cmp	r0, r3
-  41 000c 17D0     		beq	.L4
+  37              		.loc 1 52 0
+  38 0006 03F58063 		add	r3, r3, #1024
+  39 000a 9842     		cmp	r0, r3
+  40 000c 17D0     		beq	.L4
   53:bsp/src/bsp_tim_pwm.c **** 	{
   54:bsp/src/bsp_tim_pwm.c **** 		rcc = RCC_APB2PERIPH_GPIOB;
   55:bsp/src/bsp_tim_pwm.c **** 	}
   56:bsp/src/bsp_tim_pwm.c **** 	else if (GPIOx == GPIOC)
-  42              		.loc 1 56 0
-  43 000e 03F58063 		add	r3, r3, #1024
-  44 0012 9842     		cmp	r0, r3
-  45 0014 15D0     		beq	.L5
+  41              		.loc 1 56 0
+  42 000e 03F58063 		add	r3, r3, #1024
+  43 0012 9842     		cmp	r0, r3
+  44 0014 15D0     		beq	.L5
   57:bsp/src/bsp_tim_pwm.c **** 	{
   58:bsp/src/bsp_tim_pwm.c **** 		rcc = RCC_APB2PERIPH_GPIOC;
   59:bsp/src/bsp_tim_pwm.c **** 	}
   60:bsp/src/bsp_tim_pwm.c **** 	else if (GPIOx == GPIOD)
-  46              		.loc 1 60 0
-  47 0016 03F58063 		add	r3, r3, #1024
-  48 001a 9842     		cmp	r0, r3
-  49 001c 13D0     		beq	.L6
+  45              		.loc 1 60 0
+  46 0016 03F58063 		add	r3, r3, #1024
+  47 001a 9842     		cmp	r0, r3
+  48 001c 13D0     		beq	.L6
   61:bsp/src/bsp_tim_pwm.c **** 	{
   62:bsp/src/bsp_tim_pwm.c **** 		rcc = RCC_APB2PERIPH_GPIOD;
   63:bsp/src/bsp_tim_pwm.c **** 	}
   64:bsp/src/bsp_tim_pwm.c **** 	else if (GPIOx == GPIOE)
-  50              		.loc 1 64 0
-  51 001e 03F58063 		add	r3, r3, #1024
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 3
+  49              		.loc 1 64 0
+  50 001e 03F58063 		add	r3, r3, #1024
+  51 0022 9842     		cmp	r0, r3
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 3
 
 
-  52 0022 9842     		cmp	r0, r3
-  53 0024 11D0     		beq	.L7
+  52 0024 11D0     		beq	.L7
   65:bsp/src/bsp_tim_pwm.c **** 	{
   66:bsp/src/bsp_tim_pwm.c **** 		rcc = RCC_APB2PERIPH_GPIOE;
   67:bsp/src/bsp_tim_pwm.c **** 	}
   68:bsp/src/bsp_tim_pwm.c **** 	else if (GPIOx == GPIOF)
-  54              		.loc 1 68 0
-  55 0026 03F58063 		add	r3, r3, #1024
-  56 002a 9842     		cmp	r0, r3
-  57 002c 0FD0     		beq	.L8
+  53              		.loc 1 68 0
+  54 0026 03F58063 		add	r3, r3, #1024
+  55 002a 9842     		cmp	r0, r3
+  56 002c 0FD0     		beq	.L8
   69:bsp/src/bsp_tim_pwm.c **** 	{
   70:bsp/src/bsp_tim_pwm.c **** 		rcc = RCC_APB2PERIPH_GPIOF;
   71:bsp/src/bsp_tim_pwm.c **** 	}
   72:bsp/src/bsp_tim_pwm.c **** 	else if (GPIOx == GPIOG)
-  58              		.loc 1 72 0
-  59 002e 03F58063 		add	r3, r3, #1024
-  60 0032 9842     		cmp	r0, r3
-  61 0034 0DD0     		beq	.L9
+  57              		.loc 1 72 0
+  58 002e 03F58063 		add	r3, r3, #1024
+  59 0032 9842     		cmp	r0, r3
+  60 0034 0DD0     		beq	.L9
   46:bsp/src/bsp_tim_pwm.c **** 
-  62              		.loc 1 46 0
-  63 0036 0020     		movs	r0, #0
-  64              	.LVL1:
-  65 0038 7047     		bx	lr
-  66              	.LVL2:
-  67              	.L3:
+  61              		.loc 1 46 0
+  62 0036 0020     		movs	r0, #0
+  63              	.LVL1:
+  64 0038 7047     		bx	lr
+  65              	.LVL2:
+  66              	.L3:
   50:bsp/src/bsp_tim_pwm.c **** 	}
-  68              		.loc 1 50 0
-  69 003a 0420     		movs	r0, #4
-  70              	.LVL3:
-  71 003c 7047     		bx	lr
-  72              	.LVL4:
-  73              	.L4:
+  67              		.loc 1 50 0
+  68 003a 0420     		movs	r0, #4
+  69              	.LVL3:
+  70 003c 7047     		bx	lr
+  71              	.LVL4:
+  72              	.L4:
   54:bsp/src/bsp_tim_pwm.c **** 	}
-  74              		.loc 1 54 0
-  75 003e 0820     		movs	r0, #8
-  76              	.LVL5:
-  77 0040 7047     		bx	lr
-  78              	.LVL6:
-  79              	.L5:
+  73              		.loc 1 54 0
+  74 003e 0820     		movs	r0, #8
+  75              	.LVL5:
+  76 0040 7047     		bx	lr
+  77              	.LVL6:
+  78              	.L5:
   58:bsp/src/bsp_tim_pwm.c **** 	}
-  80              		.loc 1 58 0
-  81 0042 1020     		movs	r0, #16
-  82              	.LVL7:
-  83 0044 7047     		bx	lr
-  84              	.LVL8:
-  85              	.L6:
+  79              		.loc 1 58 0
+  80 0042 1020     		movs	r0, #16
+  81              	.LVL7:
+  82 0044 7047     		bx	lr
+  83              	.LVL8:
+  84              	.L6:
   62:bsp/src/bsp_tim_pwm.c **** 	}
-  86              		.loc 1 62 0
-  87 0046 2020     		movs	r0, #32
-  88              	.LVL9:
-  89 0048 7047     		bx	lr
-  90              	.LVL10:
-  91              	.L7:
+  85              		.loc 1 62 0
+  86 0046 2020     		movs	r0, #32
+  87              	.LVL9:
+  88 0048 7047     		bx	lr
+  89              	.LVL10:
+  90              	.L7:
   66:bsp/src/bsp_tim_pwm.c **** 	}
-  92              		.loc 1 66 0
-  93 004a 4020     		movs	r0, #64
-  94              	.LVL11:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 4
+  91              		.loc 1 66 0
+  92 004a 4020     		movs	r0, #64
+  93              	.LVL11:
+  94 004c 7047     		bx	lr
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 4
 
 
-  95 004c 7047     		bx	lr
-  96              	.LVL12:
-  97              	.L8:
+  95              	.LVL12:
+  96              	.L8:
   70:bsp/src/bsp_tim_pwm.c **** 	}
-  98              		.loc 1 70 0
-  99 004e 8020     		movs	r0, #128
- 100              	.LVL13:
- 101 0050 7047     		bx	lr
- 102              	.LVL14:
- 103              	.L9:
+  97              		.loc 1 70 0
+  98 004e 8020     		movs	r0, #128
+  99              	.LVL13:
+ 100 0050 7047     		bx	lr
+ 101              	.LVL14:
+ 102              	.L9:
   73:bsp/src/bsp_tim_pwm.c **** 	{
   74:bsp/src/bsp_tim_pwm.c **** 		rcc = RCC_APB2PERIPH_GPIOG;
- 104              		.loc 1 74 0
- 105 0052 4FF48070 		mov	r0, #256
- 106              	.LVL15:
+ 103              		.loc 1 74 0
+ 104 0052 4FF48070 		mov	r0, #256
+ 105              	.LVL15:
   75:bsp/src/bsp_tim_pwm.c **** 	}
   76:bsp/src/bsp_tim_pwm.c **** 
   77:bsp/src/bsp_tim_pwm.c **** 	return rcc;
   78:bsp/src/bsp_tim_pwm.c **** }
- 107              		.loc 1 78 0
- 108 0056 7047     		bx	lr
- 109              	.L11:
- 110              		.align	2
- 111              	.L10:
- 112 0058 00080140 		.word	1073809408
- 113              		.cfi_endproc
- 114              	.LFE136:
- 115              		.cantunwind
- 116              		.fnend
- 118              		.section	.text._Z15bsp_GetRCCofTMRP8TMR_Type,"ax",%progbits
- 119              		.align	1
- 120              		.global	_Z15bsp_GetRCCofTMRP8TMR_Type
- 121              		.syntax unified
- 122              		.thumb
- 123              		.thumb_func
- 124              		.fpu fpv4-sp-d16
- 126              	_Z15bsp_GetRCCofTMRP8TMR_Type:
- 127              		.fnstart
- 128              	.LFB137:
+ 106              		.loc 1 78 0
+ 107 0056 7047     		bx	lr
+ 108              	.L11:
+ 109              		.align	2
+ 110              	.L10:
+ 111 0058 00080140 		.word	1073809408
+ 112              		.cfi_endproc
+ 113              	.LFE131:
+ 115              		.section	.text.bsp_GetRCCofTMR,"ax",%progbits
+ 116              		.align	1
+ 117              		.global	bsp_GetRCCofTMR
+ 118              		.syntax unified
+ 119              		.thumb
+ 120              		.thumb_func
+ 121              		.fpu fpv4-sp-d16
+ 123              	bsp_GetRCCofTMR:
+ 124              	.LFB132:
   79:bsp/src/bsp_tim_pwm.c **** 
   80:bsp/src/bsp_tim_pwm.c **** /**
   81:bsp/src/bsp_tim_pwm.c ****   * @brief  Get Timer RCC value
@@ -228,266 +224,263 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 1
   84:bsp/src/bsp_tim_pwm.c ****   */
   85:bsp/src/bsp_tim_pwm.c **** uint32_t bsp_GetRCCofTMR(TMR_Type* TMRx)
   86:bsp/src/bsp_tim_pwm.c **** {
- 129              		.loc 1 86 0
- 130              		.cfi_startproc
- 131              		@ args = 0, pretend = 0, frame = 0
- 132              		@ frame_needed = 0, uses_anonymous_args = 0
- 133              		@ link register save eliminated.
- 134              	.LVL16:
+ 125              		.loc 1 86 0
+ 126              		.cfi_startproc
+ 127              		@ args = 0, pretend = 0, frame = 0
+ 128              		@ frame_needed = 0, uses_anonymous_args = 0
+ 129              		@ link register save eliminated.
+ 130              	.LVL16:
   87:bsp/src/bsp_tim_pwm.c **** 	uint32_t rcc = 0;
   88:bsp/src/bsp_tim_pwm.c **** 
   89:bsp/src/bsp_tim_pwm.c **** 
   90:bsp/src/bsp_tim_pwm.c **** 	if (TMRx == TMR1)
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 5
+ 131              		.loc 1 90 0
+ 132 0000 2C4B     		ldr	r3, .L28
+ 133 0002 9842     		cmp	r0, r3
+ 134 0004 34D0     		beq	.L14
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 5
 
 
- 135              		.loc 1 90 0
- 136 0000 2C4B     		ldr	r3, .L28
- 137 0002 9842     		cmp	r0, r3
- 138 0004 34D0     		beq	.L14
   91:bsp/src/bsp_tim_pwm.c **** 	{
   92:bsp/src/bsp_tim_pwm.c **** 		rcc = RCC_APB2PERIPH_TMR1;
   93:bsp/src/bsp_tim_pwm.c **** 	}
   94:bsp/src/bsp_tim_pwm.c **** 	else if (TMRx == TMR8)
- 139              		.loc 1 94 0
- 140 0006 03F50063 		add	r3, r3, #2048
- 141 000a 9842     		cmp	r0, r3
- 142 000c 33D0     		beq	.L15
+ 135              		.loc 1 94 0
+ 136 0006 03F50063 		add	r3, r3, #2048
+ 137 000a 9842     		cmp	r0, r3
+ 138 000c 33D0     		beq	.L15
   95:bsp/src/bsp_tim_pwm.c **** 	{
   96:bsp/src/bsp_tim_pwm.c **** 		rcc = RCC_APB2PERIPH_TMR8;
   97:bsp/src/bsp_tim_pwm.c **** 	}
   98:bsp/src/bsp_tim_pwm.c **** 	else if (TMRx == TMR9)
- 143              		.loc 1 98 0
- 144 000e 03F5C053 		add	r3, r3, #6144
- 145 0012 9842     		cmp	r0, r3
- 146 0014 32D0     		beq	.L16
+ 139              		.loc 1 98 0
+ 140 000e 03F5C053 		add	r3, r3, #6144
+ 141 0012 9842     		cmp	r0, r3
+ 142 0014 32D0     		beq	.L16
   99:bsp/src/bsp_tim_pwm.c **** 	{
  100:bsp/src/bsp_tim_pwm.c **** 		rcc = RCC_APB2PERIPH_TMR9;
  101:bsp/src/bsp_tim_pwm.c **** 	}
  102:bsp/src/bsp_tim_pwm.c **** 	else if (TMRx == TMR10)
- 147              		.loc 1 102 0
- 148 0016 03F58063 		add	r3, r3, #1024
- 149 001a 9842     		cmp	r0, r3
- 150 001c 31D0     		beq	.L17
+ 143              		.loc 1 102 0
+ 144 0016 03F58063 		add	r3, r3, #1024
+ 145 001a 9842     		cmp	r0, r3
+ 146 001c 31D0     		beq	.L17
  103:bsp/src/bsp_tim_pwm.c **** 	{
  104:bsp/src/bsp_tim_pwm.c **** 		rcc = RCC_APB2PERIPH_TMR10;
  105:bsp/src/bsp_tim_pwm.c **** 	}
  106:bsp/src/bsp_tim_pwm.c **** 	else if (TMRx == TMR11)
- 151              		.loc 1 106 0
- 152 001e 03F58063 		add	r3, r3, #1024
- 153 0022 9842     		cmp	r0, r3
- 154 0024 30D0     		beq	.L18
+ 147              		.loc 1 106 0
+ 148 001e 03F58063 		add	r3, r3, #1024
+ 149 0022 9842     		cmp	r0, r3
+ 150 0024 30D0     		beq	.L18
  107:bsp/src/bsp_tim_pwm.c **** 	{
  108:bsp/src/bsp_tim_pwm.c **** 		rcc = RCC_APB2PERIPH_TMR11;
  109:bsp/src/bsp_tim_pwm.c **** 	}
  110:bsp/src/bsp_tim_pwm.c **** 
  111:bsp/src/bsp_tim_pwm.c **** 	else if (TMRx == TMR2)
- 155              		.loc 1 111 0
- 156 0026 B0F1804F 		cmp	r0, #1073741824
- 157 002a 30D0     		beq	.L19
+ 151              		.loc 1 111 0
+ 152 0026 B0F1804F 		cmp	r0, #1073741824
+ 153 002a 30D0     		beq	.L19
  112:bsp/src/bsp_tim_pwm.c **** 	{
  113:bsp/src/bsp_tim_pwm.c **** 		rcc = RCC_APB1PERIPH_TMR2;
  114:bsp/src/bsp_tim_pwm.c **** 	}
  115:bsp/src/bsp_tim_pwm.c **** 	else if (TMRx == TMR3)
- 158              		.loc 1 115 0
- 159 002c A3F5A833 		sub	r3, r3, #86016
- 160 0030 9842     		cmp	r0, r3
- 161 0032 2ED0     		beq	.L20
+ 154              		.loc 1 115 0
+ 155 002c A3F5A833 		sub	r3, r3, #86016
+ 156 0030 9842     		cmp	r0, r3
+ 157 0032 2ED0     		beq	.L20
  116:bsp/src/bsp_tim_pwm.c **** 	{
  117:bsp/src/bsp_tim_pwm.c **** 		rcc = RCC_APB1PERIPH_TMR3;
  118:bsp/src/bsp_tim_pwm.c **** 	}
  119:bsp/src/bsp_tim_pwm.c **** 	else if (TMRx == TMR4)
- 162              		.loc 1 119 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 6
-
-
- 163 0034 03F58063 		add	r3, r3, #1024
- 164 0038 9842     		cmp	r0, r3
- 165 003a 2CD0     		beq	.L21
+ 158              		.loc 1 119 0
+ 159 0034 03F58063 		add	r3, r3, #1024
+ 160 0038 9842     		cmp	r0, r3
+ 161 003a 2CD0     		beq	.L21
  120:bsp/src/bsp_tim_pwm.c **** 	{
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 6
+
+
  121:bsp/src/bsp_tim_pwm.c **** 		rcc = RCC_APB1PERIPH_TMR4;
  122:bsp/src/bsp_tim_pwm.c **** 	}
  123:bsp/src/bsp_tim_pwm.c **** 	else if (TMRx == TMR5)
- 166              		.loc 1 123 0
- 167 003c 03F58063 		add	r3, r3, #1024
- 168 0040 9842     		cmp	r0, r3
- 169 0042 2AD0     		beq	.L22
+ 162              		.loc 1 123 0
+ 163 003c 03F58063 		add	r3, r3, #1024
+ 164 0040 9842     		cmp	r0, r3
+ 165 0042 2AD0     		beq	.L22
  124:bsp/src/bsp_tim_pwm.c **** 	{
  125:bsp/src/bsp_tim_pwm.c **** 		rcc = RCC_APB1PERIPH_TMR5;
  126:bsp/src/bsp_tim_pwm.c **** 	}
  127:bsp/src/bsp_tim_pwm.c **** 	else if (TMRx == TMR6)
- 170              		.loc 1 127 0
- 171 0044 03F58063 		add	r3, r3, #1024
- 172 0048 9842     		cmp	r0, r3
- 173 004a 28D0     		beq	.L23
+ 166              		.loc 1 127 0
+ 167 0044 03F58063 		add	r3, r3, #1024
+ 168 0048 9842     		cmp	r0, r3
+ 169 004a 28D0     		beq	.L23
  128:bsp/src/bsp_tim_pwm.c **** 	{
  129:bsp/src/bsp_tim_pwm.c **** 		rcc = RCC_APB1PERIPH_TMR6;
  130:bsp/src/bsp_tim_pwm.c **** 	}
  131:bsp/src/bsp_tim_pwm.c **** 	else if (TMRx == TMR7)
- 174              		.loc 1 131 0
- 175 004c 03F58063 		add	r3, r3, #1024
- 176 0050 9842     		cmp	r0, r3
- 177 0052 26D0     		beq	.L24
+ 170              		.loc 1 131 0
+ 171 004c 03F58063 		add	r3, r3, #1024
+ 172 0050 9842     		cmp	r0, r3
+ 173 0052 26D0     		beq	.L24
  132:bsp/src/bsp_tim_pwm.c **** 	{
  133:bsp/src/bsp_tim_pwm.c **** 		rcc = RCC_APB1PERIPH_TMR7;
  134:bsp/src/bsp_tim_pwm.c **** 	}
  135:bsp/src/bsp_tim_pwm.c **** 	else if (TMRx == TMR12)
- 178              		.loc 1 135 0
- 179 0054 03F58063 		add	r3, r3, #1024
- 180 0058 9842     		cmp	r0, r3
- 181 005a 24D0     		beq	.L25
+ 174              		.loc 1 135 0
+ 175 0054 03F58063 		add	r3, r3, #1024
+ 176 0058 9842     		cmp	r0, r3
+ 177 005a 24D0     		beq	.L25
  136:bsp/src/bsp_tim_pwm.c **** 	{
  137:bsp/src/bsp_tim_pwm.c **** 		rcc = RCC_APB1PERIPH_TMR12;
  138:bsp/src/bsp_tim_pwm.c **** 	}
  139:bsp/src/bsp_tim_pwm.c **** 	else if (TMRx == TMR13)
- 182              		.loc 1 139 0
- 183 005c 03F58063 		add	r3, r3, #1024
- 184 0060 9842     		cmp	r0, r3
- 185 0062 22D0     		beq	.L26
+ 178              		.loc 1 139 0
+ 179 005c 03F58063 		add	r3, r3, #1024
+ 180 0060 9842     		cmp	r0, r3
+ 181 0062 22D0     		beq	.L26
  140:bsp/src/bsp_tim_pwm.c **** 	{
  141:bsp/src/bsp_tim_pwm.c **** 		rcc = RCC_APB1PERIPH_TMR13;
  142:bsp/src/bsp_tim_pwm.c **** 	}
  143:bsp/src/bsp_tim_pwm.c **** 	else if (TMRx == TMR14)
- 186              		.loc 1 143 0
- 187 0064 03F58063 		add	r3, r3, #1024
- 188 0068 9842     		cmp	r0, r3
- 189 006a 20D0     		beq	.L27
+ 182              		.loc 1 143 0
+ 183 0064 03F58063 		add	r3, r3, #1024
+ 184 0068 9842     		cmp	r0, r3
+ 185 006a 20D0     		beq	.L27
   87:bsp/src/bsp_tim_pwm.c **** 
- 190              		.loc 1 87 0
- 191 006c 0020     		movs	r0, #0
- 192              	.LVL17:
- 193 006e 7047     		bx	lr
- 194              	.LVL18:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 7
-
-
- 195              	.L14:
+ 186              		.loc 1 87 0
+ 187 006c 0020     		movs	r0, #0
+ 188              	.LVL17:
+ 189 006e 7047     		bx	lr
+ 190              	.LVL18:
+ 191              	.L14:
   92:bsp/src/bsp_tim_pwm.c **** 	}
- 196              		.loc 1 92 0
- 197 0070 4FF40060 		mov	r0, #2048
- 198              	.LVL19:
- 199 0074 7047     		bx	lr
- 200              	.LVL20:
- 201              	.L15:
+ 192              		.loc 1 92 0
+ 193 0070 4FF40060 		mov	r0, #2048
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 7
+
+
+ 194              	.LVL19:
+ 195 0074 7047     		bx	lr
+ 196              	.LVL20:
+ 197              	.L15:
   96:bsp/src/bsp_tim_pwm.c **** 	}
- 202              		.loc 1 96 0
- 203 0076 4FF40050 		mov	r0, #8192
- 204              	.LVL21:
- 205 007a 7047     		bx	lr
- 206              	.LVL22:
- 207              	.L16:
+ 198              		.loc 1 96 0
+ 199 0076 4FF40050 		mov	r0, #8192
+ 200              	.LVL21:
+ 201 007a 7047     		bx	lr
+ 202              	.LVL22:
+ 203              	.L16:
  100:bsp/src/bsp_tim_pwm.c **** 	}
- 208              		.loc 1 100 0
- 209 007c 4FF40020 		mov	r0, #524288
- 210              	.LVL23:
- 211 0080 7047     		bx	lr
- 212              	.LVL24:
- 213              	.L17:
+ 204              		.loc 1 100 0
+ 205 007c 4FF40020 		mov	r0, #524288
+ 206              	.LVL23:
+ 207 0080 7047     		bx	lr
+ 208              	.LVL24:
+ 209              	.L17:
  104:bsp/src/bsp_tim_pwm.c **** 	}
- 214              		.loc 1 104 0
- 215 0082 4FF48010 		mov	r0, #1048576
- 216              	.LVL25:
- 217 0086 7047     		bx	lr
- 218              	.LVL26:
- 219              	.L18:
+ 210              		.loc 1 104 0
+ 211 0082 4FF48010 		mov	r0, #1048576
+ 212              	.LVL25:
+ 213 0086 7047     		bx	lr
+ 214              	.LVL26:
+ 215              	.L18:
  108:bsp/src/bsp_tim_pwm.c **** 	}
- 220              		.loc 1 108 0
- 221 0088 4FF40010 		mov	r0, #2097152
- 222              	.LVL27:
- 223 008c 7047     		bx	lr
- 224              	.LVL28:
- 225              	.L19:
+ 216              		.loc 1 108 0
+ 217 0088 4FF40010 		mov	r0, #2097152
+ 218              	.LVL27:
+ 219 008c 7047     		bx	lr
+ 220              	.LVL28:
+ 221              	.L19:
  113:bsp/src/bsp_tim_pwm.c **** 	}
- 226              		.loc 1 113 0
- 227 008e 0120     		movs	r0, #1
- 228              	.LVL29:
- 229 0090 7047     		bx	lr
- 230              	.LVL30:
- 231              	.L20:
+ 222              		.loc 1 113 0
+ 223 008e 0120     		movs	r0, #1
+ 224              	.LVL29:
+ 225 0090 7047     		bx	lr
+ 226              	.LVL30:
+ 227              	.L20:
  117:bsp/src/bsp_tim_pwm.c **** 	}
- 232              		.loc 1 117 0
- 233 0092 0220     		movs	r0, #2
- 234              	.LVL31:
- 235 0094 7047     		bx	lr
- 236              	.LVL32:
- 237              	.L21:
+ 228              		.loc 1 117 0
+ 229 0092 0220     		movs	r0, #2
+ 230              	.LVL31:
+ 231 0094 7047     		bx	lr
+ 232              	.LVL32:
+ 233              	.L21:
  121:bsp/src/bsp_tim_pwm.c **** 	}
- 238              		.loc 1 121 0
- 239 0096 0420     		movs	r0, #4
- 240              	.LVL33:
- 241 0098 7047     		bx	lr
- 242              	.LVL34:
- 243              	.L22:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 8
-
-
+ 234              		.loc 1 121 0
+ 235 0096 0420     		movs	r0, #4
+ 236              	.LVL33:
+ 237 0098 7047     		bx	lr
+ 238              	.LVL34:
+ 239              	.L22:
  125:bsp/src/bsp_tim_pwm.c **** 	}
- 244              		.loc 1 125 0
- 245 009a 0820     		movs	r0, #8
- 246              	.LVL35:
- 247 009c 7047     		bx	lr
- 248              	.LVL36:
- 249              	.L23:
+ 240              		.loc 1 125 0
+ 241 009a 0820     		movs	r0, #8
+ 242              	.LVL35:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 8
+
+
+ 243 009c 7047     		bx	lr
+ 244              	.LVL36:
+ 245              	.L23:
  129:bsp/src/bsp_tim_pwm.c **** 	}
- 250              		.loc 1 129 0
- 251 009e 1020     		movs	r0, #16
- 252              	.LVL37:
- 253 00a0 7047     		bx	lr
- 254              	.LVL38:
- 255              	.L24:
+ 246              		.loc 1 129 0
+ 247 009e 1020     		movs	r0, #16
+ 248              	.LVL37:
+ 249 00a0 7047     		bx	lr
+ 250              	.LVL38:
+ 251              	.L24:
  133:bsp/src/bsp_tim_pwm.c **** 	}
- 256              		.loc 1 133 0
- 257 00a2 2020     		movs	r0, #32
- 258              	.LVL39:
- 259 00a4 7047     		bx	lr
- 260              	.LVL40:
- 261              	.L25:
+ 252              		.loc 1 133 0
+ 253 00a2 2020     		movs	r0, #32
+ 254              	.LVL39:
+ 255 00a4 7047     		bx	lr
+ 256              	.LVL40:
+ 257              	.L25:
  137:bsp/src/bsp_tim_pwm.c **** 	}
- 262              		.loc 1 137 0
- 263 00a6 4020     		movs	r0, #64
- 264              	.LVL41:
- 265 00a8 7047     		bx	lr
- 266              	.LVL42:
- 267              	.L26:
+ 258              		.loc 1 137 0
+ 259 00a6 4020     		movs	r0, #64
+ 260              	.LVL41:
+ 261 00a8 7047     		bx	lr
+ 262              	.LVL42:
+ 263              	.L26:
  141:bsp/src/bsp_tim_pwm.c **** 	}
- 268              		.loc 1 141 0
- 269 00aa 8020     		movs	r0, #128
- 270              	.LVL43:
- 271 00ac 7047     		bx	lr
- 272              	.LVL44:
- 273              	.L27:
+ 264              		.loc 1 141 0
+ 265 00aa 8020     		movs	r0, #128
+ 266              	.LVL43:
+ 267 00ac 7047     		bx	lr
+ 268              	.LVL44:
+ 269              	.L27:
  144:bsp/src/bsp_tim_pwm.c **** 	{
  145:bsp/src/bsp_tim_pwm.c **** 		rcc = RCC_APB1PERIPH_TMR14;
- 274              		.loc 1 145 0
- 275 00ae 4FF48070 		mov	r0, #256
- 276              	.LVL45:
+ 270              		.loc 1 145 0
+ 271 00ae 4FF48070 		mov	r0, #256
+ 272              	.LVL45:
  146:bsp/src/bsp_tim_pwm.c **** 	}
  147:bsp/src/bsp_tim_pwm.c **** 
  148:bsp/src/bsp_tim_pwm.c **** 	return rcc;
  149:bsp/src/bsp_tim_pwm.c **** }
- 277              		.loc 1 149 0
- 278 00b2 7047     		bx	lr
- 279              	.L29:
- 280              		.align	2
- 281              	.L28:
- 282 00b4 002C0140 		.word	1073818624
- 283              		.cfi_endproc
- 284              	.LFE137:
- 285              		.cantunwind
- 286              		.fnend
- 288              		.section	.text._Z17bsp_ConfigTMRGpioP9GPIO_TypetP8TMR_Typeh,"ax",%progbits
- 289              		.align	1
- 290              		.global	_Z17bsp_ConfigTMRGpioP9GPIO_TypetP8TMR_Typeh
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 9
+ 273              		.loc 1 149 0
+ 274 00b2 7047     		bx	lr
+ 275              	.L29:
+ 276              		.align	2
+ 277              	.L28:
+ 278 00b4 002C0140 		.word	1073818624
+ 279              		.cfi_endproc
+ 280              	.LFE132:
+ 282              		.section	.text.bsp_ConfigTMRGpio,"ax",%progbits
+ 283              		.align	1
+ 284              		.global	bsp_ConfigTMRGpio
+ 285              		.syntax unified
+ 286              		.thumb
+ 287              		.thumb_func
+ 288              		.fpu fpv4-sp-d16
+ 290              	bsp_ConfigTMRGpio:
+ 291              	.LFB133:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 9
 
 
- 291              		.syntax unified
- 292              		.thumb
- 293              		.thumb_func
- 294              		.fpu fpv4-sp-d16
- 296              	_Z17bsp_ConfigTMRGpioP9GPIO_TypetP8TMR_Typeh:
- 297              		.fnstart
- 298              	.LFB138:
  150:bsp/src/bsp_tim_pwm.c **** 
  151:bsp/src/bsp_tim_pwm.c **** /**
  152:bsp/src/bsp_tim_pwm.c ****   * @brief  Timer GPIO configuration
@@ -498,122 +491,118 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 1
  157:bsp/src/bsp_tim_pwm.c ****   */
  158:bsp/src/bsp_tim_pwm.c **** void bsp_ConfigTMRGpio(GPIO_Type* GPIOx, uint16_t GPIO_PinX, TMR_Type* TMRx, uint8_t _ucChannel)
  159:bsp/src/bsp_tim_pwm.c **** {
- 299              		.loc 1 159 0
- 300              		.cfi_startproc
- 301              		@ args = 0, pretend = 0, frame = 8
- 302              		@ frame_needed = 0, uses_anonymous_args = 0
- 303              	.LVL46:
- 304 0000 70B5     		push	{r4, r5, r6, lr}
- 305              		.save {r4, r5, r6, lr}
- 306              	.LCFI0:
- 307              		.cfi_def_cfa_offset 16
- 308              		.cfi_offset 4, -16
- 309              		.cfi_offset 5, -12
- 310              		.cfi_offset 6, -8
- 311              		.cfi_offset 14, -4
- 312              		.pad #8
- 313 0002 82B0     		sub	sp, sp, #8
- 314              	.LCFI1:
- 315              		.cfi_def_cfa_offset 24
- 316 0004 0546     		mov	r5, r0
- 317 0006 0E46     		mov	r6, r1
- 318 0008 1446     		mov	r4, r2
+ 292              		.loc 1 159 0
+ 293              		.cfi_startproc
+ 294              		@ args = 0, pretend = 0, frame = 8
+ 295              		@ frame_needed = 0, uses_anonymous_args = 0
+ 296              	.LVL46:
+ 297 0000 70B5     		push	{r4, r5, r6, lr}
+ 298              	.LCFI0:
+ 299              		.cfi_def_cfa_offset 16
+ 300              		.cfi_offset 4, -16
+ 301              		.cfi_offset 5, -12
+ 302              		.cfi_offset 6, -8
+ 303              		.cfi_offset 14, -4
+ 304 0002 82B0     		sub	sp, sp, #8
+ 305              	.LCFI1:
+ 306              		.cfi_def_cfa_offset 24
+ 307 0004 0546     		mov	r5, r0
+ 308 0006 0E46     		mov	r6, r1
+ 309 0008 1446     		mov	r4, r2
  160:bsp/src/bsp_tim_pwm.c **** 	GPIO_InitType  GPIO_InitStructure;
  161:bsp/src/bsp_tim_pwm.c **** 
  162:bsp/src/bsp_tim_pwm.c **** 
  163:bsp/src/bsp_tim_pwm.c **** 	RCC_APB2PeriphClockCmd(bsp_GetRCCofGPIO(GPIOx), ENABLE);
- 319              		.loc 1 163 0
- 320 000a FFF7FEFF 		bl	_Z16bsp_GetRCCofGPIOP9GPIO_Type
- 321              	.LVL47:
- 322 000e 0121     		movs	r1, #1
- 323 0010 FFF7FEFF 		bl	RCC_APB2PeriphClockCmd
- 324              	.LVL48:
+ 310              		.loc 1 163 0
+ 311 000a FFF7FEFF 		bl	bsp_GetRCCofGPIO
+ 312              	.LVL47:
+ 313 000e 0121     		movs	r1, #1
+ 314 0010 FFF7FEFF 		bl	RCC_APB2PeriphClockCmd
+ 315              	.LVL48:
  164:bsp/src/bsp_tim_pwm.c **** 
  165:bsp/src/bsp_tim_pwm.c ****  
  166:bsp/src/bsp_tim_pwm.c **** 	if ((TMRx == TMR1) || (TMRx == TMR8))
- 325              		.loc 1 166 0
- 326 0014 104B     		ldr	r3, .L35
- 327 0016 9C42     		cmp	r4, r3
- 328 0018 0AD0     		beq	.L31
- 329              		.loc 1 166 0 is_stmt 0 discriminator 1
- 330 001a 03F50063 		add	r3, r3, #2048
- 331 001e 9C42     		cmp	r4, r3
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 10
-
-
- 332 0020 06D0     		beq	.L31
+ 316              		.loc 1 166 0
+ 317 0014 104B     		ldr	r3, .L35
+ 318 0016 9C42     		cmp	r4, r3
+ 319 0018 0AD0     		beq	.L31
+ 320              		.loc 1 166 0 is_stmt 0 discriminator 1
+ 321 001a 03F50063 		add	r3, r3, #2048
+ 322 001e 9C42     		cmp	r4, r3
+ 323 0020 06D0     		beq	.L31
  167:bsp/src/bsp_tim_pwm.c **** 	{
  168:bsp/src/bsp_tim_pwm.c **** 		RCC_APB2PeriphClockCmd(bsp_GetRCCofTMR(TMRx), ENABLE);
  169:bsp/src/bsp_tim_pwm.c **** 	}
  170:bsp/src/bsp_tim_pwm.c **** 	else
  171:bsp/src/bsp_tim_pwm.c **** 	{
  172:bsp/src/bsp_tim_pwm.c **** 		RCC_APB1PeriphClockCmd(bsp_GetRCCofTMR(TMRx), ENABLE);
- 333              		.loc 1 172 0 is_stmt 1
- 334 0022 2046     		mov	r0, r4
- 335 0024 FFF7FEFF 		bl	_Z15bsp_GetRCCofTMRP8TMR_Type
- 336              	.LVL49:
- 337 0028 0121     		movs	r1, #1
- 338 002a FFF7FEFF 		bl	RCC_APB1PeriphClockCmd
- 339              	.LVL50:
- 340 002e 05E0     		b	.L33
- 341              	.L31:
+ 324              		.loc 1 172 0 is_stmt 1
+ 325 0022 2046     		mov	r0, r4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 10
+
+
+ 326 0024 FFF7FEFF 		bl	bsp_GetRCCofTMR
+ 327              	.LVL49:
+ 328 0028 0121     		movs	r1, #1
+ 329 002a FFF7FEFF 		bl	RCC_APB1PeriphClockCmd
+ 330              	.LVL50:
+ 331 002e 05E0     		b	.L33
+ 332              	.L31:
  168:bsp/src/bsp_tim_pwm.c **** 	}
- 342              		.loc 1 168 0
- 343 0030 2046     		mov	r0, r4
- 344 0032 FFF7FEFF 		bl	_Z15bsp_GetRCCofTMRP8TMR_Type
- 345              	.LVL51:
- 346 0036 0121     		movs	r1, #1
- 347 0038 FFF7FEFF 		bl	RCC_APB2PeriphClockCmd
- 348              	.LVL52:
- 349              	.L33:
+ 333              		.loc 1 168 0
+ 334 0030 2046     		mov	r0, r4
+ 335 0032 FFF7FEFF 		bl	bsp_GetRCCofTMR
+ 336              	.LVL51:
+ 337 0036 0121     		movs	r1, #1
+ 338 0038 FFF7FEFF 		bl	RCC_APB2PeriphClockCmd
+ 339              	.LVL52:
+ 340              	.L33:
  173:bsp/src/bsp_tim_pwm.c **** 	}
  174:bsp/src/bsp_tim_pwm.c **** 
  175:bsp/src/bsp_tim_pwm.c **** 	
  176:bsp/src/bsp_tim_pwm.c **** 	GPIO_InitStructure.GPIO_Pins = GPIO_PinX;
- 350              		.loc 1 176 0
- 351 003c ADF80460 		strh	r6, [sp, #4]	@ movhi
+ 341              		.loc 1 176 0
+ 342 003c ADF80460 		strh	r6, [sp, #4]	@ movhi
  177:bsp/src/bsp_tim_pwm.c **** 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;		
- 352              		.loc 1 177 0
- 353 0040 1823     		movs	r3, #24
- 354 0042 8DF80730 		strb	r3, [sp, #7]
+ 343              		.loc 1 177 0
+ 344 0040 1823     		movs	r3, #24
+ 345 0042 8DF80730 		strb	r3, [sp, #7]
  178:bsp/src/bsp_tim_pwm.c **** 	GPIO_InitStructure.GPIO_MaxSpeed = GPIO_MaxSpeed_50MHz;
- 355              		.loc 1 178 0
- 356 0046 0223     		movs	r3, #2
- 357 0048 8DF80630 		strb	r3, [sp, #6]
+ 346              		.loc 1 178 0
+ 347 0046 0223     		movs	r3, #2
+ 348 0048 8DF80630 		strb	r3, [sp, #6]
  179:bsp/src/bsp_tim_pwm.c **** 	GPIO_Init(GPIOx, &GPIO_InitStructure); 
- 358              		.loc 1 179 0
- 359 004c 01A9     		add	r1, sp, #4
- 360 004e 2846     		mov	r0, r5
- 361 0050 FFF7FEFF 		bl	GPIO_Init
- 362              	.LVL53:
+ 349              		.loc 1 179 0
+ 350 004c 01A9     		add	r1, sp, #4
+ 351 004e 2846     		mov	r0, r5
+ 352 0050 FFF7FEFF 		bl	GPIO_Init
+ 353              	.LVL53:
  180:bsp/src/bsp_tim_pwm.c **** }
- 363              		.loc 1 180 0
- 364 0054 02B0     		add	sp, sp, #8
- 365              	.LCFI2:
- 366              		.cfi_def_cfa_offset 16
- 367              		@ sp needed
- 368 0056 70BD     		pop	{r4, r5, r6, pc}
- 369              	.LVL54:
- 370              	.L36:
- 371              		.align	2
- 372              	.L35:
- 373 0058 002C0140 		.word	1073818624
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 11
+ 354              		.loc 1 180 0
+ 355 0054 02B0     		add	sp, sp, #8
+ 356              	.LCFI2:
+ 357              		.cfi_def_cfa_offset 16
+ 358              		@ sp needed
+ 359 0056 70BD     		pop	{r4, r5, r6, pc}
+ 360              	.LVL54:
+ 361              	.L36:
+ 362              		.align	2
+ 363              	.L35:
+ 364 0058 002C0140 		.word	1073818624
+ 365              		.cfi_endproc
+ 366              	.LFE133:
+ 368              		.section	.text.bsp_ConfigGpioOut,"ax",%progbits
+ 369              		.align	1
+ 370              		.global	bsp_ConfigGpioOut
+ 371              		.syntax unified
+ 372              		.thumb
+ 373              		.thumb_func
+ 374              		.fpu fpv4-sp-d16
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 11
 
 
- 374              		.cfi_endproc
- 375              	.LFE138:
- 376              		.fnend
- 378              		.section	.text._Z17bsp_ConfigGpioOutP9GPIO_Typet,"ax",%progbits
- 379              		.align	1
- 380              		.global	_Z17bsp_ConfigGpioOutP9GPIO_Typet
- 381              		.syntax unified
- 382              		.thumb
- 383              		.thumb_func
- 384              		.fpu fpv4-sp-d16
- 386              	_Z17bsp_ConfigGpioOutP9GPIO_Typet:
- 387              		.fnstart
- 388              	.LFB139:
+ 376              	bsp_ConfigGpioOut:
+ 377              	.LFB134:
  181:bsp/src/bsp_tim_pwm.c **** 
  182:bsp/src/bsp_tim_pwm.c **** /**
  183:bsp/src/bsp_tim_pwm.c ****   * @brief  Config a pin to output
@@ -623,76 +612,72 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 1
  187:bsp/src/bsp_tim_pwm.c ****   */
  188:bsp/src/bsp_tim_pwm.c **** void bsp_ConfigGpioOut(GPIO_Type* GPIOx, uint16_t GPIO_PinX)
  189:bsp/src/bsp_tim_pwm.c **** {
- 389              		.loc 1 189 0
- 390              		.cfi_startproc
- 391              		@ args = 0, pretend = 0, frame = 8
- 392              		@ frame_needed = 0, uses_anonymous_args = 0
- 393              	.LVL55:
- 394 0000 30B5     		push	{r4, r5, lr}
- 395              		.save {r4, r5, lr}
- 396              	.LCFI3:
- 397              		.cfi_def_cfa_offset 12
- 398              		.cfi_offset 4, -12
- 399              		.cfi_offset 5, -8
- 400              		.cfi_offset 14, -4
- 401              		.pad #12
- 402 0002 83B0     		sub	sp, sp, #12
- 403              	.LCFI4:
- 404              		.cfi_def_cfa_offset 24
- 405 0004 0446     		mov	r4, r0
- 406 0006 0D46     		mov	r5, r1
+ 378              		.loc 1 189 0
+ 379              		.cfi_startproc
+ 380              		@ args = 0, pretend = 0, frame = 8
+ 381              		@ frame_needed = 0, uses_anonymous_args = 0
+ 382              	.LVL55:
+ 383 0000 30B5     		push	{r4, r5, lr}
+ 384              	.LCFI3:
+ 385              		.cfi_def_cfa_offset 12
+ 386              		.cfi_offset 4, -12
+ 387              		.cfi_offset 5, -8
+ 388              		.cfi_offset 14, -4
+ 389 0002 83B0     		sub	sp, sp, #12
+ 390              	.LCFI4:
+ 391              		.cfi_def_cfa_offset 24
+ 392 0004 0446     		mov	r4, r0
+ 393 0006 0D46     		mov	r5, r1
  190:bsp/src/bsp_tim_pwm.c **** 	GPIO_InitType  GPIO_InitStructure;
  191:bsp/src/bsp_tim_pwm.c **** 
  192:bsp/src/bsp_tim_pwm.c **** 	
  193:bsp/src/bsp_tim_pwm.c **** 	RCC_APB2PeriphClockCmd(bsp_GetRCCofGPIO(GPIOx), ENABLE);
- 407              		.loc 1 193 0
- 408 0008 FFF7FEFF 		bl	_Z16bsp_GetRCCofGPIOP9GPIO_Type
- 409              	.LVL56:
- 410 000c 0121     		movs	r1, #1
- 411 000e FFF7FEFF 		bl	RCC_APB2PeriphClockCmd
- 412              	.LVL57:
+ 394              		.loc 1 193 0
+ 395 0008 FFF7FEFF 		bl	bsp_GetRCCofGPIO
+ 396              	.LVL56:
+ 397 000c 0121     		movs	r1, #1
+ 398 000e FFF7FEFF 		bl	RCC_APB2PeriphClockCmd
+ 399              	.LVL57:
  194:bsp/src/bsp_tim_pwm.c **** 
  195:bsp/src/bsp_tim_pwm.c **** 
  196:bsp/src/bsp_tim_pwm.c **** 	GPIO_InitStructure.GPIO_Pins        = GPIO_PinX;		
- 413              		.loc 1 196 0
- 414 0012 ADF80450 		strh	r5, [sp, #4]	@ movhi
+ 400              		.loc 1 196 0
+ 401 0012 ADF80450 		strh	r5, [sp, #4]	@ movhi
  197:bsp/src/bsp_tim_pwm.c **** 	GPIO_InitStructure.GPIO_Mode        = GPIO_Mode_OUT_PP;	
- 415              		.loc 1 197 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 12
-
-
- 416 0016 1023     		movs	r3, #16
- 417 0018 8DF80730 		strb	r3, [sp, #7]
+ 402              		.loc 1 197 0
+ 403 0016 1023     		movs	r3, #16
+ 404 0018 8DF80730 		strb	r3, [sp, #7]
  198:bsp/src/bsp_tim_pwm.c **** 	GPIO_InitStructure.GPIO_MaxSpeed    = GPIO_MaxSpeed_50MHz;
- 418              		.loc 1 198 0
- 419 001c 0223     		movs	r3, #2
- 420 001e 8DF80630 		strb	r3, [sp, #6]
+ 405              		.loc 1 198 0
+ 406 001c 0223     		movs	r3, #2
+ 407 001e 8DF80630 		strb	r3, [sp, #6]
  199:bsp/src/bsp_tim_pwm.c **** 	GPIO_Init(GPIOx, &GPIO_InitStructure);
- 421              		.loc 1 199 0
- 422 0022 01A9     		add	r1, sp, #4
- 423 0024 2046     		mov	r0, r4
- 424 0026 FFF7FEFF 		bl	GPIO_Init
- 425              	.LVL58:
+ 408              		.loc 1 199 0
+ 409 0022 01A9     		add	r1, sp, #4
+ 410 0024 2046     		mov	r0, r4
+ 411 0026 FFF7FEFF 		bl	GPIO_Init
+ 412              	.LVL58:
  200:bsp/src/bsp_tim_pwm.c **** }
- 426              		.loc 1 200 0
- 427 002a 03B0     		add	sp, sp, #12
- 428              	.LCFI5:
- 429              		.cfi_def_cfa_offset 12
- 430              		@ sp needed
- 431 002c 30BD     		pop	{r4, r5, pc}
- 432              		.cfi_endproc
- 433              	.LFE139:
- 434              		.fnend
- 436              		.section	.text._Z16bsp_SetTMROutPWMP9GPIO_TypetP8TMR_Typehmm,"ax",%progbits
- 437              		.align	1
- 438              		.global	_Z16bsp_SetTMROutPWMP9GPIO_TypetP8TMR_Typehmm
- 439              		.syntax unified
- 440              		.thumb
- 441              		.thumb_func
- 442              		.fpu fpv4-sp-d16
- 444              	_Z16bsp_SetTMROutPWMP9GPIO_TypetP8TMR_Typehmm:
- 445              		.fnstart
- 446              	.LFB140:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 12
+
+
+ 413              		.loc 1 200 0
+ 414 002a 03B0     		add	sp, sp, #12
+ 415              	.LCFI5:
+ 416              		.cfi_def_cfa_offset 12
+ 417              		@ sp needed
+ 418 002c 30BD     		pop	{r4, r5, pc}
+ 419              		.cfi_endproc
+ 420              	.LFE134:
+ 422              		.section	.text.bsp_SetTMROutPWM,"ax",%progbits
+ 423              		.align	1
+ 424              		.global	bsp_SetTMROutPWM
+ 425              		.syntax unified
+ 426              		.thumb
+ 427              		.thumb_func
+ 428              		.fpu fpv4-sp-d16
+ 430              	bsp_SetTMROutPWM:
+ 431              	.LFB135:
  201:bsp/src/bsp_tim_pwm.c **** 
  202:bsp/src/bsp_tim_pwm.c **** /**
  203:bsp/src/bsp_tim_pwm.c ****   * @brief  Config Timer to output pwm waveform
@@ -705,45 +690,43 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 1
  210:bsp/src/bsp_tim_pwm.c **** void bsp_SetTMROutPWM(GPIO_Type* GPIOx, uint16_t GPIO_Pin, TMR_Type* TMRx, uint8_t _ucChannel,
  211:bsp/src/bsp_tim_pwm.c **** 	 uint32_t _ulFreq, uint32_t _ulDutyCycle)
  212:bsp/src/bsp_tim_pwm.c **** {
- 447              		.loc 1 212 0
- 448              		.cfi_startproc
- 449              		@ args = 8, pretend = 0, frame = 40
- 450              		@ frame_needed = 0, uses_anonymous_args = 0
- 451              	.LVL59:
- 452 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
- 453              		.save {r4, r5, r6, r7, r8, r9, lr}
- 454              	.LCFI6:
- 455              		.cfi_def_cfa_offset 28
- 456              		.cfi_offset 4, -28
- 457              		.cfi_offset 5, -24
- 458              		.cfi_offset 6, -20
- 459              		.cfi_offset 7, -16
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 13
-
-
- 460              		.cfi_offset 8, -12
- 461              		.cfi_offset 9, -8
- 462              		.cfi_offset 14, -4
- 463              		.pad #44
- 464 0004 8BB0     		sub	sp, sp, #44
- 465              	.LCFI7:
- 466              		.cfi_def_cfa_offset 72
- 467 0006 0446     		mov	r4, r0
- 468 0008 8946     		mov	r9, r1
- 469 000a 1646     		mov	r6, r2
- 470 000c 129F     		ldr	r7, [sp, #72]
- 471 000e 139D     		ldr	r5, [sp, #76]
+ 432              		.loc 1 212 0
+ 433              		.cfi_startproc
+ 434              		@ args = 8, pretend = 0, frame = 40
+ 435              		@ frame_needed = 0, uses_anonymous_args = 0
+ 436              	.LVL59:
+ 437 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
+ 438              	.LCFI6:
+ 439              		.cfi_def_cfa_offset 28
+ 440              		.cfi_offset 4, -28
+ 441              		.cfi_offset 5, -24
+ 442              		.cfi_offset 6, -20
+ 443              		.cfi_offset 7, -16
+ 444              		.cfi_offset 8, -12
+ 445              		.cfi_offset 9, -8
+ 446              		.cfi_offset 14, -4
+ 447 0004 8BB0     		sub	sp, sp, #44
+ 448              	.LCFI7:
+ 449              		.cfi_def_cfa_offset 72
+ 450 0006 0446     		mov	r4, r0
+ 451 0008 8946     		mov	r9, r1
+ 452 000a 1646     		mov	r6, r2
+ 453 000c 129F     		ldr	r7, [sp, #72]
+ 454 000e 139D     		ldr	r5, [sp, #76]
  213:bsp/src/bsp_tim_pwm.c **** 	TMR_TimerBaseInitType  TMR_TimeBaseStructure;
  214:bsp/src/bsp_tim_pwm.c **** 	TMR_OCInitType  TMR_OCInitStructure;
  215:bsp/src/bsp_tim_pwm.c **** 	uint16_t usPeriod;
  216:bsp/src/bsp_tim_pwm.c **** 	uint16_t usPrescaler;
  217:bsp/src/bsp_tim_pwm.c **** 	uint32_t uiTMRxCLK;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 13
+
+
  218:bsp/src/bsp_tim_pwm.c **** 
  219:bsp/src/bsp_tim_pwm.c **** 	if (_ulDutyCycle == 0)
- 472              		.loc 1 219 0
- 473 0010 002D     		cmp	r5, #0
- 474 0012 5ED0     		beq	.L54
- 475 0014 9846     		mov	r8, r3
+ 455              		.loc 1 219 0
+ 456 0010 002D     		cmp	r5, #0
+ 457 0012 5ED0     		beq	.L54
+ 458 0014 9846     		mov	r8, r3
  220:bsp/src/bsp_tim_pwm.c **** 	{		
  221:bsp/src/bsp_tim_pwm.c **** 		TMR_Cmd(TMRx, DISABLE);		
  222:bsp/src/bsp_tim_pwm.c **** 		bsp_ConfigGpioOut(GPIOx, GPIO_Pin);		
@@ -751,11 +734,11 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 1
  224:bsp/src/bsp_tim_pwm.c **** 		return;
  225:bsp/src/bsp_tim_pwm.c **** 	}
  226:bsp/src/bsp_tim_pwm.c **** 	else if (_ulDutyCycle == 10000)
- 476              		.loc 1 226 0
- 477 0016 42F21073 		movw	r3, #10000
- 478              	.LVL60:
- 479 001a 9D42     		cmp	r5, r3
- 480 001c 69D0     		beq	.L55
+ 459              		.loc 1 226 0
+ 460 0016 42F21073 		movw	r3, #10000
+ 461              	.LVL60:
+ 462 001a 9D42     		cmp	r5, r3
+ 463 001c 69D0     		beq	.L55
  227:bsp/src/bsp_tim_pwm.c **** 	{
  228:bsp/src/bsp_tim_pwm.c **** 		TMR_Cmd(TMRx, DISABLE);		
  229:bsp/src/bsp_tim_pwm.c **** 
@@ -766,45 +749,45 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 1
  234:bsp/src/bsp_tim_pwm.c **** 	
  235:bsp/src/bsp_tim_pwm.c **** 
  236:bsp/src/bsp_tim_pwm.c **** 	bsp_ConfigTMRGpio(GPIOx, GPIO_Pin, TMRx, _ucChannel);	
- 481              		.loc 1 236 0
- 482 001e 4346     		mov	r3, r8
- 483 0020 FFF7FEFF 		bl	_Z17bsp_ConfigTMRGpioP9GPIO_TypetP8TMR_Typeh
- 484              	.LVL61:
+ 464              		.loc 1 236 0
+ 465 001e 4346     		mov	r3, r8
+ 466 0020 FFF7FEFF 		bl	bsp_ConfigTMRGpio
+ 467              	.LVL61:
  237:bsp/src/bsp_tim_pwm.c **** 	
  238:bsp/src/bsp_tim_pwm.c **** 	uiTMRxCLK = SystemCoreClock/2;	
- 485              		.loc 1 238 0
- 486 0024 574B     		ldr	r3, .L60
- 487 0026 1B68     		ldr	r3, [r3]
- 488 0028 5C08     		lsrs	r4, r3, #1
- 489              	.LVL62:
+ 468              		.loc 1 238 0
+ 469 0024 574B     		ldr	r3, .L60
+ 470 0026 1B68     		ldr	r3, [r3]
+ 471 0028 5C08     		lsrs	r4, r3, #1
+ 472              	.LVL62:
  239:bsp/src/bsp_tim_pwm.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 14
-
-
  240:bsp/src/bsp_tim_pwm.c **** 	if (_ulFreq < 100)
- 490              		.loc 1 240 0
- 491 002a 632F     		cmp	r7, #99
- 492 002c 6FD8     		bhi	.L43
- 493              	.LVL63:
+ 473              		.loc 1 240 0
+ 474 002a 632F     		cmp	r7, #99
+ 475 002c 6FD8     		bhi	.L43
+ 476              	.LVL63:
  241:bsp/src/bsp_tim_pwm.c **** 	{
  242:bsp/src/bsp_tim_pwm.c **** 		usPrescaler = 10000 - 1;					
  243:bsp/src/bsp_tim_pwm.c **** 		usPeriod =  (uiTMRxCLK / 10000) / _ulFreq  - 1;		
- 494              		.loc 1 243 0
- 495 002e 564C     		ldr	r4, .L60+4
- 496              	.LVL64:
- 497 0030 A4FB0334 		umull	r3, r4, r4, r3
- 498              	.LVL65:
- 499 0034 A40B     		lsrs	r4, r4, #14
- 500 0036 B4FBF7F4 		udiv	r4, r4, r7
- 501 003a A4B2     		uxth	r4, r4
- 502 003c 013C     		subs	r4, r4, #1
- 503 003e A4B2     		uxth	r4, r4
- 504              	.LVL66:
+ 477              		.loc 1 243 0
+ 478 002e 564C     		ldr	r4, .L60+4
+ 479              	.LVL64:
+ 480 0030 A4FB0334 		umull	r3, r4, r4, r3
+ 481              	.LVL65:
+ 482 0034 A40B     		lsrs	r4, r4, #14
+ 483 0036 B4FBF7F4 		udiv	r4, r4, r7
+ 484 003a A4B2     		uxth	r4, r4
+ 485 003c 013C     		subs	r4, r4, #1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 14
+
+
+ 486 003e A4B2     		uxth	r4, r4
+ 487              	.LVL66:
  242:bsp/src/bsp_tim_pwm.c **** 		usPeriod =  (uiTMRxCLK / 10000) / _ulFreq  - 1;		
- 505              		.loc 1 242 0
- 506 0040 42F20F73 		movw	r3, #9999
- 507              	.LVL67:
- 508              	.L44:
+ 488              		.loc 1 242 0
+ 489 0040 42F20F73 		movw	r3, #9999
+ 490              	.LVL67:
+ 491              	.L44:
  244:bsp/src/bsp_tim_pwm.c **** 	}
  245:bsp/src/bsp_tim_pwm.c **** 	else if (_ulFreq < 3000)
  246:bsp/src/bsp_tim_pwm.c **** 	{
@@ -819,329 +802,326 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 1
  255:bsp/src/bsp_tim_pwm.c **** 
  256:bsp/src/bsp_tim_pwm.c **** 	
  257:bsp/src/bsp_tim_pwm.c **** 	TMR_TimeBaseStructure.TMR_Period    = usPeriod;
- 509              		.loc 1 257 0
- 510 0044 0894     		str	r4, [sp, #32]
+ 492              		.loc 1 257 0
+ 493 0044 0894     		str	r4, [sp, #32]
  258:bsp/src/bsp_tim_pwm.c **** 	TMR_TimeBaseStructure.TMR_DIV       = usPrescaler;
- 511              		.loc 1 258 0
- 512 0046 ADF81830 		strh	r3, [sp, #24]	@ movhi
+ 494              		.loc 1 258 0
+ 495 0046 ADF81830 		strh	r3, [sp, #24]	@ movhi
  259:bsp/src/bsp_tim_pwm.c **** 	TMR_TimeBaseStructure.TMR_ClockDivision = 0;
- 513              		.loc 1 259 0
- 514 004a 0027     		movs	r7, #0
- 515 004c ADF82470 		strh	r7, [sp, #36]	@ movhi
+ 496              		.loc 1 259 0
+ 497 004a 0027     		movs	r7, #0
+ 498 004c ADF82470 		strh	r7, [sp, #36]	@ movhi
  260:bsp/src/bsp_tim_pwm.c **** 	TMR_TimeBaseStructure.TMR_CounterMode   = TMR_CounterDIR_Up;
- 516              		.loc 1 260 0
- 517 0050 0797     		str	r7, [sp, #28]
+ 499              		.loc 1 260 0
+ 500 0050 0797     		str	r7, [sp, #28]
  261:bsp/src/bsp_tim_pwm.c **** 	TMR_TimeBaseStructure.TMR_RepetitionCounter = 0;	
- 518              		.loc 1 261 0
- 519 0052 8DF82670 		strb	r7, [sp, #38]
+ 501              		.loc 1 261 0
+ 502 0052 8DF82670 		strb	r7, [sp, #38]
  262:bsp/src/bsp_tim_pwm.c **** 	TMR_TimeBaseInit(TMRx, &TMR_TimeBaseStructure);
- 520              		.loc 1 262 0
- 521 0056 06A9     		add	r1, sp, #24
- 522 0058 3046     		mov	r0, r6
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 15
-
-
- 523 005a FFF7FEFF 		bl	TMR_TimeBaseInit
- 524              	.LVL68:
+ 503              		.loc 1 262 0
+ 504 0056 06A9     		add	r1, sp, #24
+ 505 0058 3046     		mov	r0, r6
+ 506 005a FFF7FEFF 		bl	TMR_TimeBaseInit
+ 507              	.LVL68:
  263:bsp/src/bsp_tim_pwm.c **** 
  264:bsp/src/bsp_tim_pwm.c **** 
  265:bsp/src/bsp_tim_pwm.c **** 	TMR_OCStructInit(&TMR_OCInitStructure);		
- 525              		.loc 1 265 0
- 526 005e 01A8     		add	r0, sp, #4
- 527 0060 FFF7FEFF 		bl	TMR_OCStructInit
- 528              	.LVL69:
+ 508              		.loc 1 265 0
+ 509 005e 01A8     		add	r0, sp, #4
+ 510 0060 FFF7FEFF 		bl	TMR_OCStructInit
+ 511              	.LVL69:
  266:bsp/src/bsp_tim_pwm.c **** 	
  267:bsp/src/bsp_tim_pwm.c **** 	TMR_OCInitStructure.TMR_OCMode = TMR_OCMode_PWM1;
- 529              		.loc 1 267 0
- 530 0064 6023     		movs	r3, #96
- 531 0066 ADF80430 		strh	r3, [sp, #4]	@ movhi
+ 512              		.loc 1 267 0
+ 513 0064 6023     		movs	r3, #96
+ 514 0066 ADF80430 		strh	r3, [sp, #4]	@ movhi
  268:bsp/src/bsp_tim_pwm.c **** 	TMR_OCInitStructure.TMR_OutputState = TMR_OutputState_Enable;
- 532              		.loc 1 268 0
- 533 006a 0123     		movs	r3, #1
- 534 006c ADF80630 		strh	r3, [sp, #6]	@ movhi
+ 515              		.loc 1 268 0
+ 516 006a 0123     		movs	r3, #1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 15
+
+
+ 517 006c ADF80630 		strh	r3, [sp, #6]	@ movhi
  269:bsp/src/bsp_tim_pwm.c **** 	TMR_OCInitStructure.TMR_Pulse = (_ulDutyCycle * usPeriod) / 10000;
- 535              		.loc 1 269 0
- 536 0070 05FB04F4 		mul	r4, r5, r4
- 537              	.LVL70:
- 538 0074 444D     		ldr	r5, .L60+4
- 539 0076 A5FB0434 		umull	r3, r4, r5, r4
- 540 007a 640B     		lsrs	r4, r4, #13
- 541 007c 0394     		str	r4, [sp, #12]
+ 518              		.loc 1 269 0
+ 519 0070 05FB04F4 		mul	r4, r5, r4
+ 520              	.LVL70:
+ 521 0074 444D     		ldr	r5, .L60+4
+ 522 0076 A5FB0434 		umull	r3, r4, r5, r4
+ 523 007a 640B     		lsrs	r4, r4, #13
+ 524 007c 0394     		str	r4, [sp, #12]
  270:bsp/src/bsp_tim_pwm.c **** 	TMR_OCInitStructure.TMR_OCPolarity = TMR_OCPolarity_High;
- 542              		.loc 1 270 0
- 543 007e ADF81070 		strh	r7, [sp, #16]	@ movhi
+ 525              		.loc 1 270 0
+ 526 007e ADF81070 		strh	r7, [sp, #16]	@ movhi
  271:bsp/src/bsp_tim_pwm.c **** 	
  272:bsp/src/bsp_tim_pwm.c **** 	TMR_OCInitStructure.TMR_OutputNState = TMR_OutputNState_Disable;		
- 544              		.loc 1 272 0
- 545 0082 ADF80870 		strh	r7, [sp, #8]	@ movhi
+ 527              		.loc 1 272 0
+ 528 0082 ADF80870 		strh	r7, [sp, #8]	@ movhi
  273:bsp/src/bsp_tim_pwm.c **** 	TMR_OCInitStructure.TMR_OCNPolarity = TMR_OCNPolarity_High;				
- 546              		.loc 1 273 0
- 547 0086 ADF81270 		strh	r7, [sp, #18]	@ movhi
+ 529              		.loc 1 273 0
+ 530 0086 ADF81270 		strh	r7, [sp, #18]	@ movhi
  274:bsp/src/bsp_tim_pwm.c **** 	TMR_OCInitStructure.TMR_OCIdleState = TMR_OCIdleState_Reset;		
- 548              		.loc 1 274 0
- 549 008a ADF81470 		strh	r7, [sp, #20]	@ movhi
+ 531              		.loc 1 274 0
+ 532 008a ADF81470 		strh	r7, [sp, #20]	@ movhi
  275:bsp/src/bsp_tim_pwm.c **** 	TMR_OCInitStructure.TMR_OCNIdleState = TMR_OCNIdleState_Reset;		
- 550              		.loc 1 275 0
- 551 008e ADF81670 		strh	r7, [sp, #22]	@ movhi
+ 533              		.loc 1 275 0
+ 534 008e ADF81670 		strh	r7, [sp, #22]	@ movhi
  276:bsp/src/bsp_tim_pwm.c **** 	
  277:bsp/src/bsp_tim_pwm.c **** 	if (_ucChannel == 1)
- 552              		.loc 1 277 0
- 553 0092 B8F1010F 		cmp	r8, #1
- 554 0096 50D0     		beq	.L56
+ 535              		.loc 1 277 0
+ 536 0092 B8F1010F 		cmp	r8, #1
+ 537 0096 50D0     		beq	.L56
  278:bsp/src/bsp_tim_pwm.c **** 	{
  279:bsp/src/bsp_tim_pwm.c **** 		TMR_OC1Init(TMRx, &TMR_OCInitStructure);
  280:bsp/src/bsp_tim_pwm.c **** 		TMR_OC1PreloadConfig(TMRx, TMR_OCPreload_Enable);
  281:bsp/src/bsp_tim_pwm.c **** 	}
  282:bsp/src/bsp_tim_pwm.c **** 	else if (_ucChannel == 2)
- 555              		.loc 1 282 0
- 556 0098 B8F1020F 		cmp	r8, #2
- 557 009c 56D0     		beq	.L57
+ 538              		.loc 1 282 0
+ 539 0098 B8F1020F 		cmp	r8, #2
+ 540 009c 56D0     		beq	.L57
  283:bsp/src/bsp_tim_pwm.c **** 	{
  284:bsp/src/bsp_tim_pwm.c **** 		TMR_OC2Init(TMRx, &TMR_OCInitStructure);
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 16
-
-
  285:bsp/src/bsp_tim_pwm.c **** 		TMR_OC2PreloadConfig(TMRx, TMR_OCPreload_Enable);
  286:bsp/src/bsp_tim_pwm.c **** 	}
  287:bsp/src/bsp_tim_pwm.c **** 	else if (_ucChannel == 3)
- 558              		.loc 1 287 0
- 559 009e B8F1030F 		cmp	r8, #3
- 560 00a2 5CD0     		beq	.L58
+ 541              		.loc 1 287 0
+ 542 009e B8F1030F 		cmp	r8, #3
+ 543 00a2 5CD0     		beq	.L58
  288:bsp/src/bsp_tim_pwm.c **** 	{
  289:bsp/src/bsp_tim_pwm.c **** 		TMR_OC3Init(TMRx, &TMR_OCInitStructure);
  290:bsp/src/bsp_tim_pwm.c **** 		TMR_OC3PreloadConfig(TMRx, TMR_OCPreload_Enable);
  291:bsp/src/bsp_tim_pwm.c **** 	}
  292:bsp/src/bsp_tim_pwm.c **** 	else if (_ucChannel == 4)
- 561              		.loc 1 292 0
- 562 00a4 B8F1040F 		cmp	r8, #4
- 563 00a8 62D0     		beq	.L59
- 564              	.L47:
+ 544              		.loc 1 292 0
+ 545 00a4 B8F1040F 		cmp	r8, #4
+ 546 00a8 62D0     		beq	.L59
+ 547              	.L47:
  293:bsp/src/bsp_tim_pwm.c **** 	{
  294:bsp/src/bsp_tim_pwm.c **** 		TMR_OC4Init(TMRx, &TMR_OCInitStructure);
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 16
+
+
  295:bsp/src/bsp_tim_pwm.c **** 		TMR_OC4PreloadConfig(TMRx, TMR_OCPreload_Enable);
  296:bsp/src/bsp_tim_pwm.c **** 	}
  297:bsp/src/bsp_tim_pwm.c **** 
  298:bsp/src/bsp_tim_pwm.c **** 	TMR_ARPreloadConfig(TMRx, ENABLE);
- 565              		.loc 1 298 0
- 566 00aa 0121     		movs	r1, #1
- 567 00ac 3046     		mov	r0, r6
- 568 00ae FFF7FEFF 		bl	TMR_ARPreloadConfig
- 569              	.LVL71:
+ 548              		.loc 1 298 0
+ 549 00aa 0121     		movs	r1, #1
+ 550 00ac 3046     		mov	r0, r6
+ 551 00ae FFF7FEFF 		bl	TMR_ARPreloadConfig
+ 552              	.LVL71:
  299:bsp/src/bsp_tim_pwm.c **** 
  300:bsp/src/bsp_tim_pwm.c **** 	
  301:bsp/src/bsp_tim_pwm.c **** 	TMR_Cmd(TMRx, ENABLE);
- 570              		.loc 1 301 0
- 571 00b2 0121     		movs	r1, #1
- 572 00b4 3046     		mov	r0, r6
- 573 00b6 FFF7FEFF 		bl	TMR_Cmd
- 574              	.LVL72:
+ 553              		.loc 1 301 0
+ 554 00b2 0121     		movs	r1, #1
+ 555 00b4 3046     		mov	r0, r6
+ 556 00b6 FFF7FEFF 		bl	TMR_Cmd
+ 557              	.LVL72:
  302:bsp/src/bsp_tim_pwm.c **** 
  303:bsp/src/bsp_tim_pwm.c **** 
  304:bsp/src/bsp_tim_pwm.c **** 	if ((TMRx == TMR1) || (TMRx == TMR8))
- 575              		.loc 1 304 0
- 576 00ba 344B     		ldr	r3, .L60+8
- 577 00bc 9E42     		cmp	r6, r3
- 578 00be 03D0     		beq	.L50
- 579              		.loc 1 304 0 is_stmt 0 discriminator 1
- 580 00c0 03F50063 		add	r3, r3, #2048
- 581 00c4 9E42     		cmp	r6, r3
- 582 00c6 11D1     		bne	.L39
- 583              	.L50:
+ 558              		.loc 1 304 0
+ 559 00ba 344B     		ldr	r3, .L60+8
+ 560 00bc 9E42     		cmp	r6, r3
+ 561 00be 03D0     		beq	.L50
+ 562              		.loc 1 304 0 is_stmt 0 discriminator 1
+ 563 00c0 03F50063 		add	r3, r3, #2048
+ 564 00c4 9E42     		cmp	r6, r3
+ 565 00c6 11D1     		bne	.L39
+ 566              	.L50:
  305:bsp/src/bsp_tim_pwm.c **** 	{
  306:bsp/src/bsp_tim_pwm.c **** 		TMR_CtrlPWMOutputs(TMRx, ENABLE);
- 584              		.loc 1 306 0 is_stmt 1
- 585 00c8 0121     		movs	r1, #1
- 586 00ca 3046     		mov	r0, r6
- 587 00cc FFF7FEFF 		bl	TMR_CtrlPWMOutputs
- 588              	.LVL73:
- 589 00d0 0CE0     		b	.L39
- 590              	.LVL74:
- 591              	.L54:
+ 567              		.loc 1 306 0 is_stmt 1
+ 568 00c8 0121     		movs	r1, #1
+ 569 00ca 3046     		mov	r0, r6
+ 570 00cc FFF7FEFF 		bl	TMR_CtrlPWMOutputs
+ 571              	.LVL73:
+ 572 00d0 0CE0     		b	.L39
+ 573              	.LVL74:
+ 574              	.L54:
  221:bsp/src/bsp_tim_pwm.c **** 		bsp_ConfigGpioOut(GPIOx, GPIO_Pin);		
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 17
-
-
- 592              		.loc 1 221 0
- 593 00d2 0021     		movs	r1, #0
- 594              	.LVL75:
- 595 00d4 1046     		mov	r0, r2
- 596              	.LVL76:
- 597 00d6 FFF7FEFF 		bl	TMR_Cmd
- 598              	.LVL77:
+ 575              		.loc 1 221 0
+ 576 00d2 0021     		movs	r1, #0
+ 577              	.LVL75:
+ 578 00d4 1046     		mov	r0, r2
+ 579              	.LVL76:
+ 580 00d6 FFF7FEFF 		bl	TMR_Cmd
+ 581              	.LVL77:
  222:bsp/src/bsp_tim_pwm.c **** 		GPIO_WriteBit(GPIOx, GPIO_Pin, Bit_RESET);		
- 599              		.loc 1 222 0
- 600 00da 4946     		mov	r1, r9
- 601 00dc 2046     		mov	r0, r4
- 602 00de FFF7FEFF 		bl	_Z17bsp_ConfigGpioOutP9GPIO_Typet
- 603              	.LVL78:
+ 582              		.loc 1 222 0
+ 583 00da 4946     		mov	r1, r9
+ 584 00dc 2046     		mov	r0, r4
+ 585 00de FFF7FEFF 		bl	bsp_ConfigGpioOut
+ 586              	.LVL78:
  223:bsp/src/bsp_tim_pwm.c **** 		return;
- 604              		.loc 1 223 0
- 605 00e2 0022     		movs	r2, #0
- 606 00e4 4946     		mov	r1, r9
- 607 00e6 2046     		mov	r0, r4
- 608 00e8 FFF7FEFF 		bl	GPIO_WriteBit
- 609              	.LVL79:
- 610              	.L39:
+ 587              		.loc 1 223 0
+ 588 00e2 0022     		movs	r2, #0
+ 589 00e4 4946     		mov	r1, r9
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 17
+
+
+ 590 00e6 2046     		mov	r0, r4
+ 591 00e8 FFF7FEFF 		bl	GPIO_WriteBit
+ 592              	.LVL79:
+ 593              	.L39:
  307:bsp/src/bsp_tim_pwm.c **** 	}
  308:bsp/src/bsp_tim_pwm.c **** }
- 611              		.loc 1 308 0
- 612 00ec 0BB0     		add	sp, sp, #44
- 613              	.LCFI8:
- 614              		.cfi_remember_state
- 615              		.cfi_def_cfa_offset 28
- 616              		@ sp needed
- 617 00ee BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
- 618              	.LVL80:
- 619              	.L55:
- 620              	.LCFI9:
- 621              		.cfi_restore_state
+ 594              		.loc 1 308 0
+ 595 00ec 0BB0     		add	sp, sp, #44
+ 596              	.LCFI8:
+ 597              		.cfi_remember_state
+ 598              		.cfi_def_cfa_offset 28
+ 599              		@ sp needed
+ 600 00ee BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
+ 601              	.LVL80:
+ 602              	.L55:
+ 603              	.LCFI9:
+ 604              		.cfi_restore_state
  228:bsp/src/bsp_tim_pwm.c **** 
- 622              		.loc 1 228 0
- 623 00f2 0021     		movs	r1, #0
- 624              	.LVL81:
- 625 00f4 1046     		mov	r0, r2
- 626              	.LVL82:
- 627 00f6 FFF7FEFF 		bl	TMR_Cmd
- 628              	.LVL83:
+ 605              		.loc 1 228 0
+ 606 00f2 0021     		movs	r1, #0
+ 607              	.LVL81:
+ 608 00f4 1046     		mov	r0, r2
+ 609              	.LVL82:
+ 610 00f6 FFF7FEFF 		bl	TMR_Cmd
+ 611              	.LVL83:
  230:bsp/src/bsp_tim_pwm.c **** 		GPIO_WriteBit(GPIOx, GPIO_Pin, Bit_SET);	
- 629              		.loc 1 230 0
- 630 00fa 4946     		mov	r1, r9
- 631 00fc 2046     		mov	r0, r4
- 632 00fe FFF7FEFF 		bl	_Z17bsp_ConfigGpioOutP9GPIO_Typet
- 633              	.LVL84:
+ 612              		.loc 1 230 0
+ 613 00fa 4946     		mov	r1, r9
+ 614 00fc 2046     		mov	r0, r4
+ 615 00fe FFF7FEFF 		bl	bsp_ConfigGpioOut
+ 616              	.LVL84:
  231:bsp/src/bsp_tim_pwm.c **** 		return;
- 634              		.loc 1 231 0
- 635 0102 0122     		movs	r2, #1
- 636 0104 4946     		mov	r1, r9
- 637 0106 2046     		mov	r0, r4
- 638 0108 FFF7FEFF 		bl	GPIO_WriteBit
- 639              	.LVL85:
- 640 010c EEE7     		b	.L39
- 641              	.LVL86:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 18
-
-
- 642              	.L43:
+ 617              		.loc 1 231 0
+ 618 0102 0122     		movs	r2, #1
+ 619 0104 4946     		mov	r1, r9
+ 620 0106 2046     		mov	r0, r4
+ 621 0108 FFF7FEFF 		bl	GPIO_WriteBit
+ 622              	.LVL85:
+ 232:bsp/src/bsp_tim_pwm.c **** 	}
+ 623              		.loc 1 232 0
+ 624 010c EEE7     		b	.L39
+ 625              	.LVL86:
+ 626              	.L43:
  245:bsp/src/bsp_tim_pwm.c **** 	{
- 643              		.loc 1 245 0
- 644 010e 40F6B732 		movw	r2, #2999
- 645 0112 9742     		cmp	r7, r2
- 646 0114 0AD8     		bhi	.L45
- 647              	.LVL87:
+ 627              		.loc 1 245 0
+ 628 010e 40F6B732 		movw	r2, #2999
+ 629 0112 9742     		cmp	r7, r2
+ 630 0114 0AD8     		bhi	.L45
+ 631              	.LVL87:
  248:bsp/src/bsp_tim_pwm.c **** 	}
- 648              		.loc 1 248 0
- 649 0116 1E4C     		ldr	r4, .L60+12
- 650              	.LVL88:
- 651 0118 A4FB0334 		umull	r3, r4, r4, r3
- 652              	.LVL89:
- 653 011c A409     		lsrs	r4, r4, #6
- 654 011e B4FBF7F4 		udiv	r4, r4, r7
- 655 0122 A4B2     		uxth	r4, r4
- 656 0124 013C     		subs	r4, r4, #1
- 657 0126 A4B2     		uxth	r4, r4
- 658              	.LVL90:
+ 632              		.loc 1 248 0
+ 633 0116 1E4C     		ldr	r4, .L60+12
+ 634              	.LVL88:
+ 635 0118 A4FB0334 		umull	r3, r4, r4, r3
+ 636              	.LVL89:
+ 637 011c A409     		lsrs	r4, r4, #6
+ 638 011e B4FBF7F4 		udiv	r4, r4, r7
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 18
+
+
+ 639 0122 A4B2     		uxth	r4, r4
+ 640 0124 013C     		subs	r4, r4, #1
+ 641 0126 A4B2     		uxth	r4, r4
+ 642              	.LVL90:
  247:bsp/src/bsp_tim_pwm.c **** 		usPeriod =  (uiTMRxCLK / 100) / _ulFreq  - 1;		
- 659              		.loc 1 247 0
- 660 0128 6323     		movs	r3, #99
- 661 012a 8BE7     		b	.L44
- 662              	.LVL91:
- 663              	.L45:
+ 643              		.loc 1 247 0
+ 644 0128 6323     		movs	r3, #99
+ 645 012a 8BE7     		b	.L44
+ 646              	.LVL91:
+ 647              	.L45:
  253:bsp/src/bsp_tim_pwm.c **** 	}
- 664              		.loc 1 253 0
- 665 012c B4FBF7F4 		udiv	r4, r4, r7
- 666              	.LVL92:
- 667 0130 A4B2     		uxth	r4, r4
- 668 0132 013C     		subs	r4, r4, #1
- 669 0134 A4B2     		uxth	r4, r4
- 670              	.LVL93:
+ 648              		.loc 1 253 0
+ 649 012c B4FBF7F4 		udiv	r4, r4, r7
+ 650              	.LVL92:
+ 651 0130 A4B2     		uxth	r4, r4
+ 652 0132 013C     		subs	r4, r4, #1
+ 653 0134 A4B2     		uxth	r4, r4
+ 654              	.LVL93:
  252:bsp/src/bsp_tim_pwm.c **** 		usPeriod = uiTMRxCLK / _ulFreq - 1;	
- 671              		.loc 1 252 0
- 672 0136 0023     		movs	r3, #0
- 673              	.LVL94:
- 674 0138 84E7     		b	.L44
- 675              	.LVL95:
- 676              	.L56:
+ 655              		.loc 1 252 0
+ 656 0136 0023     		movs	r3, #0
+ 657              	.LVL94:
+ 658 0138 84E7     		b	.L44
+ 659              	.LVL95:
+ 660              	.L56:
  279:bsp/src/bsp_tim_pwm.c **** 		TMR_OC1PreloadConfig(TMRx, TMR_OCPreload_Enable);
- 677              		.loc 1 279 0
- 678 013a 01A9     		add	r1, sp, #4
- 679 013c 3046     		mov	r0, r6
- 680 013e FFF7FEFF 		bl	TMR_OC1Init
- 681              	.LVL96:
+ 661              		.loc 1 279 0
+ 662 013a 01A9     		add	r1, sp, #4
+ 663 013c 3046     		mov	r0, r6
+ 664 013e FFF7FEFF 		bl	TMR_OC1Init
+ 665              	.LVL96:
  280:bsp/src/bsp_tim_pwm.c **** 	}
- 682              		.loc 1 280 0
- 683 0142 0821     		movs	r1, #8
- 684 0144 3046     		mov	r0, r6
- 685 0146 FFF7FEFF 		bl	TMR_OC1PreloadConfig
- 686              	.LVL97:
- 687 014a AEE7     		b	.L47
- 688              	.L57:
+ 666              		.loc 1 280 0
+ 667 0142 0821     		movs	r1, #8
+ 668 0144 3046     		mov	r0, r6
+ 669 0146 FFF7FEFF 		bl	TMR_OC1PreloadConfig
+ 670              	.LVL97:
+ 671 014a AEE7     		b	.L47
+ 672              	.L57:
  284:bsp/src/bsp_tim_pwm.c **** 		TMR_OC2PreloadConfig(TMRx, TMR_OCPreload_Enable);
- 689              		.loc 1 284 0
- 690 014c 01A9     		add	r1, sp, #4
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 19
-
-
- 691 014e 3046     		mov	r0, r6
- 692 0150 FFF7FEFF 		bl	TMR_OC2Init
- 693              	.LVL98:
+ 673              		.loc 1 284 0
+ 674 014c 01A9     		add	r1, sp, #4
+ 675 014e 3046     		mov	r0, r6
+ 676 0150 FFF7FEFF 		bl	TMR_OC2Init
+ 677              	.LVL98:
  285:bsp/src/bsp_tim_pwm.c **** 	}
- 694              		.loc 1 285 0
- 695 0154 0821     		movs	r1, #8
- 696 0156 3046     		mov	r0, r6
- 697 0158 FFF7FEFF 		bl	TMR_OC2PreloadConfig
- 698              	.LVL99:
- 699 015c A5E7     		b	.L47
- 700              	.L58:
+ 678              		.loc 1 285 0
+ 679 0154 0821     		movs	r1, #8
+ 680 0156 3046     		mov	r0, r6
+ 681 0158 FFF7FEFF 		bl	TMR_OC2PreloadConfig
+ 682              	.LVL99:
+ 683 015c A5E7     		b	.L47
+ 684              	.L58:
  289:bsp/src/bsp_tim_pwm.c **** 		TMR_OC3PreloadConfig(TMRx, TMR_OCPreload_Enable);
- 701              		.loc 1 289 0
- 702 015e 01A9     		add	r1, sp, #4
- 703 0160 3046     		mov	r0, r6
- 704 0162 FFF7FEFF 		bl	TMR_OC3Init
- 705              	.LVL100:
+ 685              		.loc 1 289 0
+ 686 015e 01A9     		add	r1, sp, #4
+ 687 0160 3046     		mov	r0, r6
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 19
+
+
+ 688 0162 FFF7FEFF 		bl	TMR_OC3Init
+ 689              	.LVL100:
  290:bsp/src/bsp_tim_pwm.c **** 	}
- 706              		.loc 1 290 0
- 707 0166 0821     		movs	r1, #8
- 708 0168 3046     		mov	r0, r6
- 709 016a FFF7FEFF 		bl	TMR_OC3PreloadConfig
- 710              	.LVL101:
- 711 016e 9CE7     		b	.L47
- 712              	.L59:
+ 690              		.loc 1 290 0
+ 691 0166 0821     		movs	r1, #8
+ 692 0168 3046     		mov	r0, r6
+ 693 016a FFF7FEFF 		bl	TMR_OC3PreloadConfig
+ 694              	.LVL101:
+ 695 016e 9CE7     		b	.L47
+ 696              	.L59:
  294:bsp/src/bsp_tim_pwm.c **** 		TMR_OC4PreloadConfig(TMRx, TMR_OCPreload_Enable);
- 713              		.loc 1 294 0
- 714 0170 01A9     		add	r1, sp, #4
- 715 0172 3046     		mov	r0, r6
- 716 0174 FFF7FEFF 		bl	TMR_OC4Init
- 717              	.LVL102:
+ 697              		.loc 1 294 0
+ 698 0170 01A9     		add	r1, sp, #4
+ 699 0172 3046     		mov	r0, r6
+ 700 0174 FFF7FEFF 		bl	TMR_OC4Init
+ 701              	.LVL102:
  295:bsp/src/bsp_tim_pwm.c **** 	}
- 718              		.loc 1 295 0
- 719 0178 0821     		movs	r1, #8
- 720 017a 3046     		mov	r0, r6
- 721 017c FFF7FEFF 		bl	TMR_OC4PreloadConfig
- 722              	.LVL103:
- 723 0180 93E7     		b	.L47
- 724              	.L61:
- 725 0182 00BF     		.align	2
- 726              	.L60:
- 727 0184 00000000 		.word	SystemCoreClock
- 728 0188 5917B7D1 		.word	-776530087
- 729 018c 002C0140 		.word	1073818624
- 730 0190 1F85EB51 		.word	1374389535
- 731              		.cfi_endproc
- 732              	.LFE140:
- 733              		.fnend
- 735              		.section	.text._Z18bsp_SetTIMOutPWM_NP9GPIO_TypetP8TMR_Typehmm,"ax",%progbits
- 736              		.align	1
- 737              		.global	_Z18bsp_SetTIMOutPWM_NP9GPIO_TypetP8TMR_Typehmm
- 738              		.syntax unified
- 739              		.thumb
- 740              		.thumb_func
- 741              		.fpu fpv4-sp-d16
- 743              	_Z18bsp_SetTIMOutPWM_NP9GPIO_TypetP8TMR_Typehmm:
- 744              		.fnstart
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 20
-
-
- 745              	.LFB141:
+ 702              		.loc 1 295 0
+ 703 0178 0821     		movs	r1, #8
+ 704 017a 3046     		mov	r0, r6
+ 705 017c FFF7FEFF 		bl	TMR_OC4PreloadConfig
+ 706              	.LVL103:
+ 707 0180 93E7     		b	.L47
+ 708              	.L61:
+ 709 0182 00BF     		.align	2
+ 710              	.L60:
+ 711 0184 00000000 		.word	SystemCoreClock
+ 712 0188 5917B7D1 		.word	-776530087
+ 713 018c 002C0140 		.word	1073818624
+ 714 0190 1F85EB51 		.word	1374389535
+ 715              		.cfi_endproc
+ 716              	.LFE135:
+ 718              		.section	.text.bsp_SetTIMOutPWM_N,"ax",%progbits
+ 719              		.align	1
+ 720              		.global	bsp_SetTIMOutPWM_N
+ 721              		.syntax unified
+ 722              		.thumb
+ 723              		.thumb_func
+ 724              		.fpu fpv4-sp-d16
+ 726              	bsp_SetTIMOutPWM_N:
+ 727              	.LFB136:
  309:bsp/src/bsp_tim_pwm.c **** 
  310:bsp/src/bsp_tim_pwm.c **** /**
  311:bsp/src/bsp_tim_pwm.c ****   * @brief  Config Timer to output complementary pwm waveform
@@ -1154,31 +1134,32 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 1
  318:bsp/src/bsp_tim_pwm.c **** void bsp_SetTIMOutPWM_N(GPIO_Type* GPIOx, uint16_t GPIO_Pin, TMR_Type* TMRx, uint8_t _ucChannel,
  319:bsp/src/bsp_tim_pwm.c **** 	 uint32_t _ulFreq, uint32_t _ulDutyCycle)
  320:bsp/src/bsp_tim_pwm.c **** {
- 746              		.loc 1 320 0
- 747              		.cfi_startproc
- 748              		@ args = 8, pretend = 0, frame = 40
- 749              		@ frame_needed = 0, uses_anonymous_args = 0
- 750              	.LVL104:
- 751 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
- 752              		.save {r4, r5, r6, r7, r8, r9, lr}
- 753              	.LCFI10:
- 754              		.cfi_def_cfa_offset 28
- 755              		.cfi_offset 4, -28
- 756              		.cfi_offset 5, -24
- 757              		.cfi_offset 6, -20
- 758              		.cfi_offset 7, -16
- 759              		.cfi_offset 8, -12
- 760              		.cfi_offset 9, -8
- 761              		.cfi_offset 14, -4
- 762              		.pad #44
- 763 0004 8BB0     		sub	sp, sp, #44
- 764              	.LCFI11:
- 765              		.cfi_def_cfa_offset 72
- 766 0006 0446     		mov	r4, r0
- 767 0008 8946     		mov	r9, r1
- 768 000a 1646     		mov	r6, r2
- 769 000c 129F     		ldr	r7, [sp, #72]
- 770 000e 139D     		ldr	r5, [sp, #76]
+ 728              		.loc 1 320 0
+ 729              		.cfi_startproc
+ 730              		@ args = 8, pretend = 0, frame = 40
+ 731              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 20
+
+
+ 732              	.LVL104:
+ 733 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
+ 734              	.LCFI10:
+ 735              		.cfi_def_cfa_offset 28
+ 736              		.cfi_offset 4, -28
+ 737              		.cfi_offset 5, -24
+ 738              		.cfi_offset 6, -20
+ 739              		.cfi_offset 7, -16
+ 740              		.cfi_offset 8, -12
+ 741              		.cfi_offset 9, -8
+ 742              		.cfi_offset 14, -4
+ 743 0004 8BB0     		sub	sp, sp, #44
+ 744              	.LCFI11:
+ 745              		.cfi_def_cfa_offset 72
+ 746 0006 0446     		mov	r4, r0
+ 747 0008 8946     		mov	r9, r1
+ 748 000a 1646     		mov	r6, r2
+ 749 000c 129F     		ldr	r7, [sp, #72]
+ 750 000e 139D     		ldr	r5, [sp, #76]
  321:bsp/src/bsp_tim_pwm.c **** 	TMR_TimerBaseInitType  TMR_TimeBaseStructure;
  322:bsp/src/bsp_tim_pwm.c **** 	TMR_OCInitType  TMR_OCInitStructure;
  323:bsp/src/bsp_tim_pwm.c **** 	uint16_t usPeriod;
@@ -1186,10 +1167,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 1
  325:bsp/src/bsp_tim_pwm.c **** 	uint32_t uiTMRxCLK;
  326:bsp/src/bsp_tim_pwm.c **** 
  327:bsp/src/bsp_tim_pwm.c **** 	if (_ulDutyCycle == 0)
- 771              		.loc 1 327 0
- 772 0010 002D     		cmp	r5, #0
- 773 0012 5ED0     		beq	.L77
- 774 0014 9846     		mov	r8, r3
+ 751              		.loc 1 327 0
+ 752 0010 002D     		cmp	r5, #0
+ 753 0012 5ED0     		beq	.L77
+ 754 0014 9846     		mov	r8, r3
  328:bsp/src/bsp_tim_pwm.c **** 	{		
  329:bsp/src/bsp_tim_pwm.c **** 		TMR_Cmd(TMRx, DISABLE);		
  330:bsp/src/bsp_tim_pwm.c **** 		bsp_ConfigGpioOut(GPIOx, GPIO_Pin);			
@@ -1197,14 +1178,11 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 1
  332:bsp/src/bsp_tim_pwm.c **** 		return;
  333:bsp/src/bsp_tim_pwm.c **** 	}
  334:bsp/src/bsp_tim_pwm.c **** 	else if (_ulDutyCycle == 10000)
- 775              		.loc 1 334 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 21
-
-
- 776 0016 42F21073 		movw	r3, #10000
- 777              	.LVL105:
- 778 001a 9D42     		cmp	r5, r3
- 779 001c 69D0     		beq	.L78
+ 755              		.loc 1 334 0
+ 756 0016 42F21073 		movw	r3, #10000
+ 757              	.LVL105:
+ 758 001a 9D42     		cmp	r5, r3
+ 759 001c 69D0     		beq	.L78
  335:bsp/src/bsp_tim_pwm.c **** 	{
  336:bsp/src/bsp_tim_pwm.c **** 		TMR_Cmd(TMRx, DISABLE);		
  337:bsp/src/bsp_tim_pwm.c **** 
@@ -1215,42 +1193,45 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 1
  342:bsp/src/bsp_tim_pwm.c **** 	
  343:bsp/src/bsp_tim_pwm.c **** 
  344:bsp/src/bsp_tim_pwm.c **** 	bsp_ConfigTMRGpio(GPIOx, GPIO_Pin, TMRx, _ucChannel);	
- 780              		.loc 1 344 0
- 781 001e 4346     		mov	r3, r8
- 782 0020 FFF7FEFF 		bl	_Z17bsp_ConfigTMRGpioP9GPIO_TypetP8TMR_Typeh
- 783              	.LVL106:
+ 760              		.loc 1 344 0
+ 761 001e 4346     		mov	r3, r8
+ 762 0020 FFF7FEFF 		bl	bsp_ConfigTMRGpio
+ 763              	.LVL106:
  345:bsp/src/bsp_tim_pwm.c **** 	
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 21
+
+
  346:bsp/src/bsp_tim_pwm.c **** 	uiTMRxCLK = SystemCoreClock/2;	
- 784              		.loc 1 346 0
- 785 0024 574B     		ldr	r3, .L83
- 786 0026 1B68     		ldr	r3, [r3]
- 787 0028 5C08     		lsrs	r4, r3, #1
- 788              	.LVL107:
+ 764              		.loc 1 346 0
+ 765 0024 574B     		ldr	r3, .L83
+ 766 0026 1B68     		ldr	r3, [r3]
+ 767 0028 5C08     		lsrs	r4, r3, #1
+ 768              	.LVL107:
  347:bsp/src/bsp_tim_pwm.c **** 
  348:bsp/src/bsp_tim_pwm.c **** 	if (_ulFreq < 100)
- 789              		.loc 1 348 0
- 790 002a 632F     		cmp	r7, #99
- 791 002c 6FD8     		bhi	.L66
- 792              	.LVL108:
+ 769              		.loc 1 348 0
+ 770 002a 632F     		cmp	r7, #99
+ 771 002c 6FD8     		bhi	.L66
+ 772              	.LVL108:
  349:bsp/src/bsp_tim_pwm.c **** 	{
  350:bsp/src/bsp_tim_pwm.c **** 		usPrescaler = 10000 - 1;					
  351:bsp/src/bsp_tim_pwm.c **** 		usPeriod =  (uiTMRxCLK / 10000) / _ulFreq  - 1;		
- 793              		.loc 1 351 0
- 794 002e 564C     		ldr	r4, .L83+4
- 795              	.LVL109:
- 796 0030 A4FB0334 		umull	r3, r4, r4, r3
- 797              	.LVL110:
- 798 0034 A40B     		lsrs	r4, r4, #14
- 799 0036 B4FBF7F4 		udiv	r4, r4, r7
- 800 003a A4B2     		uxth	r4, r4
- 801 003c 013C     		subs	r4, r4, #1
- 802 003e A4B2     		uxth	r4, r4
- 803              	.LVL111:
+ 773              		.loc 1 351 0
+ 774 002e 564C     		ldr	r4, .L83+4
+ 775              	.LVL109:
+ 776 0030 A4FB0334 		umull	r3, r4, r4, r3
+ 777              	.LVL110:
+ 778 0034 A40B     		lsrs	r4, r4, #14
+ 779 0036 B4FBF7F4 		udiv	r4, r4, r7
+ 780 003a A4B2     		uxth	r4, r4
+ 781 003c 013C     		subs	r4, r4, #1
+ 782 003e A4B2     		uxth	r4, r4
+ 783              	.LVL111:
  350:bsp/src/bsp_tim_pwm.c **** 		usPeriod =  (uiTMRxCLK / 10000) / _ulFreq  - 1;		
- 804              		.loc 1 350 0
- 805 0040 42F20F73 		movw	r3, #9999
- 806              	.LVL112:
- 807              	.L67:
+ 784              		.loc 1 350 0
+ 785 0040 42F20F73 		movw	r3, #9999
+ 786              	.LVL112:
+ 787              	.L67:
  352:bsp/src/bsp_tim_pwm.c **** 	}
  353:bsp/src/bsp_tim_pwm.c **** 	else if (_ulFreq < 3000)
  354:bsp/src/bsp_tim_pwm.c **** 	{
@@ -1258,9 +1239,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 1
  356:bsp/src/bsp_tim_pwm.c **** 		usPeriod =  (uiTMRxCLK / 100) / _ulFreq  - 1;		
  357:bsp/src/bsp_tim_pwm.c **** 	}
  358:bsp/src/bsp_tim_pwm.c **** 	else	
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 22
-
-
  359:bsp/src/bsp_tim_pwm.c **** 	{
  360:bsp/src/bsp_tim_pwm.c **** 		usPrescaler = 0;					
  361:bsp/src/bsp_tim_pwm.c **** 		usPeriod = uiTMRxCLK / _ulFreq - 1;
@@ -1268,326 +1246,329 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 1
  363:bsp/src/bsp_tim_pwm.c **** 
  364:bsp/src/bsp_tim_pwm.c **** 	
  365:bsp/src/bsp_tim_pwm.c **** 	TMR_TimeBaseStructure.TMR_Period = usPeriod;
- 808              		.loc 1 365 0
- 809 0044 0894     		str	r4, [sp, #32]
+ 788              		.loc 1 365 0
+ 789 0044 0894     		str	r4, [sp, #32]
  366:bsp/src/bsp_tim_pwm.c **** 	TMR_TimeBaseStructure.TMR_DIV = usPrescaler;
- 810              		.loc 1 366 0
- 811 0046 ADF81830 		strh	r3, [sp, #24]	@ movhi
+ 790              		.loc 1 366 0
+ 791 0046 ADF81830 		strh	r3, [sp, #24]	@ movhi
  367:bsp/src/bsp_tim_pwm.c **** 	TMR_TimeBaseStructure.TMR_ClockDivision = 0;
- 812              		.loc 1 367 0
- 813 004a 0027     		movs	r7, #0
- 814 004c ADF82470 		strh	r7, [sp, #36]	@ movhi
+ 792              		.loc 1 367 0
+ 793 004a 0027     		movs	r7, #0
+ 794 004c ADF82470 		strh	r7, [sp, #36]	@ movhi
  368:bsp/src/bsp_tim_pwm.c **** 	TMR_TimeBaseStructure.TMR_CounterMode = TMR_CounterDIR_Up;
- 815              		.loc 1 368 0
- 816 0050 0797     		str	r7, [sp, #28]
+ 795              		.loc 1 368 0
+ 796 0050 0797     		str	r7, [sp, #28]
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 22
+
+
  369:bsp/src/bsp_tim_pwm.c **** 	TMR_TimeBaseStructure.TMR_RepetitionCounter = 0;	
- 817              		.loc 1 369 0
- 818 0052 8DF82670 		strb	r7, [sp, #38]
+ 797              		.loc 1 369 0
+ 798 0052 8DF82670 		strb	r7, [sp, #38]
  370:bsp/src/bsp_tim_pwm.c **** 	TMR_TimeBaseInit(TMRx, &TMR_TimeBaseStructure);
- 819              		.loc 1 370 0
- 820 0056 06A9     		add	r1, sp, #24
- 821 0058 3046     		mov	r0, r6
- 822 005a FFF7FEFF 		bl	TMR_TimeBaseInit
- 823              	.LVL113:
+ 799              		.loc 1 370 0
+ 800 0056 06A9     		add	r1, sp, #24
+ 801 0058 3046     		mov	r0, r6
+ 802 005a FFF7FEFF 		bl	TMR_TimeBaseInit
+ 803              	.LVL113:
  371:bsp/src/bsp_tim_pwm.c **** 
  372:bsp/src/bsp_tim_pwm.c **** 
  373:bsp/src/bsp_tim_pwm.c **** 	TMR_OCStructInit(&TMR_OCInitStructure);		
- 824              		.loc 1 373 0
- 825 005e 01A8     		add	r0, sp, #4
- 826 0060 FFF7FEFF 		bl	TMR_OCStructInit
- 827              	.LVL114:
+ 804              		.loc 1 373 0
+ 805 005e 01A8     		add	r0, sp, #4
+ 806 0060 FFF7FEFF 		bl	TMR_OCStructInit
+ 807              	.LVL114:
  374:bsp/src/bsp_tim_pwm.c **** 	
  375:bsp/src/bsp_tim_pwm.c **** 	TMR_OCInitStructure.TMR_OCMode = TMR_OCMode_PWM1;
- 828              		.loc 1 375 0
- 829 0064 6023     		movs	r3, #96
- 830 0066 ADF80430 		strh	r3, [sp, #4]	@ movhi
+ 808              		.loc 1 375 0
+ 809 0064 6023     		movs	r3, #96
+ 810 0066 ADF80430 		strh	r3, [sp, #4]	@ movhi
  376:bsp/src/bsp_tim_pwm.c **** 	TMR_OCInitStructure.TMR_OutputState = TMR_OutputState_Disable;		
- 831              		.loc 1 376 0
- 832 006a ADF80670 		strh	r7, [sp, #6]	@ movhi
+ 811              		.loc 1 376 0
+ 812 006a ADF80670 		strh	r7, [sp, #6]	@ movhi
  377:bsp/src/bsp_tim_pwm.c **** 	TMR_OCInitStructure.TMR_Pulse = (_ulDutyCycle * usPeriod) / 10000;
- 833              		.loc 1 377 0
- 834 006e 05FB04F4 		mul	r4, r5, r4
- 835              	.LVL115:
- 836 0072 454D     		ldr	r5, .L83+4
- 837 0074 A5FB0434 		umull	r3, r4, r5, r4
- 838 0078 640B     		lsrs	r4, r4, #13
- 839 007a 0394     		str	r4, [sp, #12]
+ 813              		.loc 1 377 0
+ 814 006e 05FB04F4 		mul	r4, r5, r4
+ 815              	.LVL115:
+ 816 0072 454D     		ldr	r5, .L83+4
+ 817 0074 A5FB0434 		umull	r3, r4, r5, r4
+ 818 0078 640B     		lsrs	r4, r4, #13
+ 819 007a 0394     		str	r4, [sp, #12]
  378:bsp/src/bsp_tim_pwm.c **** 	TMR_OCInitStructure.TMR_OCPolarity = TMR_OCPolarity_High;
- 840              		.loc 1 378 0
- 841 007c ADF81070 		strh	r7, [sp, #16]	@ movhi
+ 820              		.loc 1 378 0
+ 821 007c ADF81070 		strh	r7, [sp, #16]	@ movhi
  379:bsp/src/bsp_tim_pwm.c **** 	
  380:bsp/src/bsp_tim_pwm.c **** 	TMR_OCInitStructure.TMR_OutputNState = TMR_OutputNState_Enable;		
- 842              		.loc 1 380 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 23
-
-
- 843 0080 0423     		movs	r3, #4
- 844 0082 ADF80830 		strh	r3, [sp, #8]	@ movhi
+ 822              		.loc 1 380 0
+ 823 0080 0423     		movs	r3, #4
+ 824 0082 ADF80830 		strh	r3, [sp, #8]	@ movhi
  381:bsp/src/bsp_tim_pwm.c **** 	TMR_OCInitStructure.TMR_OCNPolarity = TMR_OCNPolarity_High;					
- 845              		.loc 1 381 0
- 846 0086 ADF81270 		strh	r7, [sp, #18]	@ movhi
+ 825              		.loc 1 381 0
+ 826 0086 ADF81270 		strh	r7, [sp, #18]	@ movhi
  382:bsp/src/bsp_tim_pwm.c **** 	TMR_OCInitStructure.TMR_OCIdleState = TMR_OCIdleState_Reset;		
- 847              		.loc 1 382 0
- 848 008a ADF81470 		strh	r7, [sp, #20]	@ movhi
+ 827              		.loc 1 382 0
+ 828 008a ADF81470 		strh	r7, [sp, #20]	@ movhi
  383:bsp/src/bsp_tim_pwm.c **** 	TMR_OCInitStructure.TMR_OCNIdleState = TMR_OCNIdleState_Reset;		
- 849              		.loc 1 383 0
- 850 008e ADF81670 		strh	r7, [sp, #22]	@ movhi
+ 829              		.loc 1 383 0
+ 830 008e ADF81670 		strh	r7, [sp, #22]	@ movhi
  384:bsp/src/bsp_tim_pwm.c **** 	
  385:bsp/src/bsp_tim_pwm.c **** 	if (_ucChannel == 1)
- 851              		.loc 1 385 0
- 852 0092 B8F1010F 		cmp	r8, #1
- 853 0096 50D0     		beq	.L79
+ 831              		.loc 1 385 0
+ 832 0092 B8F1010F 		cmp	r8, #1
+ 833 0096 50D0     		beq	.L79
  386:bsp/src/bsp_tim_pwm.c **** 	{
  387:bsp/src/bsp_tim_pwm.c **** 		TMR_OC1Init(TMRx, &TMR_OCInitStructure);
  388:bsp/src/bsp_tim_pwm.c **** 		TMR_OC1PreloadConfig(TMRx, TMR_OCPreload_Enable);
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 23
+
+
  389:bsp/src/bsp_tim_pwm.c **** 	}
  390:bsp/src/bsp_tim_pwm.c **** 	else if (_ucChannel == 2)
- 854              		.loc 1 390 0
- 855 0098 B8F1020F 		cmp	r8, #2
- 856 009c 57D0     		beq	.L80
+ 834              		.loc 1 390 0
+ 835 0098 B8F1020F 		cmp	r8, #2
+ 836 009c 57D0     		beq	.L80
  391:bsp/src/bsp_tim_pwm.c **** 	{
  392:bsp/src/bsp_tim_pwm.c **** 		TMR_OC2Init(TMRx, &TMR_OCInitStructure);
  393:bsp/src/bsp_tim_pwm.c **** 		TMR_OC2PreloadConfig(TMRx, TMR_OCPreload_Enable);
  394:bsp/src/bsp_tim_pwm.c **** 	}
  395:bsp/src/bsp_tim_pwm.c **** 	else if (_ucChannel == 3)
- 857              		.loc 1 395 0
- 858 009e B8F1030F 		cmp	r8, #3
- 859 00a2 5DD0     		beq	.L81
+ 837              		.loc 1 395 0
+ 838 009e B8F1030F 		cmp	r8, #3
+ 839 00a2 5DD0     		beq	.L81
  396:bsp/src/bsp_tim_pwm.c **** 	{
  397:bsp/src/bsp_tim_pwm.c **** 		TMR_OC3Init(TMRx, &TMR_OCInitStructure);
  398:bsp/src/bsp_tim_pwm.c **** 		TMR_OC3PreloadConfig(TMRx, TMR_OCPreload_Enable);
  399:bsp/src/bsp_tim_pwm.c **** 	}
  400:bsp/src/bsp_tim_pwm.c **** 	else if (_ucChannel == 4)
- 860              		.loc 1 400 0
- 861 00a4 B8F1040F 		cmp	r8, #4
- 862 00a8 63D0     		beq	.L82
- 863              	.L70:
+ 840              		.loc 1 400 0
+ 841 00a4 B8F1040F 		cmp	r8, #4
+ 842 00a8 63D0     		beq	.L82
+ 843              	.L70:
  401:bsp/src/bsp_tim_pwm.c **** 	{
  402:bsp/src/bsp_tim_pwm.c **** 		TMR_OC4Init(TMRx, &TMR_OCInitStructure);
  403:bsp/src/bsp_tim_pwm.c **** 		TMR_OC4PreloadConfig(TMRx, TMR_OCPreload_Enable);
  404:bsp/src/bsp_tim_pwm.c **** 	}
  405:bsp/src/bsp_tim_pwm.c **** 
  406:bsp/src/bsp_tim_pwm.c **** 	TMR_ARPreloadConfig(TMRx, ENABLE);
- 864              		.loc 1 406 0
- 865 00aa 0121     		movs	r1, #1
- 866 00ac 3046     		mov	r0, r6
- 867 00ae FFF7FEFF 		bl	TMR_ARPreloadConfig
- 868              	.LVL116:
+ 844              		.loc 1 406 0
+ 845 00aa 0121     		movs	r1, #1
+ 846 00ac 3046     		mov	r0, r6
+ 847 00ae FFF7FEFF 		bl	TMR_ARPreloadConfig
+ 848              	.LVL116:
  407:bsp/src/bsp_tim_pwm.c **** 
  408:bsp/src/bsp_tim_pwm.c **** 	
  409:bsp/src/bsp_tim_pwm.c **** 	TMR_Cmd(TMRx, ENABLE);
- 869              		.loc 1 409 0
- 870 00b2 0121     		movs	r1, #1
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 24
-
-
- 871 00b4 3046     		mov	r0, r6
- 872 00b6 FFF7FEFF 		bl	TMR_Cmd
- 873              	.LVL117:
+ 849              		.loc 1 409 0
+ 850 00b2 0121     		movs	r1, #1
+ 851 00b4 3046     		mov	r0, r6
+ 852 00b6 FFF7FEFF 		bl	TMR_Cmd
+ 853              	.LVL117:
  410:bsp/src/bsp_tim_pwm.c **** 
  411:bsp/src/bsp_tim_pwm.c **** 
  412:bsp/src/bsp_tim_pwm.c **** 	if ((TMRx == TMR1) || (TMRx == TMR8))
- 874              		.loc 1 412 0
- 875 00ba 344B     		ldr	r3, .L83+8
- 876 00bc 9E42     		cmp	r6, r3
- 877 00be 03D0     		beq	.L73
- 878              		.loc 1 412 0 is_stmt 0 discriminator 1
- 879 00c0 03F50063 		add	r3, r3, #2048
- 880 00c4 9E42     		cmp	r6, r3
- 881 00c6 11D1     		bne	.L62
- 882              	.L73:
+ 854              		.loc 1 412 0
+ 855 00ba 344B     		ldr	r3, .L83+8
+ 856 00bc 9E42     		cmp	r6, r3
+ 857 00be 03D0     		beq	.L73
+ 858              		.loc 1 412 0 is_stmt 0 discriminator 1
+ 859 00c0 03F50063 		add	r3, r3, #2048
+ 860 00c4 9E42     		cmp	r6, r3
+ 861 00c6 11D1     		bne	.L62
+ 862              	.L73:
  413:bsp/src/bsp_tim_pwm.c **** 	{
  414:bsp/src/bsp_tim_pwm.c **** 		TMR_CtrlPWMOutputs(TMRx, ENABLE);
- 883              		.loc 1 414 0 is_stmt 1
- 884 00c8 0121     		movs	r1, #1
- 885 00ca 3046     		mov	r0, r6
- 886 00cc FFF7FEFF 		bl	TMR_CtrlPWMOutputs
- 887              	.LVL118:
- 888 00d0 0CE0     		b	.L62
- 889              	.LVL119:
- 890              	.L77:
+ 863              		.loc 1 414 0 is_stmt 1
+ 864 00c8 0121     		movs	r1, #1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 24
+
+
+ 865 00ca 3046     		mov	r0, r6
+ 866 00cc FFF7FEFF 		bl	TMR_CtrlPWMOutputs
+ 867              	.LVL118:
+ 868 00d0 0CE0     		b	.L62
+ 869              	.LVL119:
+ 870              	.L77:
  329:bsp/src/bsp_tim_pwm.c **** 		bsp_ConfigGpioOut(GPIOx, GPIO_Pin);			
- 891              		.loc 1 329 0
- 892 00d2 0021     		movs	r1, #0
- 893              	.LVL120:
- 894 00d4 1046     		mov	r0, r2
- 895              	.LVL121:
- 896 00d6 FFF7FEFF 		bl	TMR_Cmd
- 897              	.LVL122:
+ 871              		.loc 1 329 0
+ 872 00d2 0021     		movs	r1, #0
+ 873              	.LVL120:
+ 874 00d4 1046     		mov	r0, r2
+ 875              	.LVL121:
+ 876 00d6 FFF7FEFF 		bl	TMR_Cmd
+ 877              	.LVL122:
  330:bsp/src/bsp_tim_pwm.c **** 		GPIO_WriteBit(GPIOx, GPIO_Pin, Bit_RESET);	
- 898              		.loc 1 330 0
- 899 00da 4946     		mov	r1, r9
- 900 00dc 2046     		mov	r0, r4
- 901 00de FFF7FEFF 		bl	_Z17bsp_ConfigGpioOutP9GPIO_Typet
- 902              	.LVL123:
+ 878              		.loc 1 330 0
+ 879 00da 4946     		mov	r1, r9
+ 880 00dc 2046     		mov	r0, r4
+ 881 00de FFF7FEFF 		bl	bsp_ConfigGpioOut
+ 882              	.LVL123:
  331:bsp/src/bsp_tim_pwm.c **** 		return;
- 903              		.loc 1 331 0
- 904 00e2 0022     		movs	r2, #0
- 905 00e4 4946     		mov	r1, r9
- 906 00e6 2046     		mov	r0, r4
- 907 00e8 FFF7FEFF 		bl	GPIO_WriteBit
- 908              	.LVL124:
- 909              	.L62:
+ 883              		.loc 1 331 0
+ 884 00e2 0022     		movs	r2, #0
+ 885 00e4 4946     		mov	r1, r9
+ 886 00e6 2046     		mov	r0, r4
+ 887 00e8 FFF7FEFF 		bl	GPIO_WriteBit
+ 888              	.LVL124:
+ 889              	.L62:
  415:bsp/src/bsp_tim_pwm.c **** 	}
  416:bsp/src/bsp_tim_pwm.c **** }
- 910              		.loc 1 416 0
- 911 00ec 0BB0     		add	sp, sp, #44
- 912              	.LCFI12:
- 913              		.cfi_remember_state
- 914              		.cfi_def_cfa_offset 28
- 915              		@ sp needed
- 916 00ee BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
- 917              	.LVL125:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 25
-
-
- 918              	.L78:
- 919              	.LCFI13:
- 920              		.cfi_restore_state
+ 890              		.loc 1 416 0
+ 891 00ec 0BB0     		add	sp, sp, #44
+ 892              	.LCFI12:
+ 893              		.cfi_remember_state
+ 894              		.cfi_def_cfa_offset 28
+ 895              		@ sp needed
+ 896 00ee BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
+ 897              	.LVL125:
+ 898              	.L78:
+ 899              	.LCFI13:
+ 900              		.cfi_restore_state
  336:bsp/src/bsp_tim_pwm.c **** 
- 921              		.loc 1 336 0
- 922 00f2 0021     		movs	r1, #0
- 923              	.LVL126:
- 924 00f4 1046     		mov	r0, r2
- 925              	.LVL127:
- 926 00f6 FFF7FEFF 		bl	TMR_Cmd
- 927              	.LVL128:
+ 901              		.loc 1 336 0
+ 902 00f2 0021     		movs	r1, #0
+ 903              	.LVL126:
+ 904 00f4 1046     		mov	r0, r2
+ 905              	.LVL127:
+ 906 00f6 FFF7FEFF 		bl	TMR_Cmd
+ 907              	.LVL128:
  338:bsp/src/bsp_tim_pwm.c **** 		GPIO_WriteBit(GPIOx, GPIO_Pin, Bit_SET);		
- 928              		.loc 1 338 0
- 929 00fa 4946     		mov	r1, r9
- 930 00fc 2046     		mov	r0, r4
- 931 00fe FFF7FEFF 		bl	_Z17bsp_ConfigGpioOutP9GPIO_Typet
- 932              	.LVL129:
+ 908              		.loc 1 338 0
+ 909 00fa 4946     		mov	r1, r9
+ 910 00fc 2046     		mov	r0, r4
+ 911 00fe FFF7FEFF 		bl	bsp_ConfigGpioOut
+ 912              	.LVL129:
  339:bsp/src/bsp_tim_pwm.c **** 		return;
- 933              		.loc 1 339 0
- 934 0102 0122     		movs	r2, #1
- 935 0104 4946     		mov	r1, r9
- 936 0106 2046     		mov	r0, r4
- 937 0108 FFF7FEFF 		bl	GPIO_WriteBit
- 938              	.LVL130:
- 939 010c EEE7     		b	.L62
- 940              	.LVL131:
- 941              	.L66:
+ 913              		.loc 1 339 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 25
+
+
+ 914 0102 0122     		movs	r2, #1
+ 915 0104 4946     		mov	r1, r9
+ 916 0106 2046     		mov	r0, r4
+ 917 0108 FFF7FEFF 		bl	GPIO_WriteBit
+ 918              	.LVL130:
+ 340:bsp/src/bsp_tim_pwm.c **** 	}
+ 919              		.loc 1 340 0
+ 920 010c EEE7     		b	.L62
+ 921              	.LVL131:
+ 922              	.L66:
  353:bsp/src/bsp_tim_pwm.c **** 	{
- 942              		.loc 1 353 0
- 943 010e 40F6B732 		movw	r2, #2999
- 944 0112 9742     		cmp	r7, r2
- 945 0114 0AD8     		bhi	.L68
- 946              	.LVL132:
+ 923              		.loc 1 353 0
+ 924 010e 40F6B732 		movw	r2, #2999
+ 925 0112 9742     		cmp	r7, r2
+ 926 0114 0AD8     		bhi	.L68
+ 927              	.LVL132:
  356:bsp/src/bsp_tim_pwm.c **** 	}
- 947              		.loc 1 356 0
- 948 0116 1E4C     		ldr	r4, .L83+12
- 949              	.LVL133:
- 950 0118 A4FB0334 		umull	r3, r4, r4, r3
- 951              	.LVL134:
- 952 011c A409     		lsrs	r4, r4, #6
- 953 011e B4FBF7F4 		udiv	r4, r4, r7
- 954 0122 A4B2     		uxth	r4, r4
- 955 0124 013C     		subs	r4, r4, #1
- 956 0126 A4B2     		uxth	r4, r4
- 957              	.LVL135:
+ 928              		.loc 1 356 0
+ 929 0116 1E4C     		ldr	r4, .L83+12
+ 930              	.LVL133:
+ 931 0118 A4FB0334 		umull	r3, r4, r4, r3
+ 932              	.LVL134:
+ 933 011c A409     		lsrs	r4, r4, #6
+ 934 011e B4FBF7F4 		udiv	r4, r4, r7
+ 935 0122 A4B2     		uxth	r4, r4
+ 936 0124 013C     		subs	r4, r4, #1
+ 937 0126 A4B2     		uxth	r4, r4
+ 938              	.LVL135:
  355:bsp/src/bsp_tim_pwm.c **** 		usPeriod =  (uiTMRxCLK / 100) / _ulFreq  - 1;		
- 958              		.loc 1 355 0
- 959 0128 6323     		movs	r3, #99
- 960 012a 8BE7     		b	.L67
- 961              	.LVL136:
- 962              	.L68:
+ 939              		.loc 1 355 0
+ 940 0128 6323     		movs	r3, #99
+ 941 012a 8BE7     		b	.L67
+ 942              	.LVL136:
+ 943              	.L68:
  361:bsp/src/bsp_tim_pwm.c **** 	}
- 963              		.loc 1 361 0
- 964 012c B4FBF7F4 		udiv	r4, r4, r7
- 965              	.LVL137:
- 966 0130 A4B2     		uxth	r4, r4
- 967 0132 013C     		subs	r4, r4, #1
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 26
-
-
- 968 0134 A4B2     		uxth	r4, r4
- 969              	.LVL138:
+ 944              		.loc 1 361 0
+ 945 012c B4FBF7F4 		udiv	r4, r4, r7
+ 946              	.LVL137:
+ 947 0130 A4B2     		uxth	r4, r4
+ 948 0132 013C     		subs	r4, r4, #1
+ 949 0134 A4B2     		uxth	r4, r4
+ 950              	.LVL138:
  360:bsp/src/bsp_tim_pwm.c **** 		usPeriod = uiTMRxCLK / _ulFreq - 1;
- 970              		.loc 1 360 0
- 971 0136 0023     		movs	r3, #0
- 972              	.LVL139:
- 973 0138 84E7     		b	.L67
- 974              	.LVL140:
- 975              	.L79:
+ 951              		.loc 1 360 0
+ 952 0136 0023     		movs	r3, #0
+ 953              	.LVL139:
+ 954 0138 84E7     		b	.L67
+ 955              	.LVL140:
+ 956              	.L79:
  387:bsp/src/bsp_tim_pwm.c **** 		TMR_OC1PreloadConfig(TMRx, TMR_OCPreload_Enable);
- 976              		.loc 1 387 0
- 977 013a 0DEB0301 		add	r1, sp, r3
- 978 013e 3046     		mov	r0, r6
- 979 0140 FFF7FEFF 		bl	TMR_OC1Init
- 980              	.LVL141:
+ 957              		.loc 1 387 0
+ 958 013a 0DEB0301 		add	r1, sp, r3
+ 959 013e 3046     		mov	r0, r6
+ 960 0140 FFF7FEFF 		bl	TMR_OC1Init
+ 961              	.LVL141:
  388:bsp/src/bsp_tim_pwm.c **** 	}
- 981              		.loc 1 388 0
- 982 0144 0821     		movs	r1, #8
- 983 0146 3046     		mov	r0, r6
- 984 0148 FFF7FEFF 		bl	TMR_OC1PreloadConfig
- 985              	.LVL142:
- 986 014c ADE7     		b	.L70
- 987              	.L80:
+ 962              		.loc 1 388 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 26
+
+
+ 963 0144 0821     		movs	r1, #8
+ 964 0146 3046     		mov	r0, r6
+ 965 0148 FFF7FEFF 		bl	TMR_OC1PreloadConfig
+ 966              	.LVL142:
+ 967 014c ADE7     		b	.L70
+ 968              	.L80:
  392:bsp/src/bsp_tim_pwm.c **** 		TMR_OC2PreloadConfig(TMRx, TMR_OCPreload_Enable);
- 988              		.loc 1 392 0
- 989 014e 01A9     		add	r1, sp, #4
- 990 0150 3046     		mov	r0, r6
- 991 0152 FFF7FEFF 		bl	TMR_OC2Init
- 992              	.LVL143:
+ 969              		.loc 1 392 0
+ 970 014e 01A9     		add	r1, sp, #4
+ 971 0150 3046     		mov	r0, r6
+ 972 0152 FFF7FEFF 		bl	TMR_OC2Init
+ 973              	.LVL143:
  393:bsp/src/bsp_tim_pwm.c **** 	}
- 993              		.loc 1 393 0
- 994 0156 0821     		movs	r1, #8
- 995 0158 3046     		mov	r0, r6
- 996 015a FFF7FEFF 		bl	TMR_OC2PreloadConfig
- 997              	.LVL144:
- 998 015e A4E7     		b	.L70
- 999              	.L81:
+ 974              		.loc 1 393 0
+ 975 0156 0821     		movs	r1, #8
+ 976 0158 3046     		mov	r0, r6
+ 977 015a FFF7FEFF 		bl	TMR_OC2PreloadConfig
+ 978              	.LVL144:
+ 979 015e A4E7     		b	.L70
+ 980              	.L81:
  397:bsp/src/bsp_tim_pwm.c **** 		TMR_OC3PreloadConfig(TMRx, TMR_OCPreload_Enable);
- 1000              		.loc 1 397 0
- 1001 0160 01A9     		add	r1, sp, #4
- 1002 0162 3046     		mov	r0, r6
- 1003 0164 FFF7FEFF 		bl	TMR_OC3Init
- 1004              	.LVL145:
+ 981              		.loc 1 397 0
+ 982 0160 01A9     		add	r1, sp, #4
+ 983 0162 3046     		mov	r0, r6
+ 984 0164 FFF7FEFF 		bl	TMR_OC3Init
+ 985              	.LVL145:
  398:bsp/src/bsp_tim_pwm.c **** 	}
- 1005              		.loc 1 398 0
- 1006 0168 0821     		movs	r1, #8
- 1007 016a 3046     		mov	r0, r6
- 1008 016c FFF7FEFF 		bl	TMR_OC3PreloadConfig
- 1009              	.LVL146:
- 1010 0170 9BE7     		b	.L70
- 1011              	.L82:
+ 986              		.loc 1 398 0
+ 987 0168 0821     		movs	r1, #8
+ 988 016a 3046     		mov	r0, r6
+ 989 016c FFF7FEFF 		bl	TMR_OC3PreloadConfig
+ 990              	.LVL146:
+ 991 0170 9BE7     		b	.L70
+ 992              	.L82:
  402:bsp/src/bsp_tim_pwm.c **** 		TMR_OC4PreloadConfig(TMRx, TMR_OCPreload_Enable);
- 1012              		.loc 1 402 0
- 1013 0172 01A9     		add	r1, sp, #4
- 1014 0174 3046     		mov	r0, r6
- 1015 0176 FFF7FEFF 		bl	TMR_OC4Init
- 1016              	.LVL147:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 27
-
-
+ 993              		.loc 1 402 0
+ 994 0172 01A9     		add	r1, sp, #4
+ 995 0174 3046     		mov	r0, r6
+ 996 0176 FFF7FEFF 		bl	TMR_OC4Init
+ 997              	.LVL147:
  403:bsp/src/bsp_tim_pwm.c **** 	}
- 1017              		.loc 1 403 0
- 1018 017a 0821     		movs	r1, #8
- 1019 017c 3046     		mov	r0, r6
- 1020 017e FFF7FEFF 		bl	TMR_OC4PreloadConfig
- 1021              	.LVL148:
- 1022 0182 92E7     		b	.L70
- 1023              	.L84:
- 1024              		.align	2
- 1025              	.L83:
- 1026 0184 00000000 		.word	SystemCoreClock
- 1027 0188 5917B7D1 		.word	-776530087
- 1028 018c 002C0140 		.word	1073818624
- 1029 0190 1F85EB51 		.word	1374389535
- 1030              		.cfi_endproc
- 1031              	.LFE141:
- 1032              		.fnend
- 1034              		.section	.text._Z16bsp_SetTMRforIntP8TMR_Typemhh,"ax",%progbits
- 1035              		.align	1
- 1036              		.global	_Z16bsp_SetTMRforIntP8TMR_Typemhh
- 1037              		.syntax unified
- 1038              		.thumb
- 1039              		.thumb_func
- 1040              		.fpu fpv4-sp-d16
- 1042              	_Z16bsp_SetTMRforIntP8TMR_Typemhh:
- 1043              		.fnstart
- 1044              	.LFB142:
+ 998              		.loc 1 403 0
+ 999 017a 0821     		movs	r1, #8
+ 1000 017c 3046     		mov	r0, r6
+ 1001 017e FFF7FEFF 		bl	TMR_OC4PreloadConfig
+ 1002              	.LVL148:
+ 1003 0182 92E7     		b	.L70
+ 1004              	.L84:
+ 1005              		.align	2
+ 1006              	.L83:
+ 1007 0184 00000000 		.word	SystemCoreClock
+ 1008 0188 5917B7D1 		.word	-776530087
+ 1009 018c 002C0140 		.word	1073818624
+ 1010 0190 1F85EB51 		.word	1374389535
+ 1011              		.cfi_endproc
+ 1012              	.LFE136:
+ 1014              		.section	.text.bsp_SetTMRforInt,"ax",%progbits
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 27
+
+
+ 1015              		.align	1
+ 1016              		.global	bsp_SetTMRforInt
+ 1017              		.syntax unified
+ 1018              		.thumb
+ 1019              		.thumb_func
+ 1020              		.fpu fpv4-sp-d16
+ 1022              	bsp_SetTMRforInt:
+ 1023              	.LFB137:
  417:bsp/src/bsp_tim_pwm.c **** 
  418:bsp/src/bsp_tim_pwm.c **** 
  419:bsp/src/bsp_tim_pwm.c **** /**
@@ -1600,31 +1581,26 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 1
  426:bsp/src/bsp_tim_pwm.c ****   */
  427:bsp/src/bsp_tim_pwm.c **** void bsp_SetTMRforInt(TMR_Type* TMRx, uint32_t _ulFreq, uint8_t _PreemptionPriority, uint8_t _SubPr
  428:bsp/src/bsp_tim_pwm.c **** {
- 1045              		.loc 1 428 0
- 1046              		.cfi_startproc
- 1047              		@ args = 0, pretend = 0, frame = 24
- 1048              		@ frame_needed = 0, uses_anonymous_args = 0
- 1049              	.LVL149:
- 1050 0000 F0B5     		push	{r4, r5, r6, r7, lr}
- 1051              		.save {r4, r5, r6, r7, lr}
- 1052              	.LCFI14:
- 1053              		.cfi_def_cfa_offset 20
- 1054              		.cfi_offset 4, -20
- 1055              		.cfi_offset 5, -16
- 1056              		.cfi_offset 6, -12
- 1057              		.cfi_offset 7, -8
- 1058              		.cfi_offset 14, -4
- 1059              		.pad #28
- 1060 0002 87B0     		sub	sp, sp, #28
- 1061              	.LCFI15:
- 1062              		.cfi_def_cfa_offset 48
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 28
-
-
- 1063 0004 0446     		mov	r4, r0
- 1064 0006 0F46     		mov	r7, r1
- 1065 0008 1646     		mov	r6, r2
- 1066 000a 1D46     		mov	r5, r3
+ 1024              		.loc 1 428 0
+ 1025              		.cfi_startproc
+ 1026              		@ args = 0, pretend = 0, frame = 24
+ 1027              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1028              	.LVL149:
+ 1029 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 1030              	.LCFI14:
+ 1031              		.cfi_def_cfa_offset 20
+ 1032              		.cfi_offset 4, -20
+ 1033              		.cfi_offset 5, -16
+ 1034              		.cfi_offset 6, -12
+ 1035              		.cfi_offset 7, -8
+ 1036              		.cfi_offset 14, -4
+ 1037 0002 87B0     		sub	sp, sp, #28
+ 1038              	.LCFI15:
+ 1039              		.cfi_def_cfa_offset 48
+ 1040 0004 0446     		mov	r4, r0
+ 1041 0006 0F46     		mov	r7, r1
+ 1042 0008 1646     		mov	r6, r2
+ 1043 000a 1D46     		mov	r5, r3
  429:bsp/src/bsp_tim_pwm.c **** 	TMR_TimerBaseInitType  TMR_TimeBaseStructure;
  430:bsp/src/bsp_tim_pwm.c **** 	uint16_t usPeriod;
  431:bsp/src/bsp_tim_pwm.c **** 	uint16_t usPrescaler;
@@ -1632,55 +1608,53 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 1
  433:bsp/src/bsp_tim_pwm.c **** 
  434:bsp/src/bsp_tim_pwm.c ****   
  435:bsp/src/bsp_tim_pwm.c **** 	if ((TMRx == TMR1) || (TMRx == TMR8))
- 1067              		.loc 1 435 0
- 1068 000c 694B     		ldr	r3, .L114
- 1069              	.LVL150:
- 1070 000e 9842     		cmp	r0, r3
- 1071 0010 09D0     		beq	.L86
- 1072              		.loc 1 435 0 is_stmt 0 discriminator 1
- 1073 0012 03F50063 		add	r3, r3, #2048
- 1074 0016 9842     		cmp	r0, r3
- 1075 0018 05D0     		beq	.L86
+ 1044              		.loc 1 435 0
+ 1045 000c 694B     		ldr	r3, .L114
+ 1046              	.LVL150:
+ 1047 000e 9842     		cmp	r0, r3
+ 1048 0010 09D0     		beq	.L86
+ 1049              		.loc 1 435 0 is_stmt 0 discriminator 1
+ 1050 0012 03F50063 		add	r3, r3, #2048
+ 1051 0016 9842     		cmp	r0, r3
+ 1052 0018 05D0     		beq	.L86
  436:bsp/src/bsp_tim_pwm.c **** 	{
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 28
+
+
  437:bsp/src/bsp_tim_pwm.c **** 		RCC_APB2PeriphClockCmd(bsp_GetRCCofTMR(TMRx), ENABLE);
  438:bsp/src/bsp_tim_pwm.c **** 	}
  439:bsp/src/bsp_tim_pwm.c **** 	else
  440:bsp/src/bsp_tim_pwm.c **** 	{
  441:bsp/src/bsp_tim_pwm.c **** 		RCC_APB1PeriphClockCmd(bsp_GetRCCofTMR(TMRx), ENABLE);
- 1076              		.loc 1 441 0 is_stmt 1
- 1077 001a FFF7FEFF 		bl	_Z15bsp_GetRCCofTMRP8TMR_Type
- 1078              	.LVL151:
- 1079 001e 0121     		movs	r1, #1
- 1080 0020 FFF7FEFF 		bl	RCC_APB1PeriphClockCmd
- 1081              	.LVL152:
- 1082 0024 05E0     		b	.L88
- 1083              	.LVL153:
- 1084              	.L86:
+ 1053              		.loc 1 441 0 is_stmt 1
+ 1054 001a FFF7FEFF 		bl	bsp_GetRCCofTMR
+ 1055              	.LVL151:
+ 1056 001e 0121     		movs	r1, #1
+ 1057 0020 FFF7FEFF 		bl	RCC_APB1PeriphClockCmd
+ 1058              	.LVL152:
+ 1059 0024 05E0     		b	.L88
+ 1060              	.LVL153:
+ 1061              	.L86:
  437:bsp/src/bsp_tim_pwm.c **** 	}
- 1085              		.loc 1 437 0
- 1086 0026 2046     		mov	r0, r4
- 1087              	.LVL154:
- 1088 0028 FFF7FEFF 		bl	_Z15bsp_GetRCCofTMRP8TMR_Type
- 1089              	.LVL155:
- 1090 002c 0121     		movs	r1, #1
- 1091 002e FFF7FEFF 		bl	RCC_APB2PeriphClockCmd
- 1092              	.LVL156:
- 1093              	.L88:
- 1094              	.LBB2:
+ 1062              		.loc 1 437 0
+ 1063 0026 2046     		mov	r0, r4
+ 1064              	.LVL154:
+ 1065 0028 FFF7FEFF 		bl	bsp_GetRCCofTMR
+ 1066              	.LVL155:
+ 1067 002c 0121     		movs	r1, #1
+ 1068 002e FFF7FEFF 		bl	RCC_APB2PeriphClockCmd
+ 1069              	.LVL156:
+ 1070              	.L88:
  442:bsp/src/bsp_tim_pwm.c **** 	}
  443:bsp/src/bsp_tim_pwm.c **** 
  444:bsp/src/bsp_tim_pwm.c **** 	if (_ulFreq == 0)
- 1095              		.loc 1 444 0
- 1096 0032 002F     		cmp	r7, #0
- 1097 0034 4AD0     		beq	.L113
- 1098              	.LBE2:
+ 1071              		.loc 1 444 0
+ 1072 0032 002F     		cmp	r7, #0
+ 1073 0034 4AD0     		beq	.L113
  445:bsp/src/bsp_tim_pwm.c **** 	{
  446:bsp/src/bsp_tim_pwm.c **** 		TMR_Cmd(TMRx, DISABLE);		
  447:bsp/src/bsp_tim_pwm.c **** 
  448:bsp/src/bsp_tim_pwm.c **** 	
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 29
-
-
  449:bsp/src/bsp_tim_pwm.c **** 		{
  450:bsp/src/bsp_tim_pwm.c **** 			NVIC_InitType NVIC_InitStructure;	
  451:bsp/src/bsp_tim_pwm.c **** 			uint8_t irq = 0;	
@@ -1704,6 +1678,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 1
  469:bsp/src/bsp_tim_pwm.c **** 
  470:bsp/src/bsp_tim_pwm.c **** 			NVIC_InitStructure.NVIC_IRQChannel                      = irq;
  471:bsp/src/bsp_tim_pwm.c **** 			NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority    = _PreemptionPriority;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 29
+
+
  472:bsp/src/bsp_tim_pwm.c **** 			NVIC_InitStructure.NVIC_IRQChannelSubPriority           = _SubPriority;
  473:bsp/src/bsp_tim_pwm.c **** 			NVIC_InitStructure.NVIC_IRQChannelCmd = DISABLE;
  474:bsp/src/bsp_tim_pwm.c **** 			NVIC_Init(&NVIC_InitStructure);
@@ -1712,39 +1689,36 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 1
  477:bsp/src/bsp_tim_pwm.c **** 	}
  478:bsp/src/bsp_tim_pwm.c **** 
  479:bsp/src/bsp_tim_pwm.c **** 	uiTMRxCLK = SystemCoreClock/2;
- 1099              		.loc 1 479 0
- 1100 0036 604B     		ldr	r3, .L114+4
- 1101 0038 1B68     		ldr	r3, [r3]
- 1102 003a 5A08     		lsrs	r2, r3, #1
- 1103              	.LVL157:
+ 1074              		.loc 1 479 0
+ 1075 0036 604B     		ldr	r3, .L114+4
+ 1076 0038 1B68     		ldr	r3, [r3]
+ 1077 003a 5A08     		lsrs	r2, r3, #1
+ 1078              	.LVL157:
  480:bsp/src/bsp_tim_pwm.c **** 
  481:bsp/src/bsp_tim_pwm.c **** 	if (_ulFreq < 100)
- 1104              		.loc 1 481 0
- 1105 003c 632F     		cmp	r7, #99
- 1106 003e 00F28580 		bhi	.L92
- 1107              	.LVL158:
+ 1079              		.loc 1 481 0
+ 1080 003c 632F     		cmp	r7, #99
+ 1081 003e 00F28580 		bhi	.L92
+ 1082              	.LVL158:
  482:bsp/src/bsp_tim_pwm.c **** 	{
  483:bsp/src/bsp_tim_pwm.c **** 		usPrescaler = 10000 - 1;					
  484:bsp/src/bsp_tim_pwm.c **** 		usPeriod =  (uiTMRxCLK / 10000) / _ulFreq  - 1;	
- 1108              		.loc 1 484 0
- 1109 0042 5E4A     		ldr	r2, .L114+8
- 1110              	.LVL159:
- 1111 0044 A2FB0323 		umull	r2, r3, r2, r3
- 1112              	.LVL160:
- 1113 0048 9B0B     		lsrs	r3, r3, #14
- 1114 004a B3FBF7F3 		udiv	r3, r3, r7
- 1115 004e 9BB2     		uxth	r3, r3
- 1116 0050 013B     		subs	r3, r3, #1
- 1117 0052 9BB2     		uxth	r3, r3
- 1118              	.LVL161:
+ 1083              		.loc 1 484 0
+ 1084 0042 5E4A     		ldr	r2, .L114+8
+ 1085              	.LVL159:
+ 1086 0044 A2FB0323 		umull	r2, r3, r2, r3
+ 1087              	.LVL160:
+ 1088 0048 9B0B     		lsrs	r3, r3, #14
+ 1089 004a B3FBF7F3 		udiv	r3, r3, r7
+ 1090 004e 9BB2     		uxth	r3, r3
+ 1091 0050 013B     		subs	r3, r3, #1
+ 1092 0052 9BB2     		uxth	r3, r3
+ 1093              	.LVL161:
  483:bsp/src/bsp_tim_pwm.c **** 		usPeriod =  (uiTMRxCLK / 10000) / _ulFreq  - 1;	
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 30
-
-
- 1119              		.loc 1 483 0
- 1120 0054 42F20F72 		movw	r2, #9999
- 1121              	.LVL162:
- 1122              	.L93:
+ 1094              		.loc 1 483 0
+ 1095 0054 42F20F72 		movw	r2, #9999
+ 1096              	.LVL162:
+ 1097              	.L93:
  485:bsp/src/bsp_tim_pwm.c **** 	}
  486:bsp/src/bsp_tim_pwm.c **** 	else if (_ulFreq < 3000)
  487:bsp/src/bsp_tim_pwm.c **** 	{
@@ -1758,55 +1732,55 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 1
  495:bsp/src/bsp_tim_pwm.c **** 	}
  496:bsp/src/bsp_tim_pwm.c **** 
  497:bsp/src/bsp_tim_pwm.c **** 	TMR_TimeBaseStructure.TMR_Period            = usPeriod;
- 1123              		.loc 1 497 0
- 1124 0058 0493     		str	r3, [sp, #16]
+ 1098              		.loc 1 497 0
+ 1099 0058 0493     		str	r3, [sp, #16]
  498:bsp/src/bsp_tim_pwm.c **** 	TMR_TimeBaseStructure.TMR_DIV               = usPrescaler;
- 1125              		.loc 1 498 0
- 1126 005a ADF80820 		strh	r2, [sp, #8]	@ movhi
+ 1100              		.loc 1 498 0
+ 1101 005a ADF80820 		strh	r2, [sp, #8]	@ movhi
  499:bsp/src/bsp_tim_pwm.c **** 	TMR_TimeBaseStructure.TMR_ClockDivision     = 0;
- 1127              		.loc 1 499 0
- 1128 005e 0023     		movs	r3, #0
- 1129              	.LVL163:
- 1130 0060 ADF81430 		strh	r3, [sp, #20]	@ movhi
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 30
+
+
+ 1102              		.loc 1 499 0
+ 1103 005e 0023     		movs	r3, #0
+ 1104              	.LVL163:
+ 1105 0060 ADF81430 		strh	r3, [sp, #20]	@ movhi
  500:bsp/src/bsp_tim_pwm.c **** 	TMR_TimeBaseStructure.TMR_CounterMode       = TMR_CounterDIR_Up;
- 1131              		.loc 1 500 0
- 1132 0064 0393     		str	r3, [sp, #12]
+ 1106              		.loc 1 500 0
+ 1107 0064 0393     		str	r3, [sp, #12]
  501:bsp/src/bsp_tim_pwm.c **** 	TMR_TimeBaseStructure.TMR_RepetitionCounter = 0;
- 1133              		.loc 1 501 0
- 1134 0066 8DF81630 		strb	r3, [sp, #22]
+ 1108              		.loc 1 501 0
+ 1109 0066 8DF81630 		strb	r3, [sp, #22]
  502:bsp/src/bsp_tim_pwm.c **** 
  503:bsp/src/bsp_tim_pwm.c **** 	TMR_TimeBaseInit(TMRx, &TMR_TimeBaseStructure);
- 1135              		.loc 1 503 0
- 1136 006a 02A9     		add	r1, sp, #8
- 1137 006c 2046     		mov	r0, r4
- 1138 006e FFF7FEFF 		bl	TMR_TimeBaseInit
- 1139              	.LVL164:
+ 1110              		.loc 1 503 0
+ 1111 006a 02A9     		add	r1, sp, #8
+ 1112 006c 2046     		mov	r0, r4
+ 1113 006e FFF7FEFF 		bl	TMR_TimeBaseInit
+ 1114              	.LVL164:
  504:bsp/src/bsp_tim_pwm.c **** 
  505:bsp/src/bsp_tim_pwm.c **** 	TMR_ARPreloadConfig(TMRx, ENABLE);
- 1140              		.loc 1 505 0
- 1141 0072 0121     		movs	r1, #1
- 1142 0074 2046     		mov	r0, r4
- 1143 0076 FFF7FEFF 		bl	TMR_ARPreloadConfig
- 1144              	.LVL165:
+ 1115              		.loc 1 505 0
+ 1116 0072 0121     		movs	r1, #1
+ 1117 0074 2046     		mov	r0, r4
+ 1118 0076 FFF7FEFF 		bl	TMR_ARPreloadConfig
+ 1119              	.LVL165:
  506:bsp/src/bsp_tim_pwm.c **** 
  507:bsp/src/bsp_tim_pwm.c **** 	TMR_INTConfig(TMRx, TMR_INT_Overflow, ENABLE);
- 1145              		.loc 1 507 0
- 1146 007a 0122     		movs	r2, #1
- 1147 007c 1146     		mov	r1, r2
- 1148 007e 2046     		mov	r0, r4
- 1149 0080 FFF7FEFF 		bl	TMR_INTConfig
- 1150              	.LVL166:
+ 1120              		.loc 1 507 0
+ 1121 007a 0122     		movs	r2, #1
+ 1122 007c 1146     		mov	r1, r2
+ 1123 007e 2046     		mov	r0, r4
+ 1124 0080 FFF7FEFF 		bl	TMR_INTConfig
+ 1125              	.LVL166:
  508:bsp/src/bsp_tim_pwm.c **** 
  509:bsp/src/bsp_tim_pwm.c **** 	TMR_Cmd(TMRx, ENABLE);
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 31
-
-
- 1151              		.loc 1 509 0
- 1152 0084 0121     		movs	r1, #1
- 1153 0086 2046     		mov	r0, r4
- 1154 0088 FFF7FEFF 		bl	TMR_Cmd
- 1155              	.LVL167:
- 1156              	.LBB5:
+ 1126              		.loc 1 509 0
+ 1127 0084 0121     		movs	r1, #1
+ 1128 0086 2046     		mov	r0, r4
+ 1129 0088 FFF7FEFF 		bl	TMR_Cmd
+ 1130              	.LVL167:
+ 1131              	.LBB2:
  510:bsp/src/bsp_tim_pwm.c **** 
  511:bsp/src/bsp_tim_pwm.c ****     //configure NVIC for TMRx
  512:bsp/src/bsp_tim_pwm.c **** 	{
@@ -1814,379 +1788,365 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 1
  514:bsp/src/bsp_tim_pwm.c **** 		uint8_t irq = 0;	
  515:bsp/src/bsp_tim_pwm.c **** 
  516:bsp/src/bsp_tim_pwm.c **** 		if (TMRx == TMR1)
- 1157              		.loc 1 516 0
- 1158 008c 494B     		ldr	r3, .L114
- 1159 008e 9C42     		cmp	r4, r3
- 1160 0090 72D0     		beq	.L104
+ 1132              		.loc 1 516 0
+ 1133 008c 494B     		ldr	r3, .L114
+ 1134 008e 9C42     		cmp	r4, r3
+ 1135 0090 72D0     		beq	.L104
  517:bsp/src/bsp_tim_pwm.c **** 			irq = TMR1_OV_TMR10_IRQn;
  518:bsp/src/bsp_tim_pwm.c **** 		else if (TMRx == TMR2)
- 1161              		.loc 1 518 0
- 1162 0092 B4F1804F 		cmp	r4, #1073741824
- 1163 0096 7ED0     		beq	.L105
+ 1136              		.loc 1 518 0
+ 1137 0092 B4F1804F 		cmp	r4, #1073741824
+ 1138 0096 7ED0     		beq	.L105
  519:bsp/src/bsp_tim_pwm.c **** 			irq = TMR2_GLOBAL_IRQn;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 31
+
+
  520:bsp/src/bsp_tim_pwm.c **** 		else if (TMRx == TMR3)
- 1164              		.loc 1 520 0
- 1165 0098 A3F59433 		sub	r3, r3, #75776
- 1166 009c 9C42     		cmp	r4, r3
- 1167 009e 7CD0     		beq	.L106
+ 1139              		.loc 1 520 0
+ 1140 0098 A3F59433 		sub	r3, r3, #75776
+ 1141 009c 9C42     		cmp	r4, r3
+ 1142 009e 7CD0     		beq	.L106
  521:bsp/src/bsp_tim_pwm.c **** 			irq = TMR3_GLOBAL_IRQn;
  522:bsp/src/bsp_tim_pwm.c **** 		else if (TMRx == TMR4)
- 1168              		.loc 1 522 0
- 1169 00a0 03F58063 		add	r3, r3, #1024
- 1170 00a4 9C42     		cmp	r4, r3
- 1171 00a6 7AD0     		beq	.L107
+ 1143              		.loc 1 522 0
+ 1144 00a0 03F58063 		add	r3, r3, #1024
+ 1145 00a4 9C42     		cmp	r4, r3
+ 1146 00a6 7AD0     		beq	.L107
  523:bsp/src/bsp_tim_pwm.c **** 			irq = TMR4_GLOBAL_IRQn;
  524:bsp/src/bsp_tim_pwm.c **** 		else if (TMRx == TMR5)
- 1172              		.loc 1 524 0
- 1173 00a8 03F58063 		add	r3, r3, #1024
- 1174 00ac 9C42     		cmp	r4, r3
- 1175 00ae 78D0     		beq	.L108
+ 1147              		.loc 1 524 0
+ 1148 00a8 03F58063 		add	r3, r3, #1024
+ 1149 00ac 9C42     		cmp	r4, r3
+ 1150 00ae 78D0     		beq	.L108
  525:bsp/src/bsp_tim_pwm.c **** 			irq = TMR5_GLOBAL_IRQn;
  526:bsp/src/bsp_tim_pwm.c **** 		else if (TMRx == TMR6)
- 1176              		.loc 1 526 0
- 1177 00b0 03F58063 		add	r3, r3, #1024
- 1178 00b4 9C42     		cmp	r4, r3
- 1179 00b6 76D0     		beq	.L109
+ 1151              		.loc 1 526 0
+ 1152 00b0 03F58063 		add	r3, r3, #1024
+ 1153 00b4 9C42     		cmp	r4, r3
+ 1154 00b6 76D0     		beq	.L109
  527:bsp/src/bsp_tim_pwm.c **** 			irq = TMR6_GLOBAL_IRQn;
  528:bsp/src/bsp_tim_pwm.c **** 		else if (TMRx == TMR7)
- 1180              		.loc 1 528 0
- 1181 00b8 03F58063 		add	r3, r3, #1024
- 1182 00bc 9C42     		cmp	r4, r3
- 1183 00be 74D0     		beq	.L110
+ 1155              		.loc 1 528 0
+ 1156 00b8 03F58063 		add	r3, r3, #1024
+ 1157 00bc 9C42     		cmp	r4, r3
+ 1158 00be 74D0     		beq	.L110
  529:bsp/src/bsp_tim_pwm.c **** 			irq = TMR7_GLOBAL_IRQn;
  530:bsp/src/bsp_tim_pwm.c **** 		else if (TMRx == TMR8)
- 1184              		.loc 1 530 0
- 1185 00c0 03F59033 		add	r3, r3, #73728
- 1186 00c4 9C42     		cmp	r4, r3
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 32
-
-
- 1187 00c6 72D0     		beq	.L111
+ 1159              		.loc 1 530 0
+ 1160 00c0 03F59033 		add	r3, r3, #73728
+ 1161 00c4 9C42     		cmp	r4, r3
+ 1162 00c6 72D0     		beq	.L111
  514:bsp/src/bsp_tim_pwm.c **** 
- 1188              		.loc 1 514 0
- 1189 00c8 0023     		movs	r3, #0
- 1190 00ca 56E0     		b	.L95
- 1191              	.LVL168:
- 1192              	.L113:
- 1193              	.LBE5:
- 1194              	.LBB6:
- 1195              	.LBB3:
+ 1163              		.loc 1 514 0
+ 1164 00c8 0023     		movs	r3, #0
+ 1165 00ca 56E0     		b	.L95
+ 1166              	.LVL168:
+ 1167              	.L113:
+ 1168              	.LBE2:
  446:bsp/src/bsp_tim_pwm.c **** 
- 1196              		.loc 1 446 0
- 1197 00cc 0021     		movs	r1, #0
- 1198 00ce 2046     		mov	r0, r4
- 1199 00d0 FFF7FEFF 		bl	TMR_Cmd
- 1200              	.LVL169:
- 1201              	.LBB4:
+ 1169              		.loc 1 446 0
+ 1170 00cc 0021     		movs	r1, #0
+ 1171 00ce 2046     		mov	r0, r4
+ 1172 00d0 FFF7FEFF 		bl	TMR_Cmd
+ 1173              	.LVL169:
+ 1174              	.LBB3:
  453:bsp/src/bsp_tim_pwm.c **** 				irq = TMR1_OV_TMR10_IRQn;
- 1202              		.loc 1 453 0
- 1203 00d4 374B     		ldr	r3, .L114
- 1204 00d6 9C42     		cmp	r4, r3
- 1205 00d8 1CD0     		beq	.L96
+ 1175              		.loc 1 453 0
+ 1176 00d4 374B     		ldr	r3, .L114
+ 1177 00d6 9C42     		cmp	r4, r3
+ 1178 00d8 1CD0     		beq	.L96
  455:bsp/src/bsp_tim_pwm.c **** 				irq = TMR2_GLOBAL_IRQn;
- 1206              		.loc 1 455 0
- 1207 00da B4F1804F 		cmp	r4, #1073741824
- 1208 00de 27D0     		beq	.L97
+ 1179              		.loc 1 455 0
+ 1180 00da B4F1804F 		cmp	r4, #1073741824
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 32
+
+
+ 1181 00de 27D0     		beq	.L97
  457:bsp/src/bsp_tim_pwm.c **** 				irq = TMR3_GLOBAL_IRQn;
- 1209              		.loc 1 457 0
- 1210 00e0 A3F59433 		sub	r3, r3, #75776
- 1211 00e4 9C42     		cmp	r4, r3
- 1212 00e6 25D0     		beq	.L98
+ 1182              		.loc 1 457 0
+ 1183 00e0 A3F59433 		sub	r3, r3, #75776
+ 1184 00e4 9C42     		cmp	r4, r3
+ 1185 00e6 25D0     		beq	.L98
  459:bsp/src/bsp_tim_pwm.c **** 				irq = TMR4_GLOBAL_IRQn;
- 1213              		.loc 1 459 0
- 1214 00e8 03F58063 		add	r3, r3, #1024
- 1215 00ec 9C42     		cmp	r4, r3
- 1216 00ee 23D0     		beq	.L99
+ 1186              		.loc 1 459 0
+ 1187 00e8 03F58063 		add	r3, r3, #1024
+ 1188 00ec 9C42     		cmp	r4, r3
+ 1189 00ee 23D0     		beq	.L99
  461:bsp/src/bsp_tim_pwm.c **** 				irq = TMR5_GLOBAL_IRQn;
- 1217              		.loc 1 461 0
- 1218 00f0 03F58063 		add	r3, r3, #1024
- 1219 00f4 9C42     		cmp	r4, r3
- 1220 00f6 21D0     		beq	.L100
+ 1190              		.loc 1 461 0
+ 1191 00f0 03F58063 		add	r3, r3, #1024
+ 1192 00f4 9C42     		cmp	r4, r3
+ 1193 00f6 21D0     		beq	.L100
  463:bsp/src/bsp_tim_pwm.c **** 				irq = TMR6_GLOBAL_IRQn;
- 1221              		.loc 1 463 0
- 1222 00f8 03F58063 		add	r3, r3, #1024
- 1223 00fc 9C42     		cmp	r4, r3
- 1224 00fe 1FD0     		beq	.L101
+ 1194              		.loc 1 463 0
+ 1195 00f8 03F58063 		add	r3, r3, #1024
+ 1196 00fc 9C42     		cmp	r4, r3
+ 1197 00fe 1FD0     		beq	.L101
  465:bsp/src/bsp_tim_pwm.c **** 				irq = TMR7_GLOBAL_IRQn;
- 1225              		.loc 1 465 0
- 1226 0100 03F58063 		add	r3, r3, #1024
- 1227 0104 9C42     		cmp	r4, r3
- 1228 0106 1DD0     		beq	.L102
+ 1198              		.loc 1 465 0
+ 1199 0100 03F58063 		add	r3, r3, #1024
+ 1200 0104 9C42     		cmp	r4, r3
+ 1201 0106 1DD0     		beq	.L102
  467:bsp/src/bsp_tim_pwm.c **** 				irq = TMR8_OV_TMR13_IRQn;
- 1229              		.loc 1 467 0
- 1230 0108 03F59033 		add	r3, r3, #73728
- 1231 010c 9C42     		cmp	r4, r3
- 1232 010e 1BD0     		beq	.L103
+ 1202              		.loc 1 467 0
+ 1203 0108 03F59033 		add	r3, r3, #73728
+ 1204 010c 9C42     		cmp	r4, r3
+ 1205 010e 1BD0     		beq	.L103
  451:bsp/src/bsp_tim_pwm.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 33
-
-
- 1233              		.loc 1 451 0
- 1234 0110 0023     		movs	r3, #0
- 1235 0112 00E0     		b	.L90
- 1236              	.L96:
+ 1206              		.loc 1 451 0
+ 1207 0110 0023     		movs	r3, #0
+ 1208 0112 00E0     		b	.L90
+ 1209              	.L96:
  454:bsp/src/bsp_tim_pwm.c **** 			else if (TMRx == TMR2)
- 1237              		.loc 1 454 0
- 1238 0114 1923     		movs	r3, #25
- 1239              	.L90:
- 1240              	.LVL170:
+ 1210              		.loc 1 454 0
+ 1211 0114 1923     		movs	r3, #25
+ 1212              	.L90:
+ 1213              	.LVL170:
  470:bsp/src/bsp_tim_pwm.c **** 			NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority    = _PreemptionPriority;
- 1241              		.loc 1 470 0
- 1242 0116 8DF80430 		strb	r3, [sp, #4]
+ 1214              		.loc 1 470 0
+ 1215 0116 8DF80430 		strb	r3, [sp, #4]
  471:bsp/src/bsp_tim_pwm.c **** 			NVIC_InitStructure.NVIC_IRQChannelSubPriority           = _SubPriority;
- 1243              		.loc 1 471 0
- 1244 011a 8DF80560 		strb	r6, [sp, #5]
+ 1216              		.loc 1 471 0
+ 1217 011a 8DF80560 		strb	r6, [sp, #5]
  472:bsp/src/bsp_tim_pwm.c **** 			NVIC_InitStructure.NVIC_IRQChannelCmd = DISABLE;
- 1245              		.loc 1 472 0
- 1246 011e 8DF80650 		strb	r5, [sp, #6]
+ 1218              		.loc 1 472 0
+ 1219 011e 8DF80650 		strb	r5, [sp, #6]
  473:bsp/src/bsp_tim_pwm.c **** 			NVIC_Init(&NVIC_InitStructure);
- 1247              		.loc 1 473 0
- 1248 0122 0023     		movs	r3, #0
- 1249              	.LVL171:
- 1250 0124 8DF80730 		strb	r3, [sp, #7]
+ 1220              		.loc 1 473 0
+ 1221 0122 0023     		movs	r3, #0
+ 1222              	.LVL171:
+ 1223 0124 8DF80730 		strb	r3, [sp, #7]
  474:bsp/src/bsp_tim_pwm.c **** 		}		
- 1251              		.loc 1 474 0
- 1252 0128 01A8     		add	r0, sp, #4
- 1253              	.LVL172:
- 1254 012a FFF7FEFF 		bl	NVIC_Init
- 1255              	.LVL173:
- 1256 012e 30E0     		b	.L85
- 1257              	.LVL174:
- 1258              	.L97:
+ 1224              		.loc 1 474 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 33
+
+
+ 1225 0128 01A8     		add	r0, sp, #4
+ 1226              	.LVL172:
+ 1227 012a FFF7FEFF 		bl	NVIC_Init
+ 1228              	.LVL173:
+ 1229 012e 30E0     		b	.L85
+ 1230              	.LVL174:
+ 1231              	.L97:
  456:bsp/src/bsp_tim_pwm.c **** 			else if (TMRx == TMR3)
- 1259              		.loc 1 456 0
- 1260 0130 1C23     		movs	r3, #28
- 1261 0132 F0E7     		b	.L90
- 1262              	.L98:
+ 1232              		.loc 1 456 0
+ 1233 0130 1C23     		movs	r3, #28
+ 1234 0132 F0E7     		b	.L90
+ 1235              	.L98:
  458:bsp/src/bsp_tim_pwm.c **** 			else if (TMRx == TMR4)
- 1263              		.loc 1 458 0
- 1264 0134 1D23     		movs	r3, #29
- 1265 0136 EEE7     		b	.L90
- 1266              	.L99:
+ 1236              		.loc 1 458 0
+ 1237 0134 1D23     		movs	r3, #29
+ 1238 0136 EEE7     		b	.L90
+ 1239              	.L99:
  460:bsp/src/bsp_tim_pwm.c **** 			else if (TMRx == TMR5)
- 1267              		.loc 1 460 0
- 1268 0138 1E23     		movs	r3, #30
- 1269 013a ECE7     		b	.L90
- 1270              	.L100:
+ 1240              		.loc 1 460 0
+ 1241 0138 1E23     		movs	r3, #30
+ 1242 013a ECE7     		b	.L90
+ 1243              	.L100:
  462:bsp/src/bsp_tim_pwm.c **** 			else if (TMRx == TMR6)
- 1271              		.loc 1 462 0
- 1272 013c 3223     		movs	r3, #50
- 1273 013e EAE7     		b	.L90
- 1274              	.L101:
+ 1244              		.loc 1 462 0
+ 1245 013c 3223     		movs	r3, #50
+ 1246 013e EAE7     		b	.L90
+ 1247              	.L101:
  464:bsp/src/bsp_tim_pwm.c **** 			else if (TMRx == TMR7)
- 1275              		.loc 1 464 0
- 1276 0140 3623     		movs	r3, #54
- 1277 0142 E8E7     		b	.L90
- 1278              	.L102:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 34
-
-
+ 1248              		.loc 1 464 0
+ 1249 0140 3623     		movs	r3, #54
+ 1250 0142 E8E7     		b	.L90
+ 1251              	.L102:
  466:bsp/src/bsp_tim_pwm.c **** 			else if (TMRx == TMR8)
- 1279              		.loc 1 466 0
- 1280 0144 3723     		movs	r3, #55
- 1281 0146 E6E7     		b	.L90
- 1282              	.L103:
+ 1252              		.loc 1 466 0
+ 1253 0144 3723     		movs	r3, #55
+ 1254 0146 E6E7     		b	.L90
+ 1255              	.L103:
  468:bsp/src/bsp_tim_pwm.c **** 
- 1283              		.loc 1 468 0
- 1284 0148 2C23     		movs	r3, #44
- 1285 014a E4E7     		b	.L90
- 1286              	.LVL175:
- 1287              	.L92:
- 1288              	.LBE4:
- 1289              	.LBE3:
- 1290              	.LBE6:
+ 1256              		.loc 1 468 0
+ 1257 0148 2C23     		movs	r3, #44
+ 1258 014a E4E7     		b	.L90
+ 1259              	.LVL175:
+ 1260              	.L92:
+ 1261              	.LBE3:
  486:bsp/src/bsp_tim_pwm.c **** 	{
- 1291              		.loc 1 486 0
- 1292 014c 40F6B731 		movw	r1, #2999
- 1293 0150 8F42     		cmp	r7, r1
- 1294 0152 0AD8     		bhi	.L94
- 1295              	.LVL176:
+ 1262              		.loc 1 486 0
+ 1263 014c 40F6B731 		movw	r1, #2999
+ 1264 0150 8F42     		cmp	r7, r1
+ 1265 0152 0AD8     		bhi	.L94
+ 1266              	.LVL176:
  489:bsp/src/bsp_tim_pwm.c **** 	}
- 1296              		.loc 1 489 0
- 1297 0154 1A4A     		ldr	r2, .L114+12
- 1298              	.LVL177:
- 1299 0156 A2FB0323 		umull	r2, r3, r2, r3
- 1300              	.LVL178:
- 1301 015a 9B09     		lsrs	r3, r3, #6
- 1302 015c B3FBF7F3 		udiv	r3, r3, r7
- 1303 0160 9BB2     		uxth	r3, r3
- 1304 0162 013B     		subs	r3, r3, #1
- 1305 0164 9BB2     		uxth	r3, r3
- 1306              	.LVL179:
+ 1267              		.loc 1 489 0
+ 1268 0154 1A4A     		ldr	r2, .L114+12
+ 1269              	.LVL177:
+ 1270 0156 A2FB0323 		umull	r2, r3, r2, r3
+ 1271              	.LVL178:
+ 1272 015a 9B09     		lsrs	r3, r3, #6
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 34
+
+
+ 1273 015c B3FBF7F3 		udiv	r3, r3, r7
+ 1274 0160 9BB2     		uxth	r3, r3
+ 1275 0162 013B     		subs	r3, r3, #1
+ 1276 0164 9BB2     		uxth	r3, r3
+ 1277              	.LVL179:
  488:bsp/src/bsp_tim_pwm.c **** 		usPeriod =  (uiTMRxCLK / 100) / _ulFreq  - 1;		
- 1307              		.loc 1 488 0
- 1308 0166 6322     		movs	r2, #99
- 1309 0168 76E7     		b	.L93
- 1310              	.LVL180:
- 1311              	.L94:
+ 1278              		.loc 1 488 0
+ 1279 0166 6322     		movs	r2, #99
+ 1280 0168 76E7     		b	.L93
+ 1281              	.LVL180:
+ 1282              	.L94:
  494:bsp/src/bsp_tim_pwm.c **** 	}
- 1312              		.loc 1 494 0
- 1313 016a B2FBF7F3 		udiv	r3, r2, r7
- 1314 016e 9BB2     		uxth	r3, r3
- 1315 0170 013B     		subs	r3, r3, #1
- 1316 0172 9BB2     		uxth	r3, r3
- 1317              	.LVL181:
+ 1283              		.loc 1 494 0
+ 1284 016a B2FBF7F3 		udiv	r3, r2, r7
+ 1285 016e 9BB2     		uxth	r3, r3
+ 1286 0170 013B     		subs	r3, r3, #1
+ 1287 0172 9BB2     		uxth	r3, r3
+ 1288              	.LVL181:
  493:bsp/src/bsp_tim_pwm.c **** 		usPeriod = uiTMRxCLK / _ulFreq - 1;	
- 1318              		.loc 1 493 0
- 1319 0174 0022     		movs	r2, #0
- 1320              	.LVL182:
- 1321 0176 6FE7     		b	.L93
- 1322              	.LVL183:
- 1323              	.L104:
- 1324              	.LBB7:
+ 1289              		.loc 1 493 0
+ 1290 0174 0022     		movs	r2, #0
+ 1291              	.LVL182:
+ 1292 0176 6FE7     		b	.L93
+ 1293              	.LVL183:
+ 1294              	.L104:
+ 1295              	.LBB4:
  517:bsp/src/bsp_tim_pwm.c **** 		else if (TMRx == TMR2)
- 1325              		.loc 1 517 0
- 1326 0178 1923     		movs	r3, #25
- 1327              	.L95:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 35
-
-
- 1328              	.LVL184:
+ 1296              		.loc 1 517 0
+ 1297 0178 1923     		movs	r3, #25
+ 1298              	.L95:
+ 1299              	.LVL184:
  531:bsp/src/bsp_tim_pwm.c **** 			irq = TMR8_OV_TMR13_IRQn;
  532:bsp/src/bsp_tim_pwm.c **** 
  533:bsp/src/bsp_tim_pwm.c **** 		NVIC_InitStructure.NVIC_IRQChannel = irq;
- 1329              		.loc 1 533 0
- 1330 017a 8DF80430 		strb	r3, [sp, #4]
+ 1300              		.loc 1 533 0
+ 1301 017a 8DF80430 		strb	r3, [sp, #4]
  534:bsp/src/bsp_tim_pwm.c **** 		NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = _PreemptionPriority;
- 1331              		.loc 1 534 0
- 1332 017e 8DF80560 		strb	r6, [sp, #5]
+ 1302              		.loc 1 534 0
+ 1303 017e 8DF80560 		strb	r6, [sp, #5]
  535:bsp/src/bsp_tim_pwm.c **** 		NVIC_InitStructure.NVIC_IRQChannelSubPriority = _SubPriority;
- 1333              		.loc 1 535 0
- 1334 0182 8DF80650 		strb	r5, [sp, #6]
+ 1304              		.loc 1 535 0
+ 1305 0182 8DF80650 		strb	r5, [sp, #6]
  536:bsp/src/bsp_tim_pwm.c **** 		NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
- 1335              		.loc 1 536 0
- 1336 0186 0123     		movs	r3, #1
- 1337              	.LVL185:
- 1338 0188 8DF80730 		strb	r3, [sp, #7]
+ 1306              		.loc 1 536 0
+ 1307 0186 0123     		movs	r3, #1
+ 1308              	.LVL185:
+ 1309 0188 8DF80730 		strb	r3, [sp, #7]
  537:bsp/src/bsp_tim_pwm.c **** 		NVIC_Init(&NVIC_InitStructure);
- 1339              		.loc 1 537 0
- 1340 018c 01A8     		add	r0, sp, #4
- 1341              	.LVL186:
- 1342 018e FFF7FEFF 		bl	NVIC_Init
- 1343              	.LVL187:
- 1344              	.L85:
- 1345              	.LBE7:
+ 1310              		.loc 1 537 0
+ 1311 018c 01A8     		add	r0, sp, #4
+ 1312              	.LVL186:
+ 1313 018e FFF7FEFF 		bl	NVIC_Init
+ 1314              	.LVL187:
+ 1315              	.L85:
+ 1316              	.LBE4:
  538:bsp/src/bsp_tim_pwm.c **** 	}
  539:bsp/src/bsp_tim_pwm.c **** }
- 1346              		.loc 1 539 0
- 1347 0192 07B0     		add	sp, sp, #28
- 1348              	.LCFI16:
- 1349              		.cfi_remember_state
- 1350              		.cfi_def_cfa_offset 20
- 1351              		@ sp needed
- 1352 0194 F0BD     		pop	{r4, r5, r6, r7, pc}
- 1353              	.LVL188:
- 1354              	.L105:
- 1355              	.LCFI17:
- 1356              		.cfi_restore_state
- 1357              	.LBB8:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 35
+
+
+ 1317              		.loc 1 539 0
+ 1318 0192 07B0     		add	sp, sp, #28
+ 1319              	.LCFI16:
+ 1320              		.cfi_remember_state
+ 1321              		.cfi_def_cfa_offset 20
+ 1322              		@ sp needed
+ 1323 0194 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 1324              	.LVL188:
+ 1325              	.L105:
+ 1326              	.LCFI17:
+ 1327              		.cfi_restore_state
+ 1328              	.LBB5:
  519:bsp/src/bsp_tim_pwm.c **** 		else if (TMRx == TMR3)
- 1358              		.loc 1 519 0
- 1359 0196 1C23     		movs	r3, #28
- 1360 0198 EFE7     		b	.L95
- 1361              	.L106:
+ 1329              		.loc 1 519 0
+ 1330 0196 1C23     		movs	r3, #28
+ 1331 0198 EFE7     		b	.L95
+ 1332              	.L106:
  521:bsp/src/bsp_tim_pwm.c **** 		else if (TMRx == TMR4)
- 1362              		.loc 1 521 0
- 1363 019a 1D23     		movs	r3, #29
- 1364 019c EDE7     		b	.L95
- 1365              	.L107:
+ 1333              		.loc 1 521 0
+ 1334 019a 1D23     		movs	r3, #29
+ 1335 019c EDE7     		b	.L95
+ 1336              	.L107:
  523:bsp/src/bsp_tim_pwm.c **** 		else if (TMRx == TMR5)
- 1366              		.loc 1 523 0
- 1367 019e 1E23     		movs	r3, #30
- 1368 01a0 EBE7     		b	.L95
- 1369              	.L108:
+ 1337              		.loc 1 523 0
+ 1338 019e 1E23     		movs	r3, #30
+ 1339 01a0 EBE7     		b	.L95
+ 1340              	.L108:
  525:bsp/src/bsp_tim_pwm.c **** 		else if (TMRx == TMR6)
- 1370              		.loc 1 525 0
- 1371 01a2 3223     		movs	r3, #50
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 36
-
-
- 1372 01a4 E9E7     		b	.L95
- 1373              	.L109:
+ 1341              		.loc 1 525 0
+ 1342 01a2 3223     		movs	r3, #50
+ 1343 01a4 E9E7     		b	.L95
+ 1344              	.L109:
  527:bsp/src/bsp_tim_pwm.c **** 		else if (TMRx == TMR7)
- 1374              		.loc 1 527 0
- 1375 01a6 3623     		movs	r3, #54
- 1376 01a8 E7E7     		b	.L95
- 1377              	.L110:
+ 1345              		.loc 1 527 0
+ 1346 01a6 3623     		movs	r3, #54
+ 1347 01a8 E7E7     		b	.L95
+ 1348              	.L110:
  529:bsp/src/bsp_tim_pwm.c **** 		else if (TMRx == TMR8)
- 1378              		.loc 1 529 0
- 1379 01aa 3723     		movs	r3, #55
- 1380 01ac E5E7     		b	.L95
- 1381              	.L111:
+ 1349              		.loc 1 529 0
+ 1350 01aa 3723     		movs	r3, #55
+ 1351 01ac E5E7     		b	.L95
+ 1352              	.L111:
  531:bsp/src/bsp_tim_pwm.c **** 
- 1382              		.loc 1 531 0
- 1383 01ae 2C23     		movs	r3, #44
- 1384 01b0 E3E7     		b	.L95
- 1385              	.L115:
- 1386 01b2 00BF     		.align	2
- 1387              	.L114:
- 1388 01b4 002C0140 		.word	1073818624
- 1389 01b8 00000000 		.word	SystemCoreClock
- 1390 01bc 5917B7D1 		.word	-776530087
- 1391 01c0 1F85EB51 		.word	1374389535
- 1392              	.LBE8:
- 1393              		.cfi_endproc
- 1394              	.LFE142:
- 1395              		.fnend
- 1397              		.text
- 1398              	.Letext0:
- 1399              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h
- 1400              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
- 1401              		.file 4 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
- 1402              		.file 5 "../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h"
- 1403              		.file 6 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
- 1404              		.file 7 "../Libraries/CMSIS/CM4/DeviceSupport/at32f4xx.h"
- 1405              		.file 8 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_gpio.h"
- 1406              		.file 9 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_tim.h"
- 1407              		.file 10 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/misc.h"
- 1408              		.file 11 "Inc/FreeRTOSConfig.h"
- 1409              		.file 12 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
- 1410              		.file 13 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
- 1411              		.file 14 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
- 1412              		.file 15 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/cstdlib"
- 1413              		.file 16 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/arm-none-ea
- 1414              		.file 17 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdlib.h"
- 1415              		.file 18 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/stdlib.h"
- 1416              		.file 19 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_rcc.h"
- 1417              		.file 20 "<built-in>"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s 			page 37
+ 1353              		.loc 1 531 0
+ 1354 01ae 2C23     		movs	r3, #44
+ 1355 01b0 E3E7     		b	.L95
+ 1356              	.L115:
+ 1357 01b2 00BF     		.align	2
+ 1358              	.L114:
+ 1359 01b4 002C0140 		.word	1073818624
+ 1360 01b8 00000000 		.word	SystemCoreClock
+ 1361 01bc 5917B7D1 		.word	-776530087
+ 1362 01c0 1F85EB51 		.word	1374389535
+ 1363              	.LBE5:
+ 1364              		.cfi_endproc
+ 1365              	.LFE137:
+ 1367              		.text
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 36
+
+
+ 1368              	.Letext0:
+ 1369              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
+ 1370              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
+ 1371              		.file 4 "../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h"
+ 1372              		.file 5 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
+ 1373              		.file 6 "../Libraries/CMSIS/CM4/DeviceSupport/at32f4xx.h"
+ 1374              		.file 7 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_gpio.h"
+ 1375              		.file 8 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_tim.h"
+ 1376              		.file 9 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/misc.h"
+ 1377              		.file 10 "Inc/FreeRTOSConfig.h"
+ 1378              		.file 11 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
+ 1379              		.file 12 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
+ 1380              		.file 13 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.
+ 1381              		.file 14 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
+ 1382              		.file 15 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdlib.h"
+ 1383              		.file 16 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_rcc.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s 			page 37
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 bsp_tim_pwm.c
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s:17     .text._Z16bsp_GetRCCofGPIOP9GPIO_Type:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s:24     .text._Z16bsp_GetRCCofGPIOP9GPIO_Type:0000000000000000 _Z16bsp_GetRCCofGPIOP9GPIO_Type
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s:112    .text._Z16bsp_GetRCCofGPIOP9GPIO_Type:0000000000000058 $d
-.ARM.exidx.text._Z16bsp_GetRCCofGPIOP9GPIO_Type:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s:119    .text._Z15bsp_GetRCCofTMRP8TMR_Type:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s:126    .text._Z15bsp_GetRCCofTMRP8TMR_Type:0000000000000000 _Z15bsp_GetRCCofTMRP8TMR_Type
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s:282    .text._Z15bsp_GetRCCofTMRP8TMR_Type:00000000000000b4 $d
-.ARM.exidx.text._Z15bsp_GetRCCofTMRP8TMR_Type:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s:289    .text._Z17bsp_ConfigTMRGpioP9GPIO_TypetP8TMR_Typeh:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s:296    .text._Z17bsp_ConfigTMRGpioP9GPIO_TypetP8TMR_Typeh:0000000000000000 _Z17bsp_ConfigTMRGpioP9GPIO_TypetP8TMR_Typeh
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s:373    .text._Z17bsp_ConfigTMRGpioP9GPIO_TypetP8TMR_Typeh:0000000000000058 $d
-.ARM.exidx.text._Z17bsp_ConfigTMRGpioP9GPIO_TypetP8TMR_Typeh:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s:379    .text._Z17bsp_ConfigGpioOutP9GPIO_Typet:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s:386    .text._Z17bsp_ConfigGpioOutP9GPIO_Typet:0000000000000000 _Z17bsp_ConfigGpioOutP9GPIO_Typet
-.ARM.exidx.text._Z17bsp_ConfigGpioOutP9GPIO_Typet:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s:437    .text._Z16bsp_SetTMROutPWMP9GPIO_TypetP8TMR_Typehmm:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s:444    .text._Z16bsp_SetTMROutPWMP9GPIO_TypetP8TMR_Typehmm:0000000000000000 _Z16bsp_SetTMROutPWMP9GPIO_TypetP8TMR_Typehmm
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s:727    .text._Z16bsp_SetTMROutPWMP9GPIO_TypetP8TMR_Typehmm:0000000000000184 $d
-.ARM.exidx.text._Z16bsp_SetTMROutPWMP9GPIO_TypetP8TMR_Typehmm:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s:736    .text._Z18bsp_SetTIMOutPWM_NP9GPIO_TypetP8TMR_Typehmm:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s:743    .text._Z18bsp_SetTIMOutPWM_NP9GPIO_TypetP8TMR_Typehmm:0000000000000000 _Z18bsp_SetTIMOutPWM_NP9GPIO_TypetP8TMR_Typehmm
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s:1026   .text._Z18bsp_SetTIMOutPWM_NP9GPIO_TypetP8TMR_Typehmm:0000000000000184 $d
-.ARM.exidx.text._Z18bsp_SetTIMOutPWM_NP9GPIO_TypetP8TMR_Typehmm:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s:1035   .text._Z16bsp_SetTMRforIntP8TMR_Typemhh:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s:1042   .text._Z16bsp_SetTMRforIntP8TMR_Typemhh:0000000000000000 _Z16bsp_SetTMRforIntP8TMR_Typemhh
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccyCshpT.s:1388   .text._Z16bsp_SetTMRforIntP8TMR_Typemhh:00000000000001b4 $d
-.ARM.exidx.text._Z16bsp_SetTMRforIntP8TMR_Typemhh:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s:17     .text.bsp_GetRCCofGPIO:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s:24     .text.bsp_GetRCCofGPIO:0000000000000000 bsp_GetRCCofGPIO
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s:111    .text.bsp_GetRCCofGPIO:0000000000000058 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s:116    .text.bsp_GetRCCofTMR:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s:123    .text.bsp_GetRCCofTMR:0000000000000000 bsp_GetRCCofTMR
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s:278    .text.bsp_GetRCCofTMR:00000000000000b4 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s:283    .text.bsp_ConfigTMRGpio:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s:290    .text.bsp_ConfigTMRGpio:0000000000000000 bsp_ConfigTMRGpio
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s:364    .text.bsp_ConfigTMRGpio:0000000000000058 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s:369    .text.bsp_ConfigGpioOut:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s:376    .text.bsp_ConfigGpioOut:0000000000000000 bsp_ConfigGpioOut
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s:423    .text.bsp_SetTMROutPWM:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s:430    .text.bsp_SetTMROutPWM:0000000000000000 bsp_SetTMROutPWM
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s:711    .text.bsp_SetTMROutPWM:0000000000000184 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s:719    .text.bsp_SetTIMOutPWM_N:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s:726    .text.bsp_SetTIMOutPWM_N:0000000000000000 bsp_SetTIMOutPWM_N
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s:1007   .text.bsp_SetTIMOutPWM_N:0000000000000184 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s:1015   .text.bsp_SetTMRforInt:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s:1022   .text.bsp_SetTMRforInt:0000000000000000 bsp_SetTMRforInt
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY5eyKW.s:1359   .text.bsp_SetTMRforInt:00000000000001b4 $d
 
 UNDEFINED SYMBOLS
 RCC_APB2PeriphClockCmd
 RCC_APB1PeriphClockCmd
 GPIO_Init
-__aeabi_unwind_cpp_pr0
 TMR_TimeBaseInit
 TMR_OCStructInit
 TMR_ARPreloadConfig

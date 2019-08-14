@@ -10,6 +10,7 @@
         "spin_task.h": "c",
         "ros.h": "c",
         "stm32hardware.h": "c",
-        "node_handle.h": "c"
+        "node_handle.h": "c",
+        "includes.h": "c"
     }
 }

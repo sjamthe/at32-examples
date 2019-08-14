@@ -20,7 +20,7 @@
   */ 
 
 #include "includes.h"
-#include "spin_task.h"
+//#include "spin_task.h"
 
 /** @addtogroup AT32F403_StdPeriph_Examples
   * @{
@@ -49,7 +49,7 @@ static TaskHandle_t xHandleTaskLED          = NULL;
 static TaskHandle_t xHandleTaskMsgProcess   = NULL;
 static TaskHandle_t xHandleTaskCtrolProcess      = NULL;
 static SemaphoreHandle_t xHandleMutexPrint = NULL;
-ros::NodeHandle nh; /* ROS node handle */
+//ros::NodeHandle nh; /* ROS node handle */
 
 /**
  * @brief   Main program

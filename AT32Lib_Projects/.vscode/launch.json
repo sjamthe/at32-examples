@@ -6,8 +6,18 @@
     "configurations": [
 
 
-
-
+        {
+            "name": "ROS_FreeRTOS",
+            "cwd": "${workspaceRoot}",
+            "executable": "./ROS_FreeRTOS/build/ROS_FreeRTOS.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "configFiles": [
+                "interface/stlink.cfg",
+                "target/stm32f3x.cfg"
+            ]
+        },
         {
             "name": "LED_Toggle",
             "cwd": "${workspaceRoot}",

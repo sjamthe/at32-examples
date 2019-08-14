@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccR8VDJO.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccZ7BxEl.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -16,17 +16,16 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccR8VDJO.s 			page 1
   13              		.text
   14              	.Ltext0:
   15              		.cfi_sections	.debug_frame
-  16              		.section	.text._Z25vTimerInitForRunTimeStatev,"ax",%progbits
+  16              		.section	.text.vTimerInitForRunTimeState,"ax",%progbits
   17              		.align	1
-  18              		.global	_Z25vTimerInitForRunTimeStatev
+  18              		.global	vTimerInitForRunTimeState
   19              		.syntax unified
   20              		.thumb
   21              		.thumb_func
   22              		.fpu fpv4-sp-d16
-  24              	_Z25vTimerInitForRunTimeStatev:
-  25              		.fnstart
-  26              	.LFB136:
-  27              		.file 1 "Src/TimerForRunTimeState.c"
+  24              	vTimerInitForRunTimeState:
+  25              	.LFB131:
+  26              		.file 1 "Src/TimerForRunTimeState.c"
    1:Src/TimerForRunTimeState.c **** /**
    2:Src/TimerForRunTimeState.c ****   ******************************************************************************
    3:Src/TimerForRunTimeState.c ****   * @file    FreeRTOS/ResManagement_SafelyPrint/TimerForRunTimeState.c
@@ -58,10 +57,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccR8VDJO.s 			page 1
   29:Src/TimerForRunTimeState.c **** /** @addtogroup FreeRTOS_ResManagement_SafelyPrint
   30:Src/TimerForRunTimeState.c ****   * @{
   31:Src/TimerForRunTimeState.c ****   */ 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccR8VDJO.s 			page 2
-
-
   32:Src/TimerForRunTimeState.c **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccZ7BxEl.s 			page 2
+
+
   33:Src/TimerForRunTimeState.c **** /* Private typedef -----------------------------------------------------------*/
   34:Src/TimerForRunTimeState.c **** /* Private define ------------------------------------------------------------*/
   35:Src/TimerForRunTimeState.c **** #define  timerINTERRUPT_FREQUENCY	20000 //50us
@@ -82,151 +81,137 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccR8VDJO.s 			page 1
   50:Src/TimerForRunTimeState.c ****   */
   51:Src/TimerForRunTimeState.c **** void vTimerInitForRunTimeState(void)
   52:Src/TimerForRunTimeState.c **** {
-  28              		.loc 1 52 0
-  29              		.cfi_startproc
-  30              		@ args = 0, pretend = 0, frame = 0
-  31              		@ frame_needed = 0, uses_anonymous_args = 0
-  32 0000 08B5     		push	{r3, lr}
-  33              		.save {r3, lr}
-  34              	.LCFI0:
-  35              		.cfi_def_cfa_offset 8
-  36              		.cfi_offset 3, -8
-  37              		.cfi_offset 14, -4
+  27              		.loc 1 52 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 08B5     		push	{r3, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
   53:Src/TimerForRunTimeState.c **** 	bsp_SetTMRforInt(TMR6, timerINTERRUPT_FREQUENCY, timerHIGHEST_PRIORITY, 0);
-  38              		.loc 1 53 0
-  39 0002 0023     		movs	r3, #0
-  40 0004 0122     		movs	r2, #1
-  41 0006 44F62061 		movw	r1, #20000
-  42 000a 0248     		ldr	r0, .L3
-  43 000c FFF7FEFF 		bl	_Z16bsp_SetTMRforIntP8TMR_Typemhh
-  44              	.LVL0:
+  36              		.loc 1 53 0
+  37 0002 0023     		movs	r3, #0
+  38 0004 0122     		movs	r2, #1
+  39 0006 44F62061 		movw	r1, #20000
+  40 000a 0248     		ldr	r0, .L3
+  41 000c FFF7FEFF 		bl	bsp_SetTMRforInt
+  42              	.LVL0:
   54:Src/TimerForRunTimeState.c **** }
-  45              		.loc 1 54 0
-  46 0010 08BD     		pop	{r3, pc}
-  47              	.L4:
-  48 0012 00BF     		.align	2
-  49              	.L3:
-  50 0014 00100040 		.word	1073745920
-  51              		.cfi_endproc
-  52              	.LFE136:
-  53              		.fnend
-  55              		.section	.text._Z22TMR6_GLOBAL_IRQHandlerv,"ax",%progbits
-  56              		.align	1
-  57              		.global	_Z22TMR6_GLOBAL_IRQHandlerv
-  58              		.syntax unified
-  59              		.thumb
-  60              		.thumb_func
-  61              		.fpu fpv4-sp-d16
-  63              	_Z22TMR6_GLOBAL_IRQHandlerv:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccR8VDJO.s 			page 3
-
-
-  64              		.fnstart
-  65              	.LFB137:
+  43              		.loc 1 54 0
+  44 0010 08BD     		pop	{r3, pc}
+  45              	.L4:
+  46 0012 00BF     		.align	2
+  47              	.L3:
+  48 0014 00100040 		.word	1073745920
+  49              		.cfi_endproc
+  50              	.LFE131:
+  52              		.section	.text.TMR6_GLOBAL_IRQHandler,"ax",%progbits
+  53              		.align	1
+  54              		.global	TMR6_GLOBAL_IRQHandler
+  55              		.syntax unified
+  56              		.thumb
+  57              		.thumb_func
+  58              		.fpu fpv4-sp-d16
+  60              	TMR6_GLOBAL_IRQHandler:
+  61              	.LFB132:
   55:Src/TimerForRunTimeState.c **** 
   56:Src/TimerForRunTimeState.c **** /**
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccZ7BxEl.s 			page 3
+
+
   57:Src/TimerForRunTimeState.c ****   * @brief  Interrupt handler for timer 6
   58:Src/TimerForRunTimeState.c ****   * @param  None
   59:Src/TimerForRunTimeState.c ****   * @retval None
   60:Src/TimerForRunTimeState.c ****   */
   61:Src/TimerForRunTimeState.c **** void TMR6_GLOBAL_IRQHandler( void )
   62:Src/TimerForRunTimeState.c **** {
-  66              		.loc 1 62 0
-  67              		.cfi_startproc
-  68              		@ args = 0, pretend = 0, frame = 0
-  69              		@ frame_needed = 0, uses_anonymous_args = 0
-  70 0000 08B5     		push	{r3, lr}
-  71              		.save {r3, lr}
-  72              	.LCFI1:
-  73              		.cfi_def_cfa_offset 8
-  74              		.cfi_offset 3, -8
-  75              		.cfi_offset 14, -4
+  62              		.loc 1 62 0
+  63              		.cfi_startproc
+  64              		@ args = 0, pretend = 0, frame = 0
+  65              		@ frame_needed = 0, uses_anonymous_args = 0
+  66 0000 08B5     		push	{r3, lr}
+  67              	.LCFI1:
+  68              		.cfi_def_cfa_offset 8
+  69              		.cfi_offset 3, -8
+  70              		.cfi_offset 14, -4
   63:Src/TimerForRunTimeState.c **** 	if(TMR_GetINTStatus(TMR6, TMR_INT_Overflow) != RESET)
-  76              		.loc 1 63 0
-  77 0002 0121     		movs	r1, #1
-  78 0004 0648     		ldr	r0, .L9
-  79 0006 FFF7FEFF 		bl	TMR_GetINTStatus
-  80              	.LVL1:
-  81 000a 00B9     		cbnz	r0, .L8
-  82              	.L5:
+  71              		.loc 1 63 0
+  72 0002 0121     		movs	r1, #1
+  73 0004 0648     		ldr	r0, .L9
+  74 0006 FFF7FEFF 		bl	TMR_GetINTStatus
+  75              	.LVL1:
+  76 000a 00B9     		cbnz	r0, .L8
+  77              	.L5:
   64:Src/TimerForRunTimeState.c **** 	{
   65:Src/TimerForRunTimeState.c **** 		ulHighFrequencyTimerTicks++;
   66:Src/TimerForRunTimeState.c **** 		TMR_ClearITPendingBit(TMR6, TMR_INT_Overflow);
   67:Src/TimerForRunTimeState.c **** 	}
   68:Src/TimerForRunTimeState.c **** }
-  83              		.loc 1 68 0
-  84 000c 08BD     		pop	{r3, pc}
-  85              	.L8:
+  78              		.loc 1 68 0
+  79 000c 08BD     		pop	{r3, pc}
+  80              	.L8:
   65:Src/TimerForRunTimeState.c **** 		TMR_ClearITPendingBit(TMR6, TMR_INT_Overflow);
-  86              		.loc 1 65 0
-  87 000e 054A     		ldr	r2, .L9+4
-  88 0010 1368     		ldr	r3, [r2]
-  89 0012 0133     		adds	r3, r3, #1
-  90 0014 1360     		str	r3, [r2]
+  81              		.loc 1 65 0
+  82 000e 054A     		ldr	r2, .L9+4
+  83 0010 1368     		ldr	r3, [r2]
+  84 0012 0133     		adds	r3, r3, #1
+  85 0014 1360     		str	r3, [r2]
   66:Src/TimerForRunTimeState.c **** 	}
-  91              		.loc 1 66 0
-  92 0016 0121     		movs	r1, #1
-  93 0018 0148     		ldr	r0, .L9
-  94 001a FFF7FEFF 		bl	TMR_ClearITPendingBit
-  95              	.LVL2:
-  96              		.loc 1 68 0
-  97 001e F5E7     		b	.L5
-  98              	.L10:
-  99              		.align	2
- 100              	.L9:
- 101 0020 00100040 		.word	1073745920
- 102 0024 00000000 		.word	.LANCHOR0
- 103              		.cfi_endproc
- 104              	.LFE137:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccR8VDJO.s 			page 4
+  86              		.loc 1 66 0
+  87 0016 0121     		movs	r1, #1
+  88 0018 0148     		ldr	r0, .L9
+  89 001a FFF7FEFF 		bl	TMR_ClearITPendingBit
+  90              	.LVL2:
+  91              		.loc 1 68 0
+  92 001e F5E7     		b	.L5
+  93              	.L10:
+  94              		.align	2
+  95              	.L9:
+  96 0020 00100040 		.word	1073745920
+  97 0024 00000000 		.word	.LANCHOR0
+  98              		.cfi_endproc
+  99              	.LFE132:
+ 101              		.global	ulHighFrequencyTimerTicks
+ 102              		.section	.bss.ulHighFrequencyTimerTicks,"aw",%nobits
+ 103              		.align	2
+ 104              		.set	.LANCHOR0,. + 0
+ 107              	ulHighFrequencyTimerTicks:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccZ7BxEl.s 			page 4
 
 
- 105              		.fnend
- 107              		.global	ulHighFrequencyTimerTicks
- 108              		.section	.bss.ulHighFrequencyTimerTicks,"aw",%nobits
- 109              		.align	2
- 110              		.set	.LANCHOR0,. + 0
- 113              	ulHighFrequencyTimerTicks:
- 114 0000 00000000 		.space	4
- 115              		.text
- 116              	.Letext0:
- 117              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h
- 118              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
- 119              		.file 4 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
- 120              		.file 5 "../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h"
- 121              		.file 6 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
- 122              		.file 7 "../Libraries/CMSIS/CM4/DeviceSupport/at32f4xx.h"
- 123              		.file 8 "Inc/FreeRTOSConfig.h"
- 124              		.file 9 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
- 125              		.file 10 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
- 126              		.file 11 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
- 127              		.file 12 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/cstdlib"
- 128              		.file 13 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/arm-none-ea
- 129              		.file 14 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdlib.h"
- 130              		.file 15 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/stdlib.h"
- 131              		.file 16 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_tim.h"
- 132              		.file 17 "<built-in>"
- 133              		.file 18 "bsp/inc/bsp_tim_pwm.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccR8VDJO.s 			page 5
+ 108 0000 00000000 		.space	4
+ 109              		.text
+ 110              	.Letext0:
+ 111              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
+ 112              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
+ 113              		.file 4 "../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h"
+ 114              		.file 5 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
+ 115              		.file 6 "../Libraries/CMSIS/CM4/DeviceSupport/at32f4xx.h"
+ 116              		.file 7 "Inc/FreeRTOSConfig.h"
+ 117              		.file 8 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
+ 118              		.file 9 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
+ 119              		.file 10 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.
+ 120              		.file 11 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
+ 121              		.file 12 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdlib.h"
+ 122              		.file 13 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_tim.h"
+ 123              		.file 14 "bsp/inc/bsp_tim_pwm.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccZ7BxEl.s 			page 5
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 TimerForRunTimeState.c
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccR8VDJO.s:17     .text._Z25vTimerInitForRunTimeStatev:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccR8VDJO.s:24     .text._Z25vTimerInitForRunTimeStatev:0000000000000000 _Z25vTimerInitForRunTimeStatev
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccR8VDJO.s:50     .text._Z25vTimerInitForRunTimeStatev:0000000000000014 $d
-.ARM.extab.text._Z25vTimerInitForRunTimeStatev:0000000000000000 $d
-.ARM.exidx.text._Z25vTimerInitForRunTimeStatev:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccR8VDJO.s:56     .text._Z22TMR6_GLOBAL_IRQHandlerv:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccR8VDJO.s:63     .text._Z22TMR6_GLOBAL_IRQHandlerv:0000000000000000 _Z22TMR6_GLOBAL_IRQHandlerv
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccR8VDJO.s:101    .text._Z22TMR6_GLOBAL_IRQHandlerv:0000000000000020 $d
-.ARM.extab.text._Z22TMR6_GLOBAL_IRQHandlerv:0000000000000000 $d
-.ARM.exidx.text._Z22TMR6_GLOBAL_IRQHandlerv:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccR8VDJO.s:113    .bss.ulHighFrequencyTimerTicks:0000000000000000 ulHighFrequencyTimerTicks
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccR8VDJO.s:109    .bss.ulHighFrequencyTimerTicks:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccZ7BxEl.s:17     .text.vTimerInitForRunTimeState:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccZ7BxEl.s:24     .text.vTimerInitForRunTimeState:0000000000000000 vTimerInitForRunTimeState
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccZ7BxEl.s:48     .text.vTimerInitForRunTimeState:0000000000000014 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccZ7BxEl.s:53     .text.TMR6_GLOBAL_IRQHandler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccZ7BxEl.s:60     .text.TMR6_GLOBAL_IRQHandler:0000000000000000 TMR6_GLOBAL_IRQHandler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccZ7BxEl.s:96     .text.TMR6_GLOBAL_IRQHandler:0000000000000020 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccZ7BxEl.s:107    .bss.ulHighFrequencyTimerTicks:0000000000000000 ulHighFrequencyTimerTicks
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccZ7BxEl.s:103    .bss.ulHighFrequencyTimerTicks:0000000000000000 $d
 
 UNDEFINED SYMBOLS
-_Z16bsp_SetTMRforIntP8TMR_Typemhh
-__aeabi_unwind_cpp_pr1
+bsp_SetTMRforInt
 TMR_GetINTStatus
 TMR_ClearITPendingBit

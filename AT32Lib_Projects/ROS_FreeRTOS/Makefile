@@ -57,10 +57,10 @@ bsp/src/bsp_tim_pwm.c \
 bsp/src/bsp_timer.c \
 bsp/src/bsp_uart_fifo.c \
 bsp/src/bsp.c \
+Src/main.c \
 Src/at32f4xx_it.c \
 Src/at32f4xx_assert.c \
-Src//TimerForRunTimeState.c \
-Src/main.c 
+Src//TimerForRunTimeState.c 
 
 # CPP sources
 CPP_SOURCES = \
@@ -78,13 +78,13 @@ PREFIX = arm-none-eabi-
 # The gcc compiler bin path can be either defined in make command via GCC_PATH variable (> make GCC_PATH=xxx)
 # either it can be added to the PATH environment variable.
 ifdef GCC_PATH
-CC = $(GCC_PATH)/$(PREFIX)g++
+CC = $(GCC_PATH)/$(PREFIX)gcc
 CXX = $(GCC_PATH)/$(PREFIX)g++ 
 AS = $(GCC_PATH)/$(PREFIX)gcc -x assembler-with-cpp
 CP = $(GCC_PATH)/$(PREFIX)objcopy
 SZ = $(GCC_PATH)/$(PREFIX)size
 else
-CC = $(PREFIX)g++
+CC = $(PREFIX)gcc
 CXX = $(PREFIX)g++
 AS = $(PREFIX)gcc -x assembler-with-cpp
 CP = $(PREFIX)objcopy
@@ -116,12 +116,12 @@ AS_DEFS =
 
 # C defines
 C_DEFS =  \
+-DUSE_HAL_DRIVER \
 -DAT32F403Rx_HD 
 
 
 # AS includes
-AS_INCLUDES =  \
--I/Inc
+AS_INCLUDES = 
 
 # C includes
 C_INCLUDES =  \
@@ -148,7 +148,7 @@ C_INCLUDES += $(CXX_INCLUDES)
 # compile gcc flags
 ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
 
-CFLAGS = $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections -fpermissive
+CFLAGS = $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections 
 
 CXXFLAGS = $(MCU) $(C_DEFS) $(CXX_INCLUDES) $(C_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections -fpermissive
 

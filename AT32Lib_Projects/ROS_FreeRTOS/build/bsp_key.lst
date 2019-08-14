@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -16,16 +16,15 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s 			page 1
   13              		.text
   14              	.Ltext0:
   15              		.cfi_sections	.debug_frame
-  16              		.section	.text._ZL10IsKeyDown1v,"ax",%progbits
+  16              		.section	.text.IsKeyDown1,"ax",%progbits
   17              		.align	1
   18              		.syntax unified
   19              		.thumb
   20              		.thumb_func
   21              		.fpu fpv4-sp-d16
-  23              	_ZL10IsKeyDown1v:
-  24              		.fnstart
-  25              	.LFB136:
-  26              		.file 1 "bsp/src/bsp_key.c"
+  23              	IsKeyDown1:
+  24              	.LFB131:
+  25              		.file 1 "bsp/src/bsp_key.c"
    1:bsp/src/bsp_key.c **** /**
    2:bsp/src/bsp_key.c ****   ******************************************************************************
    3:bsp/src/bsp_key.c ****   * @file    FreeRTOS/bsp/bsp_key.c 
@@ -58,10 +57,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s 			page 1
   30:bsp/src/bsp_key.c ****   * @{
   31:bsp/src/bsp_key.c ****   */ 
   32:bsp/src/bsp_key.c ****   
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s 			page 2
-
-
   33:bsp/src/bsp_key.c **** /* Private typedef -----------------------------------------------------------*/
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s 			page 2
+
+
   34:bsp/src/bsp_key.c **** /* Private define ------------------------------------------------------------*/  
   35:bsp/src/bsp_key.c **** #define RCC_ALL_KEY 	RCC_APB2PERIPH_GPIOA 
   36:bsp/src/bsp_key.c **** 
@@ -89,50 +88,47 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s 			page 1
   58:bsp/src/bsp_key.c ****   */
   59:bsp/src/bsp_key.c **** static uint8_t IsKeyDown1(void)
   60:bsp/src/bsp_key.c **** {
-  27              		.loc 1 60 0
-  28              		.cfi_startproc
-  29              		@ args = 0, pretend = 0, frame = 0
-  30              		@ frame_needed = 0, uses_anonymous_args = 0
-  31              		@ link register save eliminated.
+  26              		.loc 1 60 0
+  27              		.cfi_startproc
+  28              		@ args = 0, pretend = 0, frame = 0
+  29              		@ frame_needed = 0, uses_anonymous_args = 0
+  30              		@ link register save eliminated.
   61:bsp/src/bsp_key.c **** 	if ((GPIO_PORT_K1->IPTDT & GPIO_PIN_K1) == 1)
-  32              		.loc 1 61 0
-  33 0000 044B     		ldr	r3, .L5
-  34 0002 9B68     		ldr	r3, [r3, #8]
-  35 0004 13F0010F 		tst	r3, #1
-  36 0008 01D1     		bne	.L4
+  31              		.loc 1 61 0
+  32 0000 044B     		ldr	r3, .L5
+  33 0002 9B68     		ldr	r3, [r3, #8]
+  34 0004 13F0010F 		tst	r3, #1
+  35 0008 01D1     		bne	.L4
   62:bsp/src/bsp_key.c **** 		return 1;
   63:bsp/src/bsp_key.c **** 	else 
   64:bsp/src/bsp_key.c **** 		return 0;
-  37              		.loc 1 64 0
-  38 000a 0020     		movs	r0, #0
+  36              		.loc 1 64 0
+  37 000a 0020     		movs	r0, #0
   65:bsp/src/bsp_key.c **** }
-  39              		.loc 1 65 0
-  40 000c 7047     		bx	lr
-  41              	.L4:
+  38              		.loc 1 65 0
+  39 000c 7047     		bx	lr
+  40              	.L4:
   62:bsp/src/bsp_key.c **** 		return 1;
-  42              		.loc 1 62 0
-  43 000e 0120     		movs	r0, #1
-  44 0010 7047     		bx	lr
-  45              	.L6:
-  46 0012 00BF     		.align	2
-  47              	.L5:
-  48 0014 00080140 		.word	1073809408
-  49              		.cfi_endproc
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s 			page 3
+  41              		.loc 1 62 0
+  42 000e 0120     		movs	r0, #1
+  43 0010 7047     		bx	lr
+  44              	.L6:
+  45 0012 00BF     		.align	2
+  46              	.L5:
+  47 0014 00080140 		.word	1073809408
+  48              		.cfi_endproc
+  49              	.LFE131:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s 			page 3
 
 
-  50              	.LFE136:
-  51              		.cantunwind
-  52              		.fnend
-  54              		.section	.text._ZL14bsp_InitKeyVarv,"ax",%progbits
-  55              		.align	1
-  56              		.syntax unified
-  57              		.thumb
-  58              		.thumb_func
-  59              		.fpu fpv4-sp-d16
-  61              	_ZL14bsp_InitKeyVarv:
-  62              		.fnstart
-  63              	.LFB144:
+  51              		.section	.text.bsp_InitKeyVar,"ax",%progbits
+  52              		.align	1
+  53              		.syntax unified
+  54              		.thumb
+  55              		.thumb_func
+  56              		.fpu fpv4-sp-d16
+  58              	bsp_InitKeyVar:
+  59              	.LFB139:
   66:bsp/src/bsp_key.c **** 
   67:bsp/src/bsp_key.c **** /**
   68:bsp/src/bsp_key.c ****   * @brief  Initialize key
@@ -178,13 +174,13 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s 			page 1
  108:bsp/src/bsp_key.c **** 		ret = s_tKey.Buf[s_tKey.Read];
  109:bsp/src/bsp_key.c **** 
  110:bsp/src/bsp_key.c **** 		if (++s_tKey.Read >= KEY_FIFO_SIZE)
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s 			page 4
-
-
  111:bsp/src/bsp_key.c **** 		{
  112:bsp/src/bsp_key.c **** 			s_tKey.Read = 0;
  113:bsp/src/bsp_key.c **** 		}
  114:bsp/src/bsp_key.c **** 		return ret;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s 			page 4
+
+
  115:bsp/src/bsp_key.c **** 	}
  116:bsp/src/bsp_key.c **** }
  117:bsp/src/bsp_key.c **** 
@@ -238,249 +234,239 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s 			page 1
  165:bsp/src/bsp_key.c **** /**
  166:bsp/src/bsp_key.c ****   * @brief  Initialize key and FIFO structure
  167:bsp/src/bsp_key.c ****   * @param  None
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s 			page 5
-
-
  168:bsp/src/bsp_key.c ****   * @retval None
  169:bsp/src/bsp_key.c ****   */
  170:bsp/src/bsp_key.c **** static void bsp_InitKeyVar(void)
  171:bsp/src/bsp_key.c **** {
-  64              		.loc 1 171 0
-  65              		.cfi_startproc
-  66              		@ args = 0, pretend = 0, frame = 0
-  67              		@ frame_needed = 0, uses_anonymous_args = 0
-  68              		@ link register save eliminated.
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s 			page 5
+
+
+  60              		.loc 1 171 0
+  61              		.cfi_startproc
+  62              		@ args = 0, pretend = 0, frame = 0
+  63              		@ frame_needed = 0, uses_anonymous_args = 0
+  64              		@ link register save eliminated.
  172:bsp/src/bsp_key.c **** 	uint8_t i;
  173:bsp/src/bsp_key.c **** 
  174:bsp/src/bsp_key.c **** 	//clear FIFO operation pointer
  175:bsp/src/bsp_key.c **** 	s_tKey.Read     = 0;
-  69              		.loc 1 175 0
-  70 0000 0B4A     		ldr	r2, .L10
-  71 0002 0023     		movs	r3, #0
-  72 0004 9372     		strb	r3, [r2, #10]
+  65              		.loc 1 175 0
+  66 0000 0B4A     		ldr	r2, .L10
+  67 0002 0023     		movs	r3, #0
+  68 0004 9372     		strb	r3, [r2, #10]
  176:bsp/src/bsp_key.c **** 	s_tKey.Write    = 0;
-  73              		.loc 1 176 0
-  74 0006 D372     		strb	r3, [r2, #11]
-  75              	.LVL0:
-  76              	.L9:
+  69              		.loc 1 176 0
+  70 0006 D372     		strb	r3, [r2, #11]
+  71              	.LVL0:
+  72              	.L8:
  177:bsp/src/bsp_key.c **** 
  178:bsp/src/bsp_key.c **** 	for (i = 0; i < KEY_COUNT; i++)
-  77              		.loc 1 178 0 discriminator 3
-  78 0008 6BB9     		cbnz	r3, .L8
+  73              		.loc 1 178 0 discriminator 1
+  74 0008 1BB1     		cbz	r3, .L9
  179:bsp/src/bsp_key.c **** 	{
  180:bsp/src/bsp_key.c **** 		s_tBtn[i].LongTime = KEY_LONG_TIME;			
-  79              		.loc 1 180 0 discriminator 2
-  80 000a 0A4A     		ldr	r2, .L10+4
-  81 000c 02EB0312 		add	r2, r2, r3, lsl #4
-  82 0010 6421     		movs	r1, #100
-  83 0012 1181     		strh	r1, [r2, #8]	@ movhi
  181:bsp/src/bsp_key.c **** 		s_tBtn[i].Count = KEY_FILTER_TIME / 2;		
-  84              		.loc 1 181 0 discriminator 2
-  85 0014 0221     		movs	r1, #2
-  86 0016 1171     		strb	r1, [r2, #4]
  182:bsp/src/bsp_key.c **** 		s_tBtn[i].State = 0;							
-  87              		.loc 1 182 0 discriminator 2
-  88 0018 0021     		movs	r1, #0
-  89 001a 9172     		strb	r1, [r2, #10]
  183:bsp/src/bsp_key.c **** 		s_tBtn[i].RepeatSpeed = 0;						
-  90              		.loc 1 183 0 discriminator 2
-  91 001c D172     		strb	r1, [r2, #11]
  184:bsp/src/bsp_key.c **** 		s_tBtn[i].RepeatCount = 0;						
-  92              		.loc 1 184 0 discriminator 2
-  93 001e 1173     		strb	r1, [r2, #12]
- 178:bsp/src/bsp_key.c **** 	{
-  94              		.loc 1 178 0 discriminator 2
-  95 0020 0133     		adds	r3, r3, #1
-  96              	.LVL1:
-  97 0022 DBB2     		uxtb	r3, r3
-  98              	.LVL2:
-  99 0024 F0E7     		b	.L9
- 100              	.L8:
  185:bsp/src/bsp_key.c **** 	}
  186:bsp/src/bsp_key.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s 			page 6
-
-
  187:bsp/src/bsp_key.c **** 	s_tBtn[KID_K1].IsKeyDownFunc = IsKeyDown1;
- 101              		.loc 1 187 0
- 102 0026 034B     		ldr	r3, .L10+4
- 103              	.LVL3:
- 104 0028 034A     		ldr	r2, .L10+8
- 105 002a 1A60     		str	r2, [r3]
+  75              		.loc 1 187 0
+  76 000a 0A4B     		ldr	r3, .L10+4
+  77              	.LVL1:
+  78 000c 0A4A     		ldr	r2, .L10+8
+  79 000e 1A60     		str	r2, [r3]
  188:bsp/src/bsp_key.c **** }
- 106              		.loc 1 188 0
- 107 002c 7047     		bx	lr
- 108              	.L11:
- 109 002e 00BF     		.align	2
- 110              	.L10:
- 111 0030 00000000 		.word	.LANCHOR0
- 112 0034 00000000 		.word	.LANCHOR1
- 113 0038 00000000 		.word	_ZL10IsKeyDown1v
- 114              		.cfi_endproc
- 115              	.LFE144:
- 116              		.cantunwind
- 117              		.fnend
- 119              		.section	.text._ZL15bsp_InitKeyHardv,"ax",%progbits
- 120              		.align	1
- 121              		.syntax unified
- 122              		.thumb
- 123              		.thumb_func
- 124              		.fpu fpv4-sp-d16
- 126              	_ZL15bsp_InitKeyHardv:
- 127              		.fnstart
- 128              	.LFB143:
+  80              		.loc 1 188 0
+  81 0010 7047     		bx	lr
+  82              	.LVL2:
+  83              	.L9:
+ 180:bsp/src/bsp_key.c **** 		s_tBtn[i].Count = KEY_FILTER_TIME / 2;		
+  84              		.loc 1 180 0 discriminator 3
+  85 0012 084A     		ldr	r2, .L10+4
+  86 0014 02EB0312 		add	r2, r2, r3, lsl #4
+  87 0018 6421     		movs	r1, #100
+  88 001a 1181     		strh	r1, [r2, #8]	@ movhi
+ 181:bsp/src/bsp_key.c **** 		s_tBtn[i].State = 0;							
+  89              		.loc 1 181 0 discriminator 3
+  90 001c 0221     		movs	r1, #2
+  91 001e 1171     		strb	r1, [r2, #4]
+ 182:bsp/src/bsp_key.c **** 		s_tBtn[i].RepeatSpeed = 0;						
+  92              		.loc 1 182 0 discriminator 3
+  93 0020 0021     		movs	r1, #0
+  94 0022 9172     		strb	r1, [r2, #10]
+ 183:bsp/src/bsp_key.c **** 		s_tBtn[i].RepeatCount = 0;						
+  95              		.loc 1 183 0 discriminator 3
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s 			page 6
+
+
+  96 0024 D172     		strb	r1, [r2, #11]
+ 184:bsp/src/bsp_key.c **** 	}
+  97              		.loc 1 184 0 discriminator 3
+  98 0026 1173     		strb	r1, [r2, #12]
+ 178:bsp/src/bsp_key.c **** 	{
+  99              		.loc 1 178 0 discriminator 3
+ 100 0028 0133     		adds	r3, r3, #1
+ 101              	.LVL3:
+ 102 002a DBB2     		uxtb	r3, r3
+ 103              	.LVL4:
+ 104 002c ECE7     		b	.L8
+ 105              	.L11:
+ 106 002e 00BF     		.align	2
+ 107              	.L10:
+ 108 0030 00000000 		.word	.LANCHOR0
+ 109 0034 00000000 		.word	.LANCHOR1
+ 110 0038 00000000 		.word	IsKeyDown1
+ 111              		.cfi_endproc
+ 112              	.LFE139:
+ 114              		.section	.text.bsp_InitKeyHard,"ax",%progbits
+ 115              		.align	1
+ 116              		.syntax unified
+ 117              		.thumb
+ 118              		.thumb_func
+ 119              		.fpu fpv4-sp-d16
+ 121              	bsp_InitKeyHard:
+ 122              	.LFB138:
  153:bsp/src/bsp_key.c **** 	GPIO_InitType GPIO_InitStructure;
- 129              		.loc 1 153 0
- 130              		.cfi_startproc
- 131              		@ args = 0, pretend = 0, frame = 8
- 132              		@ frame_needed = 0, uses_anonymous_args = 0
- 133 0000 00B5     		push	{lr}
- 134              		.save {lr}
- 135              	.LCFI0:
- 136              		.cfi_def_cfa_offset 4
- 137              		.cfi_offset 14, -4
- 138              		.pad #12
- 139 0002 83B0     		sub	sp, sp, #12
- 140              	.LCFI1:
- 141              		.cfi_def_cfa_offset 16
+ 123              		.loc 1 153 0
+ 124              		.cfi_startproc
+ 125              		@ args = 0, pretend = 0, frame = 8
+ 126              		@ frame_needed = 0, uses_anonymous_args = 0
+ 127 0000 00B5     		push	{lr}
+ 128              	.LCFI0:
+ 129              		.cfi_def_cfa_offset 4
+ 130              		.cfi_offset 14, -4
+ 131 0002 83B0     		sub	sp, sp, #12
+ 132              	.LCFI1:
+ 133              		.cfi_def_cfa_offset 16
  156:bsp/src/bsp_key.c **** 
- 142              		.loc 1 156 0
- 143 0004 0121     		movs	r1, #1
- 144 0006 0420     		movs	r0, #4
- 145 0008 FFF7FEFF 		bl	RCC_APB2PeriphClockCmd
- 146              	.LVL4:
+ 134              		.loc 1 156 0
+ 135 0004 0121     		movs	r1, #1
+ 136 0006 0420     		movs	r0, #4
+ 137 0008 FFF7FEFF 		bl	RCC_APB2PeriphClockCmd
+ 138              	.LVL5:
  158:bsp/src/bsp_key.c **** 	GPIO_InitStructure.GPIO_Mode        = GPIO_Mode_IN_PD;	
- 147              		.loc 1 158 0
- 148 000c 0223     		movs	r3, #2
- 149 000e 8DF80630 		strb	r3, [sp, #6]
+ 139              		.loc 1 158 0
+ 140 000c 0223     		movs	r3, #2
+ 141 000e 8DF80630 		strb	r3, [sp, #6]
  159:bsp/src/bsp_key.c **** 	
- 150              		.loc 1 159 0
- 151 0012 2823     		movs	r3, #40
- 152 0014 8DF80730 		strb	r3, [sp, #7]
+ 142              		.loc 1 159 0
+ 143 0012 2823     		movs	r3, #40
+ 144 0014 8DF80730 		strb	r3, [sp, #7]
  161:bsp/src/bsp_key.c **** 	GPIO_Init(GPIO_PORT_K1, &GPIO_InitStructure);
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s 			page 7
+ 145              		.loc 1 161 0
+ 146 0018 02A9     		add	r1, sp, #8
+ 147 001a 0123     		movs	r3, #1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s 			page 7
 
 
- 153              		.loc 1 161 0
- 154 0018 02A9     		add	r1, sp, #8
- 155 001a 0123     		movs	r3, #1
- 156 001c 21F8043D 		strh	r3, [r1, #-4]!	@ movhi
+ 148 001c 21F8043D 		strh	r3, [r1, #-4]!	@ movhi
  162:bsp/src/bsp_key.c **** }
- 157              		.loc 1 162 0
- 158 0020 0248     		ldr	r0, .L14
- 159 0022 FFF7FEFF 		bl	GPIO_Init
- 160              	.LVL5:
+ 149              		.loc 1 162 0
+ 150 0020 0248     		ldr	r0, .L14
+ 151 0022 FFF7FEFF 		bl	GPIO_Init
+ 152              	.LVL6:
  163:bsp/src/bsp_key.c **** 
- 161              		.loc 1 163 0
- 162 0026 03B0     		add	sp, sp, #12
- 163              	.LCFI2:
- 164              		.cfi_def_cfa_offset 4
- 165              		@ sp needed
- 166 0028 5DF804FB 		ldr	pc, [sp], #4
- 167              	.L15:
- 168              		.align	2
- 169              	.L14:
- 170 002c 00080140 		.word	1073809408
- 171              		.cfi_endproc
- 172              	.LFE143:
- 173              		.fnend
- 175              		.section	.text._Z11bsp_InitKeyv,"ax",%progbits
- 176              		.align	1
- 177              		.global	_Z11bsp_InitKeyv
- 178              		.syntax unified
- 179              		.thumb
- 180              		.thumb_func
- 181              		.fpu fpv4-sp-d16
- 183              	_Z11bsp_InitKeyv:
- 184              		.fnstart
- 185              	.LFB137:
+ 153              		.loc 1 163 0
+ 154 0026 03B0     		add	sp, sp, #12
+ 155              	.LCFI2:
+ 156              		.cfi_def_cfa_offset 4
+ 157              		@ sp needed
+ 158 0028 5DF804FB 		ldr	pc, [sp], #4
+ 159              	.L15:
+ 160              		.align	2
+ 161              	.L14:
+ 162 002c 00080140 		.word	1073809408
+ 163              		.cfi_endproc
+ 164              	.LFE138:
+ 166              		.section	.text.bsp_InitKey,"ax",%progbits
+ 167              		.align	1
+ 168              		.global	bsp_InitKey
+ 169              		.syntax unified
+ 170              		.thumb
+ 171              		.thumb_func
+ 172              		.fpu fpv4-sp-d16
+ 174              	bsp_InitKey:
+ 175              	.LFB132:
   73:bsp/src/bsp_key.c **** 	bsp_InitKeyVar();		
- 186              		.loc 1 73 0
- 187              		.cfi_startproc
- 188              		@ args = 0, pretend = 0, frame = 0
- 189              		@ frame_needed = 0, uses_anonymous_args = 0
- 190 0000 08B5     		push	{r3, lr}
- 191              		.save {r3, lr}
- 192              	.LCFI3:
- 193              		.cfi_def_cfa_offset 8
- 194              		.cfi_offset 3, -8
- 195              		.cfi_offset 14, -4
+ 176              		.loc 1 73 0
+ 177              		.cfi_startproc
+ 178              		@ args = 0, pretend = 0, frame = 0
+ 179              		@ frame_needed = 0, uses_anonymous_args = 0
+ 180 0000 08B5     		push	{r3, lr}
+ 181              	.LCFI3:
+ 182              		.cfi_def_cfa_offset 8
+ 183              		.cfi_offset 3, -8
+ 184              		.cfi_offset 14, -4
   74:bsp/src/bsp_key.c **** 	bsp_InitKeyHard();		
- 196              		.loc 1 74 0
- 197 0002 FFF7FEFF 		bl	_ZL14bsp_InitKeyVarv
- 198              	.LVL6:
+ 185              		.loc 1 74 0
+ 186 0002 FFF7FEFF 		bl	bsp_InitKeyVar
+ 187              	.LVL7:
   75:bsp/src/bsp_key.c **** }
- 199              		.loc 1 75 0
- 200 0006 FFF7FEFF 		bl	_ZL15bsp_InitKeyHardv
- 201              	.LVL7:
+ 188              		.loc 1 75 0
+ 189 0006 FFF7FEFF 		bl	bsp_InitKeyHard
+ 190              	.LVL8:
   76:bsp/src/bsp_key.c **** 
- 202              		.loc 1 76 0
- 203 000a 08BD     		pop	{r3, pc}
- 204              		.cfi_endproc
- 205              	.LFE137:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s 			page 8
+ 191              		.loc 1 76 0
+ 192 000a 08BD     		pop	{r3, pc}
+ 193              		.cfi_endproc
+ 194              	.LFE132:
+ 196              		.section	.text.bsp_PutKey,"ax",%progbits
+ 197              		.align	1
+ 198              		.global	bsp_PutKey
+ 199              		.syntax unified
+ 200              		.thumb
+ 201              		.thumb_func
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s 			page 8
 
 
- 206              		.fnend
- 208              		.section	.text._Z10bsp_PutKeyh,"ax",%progbits
- 209              		.align	1
- 210              		.global	_Z10bsp_PutKeyh
- 211              		.syntax unified
- 212              		.thumb
- 213              		.thumb_func
- 214              		.fpu fpv4-sp-d16
- 216              	_Z10bsp_PutKeyh:
- 217              		.fnstart
- 218              	.LFB138:
+ 202              		.fpu fpv4-sp-d16
+ 204              	bsp_PutKey:
+ 205              	.LFB133:
   84:bsp/src/bsp_key.c **** 	s_tKey.Buf[s_tKey.Write] = _KeyCode;
- 219              		.loc 1 84 0
- 220              		.cfi_startproc
- 221              		@ args = 0, pretend = 0, frame = 0
- 222              		@ frame_needed = 0, uses_anonymous_args = 0
- 223              		@ link register save eliminated.
- 224              	.LVL8:
+ 206              		.loc 1 84 0
+ 207              		.cfi_startproc
+ 208              		@ args = 0, pretend = 0, frame = 0
+ 209              		@ frame_needed = 0, uses_anonymous_args = 0
+ 210              		@ link register save eliminated.
+ 211              	.LVL9:
   85:bsp/src/bsp_key.c **** 
- 225              		.loc 1 85 0
- 226 0000 054A     		ldr	r2, .L20
- 227 0002 D37A     		ldrb	r3, [r2, #11]	@ zero_extendqisi2
- 228 0004 D054     		strb	r0, [r2, r3]
+ 212              		.loc 1 85 0
+ 213 0000 054A     		ldr	r2, .L20
+ 214 0002 D37A     		ldrb	r3, [r2, #11]	@ zero_extendqisi2
+ 215 0004 D054     		strb	r0, [r2, r3]
   87:bsp/src/bsp_key.c **** 	{
- 229              		.loc 1 87 0
- 230 0006 0133     		adds	r3, r3, #1
- 231 0008 DBB2     		uxtb	r3, r3
- 232 000a D372     		strb	r3, [r2, #11]
- 233 000c 092B     		cmp	r3, #9
- 234 000e 02D9     		bls	.L18
+ 216              		.loc 1 87 0
+ 217 0006 0133     		adds	r3, r3, #1
+ 218 0008 DBB2     		uxtb	r3, r3
+ 219 000a D372     		strb	r3, [r2, #11]
+ 220 000c 092B     		cmp	r3, #9
+ 221 000e 02D9     		bls	.L18
   89:bsp/src/bsp_key.c **** 	}
- 235              		.loc 1 89 0
- 236 0010 1346     		mov	r3, r2
- 237 0012 0022     		movs	r2, #0
- 238 0014 DA72     		strb	r2, [r3, #11]
- 239              	.L18:
+ 222              		.loc 1 89 0
+ 223 0010 1346     		mov	r3, r2
+ 224 0012 0022     		movs	r2, #0
+ 225 0014 DA72     		strb	r2, [r3, #11]
+ 226              	.L18:
   91:bsp/src/bsp_key.c **** 
- 240              		.loc 1 91 0
- 241 0016 7047     		bx	lr
- 242              	.L21:
- 243              		.align	2
- 244              	.L20:
- 245 0018 00000000 		.word	.LANCHOR0
- 246              		.cfi_endproc
- 247              	.LFE138:
- 248              		.cantunwind
- 249              		.fnend
- 251              		.section	.text._ZL13bsp_DetectKeyh,"ax",%progbits
- 252              		.align	1
- 253              		.syntax unified
- 254              		.thumb
- 255              		.thumb_func
- 256              		.fpu fpv4-sp-d16
- 258              	_ZL13bsp_DetectKeyh:
- 259              		.fnstart
- 260              	.LFB145:
+ 227              		.loc 1 91 0
+ 228 0016 7047     		bx	lr
+ 229              	.L21:
+ 230              		.align	2
+ 231              	.L20:
+ 232 0018 00000000 		.word	.LANCHOR0
+ 233              		.cfi_endproc
+ 234              	.LFE133:
+ 236              		.section	.text.bsp_DetectKey,"ax",%progbits
+ 237              		.align	1
+ 238              		.syntax unified
+ 239              		.thumb
+ 240              		.thumb_func
+ 241              		.fpu fpv4-sp-d16
+ 243              	bsp_DetectKey:
+ 244              	.LFB140:
  189:bsp/src/bsp_key.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s 			page 9
-
-
  190:bsp/src/bsp_key.c **** /**
  191:bsp/src/bsp_key.c ****   * @brief  Scan the specified key
  192:bsp/src/bsp_key.c ****   * @param  i:key num
@@ -488,61 +474,60 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s 			page 1
  194:bsp/src/bsp_key.c ****   */
  195:bsp/src/bsp_key.c **** static void bsp_DetectKey(uint8_t i)
  196:bsp/src/bsp_key.c **** {
- 261              		.loc 1 196 0
- 262              		.cfi_startproc
- 263              		@ args = 0, pretend = 0, frame = 0
- 264              		@ frame_needed = 0, uses_anonymous_args = 0
- 265              	.LVL9:
- 266 0000 10B5     		push	{r4, lr}
- 267              		.save {r4, lr}
- 268              	.LCFI4:
- 269              		.cfi_def_cfa_offset 8
- 270              		.cfi_offset 4, -8
- 271              		.cfi_offset 14, -4
- 272 0002 0446     		mov	r4, r0
- 273              	.LVL10:
+ 245              		.loc 1 196 0
+ 246              		.cfi_startproc
+ 247              		@ args = 0, pretend = 0, frame = 0
+ 248              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s 			page 9
+
+
+ 249              	.LVL10:
+ 250 0000 10B5     		push	{r4, lr}
+ 251              	.LCFI4:
+ 252              		.cfi_def_cfa_offset 8
+ 253              		.cfi_offset 4, -8
+ 254              		.cfi_offset 14, -4
+ 255 0002 0446     		mov	r4, r0
+ 256              	.LVL11:
  197:bsp/src/bsp_key.c **** 	KEY_T *pBtn;
  198:bsp/src/bsp_key.c **** 
  199:bsp/src/bsp_key.c **** 	pBtn = &s_tBtn[i];
  200:bsp/src/bsp_key.c **** 	if (pBtn->IsKeyDownFunc())//key pressed
- 274              		.loc 1 200 0
- 275 0004 0301     		lsls	r3, r0, #4
- 276 0006 434A     		ldr	r2, .L36
- 277 0008 D358     		ldr	r3, [r2, r3]
- 278 000a 9847     		blx	r3
- 279              	.LVL11:
- 280 000c 0028     		cmp	r0, #0
- 281 000e 55D0     		beq	.L23
+ 257              		.loc 1 200 0
+ 258 0004 0301     		lsls	r3, r0, #4
+ 259 0006 434A     		ldr	r2, .L36
+ 260 0008 D358     		ldr	r3, [r2, r3]
+ 261 000a 9847     		blx	r3
+ 262              	.LVL12:
+ 263 000c 0028     		cmp	r0, #0
+ 264 000e 55D0     		beq	.L23
  201:bsp/src/bsp_key.c **** 	{
  202:bsp/src/bsp_key.c **** 		if (pBtn->Count < KEY_FILTER_TIME)
- 282              		.loc 1 202 0
- 283 0010 404B     		ldr	r3, .L36
- 284 0012 03EB0413 		add	r3, r3, r4, lsl #4
- 285 0016 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
- 286 0018 042B     		cmp	r3, #4
- 287 001a 21D9     		bls	.L33
+ 265              		.loc 1 202 0
+ 266 0010 404B     		ldr	r3, .L36
+ 267 0012 03EB0413 		add	r3, r3, r4, lsl #4
+ 268 0016 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
+ 269 0018 042B     		cmp	r3, #4
+ 270 001a 21D9     		bls	.L33
  203:bsp/src/bsp_key.c **** 		{
  204:bsp/src/bsp_key.c **** 			pBtn->Count = KEY_FILTER_TIME;
  205:bsp/src/bsp_key.c **** 		}
  206:bsp/src/bsp_key.c **** 		else if(pBtn->Count < 2 * KEY_FILTER_TIME)
- 288              		.loc 1 206 0
- 289 001c 092B     		cmp	r3, #9
- 290 001e 25D9     		bls	.L34
+ 271              		.loc 1 206 0
+ 272 001c 092B     		cmp	r3, #9
+ 273 001e 25D9     		bls	.L34
  207:bsp/src/bsp_key.c **** 		{
  208:bsp/src/bsp_key.c **** 			pBtn->Count++;
  209:bsp/src/bsp_key.c **** 		}
  210:bsp/src/bsp_key.c **** 		else
  211:bsp/src/bsp_key.c **** 		{
  212:bsp/src/bsp_key.c **** 			if (pBtn->State == 0)
- 291              		.loc 1 212 0
- 292 0020 3C4B     		ldr	r3, .L36
- 293 0022 03EB0413 		add	r3, r3, r4, lsl #4
- 294 0026 9B7A     		ldrb	r3, [r3, #10]	@ zero_extendqisi2
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s 			page 10
-
-
- 295 0028 33B3     		cbz	r3, .L35
- 296              	.L27:
+ 274              		.loc 1 212 0
+ 275 0020 3C4B     		ldr	r3, .L36
+ 276 0022 03EB0413 		add	r3, r3, r4, lsl #4
+ 277 0026 9B7A     		ldrb	r3, [r3, #10]	@ zero_extendqisi2
+ 278 0028 33B3     		cbz	r3, .L35
+ 279              	.L27:
  213:bsp/src/bsp_key.c **** 			{
  214:bsp/src/bsp_key.c **** 				pBtn->State = 1;
  215:bsp/src/bsp_key.c **** 
@@ -551,147 +536,150 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s 			page 1
  218:bsp/src/bsp_key.c **** 			}
  219:bsp/src/bsp_key.c **** 
  220:bsp/src/bsp_key.c **** 			if (pBtn->LongTime > 0)
- 297              		.loc 1 220 0
- 298 002a 3A4B     		ldr	r3, .L36
- 299 002c 03EB0413 		add	r3, r3, r4, lsl #4
- 300 0030 1B89     		ldrh	r3, [r3, #8]
- 301 0032 002B     		cmp	r3, #0
- 302 0034 53D0     		beq	.L22
+ 280              		.loc 1 220 0
+ 281 002a 3A4B     		ldr	r3, .L36
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s 			page 10
+
+
+ 282 002c 03EB0413 		add	r3, r3, r4, lsl #4
+ 283 0030 1B89     		ldrh	r3, [r3, #8]
+ 284 0032 002B     		cmp	r3, #0
+ 285 0034 53D0     		beq	.L22
  221:bsp/src/bsp_key.c **** 			{
  222:bsp/src/bsp_key.c **** 				if (pBtn->LongCount < pBtn->LongTime)
- 303              		.loc 1 222 0
- 304 0036 374A     		ldr	r2, .L36
- 305 0038 02EB0412 		add	r2, r2, r4, lsl #4
- 306 003c D288     		ldrh	r2, [r2, #6]
- 307 003e 9342     		cmp	r3, r2
- 308 0040 26D9     		bls	.L28
+ 286              		.loc 1 222 0
+ 287 0036 374A     		ldr	r2, .L36
+ 288 0038 02EB0412 		add	r2, r2, r4, lsl #4
+ 289 003c D288     		ldrh	r2, [r2, #6]
+ 290 003e 9342     		cmp	r3, r2
+ 291 0040 26D9     		bls	.L28
  223:bsp/src/bsp_key.c **** 				{
  224:bsp/src/bsp_key.c **** 					
  225:bsp/src/bsp_key.c **** 					if (++pBtn->LongCount == pBtn->LongTime)
- 309              		.loc 1 225 0
- 310 0042 0132     		adds	r2, r2, #1
- 311 0044 92B2     		uxth	r2, r2
- 312 0046 3349     		ldr	r1, .L36
- 313 0048 01EB0411 		add	r1, r1, r4, lsl #4
- 314 004c CA80     		strh	r2, [r1, #6]	@ movhi
- 315 004e 9342     		cmp	r3, r2
- 316 0050 45D1     		bne	.L22
+ 292              		.loc 1 225 0
+ 293 0042 0132     		adds	r2, r2, #1
+ 294 0044 92B2     		uxth	r2, r2
+ 295 0046 3349     		ldr	r1, .L36
+ 296 0048 01EB0411 		add	r1, r1, r4, lsl #4
+ 297 004c CA80     		strh	r2, [r1, #6]	@ movhi
+ 298 004e 9342     		cmp	r3, r2
+ 299 0050 45D1     		bne	.L22
  226:bsp/src/bsp_key.c **** 					{
  227:bsp/src/bsp_key.c **** 						
  228:bsp/src/bsp_key.c **** 						bsp_PutKey((uint8_t)(3 * i + 3));
- 317              		.loc 1 228 0
- 318 0052 0134     		adds	r4, r4, #1
- 319              	.LVL12:
- 320 0054 04EB4404 		add	r4, r4, r4, lsl #1
- 321              	.LVL13:
- 322 0058 E0B2     		uxtb	r0, r4
- 323 005a FFF7FEFF 		bl	_Z10bsp_PutKeyh
- 324              	.LVL14:
- 325 005e 3EE0     		b	.L22
- 326              	.LVL15:
- 327              	.L33:
+ 300              		.loc 1 228 0
+ 301 0052 0134     		adds	r4, r4, #1
+ 302              	.LVL13:
+ 303 0054 04EB4404 		add	r4, r4, r4, lsl #1
+ 304              	.LVL14:
+ 305 0058 E0B2     		uxtb	r0, r4
+ 306 005a FFF7FEFF 		bl	bsp_PutKey
+ 307              	.LVL15:
+ 308 005e 3EE0     		b	.L22
+ 309              	.LVL16:
+ 310              	.L33:
  204:bsp/src/bsp_key.c **** 		}
- 328              		.loc 1 204 0
- 329 0060 2C4B     		ldr	r3, .L36
- 330 0062 03EB0414 		add	r4, r3, r4, lsl #4
- 331              	.LVL16:
- 332 0066 0523     		movs	r3, #5
- 333 0068 2371     		strb	r3, [r4, #4]
- 334 006a 38E0     		b	.L22
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s 			page 11
-
-
- 335              	.LVL17:
- 336              	.L34:
+ 311              		.loc 1 204 0
+ 312 0060 2C4B     		ldr	r3, .L36
+ 313 0062 03EB0414 		add	r4, r3, r4, lsl #4
+ 314              	.LVL17:
+ 315 0066 0523     		movs	r3, #5
+ 316 0068 2371     		strb	r3, [r4, #4]
+ 317 006a 38E0     		b	.L22
+ 318              	.LVL18:
+ 319              	.L34:
  208:bsp/src/bsp_key.c **** 		}
- 337              		.loc 1 208 0
- 338 006c 294A     		ldr	r2, .L36
- 339 006e 02EB0414 		add	r4, r2, r4, lsl #4
- 340              	.LVL18:
- 341 0072 0133     		adds	r3, r3, #1
- 342 0074 2371     		strb	r3, [r4, #4]
- 343 0076 32E0     		b	.L22
- 344              	.LVL19:
- 345              	.L35:
+ 320              		.loc 1 208 0
+ 321 006c 294A     		ldr	r2, .L36
+ 322 006e 02EB0414 		add	r4, r2, r4, lsl #4
+ 323              	.LVL19:
+ 324 0072 0133     		adds	r3, r3, #1
+ 325 0074 2371     		strb	r3, [r4, #4]
+ 326 0076 32E0     		b	.L22
+ 327              	.LVL20:
+ 328              	.L35:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s 			page 11
+
+
  214:bsp/src/bsp_key.c **** 
- 346              		.loc 1 214 0
- 347 0078 264B     		ldr	r3, .L36
- 348 007a 03EB0413 		add	r3, r3, r4, lsl #4
- 349 007e 0122     		movs	r2, #1
- 350 0080 9A72     		strb	r2, [r3, #10]
+ 329              		.loc 1 214 0
+ 330 0078 264B     		ldr	r3, .L36
+ 331 007a 03EB0413 		add	r3, r3, r4, lsl #4
+ 332 007e 0122     		movs	r2, #1
+ 333 0080 9A72     		strb	r2, [r3, #10]
  217:bsp/src/bsp_key.c **** 			}
- 351              		.loc 1 217 0
- 352 0082 04EB4400 		add	r0, r4, r4, lsl #1
- 353 0086 1044     		add	r0, r0, r2
- 354 0088 C0B2     		uxtb	r0, r0
- 355 008a FFF7FEFF 		bl	_Z10bsp_PutKeyh
- 356              	.LVL20:
- 357 008e CCE7     		b	.L27
- 358              	.L28:
+ 334              		.loc 1 217 0
+ 335 0082 04EB4400 		add	r0, r4, r4, lsl #1
+ 336 0086 1044     		add	r0, r0, r2
+ 337 0088 C0B2     		uxtb	r0, r0
+ 338 008a FFF7FEFF 		bl	bsp_PutKey
+ 339              	.LVL21:
+ 340 008e CCE7     		b	.L27
+ 341              	.L28:
  229:bsp/src/bsp_key.c **** 					}
  230:bsp/src/bsp_key.c **** 				}
  231:bsp/src/bsp_key.c **** 				else
  232:bsp/src/bsp_key.c **** 				{
  233:bsp/src/bsp_key.c **** 					if (pBtn->RepeatSpeed > 0)
- 359              		.loc 1 233 0
- 360 0090 204B     		ldr	r3, .L36
- 361 0092 03EB0413 		add	r3, r3, r4, lsl #4
- 362 0096 D97A     		ldrb	r1, [r3, #11]	@ zero_extendqisi2
- 363 0098 09B3     		cbz	r1, .L22
+ 342              		.loc 1 233 0
+ 343 0090 204B     		ldr	r3, .L36
+ 344 0092 03EB0413 		add	r3, r3, r4, lsl #4
+ 345 0096 D97A     		ldrb	r1, [r3, #11]	@ zero_extendqisi2
+ 346 0098 09B3     		cbz	r1, .L22
  234:bsp/src/bsp_key.c **** 					{
  235:bsp/src/bsp_key.c **** 						if (++pBtn->RepeatCount >= pBtn->RepeatSpeed)
- 364              		.loc 1 235 0
- 365 009a 1A46     		mov	r2, r3
- 366 009c 1B7B     		ldrb	r3, [r3, #12]	@ zero_extendqisi2
- 367 009e 0133     		adds	r3, r3, #1
- 368 00a0 DBB2     		uxtb	r3, r3
- 369 00a2 1373     		strb	r3, [r2, #12]
- 370 00a4 9942     		cmp	r1, r3
- 371 00a6 1AD8     		bhi	.L22
+ 347              		.loc 1 235 0
+ 348 009a 1A46     		mov	r2, r3
+ 349 009c 1B7B     		ldrb	r3, [r3, #12]	@ zero_extendqisi2
+ 350 009e 0133     		adds	r3, r3, #1
+ 351 00a0 DBB2     		uxtb	r3, r3
+ 352 00a2 1373     		strb	r3, [r2, #12]
+ 353 00a4 9942     		cmp	r1, r3
+ 354 00a6 1AD8     		bhi	.L22
  236:bsp/src/bsp_key.c **** 						{
  237:bsp/src/bsp_key.c **** 							pBtn->RepeatCount = 0;
- 372              		.loc 1 237 0
- 373 00a8 1346     		mov	r3, r2
- 374 00aa 0022     		movs	r2, #0
- 375 00ac 1A73     		strb	r2, [r3, #12]
+ 355              		.loc 1 237 0
+ 356 00a8 1346     		mov	r3, r2
+ 357 00aa 0022     		movs	r2, #0
+ 358 00ac 1A73     		strb	r2, [r3, #12]
  238:bsp/src/bsp_key.c **** 							
  239:bsp/src/bsp_key.c **** 							bsp_PutKey((uint8_t)(3 * i + 1));
- 376              		.loc 1 239 0
- 377 00ae 04EB4404 		add	r4, r4, r4, lsl #1
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s 			page 12
-
-
- 378              	.LVL21:
- 379 00b2 601C     		adds	r0, r4, #1
- 380 00b4 C0B2     		uxtb	r0, r0
- 381 00b6 FFF7FEFF 		bl	_Z10bsp_PutKeyh
- 382              	.LVL22:
- 383 00ba 10E0     		b	.L22
- 384              	.LVL23:
- 385              	.L23:
+ 359              		.loc 1 239 0
+ 360 00ae 04EB4404 		add	r4, r4, r4, lsl #1
+ 361              	.LVL22:
+ 362 00b2 601C     		adds	r0, r4, #1
+ 363 00b4 C0B2     		uxtb	r0, r0
+ 364 00b6 FFF7FEFF 		bl	bsp_PutKey
+ 365              	.LVL23:
+ 366 00ba 10E0     		b	.L22
+ 367              	.LVL24:
+ 368              	.L23:
  240:bsp/src/bsp_key.c **** 						}
  241:bsp/src/bsp_key.c **** 					}
  242:bsp/src/bsp_key.c **** 				}
  243:bsp/src/bsp_key.c **** 			}
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s 			page 12
+
+
  244:bsp/src/bsp_key.c **** 		}
  245:bsp/src/bsp_key.c **** 	}
  246:bsp/src/bsp_key.c **** 	else //key up
  247:bsp/src/bsp_key.c **** 	{
  248:bsp/src/bsp_key.c **** 		if(pBtn->Count > KEY_FILTER_TIME)
- 386              		.loc 1 248 0
- 387 00bc 154B     		ldr	r3, .L36
- 388 00be 03EB0413 		add	r3, r3, r4, lsl #4
- 389 00c2 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
- 390 00c4 052B     		cmp	r3, #5
- 391 00c6 0BD9     		bls	.L29
+ 369              		.loc 1 248 0
+ 370 00bc 154B     		ldr	r3, .L36
+ 371 00be 03EB0413 		add	r3, r3, r4, lsl #4
+ 372 00c2 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
+ 373 00c4 052B     		cmp	r3, #5
+ 374 00c6 0BD9     		bls	.L29
  249:bsp/src/bsp_key.c **** 		{
  250:bsp/src/bsp_key.c **** 			pBtn->Count = KEY_FILTER_TIME;
- 392              		.loc 1 250 0
- 393 00c8 124B     		ldr	r3, .L36
- 394 00ca 03EB0413 		add	r3, r3, r4, lsl #4
- 395 00ce 0522     		movs	r2, #5
- 396 00d0 1A71     		strb	r2, [r3, #4]
- 397              	.L30:
+ 375              		.loc 1 250 0
+ 376 00c8 124B     		ldr	r3, .L36
+ 377 00ca 03EB0413 		add	r3, r3, r4, lsl #4
+ 378 00ce 0522     		movs	r2, #5
+ 379 00d0 1A71     		strb	r2, [r3, #4]
+ 380              	.L30:
  251:bsp/src/bsp_key.c **** 		}
  252:bsp/src/bsp_key.c **** 		else if(pBtn->Count != 0)
  253:bsp/src/bsp_key.c **** 		{
@@ -709,248 +697,234 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s 			page 1
  265:bsp/src/bsp_key.c **** 		}
  266:bsp/src/bsp_key.c **** 
  267:bsp/src/bsp_key.c **** 		pBtn->LongCount = 0;
- 398              		.loc 1 267 0
- 399 00d2 104B     		ldr	r3, .L36
- 400 00d4 03EB0414 		add	r4, r3, r4, lsl #4
- 401              	.LVL24:
- 402 00d8 0023     		movs	r3, #0
- 403 00da E380     		strh	r3, [r4, #6]	@ movhi
+ 381              		.loc 1 267 0
+ 382 00d2 104B     		ldr	r3, .L36
+ 383 00d4 03EB0414 		add	r4, r3, r4, lsl #4
+ 384              	.LVL25:
+ 385 00d8 0023     		movs	r3, #0
+ 386 00da E380     		strh	r3, [r4, #6]	@ movhi
  268:bsp/src/bsp_key.c **** 		pBtn->RepeatCount = 0;
- 404              		.loc 1 268 0
- 405 00dc 2373     		strb	r3, [r4, #12]
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s 			page 13
-
-
- 406              	.L22:
+ 387              		.loc 1 268 0
+ 388 00dc 2373     		strb	r3, [r4, #12]
+ 389              	.L22:
  269:bsp/src/bsp_key.c **** 	}
  270:bsp/src/bsp_key.c **** }
- 407              		.loc 1 270 0
- 408 00de 10BD     		pop	{r4, pc}
- 409              	.LVL25:
- 410              	.L29:
+ 390              		.loc 1 270 0
+ 391 00de 10BD     		pop	{r4, pc}
+ 392              	.LVL26:
+ 393              	.L29:
  252:bsp/src/bsp_key.c **** 		{
- 411              		.loc 1 252 0
- 412 00e0 2BB1     		cbz	r3, .L31
+ 394              		.loc 1 252 0
+ 395 00e0 2BB1     		cbz	r3, .L31
  254:bsp/src/bsp_key.c **** 		}
- 413              		.loc 1 254 0
- 414 00e2 0C4A     		ldr	r2, .L36
- 415 00e4 02EB0412 		add	r2, r2, r4, lsl #4
- 416 00e8 013B     		subs	r3, r3, #1
- 417 00ea 1371     		strb	r3, [r2, #4]
- 418 00ec F1E7     		b	.L30
- 419              	.L31:
+ 396              		.loc 1 254 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s 			page 13
+
+
+ 397 00e2 0C4A     		ldr	r2, .L36
+ 398 00e4 02EB0412 		add	r2, r2, r4, lsl #4
+ 399 00e8 013B     		subs	r3, r3, #1
+ 400 00ea 1371     		strb	r3, [r2, #4]
+ 401 00ec F1E7     		b	.L30
+ 402              	.L31:
  258:bsp/src/bsp_key.c **** 			{
- 420              		.loc 1 258 0
- 421 00ee 094B     		ldr	r3, .L36
- 422 00f0 03EB0413 		add	r3, r3, r4, lsl #4
- 423 00f4 9B7A     		ldrb	r3, [r3, #10]	@ zero_extendqisi2
- 424 00f6 012B     		cmp	r3, #1
- 425 00f8 EBD1     		bne	.L30
+ 403              		.loc 1 258 0
+ 404 00ee 094B     		ldr	r3, .L36
+ 405 00f0 03EB0413 		add	r3, r3, r4, lsl #4
+ 406 00f4 9B7A     		ldrb	r3, [r3, #10]	@ zero_extendqisi2
+ 407 00f6 012B     		cmp	r3, #1
+ 408 00f8 EBD1     		bne	.L30
  260:bsp/src/bsp_key.c **** 
- 426              		.loc 1 260 0
- 427 00fa 064B     		ldr	r3, .L36
- 428 00fc 03EB0413 		add	r3, r3, r4, lsl #4
- 429 0100 0022     		movs	r2, #0
- 430 0102 9A72     		strb	r2, [r3, #10]
+ 409              		.loc 1 260 0
+ 410 00fa 064B     		ldr	r3, .L36
+ 411 00fc 03EB0413 		add	r3, r3, r4, lsl #4
+ 412 0100 0022     		movs	r2, #0
+ 413 0102 9A72     		strb	r2, [r3, #10]
  263:bsp/src/bsp_key.c **** 			}
- 431              		.loc 1 263 0
- 432 0104 04EB4400 		add	r0, r4, r4, lsl #1
- 433 0108 0230     		adds	r0, r0, #2
- 434 010a C0B2     		uxtb	r0, r0
- 435 010c FFF7FEFF 		bl	_Z10bsp_PutKeyh
- 436              	.LVL26:
- 437 0110 DFE7     		b	.L30
- 438              	.L37:
- 439 0112 00BF     		.align	2
- 440              	.L36:
- 441 0114 00000000 		.word	.LANCHOR1
- 442              		.cfi_endproc
- 443              	.LFE145:
- 444              		.fnend
- 446              		.section	.text._Z10bsp_GetKeyv,"ax",%progbits
- 447              		.align	1
- 448              		.global	_Z10bsp_GetKeyv
- 449              		.syntax unified
- 450              		.thumb
- 451              		.thumb_func
- 452              		.fpu fpv4-sp-d16
- 454              	_Z10bsp_GetKeyv:
- 455              		.fnstart
- 456              	.LFB139:
+ 414              		.loc 1 263 0
+ 415 0104 04EB4400 		add	r0, r4, r4, lsl #1
+ 416 0108 0230     		adds	r0, r0, #2
+ 417 010a C0B2     		uxtb	r0, r0
+ 418 010c FFF7FEFF 		bl	bsp_PutKey
+ 419              	.LVL27:
+ 420 0110 DFE7     		b	.L30
+ 421              	.L37:
+ 422 0112 00BF     		.align	2
+ 423              	.L36:
+ 424 0114 00000000 		.word	.LANCHOR1
+ 425              		.cfi_endproc
+ 426              	.LFE140:
+ 428              		.section	.text.bsp_GetKey,"ax",%progbits
+ 429              		.align	1
+ 430              		.global	bsp_GetKey
+ 431              		.syntax unified
+ 432              		.thumb
+ 433              		.thumb_func
+ 434              		.fpu fpv4-sp-d16
+ 436              	bsp_GetKey:
+ 437              	.LFB134:
   99:bsp/src/bsp_key.c **** 	uint8_t ret;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s 			page 14
-
-
- 457              		.loc 1 99 0
- 458              		.cfi_startproc
- 459              		@ args = 0, pretend = 0, frame = 0
- 460              		@ frame_needed = 0, uses_anonymous_args = 0
- 461              		@ link register save eliminated.
+ 438              		.loc 1 99 0
+ 439              		.cfi_startproc
+ 440              		@ args = 0, pretend = 0, frame = 0
+ 441              		@ frame_needed = 0, uses_anonymous_args = 0
+ 442              		@ link register save eliminated.
  102:bsp/src/bsp_key.c **** 	{
- 462              		.loc 1 102 0
- 463 0000 084A     		ldr	r2, .L41
- 464 0002 937A     		ldrb	r3, [r2, #10]	@ zero_extendqisi2
- 465 0004 D27A     		ldrb	r2, [r2, #11]	@ zero_extendqisi2
- 466 0006 9342     		cmp	r3, r2
- 467 0008 0AD0     		beq	.L40
+ 443              		.loc 1 102 0
+ 444 0000 084A     		ldr	r2, .L41
+ 445 0002 937A     		ldrb	r3, [r2, #10]	@ zero_extendqisi2
+ 446 0004 D27A     		ldrb	r2, [r2, #11]	@ zero_extendqisi2
+ 447 0006 9342     		cmp	r3, r2
+ 448 0008 0AD0     		beq	.L40
  108:bsp/src/bsp_key.c **** 
- 468              		.loc 1 108 0
- 469 000a 064A     		ldr	r2, .L41
- 470 000c D05C     		ldrb	r0, [r2, r3]	@ zero_extendqisi2
- 471              	.LVL27:
+ 449              		.loc 1 108 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s 			page 14
+
+
+ 450 000a 064A     		ldr	r2, .L41
+ 451 000c D05C     		ldrb	r0, [r2, r3]	@ zero_extendqisi2
+ 452              	.LVL28:
  110:bsp/src/bsp_key.c **** 		{
- 472              		.loc 1 110 0
- 473 000e 0133     		adds	r3, r3, #1
- 474 0010 DBB2     		uxtb	r3, r3
- 475 0012 9372     		strb	r3, [r2, #10]
- 476 0014 092B     		cmp	r3, #9
- 477 0016 04D9     		bls	.L39
+ 453              		.loc 1 110 0
+ 454 000e 0133     		adds	r3, r3, #1
+ 455 0010 DBB2     		uxtb	r3, r3
+ 456 0012 9372     		strb	r3, [r2, #10]
+ 457 0014 092B     		cmp	r3, #9
+ 458 0016 04D9     		bls	.L39
  112:bsp/src/bsp_key.c **** 		}
- 478              		.loc 1 112 0
- 479 0018 1346     		mov	r3, r2
- 480 001a 0022     		movs	r2, #0
- 481 001c 9A72     		strb	r2, [r3, #10]
- 482 001e 7047     		bx	lr
- 483              	.LVL28:
- 484              	.L40:
+ 459              		.loc 1 112 0
+ 460 0018 1346     		mov	r3, r2
+ 461 001a 0022     		movs	r2, #0
+ 462 001c 9A72     		strb	r2, [r3, #10]
+ 463 001e 7047     		bx	lr
+ 464              	.LVL29:
+ 465              	.L40:
  104:bsp/src/bsp_key.c **** 	}
- 485              		.loc 1 104 0
- 486 0020 0020     		movs	r0, #0
- 487              	.L39:
+ 466              		.loc 1 104 0
+ 467 0020 0020     		movs	r0, #0
+ 468              	.L39:
  116:bsp/src/bsp_key.c **** 
- 488              		.loc 1 116 0
- 489 0022 7047     		bx	lr
- 490              	.L42:
- 491              		.align	2
- 492              	.L41:
- 493 0024 00000000 		.word	.LANCHOR0
- 494              		.cfi_endproc
- 495              	.LFE139:
- 496              		.cantunwind
- 497              		.fnend
- 499              		.section	.text._Z15bsp_GetKeyState8KEY_ID_E,"ax",%progbits
- 500              		.align	1
- 501              		.global	_Z15bsp_GetKeyState8KEY_ID_E
- 502              		.syntax unified
- 503              		.thumb
- 504              		.thumb_func
- 505              		.fpu fpv4-sp-d16
- 507              	_Z15bsp_GetKeyState8KEY_ID_E:
- 508              		.fnstart
- 509              	.LFB140:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s 			page 15
-
-
+ 469              		.loc 1 116 0
+ 470 0022 7047     		bx	lr
+ 471              	.L42:
+ 472              		.align	2
+ 473              	.L41:
+ 474 0024 00000000 		.word	.LANCHOR0
+ 475              		.cfi_endproc
+ 476              	.LFE134:
+ 478              		.section	.text.bsp_GetKeyState,"ax",%progbits
+ 479              		.align	1
+ 480              		.global	bsp_GetKeyState
+ 481              		.syntax unified
+ 482              		.thumb
+ 483              		.thumb_func
+ 484              		.fpu fpv4-sp-d16
+ 486              	bsp_GetKeyState:
+ 487              	.LFB135:
  125:bsp/src/bsp_key.c **** 	return s_tBtn[_ucKeyID].State;
- 510              		.loc 1 125 0
- 511              		.cfi_startproc
- 512              		@ args = 0, pretend = 0, frame = 0
- 513              		@ frame_needed = 0, uses_anonymous_args = 0
- 514              		@ link register save eliminated.
- 515              	.LVL29:
+ 488              		.loc 1 125 0
+ 489              		.cfi_startproc
+ 490              		@ args = 0, pretend = 0, frame = 0
+ 491              		@ frame_needed = 0, uses_anonymous_args = 0
+ 492              		@ link register save eliminated.
+ 493              	.LVL30:
  126:bsp/src/bsp_key.c **** }
- 516              		.loc 1 126 0
- 517 0000 024B     		ldr	r3, .L44
- 518 0002 03EB0010 		add	r0, r3, r0, lsl #4
- 519              	.LVL30:
+ 494              		.loc 1 126 0
+ 495 0000 024B     		ldr	r3, .L44
+ 496 0002 03EB0010 		add	r0, r3, r0, lsl #4
+ 497              	.LVL31:
  127:bsp/src/bsp_key.c **** 
- 520              		.loc 1 127 0
- 521 0006 807A     		ldrb	r0, [r0, #10]	@ zero_extendqisi2
- 522 0008 7047     		bx	lr
- 523              	.L45:
- 524 000a 00BF     		.align	2
- 525              	.L44:
- 526 000c 00000000 		.word	.LANCHOR1
- 527              		.cfi_endproc
- 528              	.LFE140:
- 529              		.cantunwind
- 530              		.fnend
- 532              		.section	.text._Z15bsp_SetKeyParamhth,"ax",%progbits
- 533              		.align	1
- 534              		.global	_Z15bsp_SetKeyParamhth
- 535              		.syntax unified
- 536              		.thumb
- 537              		.thumb_func
- 538              		.fpu fpv4-sp-d16
- 540              	_Z15bsp_SetKeyParamhth:
- 541              		.fnstart
- 542              	.LFB141:
+ 498              		.loc 1 127 0
+ 499 0006 807A     		ldrb	r0, [r0, #10]	@ zero_extendqisi2
+ 500 0008 7047     		bx	lr
+ 501              	.L45:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s 			page 15
+
+
+ 502 000a 00BF     		.align	2
+ 503              	.L44:
+ 504 000c 00000000 		.word	.LANCHOR1
+ 505              		.cfi_endproc
+ 506              	.LFE135:
+ 508              		.section	.text.bsp_SetKeyParam,"ax",%progbits
+ 509              		.align	1
+ 510              		.global	bsp_SetKeyParam
+ 511              		.syntax unified
+ 512              		.thumb
+ 513              		.thumb_func
+ 514              		.fpu fpv4-sp-d16
+ 516              	bsp_SetKeyParam:
+ 517              	.LFB136:
  130:bsp/src/bsp_key.c **** 	s_tBtn[_ucKeyID].LongTime       = _LongTime;		//0: don't detect long pressed event
- 543              		.loc 1 130 0
- 544              		.cfi_startproc
- 545              		@ args = 0, pretend = 0, frame = 0
- 546              		@ frame_needed = 0, uses_anonymous_args = 0
- 547              		@ link register save eliminated.
- 548              	.LVL31:
+ 518              		.loc 1 130 0
+ 519              		.cfi_startproc
+ 520              		@ args = 0, pretend = 0, frame = 0
+ 521              		@ frame_needed = 0, uses_anonymous_args = 0
+ 522              		@ link register save eliminated.
+ 523              	.LVL32:
  131:bsp/src/bsp_key.c **** 	s_tBtn[_ucKeyID].RepeatSpeed    = _RepeatSpeed;		//0: don't support continuous send key value
- 549              		.loc 1 131 0
- 550 0000 034B     		ldr	r3, .L47
- 551 0002 03EB0010 		add	r0, r3, r0, lsl #4
- 552              	.LVL32:
- 553 0006 0181     		strh	r1, [r0, #8]	@ movhi
+ 524              		.loc 1 131 0
+ 525 0000 034B     		ldr	r3, .L47
+ 526 0002 03EB0010 		add	r0, r3, r0, lsl #4
+ 527              	.LVL33:
+ 528 0006 0181     		strh	r1, [r0, #8]	@ movhi
  132:bsp/src/bsp_key.c **** 	s_tBtn[_ucKeyID].RepeatCount    = 0;						
- 554              		.loc 1 132 0
- 555 0008 C272     		strb	r2, [r0, #11]
+ 529              		.loc 1 132 0
+ 530 0008 C272     		strb	r2, [r0, #11]
  133:bsp/src/bsp_key.c **** }
- 556              		.loc 1 133 0
- 557 000a 0023     		movs	r3, #0
- 558 000c 0373     		strb	r3, [r0, #12]
+ 531              		.loc 1 133 0
+ 532 000a 0023     		movs	r3, #0
+ 533 000c 0373     		strb	r3, [r0, #12]
  134:bsp/src/bsp_key.c **** 
- 559              		.loc 1 134 0
- 560 000e 7047     		bx	lr
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s 			page 16
-
-
- 561              	.L48:
- 562              		.align	2
- 563              	.L47:
- 564 0010 00000000 		.word	.LANCHOR1
- 565              		.cfi_endproc
- 566              	.LFE141:
- 567              		.cantunwind
- 568              		.fnend
- 570              		.section	.text._Z12bsp_ClearKeyv,"ax",%progbits
- 571              		.align	1
- 572              		.global	_Z12bsp_ClearKeyv
- 573              		.syntax unified
- 574              		.thumb
- 575              		.thumb_func
- 576              		.fpu fpv4-sp-d16
- 578              	_Z12bsp_ClearKeyv:
- 579              		.fnstart
- 580              	.LFB142:
+ 534              		.loc 1 134 0
+ 535 000e 7047     		bx	lr
+ 536              	.L48:
+ 537              		.align	2
+ 538              	.L47:
+ 539 0010 00000000 		.word	.LANCHOR1
+ 540              		.cfi_endproc
+ 541              	.LFE136:
+ 543              		.section	.text.bsp_ClearKey,"ax",%progbits
+ 544              		.align	1
+ 545              		.global	bsp_ClearKey
+ 546              		.syntax unified
+ 547              		.thumb
+ 548              		.thumb_func
+ 549              		.fpu fpv4-sp-d16
+ 551              	bsp_ClearKey:
+ 552              	.LFB137:
  143:bsp/src/bsp_key.c **** 	s_tKey.Read = s_tKey.Write;
- 581              		.loc 1 143 0
- 582              		.cfi_startproc
- 583              		@ args = 0, pretend = 0, frame = 0
- 584              		@ frame_needed = 0, uses_anonymous_args = 0
- 585              		@ link register save eliminated.
+ 553              		.loc 1 143 0
+ 554              		.cfi_startproc
+ 555              		@ args = 0, pretend = 0, frame = 0
+ 556              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s 			page 16
+
+
+ 557              		@ link register save eliminated.
  144:bsp/src/bsp_key.c **** }
- 586              		.loc 1 144 0
- 587 0000 014B     		ldr	r3, .L50
- 588 0002 DA7A     		ldrb	r2, [r3, #11]	@ zero_extendqisi2
- 589 0004 9A72     		strb	r2, [r3, #10]
+ 558              		.loc 1 144 0
+ 559 0000 014B     		ldr	r3, .L50
+ 560 0002 DA7A     		ldrb	r2, [r3, #11]	@ zero_extendqisi2
+ 561 0004 9A72     		strb	r2, [r3, #10]
  145:bsp/src/bsp_key.c **** 
- 590              		.loc 1 145 0
- 591 0006 7047     		bx	lr
- 592              	.L51:
- 593              		.align	2
- 594              	.L50:
- 595 0008 00000000 		.word	.LANCHOR0
- 596              		.cfi_endproc
- 597              	.LFE142:
- 598              		.cantunwind
- 599              		.fnend
- 601              		.section	.text._Z11bsp_KeyScanv,"ax",%progbits
- 602              		.align	1
- 603              		.global	_Z11bsp_KeyScanv
- 604              		.syntax unified
- 605              		.thumb
- 606              		.thumb_func
- 607              		.fpu fpv4-sp-d16
- 609              	_Z11bsp_KeyScanv:
- 610              		.fnstart
- 611              	.LFB146:
+ 562              		.loc 1 145 0
+ 563 0006 7047     		bx	lr
+ 564              	.L51:
+ 565              		.align	2
+ 566              	.L50:
+ 567 0008 00000000 		.word	.LANCHOR0
+ 568              		.cfi_endproc
+ 569              	.LFE137:
+ 571              		.section	.text.bsp_KeyScan,"ax",%progbits
+ 572              		.align	1
+ 573              		.global	bsp_KeyScan
+ 574              		.syntax unified
+ 575              		.thumb
+ 576              		.thumb_func
+ 577              		.fpu fpv4-sp-d16
+ 579              	bsp_KeyScan:
+ 580              	.LFB141:
  271:bsp/src/bsp_key.c **** 
  272:bsp/src/bsp_key.c **** /**
  273:bsp/src/bsp_key.c ****   * @brief  Scan all key
@@ -958,145 +932,124 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s 			page 1
  275:bsp/src/bsp_key.c ****   * @retval None
  276:bsp/src/bsp_key.c ****   */
  277:bsp/src/bsp_key.c **** void bsp_KeyScan(void)
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s 			page 17
-
-
  278:bsp/src/bsp_key.c **** {
- 612              		.loc 1 278 0
- 613              		.cfi_startproc
- 614              		@ args = 0, pretend = 0, frame = 0
- 615              		@ frame_needed = 0, uses_anonymous_args = 0
- 616 0000 10B5     		push	{r4, lr}
- 617              		.save {r4, lr}
- 618              	.LCFI5:
- 619              		.cfi_def_cfa_offset 8
- 620              		.cfi_offset 4, -8
- 621              		.cfi_offset 14, -4
- 622              	.LVL33:
+ 581              		.loc 1 278 0
+ 582              		.cfi_startproc
+ 583              		@ args = 0, pretend = 0, frame = 0
+ 584              		@ frame_needed = 0, uses_anonymous_args = 0
+ 585 0000 10B5     		push	{r4, lr}
+ 586              	.LCFI5:
+ 587              		.cfi_def_cfa_offset 8
+ 588              		.cfi_offset 4, -8
+ 589              		.cfi_offset 14, -4
+ 590              	.LVL34:
  279:bsp/src/bsp_key.c **** 	uint8_t i;
  280:bsp/src/bsp_key.c **** 
  281:bsp/src/bsp_key.c **** 	for (i = 0; i < KEY_COUNT; i++)
- 623              		.loc 1 281 0
- 624 0002 0024     		movs	r4, #0
- 625              	.LVL34:
- 626              	.L54:
- 627              		.loc 1 281 0 is_stmt 0 discriminator 3
- 628 0004 2CB9     		cbnz	r4, .L52
+ 591              		.loc 1 281 0
+ 592 0002 0024     		movs	r4, #0
+ 593              	.LVL35:
+ 594              	.L53:
+ 595              		.loc 1 281 0 is_stmt 0 discriminator 1
+ 596 0004 04B1     		cbz	r4, .L54
  282:bsp/src/bsp_key.c **** 	{
  283:bsp/src/bsp_key.c **** 		bsp_DetectKey(i);
- 629              		.loc 1 283 0 is_stmt 1 discriminator 2
- 630 0006 2046     		mov	r0, r4
- 631 0008 FFF7FEFF 		bl	_ZL13bsp_DetectKeyh
- 632              	.LVL35:
- 281:bsp/src/bsp_key.c **** 	{
- 633              		.loc 1 281 0 discriminator 2
- 634 000c 0134     		adds	r4, r4, #1
- 635              	.LVL36:
- 636 000e E4B2     		uxtb	r4, r4
- 637              	.LVL37:
- 638 0010 F8E7     		b	.L54
- 639              	.L52:
  284:bsp/src/bsp_key.c **** 	}
  285:bsp/src/bsp_key.c **** }
- 640              		.loc 1 285 0
- 641 0012 10BD     		pop	{r4, pc}
- 642              		.cfi_endproc
- 643              	.LFE146:
- 644              		.fnend
- 646              		.section	.bss._ZL6s_tBtn,"aw",%nobits
- 647              		.align	2
- 648              		.set	.LANCHOR1,. + 0
- 651              	_ZL6s_tBtn:
- 652 0000 00000000 		.space	16
- 652      00000000 
- 652      00000000 
- 652      00000000 
- 653              		.section	.bss._ZL6s_tKey,"aw",%nobits
- 654              		.align	2
- 655              		.set	.LANCHOR0,. + 0
- 658              	_ZL6s_tKey:
- 659 0000 00000000 		.space	13
- 659      00000000 
- 659      00000000 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s 			page 18
+ 597              		.loc 1 285 0 is_stmt 1
+ 598 0006 10BD     		pop	{r4, pc}
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s 			page 17
 
 
- 659      00
- 660              		.text
- 661              	.Letext0:
- 662              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h
- 663              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
- 664              		.file 4 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
- 665              		.file 5 "../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h"
- 666              		.file 6 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
- 667              		.file 7 "../Libraries/CMSIS/CM4/DeviceSupport/at32f4xx.h"
- 668              		.file 8 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_gpio.h"
- 669              		.file 9 "Inc/FreeRTOSConfig.h"
- 670              		.file 10 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
- 671              		.file 11 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
- 672              		.file 12 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
- 673              		.file 13 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/cstdlib"
- 674              		.file 14 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/arm-none-ea
- 675              		.file 15 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdlib.h"
- 676              		.file 16 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/stdlib.h"
- 677              		.file 17 "bsp/inc/bsp_key.h"
- 678              		.file 18 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_rcc.h"
- 679              		.file 19 "<built-in>"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s 			page 19
+ 599              	.LVL36:
+ 600              	.L54:
+ 283:bsp/src/bsp_key.c **** 	}
+ 601              		.loc 1 283 0 discriminator 3
+ 602 0008 2046     		mov	r0, r4
+ 603 000a FFF7FEFF 		bl	bsp_DetectKey
+ 604              	.LVL37:
+ 281:bsp/src/bsp_key.c **** 	{
+ 605              		.loc 1 281 0 discriminator 3
+ 606 000e 0134     		adds	r4, r4, #1
+ 607              	.LVL38:
+ 608 0010 E4B2     		uxtb	r4, r4
+ 609              	.LVL39:
+ 610 0012 F7E7     		b	.L53
+ 611              		.cfi_endproc
+ 612              	.LFE141:
+ 614              		.section	.bss.s_tBtn,"aw",%nobits
+ 615              		.align	2
+ 616              		.set	.LANCHOR1,. + 0
+ 619              	s_tBtn:
+ 620 0000 00000000 		.space	16
+ 620      00000000 
+ 620      00000000 
+ 620      00000000 
+ 621              		.section	.bss.s_tKey,"aw",%nobits
+ 622              		.align	2
+ 623              		.set	.LANCHOR0,. + 0
+ 626              	s_tKey:
+ 627 0000 00000000 		.space	13
+ 627      00000000 
+ 627      00000000 
+ 627      00
+ 628              		.text
+ 629              	.Letext0:
+ 630              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
+ 631              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
+ 632              		.file 4 "../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h"
+ 633              		.file 5 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
+ 634              		.file 6 "../Libraries/CMSIS/CM4/DeviceSupport/at32f4xx.h"
+ 635              		.file 7 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_gpio.h"
+ 636              		.file 8 "Inc/FreeRTOSConfig.h"
+ 637              		.file 9 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
+ 638              		.file 10 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
+ 639              		.file 11 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.
+ 640              		.file 12 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
+ 641              		.file 13 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdlib.h"
+ 642              		.file 14 "bsp/inc/bsp_key.h"
+ 643              		.file 15 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_rcc.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s 			page 18
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 bsp_key.c
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s:17     .text._ZL10IsKeyDown1v:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s:23     .text._ZL10IsKeyDown1v:0000000000000000 _ZL10IsKeyDown1v
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s:48     .text._ZL10IsKeyDown1v:0000000000000014 $d
- .ARM.exidx.text._ZL10IsKeyDown1v:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s:55     .text._ZL14bsp_InitKeyVarv:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s:61     .text._ZL14bsp_InitKeyVarv:0000000000000000 _ZL14bsp_InitKeyVarv
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s:111    .text._ZL14bsp_InitKeyVarv:0000000000000030 $d
-.ARM.exidx.text._ZL14bsp_InitKeyVarv:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s:120    .text._ZL15bsp_InitKeyHardv:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s:126    .text._ZL15bsp_InitKeyHardv:0000000000000000 _ZL15bsp_InitKeyHardv
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s:170    .text._ZL15bsp_InitKeyHardv:000000000000002c $d
-.ARM.exidx.text._ZL15bsp_InitKeyHardv:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s:176    .text._Z11bsp_InitKeyv:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s:183    .text._Z11bsp_InitKeyv:0000000000000000 _Z11bsp_InitKeyv
- .ARM.extab.text._Z11bsp_InitKeyv:0000000000000000 $d
- .ARM.exidx.text._Z11bsp_InitKeyv:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s:209    .text._Z10bsp_PutKeyh:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s:216    .text._Z10bsp_PutKeyh:0000000000000000 _Z10bsp_PutKeyh
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s:245    .text._Z10bsp_PutKeyh:0000000000000018 $d
-  .ARM.exidx.text._Z10bsp_PutKeyh:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s:252    .text._ZL13bsp_DetectKeyh:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s:258    .text._ZL13bsp_DetectKeyh:0000000000000000 _ZL13bsp_DetectKeyh
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s:441    .text._ZL13bsp_DetectKeyh:0000000000000114 $d
-.ARM.exidx.text._ZL13bsp_DetectKeyh:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s:447    .text._Z10bsp_GetKeyv:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s:454    .text._Z10bsp_GetKeyv:0000000000000000 _Z10bsp_GetKeyv
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s:493    .text._Z10bsp_GetKeyv:0000000000000024 $d
-  .ARM.exidx.text._Z10bsp_GetKeyv:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s:500    .text._Z15bsp_GetKeyState8KEY_ID_E:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s:507    .text._Z15bsp_GetKeyState8KEY_ID_E:0000000000000000 _Z15bsp_GetKeyState8KEY_ID_E
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s:526    .text._Z15bsp_GetKeyState8KEY_ID_E:000000000000000c $d
-.ARM.exidx.text._Z15bsp_GetKeyState8KEY_ID_E:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s:533    .text._Z15bsp_SetKeyParamhth:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s:540    .text._Z15bsp_SetKeyParamhth:0000000000000000 _Z15bsp_SetKeyParamhth
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s:564    .text._Z15bsp_SetKeyParamhth:0000000000000010 $d
-.ARM.exidx.text._Z15bsp_SetKeyParamhth:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s:571    .text._Z12bsp_ClearKeyv:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s:578    .text._Z12bsp_ClearKeyv:0000000000000000 _Z12bsp_ClearKeyv
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s:595    .text._Z12bsp_ClearKeyv:0000000000000008 $d
-.ARM.exidx.text._Z12bsp_ClearKeyv:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s:602    .text._Z11bsp_KeyScanv:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s:609    .text._Z11bsp_KeyScanv:0000000000000000 _Z11bsp_KeyScanv
- .ARM.exidx.text._Z11bsp_KeyScanv:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s:647    .bss._ZL6s_tBtn:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s:651    .bss._ZL6s_tBtn:0000000000000000 _ZL6s_tBtn
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s:654    .bss._ZL6s_tKey:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2h26pk.s:658    .bss._ZL6s_tKey:0000000000000000 _ZL6s_tKey
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s:17     .text.IsKeyDown1:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s:23     .text.IsKeyDown1:0000000000000000 IsKeyDown1
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s:47     .text.IsKeyDown1:0000000000000014 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s:52     .text.bsp_InitKeyVar:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s:58     .text.bsp_InitKeyVar:0000000000000000 bsp_InitKeyVar
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s:108    .text.bsp_InitKeyVar:0000000000000030 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s:115    .text.bsp_InitKeyHard:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s:121    .text.bsp_InitKeyHard:0000000000000000 bsp_InitKeyHard
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s:162    .text.bsp_InitKeyHard:000000000000002c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s:167    .text.bsp_InitKey:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s:174    .text.bsp_InitKey:0000000000000000 bsp_InitKey
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s:197    .text.bsp_PutKey:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s:204    .text.bsp_PutKey:0000000000000000 bsp_PutKey
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s:232    .text.bsp_PutKey:0000000000000018 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s:237    .text.bsp_DetectKey:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s:243    .text.bsp_DetectKey:0000000000000000 bsp_DetectKey
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s:424    .text.bsp_DetectKey:0000000000000114 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s:429    .text.bsp_GetKey:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s:436    .text.bsp_GetKey:0000000000000000 bsp_GetKey
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s:474    .text.bsp_GetKey:0000000000000024 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s:479    .text.bsp_GetKeyState:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s:486    .text.bsp_GetKeyState:0000000000000000 bsp_GetKeyState
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s:504    .text.bsp_GetKeyState:000000000000000c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s:509    .text.bsp_SetKeyParam:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s:516    .text.bsp_SetKeyParam:0000000000000000 bsp_SetKeyParam
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s:539    .text.bsp_SetKeyParam:0000000000000010 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s:544    .text.bsp_ClearKey:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s:551    .text.bsp_ClearKey:0000000000000000 bsp_ClearKey
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s:567    .text.bsp_ClearKey:0000000000000008 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s:572    .text.bsp_KeyScan:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s:579    .text.bsp_KeyScan:0000000000000000 bsp_KeyScan
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s:615    .bss.s_tBtn:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s:619    .bss.s_tBtn:0000000000000000 s_tBtn
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s:622    .bss.s_tKey:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGNQby5.s:626    .bss.s_tKey:0000000000000000 s_tKey
 
 UNDEFINED SYMBOLS
 RCC_APB2PeriphClockCmd
 GPIO_Init
-__aeabi_unwind_cpp_pr0
-__aeabi_unwind_cpp_pr1

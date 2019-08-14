@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -16,16 +16,15 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 1
   13              		.text
   14              	.Ltext0:
   15              		.cfi_sections	.debug_frame
-  16              		.section	.text._ZL17SetSysClockTo192Mv,"ax",%progbits
+  16              		.section	.text.SetSysClockTo192M,"ax",%progbits
   17              		.align	1
   18              		.syntax unified
   19              		.thumb
   20              		.thumb_func
   21              		.fpu fpv4-sp-d16
-  23              	_ZL17SetSysClockTo192Mv:
-  24              		.fnstart
-  25              	.LFB127:
-  26              		.file 1 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c"
+  23              	SetSysClockTo192M:
+  24              	.LFB127:
+  25              		.file 1 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c"
    1:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /**
    2:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****  **************************************************************************
    3:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****  * File Name    : system_at32f4xx.c
@@ -58,10 +57,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 1
   30:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @{
   31:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
   32:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 2
-
-
   33:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /**
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 2
+
+
   34:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @}
   35:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
   36:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
@@ -118,10 +117,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 1
   87:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /* #define SYSCLK_FREQ_176MHz       176000000 */
   88:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #define SYSCLK_FREQ_192MHz       192000000 
   89:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /* #define SYSCLK_FREQ_200MHz       200000000 */
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 3
-
-
   90:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /* #define SYSCLK_FREQ_24MHz_HSI    24000000 */
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 3
+
+
   91:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /* #define SYSCLK_FREQ_36MHz_HSI    36000000 */
   92:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /* #define SYSCLK_FREQ_48MHz_HSI    48000000 */
   93:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /* #define SYSCLK_FREQ_56MHz_HSI    56000000 */
@@ -178,10 +177,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 1
  144:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_56MHz;        /*!< System Clock Frequency (Core Cloc
  145:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_72MHz
  146:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_72MHz;        /*!< System Clock Frequency (Core Cloc
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 4
-
-
  147:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_96MHz
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 4
+
+
  148:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_96MHz;        /*!< System Clock Frequency (Core Cloc
  149:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_108MHz
  150:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_108MHz;       /*!< System Clock Frequency (Core Cloc
@@ -238,10 +237,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 1
  201:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @{
  202:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
  203:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 5
-
-
  204:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClock(void);
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 5
+
+
  205:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
  206:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef SYSCLK_FREQ_HSE
  207:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockToHSE(void);
@@ -298,10 +297,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 1
  258:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_200MHz_HSI
  259:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo200MHSI(void);
  260:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 6
-
-
  261:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 6
+
+
  262:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef DATA_IN_ExtSRAM
  263:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SystemInit_ExtMemCtrl(void);
  264:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif /* DATA_IN_ExtSRAM */
@@ -358,10 +357,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 1
  315:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****                 RCC_CLKINT_PLLSTBLFC | RCC_CLKINT_HSECFDFC;
  316:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
  317:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef DATA_IN_ExtSRAM
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 7
-
-
  318:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SystemInit_ExtMemCtrl();
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 7
+
+
  319:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif /* DATA_IN_ExtSRAM */
  320:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
  321:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Configure the System clock frequency, HCLK, PCLK2 and PCLK1 prescalers */
@@ -418,10 +417,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 1
  372:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   tmp = RCC->CFG & RCC_CFG_SYSCLKSTS;
  373:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
  374:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   switch (tmp)
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 8
-
-
  375:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 8
+
+
  376:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   case RCC_CFG_SYSCLKSTS_HSI:  /* HSI used as system clock */
  377:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     SystemCoreClock = HSI_VALUE;
  378:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     break;
@@ -478,10 +477,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 1
  429:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef SYSCLK_FREQ_HSE
  430:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SetSysClockToHSE();
  431:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_24MHz
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 9
-
-
  432:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SetSysClockTo24M();
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 9
+
+
  433:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_36MHz
  434:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   SetSysClockTo36M();
  435:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_48MHz
@@ -538,10 +537,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 1
  486:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****      source (default after reset) */
  487:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** }
  488:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 10
-
-
  489:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /**
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 10
+
+
  490:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @brief  Setup the external memory controller. Called in startup_at32f4xx.s
  491:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *          before jump to __main
  492:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @param  None
@@ -598,10 +597,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 1
  543:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @note   This function should be used before reading the HSESTBL flag.
  544:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @param  None
  545:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @retval None
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 11
-
-
  546:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 11
+
+
  547:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void WaitHseStbl(uint32_t delay)
  548:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** {
  549:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   uint32_t i;
@@ -658,10 +657,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 1
  600:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
  601:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* PCLK1 = HCLK */
  602:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= 0xFFFFF8FF;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 12
-
-
  603:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_APB1PSC_DIV1;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 12
+
+
  604:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
  605:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Select HSE as system clock source */
  606:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= (uint32_t)((uint32_t)~(RCC_CFG_SYSCLKSEL));
@@ -718,10 +717,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 1
  657:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* HCLK = SYSCLK */
  658:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_AHBPSC_DIV1;
  659:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 13
-
-
  660:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* PCLK2 = HCLK */
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 13
+
+
  661:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= 0xFFFFC7FF;
  662:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_APB2PSC_DIV1;
  663:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
@@ -778,10 +777,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 1
  714:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Wait till HSE is ready and if Time out is reached exit */
  715:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   do
  716:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 14
-
-
  717:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = RCC->CTRL & RCC_CTRL_HSESTBL;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 14
+
+
  718:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     StartUpCounter++;
  719:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
  720:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
@@ -838,10 +837,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 1
  771:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
  772:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* If HSE fails to start-up, the application will have wrong clock
  773:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****          configuration. User can add here some code to deal with this error */
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 15
-
-
  774:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 15
+
+
  775:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** }
  776:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_48MHz
  777:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /**
@@ -898,10 +897,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 1
  828:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Enable PLL */
  829:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CTRL |= RCC_CTRL_PLLEN;
  830:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 16
-
-
  831:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Wait till PLL is ready */
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 16
+
+
  832:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     while((RCC->CTRL & RCC_CTRL_PLLSTBL) == 0)
  833:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     {
  834:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     }
@@ -958,10 +957,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 1
  885:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   else
  886:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
  887:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x00;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 17
-
-
  888:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 17
+
+
  889:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
  890:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   if (HSEStatus == (uint32_t)0x01)
  891:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
@@ -1018,10 +1017,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 1
  942:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo72M(void)
  943:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** {
  944:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 18
-
-
  945:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 18
+
+
  946:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration ---------------------------*/
  947:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Enable HSE */
  948:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   RCC->CTRL |= ((uint32_t)RCC_CTRL_HSEEN);
@@ -1078,10 +1077,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 1
  999:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     while ((RCC->CFG & (uint32_t)RCC_CFG_SYSCLKSTS) != RCC_CFG_SYSCLKSTS_PLL)
 1000:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     {
 1001:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     }
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 19
-
-
 1002:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F403xx
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 19
+
+
 1003:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     WaitHseStbl(PLL_STABLE_DELAY);
 1004:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
 1005:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
@@ -1138,10 +1137,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 1
 1056:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
 1057:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* PCLK1 = HCLK/2 */
 1058:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= 0xFFFFF8FF;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 20
-
-
 1059:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_APB1PSC_DIV2;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 20
+
+
 1060:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
 1061:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /*  PLL configuration: PLLCLK = HSE * 12 = 96 MHz */
 1062:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= RCC_CFG_PLLCFG_MASK;
@@ -1198,10 +1197,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 1
 1113:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
 1114:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
 1115:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F403xx 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 21
-
-
 1116:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   WaitHseStbl(HSE_STABLE_DELAY);
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 21
+
+
 1117:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
 1118:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   if ((RCC->CTRL & RCC_CTRL_HSESTBL) != RESET)
 1119:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
@@ -1258,10 +1257,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 1
 1170:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
 1171:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_120MHz
 1172:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** /**
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 22
-
-
 1173:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @brief  Sets System clock frequency to 120MHz and configure HCLK, PCLK2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 22
+
+
 1174:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *         and PCLK1 prescalers.
 1175:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @note   This function should be used only after reset.
 1176:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @param  None
@@ -1318,10 +1317,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 1
 1227:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     while((RCC->CTRL & RCC_CTRL_PLLSTBL) == 0)
 1228:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     {
 1229:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     }
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 23
-
-
 1230:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F413xx
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 23
+
+
 1231:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC_StepModeCmd(ENABLE);
 1232:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
 1233:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Select PLL as system clock source */
@@ -1378,10 +1377,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 1
 1284:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
 1285:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   else
 1286:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 24
-
-
 1287:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x00;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 24
+
+
 1288:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
 1289:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
 1290:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   if (HSEStatus == (uint32_t)0x01)
@@ -1438,10 +1437,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 1
 1341:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @brief  Sets System clock frequency to 168MHz and configure HCLK, PCLK2
 1342:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   *         and PCLK1 prescalers.
 1343:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @note   This function should be used only after reset.
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 25
-
-
 1344:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @param  None
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 25
+
+
 1345:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @retval None
 1346:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
 1347:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo168M(void)
@@ -1498,10 +1497,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 1
 1398:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F413xx
 1399:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC_StepModeCmd(ENABLE);
 1400:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 26
-
-
 1401:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* Select PLL as system clock source */
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 26
+
+
 1402:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG &= (uint32_t)((uint32_t)~(RCC_CFG_SYSCLKSEL));
 1403:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_SYSCLKSEL_PLL;
 1404:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
@@ -1558,10 +1557,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 1
 1455:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x00;
 1456:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
 1457:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 27
-
-
 1458:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   if (HSEStatus == (uint32_t)0x01)
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 27
+
+
 1459:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
 1460:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* HCLK = SYSCLK */
 1461:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_AHBPSC_DIV1;
@@ -1618,77 +1617,77 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 1
 1512:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @param  None
 1513:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   * @retval None
 1514:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   */
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 28
-
-
 1515:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** static void SetSysClockTo192M(void)
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 28
+
+
 1516:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** {
-  27              		.loc 1 1516 0
-  28              		.cfi_startproc
-  29              		@ args = 0, pretend = 0, frame = 8
-  30              		@ frame_needed = 0, uses_anonymous_args = 0
-  31              		@ link register save eliminated.
-  32 0000 82B0     		sub	sp, sp, #8
-  33              	.LCFI0:
-  34              		.cfi_def_cfa_offset 8
+  26              		.loc 1 1516 0
+  27              		.cfi_startproc
+  28              		@ args = 0, pretend = 0, frame = 8
+  29              		@ frame_needed = 0, uses_anonymous_args = 0
+  30              		@ link register save eliminated.
+  31 0000 82B0     		sub	sp, sp, #8
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 8
 1517:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
-  35              		.loc 1 1517 0
-  36 0002 0023     		movs	r3, #0
-  37 0004 0193     		str	r3, [sp, #4]
-  38 0006 0093     		str	r3, [sp]
+  34              		.loc 1 1517 0
+  35 0002 0023     		movs	r3, #0
+  36 0004 0193     		str	r3, [sp, #4]
+  37 0006 0093     		str	r3, [sp]
 1518:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
 1519:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration ---------------------------*/
 1520:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Enable HSE */
 1521:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   RCC->CTRL |= ((uint32_t)RCC_CTRL_HSEEN);
-  39              		.loc 1 1521 0
-  40 0008 2C4A     		ldr	r2, .L11
-  41 000a 1368     		ldr	r3, [r2]
-  42 000c 43F48033 		orr	r3, r3, #65536
-  43 0010 1360     		str	r3, [r2]
-  44              	.L3:
+  38              		.loc 1 1521 0
+  39 0008 2C4A     		ldr	r2, .L11
+  40 000a 1368     		ldr	r3, [r2]
+  41 000c 43F48033 		orr	r3, r3, #65536
+  42 0010 1360     		str	r3, [r2]
+  43              	.L3:
 1522:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
 1523:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* Wait till HSE is ready and if Time out is reached exit */
 1524:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   do
 1525:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
 1526:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = RCC->CTRL & RCC_CTRL_HSESTBL;
-  45              		.loc 1 1526 0
-  46 0012 2A4B     		ldr	r3, .L11
-  47 0014 1B68     		ldr	r3, [r3]
-  48 0016 03F40033 		and	r3, r3, #131072
-  49 001a 0093     		str	r3, [sp]
+  44              		.loc 1 1526 0 discriminator 2
+  45 0012 2A4B     		ldr	r3, .L11
+  46 0014 1B68     		ldr	r3, [r3]
+  47 0016 03F40033 		and	r3, r3, #131072
+  48 001a 0093     		str	r3, [sp]
 1527:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     StartUpCounter++;
-  50              		.loc 1 1527 0
-  51 001c 019B     		ldr	r3, [sp, #4]
-  52 001e 0133     		adds	r3, r3, #1
-  53 0020 0193     		str	r3, [sp, #4]
+  49              		.loc 1 1527 0 discriminator 2
+  50 001c 019B     		ldr	r3, [sp, #4]
+  51 001e 0133     		adds	r3, r3, #1
+  52 0020 0193     		str	r3, [sp, #4]
 1528:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
 1529:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
-  54              		.loc 1 1529 0
-  55 0022 009B     		ldr	r3, [sp]
-  56 0024 1BB9     		cbnz	r3, .L2
-  57              		.loc 1 1529 0 is_stmt 0 discriminator 1
-  58 0026 019B     		ldr	r3, [sp, #4]
-  59 0028 B3F5A06F 		cmp	r3, #1280
-  60 002c F1D1     		bne	.L3
-  61              	.L2:
+  53              		.loc 1 1529 0 discriminator 2
+  54 0022 009B     		ldr	r3, [sp]
+  55 0024 1BB9     		cbnz	r3, .L2
+  56              		.loc 1 1529 0 is_stmt 0 discriminator 1
+  57 0026 019B     		ldr	r3, [sp, #4]
+  58 0028 B3F5A06F 		cmp	r3, #1280
+  59 002c F1D1     		bne	.L3
+  60              	.L2:
 1530:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F403xx 
 1531:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   WaitHseStbl(HSE_STABLE_DELAY);
 1532:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
 1533:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   if ((RCC->CTRL & RCC_CTRL_HSESTBL) != RESET)
-  62              		.loc 1 1533 0 is_stmt 1
-  63 002e 234B     		ldr	r3, .L11
-  64 0030 1B68     		ldr	r3, [r3]
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 29
+  61              		.loc 1 1533 0 is_stmt 1
+  62 002e 234B     		ldr	r3, .L11
+  63 0030 1B68     		ldr	r3, [r3]
+  64 0032 13F4003F 		tst	r3, #131072
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 29
 
 
-  65 0032 13F4003F 		tst	r3, #131072
-  66 0036 06D0     		beq	.L4
+  65 0036 06D0     		beq	.L4
 1534:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
 1535:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x01;
-  67              		.loc 1 1535 0
-  68 0038 0123     		movs	r3, #1
-  69 003a 0093     		str	r3, [sp]
-  70              	.L5:
+  66              		.loc 1 1535 0
+  67 0038 0123     		movs	r3, #1
+  68 003a 0093     		str	r3, [sp]
+  69              	.L5:
 1536:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
 1537:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   else
 1538:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
@@ -1696,11 +1695,11 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 1
 1540:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
 1541:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
 1542:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   if (HSEStatus == (uint32_t)0x01)
-  71              		.loc 1 1542 0
-  72 003c 009B     		ldr	r3, [sp]
-  73 003e 012B     		cmp	r3, #1
-  74 0040 04D0     		beq	.L10
-  75              	.L1:
+  70              		.loc 1 1542 0
+  71 003c 009B     		ldr	r3, [sp]
+  72 003e 012B     		cmp	r3, #1
+  73 0040 04D0     		beq	.L10
+  74              	.L1:
 1543:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
 1544:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     /* HCLK = SYSCLK */
 1545:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_AHBPSC_DIV1;
@@ -1738,10 +1737,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 1
 1577:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F403xx
 1578:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     WaitHseStbl(PLL_STABLE_DELAY);
 1579:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 30
-
-
 1580:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef AT32F413xx
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 30
+
+
 1581:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC_StepModeCmd(DISABLE);
 1582:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
 1583:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
@@ -1751,461 +1750,446 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 1
 1587:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****          configuration. User can add here some code to deal with this error */
 1588:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
 1589:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** }
-  76              		.loc 1 1589 0
-  77 0042 02B0     		add	sp, sp, #8
-  78              	.LCFI1:
-  79              		.cfi_remember_state
-  80              		.cfi_def_cfa_offset 0
-  81              		@ sp needed
-  82 0044 7047     		bx	lr
-  83              	.L4:
-  84              	.LCFI2:
-  85              		.cfi_restore_state
+  75              		.loc 1 1589 0
+  76 0042 02B0     		add	sp, sp, #8
+  77              	.LCFI1:
+  78              		.cfi_remember_state
+  79              		.cfi_def_cfa_offset 0
+  80              		@ sp needed
+  81 0044 7047     		bx	lr
+  82              	.L4:
+  83              	.LCFI2:
+  84              		.cfi_restore_state
 1539:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
-  86              		.loc 1 1539 0
-  87 0046 0023     		movs	r3, #0
-  88 0048 0093     		str	r3, [sp]
-  89 004a F7E7     		b	.L5
-  90              	.L10:
+  85              		.loc 1 1539 0
+  86 0046 0023     		movs	r3, #0
+  87 0048 0093     		str	r3, [sp]
+  88 004a F7E7     		b	.L5
+  89              	.L10:
 1545:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
-  91              		.loc 1 1545 0
-  92 004c 1B4B     		ldr	r3, .L11
-  93 004e 5A68     		ldr	r2, [r3, #4]
-  94 0050 5A60     		str	r2, [r3, #4]
+  90              		.loc 1 1545 0
+  91 004c 1B4B     		ldr	r3, .L11
+  92 004e 5A68     		ldr	r2, [r3, #4]
+  93 0050 5A60     		str	r2, [r3, #4]
 1548:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_APB2PSC_DIV2;
-  95              		.loc 1 1548 0
-  96 0052 5A68     		ldr	r2, [r3, #4]
-  97 0054 22F46052 		bic	r2, r2, #14336
-  98 0058 5A60     		str	r2, [r3, #4]
+  94              		.loc 1 1548 0
+  95 0052 5A68     		ldr	r2, [r3, #4]
+  96 0054 22F46052 		bic	r2, r2, #14336
+  97 0058 5A60     		str	r2, [r3, #4]
 1549:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
-  99              		.loc 1 1549 0
- 100 005a 5A68     		ldr	r2, [r3, #4]
- 101 005c 42F40052 		orr	r2, r2, #8192
- 102 0060 5A60     		str	r2, [r3, #4]
+  98              		.loc 1 1549 0
+  99 005a 5A68     		ldr	r2, [r3, #4]
+ 100 005c 42F40052 		orr	r2, r2, #8192
+ 101 0060 5A60     		str	r2, [r3, #4]
 1552:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_APB1PSC_DIV2;
- 103              		.loc 1 1552 0
- 104 0062 5A68     		ldr	r2, [r3, #4]
- 105 0064 22F4E062 		bic	r2, r2, #1792
- 106 0068 5A60     		str	r2, [r3, #4]
+ 102              		.loc 1 1552 0
+ 103 0062 5A68     		ldr	r2, [r3, #4]
+ 104 0064 22F4E062 		bic	r2, r2, #1792
+ 105 0068 5A60     		str	r2, [r3, #4]
 1553:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
- 107              		.loc 1 1553 0
- 108 006a 5A68     		ldr	r2, [r3, #4]
- 109 006c 42F48062 		orr	r2, r2, #1024
- 110 0070 5A60     		str	r2, [r3, #4]
+ 106              		.loc 1 1553 0
+ 107 006a 5A68     		ldr	r2, [r3, #4]
+ 108 006c 42F48062 		orr	r2, r2, #1024
+ 109 0070 5A60     		str	r2, [r3, #4]
 1556:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)(RCC_CFG_PLLRC_HSE | RCC_CFG_PLLMULT24 | RCC_CFG_PLLRANGE_GT72MHZ);
- 111              		.loc 1 1556 0
- 112 0072 5A68     		ldr	r2, [r3, #4]
- 113 0074 22F06042 		bic	r2, r2, #-536870912
- 114 0078 22F47C12 		bic	r2, r2, #4128768
- 115 007c 5A60     		str	r2, [r3, #4]
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 31
-
-
+ 110              		.loc 1 1556 0
+ 111 0072 5A68     		ldr	r2, [r3, #4]
+ 112 0074 22F06042 		bic	r2, r2, #-536870912
+ 113 0078 22F47C12 		bic	r2, r2, #4128768
+ 114 007c 5A60     		str	r2, [r3, #4]
 1557:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
- 116              		.loc 1 1557 0
- 117 007e 5A68     		ldr	r2, [r3, #4]
- 118 0080 42F02042 		orr	r2, r2, #-1610612736
- 119 0084 42F4E812 		orr	r2, r2, #1900544
- 120 0088 5A60     		str	r2, [r3, #4]
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 31
+
+
+ 115              		.loc 1 1557 0
+ 116 007e 5A68     		ldr	r2, [r3, #4]
+ 117 0080 42F02042 		orr	r2, r2, #-1610612736
+ 118 0084 42F4E812 		orr	r2, r2, #1900544
+ 119 0088 5A60     		str	r2, [r3, #4]
 1560:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
- 121              		.loc 1 1560 0
- 122 008a 1A68     		ldr	r2, [r3]
- 123 008c 42F08072 		orr	r2, r2, #16777216
- 124 0090 1A60     		str	r2, [r3]
- 125              	.L7:
+ 120              		.loc 1 1560 0
+ 121 008a 1A68     		ldr	r2, [r3]
+ 122 008c 42F08072 		orr	r2, r2, #16777216
+ 123 0090 1A60     		str	r2, [r3]
+ 124              	.L7:
 1563:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     {
- 126              		.loc 1 1563 0
- 127 0092 0A4B     		ldr	r3, .L11
- 128 0094 1B68     		ldr	r3, [r3]
- 129 0096 13F0007F 		tst	r3, #33554432
- 130 009a FAD0     		beq	.L7
+ 125              		.loc 1 1563 0 discriminator 1
+ 126 0092 0A4B     		ldr	r3, .L11
+ 127 0094 1B68     		ldr	r3, [r3]
+ 128 0096 13F0007F 		tst	r3, #33554432
+ 129 009a FAD0     		beq	.L7
 1570:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     RCC->CFG |= (uint32_t)RCC_CFG_SYSCLKSEL_PLL;
- 131              		.loc 1 1570 0
- 132 009c 074B     		ldr	r3, .L11
- 133 009e 5A68     		ldr	r2, [r3, #4]
- 134 00a0 22F00302 		bic	r2, r2, #3
- 135 00a4 5A60     		str	r2, [r3, #4]
+ 130              		.loc 1 1570 0
+ 131 009c 074B     		ldr	r3, .L11
+ 132 009e 5A68     		ldr	r2, [r3, #4]
+ 133 00a0 22F00302 		bic	r2, r2, #3
+ 134 00a4 5A60     		str	r2, [r3, #4]
 1571:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
- 136              		.loc 1 1571 0
- 137 00a6 5A68     		ldr	r2, [r3, #4]
- 138 00a8 42F00202 		orr	r2, r2, #2
- 139 00ac 5A60     		str	r2, [r3, #4]
- 140              	.L8:
+ 135              		.loc 1 1571 0
+ 136 00a6 5A68     		ldr	r2, [r3, #4]
+ 137 00a8 42F00202 		orr	r2, r2, #2
+ 138 00ac 5A60     		str	r2, [r3, #4]
+ 139              	.L8:
 1574:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     {
- 141              		.loc 1 1574 0
- 142 00ae 034B     		ldr	r3, .L11
- 143 00b0 5B68     		ldr	r3, [r3, #4]
- 144 00b2 03F00C03 		and	r3, r3, #12
- 145 00b6 082B     		cmp	r3, #8
- 146 00b8 F9D1     		bne	.L8
- 147 00ba C2E7     		b	.L1
- 148              	.L12:
- 149              		.align	2
- 150              	.L11:
- 151 00bc 00100240 		.word	1073876992
- 152              		.cfi_endproc
- 153              	.LFE127:
- 154              		.cantunwind
- 155              		.fnend
- 157              		.section	.text._ZL11SetSysClockv,"ax",%progbits
- 158              		.align	1
- 159              		.syntax unified
- 160              		.thumb
- 161              		.thumb_func
- 162              		.fpu fpv4-sp-d16
- 164              	_ZL11SetSysClockv:
- 165              		.fnstart
- 166              	.LFB125:
+ 140              		.loc 1 1574 0 discriminator 1
+ 141 00ae 034B     		ldr	r3, .L11
+ 142 00b0 5B68     		ldr	r3, [r3, #4]
+ 143 00b2 03F00C03 		and	r3, r3, #12
+ 144 00b6 082B     		cmp	r3, #8
+ 145 00b8 F9D1     		bne	.L8
+ 146 00ba C2E7     		b	.L1
+ 147              	.L12:
+ 148              		.align	2
+ 149              	.L11:
+ 150 00bc 00100240 		.word	1073876992
+ 151              		.cfi_endproc
+ 152              	.LFE127:
+ 154              		.section	.text.SetSysClock,"ax",%progbits
+ 155              		.align	1
+ 156              		.syntax unified
+ 157              		.thumb
+ 158              		.thumb_func
+ 159              		.fpu fpv4-sp-d16
+ 161              	SetSysClock:
+ 162              	.LFB125:
  428:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #ifdef SYSCLK_FREQ_HSE
- 167              		.loc 1 428 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 32
+ 163              		.loc 1 428 0
+ 164              		.cfi_startproc
+ 165              		@ args = 0, pretend = 0, frame = 0
+ 166              		@ frame_needed = 0, uses_anonymous_args = 0
+ 167 0000 08B5     		push	{r3, lr}
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 32
 
 
- 168              		.cfi_startproc
- 169              		@ args = 0, pretend = 0, frame = 0
- 170              		@ frame_needed = 0, uses_anonymous_args = 0
- 171 0000 08B5     		push	{r3, lr}
- 172              	.LCFI3:
- 173              		.cfi_def_cfa_offset 8
- 174              		.cfi_offset 3, -8
- 175              		.cfi_offset 14, -4
+ 168              	.LCFI3:
+ 169              		.cfi_def_cfa_offset 8
+ 170              		.cfi_offset 3, -8
+ 171              		.cfi_offset 14, -4
  454:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_200MHz
- 176              		.loc 1 454 0
- 177 0002 FFF7FEFF 		bl	_ZL17SetSysClockTo192Mv
- 178              	.LVL0:
+ 172              		.loc 1 454 0
+ 173 0002 FFF7FEFF 		bl	SetSysClockTo192M
+ 174              	.LVL0:
  487:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
- 179              		.loc 1 487 0
- 180 0006 08BD     		pop	{r3, pc}
- 181              		.cfi_endproc
- 182              	.LFE125:
- 183              		.cantunwind
- 184              		.fnend
- 186              		.section	.text.SystemInit,"ax",%progbits
- 187              		.align	1
- 188              		.global	SystemInit
- 189              		.syntax unified
- 190              		.thumb
- 191              		.thumb_func
- 192              		.fpu fpv4-sp-d16
- 194              	SystemInit:
- 195              		.fnstart
- 196              	.LFB123:
+ 175              		.loc 1 487 0
+ 176 0006 08BD     		pop	{r3, pc}
+ 177              		.cfi_endproc
+ 178              	.LFE125:
+ 180              		.section	.text.SystemInit,"ax",%progbits
+ 181              		.align	1
+ 182              		.global	SystemInit
+ 183              		.syntax unified
+ 184              		.thumb
+ 185              		.thumb_func
+ 186              		.fpu fpv4-sp-d16
+ 188              	SystemInit:
+ 189              	.LFB123:
  283:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #if defined (__FPU_USED) && (__FPU_USED == 1U)
- 197              		.loc 1 283 0
- 198              		.cfi_startproc
- 199              		@ args = 0, pretend = 0, frame = 0
- 200              		@ frame_needed = 0, uses_anonymous_args = 0
- 201 0000 10B5     		push	{r4, lr}
- 202              	.LCFI4:
- 203              		.cfi_def_cfa_offset 8
- 204              		.cfi_offset 4, -8
- 205              		.cfi_offset 14, -4
+ 190              		.loc 1 283 0
+ 191              		.cfi_startproc
+ 192              		@ args = 0, pretend = 0, frame = 0
+ 193              		@ frame_needed = 0, uses_anonymous_args = 0
+ 194 0000 10B5     		push	{r4, lr}
+ 195              	.LCFI4:
+ 196              		.cfi_def_cfa_offset 8
+ 197              		.cfi_offset 4, -8
+ 198              		.cfi_offset 14, -4
  285:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****                  (3U << 11U * 2U)  );       /* set CP11 Full Access */
- 206              		.loc 1 285 0
- 207 0002 164C     		ldr	r4, .L17
- 208 0004 D4F88830 		ldr	r3, [r4, #136]
- 209 0008 43F47003 		orr	r3, r3, #15728640
- 210 000c C4F88830 		str	r3, [r4, #136]
+ 199              		.loc 1 285 0
+ 200 0002 164C     		ldr	r4, .L17
+ 201 0004 D4F88830 		ldr	r3, [r4, #136]
+ 202 0008 43F47003 		orr	r3, r3, #15728640
+ 203 000c C4F88830 		str	r3, [r4, #136]
  291:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
- 211              		.loc 1 291 0
- 212 0010 134B     		ldr	r3, .L17+4
- 213 0012 1A68     		ldr	r2, [r3]
- 214 0014 42F00102 		orr	r2, r2, #1
- 215 0018 1A60     		str	r2, [r3]
+ 204              		.loc 1 291 0
+ 205 0010 134B     		ldr	r3, .L17+4
+ 206 0012 1A68     		ldr	r2, [r3]
+ 207 0014 42F00102 		orr	r2, r2, #1
+ 208 0018 1A60     		str	r2, [r3]
  294:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****             RCC_CFG_APB1PSC | RCC_CFG_APB2PSC | \
- 216              		.loc 1 294 0
- 217 001a 5968     		ldr	r1, [r3, #4]
- 218 001c 114A     		ldr	r2, .L17+8
- 219 001e 0A40     		ands	r2, r2, r1
- 220 0020 5A60     		str	r2, [r3, #4]
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 33
-
-
+ 209              		.loc 1 294 0
+ 210 001a 5968     		ldr	r1, [r3, #4]
+ 211 001c 114A     		ldr	r2, .L17+8
+ 212 001e 0A40     		ands	r2, r2, r1
+ 213 0020 5A60     		str	r2, [r3, #4]
  299:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****             RCC_CTRL_PLLEN);
- 221              		.loc 1 299 0
- 222 0022 1A68     		ldr	r2, [r3]
- 223 0024 22F08472 		bic	r2, r2, #17301504
- 224 0028 22F48032 		bic	r2, r2, #65536
- 225 002c 1A60     		str	r2, [r3]
+ 214              		.loc 1 299 0
+ 215 0022 1A68     		ldr	r2, [r3]
+ 216 0024 22F08472 		bic	r2, r2, #17301504
+ 217 0028 22F48032 		bic	r2, r2, #65536
+ 218 002c 1A60     		str	r2, [r3]
  303:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
- 226              		.loc 1 303 0
- 227 002e 1A68     		ldr	r2, [r3]
- 228 0030 22F48022 		bic	r2, r2, #262144
- 229 0034 1A60     		str	r2, [r3]
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 33
+
+
+ 219              		.loc 1 303 0
+ 220 002e 1A68     		ldr	r2, [r3]
+ 221 0030 22F48022 		bic	r2, r2, #262144
+ 222 0034 1A60     		str	r2, [r3]
  306:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****             RCC_CFG_PLLMULT | RCC_CFG_USBPSC | RCC_CFG_PLLRANGE);
- 230              		.loc 1 306 0
- 231 0036 5A68     		ldr	r2, [r3, #4]
- 232 0038 22F06842 		bic	r2, r2, #-402653184
- 233 003c 22F47F02 		bic	r2, r2, #16711680
- 234 0040 5A60     		str	r2, [r3, #4]
+ 223              		.loc 1 306 0
+ 224 0036 5A68     		ldr	r2, [r3, #4]
+ 225 0038 22F06842 		bic	r2, r2, #-402653184
+ 226 003c 22F47F02 		bic	r2, r2, #16711680
+ 227 0040 5A60     		str	r2, [r3, #4]
  310:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
- 235              		.loc 1 310 0
- 236 0042 196B     		ldr	r1, [r3, #48]
- 237 0044 084A     		ldr	r2, .L17+12
- 238 0046 0A40     		ands	r2, r2, r1
- 239 0048 1A63     		str	r2, [r3, #48]
+ 228              		.loc 1 310 0
+ 229 0042 196B     		ldr	r1, [r3, #48]
+ 230 0044 084A     		ldr	r2, .L17+12
+ 231 0046 0A40     		ands	r2, r2, r1
+ 232 0048 1A63     		str	r2, [r3, #48]
  313:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****                 RCC_CLKINT_HSISTBLFC | RCC_CLKINT_HSESTBLFC | \
- 240              		.loc 1 313 0
- 241 004a 4FF41F02 		mov	r2, #10420224
- 242 004e 9A60     		str	r2, [r3, #8]
+ 233              		.loc 1 313 0
+ 234 004a 4FF41F02 		mov	r2, #10420224
+ 235 004e 9A60     		str	r2, [r3, #8]
  323:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
- 243              		.loc 1 323 0
- 244 0050 FFF7FEFF 		bl	_ZL11SetSysClockv
- 245              	.LVL1:
+ 236              		.loc 1 323 0
+ 237 0050 FFF7FEFF 		bl	SetSysClock
+ 238              	.LVL1:
  328:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** #endif
- 246              		.loc 1 328 0
- 247 0054 4FF00063 		mov	r3, #134217728
- 248 0058 A360     		str	r3, [r4, #8]
+ 239              		.loc 1 328 0
+ 240 0054 4FF00063 		mov	r3, #134217728
+ 241 0058 A360     		str	r3, [r4, #8]
  330:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
- 249              		.loc 1 330 0
- 250 005a 10BD     		pop	{r4, pc}
- 251              	.L18:
- 252              		.align	2
- 253              	.L17:
- 254 005c 00ED00E0 		.word	-536810240
- 255 0060 00100240 		.word	1073876992
- 256 0064 0C00FFE8 		.word	-385941492
- 257 0068 00FFFEFE 		.word	-16843008
- 258              		.cfi_endproc
- 259              	.LFE123:
- 260              		.cantunwind
- 261              		.fnend
- 263              		.section	.text.SystemCoreClockUpdate,"ax",%progbits
- 264              		.align	1
- 265              		.global	SystemCoreClockUpdate
- 266              		.syntax unified
- 267              		.thumb
- 268              		.thumb_func
- 269              		.fpu fpv4-sp-d16
- 271              	SystemCoreClockUpdate:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 34
-
-
- 272              		.fnstart
- 273              	.LFB124:
+ 242              		.loc 1 330 0
+ 243 005a 10BD     		pop	{r4, pc}
+ 244              	.L18:
+ 245              		.align	2
+ 246              	.L17:
+ 247 005c 00ED00E0 		.word	-536810240
+ 248 0060 00100240 		.word	1073876992
+ 249 0064 0C00FFE8 		.word	-385941492
+ 250 0068 00FFFEFE 		.word	-16843008
+ 251              		.cfi_endproc
+ 252              	.LFE123:
+ 254              		.section	.text.SystemCoreClockUpdate,"ax",%progbits
+ 255              		.align	1
+ 256              		.global	SystemCoreClockUpdate
+ 257              		.syntax unified
+ 258              		.thumb
+ 259              		.thumb_func
+ 260              		.fpu fpv4-sp-d16
+ 262              	SystemCoreClockUpdate:
+ 263              	.LFB124:
  368:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   uint32_t tmp = 0, pllmult = 0, pllrefclk = 0;
- 274              		.loc 1 368 0
- 275              		.cfi_startproc
- 276              		@ args = 0, pretend = 0, frame = 0
- 277              		@ frame_needed = 0, uses_anonymous_args = 0
- 278              		@ link register save eliminated.
- 279              	.LVL2:
+ 264              		.loc 1 368 0
+ 265              		.cfi_startproc
+ 266              		@ args = 0, pretend = 0, frame = 0
+ 267              		@ frame_needed = 0, uses_anonymous_args = 0
+ 268              		@ link register save eliminated.
+ 269              	.LVL2:
  372:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
- 280              		.loc 1 372 0
- 281 0000 294B     		ldr	r3, .L34
- 282 0002 5B68     		ldr	r3, [r3, #4]
- 283 0004 03F00C03 		and	r3, r3, #12
- 284              	.LVL3:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 34
+
+
+ 270              		.loc 1 372 0
+ 271 0000 294B     		ldr	r3, .L34
+ 272 0002 5B68     		ldr	r3, [r3, #4]
+ 273 0004 03F00C03 		and	r3, r3, #12
+ 274              	.LVL3:
  374:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   {
- 285              		.loc 1 374 0
- 286 0008 042B     		cmp	r3, #4
- 287 000a 15D0     		beq	.L21
- 288 000c 082B     		cmp	r3, #8
- 289 000e 17D0     		beq	.L22
- 290 0010 1BB1     		cbz	r3, .L31
+ 275              		.loc 1 374 0
+ 276 0008 042B     		cmp	r3, #4
+ 277 000a 15D0     		beq	.L21
+ 278 000c 082B     		cmp	r3, #8
+ 279 000e 17D0     		beq	.L22
+ 280 0010 1BB1     		cbz	r3, .L31
  411:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     break;
- 291              		.loc 1 411 0
- 292 0012 264B     		ldr	r3, .L34+4
- 293              	.LVL4:
- 294 0014 264A     		ldr	r2, .L34+8
- 295 0016 1A60     		str	r2, [r3]
+ 281              		.loc 1 411 0
+ 282 0012 264B     		ldr	r3, .L34+4
+ 283              	.LVL4:
+ 284 0014 264A     		ldr	r2, .L34+8
+ 285 0016 1A60     		str	r2, [r3]
  412:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   }
- 296              		.loc 1 412 0
- 297 0018 02E0     		b	.L24
- 298              	.LVL5:
- 299              	.L31:
+ 286              		.loc 1 412 0
+ 287 0018 02E0     		b	.L24
+ 288              	.LVL5:
+ 289              	.L31:
  377:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     break;
- 300              		.loc 1 377 0
- 301 001a 244B     		ldr	r3, .L34+4
- 302              	.LVL6:
- 303 001c 244A     		ldr	r2, .L34+8
- 304 001e 1A60     		str	r2, [r3]
- 305              	.LVL7:
- 306              	.L24:
+ 290              		.loc 1 377 0
+ 291 001a 244B     		ldr	r3, .L34+4
+ 292              	.LVL6:
+ 293 001c 244A     		ldr	r2, .L34+8
+ 294 001e 1A60     		str	r2, [r3]
+ 295              	.LVL7:
+ 296              	.L24:
  417:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****   /* HCLK clock frequency */
- 307              		.loc 1 417 0
- 308 0020 214B     		ldr	r3, .L34
- 309 0022 5B68     		ldr	r3, [r3, #4]
- 310 0024 C3F30313 		ubfx	r3, r3, #4, #4
- 311 0028 224A     		ldr	r2, .L34+12
- 312 002a D35C     		ldrb	r3, [r2, r3]	@ zero_extendqisi2
- 313 002c DAB2     		uxtb	r2, r3
- 314              	.LVL8:
+ 297              		.loc 1 417 0
+ 298 0020 214B     		ldr	r3, .L34
+ 299 0022 5B68     		ldr	r3, [r3, #4]
+ 300 0024 C3F30313 		ubfx	r3, r3, #4, #4
+ 301 0028 224A     		ldr	r2, .L34+12
+ 302 002a D35C     		ldrb	r3, [r2, r3]	@ zero_extendqisi2
+ 303 002c DAB2     		uxtb	r2, r3
+ 304              	.LVL8:
  419:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** }
- 315              		.loc 1 419 0
- 316 002e 1F49     		ldr	r1, .L34+4
- 317 0030 0B68     		ldr	r3, [r1]
- 318 0032 D340     		lsrs	r3, r3, r2
- 319 0034 0B60     		str	r3, [r1]
+ 305              		.loc 1 419 0
+ 306 002e 1F49     		ldr	r1, .L34+4
+ 307 0030 0B68     		ldr	r3, [r1]
+ 308 0032 D340     		lsrs	r3, r3, r2
+ 309 0034 0B60     		str	r3, [r1]
  420:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 35
-
-
- 320              		.loc 1 420 0
- 321 0036 7047     		bx	lr
- 322              	.LVL9:
- 323              	.L21:
+ 310              		.loc 1 420 0
+ 311 0036 7047     		bx	lr
+ 312              	.LVL9:
+ 313              	.L21:
  381:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     break;
- 324              		.loc 1 381 0
- 325 0038 1C4B     		ldr	r3, .L34+4
- 326              	.LVL10:
- 327 003a 1D4A     		ldr	r2, .L34+8
- 328 003c 1A60     		str	r2, [r3]
+ 314              		.loc 1 381 0
+ 315 0038 1C4B     		ldr	r3, .L34+4
+ 316              	.LVL10:
+ 317 003a 1D4A     		ldr	r2, .L34+8
+ 318 003c 1A60     		str	r2, [r3]
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 35
+
+
  382:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
- 329              		.loc 1 382 0
- 330 003e EFE7     		b	.L24
- 331              	.LVL11:
- 332              	.L22:
+ 319              		.loc 1 382 0
+ 320 003e EFE7     		b	.L24
+ 321              	.LVL11:
+ 322              	.L22:
  386:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     pllmult = RCC_GET_PLLMULT(RCC->CFG);
- 333              		.loc 1 386 0
- 334 0040 1949     		ldr	r1, .L34
- 335 0042 4868     		ldr	r0, [r1, #4]
- 336 0044 00F48030 		and	r0, r0, #65536
- 337              	.LVL12:
+ 323              		.loc 1 386 0
+ 324 0040 1949     		ldr	r1, .L34
+ 325 0042 4868     		ldr	r0, [r1, #4]
+ 326 0044 00F48030 		and	r0, r0, #65536
+ 327              	.LVL12:
  387:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
- 338              		.loc 1 387 0
- 339 0048 4B68     		ldr	r3, [r1, #4]
- 340              	.LVL13:
- 341 004a C3F38343 		ubfx	r3, r3, #18, #4
- 342 004e 4A68     		ldr	r2, [r1, #4]
- 343 0050 520E     		lsrs	r2, r2, #25
- 344 0052 02F03002 		and	r2, r2, #48
- 345 0056 1343     		orrs	r3, r3, r2
- 346 0058 4A68     		ldr	r2, [r1, #4]
- 347 005a 12F0C04F 		tst	r2, #1610612736
- 348 005e 09D1     		bne	.L28
+ 328              		.loc 1 387 0
+ 329 0048 4B68     		ldr	r3, [r1, #4]
+ 330              	.LVL13:
+ 331 004a C3F38343 		ubfx	r3, r3, #18, #4
+ 332 004e 4A68     		ldr	r2, [r1, #4]
+ 333 0050 520E     		lsrs	r2, r2, #25
+ 334 0052 02F03002 		and	r2, r2, #48
+ 335 0056 1343     		orrs	r3, r3, r2
+ 336 0058 4A68     		ldr	r2, [r1, #4]
+ 337 005a 12F0C04F 		tst	r2, #1610612736
+ 338 005e 09D1     		bne	.L28
  387:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
- 349              		.loc 1 387 0 is_stmt 0 discriminator 1
- 350 0060 4A68     		ldr	r2, [r1, #4]
- 351 0062 02F47012 		and	r2, r2, #3932160
- 352 0066 B2F5701F 		cmp	r2, #3932160
- 353 006a 01D0     		beq	.L32
+ 339              		.loc 1 387 0 is_stmt 0 discriminator 1
+ 340 0060 4A68     		ldr	r2, [r1, #4]
+ 341 0062 02F47012 		and	r2, r2, #3932160
+ 342 0066 B2F5701F 		cmp	r2, #3932160
+ 343 006a 01D0     		beq	.L32
  387:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
- 354              		.loc 1 387 0
- 355 006c 0222     		movs	r2, #2
- 356 006e 02E0     		b	.L25
- 357              	.L32:
- 358 0070 0122     		movs	r2, #1
- 359 0072 00E0     		b	.L25
- 360              	.L28:
- 361 0074 0122     		movs	r2, #1
- 362              	.L25:
+ 344              		.loc 1 387 0
+ 345 006c 0222     		movs	r2, #2
+ 346 006e 02E0     		b	.L25
+ 347              	.L32:
+ 348 0070 0122     		movs	r2, #1
+ 349 0072 00E0     		b	.L25
+ 350              	.L28:
+ 351 0074 0122     		movs	r2, #1
+ 352              	.L25:
  387:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c **** 
- 363              		.loc 1 387 0 discriminator 6
- 364 0076 1344     		add	r3, r3, r2
- 365              	.LVL14:
+ 353              		.loc 1 387 0 discriminator 6
+ 354 0076 1344     		add	r3, r3, r2
+ 355              	.LVL14:
  389:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     {
- 366              		.loc 1 389 0 is_stmt 1 discriminator 6
- 367 0078 50B1     		cbz	r0, .L33
+ 356              		.loc 1 389 0 is_stmt 1 discriminator 6
+ 357 0078 50B1     		cbz	r0, .L33
  397:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****       {
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 36
-
-
- 368              		.loc 1 397 0
- 369 007a 0B4A     		ldr	r2, .L34
- 370 007c 5268     		ldr	r2, [r2, #4]
- 371 007e 12F4003F 		tst	r2, #131072
- 372 0082 0BD0     		beq	.L27
+ 358              		.loc 1 397 0
+ 359 007a 0B4A     		ldr	r2, .L34
+ 360 007c 5268     		ldr	r2, [r2, #4]
+ 361 007e 12F4003F 		tst	r2, #131072
+ 362 0082 0BD0     		beq	.L27
  400:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****       }
- 373              		.loc 1 400 0
- 374 0084 0C4A     		ldr	r2, .L34+16
- 375 0086 02FB03F3 		mul	r3, r2, r3
- 376              	.LVL15:
- 377 008a 084A     		ldr	r2, .L34+4
- 378 008c 1360     		str	r3, [r2]
- 379 008e C7E7     		b	.L24
- 380              	.LVL16:
- 381              	.L33:
+ 363              		.loc 1 400 0
+ 364 0084 0C4A     		ldr	r2, .L34+16
+ 365 0086 02FB03F3 		mul	r3, r2, r3
+ 366              	.LVL15:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 36
+
+
+ 367 008a 084A     		ldr	r2, .L34+4
+ 368 008c 1360     		str	r3, [r2]
+ 369 008e C7E7     		b	.L24
+ 370              	.LVL16:
+ 371              	.L33:
  392:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****     }
- 382              		.loc 1 392 0
- 383 0090 094A     		ldr	r2, .L34+16
- 384 0092 02FB03F3 		mul	r3, r2, r3
- 385              	.LVL17:
- 386 0096 054A     		ldr	r2, .L34+4
- 387 0098 1360     		str	r3, [r2]
- 388 009a C1E7     		b	.L24
- 389              	.LVL18:
- 390              	.L27:
+ 372              		.loc 1 392 0
+ 373 0090 094A     		ldr	r2, .L34+16
+ 374 0092 02FB03F3 		mul	r3, r2, r3
+ 375              	.LVL17:
+ 376 0096 054A     		ldr	r2, .L34+4
+ 377 0098 1360     		str	r3, [r2]
+ 378 009a C1E7     		b	.L24
+ 379              	.LVL18:
+ 380              	.L27:
  404:../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.c ****       }
- 391              		.loc 1 404 0
- 392 009c 044A     		ldr	r2, .L34+8
- 393 009e 02FB03F3 		mul	r3, r2, r3
- 394              	.LVL19:
- 395 00a2 024A     		ldr	r2, .L34+4
- 396 00a4 1360     		str	r3, [r2]
- 397 00a6 BBE7     		b	.L24
- 398              	.L35:
- 399              		.align	2
- 400              	.L34:
- 401 00a8 00100240 		.word	1073876992
- 402 00ac 00000000 		.word	.LANCHOR0
- 403 00b0 00127A00 		.word	8000000
- 404 00b4 00000000 		.word	.LANCHOR1
- 405 00b8 00093D00 		.word	4000000
- 406              		.cfi_endproc
- 407              	.LFE124:
- 408              		.cantunwind
- 409              		.fnend
- 411              		.global	AHBPscTable
- 412              		.global	SystemCoreClock
- 413              		.section	.data.AHBPscTable,"aw",%progbits
- 414              		.align	2
- 415              		.set	.LANCHOR1,. + 0
- 418              	AHBPscTable:
- 419 0000 00       		.byte	0
- 420 0001 00       		.byte	0
- 421 0002 00       		.byte	0
- 422 0003 00       		.byte	0
- 423 0004 00       		.byte	0
- 424 0005 00       		.byte	0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 37
+ 381              		.loc 1 404 0
+ 382 009c 044A     		ldr	r2, .L34+8
+ 383 009e 02FB03F3 		mul	r3, r2, r3
+ 384              	.LVL19:
+ 385 00a2 024A     		ldr	r2, .L34+4
+ 386 00a4 1360     		str	r3, [r2]
+ 387 00a6 BBE7     		b	.L24
+ 388              	.L35:
+ 389              		.align	2
+ 390              	.L34:
+ 391 00a8 00100240 		.word	1073876992
+ 392 00ac 00000000 		.word	.LANCHOR0
+ 393 00b0 00127A00 		.word	8000000
+ 394 00b4 00000000 		.word	.LANCHOR1
+ 395 00b8 00093D00 		.word	4000000
+ 396              		.cfi_endproc
+ 397              	.LFE124:
+ 399              		.global	AHBPscTable
+ 400              		.global	SystemCoreClock
+ 401              		.section	.data.AHBPscTable,"aw",%progbits
+ 402              		.align	2
+ 403              		.set	.LANCHOR1,. + 0
+ 406              	AHBPscTable:
+ 407 0000 00       		.byte	0
+ 408 0001 00       		.byte	0
+ 409 0002 00       		.byte	0
+ 410 0003 00       		.byte	0
+ 411 0004 00       		.byte	0
+ 412 0005 00       		.byte	0
+ 413 0006 00       		.byte	0
+ 414 0007 00       		.byte	0
+ 415 0008 01       		.byte	1
+ 416 0009 02       		.byte	2
+ 417 000a 03       		.byte	3
+ 418 000b 04       		.byte	4
+ 419 000c 06       		.byte	6
+ 420 000d 07       		.byte	7
+ 421 000e 08       		.byte	8
+ 422 000f 09       		.byte	9
+ 423              		.section	.data.SystemCoreClock,"aw",%progbits
+ 424              		.align	2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 37
 
 
- 425 0006 00       		.byte	0
- 426 0007 00       		.byte	0
- 427 0008 01       		.byte	1
- 428 0009 02       		.byte	2
- 429 000a 03       		.byte	3
- 430 000b 04       		.byte	4
- 431 000c 06       		.byte	6
- 432 000d 07       		.byte	7
- 433 000e 08       		.byte	8
- 434 000f 09       		.byte	9
- 435              		.section	.data.SystemCoreClock,"aw",%progbits
- 436              		.align	2
- 437              		.set	.LANCHOR0,. + 0
- 440              	SystemCoreClock:
- 441 0000 00B0710B 		.word	192000000
- 442              		.text
- 443              	.Letext0:
- 444              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
- 445              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
- 446              		.file 4 "../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h"
- 447              		.file 5 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
- 448              		.file 6 "../Libraries/CMSIS/CM4/DeviceSupport/at32f4xx.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s 			page 38
+ 425              		.set	.LANCHOR0,. + 0
+ 428              	SystemCoreClock:
+ 429 0000 00B0710B 		.word	192000000
+ 430              		.text
+ 431              	.Letext0:
+ 432              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
+ 433              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
+ 434              		.file 4 "../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h"
+ 435              		.file 5 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
+ 436              		.file 6 "../Libraries/CMSIS/CM4/DeviceSupport/at32f4xx.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s 			page 38
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 system_at32f4xx.c
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s:17     .text._ZL17SetSysClockTo192Mv:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s:23     .text._ZL17SetSysClockTo192Mv:0000000000000000 _ZL17SetSysClockTo192Mv
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s:151    .text._ZL17SetSysClockTo192Mv:00000000000000bc $d
-.ARM.exidx.text._ZL17SetSysClockTo192Mv:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s:158    .text._ZL11SetSysClockv:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s:164    .text._ZL11SetSysClockv:0000000000000000 _ZL11SetSysClockv
-.ARM.exidx.text._ZL11SetSysClockv:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s:187    .text.SystemInit:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s:194    .text.SystemInit:0000000000000000 SystemInit
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s:254    .text.SystemInit:000000000000005c $d
-       .ARM.exidx.text.SystemInit:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s:264    .text.SystemCoreClockUpdate:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s:271    .text.SystemCoreClockUpdate:0000000000000000 SystemCoreClockUpdate
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s:401    .text.SystemCoreClockUpdate:00000000000000a8 $d
-.ARM.exidx.text.SystemCoreClockUpdate:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s:418    .data.AHBPscTable:0000000000000000 AHBPscTable
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s:440    .data.SystemCoreClock:0000000000000000 SystemCoreClock
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s:414    .data.AHBPscTable:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRPZUvz.s:436    .data.SystemCoreClock:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s:17     .text.SetSysClockTo192M:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s:23     .text.SetSysClockTo192M:0000000000000000 SetSysClockTo192M
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s:150    .text.SetSysClockTo192M:00000000000000bc $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s:155    .text.SetSysClock:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s:161    .text.SetSysClock:0000000000000000 SetSysClock
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s:181    .text.SystemInit:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s:188    .text.SystemInit:0000000000000000 SystemInit
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s:247    .text.SystemInit:000000000000005c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s:255    .text.SystemCoreClockUpdate:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s:262    .text.SystemCoreClockUpdate:0000000000000000 SystemCoreClockUpdate
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s:391    .text.SystemCoreClockUpdate:00000000000000a8 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s:406    .data.AHBPscTable:0000000000000000 AHBPscTable
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s:428    .data.SystemCoreClock:0000000000000000 SystemCoreClock
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s:402    .data.AHBPscTable:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccvwDsgo.s:424    .data.SystemCoreClock:0000000000000000 $d
 
 NO UNDEFINED SYMBOLS

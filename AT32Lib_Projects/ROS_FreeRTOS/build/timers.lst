@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -16,16 +16,15 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
   13              		.text
   14              	.Ltext0:
   15              		.cfi_sections	.debug_frame
-  16              		.section	.text._ZL20prvGetNextExpireTimePl,"ax",%progbits
+  16              		.section	.text.prvGetNextExpireTime,"ax",%progbits
   17              		.align	1
   18              		.syntax unified
   19              		.thumb
   20              		.thumb_func
   21              		.fpu fpv4-sp-d16
-  23              	_ZL20prvGetNextExpireTimePl:
-  24              		.fnstart
-  25              	.LFB146:
-  26              		.file 1 "../Middlewares/FreeRTOS//Source/timers.c"
+  23              	prvGetNextExpireTime:
+  24              	.LFB139:
+  25              		.file 1 "../Middlewares/FreeRTOS//Source/timers.c"
    1:../Middlewares/FreeRTOS//Source/timers.c **** /*
    2:../Middlewares/FreeRTOS//Source/timers.c ****     FreeRTOS V9.0.0 - Copyright (C) 2016 Real Time Engineers Ltd.
    3:../Middlewares/FreeRTOS//Source/timers.c ****     All rights reserved
@@ -58,10 +57,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
   30:../Middlewares/FreeRTOS//Source/timers.c ****      *    is the industry's de facto standard.                               *
   31:../Middlewares/FreeRTOS//Source/timers.c ****      *                                                                       *
   32:../Middlewares/FreeRTOS//Source/timers.c ****      *    Help yourself get started quickly while simultaneously helping     *
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 2
-
-
   33:../Middlewares/FreeRTOS//Source/timers.c ****      *    to support the FreeRTOS project by purchasing a FreeRTOS           *
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 2
+
+
   34:../Middlewares/FreeRTOS//Source/timers.c ****      *    tutorial book, reference manual, or both:                          *
   35:../Middlewares/FreeRTOS//Source/timers.c ****      *    http://www.FreeRTOS.org/Documentation                              *
   36:../Middlewares/FreeRTOS//Source/timers.c ****      *                                                                       *
@@ -118,10 +117,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
   87:../Middlewares/FreeRTOS//Source/timers.c **** /* Lint e961 and e750 are suppressed as a MISRA exception justified because the
   88:../Middlewares/FreeRTOS//Source/timers.c **** MPU ports require MPU_WRAPPERS_INCLUDED_FROM_API_FILE to be defined for the
   89:../Middlewares/FreeRTOS//Source/timers.c **** header files above, but not in this file, in order to generate the correct
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 3
-
-
   90:../Middlewares/FreeRTOS//Source/timers.c **** privileged Vs unprivileged linkage and placement. */
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 3
+
+
   91:../Middlewares/FreeRTOS//Source/timers.c **** #undef MPU_WRAPPERS_INCLUDED_FROM_API_FILE /*lint !e961 !e750. */
   92:../Middlewares/FreeRTOS//Source/timers.c **** 
   93:../Middlewares/FreeRTOS//Source/timers.c **** 
@@ -178,10 +177,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
  144:../Middlewares/FreeRTOS//Source/timers.c **** /* The structure that contains the two message types, along with an identifier
  145:../Middlewares/FreeRTOS//Source/timers.c **** that is used to determine which message type is valid. */
  146:../Middlewares/FreeRTOS//Source/timers.c **** typedef struct tmrTimerQueueMessage
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 4
-
-
  147:../Middlewares/FreeRTOS//Source/timers.c **** {
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 4
+
+
  148:../Middlewares/FreeRTOS//Source/timers.c **** 	BaseType_t			xMessageID;			/*<< The command being sent to the timer service task. */
  149:../Middlewares/FreeRTOS//Source/timers.c **** 	union
  150:../Middlewares/FreeRTOS//Source/timers.c **** 	{
@@ -238,10 +237,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
  201:../Middlewares/FreeRTOS//Source/timers.c **** static void prvTimerTask( void *pvParameters ) PRIVILEGED_FUNCTION;
  202:../Middlewares/FreeRTOS//Source/timers.c **** 
  203:../Middlewares/FreeRTOS//Source/timers.c **** /*
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 5
-
-
  204:../Middlewares/FreeRTOS//Source/timers.c ****  * Called by the timer service task to interpret and process a command it
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 5
+
+
  205:../Middlewares/FreeRTOS//Source/timers.c ****  * received on the timer queue.
  206:../Middlewares/FreeRTOS//Source/timers.c ****  */
  207:../Middlewares/FreeRTOS//Source/timers.c **** static void prvProcessReceivedCommands( void ) PRIVILEGED_FUNCTION;
@@ -298,10 +297,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
  258:../Middlewares/FreeRTOS//Source/timers.c **** 
  259:../Middlewares/FreeRTOS//Source/timers.c **** BaseType_t xTimerCreateTimerTask( void )
  260:../Middlewares/FreeRTOS//Source/timers.c **** {
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 6
-
-
  261:../Middlewares/FreeRTOS//Source/timers.c **** BaseType_t xReturn = pdFAIL;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 6
+
+
  262:../Middlewares/FreeRTOS//Source/timers.c **** 
  263:../Middlewares/FreeRTOS//Source/timers.c **** 	/* This function is called when the scheduler is started if
  264:../Middlewares/FreeRTOS//Source/timers.c **** 	configUSE_TIMERS is set to 1.  Check that the infrastructure used by the
@@ -358,10 +357,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
  315:../Middlewares/FreeRTOS//Source/timers.c **** 								const TickType_t xTimerPeriodInTicks,
  316:../Middlewares/FreeRTOS//Source/timers.c **** 								const UBaseType_t uxAutoReload,
  317:../Middlewares/FreeRTOS//Source/timers.c **** 								void * const pvTimerID,
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 7
-
-
  318:../Middlewares/FreeRTOS//Source/timers.c **** 								TimerCallbackFunction_t pxCallbackFunction ) /*lint !e971 Unqualified char types are allowe
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 7
+
+
  319:../Middlewares/FreeRTOS//Source/timers.c **** 	{
  320:../Middlewares/FreeRTOS//Source/timers.c **** 	Timer_t *pxNewTimer;
  321:../Middlewares/FreeRTOS//Source/timers.c **** 
@@ -418,10 +417,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
  372:../Middlewares/FreeRTOS//Source/timers.c **** 
  373:../Middlewares/FreeRTOS//Source/timers.c **** 			#if( configSUPPORT_DYNAMIC_ALLOCATION == 1 )
  374:../Middlewares/FreeRTOS//Source/timers.c **** 			{
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 8
-
-
  375:../Middlewares/FreeRTOS//Source/timers.c **** 				/* Timers can be created statically or dynamically so note this
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 8
+
+
  376:../Middlewares/FreeRTOS//Source/timers.c **** 				timer was created statically in case it is later deleted. */
  377:../Middlewares/FreeRTOS//Source/timers.c **** 				pxNewTimer->ucStaticallyAllocated = pdTRUE;
  378:../Middlewares/FreeRTOS//Source/timers.c **** 			}
@@ -478,10 +477,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
  429:../Middlewares/FreeRTOS//Source/timers.c **** 		xMessage.xMessageID = xCommandID;
  430:../Middlewares/FreeRTOS//Source/timers.c **** 		xMessage.u.xTimerParameters.xMessageValue = xOptionalValue;
  431:../Middlewares/FreeRTOS//Source/timers.c **** 		xMessage.u.xTimerParameters.pxTimer = ( Timer_t * ) xTimer;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 9
-
-
  432:../Middlewares/FreeRTOS//Source/timers.c **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 9
+
+
  433:../Middlewares/FreeRTOS//Source/timers.c **** 		if( xCommandID < tmrFIRST_FROM_ISR_COMMAND )
  434:../Middlewares/FreeRTOS//Source/timers.c **** 		{
  435:../Middlewares/FreeRTOS//Source/timers.c **** 			if( xTaskGetSchedulerState() == taskSCHEDULER_RUNNING )
@@ -538,10 +537,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
  486:../Middlewares/FreeRTOS//Source/timers.c **** }
  487:../Middlewares/FreeRTOS//Source/timers.c **** /*-----------------------------------------------------------*/
  488:../Middlewares/FreeRTOS//Source/timers.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 10
-
-
  489:../Middlewares/FreeRTOS//Source/timers.c **** const char * pcTimerGetName( TimerHandle_t xTimer ) /*lint !e971 Unqualified char types are allowed
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 10
+
+
  490:../Middlewares/FreeRTOS//Source/timers.c **** {
  491:../Middlewares/FreeRTOS//Source/timers.c **** Timer_t *pxTimer = ( Timer_t * ) xTimer;
  492:../Middlewares/FreeRTOS//Source/timers.c **** 
@@ -598,10 +597,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
  543:../Middlewares/FreeRTOS//Source/timers.c **** 	/* Just to avoid compiler warnings. */
  544:../Middlewares/FreeRTOS//Source/timers.c **** 	( void ) pvParameters;
  545:../Middlewares/FreeRTOS//Source/timers.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 11
-
-
  546:../Middlewares/FreeRTOS//Source/timers.c **** 	#if( configUSE_DAEMON_TASK_STARTUP_HOOK == 1 )
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 11
+
+
  547:../Middlewares/FreeRTOS//Source/timers.c **** 	{
  548:../Middlewares/FreeRTOS//Source/timers.c **** 		extern void vApplicationDaemonTaskStartupHook( void );
  549:../Middlewares/FreeRTOS//Source/timers.c **** 
@@ -658,10 +657,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
  600:../Middlewares/FreeRTOS//Source/timers.c **** 				received - whichever comes first.  The following line cannot
  601:../Middlewares/FreeRTOS//Source/timers.c **** 				be reached unless xNextExpireTime > xTimeNow, except in the
  602:../Middlewares/FreeRTOS//Source/timers.c **** 				case when the current timer list is empty. */
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 12
-
-
  603:../Middlewares/FreeRTOS//Source/timers.c **** 				if( xListWasEmpty != pdFALSE )
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 12
+
+
  604:../Middlewares/FreeRTOS//Source/timers.c **** 				{
  605:../Middlewares/FreeRTOS//Source/timers.c **** 					/* The current timer list is empty - is the overflow list
  606:../Middlewares/FreeRTOS//Source/timers.c **** 					also empty? */
@@ -694,12 +693,12 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
  633:../Middlewares/FreeRTOS//Source/timers.c **** 
  634:../Middlewares/FreeRTOS//Source/timers.c **** static TickType_t prvGetNextExpireTime( BaseType_t * const pxListWasEmpty )
  635:../Middlewares/FreeRTOS//Source/timers.c **** {
-  27              		.loc 1 635 0
-  28              		.cfi_startproc
-  29              		@ args = 0, pretend = 0, frame = 0
-  30              		@ frame_needed = 0, uses_anonymous_args = 0
-  31              		@ link register save eliminated.
-  32              	.LVL0:
+  26              		.loc 1 635 0
+  27              		.cfi_startproc
+  28              		@ args = 0, pretend = 0, frame = 0
+  29              		@ frame_needed = 0, uses_anonymous_args = 0
+  30              		@ link register save eliminated.
+  31              	.LVL0:
  636:../Middlewares/FreeRTOS//Source/timers.c **** TickType_t xNextExpireTime;
  637:../Middlewares/FreeRTOS//Source/timers.c **** 
  638:../Middlewares/FreeRTOS//Source/timers.c **** 	/* Timers are listed in expiry time order, with the head of the list
@@ -710,61 +709,56 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
  643:../Middlewares/FreeRTOS//Source/timers.c **** 	timer lists will be switched and the next expiry time can be
  644:../Middlewares/FreeRTOS//Source/timers.c **** 	re-assessed.  */
  645:../Middlewares/FreeRTOS//Source/timers.c **** 	*pxListWasEmpty = listLIST_IS_EMPTY( pxCurrentTimerList );
-  33              		.loc 1 645 0
-  34 0000 074B     		ldr	r3, .L4
-  35 0002 1B68     		ldr	r3, [r3]
-  36 0004 1B68     		ldr	r3, [r3]
-  37 0006 B3FA83F3 		clz	r3, r3
-  38 000a 5B09     		lsrs	r3, r3, #5
-  39 000c 0360     		str	r3, [r0]
+  32              		.loc 1 645 0
+  33 0000 064B     		ldr	r3, .L4
+  34 0002 1A68     		ldr	r2, [r3]
+  35 0004 1368     		ldr	r3, [r2]
+  36 0006 B3FA83F3 		clz	r3, r3
+  37 000a 5B09     		lsrs	r3, r3, #5
+  38 000c 0360     		str	r3, [r0]
  646:../Middlewares/FreeRTOS//Source/timers.c **** 	if( *pxListWasEmpty == pdFALSE )
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 13
+  39              		.loc 1 646 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 13
 
 
-  40              		.loc 1 646 0
-  41 000e 23B9     		cbnz	r3, .L3
+  40 000e 13B9     		cbnz	r3, .L3
  647:../Middlewares/FreeRTOS//Source/timers.c **** 	{
  648:../Middlewares/FreeRTOS//Source/timers.c **** 		xNextExpireTime = listGET_ITEM_VALUE_OF_HEAD_ENTRY( pxCurrentTimerList );
-  42              		.loc 1 648 0
-  43 0010 034B     		ldr	r3, .L4
-  44 0012 1B68     		ldr	r3, [r3]
-  45 0014 DB68     		ldr	r3, [r3, #12]
-  46 0016 1868     		ldr	r0, [r3]
-  47              	.LVL1:
-  48 0018 7047     		bx	lr
-  49              	.LVL2:
-  50              	.L3:
+  41              		.loc 1 648 0
+  42 0010 D368     		ldr	r3, [r2, #12]
+  43 0012 1868     		ldr	r0, [r3]
+  44              	.LVL1:
+  45 0014 7047     		bx	lr
+  46              	.LVL2:
+  47              	.L3:
  649:../Middlewares/FreeRTOS//Source/timers.c **** 	}
  650:../Middlewares/FreeRTOS//Source/timers.c **** 	else
  651:../Middlewares/FreeRTOS//Source/timers.c **** 	{
  652:../Middlewares/FreeRTOS//Source/timers.c **** 		/* Ensure the task unblocks when the tick count rolls over. */
  653:../Middlewares/FreeRTOS//Source/timers.c **** 		xNextExpireTime = ( TickType_t ) 0U;
-  51              		.loc 1 653 0
-  52 001a 0020     		movs	r0, #0
-  53              	.LVL3:
+  48              		.loc 1 653 0
+  49 0016 0020     		movs	r0, #0
+  50              	.LVL3:
  654:../Middlewares/FreeRTOS//Source/timers.c **** 	}
  655:../Middlewares/FreeRTOS//Source/timers.c **** 
  656:../Middlewares/FreeRTOS//Source/timers.c **** 	return xNextExpireTime;
  657:../Middlewares/FreeRTOS//Source/timers.c **** }
-  54              		.loc 1 657 0
-  55 001c 7047     		bx	lr
-  56              	.L5:
-  57 001e 00BF     		.align	2
-  58              	.L4:
-  59 0020 00000000 		.word	.LANCHOR0
-  60              		.cfi_endproc
-  61              	.LFE146:
-  62              		.cantunwind
-  63              		.fnend
-  65              		.section	.text._ZL26prvInsertTimerInActiveListP15tmrTimerControlmmm,"ax",%progbits
-  66              		.align	1
-  67              		.syntax unified
-  68              		.thumb
-  69              		.thumb_func
-  70              		.fpu fpv4-sp-d16
-  72              	_ZL26prvInsertTimerInActiveListP15tmrTimerControlmmm:
-  73              		.fnstart
-  74              	.LFB148:
+  51              		.loc 1 657 0
+  52 0018 7047     		bx	lr
+  53              	.L5:
+  54 001a 00BF     		.align	2
+  55              	.L4:
+  56 001c 00000000 		.word	.LANCHOR0
+  57              		.cfi_endproc
+  58              	.LFE139:
+  60              		.section	.text.prvInsertTimerInActiveList,"ax",%progbits
+  61              		.align	1
+  62              		.syntax unified
+  63              		.thumb
+  64              		.thumb_func
+  65              		.fpu fpv4-sp-d16
+  67              	prvInsertTimerInActiveList:
+  68              	.LFB141:
  658:../Middlewares/FreeRTOS//Source/timers.c **** /*-----------------------------------------------------------*/
  659:../Middlewares/FreeRTOS//Source/timers.c **** 
  660:../Middlewares/FreeRTOS//Source/timers.c **** static TickType_t prvSampleTimeNow( BaseType_t * const pxTimerListsWereSwitched )
@@ -778,15 +772,15 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
  668:../Middlewares/FreeRTOS//Source/timers.c **** 	{
  669:../Middlewares/FreeRTOS//Source/timers.c **** 		prvSwitchTimerLists();
  670:../Middlewares/FreeRTOS//Source/timers.c **** 		*pxTimerListsWereSwitched = pdTRUE;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 14
-
-
  671:../Middlewares/FreeRTOS//Source/timers.c **** 	}
  672:../Middlewares/FreeRTOS//Source/timers.c **** 	else
  673:../Middlewares/FreeRTOS//Source/timers.c **** 	{
  674:../Middlewares/FreeRTOS//Source/timers.c **** 		*pxTimerListsWereSwitched = pdFALSE;
  675:../Middlewares/FreeRTOS//Source/timers.c **** 	}
  676:../Middlewares/FreeRTOS//Source/timers.c **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 14
+
+
  677:../Middlewares/FreeRTOS//Source/timers.c **** 	xLastTime = xTimeNow;
  678:../Middlewares/FreeRTOS//Source/timers.c **** 
  679:../Middlewares/FreeRTOS//Source/timers.c **** 	return xTimeNow;
@@ -795,85 +789,84 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
  682:../Middlewares/FreeRTOS//Source/timers.c **** 
  683:../Middlewares/FreeRTOS//Source/timers.c **** static BaseType_t prvInsertTimerInActiveList( Timer_t * const pxTimer, const TickType_t xNextExpiry
  684:../Middlewares/FreeRTOS//Source/timers.c **** {
-  75              		.loc 1 684 0
-  76              		.cfi_startproc
-  77              		@ args = 0, pretend = 0, frame = 0
-  78              		@ frame_needed = 0, uses_anonymous_args = 0
-  79              	.LVL4:
-  80 0000 08B5     		push	{r3, lr}
-  81              		.save {r3, lr}
-  82              	.LCFI0:
-  83              		.cfi_def_cfa_offset 8
-  84              		.cfi_offset 3, -8
-  85              		.cfi_offset 14, -4
-  86              	.LVL5:
+  69              		.loc 1 684 0
+  70              		.cfi_startproc
+  71              		@ args = 0, pretend = 0, frame = 0
+  72              		@ frame_needed = 0, uses_anonymous_args = 0
+  73              	.LVL4:
+  74 0000 08B5     		push	{r3, lr}
+  75              	.LCFI0:
+  76              		.cfi_def_cfa_offset 8
+  77              		.cfi_offset 3, -8
+  78              		.cfi_offset 14, -4
+  79              	.LVL5:
  685:../Middlewares/FreeRTOS//Source/timers.c **** BaseType_t xProcessTimerNow = pdFALSE;
  686:../Middlewares/FreeRTOS//Source/timers.c **** 
  687:../Middlewares/FreeRTOS//Source/timers.c **** 	listSET_LIST_ITEM_VALUE( &( pxTimer->xTimerListItem ), xNextExpiryTime );
-  87              		.loc 1 687 0
-  88 0002 4160     		str	r1, [r0, #4]
+  80              		.loc 1 687 0
+  81 0002 4160     		str	r1, [r0, #4]
  688:../Middlewares/FreeRTOS//Source/timers.c **** 	listSET_LIST_ITEM_OWNER( &( pxTimer->xTimerListItem ), pxTimer );
-  89              		.loc 1 688 0
-  90 0004 0061     		str	r0, [r0, #16]
+  82              		.loc 1 688 0
+  83 0004 0061     		str	r0, [r0, #16]
  689:../Middlewares/FreeRTOS//Source/timers.c **** 
  690:../Middlewares/FreeRTOS//Source/timers.c **** 	if( xNextExpiryTime <= xTimeNow )
-  91              		.loc 1 690 0
-  92 0006 8A42     		cmp	r2, r1
-  93 0008 0CD3     		bcc	.L7
+  84              		.loc 1 690 0
+  85 0006 9142     		cmp	r1, r2
+  86 0008 0CD8     		bhi	.L7
  691:../Middlewares/FreeRTOS//Source/timers.c **** 	{
  692:../Middlewares/FreeRTOS//Source/timers.c **** 		/* Has the expiry time elapsed between the command to start/reset a
  693:../Middlewares/FreeRTOS//Source/timers.c **** 		timer was issued, and the time the command was processed? */
  694:../Middlewares/FreeRTOS//Source/timers.c **** 		if( ( ( TickType_t ) ( xTimeNow - xCommandTime ) ) >= pxTimer->xTimerPeriodInTicks ) /*lint !e961
-  94              		.loc 1 694 0
-  95 000a D21A     		subs	r2, r2, r3
-  96              	.LVL6:
-  97 000c 8369     		ldr	r3, [r0, #24]
-  98              	.LVL7:
-  99 000e 9A42     		cmp	r2, r3
- 100 0010 01D3     		bcc	.L13
+  87              		.loc 1 694 0
+  88 000a D21A     		subs	r2, r2, r3
+  89              	.LVL6:
+  90 000c 8369     		ldr	r3, [r0, #24]
+  91              	.LVL7:
+  92 000e 9A42     		cmp	r2, r3
+  93 0010 01D3     		bcc	.L13
  695:../Middlewares/FreeRTOS//Source/timers.c **** 		{
  696:../Middlewares/FreeRTOS//Source/timers.c **** 			/* The time between a command being issued and the command being
  697:../Middlewares/FreeRTOS//Source/timers.c **** 			processed actually exceeds the timers period.  */
  698:../Middlewares/FreeRTOS//Source/timers.c **** 			xProcessTimerNow = pdTRUE;
- 101              		.loc 1 698 0
- 102 0012 0120     		movs	r0, #1
- 103              	.LVL8:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 15
-
-
- 104 0014 10E0     		b	.L6
- 105              	.LVL9:
- 106              	.L13:
+  94              		.loc 1 698 0
+  95 0012 0120     		movs	r0, #1
+  96              	.LVL8:
+  97 0014 10E0     		b	.L6
+  98              	.LVL9:
+  99              	.L13:
  699:../Middlewares/FreeRTOS//Source/timers.c **** 		}
  700:../Middlewares/FreeRTOS//Source/timers.c **** 		else
  701:../Middlewares/FreeRTOS//Source/timers.c **** 		{
  702:../Middlewares/FreeRTOS//Source/timers.c **** 			vListInsert( pxOverflowTimerList, &( pxTimer->xTimerListItem ) );
- 107              		.loc 1 702 0
- 108 0016 011D     		adds	r1, r0, #4
- 109              	.LVL10:
- 110 0018 094B     		ldr	r3, .L14
- 111 001a 1868     		ldr	r0, [r3]
- 112              	.LVL11:
- 113 001c FFF7FEFF 		bl	vListInsert
- 114              	.LVL12:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 15
+
+
+ 100              		.loc 1 702 0
+ 101 0016 011D     		adds	r1, r0, #4
+ 102              	.LVL10:
+ 103 0018 094B     		ldr	r3, .L14
+ 104 001a 1868     		ldr	r0, [r3]
+ 105              	.LVL11:
+ 106 001c FFF7FEFF 		bl	vListInsert
+ 107              	.LVL12:
  685:../Middlewares/FreeRTOS//Source/timers.c **** 
- 115              		.loc 1 685 0
- 116 0020 0020     		movs	r0, #0
- 117 0022 09E0     		b	.L6
- 118              	.LVL13:
- 119              	.L7:
+ 108              		.loc 1 685 0
+ 109 0020 0020     		movs	r0, #0
+ 110 0022 09E0     		b	.L6
+ 111              	.LVL13:
+ 112              	.L7:
  703:../Middlewares/FreeRTOS//Source/timers.c **** 		}
  704:../Middlewares/FreeRTOS//Source/timers.c **** 	}
  705:../Middlewares/FreeRTOS//Source/timers.c **** 	else
  706:../Middlewares/FreeRTOS//Source/timers.c **** 	{
  707:../Middlewares/FreeRTOS//Source/timers.c **** 		if( ( xTimeNow < xCommandTime ) && ( xNextExpiryTime >= xCommandTime ) )
- 120              		.loc 1 707 0
- 121 0024 9A42     		cmp	r2, r3
- 122 0026 01D2     		bcs	.L9
- 123              		.loc 1 707 0 is_stmt 0 discriminator 1
- 124 0028 8B42     		cmp	r3, r1
- 125 002a 06D9     		bls	.L11
- 126              	.L9:
+ 113              		.loc 1 707 0
+ 114 0024 9A42     		cmp	r2, r3
+ 115 0026 01D2     		bcs	.L9
+ 116              		.loc 1 707 0 is_stmt 0 discriminator 1
+ 117 0028 9942     		cmp	r1, r3
+ 118 002a 06D2     		bcs	.L11
+ 119              	.L9:
  708:../Middlewares/FreeRTOS//Source/timers.c **** 		{
  709:../Middlewares/FreeRTOS//Source/timers.c **** 			/* If, since the command was issued, the tick count has overflowed
  710:../Middlewares/FreeRTOS//Source/timers.c **** 			but the expiry time has not, then the timer must have already passed
@@ -883,56 +876,54 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
  714:../Middlewares/FreeRTOS//Source/timers.c **** 		else
  715:../Middlewares/FreeRTOS//Source/timers.c **** 		{
  716:../Middlewares/FreeRTOS//Source/timers.c **** 			vListInsert( pxCurrentTimerList, &( pxTimer->xTimerListItem ) );
- 127              		.loc 1 716 0 is_stmt 1
- 128 002c 011D     		adds	r1, r0, #4
- 129              	.LVL14:
- 130 002e 054B     		ldr	r3, .L14+4
- 131              	.LVL15:
- 132 0030 1868     		ldr	r0, [r3]
- 133              	.LVL16:
- 134 0032 FFF7FEFF 		bl	vListInsert
- 135              	.LVL17:
+ 120              		.loc 1 716 0 is_stmt 1
+ 121 002c 011D     		adds	r1, r0, #4
+ 122              	.LVL14:
+ 123 002e 054B     		ldr	r3, .L14+4
+ 124              	.LVL15:
+ 125 0030 1868     		ldr	r0, [r3]
+ 126              	.LVL16:
+ 127 0032 FFF7FEFF 		bl	vListInsert
+ 128              	.LVL17:
  685:../Middlewares/FreeRTOS//Source/timers.c **** 
- 136              		.loc 1 685 0
- 137 0036 0020     		movs	r0, #0
- 138              	.LVL18:
- 139              	.L6:
+ 129              		.loc 1 685 0
+ 130 0036 0020     		movs	r0, #0
+ 131              	.LVL18:
+ 132              	.L6:
  717:../Middlewares/FreeRTOS//Source/timers.c **** 		}
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 16
-
-
  718:../Middlewares/FreeRTOS//Source/timers.c **** 	}
  719:../Middlewares/FreeRTOS//Source/timers.c **** 
  720:../Middlewares/FreeRTOS//Source/timers.c **** 	return xProcessTimerNow;
  721:../Middlewares/FreeRTOS//Source/timers.c **** }
- 140              		.loc 1 721 0
- 141 0038 08BD     		pop	{r3, pc}
- 142              	.LVL19:
- 143              	.L11:
+ 133              		.loc 1 721 0
+ 134 0038 08BD     		pop	{r3, pc}
+ 135              	.LVL19:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 16
+
+
+ 136              	.L11:
  712:../Middlewares/FreeRTOS//Source/timers.c **** 		}
- 144              		.loc 1 712 0
- 145 003a 0120     		movs	r0, #1
- 146              	.LVL20:
+ 137              		.loc 1 712 0
+ 138 003a 0120     		movs	r0, #1
+ 139              	.LVL20:
  720:../Middlewares/FreeRTOS//Source/timers.c **** }
- 147              		.loc 1 720 0
- 148 003c FCE7     		b	.L6
- 149              	.L15:
- 150 003e 00BF     		.align	2
- 151              	.L14:
- 152 0040 00000000 		.word	.LANCHOR1
- 153 0044 00000000 		.word	.LANCHOR0
- 154              		.cfi_endproc
- 155              	.LFE148:
- 156              		.fnend
- 158              		.section	.text._ZL28prvCheckForValidListAndQueuev,"ax",%progbits
- 159              		.align	1
- 160              		.syntax unified
- 161              		.thumb
- 162              		.thumb_func
- 163              		.fpu fpv4-sp-d16
- 165              	_ZL28prvCheckForValidListAndQueuev:
- 166              		.fnstart
- 167              	.LFB151:
+ 140              		.loc 1 720 0
+ 141 003c FCE7     		b	.L6
+ 142              	.L15:
+ 143 003e 00BF     		.align	2
+ 144              	.L14:
+ 145 0040 00000000 		.word	.LANCHOR1
+ 146 0044 00000000 		.word	.LANCHOR0
+ 147              		.cfi_endproc
+ 148              	.LFE141:
+ 150              		.section	.text.prvCheckForValidListAndQueue,"ax",%progbits
+ 151              		.align	1
+ 152              		.syntax unified
+ 153              		.thumb
+ 154              		.thumb_func
+ 155              		.fpu fpv4-sp-d16
+ 157              	prvCheckForValidListAndQueue:
+ 158              	.LFB144:
  722:../Middlewares/FreeRTOS//Source/timers.c **** /*-----------------------------------------------------------*/
  723:../Middlewares/FreeRTOS//Source/timers.c **** 
  724:../Middlewares/FreeRTOS//Source/timers.c **** static void	prvProcessReceivedCommands( void )
@@ -958,9 +949,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
  744:../Middlewares/FreeRTOS//Source/timers.c **** 
  745:../Middlewares/FreeRTOS//Source/timers.c **** 				/* Call the function. */
  746:../Middlewares/FreeRTOS//Source/timers.c **** 				pxCallback->pxCallbackFunction( pxCallback->pvParameter1, pxCallback->ulParameter2 );
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 17
-
-
  747:../Middlewares/FreeRTOS//Source/timers.c **** 			}
  748:../Middlewares/FreeRTOS//Source/timers.c **** 			else
  749:../Middlewares/FreeRTOS//Source/timers.c **** 			{
@@ -970,6 +958,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
  753:../Middlewares/FreeRTOS//Source/timers.c **** 		#endif /* INCLUDE_xTimerPendFunctionCall */
  754:../Middlewares/FreeRTOS//Source/timers.c **** 
  755:../Middlewares/FreeRTOS//Source/timers.c **** 		/* Commands that are positive are timer commands rather than pended
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 17
+
+
  756:../Middlewares/FreeRTOS//Source/timers.c **** 		function calls. */
  757:../Middlewares/FreeRTOS//Source/timers.c **** 		if( xMessage.xMessageID >= ( BaseType_t ) 0 )
  758:../Middlewares/FreeRTOS//Source/timers.c **** 		{
@@ -1018,9 +1009,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
  801:../Middlewares/FreeRTOS//Source/timers.c **** 							configASSERT( xResult );
  802:../Middlewares/FreeRTOS//Source/timers.c **** 							( void ) xResult;
  803:../Middlewares/FreeRTOS//Source/timers.c **** 						}
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 18
-
-
  804:../Middlewares/FreeRTOS//Source/timers.c **** 						else
  805:../Middlewares/FreeRTOS//Source/timers.c **** 						{
  806:../Middlewares/FreeRTOS//Source/timers.c **** 							mtCOVERAGE_TEST_MARKER();
@@ -1030,6 +1018,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
  810:../Middlewares/FreeRTOS//Source/timers.c **** 					{
  811:../Middlewares/FreeRTOS//Source/timers.c **** 						mtCOVERAGE_TEST_MARKER();
  812:../Middlewares/FreeRTOS//Source/timers.c **** 					}
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 18
+
+
  813:../Middlewares/FreeRTOS//Source/timers.c **** 					break;
  814:../Middlewares/FreeRTOS//Source/timers.c **** 
  815:../Middlewares/FreeRTOS//Source/timers.c **** 				case tmrCOMMAND_STOP :
@@ -1078,9 +1069,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
  858:../Middlewares/FreeRTOS//Source/timers.c **** 					}
  859:../Middlewares/FreeRTOS//Source/timers.c **** 					#endif /* configSUPPORT_DYNAMIC_ALLOCATION */
  860:../Middlewares/FreeRTOS//Source/timers.c **** 					break;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 19
-
-
  861:../Middlewares/FreeRTOS//Source/timers.c **** 
  862:../Middlewares/FreeRTOS//Source/timers.c **** 				default	:
  863:../Middlewares/FreeRTOS//Source/timers.c **** 					/* Don't expect to get here. */
@@ -1090,6 +1078,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
  867:../Middlewares/FreeRTOS//Source/timers.c **** 	}
  868:../Middlewares/FreeRTOS//Source/timers.c **** }
  869:../Middlewares/FreeRTOS//Source/timers.c **** /*-----------------------------------------------------------*/
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 19
+
+
  870:../Middlewares/FreeRTOS//Source/timers.c **** 
  871:../Middlewares/FreeRTOS//Source/timers.c **** static void prvSwitchTimerLists( void )
  872:../Middlewares/FreeRTOS//Source/timers.c **** {
@@ -1138,9 +1129,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
  915:../Middlewares/FreeRTOS//Source/timers.c **** 				( void ) xResult;
  916:../Middlewares/FreeRTOS//Source/timers.c **** 			}
  917:../Middlewares/FreeRTOS//Source/timers.c **** 		}
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 20
-
-
  918:../Middlewares/FreeRTOS//Source/timers.c **** 		else
  919:../Middlewares/FreeRTOS//Source/timers.c **** 		{
  920:../Middlewares/FreeRTOS//Source/timers.c **** 			mtCOVERAGE_TEST_MARKER();
@@ -1150,37 +1138,39 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
  924:../Middlewares/FreeRTOS//Source/timers.c **** 	pxTemp = pxCurrentTimerList;
  925:../Middlewares/FreeRTOS//Source/timers.c **** 	pxCurrentTimerList = pxOverflowTimerList;
  926:../Middlewares/FreeRTOS//Source/timers.c **** 	pxOverflowTimerList = pxTemp;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 20
+
+
  927:../Middlewares/FreeRTOS//Source/timers.c **** }
  928:../Middlewares/FreeRTOS//Source/timers.c **** /*-----------------------------------------------------------*/
  929:../Middlewares/FreeRTOS//Source/timers.c **** 
  930:../Middlewares/FreeRTOS//Source/timers.c **** static void prvCheckForValidListAndQueue( void )
  931:../Middlewares/FreeRTOS//Source/timers.c **** {
- 168              		.loc 1 931 0
- 169              		.cfi_startproc
- 170              		@ args = 0, pretend = 0, frame = 0
- 171              		@ frame_needed = 0, uses_anonymous_args = 0
- 172 0000 38B5     		push	{r3, r4, r5, lr}
- 173              		.save {r3, r4, r5, lr}
- 174              	.LCFI1:
- 175              		.cfi_def_cfa_offset 16
- 176              		.cfi_offset 3, -16
- 177              		.cfi_offset 4, -12
- 178              		.cfi_offset 5, -8
- 179              		.cfi_offset 14, -4
+ 159              		.loc 1 931 0
+ 160              		.cfi_startproc
+ 161              		@ args = 0, pretend = 0, frame = 0
+ 162              		@ frame_needed = 0, uses_anonymous_args = 0
+ 163 0000 38B5     		push	{r3, r4, r5, lr}
+ 164              	.LCFI1:
+ 165              		.cfi_def_cfa_offset 16
+ 166              		.cfi_offset 3, -16
+ 167              		.cfi_offset 4, -12
+ 168              		.cfi_offset 5, -8
+ 169              		.cfi_offset 14, -4
  932:../Middlewares/FreeRTOS//Source/timers.c **** 	/* Check that the list from which active timers are referenced, and the
  933:../Middlewares/FreeRTOS//Source/timers.c **** 	queue used to communicate with the timer service, have been
  934:../Middlewares/FreeRTOS//Source/timers.c **** 	initialised. */
  935:../Middlewares/FreeRTOS//Source/timers.c **** 	taskENTER_CRITICAL();
- 180              		.loc 1 935 0
- 181 0002 FFF7FEFF 		bl	vPortEnterCritical
- 182              	.LVL21:
+ 170              		.loc 1 935 0
+ 171 0002 FFF7FEFF 		bl	vPortEnterCritical
+ 172              	.LVL21:
  936:../Middlewares/FreeRTOS//Source/timers.c **** 	{
  937:../Middlewares/FreeRTOS//Source/timers.c **** 		if( xTimerQueue == NULL )
- 183              		.loc 1 937 0
- 184 0006 0F4B     		ldr	r3, .L20
- 185 0008 1B68     		ldr	r3, [r3]
- 186 000a 13B1     		cbz	r3, .L19
- 187              	.L17:
+ 173              		.loc 1 937 0
+ 174 0006 0F4B     		ldr	r3, .L20
+ 175 0008 1B68     		ldr	r3, [r3]
+ 176 000a 13B1     		cbz	r3, .L19
+ 177              	.L17:
  938:../Middlewares/FreeRTOS//Source/timers.c **** 		{
  939:../Middlewares/FreeRTOS//Source/timers.c **** 			vListInitialise( &xActiveTimerList1 );
  940:../Middlewares/FreeRTOS//Source/timers.c **** 			vListInitialise( &xActiveTimerList2 );
@@ -1198,9 +1188,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
  952:../Middlewares/FreeRTOS//Source/timers.c **** 			}
  953:../Middlewares/FreeRTOS//Source/timers.c **** 			#else
  954:../Middlewares/FreeRTOS//Source/timers.c **** 			{
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 21
-
-
  955:../Middlewares/FreeRTOS//Source/timers.c **** 				xTimerQueue = xQueueCreate( ( UBaseType_t ) configTIMER_QUEUE_LENGTH, sizeof( DaemonTaskMessage
  956:../Middlewares/FreeRTOS//Source/timers.c **** 			}
  957:../Middlewares/FreeRTOS//Source/timers.c **** 			#endif
@@ -1211,6 +1198,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
  962:../Middlewares/FreeRTOS//Source/timers.c **** 				{
  963:../Middlewares/FreeRTOS//Source/timers.c **** 					vQueueAddToRegistry( xTimerQueue, "TmrQ" );
  964:../Middlewares/FreeRTOS//Source/timers.c **** 				}
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 21
+
+
  965:../Middlewares/FreeRTOS//Source/timers.c **** 				else
  966:../Middlewares/FreeRTOS//Source/timers.c **** 				{
  967:../Middlewares/FreeRTOS//Source/timers.c **** 					mtCOVERAGE_TEST_MARKER();
@@ -1224,103 +1214,97 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
  975:../Middlewares/FreeRTOS//Source/timers.c **** 		}
  976:../Middlewares/FreeRTOS//Source/timers.c **** 	}
  977:../Middlewares/FreeRTOS//Source/timers.c **** 	taskEXIT_CRITICAL();
- 188              		.loc 1 977 0
- 189 000c FFF7FEFF 		bl	vPortExitCritical
- 190              	.LVL22:
+ 178              		.loc 1 977 0
+ 179 000c FFF7FEFF 		bl	vPortExitCritical
+ 180              	.LVL22:
  978:../Middlewares/FreeRTOS//Source/timers.c **** }
- 191              		.loc 1 978 0
- 192 0010 38BD     		pop	{r3, r4, r5, pc}
- 193              	.L19:
+ 181              		.loc 1 978 0
+ 182 0010 38BD     		pop	{r3, r4, r5, pc}
+ 183              	.L19:
  939:../Middlewares/FreeRTOS//Source/timers.c **** 			vListInitialise( &xActiveTimerList2 );
- 194              		.loc 1 939 0
- 195 0012 0D4D     		ldr	r5, .L20+4
- 196 0014 2846     		mov	r0, r5
- 197 0016 FFF7FEFF 		bl	vListInitialise
- 198              	.LVL23:
+ 184              		.loc 1 939 0
+ 185 0012 0D4D     		ldr	r5, .L20+4
+ 186 0014 2846     		mov	r0, r5
+ 187 0016 FFF7FEFF 		bl	vListInitialise
+ 188              	.LVL23:
  940:../Middlewares/FreeRTOS//Source/timers.c **** 			pxCurrentTimerList = &xActiveTimerList1;
- 199              		.loc 1 940 0
- 200 001a 0C4C     		ldr	r4, .L20+8
- 201 001c 2046     		mov	r0, r4
- 202 001e FFF7FEFF 		bl	vListInitialise
- 203              	.LVL24:
+ 189              		.loc 1 940 0
+ 190 001a 0C4C     		ldr	r4, .L20+8
+ 191 001c 2046     		mov	r0, r4
+ 192 001e FFF7FEFF 		bl	vListInitialise
+ 193              	.LVL24:
  941:../Middlewares/FreeRTOS//Source/timers.c **** 			pxOverflowTimerList = &xActiveTimerList2;
- 204              		.loc 1 941 0
- 205 0022 0B4B     		ldr	r3, .L20+12
- 206 0024 1D60     		str	r5, [r3]
+ 194              		.loc 1 941 0
+ 195 0022 0B4B     		ldr	r3, .L20+12
+ 196 0024 1D60     		str	r5, [r3]
  942:../Middlewares/FreeRTOS//Source/timers.c **** 
- 207              		.loc 1 942 0
- 208 0026 0B4B     		ldr	r3, .L20+16
- 209 0028 1C60     		str	r4, [r3]
+ 197              		.loc 1 942 0
+ 198 0026 0B4B     		ldr	r3, .L20+16
+ 199 0028 1C60     		str	r4, [r3]
  955:../Middlewares/FreeRTOS//Source/timers.c **** 			}
- 210              		.loc 1 955 0
- 211 002a 0022     		movs	r2, #0
- 212 002c 0C21     		movs	r1, #12
- 213 002e 0A20     		movs	r0, #10
- 214 0030 FFF7FEFF 		bl	xQueueGenericCreate
- 215              	.LVL25:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 22
-
-
- 216 0034 034B     		ldr	r3, .L20
- 217 0036 1860     		str	r0, [r3]
+ 200              		.loc 1 955 0
+ 201 002a 0022     		movs	r2, #0
+ 202 002c 0C21     		movs	r1, #12
+ 203 002e 0A20     		movs	r0, #10
+ 204 0030 FFF7FEFF 		bl	xQueueGenericCreate
+ 205              	.LVL25:
+ 206 0034 034B     		ldr	r3, .L20
+ 207 0036 1860     		str	r0, [r3]
  961:../Middlewares/FreeRTOS//Source/timers.c **** 				{
- 218              		.loc 1 961 0
- 219 0038 0028     		cmp	r0, #0
- 220 003a E7D0     		beq	.L17
+ 208              		.loc 1 961 0
+ 209 0038 0028     		cmp	r0, #0
+ 210 003a E7D0     		beq	.L17
  963:../Middlewares/FreeRTOS//Source/timers.c **** 				}
- 221              		.loc 1 963 0
- 222 003c 0649     		ldr	r1, .L20+20
- 223 003e FFF7FEFF 		bl	vQueueAddToRegistry
- 224              	.LVL26:
- 225 0042 E3E7     		b	.L17
- 226              	.L21:
- 227              		.align	2
- 228              	.L20:
- 229 0044 00000000 		.word	.LANCHOR2
- 230 0048 00000000 		.word	.LANCHOR3
- 231 004c 00000000 		.word	.LANCHOR4
- 232 0050 00000000 		.word	.LANCHOR0
- 233 0054 00000000 		.word	.LANCHOR1
- 234 0058 00000000 		.word	.LC0
- 235              		.cfi_endproc
- 236              	.LFE151:
- 237              		.fnend
- 239              		.section	.text._ZL21prvInitialiseNewTimerPKcmmPvPFvS1_EP15tmrTimerControl,"ax",%progbits
- 240              		.align	1
- 241              		.syntax unified
- 242              		.thumb
- 243              		.thumb_func
- 244              		.fpu fpv4-sp-d16
- 246              	_ZL21prvInitialiseNewTimerPKcmmPvPFvS1_EP15tmrTimerControl:
- 247              		.fnstart
- 248              	.LFB137:
+ 211              		.loc 1 963 0
+ 212 003c 0649     		ldr	r1, .L20+20
+ 213 003e FFF7FEFF 		bl	vQueueAddToRegistry
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 22
+
+
+ 214              	.LVL26:
+ 215 0042 E3E7     		b	.L17
+ 216              	.L21:
+ 217              		.align	2
+ 218              	.L20:
+ 219 0044 00000000 		.word	.LANCHOR2
+ 220 0048 00000000 		.word	.LANCHOR3
+ 221 004c 00000000 		.word	.LANCHOR4
+ 222 0050 00000000 		.word	.LANCHOR0
+ 223 0054 00000000 		.word	.LANCHOR1
+ 224 0058 00000000 		.word	.LC0
+ 225              		.cfi_endproc
+ 226              	.LFE144:
+ 228              		.section	.text.prvInitialiseNewTimer,"ax",%progbits
+ 229              		.align	1
+ 230              		.syntax unified
+ 231              		.thumb
+ 232              		.thumb_func
+ 233              		.fpu fpv4-sp-d16
+ 235              	prvInitialiseNewTimer:
+ 236              	.LFB130:
  394:../Middlewares/FreeRTOS//Source/timers.c **** 	/* 0 is not a valid value for xTimerPeriodInTicks. */
- 249              		.loc 1 394 0
- 250              		.cfi_startproc
- 251              		@ args = 8, pretend = 0, frame = 0
- 252              		@ frame_needed = 0, uses_anonymous_args = 0
- 253              	.LVL27:
- 254 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
- 255              		.save {r4, r5, r6, r7, r8, lr}
- 256              	.LCFI2:
- 257              		.cfi_def_cfa_offset 24
- 258              		.cfi_offset 4, -24
- 259              		.cfi_offset 5, -20
- 260              		.cfi_offset 6, -16
- 261              		.cfi_offset 7, -12
- 262              		.cfi_offset 8, -8
- 263              		.cfi_offset 14, -4
- 264 0004 079C     		ldr	r4, [sp, #28]
+ 237              		.loc 1 394 0
+ 238              		.cfi_startproc
+ 239              		@ args = 8, pretend = 0, frame = 0
+ 240              		@ frame_needed = 0, uses_anonymous_args = 0
+ 241              	.LVL27:
+ 242 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 243              	.LCFI2:
+ 244              		.cfi_def_cfa_offset 24
+ 245              		.cfi_offset 4, -24
+ 246              		.cfi_offset 5, -20
+ 247              		.cfi_offset 6, -16
+ 248              		.cfi_offset 7, -12
+ 249              		.cfi_offset 8, -8
+ 250              		.cfi_offset 14, -4
+ 251 0004 079C     		ldr	r4, [sp, #28]
  396:../Middlewares/FreeRTOS//Source/timers.c **** 
- 265              		.loc 1 396 0
- 266 0006 41B9     		cbnz	r1, .L23
- 267              	.LBB30:
- 268              	.LBB31:
- 269              		.file 2 "../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h"
+ 252              		.loc 1 396 0
+ 253 0006 41B9     		cbnz	r1, .L23
+ 254              	.LBB30:
+ 255              	.LBB31:
+ 256              		.file 2 "../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h"
    1:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** /*
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 23
-
-
    2:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h ****     FreeRTOS V9.0.0 - Copyright (C) 2016 Real Time Engineers Ltd.
    3:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h ****     All rights reserved
    4:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 
@@ -1334,6 +1318,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
   12:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 
   13:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h ****     ***************************************************************************
   14:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h ****     >>!   NOTE: The modification to the GPL is included to allow you to     !<<
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 23
+
+
   15:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h ****     >>!   distribute a combined work that includes FreeRTOS without being   !<<
   16:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h ****     >>!   obliged to provide the source code for proprietary components     !<<
   17:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h ****     >>!   outside of the FreeRTOS kernel.                                   !<<
@@ -1378,9 +1365,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
   56:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h ****     http://www.FreeRTOS.org/labs - Where new FreeRTOS products go to incubate.
   57:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h ****     Come and try FreeRTOS+TCP, our new open source TCP/IP stack for FreeRTOS.
   58:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 24
-
-
   59:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h ****     http://www.OpenRTOS.com - Real Time Engineers ltd. license FreeRTOS to High
   60:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h ****     Integrity Systems ltd. to sell under the OpenRTOS brand.  Low cost OpenRTOS
   61:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h ****     licenses offer ticketed support, indemnification and commercial middleware.
@@ -1394,6 +1378,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
   69:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 
   70:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 
   71:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** #ifndef PORTMACRO_H
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 24
+
+
   72:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** #define PORTMACRO_H
   73:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 
   74:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** #ifdef __cplusplus
@@ -1438,9 +1425,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
  113:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 
  114:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** /* Architecture specifics. */
  115:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** #define portSTACK_GROWTH			( -1 )
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 25
-
-
  116:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** #define portTICK_PERIOD_MS			( ( TickType_t ) 1000 / configTICK_RATE_HZ )
  117:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** #define portBYTE_ALIGNMENT			8
  118:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** /*-----------------------------------------------------------*/
@@ -1454,6 +1438,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
  126:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 	/* Barriers are normally not required but do ensure the code is completely	\
  127:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 	within the specified behaviour for the architecture. */						\
  128:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 	__asm volatile( "dsb" );													\
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 25
+
+
  129:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 	__asm volatile( "isb" );													\
  130:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** }
  131:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 
@@ -1498,9 +1485,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
  170:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 
  171:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 	/* Generic helper function. */
  172:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 	__attribute__( ( always_inline ) ) static inline uint8_t ucPortCountLeadingZeros( uint32_t ulBitma
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 26
-
-
  173:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 	{
  174:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 	uint8_t ucReturn;
  175:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 
@@ -1514,6 +1498,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
  183:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 	#endif
  184:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 
  185:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 	/* Store/clear the ready priorities in a bit map. */
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 26
+
+
  186:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 	#define portRECORD_READY_PRIORITY( uxPriority, uxReadyPriorities ) ( uxReadyPriorities ) |= ( 1UL 
  187:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 	#define portRESET_READY_PRIORITY( uxPriority, uxReadyPriorities ) ( uxReadyPriorities ) &= ~( 1UL 
  188:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 
@@ -1558,9 +1545,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
  227:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 
  228:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 	return xReturn;
  229:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** }
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 27
-
-
  230:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 
  231:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** /*-----------------------------------------------------------*/
  232:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 
@@ -1569,1772 +1553,1684 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 1
  235:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** uint32_t ulNewBASEPRI;
  236:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 
  237:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 	__asm volatile
- 238:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 	(
- 239:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 		"	mov %0, %1												\n"	\
- 240:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 		"	msr basepri, %0											\n" \
- 241:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 		"	isb														\n" \
- 242:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 		"	dsb														\n" \
- 243:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 		:"=r" (ulNewBASEPRI) : "i" ( configMAX_SYSCALL_INTERRUPT_PRIORITY )
- 244:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 	);
- 270              		.loc 2 244 0
- 271              		.syntax unified
- 272              	@ 244 "../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h" 1
- 273 0008 4FF01003 			mov r3, #16												
- 274 000c 83F31188 		msr basepri, r3											
- 275 0010 BFF36F8F 		isb														
- 276 0014 BFF34F8F 		dsb														
- 277              	
- 278              	@ 0 "" 2
- 279              	.LVL28:
- 280              		.thumb
- 281              		.syntax unified
- 282              	.L24:
- 283 0018 FEE7     		b	.L24
- 284              	.LVL29:
- 285              	.L23:
- 286 001a 0F46     		mov	r7, r1
- 287              	.LBE31:
- 288              	.LBE30:
+ 257              		.loc 2 237 0
+ 258              		.syntax unified
+ 259              	@ 237 "../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h" 1
+ 260 0008 4FF01003 			mov r3, #16												
+ 261 000c 83F31188 		msr basepri, r3											
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 27
+
+
+ 262 0010 BFF36F8F 		isb														
+ 263 0014 BFF34F8F 		dsb														
+ 264              	
+ 265              	@ 0 "" 2
+ 266              	.LVL28:
+ 267              		.thumb
+ 268              		.syntax unified
+ 269              	.L24:
+ 270 0018 FEE7     		b	.L24
+ 271              	.LVL29:
+ 272              	.L23:
+ 273 001a 0F46     		mov	r7, r1
+ 274              	.LBE31:
+ 275              	.LBE30:
  398:../Middlewares/FreeRTOS//Source/timers.c **** 	{
- 289              		.loc 1 398 0
- 290 001c 74B1     		cbz	r4, .L22
- 291 001e 1D46     		mov	r5, r3
- 292 0020 1646     		mov	r6, r2
- 293 0022 8046     		mov	r8, r0
+ 276              		.loc 1 398 0
+ 277 001c 74B1     		cbz	r4, .L22
+ 278 001e 1D46     		mov	r5, r3
+ 279 0020 1646     		mov	r6, r2
+ 280 0022 8046     		mov	r8, r0
  402:../Middlewares/FreeRTOS//Source/timers.c **** 
- 294              		.loc 1 402 0
- 295 0024 FFF7FEFF 		bl	_ZL28prvCheckForValidListAndQueuev
- 296              	.LVL30:
+ 281              		.loc 1 402 0
+ 282 0024 FFF7FEFF 		bl	prvCheckForValidListAndQueue
+ 283              	.LVL30:
  406:../Middlewares/FreeRTOS//Source/timers.c **** 		pxNewTimer->xTimerPeriodInTicks = xTimerPeriodInTicks;
- 297              		.loc 1 406 0
- 298 0028 C4F80080 		str	r8, [r4]
+ 284              		.loc 1 406 0
+ 285 0028 C4F80080 		str	r8, [r4]
  407:../Middlewares/FreeRTOS//Source/timers.c **** 		pxNewTimer->uxAutoReload = uxAutoReload;
- 299              		.loc 1 407 0
- 300 002c A761     		str	r7, [r4, #24]
+ 286              		.loc 1 407 0
+ 287 002c A761     		str	r7, [r4, #24]
  408:../Middlewares/FreeRTOS//Source/timers.c **** 		pxNewTimer->pvTimerID = pvTimerID;
- 301              		.loc 1 408 0
- 302 002e E661     		str	r6, [r4, #28]
+ 288              		.loc 1 408 0
+ 289 002e E661     		str	r6, [r4, #28]
  409:../Middlewares/FreeRTOS//Source/timers.c **** 		pxNewTimer->pxCallbackFunction = pxCallbackFunction;
- 303              		.loc 1 409 0
- 304 0030 2562     		str	r5, [r4, #32]
+ 290              		.loc 1 409 0
+ 291 0030 2562     		str	r5, [r4, #32]
  410:../Middlewares/FreeRTOS//Source/timers.c **** 		vListInitialiseItem( &( pxNewTimer->xTimerListItem ) );
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 28
-
-
- 305              		.loc 1 410 0
- 306 0032 069B     		ldr	r3, [sp, #24]
- 307 0034 6362     		str	r3, [r4, #36]
+ 292              		.loc 1 410 0
+ 293 0032 069B     		ldr	r3, [sp, #24]
+ 294 0034 6362     		str	r3, [r4, #36]
  411:../Middlewares/FreeRTOS//Source/timers.c **** 		traceTIMER_CREATE( pxNewTimer );
- 308              		.loc 1 411 0
- 309 0036 201D     		adds	r0, r4, #4
- 310 0038 FFF7FEFF 		bl	vListInitialiseItem
- 311              	.LVL31:
- 312              	.L22:
+ 295              		.loc 1 411 0
+ 296 0036 201D     		adds	r0, r4, #4
+ 297 0038 FFF7FEFF 		bl	vListInitialiseItem
+ 298              	.LVL31:
+ 299              	.L22:
  414:../Middlewares/FreeRTOS//Source/timers.c **** /*-----------------------------------------------------------*/
- 313              		.loc 1 414 0
- 314 003c BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
- 315              		.cfi_endproc
- 316              	.LFE137:
- 317              		.fnend
- 319              		.section	.text.xTimerCreateTimerTask,"ax",%progbits
- 320              		.align	1
- 321              		.global	xTimerCreateTimerTask
- 322              		.syntax unified
- 323              		.thumb
- 324              		.thumb_func
- 325              		.fpu fpv4-sp-d16
- 327              	xTimerCreateTimerTask:
- 328              		.fnstart
- 329              	.LFB135:
+ 300              		.loc 1 414 0
+ 301 003c BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 302              		.cfi_endproc
+ 303              	.LFE130:
+ 305              		.section	.text.xTimerCreateTimerTask,"ax",%progbits
+ 306              		.align	1
+ 307              		.global	xTimerCreateTimerTask
+ 308              		.syntax unified
+ 309              		.thumb
+ 310              		.thumb_func
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 28
+
+
+ 311              		.fpu fpv4-sp-d16
+ 313              	xTimerCreateTimerTask:
+ 314              	.LFB128:
  260:../Middlewares/FreeRTOS//Source/timers.c **** BaseType_t xReturn = pdFAIL;
- 330              		.loc 1 260 0
- 331              		.cfi_startproc
- 332              		@ args = 0, pretend = 0, frame = 0
- 333              		@ frame_needed = 0, uses_anonymous_args = 0
- 334 0000 00B5     		push	{lr}
- 335              		.save {lr}
- 336              	.LCFI3:
- 337              		.cfi_def_cfa_offset 4
- 338              		.cfi_offset 14, -4
- 339              		.pad #12
- 340 0002 83B0     		sub	sp, sp, #12
- 341              	.LCFI4:
- 342              		.cfi_def_cfa_offset 16
- 343              	.LVL32:
+ 315              		.loc 1 260 0
+ 316              		.cfi_startproc
+ 317              		@ args = 0, pretend = 0, frame = 0
+ 318              		@ frame_needed = 0, uses_anonymous_args = 0
+ 319 0000 00B5     		push	{lr}
+ 320              	.LCFI3:
+ 321              		.cfi_def_cfa_offset 4
+ 322              		.cfi_offset 14, -4
+ 323 0002 83B0     		sub	sp, sp, #12
+ 324              	.LCFI4:
+ 325              		.cfi_def_cfa_offset 16
+ 326              	.LVL32:
  267:../Middlewares/FreeRTOS//Source/timers.c **** 
- 344              		.loc 1 267 0
- 345 0004 FFF7FEFF 		bl	_ZL28prvCheckForValidListAndQueuev
- 346              	.LVL33:
+ 327              		.loc 1 267 0
+ 328 0004 FFF7FEFF 		bl	prvCheckForValidListAndQueue
+ 329              	.LVL33:
  269:../Middlewares/FreeRTOS//Source/timers.c **** 	{
- 347              		.loc 1 269 0
- 348 0008 0D4B     		ldr	r3, .L32
- 349 000a 1B68     		ldr	r3, [r3]
- 350 000c 5BB1     		cbz	r3, .L28
+ 330              		.loc 1 269 0
+ 331 0008 0D4B     		ldr	r3, .L32
+ 332 000a 1B68     		ldr	r3, [r3]
+ 333 000c 5BB1     		cbz	r3, .L28
  293:../Middlewares/FreeRTOS//Source/timers.c **** 									"Tmr Svc",
- 351              		.loc 1 293 0
- 352 000e 0D4B     		ldr	r3, .L32+4
- 353 0010 0193     		str	r3, [sp, #4]
- 354 0012 0123     		movs	r3, #1
- 355 0014 0093     		str	r3, [sp]
- 356 0016 0023     		movs	r3, #0
- 357 0018 4FF48272 		mov	r2, #260
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 29
-
-
- 358 001c 0A49     		ldr	r1, .L32+8
- 359 001e 0B48     		ldr	r0, .L32+12
- 360 0020 FFF7FEFF 		bl	xTaskCreate
- 361              	.LVL34:
+ 334              		.loc 1 293 0
+ 335 000e 0D4B     		ldr	r3, .L32+4
+ 336 0010 0193     		str	r3, [sp, #4]
+ 337 0012 0123     		movs	r3, #1
+ 338 0014 0093     		str	r3, [sp]
+ 339 0016 0023     		movs	r3, #0
+ 340 0018 4FF48272 		mov	r2, #260
+ 341 001c 0A49     		ldr	r1, .L32+8
+ 342 001e 0B48     		ldr	r0, .L32+12
+ 343 0020 FFF7FEFF 		bl	xTaskCreate
+ 344              	.LVL34:
  307:../Middlewares/FreeRTOS//Source/timers.c **** 	return xReturn;
- 362              		.loc 1 307 0
- 363 0024 40B9     		cbnz	r0, .L27
- 364              	.LVL35:
- 365              	.L28:
- 366              	.LBB32:
- 367              	.LBB33:
- 368              		.loc 2 244 0
- 369              		.syntax unified
- 370              	@ 244 "../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h" 1
- 371 0026 4FF01003 			mov r3, #16												
- 372 002a 83F31188 		msr basepri, r3											
- 373 002e BFF36F8F 		isb														
- 374 0032 BFF34F8F 		dsb														
- 375              	
- 376              	@ 0 "" 2
- 377              	.LVL36:
- 378              		.thumb
- 379              		.syntax unified
- 380              	.L30:
- 381 0036 FEE7     		b	.L30
- 382              	.LVL37:
- 383              	.L27:
- 384              	.LBE33:
- 385              	.LBE32:
+ 345              		.loc 1 307 0
+ 346 0024 40B9     		cbnz	r0, .L27
+ 347              	.LVL35:
+ 348              	.L28:
+ 349              	.LBB32:
+ 350              	.LBB33:
+ 351              		.loc 2 237 0
+ 352              		.syntax unified
+ 353              	@ 237 "../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h" 1
+ 354 0026 4FF01003 			mov r3, #16												
+ 355 002a 83F31188 		msr basepri, r3											
+ 356 002e BFF36F8F 		isb														
+ 357 0032 BFF34F8F 		dsb														
+ 358              	
+ 359              	@ 0 "" 2
+ 360              	.LVL36:
+ 361              		.thumb
+ 362              		.syntax unified
+ 363              	.L30:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 29
+
+
+ 364 0036 FEE7     		b	.L30
+ 365              	.LVL37:
+ 366              	.L27:
+ 367              	.LBE33:
+ 368              	.LBE32:
  309:../Middlewares/FreeRTOS//Source/timers.c **** /*-----------------------------------------------------------*/
- 386              		.loc 1 309 0
- 387 0038 03B0     		add	sp, sp, #12
- 388              	.LCFI5:
- 389              		.cfi_def_cfa_offset 4
- 390              		@ sp needed
- 391 003a 5DF804FB 		ldr	pc, [sp], #4
- 392              	.L33:
- 393 003e 00BF     		.align	2
- 394              	.L32:
- 395 0040 00000000 		.word	.LANCHOR2
- 396 0044 00000000 		.word	.LANCHOR5
- 397 0048 00000000 		.word	.LC1
- 398 004c 00000000 		.word	_ZL12prvTimerTaskPv
- 399              		.cfi_endproc
- 400              	.LFE135:
- 401              		.fnend
- 403              		.section	.text.xTimerCreate,"ax",%progbits
- 404              		.align	1
- 405              		.global	xTimerCreate
- 406              		.syntax unified
- 407              		.thumb
- 408              		.thumb_func
- 409              		.fpu fpv4-sp-d16
- 411              	xTimerCreate:
- 412              		.fnstart
- 413              	.LFB136:
+ 369              		.loc 1 309 0
+ 370 0038 03B0     		add	sp, sp, #12
+ 371              	.LCFI5:
+ 372              		.cfi_def_cfa_offset 4
+ 373              		@ sp needed
+ 374 003a 5DF804FB 		ldr	pc, [sp], #4
+ 375              	.L33:
+ 376 003e 00BF     		.align	2
+ 377              	.L32:
+ 378 0040 00000000 		.word	.LANCHOR2
+ 379 0044 00000000 		.word	.LANCHOR5
+ 380 0048 00000000 		.word	.LC1
+ 381 004c 00000000 		.word	prvTimerTask
+ 382              		.cfi_endproc
+ 383              	.LFE128:
+ 385              		.section	.text.xTimerCreate,"ax",%progbits
+ 386              		.align	1
+ 387              		.global	xTimerCreate
+ 388              		.syntax unified
+ 389              		.thumb
+ 390              		.thumb_func
+ 391              		.fpu fpv4-sp-d16
+ 393              	xTimerCreate:
+ 394              	.LFB129:
  319:../Middlewares/FreeRTOS//Source/timers.c **** 	Timer_t *pxNewTimer;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 30
-
-
- 414              		.loc 1 319 0
- 415              		.cfi_startproc
- 416              		@ args = 4, pretend = 0, frame = 0
- 417              		@ frame_needed = 0, uses_anonymous_args = 0
- 418              	.LVL38:
- 419 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
- 420              		.save {r4, r5, r6, r7, r8, lr}
- 421              	.LCFI6:
- 422              		.cfi_def_cfa_offset 24
- 423              		.cfi_offset 4, -24
- 424              		.cfi_offset 5, -20
- 425              		.cfi_offset 6, -16
- 426              		.cfi_offset 7, -12
- 427              		.cfi_offset 8, -8
- 428              		.cfi_offset 14, -4
- 429              		.pad #8
- 430 0004 82B0     		sub	sp, sp, #8
- 431              	.LCFI7:
- 432              		.cfi_def_cfa_offset 32
- 433 0006 0546     		mov	r5, r0
- 434 0008 0E46     		mov	r6, r1
- 435 000a 1746     		mov	r7, r2
- 436 000c 9846     		mov	r8, r3
+ 395              		.loc 1 319 0
+ 396              		.cfi_startproc
+ 397              		@ args = 4, pretend = 0, frame = 0
+ 398              		@ frame_needed = 0, uses_anonymous_args = 0
+ 399              	.LVL38:
+ 400 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 401              	.LCFI6:
+ 402              		.cfi_def_cfa_offset 24
+ 403              		.cfi_offset 4, -24
+ 404              		.cfi_offset 5, -20
+ 405              		.cfi_offset 6, -16
+ 406              		.cfi_offset 7, -12
+ 407              		.cfi_offset 8, -8
+ 408              		.cfi_offset 14, -4
+ 409 0004 82B0     		sub	sp, sp, #8
+ 410              	.LCFI7:
+ 411              		.cfi_def_cfa_offset 32
+ 412 0006 0546     		mov	r5, r0
+ 413 0008 0E46     		mov	r6, r1
+ 414 000a 1746     		mov	r7, r2
+ 415 000c 9846     		mov	r8, r3
  322:../Middlewares/FreeRTOS//Source/timers.c **** 
- 437              		.loc 1 322 0
- 438 000e 2C20     		movs	r0, #44
- 439              	.LVL39:
- 440 0010 FFF7FEFF 		bl	pvPortMalloc
- 441              	.LVL40:
+ 416              		.loc 1 322 0
+ 417 000e 2C20     		movs	r0, #44
+ 418              	.LVL39:
+ 419 0010 FFF7FEFF 		bl	pvPortMalloc
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 30
+
+
+ 420              	.LVL40:
  324:../Middlewares/FreeRTOS//Source/timers.c **** 		{
- 442              		.loc 1 324 0
- 443 0014 0446     		mov	r4, r0
- 444 0016 40B1     		cbz	r0, .L34
+ 421              		.loc 1 324 0
+ 422 0014 0446     		mov	r4, r0
+ 423 0016 40B1     		cbz	r0, .L34
  326:../Middlewares/FreeRTOS//Source/timers.c **** 
- 445              		.loc 1 326 0
- 446 0018 0190     		str	r0, [sp, #4]
- 447 001a 089B     		ldr	r3, [sp, #32]
- 448 001c 0093     		str	r3, [sp]
- 449 001e 4346     		mov	r3, r8
- 450 0020 3A46     		mov	r2, r7
- 451 0022 3146     		mov	r1, r6
- 452 0024 2846     		mov	r0, r5
- 453              	.LVL41:
- 454 0026 FFF7FEFF 		bl	_ZL21prvInitialiseNewTimerPKcmmPvPFvS1_EP15tmrTimerControl
- 455              	.LVL42:
- 456              	.L34:
+ 424              		.loc 1 326 0
+ 425 0018 0190     		str	r0, [sp, #4]
+ 426 001a 089B     		ldr	r3, [sp, #32]
+ 427 001c 0093     		str	r3, [sp]
+ 428 001e 4346     		mov	r3, r8
+ 429 0020 3A46     		mov	r2, r7
+ 430 0022 3146     		mov	r1, r6
+ 431 0024 2846     		mov	r0, r5
+ 432              	.LVL41:
+ 433 0026 FFF7FEFF 		bl	prvInitialiseNewTimer
+ 434              	.LVL42:
+ 435              	.L34:
  339:../Middlewares/FreeRTOS//Source/timers.c **** 
- 457              		.loc 1 339 0
- 458 002a 2046     		mov	r0, r4
- 459 002c 02B0     		add	sp, sp, #8
- 460              	.LCFI8:
- 461              		.cfi_def_cfa_offset 24
- 462              		@ sp needed
- 463 002e BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
- 464              		.cfi_endproc
- 465              	.LFE136:
- 466              		.fnend
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 31
-
-
- 468              		.section	.text.xTimerGenericCommand,"ax",%progbits
- 469              		.align	1
- 470              		.global	xTimerGenericCommand
- 471              		.syntax unified
- 472              		.thumb
- 473              		.thumb_func
- 474              		.fpu fpv4-sp-d16
- 476              	xTimerGenericCommand:
- 477              		.fnstart
- 478              	.LFB138:
+ 436              		.loc 1 339 0
+ 437 002a 2046     		mov	r0, r4
+ 438 002c 02B0     		add	sp, sp, #8
+ 439              	.LCFI8:
+ 440              		.cfi_def_cfa_offset 24
+ 441              		@ sp needed
+ 442 002e BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 443              		.cfi_endproc
+ 444              	.LFE129:
+ 446              		.section	.text.xTimerGenericCommand,"ax",%progbits
+ 447              		.align	1
+ 448              		.global	xTimerGenericCommand
+ 449              		.syntax unified
+ 450              		.thumb
+ 451              		.thumb_func
+ 452              		.fpu fpv4-sp-d16
+ 454              	xTimerGenericCommand:
+ 455              	.LFB131:
  418:../Middlewares/FreeRTOS//Source/timers.c **** BaseType_t xReturn = pdFAIL;
- 479              		.loc 1 418 0
- 480              		.cfi_startproc
- 481              		@ args = 4, pretend = 0, frame = 16
- 482              		@ frame_needed = 0, uses_anonymous_args = 0
- 483              	.LVL43:
+ 456              		.loc 1 418 0
+ 457              		.cfi_startproc
+ 458              		@ args = 4, pretend = 0, frame = 16
+ 459              		@ frame_needed = 0, uses_anonymous_args = 0
+ 460              	.LVL43:
  422:../Middlewares/FreeRTOS//Source/timers.c **** 
- 484              		.loc 1 422 0
- 485 0000 C8B1     		cbz	r0, .L46
+ 461              		.loc 1 422 0
+ 462 0000 C8B1     		cbz	r0, .L46
  418:../Middlewares/FreeRTOS//Source/timers.c **** BaseType_t xReturn = pdFAIL;
- 486              		.loc 1 418 0
- 487 0002 30B5     		push	{r4, r5, lr}
- 488              		.save {r4, r5, lr}
- 489              	.LCFI9:
- 490              		.cfi_def_cfa_offset 12
- 491              		.cfi_offset 4, -12
- 492              		.cfi_offset 5, -8
- 493              		.cfi_offset 14, -4
- 494              		.pad #20
- 495 0004 85B0     		sub	sp, sp, #20
- 496              	.LCFI10:
- 497              		.cfi_def_cfa_offset 32
- 498 0006 1546     		mov	r5, r2
- 499 0008 0446     		mov	r4, r0
+ 463              		.loc 1 418 0
+ 464 0002 30B5     		push	{r4, r5, lr}
+ 465              	.LCFI9:
+ 466              		.cfi_def_cfa_offset 12
+ 467              		.cfi_offset 4, -12
+ 468              		.cfi_offset 5, -8
+ 469              		.cfi_offset 14, -4
+ 470 0004 85B0     		sub	sp, sp, #20
+ 471              	.LCFI10:
+ 472              		.cfi_def_cfa_offset 32
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 31
+
+
+ 473 0006 1546     		mov	r5, r2
+ 474 0008 0446     		mov	r4, r0
  426:../Middlewares/FreeRTOS//Source/timers.c **** 	{
- 500              		.loc 1 426 0
- 501 000a 174A     		ldr	r2, .L48
- 502              	.LVL44:
- 503 000c 1068     		ldr	r0, [r2]
- 504              	.LVL45:
- 505 000e 40B3     		cbz	r0, .L43
- 506 0010 1A46     		mov	r2, r3
+ 475              		.loc 1 426 0
+ 476 000a 174A     		ldr	r2, .L48
+ 477              	.LVL44:
+ 478 000c 1068     		ldr	r0, [r2]
+ 479              	.LVL45:
+ 480 000e 40B3     		cbz	r0, .L43
+ 481 0010 1A46     		mov	r2, r3
  429:../Middlewares/FreeRTOS//Source/timers.c **** 		xMessage.u.xTimerParameters.xMessageValue = xOptionalValue;
- 507              		.loc 1 429 0
- 508 0012 0191     		str	r1, [sp, #4]
+ 482              		.loc 1 429 0
+ 483 0012 0191     		str	r1, [sp, #4]
  430:../Middlewares/FreeRTOS//Source/timers.c **** 		xMessage.u.xTimerParameters.pxTimer = ( Timer_t * ) xTimer;
- 509              		.loc 1 430 0
- 510 0014 0295     		str	r5, [sp, #8]
+ 484              		.loc 1 430 0
+ 485 0014 0295     		str	r5, [sp, #8]
  431:../Middlewares/FreeRTOS//Source/timers.c **** 
- 511              		.loc 1 431 0
- 512 0016 0394     		str	r4, [sp, #12]
+ 486              		.loc 1 431 0
+ 487 0016 0394     		str	r4, [sp, #12]
  433:../Middlewares/FreeRTOS//Source/timers.c **** 		{
- 513              		.loc 1 433 0
- 514 0018 0529     		cmp	r1, #5
- 515 001a 1DDC     		bgt	.L41
+ 488              		.loc 1 433 0
+ 489 0018 0529     		cmp	r1, #5
+ 490 001a 1DDC     		bgt	.L41
  435:../Middlewares/FreeRTOS//Source/timers.c **** 			{
- 516              		.loc 1 435 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 32
-
-
- 517 001c FFF7FEFF 		bl	xTaskGetSchedulerState
- 518              	.LVL46:
- 519 0020 0228     		cmp	r0, #2
- 520 0022 11D0     		beq	.L47
+ 491              		.loc 1 435 0
+ 492 001c FFF7FEFF 		bl	xTaskGetSchedulerState
+ 493              	.LVL46:
+ 494 0020 0228     		cmp	r0, #2
+ 495 0022 11D0     		beq	.L47
  441:../Middlewares/FreeRTOS//Source/timers.c **** 			}
- 521              		.loc 1 441 0
- 522 0024 0023     		movs	r3, #0
- 523 0026 1A46     		mov	r2, r3
- 524 0028 01A9     		add	r1, sp, #4
- 525 002a 0F48     		ldr	r0, .L48
- 526 002c 0068     		ldr	r0, [r0]
- 527 002e FFF7FEFF 		bl	xQueueGenericSend
- 528              	.LVL47:
- 529              	.L37:
+ 496              		.loc 1 441 0
+ 497 0024 0023     		movs	r3, #0
+ 498 0026 1A46     		mov	r2, r3
+ 499 0028 01A9     		add	r1, sp, #4
+ 500 002a 0F48     		ldr	r0, .L48
+ 501 002c 0068     		ldr	r0, [r0]
+ 502 002e FFF7FEFF 		bl	xQueueGenericSend
+ 503              	.LVL47:
+ 504              	.L37:
  457:../Middlewares/FreeRTOS//Source/timers.c **** /*-----------------------------------------------------------*/
- 530              		.loc 1 457 0
- 531 0032 05B0     		add	sp, sp, #20
- 532              	.LCFI11:
- 533              		.cfi_def_cfa_offset 12
- 534              		@ sp needed
- 535 0034 30BD     		pop	{r4, r5, pc}
- 536              	.LVL48:
- 537              	.L46:
- 538              	.LCFI12:
- 539              		.cfi_def_cfa_offset 0
- 540              		.cfi_restore 4
- 541              		.cfi_restore 5
- 542              		.cfi_restore 14
- 543              	.LBB34:
- 544              	.LBB35:
- 545              		.loc 2 244 0
- 546              		.syntax unified
- 547              	@ 244 "../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h" 1
- 548 0036 4FF01003 			mov r3, #16												
- 549 003a 83F31188 		msr basepri, r3											
- 550 003e BFF36F8F 		isb														
- 551 0042 BFF34F8F 		dsb														
- 552              	
- 553              	@ 0 "" 2
- 554              	.LVL49:
- 555              		.thumb
- 556              		.syntax unified
- 557              	.L39:
- 558 0046 FEE7     		b	.L39
- 559              	.LVL50:
- 560              	.L47:
- 561              	.LCFI13:
- 562              		.cfi_def_cfa_offset 32
- 563              		.cfi_offset 4, -12
- 564              		.cfi_offset 5, -8
- 565              		.cfi_offset 14, -4
- 566              	.LBE35:
- 567              	.LBE34:
+ 505              		.loc 1 457 0
+ 506 0032 05B0     		add	sp, sp, #20
+ 507              	.LCFI11:
+ 508              		.cfi_def_cfa_offset 12
+ 509              		@ sp needed
+ 510 0034 30BD     		pop	{r4, r5, pc}
+ 511              	.LVL48:
+ 512              	.L46:
+ 513              	.LCFI12:
+ 514              		.cfi_def_cfa_offset 0
+ 515              		.cfi_restore 4
+ 516              		.cfi_restore 5
+ 517              		.cfi_restore 14
+ 518              	.LBB34:
+ 519              	.LBB35:
+ 520              		.loc 2 237 0
+ 521              		.syntax unified
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 32
+
+
+ 522              	@ 237 "../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h" 1
+ 523 0036 4FF01003 			mov r3, #16												
+ 524 003a 83F31188 		msr basepri, r3											
+ 525 003e BFF36F8F 		isb														
+ 526 0042 BFF34F8F 		dsb														
+ 527              	
+ 528              	@ 0 "" 2
+ 529              	.LVL49:
+ 530              		.thumb
+ 531              		.syntax unified
+ 532              	.L39:
+ 533 0046 FEE7     		b	.L39
+ 534              	.LVL50:
+ 535              	.L47:
+ 536              	.LCFI13:
+ 537              		.cfi_def_cfa_offset 32
+ 538              		.cfi_offset 4, -12
+ 539              		.cfi_offset 5, -8
+ 540              		.cfi_offset 14, -4
+ 541              	.LBE35:
+ 542              	.LBE34:
  437:../Middlewares/FreeRTOS//Source/timers.c **** 			}
- 568              		.loc 1 437 0
- 569 0048 0023     		movs	r3, #0
- 570 004a 089A     		ldr	r2, [sp, #32]
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 33
-
-
- 571 004c 01A9     		add	r1, sp, #4
- 572 004e 0648     		ldr	r0, .L48
- 573 0050 0068     		ldr	r0, [r0]
- 574 0052 FFF7FEFF 		bl	xQueueGenericSend
- 575              	.LVL51:
- 576 0056 ECE7     		b	.L37
- 577              	.LVL52:
- 578              	.L41:
+ 543              		.loc 1 437 0
+ 544 0048 0023     		movs	r3, #0
+ 545 004a 089A     		ldr	r2, [sp, #32]
+ 546 004c 01A9     		add	r1, sp, #4
+ 547 004e 0648     		ldr	r0, .L48
+ 548 0050 0068     		ldr	r0, [r0]
+ 549 0052 FFF7FEFF 		bl	xQueueGenericSend
+ 550              	.LVL51:
+ 551 0056 ECE7     		b	.L37
+ 552              	.LVL52:
+ 553              	.L41:
  446:../Middlewares/FreeRTOS//Source/timers.c **** 		}
- 579              		.loc 1 446 0
- 580 0058 0023     		movs	r3, #0
- 581 005a 01A9     		add	r1, sp, #4
- 582              	.LVL53:
- 583 005c FFF7FEFF 		bl	xQueueGenericSendFromISR
- 584              	.LVL54:
- 585 0060 E7E7     		b	.L37
- 586              	.LVL55:
- 587              	.L43:
+ 554              		.loc 1 446 0
+ 555 0058 0023     		movs	r3, #0
+ 556 005a 01A9     		add	r1, sp, #4
+ 557              	.LVL53:
+ 558 005c FFF7FEFF 		bl	xQueueGenericSendFromISR
+ 559              	.LVL54:
+ 560 0060 E7E7     		b	.L37
+ 561              	.LVL55:
+ 562              	.L43:
  419:../Middlewares/FreeRTOS//Source/timers.c **** DaemonTaskMessage_t xMessage;
- 588              		.loc 1 419 0
- 589 0062 0020     		movs	r0, #0
+ 563              		.loc 1 419 0
+ 564 0062 0020     		movs	r0, #0
  456:../Middlewares/FreeRTOS//Source/timers.c **** }
- 590              		.loc 1 456 0
- 591 0064 E5E7     		b	.L37
- 592              	.L49:
- 593 0066 00BF     		.align	2
- 594              	.L48:
- 595 0068 00000000 		.word	.LANCHOR2
- 596              		.cfi_endproc
- 597              	.LFE138:
- 598              		.fnend
- 600              		.section	.text._ZL19prvSwitchTimerListsv,"ax",%progbits
- 601              		.align	1
- 602              		.syntax unified
- 603              		.thumb
- 604              		.thumb_func
- 605              		.fpu fpv4-sp-d16
- 607              	_ZL19prvSwitchTimerListsv:
- 608              		.fnstart
- 609              	.LFB150:
+ 565              		.loc 1 456 0
+ 566 0064 E5E7     		b	.L37
+ 567              	.L49:
+ 568 0066 00BF     		.align	2
+ 569              	.L48:
+ 570 0068 00000000 		.word	.LANCHOR2
+ 571              		.cfi_endproc
+ 572              	.LFE131:
+ 574              		.section	.text.prvSwitchTimerLists,"ax",%progbits
+ 575              		.align	1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 33
+
+
+ 576              		.syntax unified
+ 577              		.thumb
+ 578              		.thumb_func
+ 579              		.fpu fpv4-sp-d16
+ 581              	prvSwitchTimerLists:
+ 582              	.LFB143:
  872:../Middlewares/FreeRTOS//Source/timers.c **** TickType_t xNextExpireTime, xReloadTime;
- 610              		.loc 1 872 0
- 611              		.cfi_startproc
- 612              		@ args = 0, pretend = 0, frame = 0
- 613              		@ frame_needed = 0, uses_anonymous_args = 0
- 614 0000 70B5     		push	{r4, r5, r6, lr}
- 615              		.save {r4, r5, r6, lr}
- 616              	.LCFI14:
- 617              		.cfi_def_cfa_offset 16
- 618              		.cfi_offset 4, -16
- 619              		.cfi_offset 5, -12
- 620              		.cfi_offset 6, -8
- 621              		.cfi_offset 14, -4
- 622              		.pad #8
- 623 0002 82B0     		sub	sp, sp, #8
- 624              	.LCFI15:
- 625              		.cfi_def_cfa_offset 24
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 34
-
-
- 626              	.L53:
+ 583              		.loc 1 872 0
+ 584              		.cfi_startproc
+ 585              		@ args = 0, pretend = 0, frame = 0
+ 586              		@ frame_needed = 0, uses_anonymous_args = 0
+ 587 0000 70B5     		push	{r4, r5, r6, lr}
+ 588              	.LCFI14:
+ 589              		.cfi_def_cfa_offset 16
+ 590              		.cfi_offset 4, -16
+ 591              		.cfi_offset 5, -12
+ 592              		.cfi_offset 6, -8
+ 593              		.cfi_offset 14, -4
+ 594 0002 82B0     		sub	sp, sp, #8
+ 595              	.LCFI15:
+ 596              		.cfi_def_cfa_offset 24
+ 597              	.L52:
  882:../Middlewares/FreeRTOS//Source/timers.c **** 	{
- 627              		.loc 1 882 0
- 628 0004 1A4B     		ldr	r3, .L58
- 629 0006 1B68     		ldr	r3, [r3]
- 630 0008 1A68     		ldr	r2, [r3]
- 631 000a 52B3     		cbz	r2, .L52
+ 598              		.loc 1 882 0
+ 599 0004 1A4B     		ldr	r3, .L59
+ 600 0006 1B68     		ldr	r3, [r3]
+ 601 0008 1A68     		ldr	r2, [r3]
+ 602 000a 52B3     		cbz	r2, .L58
  884:../Middlewares/FreeRTOS//Source/timers.c **** 
- 632              		.loc 1 884 0
- 633 000c DB68     		ldr	r3, [r3, #12]
- 634 000e 1E68     		ldr	r6, [r3]
- 635              	.LVL56:
+ 603              		.loc 1 884 0
+ 604 000c DB68     		ldr	r3, [r3, #12]
+ 605 000e 1E68     		ldr	r6, [r3]
+ 606              	.LVL56:
  887:../Middlewares/FreeRTOS//Source/timers.c **** 		( void ) uxListRemove( &( pxTimer->xTimerListItem ) );
- 636              		.loc 1 887 0
- 637 0010 DC68     		ldr	r4, [r3, #12]
- 638              	.LVL57:
+ 607              		.loc 1 887 0
+ 608 0010 DC68     		ldr	r4, [r3, #12]
+ 609              	.LVL57:
  888:../Middlewares/FreeRTOS//Source/timers.c **** 		traceTIMER_EXPIRED( pxTimer );
- 639              		.loc 1 888 0
- 640 0012 251D     		adds	r5, r4, #4
- 641 0014 2846     		mov	r0, r5
- 642 0016 FFF7FEFF 		bl	uxListRemove
- 643              	.LVL58:
+ 610              		.loc 1 888 0
+ 611 0012 251D     		adds	r5, r4, #4
+ 612 0014 2846     		mov	r0, r5
+ 613 0016 FFF7FEFF 		bl	uxListRemove
+ 614              	.LVL58:
  894:../Middlewares/FreeRTOS//Source/timers.c **** 
- 644              		.loc 1 894 0
- 645 001a 636A     		ldr	r3, [r4, #36]
- 646 001c 2046     		mov	r0, r4
- 647 001e 9847     		blx	r3
- 648              	.LVL59:
+ 615              		.loc 1 894 0
+ 616 001a 636A     		ldr	r3, [r4, #36]
+ 617 001c 2046     		mov	r0, r4
+ 618 001e 9847     		blx	r3
+ 619              	.LVL59:
  896:../Middlewares/FreeRTOS//Source/timers.c **** 		{
- 649              		.loc 1 896 0
- 650 0020 E369     		ldr	r3, [r4, #28]
- 651 0022 012B     		cmp	r3, #1
- 652 0024 EED1     		bne	.L53
+ 620              		.loc 1 896 0
+ 621 0020 E369     		ldr	r3, [r4, #28]
+ 622 0022 012B     		cmp	r3, #1
+ 623 0024 EED1     		bne	.L52
  904:../Middlewares/FreeRTOS//Source/timers.c **** 			if( xReloadTime > xNextExpireTime )
- 653              		.loc 1 904 0
- 654 0026 A369     		ldr	r3, [r4, #24]
- 655 0028 3344     		add	r3, r3, r6
- 656              	.LVL60:
+ 624              		.loc 1 904 0
+ 625 0026 A369     		ldr	r3, [r4, #24]
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 34
+
+
+ 626 0028 3344     		add	r3, r3, r6
+ 627              	.LVL60:
  905:../Middlewares/FreeRTOS//Source/timers.c **** 			{
- 657              		.loc 1 905 0
- 658 002a B342     		cmp	r3, r6
- 659 002c 07D9     		bls	.L54
+ 628              		.loc 1 905 0
+ 629 002a 9E42     		cmp	r6, r3
+ 630 002c 07D2     		bcs	.L53
  907:../Middlewares/FreeRTOS//Source/timers.c **** 				listSET_LIST_ITEM_OWNER( &( pxTimer->xTimerListItem ), pxTimer );
- 660              		.loc 1 907 0
- 661 002e 6360     		str	r3, [r4, #4]
+ 631              		.loc 1 907 0
+ 632 002e 6360     		str	r3, [r4, #4]
  908:../Middlewares/FreeRTOS//Source/timers.c **** 				vListInsert( pxCurrentTimerList, &( pxTimer->xTimerListItem ) );
- 662              		.loc 1 908 0
- 663 0030 2461     		str	r4, [r4, #16]
+ 633              		.loc 1 908 0
+ 634 0030 2461     		str	r4, [r4, #16]
  909:../Middlewares/FreeRTOS//Source/timers.c **** 			}
- 664              		.loc 1 909 0
- 665 0032 2946     		mov	r1, r5
- 666 0034 0E4B     		ldr	r3, .L58
- 667              	.LVL61:
- 668 0036 1868     		ldr	r0, [r3]
- 669 0038 FFF7FEFF 		bl	vListInsert
- 670              	.LVL62:
- 671 003c E2E7     		b	.L53
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 35
-
-
- 672              	.LVL63:
- 673              	.L54:
+ 635              		.loc 1 909 0
+ 636 0032 2946     		mov	r1, r5
+ 637 0034 0E4B     		ldr	r3, .L59
+ 638              	.LVL61:
+ 639 0036 1868     		ldr	r0, [r3]
+ 640 0038 FFF7FEFF 		bl	vListInsert
+ 641              	.LVL62:
+ 642 003c E2E7     		b	.L52
+ 643              	.LVL63:
+ 644              	.L53:
  913:../Middlewares/FreeRTOS//Source/timers.c **** 				configASSERT( xResult );
- 674              		.loc 1 913 0
- 675 003e 0021     		movs	r1, #0
- 676 0040 0091     		str	r1, [sp]
- 677 0042 0B46     		mov	r3, r1
- 678              	.LVL64:
- 679 0044 3246     		mov	r2, r6
- 680 0046 2046     		mov	r0, r4
- 681 0048 FFF7FEFF 		bl	xTimerGenericCommand
- 682              	.LVL65:
+ 645              		.loc 1 913 0
+ 646 003e 0021     		movs	r1, #0
+ 647 0040 0091     		str	r1, [sp]
+ 648 0042 0B46     		mov	r3, r1
+ 649              	.LVL64:
+ 650 0044 3246     		mov	r2, r6
+ 651 0046 2046     		mov	r0, r4
+ 652 0048 FFF7FEFF 		bl	xTimerGenericCommand
+ 653              	.LVL65:
  914:../Middlewares/FreeRTOS//Source/timers.c **** 				( void ) xResult;
- 683              		.loc 1 914 0
- 684 004c 0028     		cmp	r0, #0
- 685 004e D9D1     		bne	.L53
- 686              	.LBB36:
- 687              	.LBB37:
- 688              		.loc 2 244 0
- 689              		.syntax unified
- 690              	@ 244 "../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h" 1
- 691 0050 4FF01003 			mov r3, #16												
- 692 0054 83F31188 		msr basepri, r3											
- 693 0058 BFF36F8F 		isb														
- 694 005c BFF34F8F 		dsb														
- 695              	
- 696              	@ 0 "" 2
- 697              	.LVL66:
- 698              		.thumb
- 699              		.syntax unified
- 700              	.L56:
- 701 0060 FEE7     		b	.L56
- 702              	.LVL67:
- 703              	.L52:
- 704              	.LBE37:
- 705              	.LBE36:
+ 654              		.loc 1 914 0
+ 655 004c 0028     		cmp	r0, #0
+ 656 004e D9D1     		bne	.L52
+ 657              	.LBB36:
+ 658              	.LBB37:
+ 659              		.loc 2 237 0
+ 660              		.syntax unified
+ 661              	@ 237 "../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h" 1
+ 662 0050 4FF01003 			mov r3, #16												
+ 663 0054 83F31188 		msr basepri, r3											
+ 664 0058 BFF36F8F 		isb														
+ 665 005c BFF34F8F 		dsb														
+ 666              	
+ 667              	@ 0 "" 2
+ 668              	.LVL66:
+ 669              		.thumb
+ 670              		.syntax unified
+ 671              	.L55:
+ 672 0060 FEE7     		b	.L55
+ 673              	.LVL67:
+ 674              	.L58:
+ 675              	.LBE37:
+ 676              	.LBE36:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 35
+
+
  925:../Middlewares/FreeRTOS//Source/timers.c **** 	pxOverflowTimerList = pxTemp;
- 706              		.loc 1 925 0
- 707 0062 044A     		ldr	r2, .L58+4
- 708 0064 1068     		ldr	r0, [r2]
- 709 0066 0249     		ldr	r1, .L58
- 710 0068 0860     		str	r0, [r1]
+ 677              		.loc 1 925 0
+ 678 0062 044A     		ldr	r2, .L59+4
+ 679 0064 1068     		ldr	r0, [r2]
+ 680 0066 0249     		ldr	r1, .L59
+ 681 0068 0860     		str	r0, [r1]
  926:../Middlewares/FreeRTOS//Source/timers.c **** }
- 711              		.loc 1 926 0
- 712 006a 1360     		str	r3, [r2]
+ 682              		.loc 1 926 0
+ 683 006a 1360     		str	r3, [r2]
  927:../Middlewares/FreeRTOS//Source/timers.c **** /*-----------------------------------------------------------*/
- 713              		.loc 1 927 0
- 714 006c 02B0     		add	sp, sp, #8
- 715              	.LCFI16:
- 716              		.cfi_def_cfa_offset 16
- 717              		@ sp needed
- 718 006e 70BD     		pop	{r4, r5, r6, pc}
- 719              	.L59:
- 720              		.align	2
- 721              	.L58:
- 722 0070 00000000 		.word	.LANCHOR0
- 723 0074 00000000 		.word	.LANCHOR1
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 36
-
-
- 724              		.cfi_endproc
- 725              	.LFE150:
- 726              		.fnend
- 728              		.section	.text._ZL16prvSampleTimeNowPl,"ax",%progbits
- 729              		.align	1
- 730              		.syntax unified
- 731              		.thumb
- 732              		.thumb_func
- 733              		.fpu fpv4-sp-d16
- 735              	_ZL16prvSampleTimeNowPl:
- 736              		.fnstart
- 737              	.LFB147:
+ 684              		.loc 1 927 0
+ 685 006c 02B0     		add	sp, sp, #8
+ 686              	.LCFI16:
+ 687              		.cfi_def_cfa_offset 16
+ 688              		@ sp needed
+ 689 006e 70BD     		pop	{r4, r5, r6, pc}
+ 690              	.L60:
+ 691              		.align	2
+ 692              	.L59:
+ 693 0070 00000000 		.word	.LANCHOR0
+ 694 0074 00000000 		.word	.LANCHOR1
+ 695              		.cfi_endproc
+ 696              	.LFE143:
+ 698              		.section	.text.prvSampleTimeNow,"ax",%progbits
+ 699              		.align	1
+ 700              		.syntax unified
+ 701              		.thumb
+ 702              		.thumb_func
+ 703              		.fpu fpv4-sp-d16
+ 705              	prvSampleTimeNow:
+ 706              	.LFB140:
  661:../Middlewares/FreeRTOS//Source/timers.c **** TickType_t xTimeNow;
- 738              		.loc 1 661 0
- 739              		.cfi_startproc
- 740              		@ args = 0, pretend = 0, frame = 0
- 741              		@ frame_needed = 0, uses_anonymous_args = 0
- 742              	.LVL68:
- 743 0000 38B5     		push	{r3, r4, r5, lr}
- 744              		.save {r3, r4, r5, lr}
- 745              	.LCFI17:
- 746              		.cfi_def_cfa_offset 16
- 747              		.cfi_offset 3, -16
- 748              		.cfi_offset 4, -12
- 749              		.cfi_offset 5, -8
- 750              		.cfi_offset 14, -4
- 751 0002 0546     		mov	r5, r0
+ 707              		.loc 1 661 0
+ 708              		.cfi_startproc
+ 709              		@ args = 0, pretend = 0, frame = 0
+ 710              		@ frame_needed = 0, uses_anonymous_args = 0
+ 711              	.LVL68:
+ 712 0000 38B5     		push	{r3, r4, r5, lr}
+ 713              	.LCFI17:
+ 714              		.cfi_def_cfa_offset 16
+ 715              		.cfi_offset 3, -16
+ 716              		.cfi_offset 4, -12
+ 717              		.cfi_offset 5, -8
+ 718              		.cfi_offset 14, -4
+ 719 0002 0546     		mov	r5, r0
  665:../Middlewares/FreeRTOS//Source/timers.c **** 
- 752              		.loc 1 665 0
- 753 0004 FFF7FEFF 		bl	xTaskGetTickCount
- 754              	.LVL69:
- 755 0008 0446     		mov	r4, r0
- 756              	.LVL70:
+ 720              		.loc 1 665 0
+ 721 0004 FFF7FEFF 		bl	xTaskGetTickCount
+ 722              	.LVL69:
+ 723 0008 0446     		mov	r4, r0
+ 724              	.LVL70:
  667:../Middlewares/FreeRTOS//Source/timers.c **** 	{
- 757              		.loc 1 667 0
- 758 000a 074B     		ldr	r3, .L65
- 759 000c 1B68     		ldr	r3, [r3]
- 760 000e 8342     		cmp	r3, r0
- 761 0010 05D8     		bhi	.L64
+ 725              		.loc 1 667 0
+ 726 000a 074B     		ldr	r3, .L66
+ 727 000c 1B68     		ldr	r3, [r3]
+ 728 000e 8342     		cmp	r3, r0
+ 729 0010 05D8     		bhi	.L65
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 36
+
+
  674:../Middlewares/FreeRTOS//Source/timers.c **** 	}
- 762              		.loc 1 674 0
- 763 0012 0023     		movs	r3, #0
- 764 0014 2B60     		str	r3, [r5]
- 765              	.LVL71:
- 766              	.L62:
+ 730              		.loc 1 674 0
+ 731 0012 0023     		movs	r3, #0
+ 732 0014 2B60     		str	r3, [r5]
+ 733              	.LVL71:
+ 734              	.L63:
  677:../Middlewares/FreeRTOS//Source/timers.c **** 
- 767              		.loc 1 677 0
- 768 0016 044B     		ldr	r3, .L65
- 769 0018 1C60     		str	r4, [r3]
+ 735              		.loc 1 677 0
+ 736 0016 044B     		ldr	r3, .L66
+ 737 0018 1C60     		str	r4, [r3]
  680:../Middlewares/FreeRTOS//Source/timers.c **** /*-----------------------------------------------------------*/
- 770              		.loc 1 680 0
- 771 001a 2046     		mov	r0, r4
- 772 001c 38BD     		pop	{r3, r4, r5, pc}
- 773              	.LVL72:
- 774              	.L64:
+ 738              		.loc 1 680 0
+ 739 001a 2046     		mov	r0, r4
+ 740 001c 38BD     		pop	{r3, r4, r5, pc}
+ 741              	.LVL72:
+ 742              	.L65:
  669:../Middlewares/FreeRTOS//Source/timers.c **** 		*pxTimerListsWereSwitched = pdTRUE;
- 775              		.loc 1 669 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 37
-
-
- 776 001e FFF7FEFF 		bl	_ZL19prvSwitchTimerListsv
- 777              	.LVL73:
+ 743              		.loc 1 669 0
+ 744 001e FFF7FEFF 		bl	prvSwitchTimerLists
+ 745              	.LVL73:
  670:../Middlewares/FreeRTOS//Source/timers.c **** 	}
- 778              		.loc 1 670 0
- 779 0022 0123     		movs	r3, #1
- 780 0024 2B60     		str	r3, [r5]
- 781 0026 F6E7     		b	.L62
- 782              	.L66:
- 783              		.align	2
- 784              	.L65:
- 785 0028 00000000 		.word	.LANCHOR6
- 786              		.cfi_endproc
- 787              	.LFE147:
- 788              		.fnend
- 790              		.section	.text._ZL22prvProcessExpiredTimermm,"ax",%progbits
- 791              		.align	1
- 792              		.syntax unified
- 793              		.thumb
- 794              		.thumb_func
- 795              		.fpu fpv4-sp-d16
- 797              	_ZL22prvProcessExpiredTimermm:
- 798              		.fnstart
- 799              	.LFB143:
+ 746              		.loc 1 670 0
+ 747 0022 0123     		movs	r3, #1
+ 748 0024 2B60     		str	r3, [r5]
+ 749 0026 F6E7     		b	.L63
+ 750              	.L67:
+ 751              		.align	2
+ 752              	.L66:
+ 753 0028 00000000 		.word	.LANCHOR6
+ 754              		.cfi_endproc
+ 755              	.LFE140:
+ 757              		.section	.text.prvProcessExpiredTimer,"ax",%progbits
+ 758              		.align	1
+ 759              		.syntax unified
+ 760              		.thumb
+ 761              		.thumb_func
+ 762              		.fpu fpv4-sp-d16
+ 764              	prvProcessExpiredTimer:
+ 765              	.LFB136:
  499:../Middlewares/FreeRTOS//Source/timers.c **** BaseType_t xResult;
- 800              		.loc 1 499 0
- 801              		.cfi_startproc
- 802              		@ args = 0, pretend = 0, frame = 0
- 803              		@ frame_needed = 0, uses_anonymous_args = 0
- 804              	.LVL74:
- 805 0000 70B5     		push	{r4, r5, r6, lr}
- 806              		.save {r4, r5, r6, lr}
- 807              	.LCFI18:
- 808              		.cfi_def_cfa_offset 16
- 809              		.cfi_offset 4, -16
- 810              		.cfi_offset 5, -12
- 811              		.cfi_offset 6, -8
- 812              		.cfi_offset 14, -4
- 813              		.pad #8
- 814 0002 82B0     		sub	sp, sp, #8
- 815              	.LCFI19:
- 816              		.cfi_def_cfa_offset 24
- 817 0004 0546     		mov	r5, r0
- 818 0006 0E46     		mov	r6, r1
+ 766              		.loc 1 499 0
+ 767              		.cfi_startproc
+ 768              		@ args = 0, pretend = 0, frame = 0
+ 769              		@ frame_needed = 0, uses_anonymous_args = 0
+ 770              	.LVL74:
+ 771 0000 70B5     		push	{r4, r5, r6, lr}
+ 772              	.LCFI18:
+ 773              		.cfi_def_cfa_offset 16
+ 774              		.cfi_offset 4, -16
+ 775              		.cfi_offset 5, -12
+ 776              		.cfi_offset 6, -8
+ 777              		.cfi_offset 14, -4
+ 778 0002 82B0     		sub	sp, sp, #8
+ 779              	.LCFI19:
+ 780              		.cfi_def_cfa_offset 24
+ 781 0004 0546     		mov	r5, r0
+ 782 0006 0E46     		mov	r6, r1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 37
+
+
  501:../Middlewares/FreeRTOS//Source/timers.c **** 
- 819              		.loc 1 501 0
- 820 0008 144B     		ldr	r3, .L72
- 821 000a 1B68     		ldr	r3, [r3]
- 822 000c DB68     		ldr	r3, [r3, #12]
- 823 000e DC68     		ldr	r4, [r3, #12]
- 824              	.LVL75:
+ 783              		.loc 1 501 0
+ 784 0008 144B     		ldr	r3, .L73
+ 785 000a 1B68     		ldr	r3, [r3]
+ 786 000c DB68     		ldr	r3, [r3, #12]
+ 787 000e DC68     		ldr	r4, [r3, #12]
+ 788              	.LVL75:
  505:../Middlewares/FreeRTOS//Source/timers.c **** 	traceTIMER_EXPIRED( pxTimer );
- 825              		.loc 1 505 0
- 826 0010 201D     		adds	r0, r4, #4
- 827              	.LVL76:
- 828 0012 FFF7FEFF 		bl	uxListRemove
- 829              	.LVL77:
+ 789              		.loc 1 505 0
+ 790 0010 201D     		adds	r0, r4, #4
+ 791              	.LVL76:
+ 792 0012 FFF7FEFF 		bl	uxListRemove
+ 793              	.LVL77:
  510:../Middlewares/FreeRTOS//Source/timers.c **** 	{
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 38
-
-
- 830              		.loc 1 510 0
- 831 0016 E369     		ldr	r3, [r4, #28]
- 832 0018 012B     		cmp	r3, #1
- 833 001a 04D0     		beq	.L71
- 834              	.L68:
+ 794              		.loc 1 510 0
+ 795 0016 E369     		ldr	r3, [r4, #28]
+ 796 0018 012B     		cmp	r3, #1
+ 797 001a 04D0     		beq	.L72
+ 798              	.L69:
  534:../Middlewares/FreeRTOS//Source/timers.c **** }
- 835              		.loc 1 534 0
- 836 001c 636A     		ldr	r3, [r4, #36]
- 837 001e 2046     		mov	r0, r4
- 838 0020 9847     		blx	r3
- 839              	.LVL78:
+ 799              		.loc 1 534 0
+ 800 001c 636A     		ldr	r3, [r4, #36]
+ 801 001e 2046     		mov	r0, r4
+ 802 0020 9847     		blx	r3
+ 803              	.LVL78:
  535:../Middlewares/FreeRTOS//Source/timers.c **** /*-----------------------------------------------------------*/
- 840              		.loc 1 535 0
- 841 0022 02B0     		add	sp, sp, #8
- 842              	.LCFI20:
- 843              		.cfi_remember_state
- 844              		.cfi_def_cfa_offset 16
- 845              		@ sp needed
- 846 0024 70BD     		pop	{r4, r5, r6, pc}
- 847              	.LVL79:
- 848              	.L71:
- 849              	.LCFI21:
- 850              		.cfi_restore_state
+ 804              		.loc 1 535 0
+ 805 0022 02B0     		add	sp, sp, #8
+ 806              	.LCFI20:
+ 807              		.cfi_remember_state
+ 808              		.cfi_def_cfa_offset 16
+ 809              		@ sp needed
+ 810 0024 70BD     		pop	{r4, r5, r6, pc}
+ 811              	.LVL79:
+ 812              	.L72:
+ 813              	.LCFI21:
+ 814              		.cfi_restore_state
  515:../Middlewares/FreeRTOS//Source/timers.c **** 		{
- 851              		.loc 1 515 0
- 852 0026 A169     		ldr	r1, [r4, #24]
- 853 0028 2B46     		mov	r3, r5
- 854 002a 3246     		mov	r2, r6
- 855 002c 2944     		add	r1, r1, r5
- 856 002e 2046     		mov	r0, r4
- 857 0030 FFF7FEFF 		bl	_ZL26prvInsertTimerInActiveListP15tmrTimerControlmmm
- 858              	.LVL80:
- 859 0034 0028     		cmp	r0, #0
- 860 0036 F1D0     		beq	.L68
+ 815              		.loc 1 515 0
+ 816 0026 A169     		ldr	r1, [r4, #24]
+ 817 0028 2B46     		mov	r3, r5
+ 818 002a 3246     		mov	r2, r6
+ 819 002c 2944     		add	r1, r1, r5
+ 820 002e 2046     		mov	r0, r4
+ 821 0030 FFF7FEFF 		bl	prvInsertTimerInActiveList
+ 822              	.LVL80:
+ 823 0034 0028     		cmp	r0, #0
+ 824 0036 F1D0     		beq	.L69
  519:../Middlewares/FreeRTOS//Source/timers.c **** 			configASSERT( xResult );
- 861              		.loc 1 519 0
- 862 0038 0021     		movs	r1, #0
- 863 003a 0091     		str	r1, [sp]
- 864 003c 0B46     		mov	r3, r1
- 865 003e 2A46     		mov	r2, r5
- 866 0040 2046     		mov	r0, r4
- 867 0042 FFF7FEFF 		bl	xTimerGenericCommand
- 868              	.LVL81:
+ 825              		.loc 1 519 0
+ 826 0038 0021     		movs	r1, #0
+ 827 003a 0091     		str	r1, [sp]
+ 828 003c 0B46     		mov	r3, r1
+ 829 003e 2A46     		mov	r2, r5
+ 830 0040 2046     		mov	r0, r4
+ 831 0042 FFF7FEFF 		bl	xTimerGenericCommand
+ 832              	.LVL81:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 38
+
+
  520:../Middlewares/FreeRTOS//Source/timers.c **** 			( void ) xResult;
- 869              		.loc 1 520 0
- 870 0046 0028     		cmp	r0, #0
- 871 0048 E8D1     		bne	.L68
- 872              	.LBB38:
- 873              	.LBB39:
- 874              		.loc 2 244 0
- 875              		.syntax unified
- 876              	@ 244 "../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h" 1
- 877 004a 4FF01003 			mov r3, #16												
- 878 004e 83F31188 		msr basepri, r3											
- 879 0052 BFF36F8F 		isb														
- 880 0056 BFF34F8F 		dsb														
- 881              	
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 39
-
-
- 882              	@ 0 "" 2
- 883              	.LVL82:
- 884              		.thumb
- 885              		.syntax unified
- 886              	.L69:
- 887 005a FEE7     		b	.L69
- 888              	.L73:
- 889              		.align	2
- 890              	.L72:
- 891 005c 00000000 		.word	.LANCHOR0
- 892              	.LBE39:
- 893              	.LBE38:
- 894              		.cfi_endproc
- 895              	.LFE143:
- 896              		.fnend
- 898              		.section	.text._ZL26prvProcessTimerOrBlockTaskml,"ax",%progbits
- 899              		.align	1
- 900              		.syntax unified
- 901              		.thumb
- 902              		.thumb_func
- 903              		.fpu fpv4-sp-d16
- 905              	_ZL26prvProcessTimerOrBlockTaskml:
- 906              		.fnstart
- 907              	.LFB145:
+ 833              		.loc 1 520 0
+ 834 0046 0028     		cmp	r0, #0
+ 835 0048 E8D1     		bne	.L69
+ 836              	.LBB38:
+ 837              	.LBB39:
+ 838              		.loc 2 237 0
+ 839              		.syntax unified
+ 840              	@ 237 "../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h" 1
+ 841 004a 4FF01003 			mov r3, #16												
+ 842 004e 83F31188 		msr basepri, r3											
+ 843 0052 BFF36F8F 		isb														
+ 844 0056 BFF34F8F 		dsb														
+ 845              	
+ 846              	@ 0 "" 2
+ 847              	.LVL82:
+ 848              		.thumb
+ 849              		.syntax unified
+ 850              	.L70:
+ 851 005a FEE7     		b	.L70
+ 852              	.L74:
+ 853              		.align	2
+ 854              	.L73:
+ 855 005c 00000000 		.word	.LANCHOR0
+ 856              	.LBE39:
+ 857              	.LBE38:
+ 858              		.cfi_endproc
+ 859              	.LFE136:
+ 861              		.section	.text.prvProcessTimerOrBlockTask,"ax",%progbits
+ 862              		.align	1
+ 863              		.syntax unified
+ 864              		.thumb
+ 865              		.thumb_func
+ 866              		.fpu fpv4-sp-d16
+ 868              	prvProcessTimerOrBlockTask:
+ 869              	.LFB138:
  575:../Middlewares/FreeRTOS//Source/timers.c **** TickType_t xTimeNow;
- 908              		.loc 1 575 0
- 909              		.cfi_startproc
- 910              		@ args = 0, pretend = 0, frame = 8
- 911              		@ frame_needed = 0, uses_anonymous_args = 0
- 912              	.LVL83:
- 913 0000 70B5     		push	{r4, r5, r6, lr}
- 914              		.save {r4, r5, r6, lr}
- 915              	.LCFI22:
- 916              		.cfi_def_cfa_offset 16
- 917              		.cfi_offset 4, -16
- 918              		.cfi_offset 5, -12
- 919              		.cfi_offset 6, -8
- 920              		.cfi_offset 14, -4
- 921              		.pad #8
- 922 0002 82B0     		sub	sp, sp, #8
- 923              	.LCFI23:
- 924              		.cfi_def_cfa_offset 24
- 925 0004 0646     		mov	r6, r0
- 926 0006 0C46     		mov	r4, r1
+ 870              		.loc 1 575 0
+ 871              		.cfi_startproc
+ 872              		@ args = 0, pretend = 0, frame = 8
+ 873              		@ frame_needed = 0, uses_anonymous_args = 0
+ 874              	.LVL83:
+ 875 0000 70B5     		push	{r4, r5, r6, lr}
+ 876              	.LCFI22:
+ 877              		.cfi_def_cfa_offset 16
+ 878              		.cfi_offset 4, -16
+ 879              		.cfi_offset 5, -12
+ 880              		.cfi_offset 6, -8
+ 881              		.cfi_offset 14, -4
+ 882 0002 82B0     		sub	sp, sp, #8
+ 883              	.LCFI23:
+ 884              		.cfi_def_cfa_offset 24
+ 885 0004 0646     		mov	r6, r0
+ 886 0006 0C46     		mov	r4, r1
  579:../Middlewares/FreeRTOS//Source/timers.c **** 	{
- 927              		.loc 1 579 0
- 928 0008 FFF7FEFF 		bl	vTaskSuspendAll
- 929              	.LVL84:
+ 887              		.loc 1 579 0
+ 888 0008 FFF7FEFF 		bl	vTaskSuspendAll
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 39
+
+
+ 889              	.LVL84:
  586:../Middlewares/FreeRTOS//Source/timers.c **** 		if( xTimerListsWereSwitched == pdFALSE )
- 930              		.loc 1 586 0
- 931 000c 01A8     		add	r0, sp, #4
- 932 000e FFF7FEFF 		bl	_ZL16prvSampleTimeNowPl
- 933              	.LVL85:
+ 890              		.loc 1 586 0
+ 891 000c 01A8     		add	r0, sp, #4
+ 892 000e FFF7FEFF 		bl	prvSampleTimeNow
+ 893              	.LVL85:
  587:../Middlewares/FreeRTOS//Source/timers.c **** 		{
- 934              		.loc 1 587 0
- 935 0012 019B     		ldr	r3, [sp, #4]
- 936 0014 1BBB     		cbnz	r3, .L75
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 40
-
-
- 937 0016 0546     		mov	r5, r0
+ 894              		.loc 1 587 0
+ 895 0012 019B     		ldr	r3, [sp, #4]
+ 896 0014 1BBB     		cbnz	r3, .L76
+ 897 0016 0546     		mov	r5, r0
  590:../Middlewares/FreeRTOS//Source/timers.c **** 			{
- 938              		.loc 1 590 0
- 939 0018 0CB9     		cbnz	r4, .L76
+ 898              		.loc 1 590 0
+ 899 0018 0CB9     		cbnz	r4, .L77
  590:../Middlewares/FreeRTOS//Source/timers.c **** 			{
- 940              		.loc 1 590 0 is_stmt 0 discriminator 1
- 941 001a B042     		cmp	r0, r6
- 942 001c 18D2     		bcs	.L80
- 943              	.L76:
+ 900              		.loc 1 590 0 is_stmt 0 discriminator 1
+ 901 001a B042     		cmp	r0, r6
+ 902 001c 18D2     		bcs	.L81
+ 903              	.L77:
  603:../Middlewares/FreeRTOS//Source/timers.c **** 				{
- 944              		.loc 1 603 0 is_stmt 1
- 945 001e 2CB1     		cbz	r4, .L78
+ 904              		.loc 1 603 0 is_stmt 1
+ 905 001e 2CB1     		cbz	r4, .L79
  607:../Middlewares/FreeRTOS//Source/timers.c **** 				}
- 946              		.loc 1 607 0
- 947 0020 114B     		ldr	r3, .L81
- 948 0022 1B68     		ldr	r3, [r3]
- 949 0024 1C68     		ldr	r4, [r3]
- 950              	.LVL86:
- 951 0026 B4FA84F4 		clz	r4, r4
- 952 002a 6409     		lsrs	r4, r4, #5
- 953              	.LVL87:
- 954              	.L78:
+ 906              		.loc 1 607 0
+ 907 0020 114B     		ldr	r3, .L82
+ 908 0022 1B68     		ldr	r3, [r3]
+ 909 0024 1C68     		ldr	r4, [r3]
+ 910              	.LVL86:
+ 911 0026 B4FA84F4 		clz	r4, r4
+ 912 002a 6409     		lsrs	r4, r4, #5
+ 913              	.LVL87:
+ 914              	.L79:
  610:../Middlewares/FreeRTOS//Source/timers.c **** 
- 955              		.loc 1 610 0
- 956 002c 2246     		mov	r2, r4
- 957 002e 711B     		subs	r1, r6, r5
- 958 0030 0E4B     		ldr	r3, .L81+4
- 959 0032 1868     		ldr	r0, [r3]
- 960              	.LVL88:
- 961 0034 FFF7FEFF 		bl	vQueueWaitForMessageRestricted
- 962              	.LVL89:
+ 915              		.loc 1 610 0
+ 916 002c 2246     		mov	r2, r4
+ 917 002e 711B     		subs	r1, r6, r5
+ 918 0030 0E4B     		ldr	r3, .L82+4
+ 919 0032 1868     		ldr	r0, [r3]
+ 920              	.LVL88:
+ 921 0034 FFF7FEFF 		bl	vQueueWaitForMessageRestricted
+ 922              	.LVL89:
  612:../Middlewares/FreeRTOS//Source/timers.c **** 				{
- 963              		.loc 1 612 0
- 964 0038 FFF7FEFF 		bl	xTaskResumeAll
- 965              	.LVL90:
- 966 003c 88B9     		cbnz	r0, .L74
+ 923              		.loc 1 612 0
+ 924 0038 FFF7FEFF 		bl	xTaskResumeAll
+ 925              	.LVL90:
+ 926 003c 88B9     		cbnz	r0, .L75
  618:../Middlewares/FreeRTOS//Source/timers.c **** 				}
- 967              		.loc 1 618 0
- 968 003e 0C4B     		ldr	r3, .L81+8
- 969 0040 4FF08052 		mov	r2, #268435456
- 970 0044 1A60     		str	r2, [r3]
- 971              		.syntax unified
- 972              	@ 618 "../Middlewares/FreeRTOS//Source/timers.c" 1
- 973 0046 BFF34F8F 		dsb
- 974              	@ 0 "" 2
- 975              	@ 618 "../Middlewares/FreeRTOS//Source/timers.c" 1
- 976 004a BFF36F8F 		isb
- 977              	@ 0 "" 2
- 978              		.thumb
- 979              		.syntax unified
- 980 004e 08E0     		b	.L74
- 981              	.LVL91:
- 982              	.L80:
+ 927              		.loc 1 618 0
+ 928 003e 0C4B     		ldr	r3, .L82+8
+ 929 0040 4FF08052 		mov	r2, #268435456
+ 930 0044 1A60     		str	r2, [r3]
+ 931              		.syntax unified
+ 932              	@ 618 "../Middlewares/FreeRTOS//Source/timers.c" 1
+ 933 0046 BFF34F8F 		dsb
+ 934              	@ 0 "" 2
+ 935              	@ 618 "../Middlewares/FreeRTOS//Source/timers.c" 1
+ 936 004a BFF36F8F 		isb
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 40
+
+
+ 937              	@ 0 "" 2
+ 938              		.thumb
+ 939              		.syntax unified
+ 940 004e 08E0     		b	.L75
+ 941              	.LVL91:
+ 942              	.L81:
  592:../Middlewares/FreeRTOS//Source/timers.c **** 				prvProcessExpiredTimer( xNextExpireTime, xTimeNow );
- 983              		.loc 1 592 0
- 984 0050 FFF7FEFF 		bl	xTaskResumeAll
- 985              	.LVL92:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 41
-
-
+ 943              		.loc 1 592 0
+ 944 0050 FFF7FEFF 		bl	xTaskResumeAll
+ 945              	.LVL92:
  593:../Middlewares/FreeRTOS//Source/timers.c **** 			}
- 986              		.loc 1 593 0
- 987 0054 2946     		mov	r1, r5
- 988 0056 3046     		mov	r0, r6
- 989 0058 FFF7FEFF 		bl	_ZL22prvProcessExpiredTimermm
- 990              	.LVL93:
- 991 005c 01E0     		b	.L74
- 992              	.LVL94:
- 993              	.L75:
+ 946              		.loc 1 593 0
+ 947 0054 2946     		mov	r1, r5
+ 948 0056 3046     		mov	r0, r6
+ 949 0058 FFF7FEFF 		bl	prvProcessExpiredTimer
+ 950              	.LVL93:
+ 951 005c 01E0     		b	.L75
+ 952              	.LVL94:
+ 953              	.L76:
  628:../Middlewares/FreeRTOS//Source/timers.c **** 		}
- 994              		.loc 1 628 0
- 995 005e FFF7FEFF 		bl	xTaskResumeAll
- 996              	.LVL95:
- 997              	.L74:
+ 954              		.loc 1 628 0
+ 955 005e FFF7FEFF 		bl	xTaskResumeAll
+ 956              	.LVL95:
+ 957              	.L75:
  631:../Middlewares/FreeRTOS//Source/timers.c **** /*-----------------------------------------------------------*/
- 998              		.loc 1 631 0
- 999 0062 02B0     		add	sp, sp, #8
- 1000              	.LCFI24:
- 1001              		.cfi_def_cfa_offset 16
- 1002              		@ sp needed
- 1003 0064 70BD     		pop	{r4, r5, r6, pc}
- 1004              	.LVL96:
- 1005              	.L82:
- 1006 0066 00BF     		.align	2
- 1007              	.L81:
- 1008 0068 00000000 		.word	.LANCHOR1
- 1009 006c 00000000 		.word	.LANCHOR2
- 1010 0070 04ED00E0 		.word	-536810236
- 1011              		.cfi_endproc
- 1012              	.LFE145:
- 1013              		.fnend
- 1015              		.section	.text._ZL26prvProcessReceivedCommandsv,"ax",%progbits
- 1016              		.align	1
- 1017              		.syntax unified
- 1018              		.thumb
- 1019              		.thumb_func
- 1020              		.fpu fpv4-sp-d16
- 1022              	_ZL26prvProcessReceivedCommandsv:
- 1023              		.fnstart
- 1024              	.LFB149:
+ 958              		.loc 1 631 0
+ 959 0062 02B0     		add	sp, sp, #8
+ 960              	.LCFI24:
+ 961              		.cfi_def_cfa_offset 16
+ 962              		@ sp needed
+ 963 0064 70BD     		pop	{r4, r5, r6, pc}
+ 964              	.LVL96:
+ 965              	.L83:
+ 966 0066 00BF     		.align	2
+ 967              	.L82:
+ 968 0068 00000000 		.word	.LANCHOR1
+ 969 006c 00000000 		.word	.LANCHOR2
+ 970 0070 04ED00E0 		.word	-536810236
+ 971              		.cfi_endproc
+ 972              	.LFE138:
+ 974              		.section	.text.prvProcessReceivedCommands,"ax",%progbits
+ 975              		.align	1
+ 976              		.syntax unified
+ 977              		.thumb
+ 978              		.thumb_func
+ 979              		.fpu fpv4-sp-d16
+ 981              	prvProcessReceivedCommands:
+ 982              	.LFB142:
  725:../Middlewares/FreeRTOS//Source/timers.c **** DaemonTaskMessage_t xMessage;
- 1025              		.loc 1 725 0
- 1026              		.cfi_startproc
- 1027              		@ args = 0, pretend = 0, frame = 16
- 1028              		@ frame_needed = 0, uses_anonymous_args = 0
- 1029 0000 30B5     		push	{r4, r5, lr}
- 1030              		.save {r4, r5, lr}
- 1031              	.LCFI25:
- 1032              		.cfi_def_cfa_offset 12
- 1033              		.cfi_offset 4, -12
- 1034              		.cfi_offset 5, -8
- 1035              		.cfi_offset 14, -4
- 1036              		.pad #28
- 1037 0002 87B0     		sub	sp, sp, #28
- 1038              	.LCFI26:
- 1039              		.cfi_def_cfa_offset 40
- 1040              	.L87:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 42
+ 983              		.loc 1 725 0
+ 984              		.cfi_startproc
+ 985              		@ args = 0, pretend = 0, frame = 16
+ 986              		@ frame_needed = 0, uses_anonymous_args = 0
+ 987 0000 30B5     		push	{r4, r5, lr}
+ 988              	.LCFI25:
+ 989              		.cfi_def_cfa_offset 12
+ 990              		.cfi_offset 4, -12
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 41
 
 
+ 991              		.cfi_offset 5, -8
+ 992              		.cfi_offset 14, -4
+ 993 0002 87B0     		sub	sp, sp, #28
+ 994              	.LCFI26:
+ 995              		.cfi_def_cfa_offset 40
+ 996              	.L86:
  731:../Middlewares/FreeRTOS//Source/timers.c **** 	{
- 1041              		.loc 1 731 0
- 1042 0004 0023     		movs	r3, #0
- 1043 0006 1A46     		mov	r2, r3
- 1044 0008 03A9     		add	r1, sp, #12
- 1045 000a 3548     		ldr	r0, .L99
- 1046 000c 0068     		ldr	r0, [r0]
- 1047 000e FFF7FEFF 		bl	xQueueGenericReceive
- 1048              	.LVL97:
- 1049 0012 0028     		cmp	r0, #0
- 1050 0014 61D0     		beq	.L83
+ 997              		.loc 1 731 0
+ 998 0004 0023     		movs	r3, #0
+ 999 0006 1A46     		mov	r2, r3
+ 1000 0008 03A9     		add	r1, sp, #12
+ 1001 000a 3548     		ldr	r0, .L101
+ 1002 000c 0068     		ldr	r0, [r0]
+ 1003 000e FFF7FEFF 		bl	xQueueGenericReceive
+ 1004              	.LVL97:
+ 1005 0012 0028     		cmp	r0, #0
+ 1006 0014 61D0     		beq	.L99
  757:../Middlewares/FreeRTOS//Source/timers.c **** 		{
- 1051              		.loc 1 757 0
- 1052 0016 039B     		ldr	r3, [sp, #12]
- 1053 0018 002B     		cmp	r3, #0
- 1054 001a F3DB     		blt	.L87
+ 1007              		.loc 1 757 0
+ 1008 0016 039B     		ldr	r3, [sp, #12]
+ 1009 0018 002B     		cmp	r3, #0
+ 1010 001a F3DB     		blt	.L86
  761:../Middlewares/FreeRTOS//Source/timers.c **** 
- 1055              		.loc 1 761 0
- 1056 001c 059C     		ldr	r4, [sp, #20]
- 1057              	.LVL98:
+ 1011              		.loc 1 761 0
+ 1012 001c 059C     		ldr	r4, [sp, #20]
+ 1013              	.LVL98:
  763:../Middlewares/FreeRTOS//Source/timers.c **** 			{
- 1058              		.loc 1 763 0
- 1059 001e 6369     		ldr	r3, [r4, #20]
- 1060 0020 13B1     		cbz	r3, .L88
+ 1014              		.loc 1 763 0
+ 1015 001e 6369     		ldr	r3, [r4, #20]
+ 1016 0020 13B1     		cbz	r3, .L87
  766:../Middlewares/FreeRTOS//Source/timers.c **** 			}
- 1061              		.loc 1 766 0
- 1062 0022 201D     		adds	r0, r4, #4
- 1063 0024 FFF7FEFF 		bl	uxListRemove
- 1064              	.LVL99:
- 1065              	.L88:
+ 1017              		.loc 1 766 0
+ 1018 0022 201D     		adds	r0, r4, #4
+ 1019 0024 FFF7FEFF 		bl	uxListRemove
+ 1020              	.LVL99:
+ 1021              	.L87:
  781:../Middlewares/FreeRTOS//Source/timers.c **** 
- 1066              		.loc 1 781 0
- 1067 0028 02A8     		add	r0, sp, #8
- 1068 002a FFF7FEFF 		bl	_ZL16prvSampleTimeNowPl
- 1069              	.LVL100:
+ 1022              		.loc 1 781 0
+ 1023 0028 02A8     		add	r0, sp, #8
+ 1024 002a FFF7FEFF 		bl	prvSampleTimeNow
+ 1025              	.LVL100:
  783:../Middlewares/FreeRTOS//Source/timers.c **** 			{
- 1070              		.loc 1 783 0
- 1071 002e 039B     		ldr	r3, [sp, #12]
- 1072 0030 092B     		cmp	r3, #9
- 1073 0032 E7D8     		bhi	.L87
- 1074 0034 01A2     		adr	r2, .L90
- 1075 0036 52F823F0 		ldr	pc, [r2, r3, lsl #2]
- 1076 003a 00BF     		.p2align 2
- 1077              	.L90:
- 1078 003c 65000000 		.word	.L89+1
- 1079 0040 65000000 		.word	.L89+1
- 1080 0044 65000000 		.word	.L89+1
- 1081 0048 05000000 		.word	.L87+1
- 1082 004c AD000000 		.word	.L91+1
- 1083 0050 D3000000 		.word	.L92+1
- 1084 0054 65000000 		.word	.L89+1
- 1085 0058 65000000 		.word	.L89+1
- 1086 005c 05000000 		.word	.L87+1
- 1087 0060 AD000000 		.word	.L91+1
- 1088              		.p2align 1
- 1089              	.L89:
+ 1026              		.loc 1 783 0
+ 1027 002e 039B     		ldr	r3, [sp, #12]
+ 1028 0030 092B     		cmp	r3, #9
+ 1029 0032 E7D8     		bhi	.L86
+ 1030 0034 01A2     		adr	r2, .L90
+ 1031 0036 52F823F0 		ldr	pc, [r2, r3, lsl #2]
+ 1032 003a 00BF     		.p2align 2
+ 1033              	.L90:
+ 1034 003c 65000000 		.word	.L89+1
+ 1035 0040 65000000 		.word	.L89+1
+ 1036 0044 65000000 		.word	.L89+1
+ 1037 0048 05000000 		.word	.L86+1
+ 1038 004c AD000000 		.word	.L91+1
+ 1039 0050 D3000000 		.word	.L92+1
+ 1040 0054 65000000 		.word	.L89+1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 42
+
+
+ 1041 0058 65000000 		.word	.L89+1
+ 1042 005c 05000000 		.word	.L86+1
+ 1043 0060 AD000000 		.word	.L91+1
+ 1044              		.p2align 1
+ 1045              	.L89:
  791:../Middlewares/FreeRTOS//Source/timers.c **** 					{
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 43
-
-
- 1090              		.loc 1 791 0
- 1091 0064 0499     		ldr	r1, [sp, #16]
- 1092 0066 A569     		ldr	r5, [r4, #24]
- 1093 0068 0B46     		mov	r3, r1
- 1094 006a 0246     		mov	r2, r0
- 1095 006c 2944     		add	r1, r1, r5
- 1096 006e 2046     		mov	r0, r4
- 1097              	.LVL101:
- 1098 0070 FFF7FEFF 		bl	_ZL26prvInsertTimerInActiveListP15tmrTimerControlmmm
- 1099              	.LVL102:
- 1100 0074 0028     		cmp	r0, #0
- 1101 0076 C5D0     		beq	.L87
+ 1046              		.loc 1 791 0
+ 1047 0064 0499     		ldr	r1, [sp, #16]
+ 1048 0066 A569     		ldr	r5, [r4, #24]
+ 1049 0068 0B46     		mov	r3, r1
+ 1050 006a 0246     		mov	r2, r0
+ 1051 006c 2944     		add	r1, r1, r5
+ 1052 006e 2046     		mov	r0, r4
+ 1053              	.LVL101:
+ 1054 0070 FFF7FEFF 		bl	prvInsertTimerInActiveList
+ 1055              	.LVL102:
+ 1056 0074 0028     		cmp	r0, #0
+ 1057 0076 C5D0     		beq	.L86
  795:../Middlewares/FreeRTOS//Source/timers.c **** 						traceTIMER_EXPIRED( pxTimer );
- 1102              		.loc 1 795 0
- 1103 0078 636A     		ldr	r3, [r4, #36]
- 1104 007a 2046     		mov	r0, r4
- 1105 007c 9847     		blx	r3
- 1106              	.LVL103:
+ 1058              		.loc 1 795 0
+ 1059 0078 636A     		ldr	r3, [r4, #36]
+ 1060 007a 2046     		mov	r0, r4
+ 1061 007c 9847     		blx	r3
+ 1062              	.LVL103:
  798:../Middlewares/FreeRTOS//Source/timers.c **** 						{
- 1107              		.loc 1 798 0
- 1108 007e E369     		ldr	r3, [r4, #28]
- 1109 0080 012B     		cmp	r3, #1
- 1110 0082 BFD1     		bne	.L87
+ 1063              		.loc 1 798 0
+ 1064 007e E369     		ldr	r3, [r4, #28]
+ 1065 0080 012B     		cmp	r3, #1
+ 1066 0082 BFD1     		bne	.L86
  800:../Middlewares/FreeRTOS//Source/timers.c **** 							configASSERT( xResult );
- 1111              		.loc 1 800 0
- 1112 0084 A269     		ldr	r2, [r4, #24]
- 1113 0086 0021     		movs	r1, #0
- 1114 0088 0091     		str	r1, [sp]
- 1115 008a 0B46     		mov	r3, r1
- 1116 008c 0498     		ldr	r0, [sp, #16]
- 1117 008e 0244     		add	r2, r2, r0
- 1118 0090 2046     		mov	r0, r4
- 1119 0092 FFF7FEFF 		bl	xTimerGenericCommand
- 1120              	.LVL104:
+ 1067              		.loc 1 800 0
+ 1068 0084 A269     		ldr	r2, [r4, #24]
+ 1069 0086 0021     		movs	r1, #0
+ 1070 0088 0091     		str	r1, [sp]
+ 1071 008a 0B46     		mov	r3, r1
+ 1072 008c 0498     		ldr	r0, [sp, #16]
+ 1073 008e 0244     		add	r2, r2, r0
+ 1074 0090 2046     		mov	r0, r4
+ 1075 0092 FFF7FEFF 		bl	xTimerGenericCommand
+ 1076              	.LVL104:
  801:../Middlewares/FreeRTOS//Source/timers.c **** 							( void ) xResult;
- 1121              		.loc 1 801 0
- 1122 0096 0028     		cmp	r0, #0
- 1123 0098 B4D1     		bne	.L87
- 1124              	.LBB40:
- 1125              	.LBB41:
- 1126              		.loc 2 244 0
- 1127              		.syntax unified
- 1128              	@ 244 "../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h" 1
- 1129 009a 4FF01003 			mov r3, #16												
- 1130 009e 83F31188 		msr basepri, r3											
- 1131 00a2 BFF36F8F 		isb														
- 1132 00a6 BFF34F8F 		dsb														
- 1133              	
- 1134              	@ 0 "" 2
- 1135              	.LVL105:
- 1136              		.thumb
- 1137              		.syntax unified
- 1138              	.L94:
- 1139 00aa FEE7     		b	.L94
- 1140              	.LVL106:
- 1141              	.L91:
- 1142              	.LBE41:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 44
+ 1077              		.loc 1 801 0
+ 1078 0096 0028     		cmp	r0, #0
+ 1079 0098 B4D1     		bne	.L86
+ 1080              	.LBB40:
+ 1081              	.LBB41:
+ 1082              		.loc 2 237 0
+ 1083              		.syntax unified
+ 1084              	@ 237 "../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h" 1
+ 1085 009a 4FF01003 			mov r3, #16												
+ 1086 009e 83F31188 		msr basepri, r3											
+ 1087 00a2 BFF36F8F 		isb														
+ 1088 00a6 BFF34F8F 		dsb														
+ 1089              	
+ 1090              	@ 0 "" 2
+ 1091              	.LVL105:
+ 1092              		.thumb
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 43
 
 
- 1143              	.LBE40:
+ 1093              		.syntax unified
+ 1094              	.L94:
+ 1095 00aa FEE7     		b	.L94
+ 1096              	.LVL106:
+ 1097              	.L91:
+ 1098              	.LBE41:
+ 1099              	.LBE40:
  823:../Middlewares/FreeRTOS//Source/timers.c **** 					configASSERT( ( pxTimer->xTimerPeriodInTicks > 0 ) );
- 1144              		.loc 1 823 0
- 1145 00ac 0499     		ldr	r1, [sp, #16]
- 1146 00ae A161     		str	r1, [r4, #24]
+ 1100              		.loc 1 823 0
+ 1101 00ac 0499     		ldr	r1, [sp, #16]
+ 1102 00ae A161     		str	r1, [r4, #24]
  824:../Middlewares/FreeRTOS//Source/timers.c **** 
- 1147              		.loc 1 824 0
- 1148 00b0 31B1     		cbz	r1, .L98
+ 1103              		.loc 1 824 0
+ 1104 00b0 31B1     		cbz	r1, .L100
  832:../Middlewares/FreeRTOS//Source/timers.c **** 					break;
- 1149              		.loc 1 832 0
- 1150 00b2 0346     		mov	r3, r0
- 1151 00b4 0246     		mov	r2, r0
- 1152 00b6 0144     		add	r1, r1, r0
- 1153 00b8 2046     		mov	r0, r4
- 1154              	.LVL107:
- 1155 00ba FFF7FEFF 		bl	_ZL26prvInsertTimerInActiveListP15tmrTimerControlmmm
- 1156              	.LVL108:
- 1157 00be A1E7     		b	.L87
- 1158              	.LVL109:
- 1159              	.L98:
- 1160              	.LBB42:
- 1161              	.LBB43:
- 1162              		.loc 2 244 0
- 1163              		.syntax unified
- 1164              	@ 244 "../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h" 1
- 1165 00c0 4FF01003 			mov r3, #16												
- 1166 00c4 83F31188 		msr basepri, r3											
- 1167 00c8 BFF36F8F 		isb														
- 1168 00cc BFF34F8F 		dsb														
- 1169              	
- 1170              	@ 0 "" 2
- 1171              	.LVL110:
- 1172              		.thumb
- 1173              		.syntax unified
- 1174              	.L96:
- 1175 00d0 FEE7     		b	.L96
- 1176              	.L92:
- 1177              	.LBE43:
- 1178              	.LBE42:
+ 1105              		.loc 1 832 0
+ 1106 00b2 0346     		mov	r3, r0
+ 1107 00b4 0246     		mov	r2, r0
+ 1108 00b6 0144     		add	r1, r1, r0
+ 1109 00b8 2046     		mov	r0, r4
+ 1110              	.LVL107:
+ 1111 00ba FFF7FEFF 		bl	prvInsertTimerInActiveList
+ 1112              	.LVL108:
+ 833:../Middlewares/FreeRTOS//Source/timers.c **** 
+ 1113              		.loc 1 833 0
+ 1114 00be A1E7     		b	.L86
+ 1115              	.LVL109:
+ 1116              	.L100:
+ 1117              	.LBB42:
+ 1118              	.LBB43:
+ 1119              		.loc 2 237 0
+ 1120              		.syntax unified
+ 1121              	@ 237 "../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h" 1
+ 1122 00c0 4FF01003 			mov r3, #16												
+ 1123 00c4 83F31188 		msr basepri, r3											
+ 1124 00c8 BFF36F8F 		isb														
+ 1125 00cc BFF34F8F 		dsb														
+ 1126              	
+ 1127              	@ 0 "" 2
+ 1128              	.LVL110:
+ 1129              		.thumb
+ 1130              		.syntax unified
+ 1131              	.L96:
+ 1132 00d0 FEE7     		b	.L96
+ 1133              	.L92:
+ 1134              	.LBE43:
+ 1135              	.LBE42:
  843:../Middlewares/FreeRTOS//Source/timers.c **** 					}
- 1179              		.loc 1 843 0
- 1180 00d2 2046     		mov	r0, r4
- 1181              	.LVL111:
- 1182 00d4 FFF7FEFF 		bl	vPortFree
- 1183              	.LVL112:
- 1184 00d8 94E7     		b	.L87
- 1185              	.LVL113:
- 1186              	.L83:
+ 1136              		.loc 1 843 0
+ 1137 00d2 2046     		mov	r0, r4
+ 1138              	.LVL111:
+ 1139 00d4 FFF7FEFF 		bl	vPortFree
+ 1140              	.LVL112:
+ 860:../Middlewares/FreeRTOS//Source/timers.c **** 
+ 1141              		.loc 1 860 0
+ 1142 00d8 94E7     		b	.L86
+ 1143              	.LVL113:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 44
+
+
+ 1144              	.L99:
  868:../Middlewares/FreeRTOS//Source/timers.c **** /*-----------------------------------------------------------*/
- 1187              		.loc 1 868 0
- 1188 00da 07B0     		add	sp, sp, #28
- 1189              	.LCFI27:
- 1190              		.cfi_def_cfa_offset 12
- 1191              		@ sp needed
- 1192 00dc 30BD     		pop	{r4, r5, pc}
- 1193              	.L100:
- 1194 00de 00BF     		.align	2
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 45
-
-
- 1195              	.L99:
- 1196 00e0 00000000 		.word	.LANCHOR2
- 1197              		.cfi_endproc
- 1198              	.LFE149:
- 1199              		.fnend
- 1201              		.section	.text._ZL12prvTimerTaskPv,"ax",%progbits
- 1202              		.align	1
- 1203              		.syntax unified
- 1204              		.thumb
- 1205              		.thumb_func
- 1206              		.fpu fpv4-sp-d16
- 1208              	_ZL12prvTimerTaskPv:
- 1209              		.fnstart
- 1210              	.LFB144:
+ 1145              		.loc 1 868 0
+ 1146 00da 07B0     		add	sp, sp, #28
+ 1147              	.LCFI27:
+ 1148              		.cfi_def_cfa_offset 12
+ 1149              		@ sp needed
+ 1150 00dc 30BD     		pop	{r4, r5, pc}
+ 1151              	.L102:
+ 1152 00de 00BF     		.align	2
+ 1153              	.L101:
+ 1154 00e0 00000000 		.word	.LANCHOR2
+ 1155              		.cfi_endproc
+ 1156              	.LFE142:
+ 1158              		.section	.text.prvTimerTask,"ax",%progbits
+ 1159              		.align	1
+ 1160              		.syntax unified
+ 1161              		.thumb
+ 1162              		.thumb_func
+ 1163              		.fpu fpv4-sp-d16
+ 1165              	prvTimerTask:
+ 1166              	.LFB137:
  539:../Middlewares/FreeRTOS//Source/timers.c **** TickType_t xNextExpireTime;
- 1211              		.loc 1 539 0
- 1212              		.cfi_startproc
- 1213              		@ args = 0, pretend = 0, frame = 8
- 1214              		@ frame_needed = 0, uses_anonymous_args = 0
- 1215              	.LVL114:
- 1216 0000 00B5     		push	{lr}
- 1217              		.save {lr}
- 1218              	.LCFI28:
- 1219              		.cfi_def_cfa_offset 4
- 1220              		.cfi_offset 14, -4
- 1221              		.pad #12
- 1222 0002 83B0     		sub	sp, sp, #12
- 1223              	.LCFI29:
- 1224              		.cfi_def_cfa_offset 16
- 1225              	.LVL115:
- 1226              	.L102:
+ 1167              		.loc 1 539 0
+ 1168              		.cfi_startproc
+ 1169              		@ args = 0, pretend = 0, frame = 8
+ 1170              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1171              	.LVL114:
+ 1172 0000 00B5     		push	{lr}
+ 1173              	.LCFI28:
+ 1174              		.cfi_def_cfa_offset 4
+ 1175              		.cfi_offset 14, -4
+ 1176 0002 83B0     		sub	sp, sp, #12
+ 1177              	.LCFI29:
+ 1178              		.cfi_def_cfa_offset 16
+ 1179              	.LVL115:
+ 1180              	.L104:
  562:../Middlewares/FreeRTOS//Source/timers.c **** 
- 1227              		.loc 1 562 0
- 1228 0004 01A8     		add	r0, sp, #4
- 1229 0006 FFF7FEFF 		bl	_ZL20prvGetNextExpireTimePl
- 1230              	.LVL116:
+ 1181              		.loc 1 562 0 discriminator 1
+ 1182 0004 01A8     		add	r0, sp, #4
+ 1183 0006 FFF7FEFF 		bl	prvGetNextExpireTime
+ 1184              	.LVL116:
  566:../Middlewares/FreeRTOS//Source/timers.c **** 
- 1231              		.loc 1 566 0
- 1232 000a 0199     		ldr	r1, [sp, #4]
- 1233 000c FFF7FEFF 		bl	_ZL26prvProcessTimerOrBlockTaskml
- 1234              	.LVL117:
+ 1185              		.loc 1 566 0 discriminator 1
+ 1186 000a 0199     		ldr	r1, [sp, #4]
+ 1187 000c FFF7FEFF 		bl	prvProcessTimerOrBlockTask
+ 1188              	.LVL117:
  569:../Middlewares/FreeRTOS//Source/timers.c **** 	}
- 1235              		.loc 1 569 0
- 1236 0010 FFF7FEFF 		bl	_ZL26prvProcessReceivedCommandsv
- 1237              	.LVL118:
- 1238 0014 F6E7     		b	.L102
- 1239              		.cfi_endproc
- 1240              	.LFE144:
- 1241              		.fnend
- 1243              		.section	.text.xTimerGetTimerDaemonTaskHandle,"ax",%progbits
+ 1189              		.loc 1 569 0 discriminator 1
+ 1190 0010 FFF7FEFF 		bl	prvProcessReceivedCommands
+ 1191              	.LVL118:
+ 1192 0014 F6E7     		b	.L104
+ 1193              		.cfi_endproc
+ 1194              	.LFE137:
+ 1196              		.section	.text.xTimerGetTimerDaemonTaskHandle,"ax",%progbits
+ 1197              		.align	1
+ 1198              		.global	xTimerGetTimerDaemonTaskHandle
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 45
+
+
+ 1199              		.syntax unified
+ 1200              		.thumb
+ 1201              		.thumb_func
+ 1202              		.fpu fpv4-sp-d16
+ 1204              	xTimerGetTimerDaemonTaskHandle:
+ 1205              	.LFB132:
+ 461:../Middlewares/FreeRTOS//Source/timers.c **** 	/* If xTimerGetTimerDaemonTaskHandle() is called before the scheduler has been
+ 1206              		.loc 1 461 0
+ 1207              		.cfi_startproc
+ 1208              		@ args = 0, pretend = 0, frame = 0
+ 1209              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1210              		@ link register save eliminated.
+ 464:../Middlewares/FreeRTOS//Source/timers.c **** 	return xTimerTaskHandle;
+ 1211              		.loc 1 464 0
+ 1212 0000 064B     		ldr	r3, .L110
+ 1213 0002 1868     		ldr	r0, [r3]
+ 1214 0004 00B1     		cbz	r0, .L109
+ 466:../Middlewares/FreeRTOS//Source/timers.c **** /*-----------------------------------------------------------*/
+ 1215              		.loc 1 466 0
+ 1216 0006 7047     		bx	lr
+ 1217              	.L109:
+ 1218              	.LBB44:
+ 1219              	.LBB45:
+ 1220              		.loc 2 237 0
+ 1221              		.syntax unified
+ 1222              	@ 237 "../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h" 1
+ 1223 0008 4FF01003 			mov r3, #16												
+ 1224 000c 83F31188 		msr basepri, r3											
+ 1225 0010 BFF36F8F 		isb														
+ 1226 0014 BFF34F8F 		dsb														
+ 1227              	
+ 1228              	@ 0 "" 2
+ 1229              	.LVL119:
+ 1230              		.thumb
+ 1231              		.syntax unified
+ 1232              	.L108:
+ 1233 0018 FEE7     		b	.L108
+ 1234              	.L111:
+ 1235 001a 00BF     		.align	2
+ 1236              	.L110:
+ 1237 001c 00000000 		.word	.LANCHOR5
+ 1238              	.LBE45:
+ 1239              	.LBE44:
+ 1240              		.cfi_endproc
+ 1241              	.LFE132:
+ 1243              		.section	.text.xTimerGetPeriod,"ax",%progbits
  1244              		.align	1
- 1245              		.global	xTimerGetTimerDaemonTaskHandle
+ 1245              		.global	xTimerGetPeriod
  1246              		.syntax unified
  1247              		.thumb
  1248              		.thumb_func
  1249              		.fpu fpv4-sp-d16
- 1251              	xTimerGetTimerDaemonTaskHandle:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 46
-
-
- 1252              		.fnstart
- 1253              	.LFB139:
- 461:../Middlewares/FreeRTOS//Source/timers.c **** 	/* If xTimerGetTimerDaemonTaskHandle() is called before the scheduler has been
- 1254              		.loc 1 461 0
- 1255              		.cfi_startproc
- 1256              		@ args = 0, pretend = 0, frame = 0
- 1257              		@ frame_needed = 0, uses_anonymous_args = 0
- 1258              		@ link register save eliminated.
- 464:../Middlewares/FreeRTOS//Source/timers.c **** 	return xTimerTaskHandle;
- 1259              		.loc 1 464 0
- 1260 0000 064B     		ldr	r3, .L108
- 1261 0002 1868     		ldr	r0, [r3]
- 1262 0004 00B1     		cbz	r0, .L107
- 466:../Middlewares/FreeRTOS//Source/timers.c **** /*-----------------------------------------------------------*/
- 1263              		.loc 1 466 0
- 1264 0006 7047     		bx	lr
- 1265              	.L107:
- 1266              	.LBB44:
- 1267              	.LBB45:
- 1268              		.loc 2 244 0
- 1269              		.syntax unified
- 1270              	@ 244 "../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h" 1
- 1271 0008 4FF01003 			mov r3, #16												
- 1272 000c 83F31188 		msr basepri, r3											
- 1273 0010 BFF36F8F 		isb														
- 1274 0014 BFF34F8F 		dsb														
- 1275              	
- 1276              	@ 0 "" 2
- 1277              	.LVL119:
- 1278              		.thumb
- 1279              		.syntax unified
- 1280              	.L106:
- 1281 0018 FEE7     		b	.L106
- 1282              	.L109:
- 1283 001a 00BF     		.align	2
- 1284              	.L108:
- 1285 001c 00000000 		.word	.LANCHOR5
- 1286              	.LBE45:
- 1287              	.LBE44:
- 1288              		.cfi_endproc
- 1289              	.LFE139:
- 1290              		.cantunwind
- 1291              		.fnend
- 1293              		.section	.text.xTimerGetPeriod,"ax",%progbits
- 1294              		.align	1
- 1295              		.global	xTimerGetPeriod
- 1296              		.syntax unified
- 1297              		.thumb
- 1298              		.thumb_func
- 1299              		.fpu fpv4-sp-d16
- 1301              	xTimerGetPeriod:
- 1302              		.fnstart
- 1303              	.LFB140:
+ 1251              	xTimerGetPeriod:
+ 1252              	.LFB133:
  470:../Middlewares/FreeRTOS//Source/timers.c **** Timer_t *pxTimer = ( Timer_t * ) xTimer;
- 1304              		.loc 1 470 0
- 1305              		.cfi_startproc
- 1306              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 47
+ 1253              		.loc 1 470 0
+ 1254              		.cfi_startproc
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 46
 
 
- 1307              		@ frame_needed = 0, uses_anonymous_args = 0
- 1308              		@ link register save eliminated.
- 1309              	.LVL120:
+ 1255              		@ args = 0, pretend = 0, frame = 0
+ 1256              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1257              		@ link register save eliminated.
+ 1258              	.LVL120:
  473:../Middlewares/FreeRTOS//Source/timers.c **** 	return pxTimer->xTimerPeriodInTicks;
- 1310              		.loc 1 473 0
- 1311 0000 08B1     		cbz	r0, .L113
+ 1259              		.loc 1 473 0
+ 1260 0000 08B1     		cbz	r0, .L115
  475:../Middlewares/FreeRTOS//Source/timers.c **** /*-----------------------------------------------------------*/
- 1312              		.loc 1 475 0
- 1313 0002 8069     		ldr	r0, [r0, #24]
- 1314              	.LVL121:
- 1315 0004 7047     		bx	lr
- 1316              	.LVL122:
- 1317              	.L113:
- 1318              	.LBB46:
- 1319              	.LBB47:
- 1320              		.loc 2 244 0
- 1321              		.syntax unified
- 1322              	@ 244 "../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h" 1
- 1323 0006 4FF01003 			mov r3, #16												
- 1324 000a 83F31188 		msr basepri, r3											
- 1325 000e BFF36F8F 		isb														
- 1326 0012 BFF34F8F 		dsb														
- 1327              	
- 1328              	@ 0 "" 2
- 1329              	.LVL123:
- 1330              		.thumb
- 1331              		.syntax unified
- 1332              	.L112:
- 1333 0016 FEE7     		b	.L112
- 1334              	.LBE47:
- 1335              	.LBE46:
- 1336              		.cfi_endproc
- 1337              	.LFE140:
- 1338              		.cantunwind
- 1339              		.fnend
- 1341              		.section	.text.xTimerGetExpiryTime,"ax",%progbits
- 1342              		.align	1
- 1343              		.global	xTimerGetExpiryTime
- 1344              		.syntax unified
- 1345              		.thumb
- 1346              		.thumb_func
- 1347              		.fpu fpv4-sp-d16
- 1349              	xTimerGetExpiryTime:
- 1350              		.fnstart
- 1351              	.LFB141:
+ 1261              		.loc 1 475 0
+ 1262 0002 8069     		ldr	r0, [r0, #24]
+ 1263              	.LVL121:
+ 1264 0004 7047     		bx	lr
+ 1265              	.LVL122:
+ 1266              	.L115:
+ 1267              	.LBB46:
+ 1268              	.LBB47:
+ 1269              		.loc 2 237 0
+ 1270              		.syntax unified
+ 1271              	@ 237 "../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h" 1
+ 1272 0006 4FF01003 			mov r3, #16												
+ 1273 000a 83F31188 		msr basepri, r3											
+ 1274 000e BFF36F8F 		isb														
+ 1275 0012 BFF34F8F 		dsb														
+ 1276              	
+ 1277              	@ 0 "" 2
+ 1278              	.LVL123:
+ 1279              		.thumb
+ 1280              		.syntax unified
+ 1281              	.L114:
+ 1282 0016 FEE7     		b	.L114
+ 1283              	.LBE47:
+ 1284              	.LBE46:
+ 1285              		.cfi_endproc
+ 1286              	.LFE133:
+ 1288              		.section	.text.xTimerGetExpiryTime,"ax",%progbits
+ 1289              		.align	1
+ 1290              		.global	xTimerGetExpiryTime
+ 1291              		.syntax unified
+ 1292              		.thumb
+ 1293              		.thumb_func
+ 1294              		.fpu fpv4-sp-d16
+ 1296              	xTimerGetExpiryTime:
+ 1297              	.LFB134:
  479:../Middlewares/FreeRTOS//Source/timers.c **** Timer_t * pxTimer = ( Timer_t * ) xTimer;
- 1352              		.loc 1 479 0
- 1353              		.cfi_startproc
- 1354              		@ args = 0, pretend = 0, frame = 0
- 1355              		@ frame_needed = 0, uses_anonymous_args = 0
- 1356              		@ link register save eliminated.
- 1357              	.LVL124:
+ 1298              		.loc 1 479 0
+ 1299              		.cfi_startproc
+ 1300              		@ args = 0, pretend = 0, frame = 0
+ 1301              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1302              		@ link register save eliminated.
+ 1303              	.LVL124:
  483:../Middlewares/FreeRTOS//Source/timers.c **** 	xReturn = listGET_LIST_ITEM_VALUE( &( pxTimer->xTimerListItem ) );
- 1358              		.loc 1 483 0
- 1359 0000 08B1     		cbz	r0, .L117
- 1360              	.LVL125:
+ 1304              		.loc 1 483 0
+ 1305 0000 08B1     		cbz	r0, .L119
+ 1306              	.LVL125:
  486:../Middlewares/FreeRTOS//Source/timers.c **** /*-----------------------------------------------------------*/
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 48
+ 1307              		.loc 1 486 0
+ 1308 0002 4068     		ldr	r0, [r0, #4]
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 47
 
 
- 1361              		.loc 1 486 0
- 1362 0002 4068     		ldr	r0, [r0, #4]
- 1363              	.LVL126:
- 1364 0004 7047     		bx	lr
- 1365              	.LVL127:
- 1366              	.L117:
- 1367              	.LBB48:
- 1368              	.LBB49:
- 1369              		.loc 2 244 0
- 1370              		.syntax unified
- 1371              	@ 244 "../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h" 1
- 1372 0006 4FF01003 			mov r3, #16												
- 1373 000a 83F31188 		msr basepri, r3											
- 1374 000e BFF36F8F 		isb														
- 1375 0012 BFF34F8F 		dsb														
- 1376              	
- 1377              	@ 0 "" 2
- 1378              	.LVL128:
- 1379              		.thumb
- 1380              		.syntax unified
- 1381              	.L116:
- 1382 0016 FEE7     		b	.L116
- 1383              	.LBE49:
- 1384              	.LBE48:
- 1385              		.cfi_endproc
- 1386              	.LFE141:
- 1387              		.cantunwind
- 1388              		.fnend
- 1390              		.section	.text.pcTimerGetName,"ax",%progbits
- 1391              		.align	1
- 1392              		.global	pcTimerGetName
- 1393              		.syntax unified
- 1394              		.thumb
- 1395              		.thumb_func
- 1396              		.fpu fpv4-sp-d16
- 1398              	pcTimerGetName:
- 1399              		.fnstart
- 1400              	.LFB142:
+ 1309              	.LVL126:
+ 1310 0004 7047     		bx	lr
+ 1311              	.LVL127:
+ 1312              	.L119:
+ 1313              	.LBB48:
+ 1314              	.LBB49:
+ 1315              		.loc 2 237 0
+ 1316              		.syntax unified
+ 1317              	@ 237 "../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h" 1
+ 1318 0006 4FF01003 			mov r3, #16												
+ 1319 000a 83F31188 		msr basepri, r3											
+ 1320 000e BFF36F8F 		isb														
+ 1321 0012 BFF34F8F 		dsb														
+ 1322              	
+ 1323              	@ 0 "" 2
+ 1324              	.LVL128:
+ 1325              		.thumb
+ 1326              		.syntax unified
+ 1327              	.L118:
+ 1328 0016 FEE7     		b	.L118
+ 1329              	.LBE49:
+ 1330              	.LBE48:
+ 1331              		.cfi_endproc
+ 1332              	.LFE134:
+ 1334              		.section	.text.pcTimerGetName,"ax",%progbits
+ 1335              		.align	1
+ 1336              		.global	pcTimerGetName
+ 1337              		.syntax unified
+ 1338              		.thumb
+ 1339              		.thumb_func
+ 1340              		.fpu fpv4-sp-d16
+ 1342              	pcTimerGetName:
+ 1343              	.LFB135:
  490:../Middlewares/FreeRTOS//Source/timers.c **** Timer_t *pxTimer = ( Timer_t * ) xTimer;
- 1401              		.loc 1 490 0
- 1402              		.cfi_startproc
- 1403              		@ args = 0, pretend = 0, frame = 0
- 1404              		@ frame_needed = 0, uses_anonymous_args = 0
- 1405              		@ link register save eliminated.
- 1406              	.LVL129:
+ 1344              		.loc 1 490 0
+ 1345              		.cfi_startproc
+ 1346              		@ args = 0, pretend = 0, frame = 0
+ 1347              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1348              		@ link register save eliminated.
+ 1349              	.LVL129:
  493:../Middlewares/FreeRTOS//Source/timers.c **** 	return pxTimer->pcTimerName;
- 1407              		.loc 1 493 0
- 1408 0000 08B1     		cbz	r0, .L121
+ 1350              		.loc 1 493 0
+ 1351 0000 08B1     		cbz	r0, .L123
  495:../Middlewares/FreeRTOS//Source/timers.c **** /*-----------------------------------------------------------*/
- 1409              		.loc 1 495 0
- 1410 0002 0068     		ldr	r0, [r0]
- 1411              	.LVL130:
- 1412 0004 7047     		bx	lr
- 1413              	.LVL131:
- 1414              	.L121:
- 1415              	.LBB50:
- 1416              	.LBB51:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 49
+ 1352              		.loc 1 495 0
+ 1353 0002 0068     		ldr	r0, [r0]
+ 1354              	.LVL130:
+ 1355 0004 7047     		bx	lr
+ 1356              	.LVL131:
+ 1357              	.L123:
+ 1358              	.LBB50:
+ 1359              	.LBB51:
+ 1360              		.loc 2 237 0
+ 1361              		.syntax unified
+ 1362              	@ 237 "../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h" 1
+ 1363 0006 4FF01003 			mov r3, #16												
+ 1364 000a 83F31188 		msr basepri, r3											
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 48
 
 
- 1417              		.loc 2 244 0
- 1418              		.syntax unified
- 1419              	@ 244 "../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h" 1
- 1420 0006 4FF01003 			mov r3, #16												
- 1421 000a 83F31188 		msr basepri, r3											
- 1422 000e BFF36F8F 		isb														
- 1423 0012 BFF34F8F 		dsb														
- 1424              	
- 1425              	@ 0 "" 2
- 1426              	.LVL132:
- 1427              		.thumb
- 1428              		.syntax unified
- 1429              	.L120:
- 1430 0016 FEE7     		b	.L120
- 1431              	.LBE51:
- 1432              	.LBE50:
- 1433              		.cfi_endproc
- 1434              	.LFE142:
- 1435              		.cantunwind
- 1436              		.fnend
- 1438              		.section	.text.xTimerIsTimerActive,"ax",%progbits
- 1439              		.align	1
- 1440              		.global	xTimerIsTimerActive
- 1441              		.syntax unified
- 1442              		.thumb
- 1443              		.thumb_func
- 1444              		.fpu fpv4-sp-d16
- 1446              	xTimerIsTimerActive:
- 1447              		.fnstart
- 1448              	.LFB152:
+ 1365 000e BFF36F8F 		isb														
+ 1366 0012 BFF34F8F 		dsb														
+ 1367              	
+ 1368              	@ 0 "" 2
+ 1369              	.LVL132:
+ 1370              		.thumb
+ 1371              		.syntax unified
+ 1372              	.L122:
+ 1373 0016 FEE7     		b	.L122
+ 1374              	.LBE51:
+ 1375              	.LBE50:
+ 1376              		.cfi_endproc
+ 1377              	.LFE135:
+ 1379              		.section	.text.xTimerIsTimerActive,"ax",%progbits
+ 1380              		.align	1
+ 1381              		.global	xTimerIsTimerActive
+ 1382              		.syntax unified
+ 1383              		.thumb
+ 1384              		.thumb_func
+ 1385              		.fpu fpv4-sp-d16
+ 1387              	xTimerIsTimerActive:
+ 1388              	.LFB145:
  979:../Middlewares/FreeRTOS//Source/timers.c **** /*-----------------------------------------------------------*/
  980:../Middlewares/FreeRTOS//Source/timers.c **** 
  981:../Middlewares/FreeRTOS//Source/timers.c **** BaseType_t xTimerIsTimerActive( TimerHandle_t xTimer )
  982:../Middlewares/FreeRTOS//Source/timers.c **** {
- 1449              		.loc 1 982 0
- 1450              		.cfi_startproc
- 1451              		@ args = 0, pretend = 0, frame = 0
- 1452              		@ frame_needed = 0, uses_anonymous_args = 0
- 1453              	.LVL133:
+ 1389              		.loc 1 982 0
+ 1390              		.cfi_startproc
+ 1391              		@ args = 0, pretend = 0, frame = 0
+ 1392              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1393              	.LVL133:
  983:../Middlewares/FreeRTOS//Source/timers.c **** BaseType_t xTimerIsInActiveList;
  984:../Middlewares/FreeRTOS//Source/timers.c **** Timer_t *pxTimer = ( Timer_t * ) xTimer;
  985:../Middlewares/FreeRTOS//Source/timers.c **** 
  986:../Middlewares/FreeRTOS//Source/timers.c **** 	configASSERT( xTimer );
- 1454              		.loc 1 986 0
- 1455 0000 40B9     		cbnz	r0, .L123
- 1456              	.LBB52:
- 1457              	.LBB53:
- 1458              		.loc 2 244 0
- 1459              		.syntax unified
- 1460              	@ 244 "../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h" 1
- 1461 0002 4FF01003 			mov r3, #16												
- 1462 0006 83F31188 		msr basepri, r3											
- 1463 000a BFF36F8F 		isb														
- 1464 000e BFF34F8F 		dsb														
- 1465              	
- 1466              	@ 0 "" 2
- 1467              	.LVL134:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 50
-
-
- 1468              		.thumb
- 1469              		.syntax unified
- 1470              	.L124:
- 1471 0012 FEE7     		b	.L124
- 1472              	.L123:
- 1473              	.LBE53:
- 1474              	.LBE52:
+ 1394              		.loc 1 986 0
+ 1395 0000 40B9     		cbnz	r0, .L125
+ 1396              	.LBB52:
+ 1397              	.LBB53:
+ 1398              		.loc 2 237 0
+ 1399              		.syntax unified
+ 1400              	@ 237 "../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h" 1
+ 1401 0002 4FF01003 			mov r3, #16												
+ 1402 0006 83F31188 		msr basepri, r3											
+ 1403 000a BFF36F8F 		isb														
+ 1404 000e BFF34F8F 		dsb														
+ 1405              	
+ 1406              	@ 0 "" 2
+ 1407              	.LVL134:
+ 1408              		.thumb
+ 1409              		.syntax unified
+ 1410              	.L126:
+ 1411 0012 FEE7     		b	.L126
+ 1412              	.L125:
+ 1413              	.LBE53:
+ 1414              	.LBE52:
  982:../Middlewares/FreeRTOS//Source/timers.c **** BaseType_t xTimerIsInActiveList;
- 1475              		.loc 1 982 0
- 1476 0014 10B5     		push	{r4, lr}
- 1477              		.save {r4, lr}
- 1478              	.LCFI30:
- 1479              		.cfi_def_cfa_offset 8
- 1480              		.cfi_offset 4, -8
- 1481              		.cfi_offset 14, -4
- 1482 0016 0446     		mov	r4, r0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 49
+
+
+ 1415              		.loc 1 982 0
+ 1416 0014 10B5     		push	{r4, lr}
+ 1417              	.LCFI30:
+ 1418              		.cfi_def_cfa_offset 8
+ 1419              		.cfi_offset 4, -8
+ 1420              		.cfi_offset 14, -4
+ 1421 0016 0446     		mov	r4, r0
  987:../Middlewares/FreeRTOS//Source/timers.c **** 
  988:../Middlewares/FreeRTOS//Source/timers.c **** 	/* Is the timer in the list of active timers? */
  989:../Middlewares/FreeRTOS//Source/timers.c **** 	taskENTER_CRITICAL();
- 1483              		.loc 1 989 0
- 1484 0018 FFF7FEFF 		bl	vPortEnterCritical
- 1485              	.LVL135:
+ 1422              		.loc 1 989 0
+ 1423 0018 FFF7FEFF 		bl	vPortEnterCritical
+ 1424              	.LVL135:
  990:../Middlewares/FreeRTOS//Source/timers.c **** 	{
  991:../Middlewares/FreeRTOS//Source/timers.c **** 		/* Checking to see if it is in the NULL list in effect checks to see if
  992:../Middlewares/FreeRTOS//Source/timers.c **** 		it is referenced from either the current or the overflow timer lists in
  993:../Middlewares/FreeRTOS//Source/timers.c **** 		one go, but the logic has to be reversed, hence the '!'. */
  994:../Middlewares/FreeRTOS//Source/timers.c **** 		xTimerIsInActiveList = ( BaseType_t ) !( listIS_CONTAINED_WITHIN( NULL, &( pxTimer->xTimerListIte
- 1486              		.loc 1 994 0
- 1487 001c 6469     		ldr	r4, [r4, #20]
- 1488              	.LVL136:
- 1489 001e 0034     		adds	r4, r4, #0
- 1490 0020 18BF     		it	ne
- 1491 0022 0124     		movne	r4, #1
- 1492              	.LVL137:
+ 1425              		.loc 1 994 0
+ 1426 001c 6469     		ldr	r4, [r4, #20]
+ 1427              	.LVL136:
+ 1428 001e 0034     		adds	r4, r4, #0
+ 1429 0020 18BF     		it	ne
+ 1430 0022 0124     		movne	r4, #1
+ 1431              	.LVL137:
  995:../Middlewares/FreeRTOS//Source/timers.c **** 	}
  996:../Middlewares/FreeRTOS//Source/timers.c **** 	taskEXIT_CRITICAL();
- 1493              		.loc 1 996 0
- 1494 0024 FFF7FEFF 		bl	vPortExitCritical
- 1495              	.LVL138:
+ 1432              		.loc 1 996 0
+ 1433 0024 FFF7FEFF 		bl	vPortExitCritical
+ 1434              	.LVL138:
  997:../Middlewares/FreeRTOS//Source/timers.c **** 
  998:../Middlewares/FreeRTOS//Source/timers.c **** 	return xTimerIsInActiveList;
  999:../Middlewares/FreeRTOS//Source/timers.c **** } /*lint !e818 Can't be pointer to const due to the typedef. */
- 1496              		.loc 1 999 0
- 1497 0028 2046     		mov	r0, r4
- 1498 002a 10BD     		pop	{r4, pc}
- 1499              		.cfi_endproc
- 1500              	.LFE152:
- 1501              		.fnend
- 1503              		.section	.text.pvTimerGetTimerID,"ax",%progbits
- 1504              		.align	1
- 1505              		.global	pvTimerGetTimerID
- 1506              		.syntax unified
- 1507              		.thumb
- 1508              		.thumb_func
- 1509              		.fpu fpv4-sp-d16
- 1511              	pvTimerGetTimerID:
- 1512              		.fnstart
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 51
-
-
- 1513              	.LFB153:
+ 1435              		.loc 1 999 0
+ 1436 0028 2046     		mov	r0, r4
+ 1437 002a 10BD     		pop	{r4, pc}
+ 1438              		.cfi_endproc
+ 1439              	.LFE145:
+ 1441              		.section	.text.pvTimerGetTimerID,"ax",%progbits
+ 1442              		.align	1
+ 1443              		.global	pvTimerGetTimerID
+ 1444              		.syntax unified
+ 1445              		.thumb
+ 1446              		.thumb_func
+ 1447              		.fpu fpv4-sp-d16
+ 1449              	pvTimerGetTimerID:
+ 1450              	.LFB146:
 1000:../Middlewares/FreeRTOS//Source/timers.c **** /*-----------------------------------------------------------*/
 1001:../Middlewares/FreeRTOS//Source/timers.c **** 
 1002:../Middlewares/FreeRTOS//Source/timers.c **** void *pvTimerGetTimerID( const TimerHandle_t xTimer )
 1003:../Middlewares/FreeRTOS//Source/timers.c **** {
- 1514              		.loc 1 1003 0
- 1515              		.cfi_startproc
- 1516              		@ args = 0, pretend = 0, frame = 0
- 1517              		@ frame_needed = 0, uses_anonymous_args = 0
- 1518              	.LVL139:
+ 1451              		.loc 1 1003 0
+ 1452              		.cfi_startproc
+ 1453              		@ args = 0, pretend = 0, frame = 0
+ 1454              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1455              	.LVL139:
 1004:../Middlewares/FreeRTOS//Source/timers.c **** Timer_t * const pxTimer = ( Timer_t * ) xTimer;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 50
+
+
 1005:../Middlewares/FreeRTOS//Source/timers.c **** void *pvReturn;
 1006:../Middlewares/FreeRTOS//Source/timers.c **** 
 1007:../Middlewares/FreeRTOS//Source/timers.c **** 	configASSERT( xTimer );
- 1519              		.loc 1 1007 0
- 1520 0000 40B9     		cbnz	r0, .L128
- 1521              	.LBB54:
- 1522              	.LBB55:
- 1523              		.loc 2 244 0
- 1524              		.syntax unified
- 1525              	@ 244 "../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h" 1
- 1526 0002 4FF01003 			mov r3, #16												
- 1527 0006 83F31188 		msr basepri, r3											
- 1528 000a BFF36F8F 		isb														
- 1529 000e BFF34F8F 		dsb														
- 1530              	
- 1531              	@ 0 "" 2
- 1532              	.LVL140:
- 1533              		.thumb
- 1534              		.syntax unified
- 1535              	.L129:
- 1536 0012 FEE7     		b	.L129
- 1537              	.L128:
- 1538              	.LBE55:
- 1539              	.LBE54:
+ 1456              		.loc 1 1007 0
+ 1457 0000 40B9     		cbnz	r0, .L130
+ 1458              	.LBB54:
+ 1459              	.LBB55:
+ 1460              		.loc 2 237 0
+ 1461              		.syntax unified
+ 1462              	@ 237 "../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h" 1
+ 1463 0002 4FF01003 			mov r3, #16												
+ 1464 0006 83F31188 		msr basepri, r3											
+ 1465 000a BFF36F8F 		isb														
+ 1466 000e BFF34F8F 		dsb														
+ 1467              	
+ 1468              	@ 0 "" 2
+ 1469              	.LVL140:
+ 1470              		.thumb
+ 1471              		.syntax unified
+ 1472              	.L131:
+ 1473 0012 FEE7     		b	.L131
+ 1474              	.L130:
+ 1475              	.LBE55:
+ 1476              	.LBE54:
 1003:../Middlewares/FreeRTOS//Source/timers.c **** Timer_t * const pxTimer = ( Timer_t * ) xTimer;
- 1540              		.loc 1 1003 0
- 1541 0014 10B5     		push	{r4, lr}
- 1542              		.save {r4, lr}
- 1543              	.LCFI31:
- 1544              		.cfi_def_cfa_offset 8
- 1545              		.cfi_offset 4, -8
- 1546              		.cfi_offset 14, -4
- 1547 0016 0446     		mov	r4, r0
+ 1477              		.loc 1 1003 0
+ 1478 0014 10B5     		push	{r4, lr}
+ 1479              	.LCFI31:
+ 1480              		.cfi_def_cfa_offset 8
+ 1481              		.cfi_offset 4, -8
+ 1482              		.cfi_offset 14, -4
+ 1483 0016 0446     		mov	r4, r0
 1008:../Middlewares/FreeRTOS//Source/timers.c **** 
 1009:../Middlewares/FreeRTOS//Source/timers.c **** 	taskENTER_CRITICAL();
- 1548              		.loc 1 1009 0
- 1549 0018 FFF7FEFF 		bl	vPortEnterCritical
- 1550              	.LVL141:
+ 1484              		.loc 1 1009 0
+ 1485 0018 FFF7FEFF 		bl	vPortEnterCritical
+ 1486              	.LVL141:
 1010:../Middlewares/FreeRTOS//Source/timers.c **** 	{
 1011:../Middlewares/FreeRTOS//Source/timers.c **** 		pvReturn = pxTimer->pvTimerID;
- 1551              		.loc 1 1011 0
- 1552 001c 246A     		ldr	r4, [r4, #32]
- 1553              	.LVL142:
+ 1487              		.loc 1 1011 0
+ 1488 001c 246A     		ldr	r4, [r4, #32]
+ 1489              	.LVL142:
 1012:../Middlewares/FreeRTOS//Source/timers.c **** 	}
 1013:../Middlewares/FreeRTOS//Source/timers.c **** 	taskEXIT_CRITICAL();
- 1554              		.loc 1 1013 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 52
-
-
- 1555 001e FFF7FEFF 		bl	vPortExitCritical
- 1556              	.LVL143:
+ 1490              		.loc 1 1013 0
+ 1491 001e FFF7FEFF 		bl	vPortExitCritical
+ 1492              	.LVL143:
 1014:../Middlewares/FreeRTOS//Source/timers.c **** 
 1015:../Middlewares/FreeRTOS//Source/timers.c **** 	return pvReturn;
 1016:../Middlewares/FreeRTOS//Source/timers.c **** }
- 1557              		.loc 1 1016 0
- 1558 0022 2046     		mov	r0, r4
- 1559 0024 10BD     		pop	{r4, pc}
- 1560              		.cfi_endproc
- 1561              	.LFE153:
- 1562              		.fnend
- 1564              		.section	.text.vTimerSetTimerID,"ax",%progbits
- 1565              		.align	1
- 1566              		.global	vTimerSetTimerID
- 1567              		.syntax unified
- 1568              		.thumb
- 1569              		.thumb_func
- 1570              		.fpu fpv4-sp-d16
- 1572              	vTimerSetTimerID:
- 1573              		.fnstart
- 1574              	.LFB154:
+ 1493              		.loc 1 1016 0
+ 1494 0022 2046     		mov	r0, r4
+ 1495 0024 10BD     		pop	{r4, pc}
+ 1496              		.cfi_endproc
+ 1497              	.LFE146:
+ 1499              		.section	.text.vTimerSetTimerID,"ax",%progbits
+ 1500              		.align	1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 51
+
+
+ 1501              		.global	vTimerSetTimerID
+ 1502              		.syntax unified
+ 1503              		.thumb
+ 1504              		.thumb_func
+ 1505              		.fpu fpv4-sp-d16
+ 1507              	vTimerSetTimerID:
+ 1508              	.LFB147:
 1017:../Middlewares/FreeRTOS//Source/timers.c **** /*-----------------------------------------------------------*/
 1018:../Middlewares/FreeRTOS//Source/timers.c **** 
 1019:../Middlewares/FreeRTOS//Source/timers.c **** void vTimerSetTimerID( TimerHandle_t xTimer, void *pvNewID )
 1020:../Middlewares/FreeRTOS//Source/timers.c **** {
- 1575              		.loc 1 1020 0
- 1576              		.cfi_startproc
- 1577              		@ args = 0, pretend = 0, frame = 0
- 1578              		@ frame_needed = 0, uses_anonymous_args = 0
- 1579              	.LVL144:
- 1580 0000 38B5     		push	{r3, r4, r5, lr}
- 1581              		.save {r3, r4, r5, lr}
- 1582              	.LCFI32:
- 1583              		.cfi_def_cfa_offset 16
- 1584              		.cfi_offset 3, -16
- 1585              		.cfi_offset 4, -12
- 1586              		.cfi_offset 5, -8
- 1587              		.cfi_offset 14, -4
- 1588              	.LVL145:
+ 1509              		.loc 1 1020 0
+ 1510              		.cfi_startproc
+ 1511              		@ args = 0, pretend = 0, frame = 0
+ 1512              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1513              	.LVL144:
+ 1514 0000 38B5     		push	{r3, r4, r5, lr}
+ 1515              	.LCFI32:
+ 1516              		.cfi_def_cfa_offset 16
+ 1517              		.cfi_offset 3, -16
+ 1518              		.cfi_offset 4, -12
+ 1519              		.cfi_offset 5, -8
+ 1520              		.cfi_offset 14, -4
+ 1521              	.LVL145:
 1021:../Middlewares/FreeRTOS//Source/timers.c **** Timer_t * const pxTimer = ( Timer_t * ) xTimer;
 1022:../Middlewares/FreeRTOS//Source/timers.c **** 
 1023:../Middlewares/FreeRTOS//Source/timers.c **** 	configASSERT( xTimer );
- 1589              		.loc 1 1023 0
- 1590 0002 40B9     		cbnz	r0, .L133
- 1591              	.LBB56:
- 1592              	.LBB57:
- 1593              		.loc 2 244 0
- 1594              		.syntax unified
- 1595              	@ 244 "../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h" 1
- 1596 0004 4FF01003 			mov r3, #16												
- 1597 0008 83F31188 		msr basepri, r3											
- 1598 000c BFF36F8F 		isb														
- 1599 0010 BFF34F8F 		dsb														
- 1600              	
- 1601              	@ 0 "" 2
- 1602              	.LVL146:
- 1603              		.thumb
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 53
-
-
- 1604              		.syntax unified
- 1605              	.L134:
- 1606 0014 FEE7     		b	.L134
- 1607              	.L133:
- 1608 0016 0446     		mov	r4, r0
- 1609 0018 0D46     		mov	r5, r1
- 1610              	.LBE57:
- 1611              	.LBE56:
+ 1522              		.loc 1 1023 0
+ 1523 0002 40B9     		cbnz	r0, .L135
+ 1524              	.LBB56:
+ 1525              	.LBB57:
+ 1526              		.loc 2 237 0
+ 1527              		.syntax unified
+ 1528              	@ 237 "../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h" 1
+ 1529 0004 4FF01003 			mov r3, #16												
+ 1530 0008 83F31188 		msr basepri, r3											
+ 1531 000c BFF36F8F 		isb														
+ 1532 0010 BFF34F8F 		dsb														
+ 1533              	
+ 1534              	@ 0 "" 2
+ 1535              	.LVL146:
+ 1536              		.thumb
+ 1537              		.syntax unified
+ 1538              	.L136:
+ 1539 0014 FEE7     		b	.L136
+ 1540              	.L135:
+ 1541 0016 0446     		mov	r4, r0
+ 1542 0018 0D46     		mov	r5, r1
+ 1543              	.LBE57:
+ 1544              	.LBE56:
 1024:../Middlewares/FreeRTOS//Source/timers.c **** 
 1025:../Middlewares/FreeRTOS//Source/timers.c **** 	taskENTER_CRITICAL();
- 1612              		.loc 1 1025 0
- 1613 001a FFF7FEFF 		bl	vPortEnterCritical
- 1614              	.LVL147:
+ 1545              		.loc 1 1025 0
+ 1546 001a FFF7FEFF 		bl	vPortEnterCritical
+ 1547              	.LVL147:
 1026:../Middlewares/FreeRTOS//Source/timers.c **** 	{
 1027:../Middlewares/FreeRTOS//Source/timers.c **** 		pxTimer->pvTimerID = pvNewID;
- 1615              		.loc 1 1027 0
- 1616 001e 2562     		str	r5, [r4, #32]
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 52
+
+
+ 1548              		.loc 1 1027 0
+ 1549 001e 2562     		str	r5, [r4, #32]
 1028:../Middlewares/FreeRTOS//Source/timers.c **** 	}
 1029:../Middlewares/FreeRTOS//Source/timers.c **** 	taskEXIT_CRITICAL();
- 1617              		.loc 1 1029 0
- 1618 0020 FFF7FEFF 		bl	vPortExitCritical
- 1619              	.LVL148:
+ 1550              		.loc 1 1029 0
+ 1551 0020 FFF7FEFF 		bl	vPortExitCritical
+ 1552              	.LVL148:
 1030:../Middlewares/FreeRTOS//Source/timers.c **** }
- 1620              		.loc 1 1030 0
- 1621 0024 38BD     		pop	{r3, r4, r5, pc}
- 1622              		.cfi_endproc
- 1623              	.LFE154:
- 1624              		.fnend
- 1626              		.section	.bss._ZL11xTimerQueue,"aw",%nobits
- 1627              		.align	2
- 1628              		.set	.LANCHOR2,. + 0
- 1631              	_ZL11xTimerQueue:
- 1632 0000 00000000 		.space	4
- 1633              		.section	.bss._ZL16xTimerTaskHandle,"aw",%nobits
- 1634              		.align	2
- 1635              		.set	.LANCHOR5,. + 0
- 1638              	_ZL16xTimerTaskHandle:
- 1639 0000 00000000 		.space	4
- 1640              		.section	.bss._ZL17xActiveTimerList1,"aw",%nobits
- 1641              		.align	2
- 1642              		.set	.LANCHOR3,. + 0
- 1645              	_ZL17xActiveTimerList1:
- 1646 0000 00000000 		.space	20
- 1646      00000000 
- 1646      00000000 
- 1646      00000000 
- 1646      00000000 
- 1647              		.section	.bss._ZL17xActiveTimerList2,"aw",%nobits
- 1648              		.align	2
- 1649              		.set	.LANCHOR4,. + 0
- 1652              	_ZL17xActiveTimerList2:
- 1653 0000 00000000 		.space	20
- 1653      00000000 
- 1653      00000000 
- 1653      00000000 
- 1653      00000000 
- 1654              		.section	.bss._ZL18pxCurrentTimerList,"aw",%nobits
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 54
+ 1553              		.loc 1 1030 0
+ 1554 0024 38BD     		pop	{r3, r4, r5, pc}
+ 1555              		.cfi_endproc
+ 1556              	.LFE147:
+ 1558              		.section	.bss.pxCurrentTimerList,"aw",%nobits
+ 1559              		.align	2
+ 1560              		.set	.LANCHOR0,. + 0
+ 1563              	pxCurrentTimerList:
+ 1564 0000 00000000 		.space	4
+ 1565              		.section	.bss.pxOverflowTimerList,"aw",%nobits
+ 1566              		.align	2
+ 1567              		.set	.LANCHOR1,. + 0
+ 1570              	pxOverflowTimerList:
+ 1571 0000 00000000 		.space	4
+ 1572              		.section	.bss.xActiveTimerList1,"aw",%nobits
+ 1573              		.align	2
+ 1574              		.set	.LANCHOR3,. + 0
+ 1577              	xActiveTimerList1:
+ 1578 0000 00000000 		.space	20
+ 1578      00000000 
+ 1578      00000000 
+ 1578      00000000 
+ 1578      00000000 
+ 1579              		.section	.bss.xActiveTimerList2,"aw",%nobits
+ 1580              		.align	2
+ 1581              		.set	.LANCHOR4,. + 0
+ 1584              	xActiveTimerList2:
+ 1585 0000 00000000 		.space	20
+ 1585      00000000 
+ 1585      00000000 
+ 1585      00000000 
+ 1585      00000000 
+ 1586              		.section	.bss.xLastTime.9537,"aw",%nobits
+ 1587              		.align	2
+ 1588              		.set	.LANCHOR6,. + 0
+ 1591              	xLastTime.9537:
+ 1592 0000 00000000 		.space	4
+ 1593              		.section	.bss.xTimerQueue,"aw",%nobits
+ 1594              		.align	2
+ 1595              		.set	.LANCHOR2,. + 0
+ 1598              	xTimerQueue:
+ 1599 0000 00000000 		.space	4
+ 1600              		.section	.bss.xTimerTaskHandle,"aw",%nobits
+ 1601              		.align	2
+ 1602              		.set	.LANCHOR5,. + 0
+ 1605              	xTimerTaskHandle:
+ 1606 0000 00000000 		.space	4
+ 1607              		.section	.rodata.prvCheckForValidListAndQueue.str1.4,"aMS",%progbits,1
+ 1608              		.align	2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 53
 
 
- 1655              		.align	2
- 1656              		.set	.LANCHOR0,. + 0
- 1659              	_ZL18pxCurrentTimerList:
- 1660 0000 00000000 		.space	4
- 1661              		.section	.bss._ZL19pxOverflowTimerList,"aw",%nobits
- 1662              		.align	2
- 1663              		.set	.LANCHOR1,. + 0
- 1666              	_ZL19pxOverflowTimerList:
- 1667 0000 00000000 		.space	4
- 1668              		.section	.bss._ZZL16prvSampleTimeNowPlE9xLastTime,"aw",%nobits
- 1669              		.align	2
- 1670              		.set	.LANCHOR6,. + 0
- 1673              	_ZZL16prvSampleTimeNowPlE9xLastTime:
- 1674 0000 00000000 		.space	4
- 1675              		.section	.rodata._ZL28prvCheckForValidListAndQueuev.str1.4,"aMS",%progbits,1
- 1676              		.align	2
- 1677              	.LC0:
- 1678 0000 546D7251 		.ascii	"TmrQ\000"
- 1678      00
- 1679              		.section	.rodata.xTimerCreateTimerTask.str1.4,"aMS",%progbits,1
- 1680              		.align	2
- 1681              	.LC1:
- 1682 0000 546D7220 		.ascii	"Tmr Svc\000"
- 1682      53766300 
- 1683              		.text
- 1684              	.Letext0:
- 1685              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/cstdlib"
- 1686              		.file 4 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/arm-none-eab
- 1687              		.file 5 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h
- 1688              		.file 6 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
- 1689              		.file 7 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
- 1690              		.file 8 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
- 1691              		.file 9 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
- 1692              		.file 10 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdlib.h"
- 1693              		.file 11 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/stdlib.h"
- 1694              		.file 12 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
- 1695              		.file 13 "../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h"
- 1696              		.file 14 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
- 1697              		.file 15 "../Libraries/CMSIS/CM4/DeviceSupport/at32f4xx.h"
- 1698              		.file 16 "Inc/FreeRTOSConfig.h"
- 1699              		.file 17 "../Middlewares/FreeRTOS//Source/include/list.h"
- 1700              		.file 18 "../Middlewares/FreeRTOS//Source/include/task.h"
- 1701              		.file 19 "../Middlewares/FreeRTOS//Source/include/queue.h"
- 1702              		.file 20 "../Middlewares/FreeRTOS//Source/include/timers.h"
- 1703              		.file 21 "../Middlewares/FreeRTOS//Source/include/portable.h"
- 1704              		.file 22 "<built-in>"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 55
+ 1609              	.LC0:
+ 1610 0000 546D7251 		.ascii	"TmrQ\000"
+ 1610      00
+ 1611              		.section	.rodata.xTimerCreateTimerTask.str1.4,"aMS",%progbits,1
+ 1612              		.align	2
+ 1613              	.LC1:
+ 1614 0000 546D7220 		.ascii	"Tmr Svc\000"
+ 1614      53766300 
+ 1615              		.text
+ 1616              	.Letext0:
+ 1617              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
+ 1618              		.file 4 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
+ 1619              		.file 5 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
+ 1620              		.file 6 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h
+ 1621              		.file 7 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
+ 1622              		.file 8 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdlib.h"
+ 1623              		.file 9 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
+ 1624              		.file 10 "../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h"
+ 1625              		.file 11 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
+ 1626              		.file 12 "Inc/FreeRTOSConfig.h"
+ 1627              		.file 13 "../Middlewares/FreeRTOS//Source/include/list.h"
+ 1628              		.file 14 "../Middlewares/FreeRTOS//Source/include/task.h"
+ 1629              		.file 15 "../Middlewares/FreeRTOS//Source/include/queue.h"
+ 1630              		.file 16 "../Middlewares/FreeRTOS//Source/include/timers.h"
+ 1631              		.file 17 "../Middlewares/FreeRTOS//Source/include/portable.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 54
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 timers.c
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:17     .text._ZL20prvGetNextExpireTimePl:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:23     .text._ZL20prvGetNextExpireTimePl:0000000000000000 _ZL20prvGetNextExpireTimePl
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:59     .text._ZL20prvGetNextExpireTimePl:0000000000000020 $d
-.ARM.exidx.text._ZL20prvGetNextExpireTimePl:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:66     .text._ZL26prvInsertTimerInActiveListP15tmrTimerControlmmm:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:72     .text._ZL26prvInsertTimerInActiveListP15tmrTimerControlmmm:0000000000000000 _ZL26prvInsertTimerInActiveListP15tmrTimerControlmmm
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:152    .text._ZL26prvInsertTimerInActiveListP15tmrTimerControlmmm:0000000000000040 $d
-.ARM.extab.text._ZL26prvInsertTimerInActiveListP15tmrTimerControlmmm:0000000000000000 $d
-.ARM.exidx.text._ZL26prvInsertTimerInActiveListP15tmrTimerControlmmm:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:159    .text._ZL28prvCheckForValidListAndQueuev:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:165    .text._ZL28prvCheckForValidListAndQueuev:0000000000000000 _ZL28prvCheckForValidListAndQueuev
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:229    .text._ZL28prvCheckForValidListAndQueuev:0000000000000044 $d
-.ARM.exidx.text._ZL28prvCheckForValidListAndQueuev:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:240    .text._ZL21prvInitialiseNewTimerPKcmmPvPFvS1_EP15tmrTimerControl:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:246    .text._ZL21prvInitialiseNewTimerPKcmmPvPFvS1_EP15tmrTimerControl:0000000000000000 _ZL21prvInitialiseNewTimerPKcmmPvPFvS1_EP15tmrTimerControl
-.ARM.exidx.text._ZL21prvInitialiseNewTimerPKcmmPvPFvS1_EP15tmrTimerControl:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:320    .text.xTimerCreateTimerTask:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:327    .text.xTimerCreateTimerTask:0000000000000000 xTimerCreateTimerTask
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:395    .text.xTimerCreateTimerTask:0000000000000040 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1208   .text._ZL12prvTimerTaskPv:0000000000000000 _ZL12prvTimerTaskPv
-.ARM.exidx.text.xTimerCreateTimerTask:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:404    .text.xTimerCreate:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:411    .text.xTimerCreate:0000000000000000 xTimerCreate
-     .ARM.exidx.text.xTimerCreate:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:469    .text.xTimerGenericCommand:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:476    .text.xTimerGenericCommand:0000000000000000 xTimerGenericCommand
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:595    .text.xTimerGenericCommand:0000000000000068 $d
-.ARM.exidx.text.xTimerGenericCommand:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:601    .text._ZL19prvSwitchTimerListsv:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:607    .text._ZL19prvSwitchTimerListsv:0000000000000000 _ZL19prvSwitchTimerListsv
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:722    .text._ZL19prvSwitchTimerListsv:0000000000000070 $d
-.ARM.exidx.text._ZL19prvSwitchTimerListsv:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:729    .text._ZL16prvSampleTimeNowPl:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:735    .text._ZL16prvSampleTimeNowPl:0000000000000000 _ZL16prvSampleTimeNowPl
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:785    .text._ZL16prvSampleTimeNowPl:0000000000000028 $d
-.ARM.exidx.text._ZL16prvSampleTimeNowPl:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:791    .text._ZL22prvProcessExpiredTimermm:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:797    .text._ZL22prvProcessExpiredTimermm:0000000000000000 _ZL22prvProcessExpiredTimermm
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:891    .text._ZL22prvProcessExpiredTimermm:000000000000005c $d
-.ARM.exidx.text._ZL22prvProcessExpiredTimermm:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:899    .text._ZL26prvProcessTimerOrBlockTaskml:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:905    .text._ZL26prvProcessTimerOrBlockTaskml:0000000000000000 _ZL26prvProcessTimerOrBlockTaskml
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1008   .text._ZL26prvProcessTimerOrBlockTaskml:0000000000000068 $d
-.ARM.exidx.text._ZL26prvProcessTimerOrBlockTaskml:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1016   .text._ZL26prvProcessReceivedCommandsv:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1022   .text._ZL26prvProcessReceivedCommandsv:0000000000000000 _ZL26prvProcessReceivedCommandsv
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1078   .text._ZL26prvProcessReceivedCommandsv:000000000000003c $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1088   .text._ZL26prvProcessReceivedCommandsv:0000000000000064 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1196   .text._ZL26prvProcessReceivedCommandsv:00000000000000e0 $d
-.ARM.exidx.text._ZL26prvProcessReceivedCommandsv:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1202   .text._ZL12prvTimerTaskPv:0000000000000000 $t
-.ARM.exidx.text._ZL12prvTimerTaskPv:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1244   .text.xTimerGetTimerDaemonTaskHandle:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1251   .text.xTimerGetTimerDaemonTaskHandle:0000000000000000 xTimerGetTimerDaemonTaskHandle
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1285   .text.xTimerGetTimerDaemonTaskHandle:000000000000001c $d
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 56
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:17     .text.prvGetNextExpireTime:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:23     .text.prvGetNextExpireTime:0000000000000000 prvGetNextExpireTime
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:56     .text.prvGetNextExpireTime:000000000000001c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:61     .text.prvInsertTimerInActiveList:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:67     .text.prvInsertTimerInActiveList:0000000000000000 prvInsertTimerInActiveList
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:145    .text.prvInsertTimerInActiveList:0000000000000040 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:151    .text.prvCheckForValidListAndQueue:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:157    .text.prvCheckForValidListAndQueue:0000000000000000 prvCheckForValidListAndQueue
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:219    .text.prvCheckForValidListAndQueue:0000000000000044 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:229    .text.prvInitialiseNewTimer:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:235    .text.prvInitialiseNewTimer:0000000000000000 prvInitialiseNewTimer
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:306    .text.xTimerCreateTimerTask:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:313    .text.xTimerCreateTimerTask:0000000000000000 xTimerCreateTimerTask
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:378    .text.xTimerCreateTimerTask:0000000000000040 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:1165   .text.prvTimerTask:0000000000000000 prvTimerTask
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:386    .text.xTimerCreate:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:393    .text.xTimerCreate:0000000000000000 xTimerCreate
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:447    .text.xTimerGenericCommand:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:454    .text.xTimerGenericCommand:0000000000000000 xTimerGenericCommand
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:570    .text.xTimerGenericCommand:0000000000000068 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:575    .text.prvSwitchTimerLists:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:581    .text.prvSwitchTimerLists:0000000000000000 prvSwitchTimerLists
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:693    .text.prvSwitchTimerLists:0000000000000070 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:699    .text.prvSampleTimeNow:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:705    .text.prvSampleTimeNow:0000000000000000 prvSampleTimeNow
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:753    .text.prvSampleTimeNow:0000000000000028 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:758    .text.prvProcessExpiredTimer:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:764    .text.prvProcessExpiredTimer:0000000000000000 prvProcessExpiredTimer
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:855    .text.prvProcessExpiredTimer:000000000000005c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:862    .text.prvProcessTimerOrBlockTask:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:868    .text.prvProcessTimerOrBlockTask:0000000000000000 prvProcessTimerOrBlockTask
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:968    .text.prvProcessTimerOrBlockTask:0000000000000068 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:975    .text.prvProcessReceivedCommands:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:981    .text.prvProcessReceivedCommands:0000000000000000 prvProcessReceivedCommands
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:1034   .text.prvProcessReceivedCommands:000000000000003c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:1044   .text.prvProcessReceivedCommands:0000000000000064 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:1154   .text.prvProcessReceivedCommands:00000000000000e0 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:1159   .text.prvTimerTask:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:1197   .text.xTimerGetTimerDaemonTaskHandle:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:1204   .text.xTimerGetTimerDaemonTaskHandle:0000000000000000 xTimerGetTimerDaemonTaskHandle
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:1237   .text.xTimerGetTimerDaemonTaskHandle:000000000000001c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:1244   .text.xTimerGetPeriod:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:1251   .text.xTimerGetPeriod:0000000000000000 xTimerGetPeriod
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:1289   .text.xTimerGetExpiryTime:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:1296   .text.xTimerGetExpiryTime:0000000000000000 xTimerGetExpiryTime
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:1335   .text.pcTimerGetName:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:1342   .text.pcTimerGetName:0000000000000000 pcTimerGetName
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:1380   .text.xTimerIsTimerActive:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:1387   .text.xTimerIsTimerActive:0000000000000000 xTimerIsTimerActive
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:1442   .text.pvTimerGetTimerID:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:1449   .text.pvTimerGetTimerID:0000000000000000 pvTimerGetTimerID
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:1500   .text.vTimerSetTimerID:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:1507   .text.vTimerSetTimerID:0000000000000000 vTimerSetTimerID
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:1559   .bss.pxCurrentTimerList:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:1563   .bss.pxCurrentTimerList:0000000000000000 pxCurrentTimerList
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s 			page 55
 
 
-.ARM.exidx.text.xTimerGetTimerDaemonTaskHandle:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1294   .text.xTimerGetPeriod:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1301   .text.xTimerGetPeriod:0000000000000000 xTimerGetPeriod
-  .ARM.exidx.text.xTimerGetPeriod:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1342   .text.xTimerGetExpiryTime:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1349   .text.xTimerGetExpiryTime:0000000000000000 xTimerGetExpiryTime
-.ARM.exidx.text.xTimerGetExpiryTime:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1391   .text.pcTimerGetName:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1398   .text.pcTimerGetName:0000000000000000 pcTimerGetName
-   .ARM.exidx.text.pcTimerGetName:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1439   .text.xTimerIsTimerActive:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1446   .text.xTimerIsTimerActive:0000000000000000 xTimerIsTimerActive
-.ARM.exidx.text.xTimerIsTimerActive:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1504   .text.pvTimerGetTimerID:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1511   .text.pvTimerGetTimerID:0000000000000000 pvTimerGetTimerID
-.ARM.exidx.text.pvTimerGetTimerID:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1565   .text.vTimerSetTimerID:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1572   .text.vTimerSetTimerID:0000000000000000 vTimerSetTimerID
- .ARM.exidx.text.vTimerSetTimerID:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1627   .bss._ZL11xTimerQueue:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1631   .bss._ZL11xTimerQueue:0000000000000000 _ZL11xTimerQueue
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1634   .bss._ZL16xTimerTaskHandle:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1638   .bss._ZL16xTimerTaskHandle:0000000000000000 _ZL16xTimerTaskHandle
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1641   .bss._ZL17xActiveTimerList1:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1645   .bss._ZL17xActiveTimerList1:0000000000000000 _ZL17xActiveTimerList1
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1648   .bss._ZL17xActiveTimerList2:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1652   .bss._ZL17xActiveTimerList2:0000000000000000 _ZL17xActiveTimerList2
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1655   .bss._ZL18pxCurrentTimerList:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1659   .bss._ZL18pxCurrentTimerList:0000000000000000 _ZL18pxCurrentTimerList
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1662   .bss._ZL19pxOverflowTimerList:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1666   .bss._ZL19pxOverflowTimerList:0000000000000000 _ZL19pxOverflowTimerList
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1669   .bss._ZZL16prvSampleTimeNowPlE9xLastTime:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1673   .bss._ZZL16prvSampleTimeNowPlE9xLastTime:0000000000000000 _ZZL16prvSampleTimeNowPlE9xLastTime
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1676   .rodata._ZL28prvCheckForValidListAndQueuev.str1.4:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s:1680   .rodata.xTimerCreateTimerTask.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:1566   .bss.pxOverflowTimerList:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:1570   .bss.pxOverflowTimerList:0000000000000000 pxOverflowTimerList
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:1573   .bss.xActiveTimerList1:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:1577   .bss.xActiveTimerList1:0000000000000000 xActiveTimerList1
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:1580   .bss.xActiveTimerList2:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:1584   .bss.xActiveTimerList2:0000000000000000 xActiveTimerList2
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:1587   .bss.xLastTime.9537:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:1591   .bss.xLastTime.9537:0000000000000000 xLastTime.9537
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:1594   .bss.xTimerQueue:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:1598   .bss.xTimerQueue:0000000000000000 xTimerQueue
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:1601   .bss.xTimerTaskHandle:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:1605   .bss.xTimerTaskHandle:0000000000000000 xTimerTaskHandle
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:1608   .rodata.prvCheckForValidListAndQueue.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrJCBDX.s:1612   .rodata.xTimerCreateTimerTask.str1.4:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 vListInsert
-__aeabi_unwind_cpp_pr1
 vPortEnterCritical
 vPortExitCritical
 vListInitialise
 xQueueGenericCreate
 vQueueAddToRegistry
-__aeabi_unwind_cpp_pr0
 vListInitialiseItem
 xTaskCreate
 pvPortMalloc
@@ -3347,7 +3243,4 @@ vTaskSuspendAll
 vQueueWaitForMessageRestricted
 xTaskResumeAll
 xQueueGenericReceive
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccClruzZ.s 			page 57
-
-
 vPortFree
