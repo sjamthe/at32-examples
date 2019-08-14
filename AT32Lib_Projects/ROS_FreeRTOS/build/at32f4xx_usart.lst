@@ -1,0 +1,2549 @@
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"at32f4xx_usart.c"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.text.USART_Reset,"ax",%progbits
+  17              		.align	1
+  18              		.global	USART_Reset
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu fpv4-sp-d16
+  24              	USART_Reset:
+  25              	.LFB123:
+  26              		.file 1 "../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c"
+   1:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /**
+   2:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****  **************************************************************************
+   3:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****  * File Name    : at32f4xx_usart.c
+   4:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****  * Description  : at32f4xx USART source file
+   5:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****  * Date         : 2018-10-08
+   6:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****  * Version      : V1.0.5
+   7:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****  **************************************************************************
+   8:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****  */
+   9:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+  10:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+  11:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /* Includes ------------------------------------------------------------------*/
+  12:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** #include "at32f4xx_usart.h"
+  13:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** #include "at32f4xx_rcc.h"
+  14:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+  15:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /** @addtogroup at32f4xx_StdPeriph_Driver
+  16:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @{
+  17:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+  18:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+  19:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /** @defgroup USART
+  20:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @brief USART driver modules
+  21:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @{
+  22:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+  23:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+  24:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /** @defgroup USART_Private_TypesDefinitions
+  25:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @{
+  26:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+  27:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+  28:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /**
+  29:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @}
+  30:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+  31:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+  32:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /** @defgroup USART_Private_Defines
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 2
+
+
+  33:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @{
+  34:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+  35:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+  36:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** #define CTRL1_UEN_Set               ((uint16_t)0x2000)  /*!< USART Enable Mask */
+  37:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** #define CTRL1_UEN_Reset             ((uint16_t)0xDFFF)  /*!< USART Disable Mask */
+  38:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+  39:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** #define CTRL1_WUMODE_Mask           ((uint16_t)0xF7FF)  /*!< USART WakeUp Method Mask */
+  40:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+  41:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** #define CTRL1_RECMUTE_Set           ((uint16_t)0x0002)  /*!< USART mute mode Enable Mask */
+  42:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** #define CTRL1_RECMUTE_Reset         ((uint16_t)0xFFFD)  /*!< USART mute mode Enable Mask */
+  43:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** #define CTRL1_SBRK_Set              ((uint16_t)0x0001)  /*!< USART Break Character send Mask */
+  44:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** #define CTRL1_CLEAR_MASK            ((uint16_t)0xE9F3)  /*!< USART CTRL1 Mask */
+  45:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** #define CTRL2_ADDRESS_Mask          ((uint16_t)0xFFF0)  /*!< USART address Mask */
+  46:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+  47:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** #define CTRL2_LINEN_Set             ((uint16_t)0x4000)  /*!< USART LIN Enable Mask */
+  48:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** #define CTRL2_LINEN_Reset           ((uint16_t)0xBFFF)  /*!< USART LIN Disable Mask */
+  49:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+  50:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** #define CTRL2_LBDLEN_Mask           ((uint16_t)0xFFDF)  /*!< USART LIN Break detection Mask */
+  51:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** #define CTRL2_STOPB_CLEAR_Mask      ((uint16_t)0xCFFF)  /*!< USART CTRL2 STOP Bits Mask */
+  52:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** #define CTRL2_CLOCK_CLEAR_Mask      ((uint16_t)0xF0FF)  /*!< USART CTRL2 Clock Mask */
+  53:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+  54:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** #define CTRL3_SCMEN_Set             ((uint16_t)0x0020)  /*!< USART SC Enable Mask */
+  55:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** #define CTRL3_SCMEN_Reset           ((uint16_t)0xFFDF)  /*!< USART SC Disable Mask */
+  56:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+  57:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** #define CTRL3_NACKEN_Set            ((uint16_t)0x0010)  /*!< USART SC NACK Enable Mask */
+  58:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** #define CTRL3_NACKEN_Reset          ((uint16_t)0xFFEF)  /*!< USART SC NACK Disable Mask */
+  59:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+  60:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** #define CTRL3_HALFSEL_Set           ((uint16_t)0x0008)  /*!< USART Half-Duplex Enable Mask */
+  61:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** #define CTRL3_HALFSEL_Reset         ((uint16_t)0xFFF7)  /*!< USART Half-Duplex Disable Mask */
+  62:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+  63:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** #define CTRL3_IRDALP_Mask           ((uint16_t)0xFFFB)  /*!< USART IrDA LowPower mode Mask */
+  64:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** #define CTRL3_CLEAR_Mask            ((uint16_t)0xFCFF)  /*!< USART CR3 Mask */
+  65:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+  66:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** #define CTRL3_IRDAEN_Set            ((uint16_t)0x0002)  /*!< USART IrDA Enable Mask */
+  67:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** #define CTRL3_IRDAEN_Reset          ((uint16_t)0xFFFD)  /*!< USART IrDA Disable Mask */
+  68:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** #define GTPR_LSB_Mask               ((uint16_t)0x00FF)  /*!< Guard Time Register LSB Mask */
+  69:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** #define GTPR_MSB_Mask               ((uint16_t)0xFF00)  /*!< Guard Time Register MSB Mask */
+  70:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** #define INT_Mask                    ((uint16_t)0x001F)  /*!< USART Interrupt Mask */
+  71:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+  72:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /* USART OverSampling-8 Mask */
+  73:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** #define CTRL1_OVER8_Set             ((u16)0x8000)  /* USART OVER8 mode Enable Mask */
+  74:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** #define CTRL1_OVER8_Reset           ((u16)0x7FFF)  /* USART OVER8 mode Disable Mask */
+  75:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+  76:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /* USART One Bit Sampling Mask */
+  77:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** #define CTRL3_ONEBITE_Set           ((u16)0x0800)  /* USART ONEBITE mode Enable Mask */
+  78:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** #define CTRL3_ONEBITE_Reset         ((u16)0xF7FF)  /* USART ONEBITE mode Disable Mask */
+  79:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+  80:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /**
+  81:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @}
+  82:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+  83:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+  84:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /** @defgroup USART_Private_Macros
+  85:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @{
+  86:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+  87:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+  88:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /**
+  89:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @}
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 3
+
+
+  90:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+  91:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+  92:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /** @defgroup USART_Private_Variables
+  93:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @{
+  94:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+  95:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+  96:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /**
+  97:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @}
+  98:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+  99:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 100:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /** @defgroup USART_Private_FunctionPrototypes
+ 101:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @{
+ 102:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+ 103:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 104:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /**
+ 105:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @}
+ 106:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+ 107:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 108:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /** @defgroup USART_Private_Functions
+ 109:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @{
+ 110:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+ 111:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 112:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /**
+ 113:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @brief  Deinitializes the USARTx peripheral registers to their default reset values.
+ 114:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USARTx: Select the USART or the UART peripheral.
+ 115:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be one of the following values:
+ 116:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *      USART1, USART2, USART3, UART4 or UART5.
+ 117:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @retval None
+ 118:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+ 119:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** void USART_Reset(USART_Type* USARTx)
+ 120:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** {
+  27              		.loc 1 120 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              	.LVL0:
+  32 0000 08B5     		push	{r3, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 3, -8
+  36              		.cfi_offset 14, -4
+ 121:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Check the parameters */
+ 122:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_ALL_PERIPH(USARTx));
+ 123:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 124:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   if (USARTx == USART1)
+  37              		.loc 1 124 0
+  38 0002 234B     		ldr	r3, .L13
+  39 0004 9842     		cmp	r0, r3
+  40 0006 0CD0     		beq	.L8
+ 125:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 126:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     RCC_APB2PeriphResetCmd(RCC_APB2PERIPH_USART1, ENABLE);
+ 127:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     RCC_APB2PeriphResetCmd(RCC_APB2PERIPH_USART1, DISABLE);
+ 128:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 129:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   else if (USARTx == USART2)
+  41              		.loc 1 129 0
+  42 0008 224B     		ldr	r3, .L13+4
+  43 000a 9842     		cmp	r0, r3
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 4
+
+
+  44 000c 14D0     		beq	.L9
+ 130:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 131:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     RCC_APB1PeriphResetCmd(RCC_APB1PERIPH_USART2, ENABLE);
+ 132:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     RCC_APB1PeriphResetCmd(RCC_APB1PERIPH_USART2, DISABLE);
+ 133:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 134:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   else if (USARTx == USART3)
+  45              		.loc 1 134 0
+  46 000e 224B     		ldr	r3, .L13+8
+  47 0010 9842     		cmp	r0, r3
+  48 0012 1CD0     		beq	.L10
+ 135:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 136:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     RCC_APB1PeriphResetCmd(RCC_APB1PERIPH_USART3, ENABLE);
+ 137:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     RCC_APB1PeriphResetCmd(RCC_APB1PERIPH_USART3, DISABLE);
+ 138:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 139:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   else if (USARTx == UART4)
+  49              		.loc 1 139 0
+  50 0014 214B     		ldr	r3, .L13+12
+  51 0016 9842     		cmp	r0, r3
+  52 0018 24D0     		beq	.L11
+ 140:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 141:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     RCC_APB1PeriphResetCmd(RCC_APB1PERIPH_UART4, ENABLE);
+ 142:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     RCC_APB1PeriphResetCmd(RCC_APB1PERIPH_UART4, DISABLE);
+ 143:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 144:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   else if (USARTx == UART5)
+  53              		.loc 1 144 0
+  54 001a 214B     		ldr	r3, .L13+16
+  55 001c 9842     		cmp	r0, r3
+  56 001e 2CD0     		beq	.L12
+  57              	.LVL1:
+  58              	.L1:
+ 145:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 146:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     RCC_APB1PeriphResetCmd(RCC_APB1PERIPH_UART5, ENABLE);
+ 147:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     RCC_APB1PeriphResetCmd(RCC_APB1PERIPH_UART5, DISABLE);
+ 148:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 149:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** }
+  59              		.loc 1 149 0
+  60 0020 08BD     		pop	{r3, pc}
+  61              	.LVL2:
+  62              	.L8:
+ 126:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     RCC_APB2PeriphResetCmd(RCC_APB2PERIPH_USART1, DISABLE);
+  63              		.loc 1 126 0
+  64 0022 0121     		movs	r1, #1
+  65 0024 4FF48040 		mov	r0, #16384
+  66              	.LVL3:
+  67 0028 FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+  68              	.LVL4:
+ 127:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+  69              		.loc 1 127 0
+  70 002c 0021     		movs	r1, #0
+  71 002e 4FF48040 		mov	r0, #16384
+  72 0032 FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+  73              	.LVL5:
+  74 0036 F3E7     		b	.L1
+  75              	.LVL6:
+  76              	.L9:
+ 131:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     RCC_APB1PeriphResetCmd(RCC_APB1PERIPH_USART2, DISABLE);
+  77              		.loc 1 131 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 5
+
+
+  78 0038 0121     		movs	r1, #1
+  79 003a 4FF40030 		mov	r0, #131072
+  80              	.LVL7:
+  81 003e FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+  82              	.LVL8:
+ 132:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+  83              		.loc 1 132 0
+  84 0042 0021     		movs	r1, #0
+  85 0044 4FF40030 		mov	r0, #131072
+  86 0048 FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+  87              	.LVL9:
+  88 004c E8E7     		b	.L1
+  89              	.LVL10:
+  90              	.L10:
+ 136:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     RCC_APB1PeriphResetCmd(RCC_APB1PERIPH_USART3, DISABLE);
+  91              		.loc 1 136 0
+  92 004e 0121     		movs	r1, #1
+  93 0050 4FF48020 		mov	r0, #262144
+  94              	.LVL11:
+  95 0054 FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+  96              	.LVL12:
+ 137:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+  97              		.loc 1 137 0
+  98 0058 0021     		movs	r1, #0
+  99 005a 4FF48020 		mov	r0, #262144
+ 100 005e FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+ 101              	.LVL13:
+ 102 0062 DDE7     		b	.L1
+ 103              	.LVL14:
+ 104              	.L11:
+ 141:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     RCC_APB1PeriphResetCmd(RCC_APB1PERIPH_UART4, DISABLE);
+ 105              		.loc 1 141 0
+ 106 0064 0121     		movs	r1, #1
+ 107 0066 4FF40020 		mov	r0, #524288
+ 108              	.LVL15:
+ 109 006a FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+ 110              	.LVL16:
+ 142:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 111              		.loc 1 142 0
+ 112 006e 0021     		movs	r1, #0
+ 113 0070 4FF40020 		mov	r0, #524288
+ 114 0074 FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+ 115              	.LVL17:
+ 116 0078 D2E7     		b	.L1
+ 117              	.LVL18:
+ 118              	.L12:
+ 146:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     RCC_APB1PeriphResetCmd(RCC_APB1PERIPH_UART5, DISABLE);
+ 119              		.loc 1 146 0
+ 120 007a 0121     		movs	r1, #1
+ 121 007c 4FF48010 		mov	r0, #1048576
+ 122              	.LVL19:
+ 123 0080 FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+ 124              	.LVL20:
+ 147:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 125              		.loc 1 147 0
+ 126 0084 0021     		movs	r1, #0
+ 127 0086 4FF48010 		mov	r0, #1048576
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 6
+
+
+ 128 008a FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+ 129              	.LVL21:
+ 130              		.loc 1 149 0
+ 131 008e C7E7     		b	.L1
+ 132              	.L14:
+ 133              		.align	2
+ 134              	.L13:
+ 135 0090 00380140 		.word	1073821696
+ 136 0094 00440040 		.word	1073759232
+ 137 0098 00480040 		.word	1073760256
+ 138 009c 004C0040 		.word	1073761280
+ 139 00a0 00500040 		.word	1073762304
+ 140              		.cfi_endproc
+ 141              	.LFE123:
+ 143              		.section	.text.USART_Init,"ax",%progbits
+ 144              		.align	1
+ 145              		.global	USART_Init
+ 146              		.syntax unified
+ 147              		.thumb
+ 148              		.thumb_func
+ 149              		.fpu fpv4-sp-d16
+ 151              	USART_Init:
+ 152              	.LFB124:
+ 150:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 151:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /**
+ 152:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @brief  Initializes the USARTx peripheral according to the specified
+ 153:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *         parameters in the USART_InitStruct .
+ 154:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USARTx: Select the USART or the UART peripheral.
+ 155:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be one of the following values:
+ 156:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   USART1, USART2, USART3, UART4 or UART5.
+ 157:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USART_InitStruct: pointer to a USART_InitType structure
+ 158:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *         that contains the configuration information for the specified USART
+ 159:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *         peripheral.
+ 160:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @retval None
+ 161:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+ 162:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** void USART_Init(USART_Type* USARTx, USART_InitType* USART_InitStruct)
+ 163:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** {
+ 153              		.loc 1 163 0
+ 154              		.cfi_startproc
+ 155              		@ args = 0, pretend = 0, frame = 24
+ 156              		@ frame_needed = 0, uses_anonymous_args = 0
+ 157              	.LVL22:
+ 158 0000 30B5     		push	{r4, r5, lr}
+ 159              	.LCFI1:
+ 160              		.cfi_def_cfa_offset 12
+ 161              		.cfi_offset 4, -12
+ 162              		.cfi_offset 5, -8
+ 163              		.cfi_offset 14, -4
+ 164 0002 87B0     		sub	sp, sp, #28
+ 165              	.LCFI2:
+ 166              		.cfi_def_cfa_offset 40
+ 167 0004 0446     		mov	r4, r0
+ 168 0006 0D46     		mov	r5, r1
+ 169              	.LVL23:
+ 164:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   uint32_t tmpreg = 0x00, apbclock = 0x00;
+ 165:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   uint32_t integerdivider = 0x00;
+ 166:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   uint32_t fractionaldivider = 0x00;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 7
+
+
+ 167:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   uint32_t usartxbase = 0;
+ 168:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   RCC_ClockType RCC_ClocksStatus;
+ 169:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Check the parameters */
+ 170:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_ALL_PERIPH(USARTx));
+ 171:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_BAUDRATE(USART_InitStruct->USART_BaudRate));
+ 172:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_WORD_LENGTH(USART_InitStruct->USART_WordLength));
+ 173:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_STOPBITS(USART_InitStruct->USART_StopBits));
+ 174:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_PARITY(USART_InitStruct->USART_Parity));
+ 175:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_MODE(USART_InitStruct->USART_Mode));
+ 176:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_HARDWARE_FLOW_CONTROL(USART_InitStruct->USART_HardwareFlowControl));
+ 177:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 178:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* The hardware flow control is available only for USART1, USART2 and USART3 */
+ 179:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   if (USART_InitStruct->USART_HardwareFlowControl != USART_HardwareFlowControl_None)
+ 180:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 181:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     assert_param(IS_USART_123_PERIPH(USARTx));
+ 182:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 183:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 184:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   usartxbase = (uint32_t)USARTx;
+ 185:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 186:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /*---------------------------- USART CTRL2 Configuration -----------------------*/
+ 187:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   tmpreg = USARTx->CTRL2;
+ 170              		.loc 1 187 0
+ 171 0008 038A     		ldrh	r3, [r0, #16]
+ 172 000a 9BB2     		uxth	r3, r3
+ 173              	.LVL24:
+ 188:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Clear STOP[13:12] bits */
+ 189:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   tmpreg &= CTRL2_STOPB_CLEAR_Mask;
+ 190:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Configure the USART Stop Bits, Clock, CPOL, CPHA and LastBit ------------*/
+ 191:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Set STOP[13:12] bits according to USART_StopBits value */
+ 192:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   tmpreg |= (uint32_t)USART_InitStruct->USART_StopBits;
+ 174              		.loc 1 192 0
+ 175 000c CA88     		ldrh	r2, [r1, #6]
+ 176 000e 23F44053 		bic	r3, r3, #12288
+ 177              	.LVL25:
+ 178 0012 1343     		orrs	r3, r3, r2
+ 179              	.LVL26:
+ 193:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 194:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Write to USART CTRL2 */
+ 195:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   USARTx->CTRL2 = (uint16_t)tmpreg;
+ 180              		.loc 1 195 0
+ 181 0014 0382     		strh	r3, [r0, #16]	@ movhi
+ 196:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 197:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /*---------------------------- USART CTRL1 Configuration -----------------------*/
+ 198:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   tmpreg = USARTx->CTRL1;
+ 182              		.loc 1 198 0
+ 183 0016 8389     		ldrh	r3, [r0, #12]
+ 184              	.LVL27:
+ 185 0018 9BB2     		uxth	r3, r3
+ 186              	.LVL28:
+ 199:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Clear M, PCE, PS, TE and RE bits */
+ 200:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   tmpreg &= CTRL1_CLEAR_MASK;
+ 201:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Configure the USART Word Length, Parity and mode ----------------------- */
+ 202:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Set the M bits according to USART_WordLength value */
+ 203:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Set PCE and PS bits according to USART_Parity value */
+ 204:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Set TE and RE bits according to USART_Mode value */
+ 205:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   tmpreg |= (uint32_t)USART_InitStruct->USART_WordLength | USART_InitStruct->USART_Parity |
+ 187              		.loc 1 205 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 8
+
+
+ 188 001a 8988     		ldrh	r1, [r1, #4]
+ 189              	.LVL29:
+ 190 001c 2889     		ldrh	r0, [r5, #8]
+ 191              	.LVL30:
+ 206:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****             USART_InitStruct->USART_Mode;
+ 192              		.loc 1 206 0
+ 193 001e 6A89     		ldrh	r2, [r5, #10]
+ 205:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****             USART_InitStruct->USART_Mode;
+ 194              		.loc 1 205 0
+ 195 0020 0143     		orrs	r1, r1, r0
+ 196 0022 0A43     		orrs	r2, r2, r1
+ 197 0024 23F4B053 		bic	r3, r3, #5632
+ 198              	.LVL31:
+ 199 0028 23F00C03 		bic	r3, r3, #12
+ 200 002c 1343     		orrs	r3, r3, r2
+ 201              	.LVL32:
+ 207:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Write to USART CTRL1 */
+ 208:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   USARTx->CTRL1 = (uint16_t)tmpreg;
+ 202              		.loc 1 208 0
+ 203 002e A381     		strh	r3, [r4, #12]	@ movhi
+ 209:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 210:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /*---------------------------- USART CR3 Configuration -----------------------*/
+ 211:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   tmpreg = USARTx->CTRL3;
+ 204              		.loc 1 211 0
+ 205 0030 A38A     		ldrh	r3, [r4, #20]
+ 206              	.LVL33:
+ 207 0032 9BB2     		uxth	r3, r3
+ 208              	.LVL34:
+ 212:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Clear CTSE and RTSE bits */
+ 213:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   tmpreg &= CTRL3_CLEAR_Mask;
+ 214:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Configure the USART HFC -------------------------------------------------*/
+ 215:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Set CTSE and RTSE bits according to USART_HardwareFlowControl value */
+ 216:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   tmpreg |= USART_InitStruct->USART_HardwareFlowControl;
+ 209              		.loc 1 216 0
+ 210 0034 AA89     		ldrh	r2, [r5, #12]
+ 211 0036 23F44073 		bic	r3, r3, #768
+ 212              	.LVL35:
+ 213 003a 1343     		orrs	r3, r3, r2
+ 214              	.LVL36:
+ 217:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Write to USART CR3 */
+ 218:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   USARTx->CTRL3 = (uint16_t)tmpreg;
+ 215              		.loc 1 218 0
+ 216 003c A382     		strh	r3, [r4, #20]	@ movhi
+ 219:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 220:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /*---------------------------- USART BRR Configuration -----------------------*/
+ 221:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Configure the USART Baud Rate -------------------------------------------*/
+ 222:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   RCC_GetClocksFreq(&RCC_ClocksStatus);
+ 217              		.loc 1 222 0
+ 218 003e 01A8     		add	r0, sp, #4
+ 219 0040 FFF7FEFF 		bl	RCC_GetClocksFreq
+ 220              	.LVL37:
+ 223:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 224:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   if (usartxbase == USART1_BASE)
+ 221              		.loc 1 224 0
+ 222 0044 1E4B     		ldr	r3, .L26
+ 223 0046 9C42     		cmp	r4, r3
+ 224 0048 24D0     		beq	.L23
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 9
+
+
+ 225:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 226:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     apbclock = RCC_ClocksStatus.APB2CLK_Freq;
+ 227:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 228:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   else
+ 229:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 230:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     apbclock = RCC_ClocksStatus.APB1CLK_Freq;
+ 225              		.loc 1 230 0
+ 226 004a 039B     		ldr	r3, [sp, #12]
+ 227              	.LVL38:
+ 228              	.L17:
+ 231:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 232:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 233:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Determine the integer part */
+ 234:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   if ((USARTx->CTRL1 & CTRL1_OVER8_Set) != 0)
+ 229              		.loc 1 234 0
+ 230 004c A289     		ldrh	r2, [r4, #12]
+ 231 004e 12F4004F 		tst	r2, #32768
+ 232 0052 21D1     		bne	.L24
+ 235:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 236:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     /* Integer part computing in case Oversampling mode is 8 Samples */
+ 237:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     integerdivider = ((25 * apbclock) / (2 * (USART_InitStruct->USART_BaudRate)));
+ 238:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 239:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   else /* if ((USARTx->CTRL1 & CTRL1_OVER8_Set) == 0) */
+ 240:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 241:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     /* Integer part computing in case Oversampling mode is 16 Samples */
+ 242:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     integerdivider = ((25 * apbclock) / (4 * (USART_InitStruct->USART_BaudRate)));
+ 233              		.loc 1 242 0
+ 234 0054 03EB8303 		add	r3, r3, r3, lsl #2
+ 235              	.LVL39:
+ 236 0058 03EB8303 		add	r3, r3, r3, lsl #2
+ 237 005c 2968     		ldr	r1, [r5]
+ 238 005e 8900     		lsls	r1, r1, #2
+ 239 0060 B3FBF1F1 		udiv	r1, r3, r1
+ 240              	.LVL40:
+ 241              	.L19:
+ 243:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 244:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 245:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   tmpreg = (integerdivider / 100) << 4;
+ 242              		.loc 1 245 0
+ 243 0064 174B     		ldr	r3, .L26+4
+ 244 0066 A3FB0123 		umull	r2, r3, r3, r1
+ 245 006a 5809     		lsrs	r0, r3, #5
+ 246 006c 0501     		lsls	r5, r0, #4
+ 247              	.LVL41:
+ 246:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 247:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Determine the fractional part */
+ 248:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   fractionaldivider = integerdivider - (100 * (tmpreg >> 4));
+ 248              		.loc 1 248 0
+ 249 006e 6423     		movs	r3, #100
+ 250 0070 00FB1313 		mls	r3, r0, r3, r1
+ 251              	.LVL42:
+ 249:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 250:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Implement the fractional part in the register */
+ 251:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   if ((USARTx->CTRL1 & CTRL1_OVER8_Set) != 0)
+ 252              		.loc 1 251 0
+ 253 0074 A289     		ldrh	r2, [r4, #12]
+ 254 0076 12F4004F 		tst	r2, #32768
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 10
+
+
+ 255 007a 16D1     		bne	.L25
+ 252:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 253:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     tmpreg |= ((((fractionaldivider * 8) + 50) / 100)) & ((uint8_t)0x07);
+ 254:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 255:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   else /* if ((USARTx->CTRL1 & CTRL1_OVER8_Set) == 0) */
+ 256:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 257:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     tmpreg |= ((((fractionaldivider * 16) + 50) / 100)) & ((uint8_t)0x0F);
+ 256              		.loc 1 257 0
+ 257 007c 1B01     		lsls	r3, r3, #4
+ 258              	.LVL43:
+ 259 007e 3233     		adds	r3, r3, #50
+ 260 0080 104A     		ldr	r2, .L26+4
+ 261 0082 A2FB0323 		umull	r2, r3, r2, r3
+ 262 0086 C3F34313 		ubfx	r3, r3, #5, #4
+ 263 008a 2B43     		orrs	r3, r3, r5
+ 264              	.LVL44:
+ 265              	.L21:
+ 258:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 259:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 260:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Write to USART BRR */
+ 261:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   USARTx->BAUDR = (uint16_t)tmpreg;
+ 266              		.loc 1 261 0
+ 267 008c 9BB2     		uxth	r3, r3
+ 268              	.LVL45:
+ 269 008e 2381     		strh	r3, [r4, #8]	@ movhi
+ 262:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** }
+ 270              		.loc 1 262 0
+ 271 0090 07B0     		add	sp, sp, #28
+ 272              	.LCFI3:
+ 273              		.cfi_remember_state
+ 274              		.cfi_def_cfa_offset 12
+ 275              		@ sp needed
+ 276 0092 30BD     		pop	{r4, r5, pc}
+ 277              	.LVL46:
+ 278              	.L23:
+ 279              	.LCFI4:
+ 280              		.cfi_restore_state
+ 226:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 281              		.loc 1 226 0
+ 282 0094 049B     		ldr	r3, [sp, #16]
+ 283              	.LVL47:
+ 284 0096 D9E7     		b	.L17
+ 285              	.L24:
+ 237:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 286              		.loc 1 237 0
+ 287 0098 03EB8303 		add	r3, r3, r3, lsl #2
+ 288              	.LVL48:
+ 289 009c 03EB8303 		add	r3, r3, r3, lsl #2
+ 290 00a0 2968     		ldr	r1, [r5]
+ 291 00a2 4900     		lsls	r1, r1, #1
+ 292 00a4 B3FBF1F1 		udiv	r1, r3, r1
+ 293              	.LVL49:
+ 294 00a8 DCE7     		b	.L19
+ 295              	.LVL50:
+ 296              	.L25:
+ 253:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 297              		.loc 1 253 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 11
+
+
+ 298 00aa DA00     		lsls	r2, r3, #3
+ 299 00ac 3232     		adds	r2, r2, #50
+ 300 00ae 054B     		ldr	r3, .L26+4
+ 301              	.LVL51:
+ 302 00b0 A3FB0232 		umull	r3, r2, r3, r2
+ 303 00b4 C2F34212 		ubfx	r2, r2, #5, #3
+ 304 00b8 42EA0503 		orr	r3, r2, r5
+ 305              	.LVL52:
+ 306 00bc E6E7     		b	.L21
+ 307              	.L27:
+ 308 00be 00BF     		.align	2
+ 309              	.L26:
+ 310 00c0 00380140 		.word	1073821696
+ 311 00c4 1F85EB51 		.word	1374389535
+ 312              		.cfi_endproc
+ 313              	.LFE124:
+ 315              		.section	.text.USART_StructInit,"ax",%progbits
+ 316              		.align	1
+ 317              		.global	USART_StructInit
+ 318              		.syntax unified
+ 319              		.thumb
+ 320              		.thumb_func
+ 321              		.fpu fpv4-sp-d16
+ 323              	USART_StructInit:
+ 324              	.LFB125:
+ 263:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 264:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /**
+ 265:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @brief  Fills each USART_InitStruct member with its default value.
+ 266:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USART_InitStruct: pointer to a USART_InitType structure
+ 267:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *         which will be initialized.
+ 268:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @retval None
+ 269:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+ 270:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** void USART_StructInit(USART_InitType* USART_InitStruct)
+ 271:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** {
+ 325              		.loc 1 271 0
+ 326              		.cfi_startproc
+ 327              		@ args = 0, pretend = 0, frame = 0
+ 328              		@ frame_needed = 0, uses_anonymous_args = 0
+ 329              		@ link register save eliminated.
+ 330              	.LVL53:
+ 272:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* USART_InitStruct members default value */
+ 273:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   USART_InitStruct->USART_BaudRate = 9600;
+ 331              		.loc 1 273 0
+ 332 0000 4FF41653 		mov	r3, #9600
+ 333 0004 0360     		str	r3, [r0]
+ 274:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   USART_InitStruct->USART_WordLength = USART_WordLength_8b;
+ 334              		.loc 1 274 0
+ 335 0006 0023     		movs	r3, #0
+ 336 0008 8380     		strh	r3, [r0, #4]	@ movhi
+ 275:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   USART_InitStruct->USART_StopBits = USART_StopBits_1;
+ 337              		.loc 1 275 0
+ 338 000a C380     		strh	r3, [r0, #6]	@ movhi
+ 276:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   USART_InitStruct->USART_Parity = USART_Parity_No ;
+ 339              		.loc 1 276 0
+ 340 000c 0381     		strh	r3, [r0, #8]	@ movhi
+ 277:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   USART_InitStruct->USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
+ 341              		.loc 1 277 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 12
+
+
+ 342 000e 0C22     		movs	r2, #12
+ 343 0010 4281     		strh	r2, [r0, #10]	@ movhi
+ 278:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   USART_InitStruct->USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+ 344              		.loc 1 278 0
+ 345 0012 8381     		strh	r3, [r0, #12]	@ movhi
+ 279:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** }
+ 346              		.loc 1 279 0
+ 347 0014 7047     		bx	lr
+ 348              		.cfi_endproc
+ 349              	.LFE125:
+ 351              		.section	.text.USART_ClockInit,"ax",%progbits
+ 352              		.align	1
+ 353              		.global	USART_ClockInit
+ 354              		.syntax unified
+ 355              		.thumb
+ 356              		.thumb_func
+ 357              		.fpu fpv4-sp-d16
+ 359              	USART_ClockInit:
+ 360              	.LFB126:
+ 280:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 281:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /**
+ 282:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @brief  Initializes the USARTx peripheral Clock according to the
+ 283:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *          specified parameters in the USART_ClockInitStruct .
+ 284:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USARTx: where x can be 1, 2, 3 to select the USART peripheral.
+ 285:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USART_ClockInitStruct: pointer to a USART_ClockInitType
+ 286:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *         structure that contains the configuration information for the specified
+ 287:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *         USART peripheral.
+ 288:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @note The Smart Card and Synchronous modes are not available for UART4 and UART5.
+ 289:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @retval None
+ 290:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+ 291:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** void USART_ClockInit(USART_Type* USARTx, USART_ClockInitType* USART_ClockInitStruct)
+ 292:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** {
+ 361              		.loc 1 292 0
+ 362              		.cfi_startproc
+ 363              		@ args = 0, pretend = 0, frame = 0
+ 364              		@ frame_needed = 0, uses_anonymous_args = 0
+ 365              		@ link register save eliminated.
+ 366              	.LVL54:
+ 367 0000 70B4     		push	{r4, r5, r6}
+ 368              	.LCFI5:
+ 369              		.cfi_def_cfa_offset 12
+ 370              		.cfi_offset 4, -12
+ 371              		.cfi_offset 5, -8
+ 372              		.cfi_offset 6, -4
+ 373              	.LVL55:
+ 293:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   uint32_t tmpreg = 0x00;
+ 294:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Check the parameters */
+ 295:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_123_PERIPH(USARTx));
+ 296:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_CLOCK(USART_ClockInitStruct->USART_Clock));
+ 297:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_CPOL(USART_ClockInitStruct->USART_CPOL));
+ 298:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_CPHA(USART_ClockInitStruct->USART_CPHA));
+ 299:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_LASTBIT(USART_ClockInitStruct->USART_LastBit));
+ 300:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 301:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /*---------------------------- USART CTRL2 Configuration -----------------------*/
+ 302:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   tmpreg = USARTx->CTRL2;
+ 374              		.loc 1 302 0
+ 375 0002 028A     		ldrh	r2, [r0, #16]
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 13
+
+
+ 376 0004 92B2     		uxth	r2, r2
+ 377              	.LVL56:
+ 303:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Clear CLKEN, CPOL, CPHA and LBCL bits */
+ 304:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   tmpreg &= CTRL2_CLOCK_CLEAR_Mask;
+ 305:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Configure the USART Clock, CPOL, CPHA and LastBit ------------*/
+ 306:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Set CLKEN bit according to USART_Clock value */
+ 307:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Set CPOL bit according to USART_CPOL value */
+ 308:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Set CPHA bit according to USART_CPHA value */
+ 309:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Set LBCL bit according to USART_LastBit value */
+ 310:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   tmpreg |= (uint32_t)USART_ClockInitStruct->USART_Clock | USART_ClockInitStruct->USART_CPOL |
+ 378              		.loc 1 310 0
+ 379 0006 0D88     		ldrh	r5, [r1]
+ 380 0008 4E88     		ldrh	r6, [r1, #2]
+ 311:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****             USART_ClockInitStruct->USART_CPHA | USART_ClockInitStruct->USART_LastBit;
+ 381              		.loc 1 311 0
+ 382 000a 8C88     		ldrh	r4, [r1, #4]
+ 383 000c CB88     		ldrh	r3, [r1, #6]
+ 384 000e 45EA0601 		orr	r1, r5, r6
+ 385              	.LVL57:
+ 386 0012 2143     		orrs	r1, r1, r4
+ 387 0014 0B43     		orrs	r3, r3, r1
+ 388 0016 22F47062 		bic	r2, r2, #3840
+ 389              	.LVL58:
+ 390 001a 1343     		orrs	r3, r3, r2
+ 391              	.LVL59:
+ 312:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Write to USART CTRL2 */
+ 313:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   USARTx->CTRL2 = (uint16_t)tmpreg;
+ 392              		.loc 1 313 0
+ 393 001c 0382     		strh	r3, [r0, #16]	@ movhi
+ 314:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** }
+ 394              		.loc 1 314 0
+ 395 001e 70BC     		pop	{r4, r5, r6}
+ 396              	.LCFI6:
+ 397              		.cfi_restore 6
+ 398              		.cfi_restore 5
+ 399              		.cfi_restore 4
+ 400              		.cfi_def_cfa_offset 0
+ 401 0020 7047     		bx	lr
+ 402              		.cfi_endproc
+ 403              	.LFE126:
+ 405              		.section	.text.USART_ClockStructInit,"ax",%progbits
+ 406              		.align	1
+ 407              		.global	USART_ClockStructInit
+ 408              		.syntax unified
+ 409              		.thumb
+ 410              		.thumb_func
+ 411              		.fpu fpv4-sp-d16
+ 413              	USART_ClockStructInit:
+ 414              	.LFB127:
+ 315:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 316:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /**
+ 317:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @brief  Fills each USART_ClockInitStruct member with its default value.
+ 318:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USART_ClockInitStruct: pointer to a USART_ClockInitType
+ 319:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *         structure which will be initialized.
+ 320:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @retval None
+ 321:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+ 322:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** void USART_ClockStructInit(USART_ClockInitType* USART_ClockInitStruct)
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 14
+
+
+ 323:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** {
+ 415              		.loc 1 323 0
+ 416              		.cfi_startproc
+ 417              		@ args = 0, pretend = 0, frame = 0
+ 418              		@ frame_needed = 0, uses_anonymous_args = 0
+ 419              		@ link register save eliminated.
+ 420              	.LVL60:
+ 324:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* USART_ClockInitStruct members default value */
+ 325:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   USART_ClockInitStruct->USART_Clock = USART_Clock_Disable;
+ 421              		.loc 1 325 0
+ 422 0000 0023     		movs	r3, #0
+ 423 0002 0380     		strh	r3, [r0]	@ movhi
+ 326:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   USART_ClockInitStruct->USART_CPOL = USART_CPOL_Low;
+ 424              		.loc 1 326 0
+ 425 0004 4380     		strh	r3, [r0, #2]	@ movhi
+ 327:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   USART_ClockInitStruct->USART_CPHA = USART_CPHA_1Edge;
+ 426              		.loc 1 327 0
+ 427 0006 8380     		strh	r3, [r0, #4]	@ movhi
+ 328:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   USART_ClockInitStruct->USART_LastBit = USART_LastBit_Disable;
+ 428              		.loc 1 328 0
+ 429 0008 C380     		strh	r3, [r0, #6]	@ movhi
+ 329:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** }
+ 430              		.loc 1 329 0
+ 431 000a 7047     		bx	lr
+ 432              		.cfi_endproc
+ 433              	.LFE127:
+ 435              		.section	.text.USART_Cmd,"ax",%progbits
+ 436              		.align	1
+ 437              		.global	USART_Cmd
+ 438              		.syntax unified
+ 439              		.thumb
+ 440              		.thumb_func
+ 441              		.fpu fpv4-sp-d16
+ 443              	USART_Cmd:
+ 444              	.LFB128:
+ 330:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 331:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /**
+ 332:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @brief  Enables or disables the specified USART peripheral.
+ 333:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USARTx: Select the USART or the UART peripheral.
+ 334:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *         This parameter can be one of the following values:
+ 335:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *           USART1, USART2, USART3, UART4 or UART5.
+ 336:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  NewState: new state of the USARTx peripheral.
+ 337:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *         This parameter can be: ENABLE or DISABLE.
+ 338:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @retval None
+ 339:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+ 340:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** void USART_Cmd(USART_Type* USARTx, FunctionalState NewState)
+ 341:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** {
+ 445              		.loc 1 341 0
+ 446              		.cfi_startproc
+ 447              		@ args = 0, pretend = 0, frame = 0
+ 448              		@ frame_needed = 0, uses_anonymous_args = 0
+ 449              		@ link register save eliminated.
+ 450              	.LVL61:
+ 342:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Check the parameters */
+ 343:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_ALL_PERIPH(USARTx));
+ 344:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
+ 345:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 15
+
+
+ 346:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   if (NewState != DISABLE)
+ 451              		.loc 1 346 0
+ 452 0000 31B9     		cbnz	r1, .L35
+ 347:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 348:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     /* Enable the selected USART by setting the UE bit in the CTRL1 register */
+ 349:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     USARTx->CTRL1 |= CTRL1_UEN_Set;
+ 350:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 351:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   else
+ 352:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 353:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     /* Disable the selected USART by clearing the UE bit in the CTRL1 register */
+ 354:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     USARTx->CTRL1 &= CTRL1_UEN_Reset;
+ 453              		.loc 1 354 0
+ 454 0002 8389     		ldrh	r3, [r0, #12]
+ 455 0004 9BB2     		uxth	r3, r3
+ 456 0006 23F40053 		bic	r3, r3, #8192
+ 457 000a 9BB2     		uxth	r3, r3
+ 458 000c 8381     		strh	r3, [r0, #12]	@ movhi
+ 355:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 356:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** }
+ 459              		.loc 1 356 0
+ 460 000e 7047     		bx	lr
+ 461              	.L35:
+ 349:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 462              		.loc 1 349 0
+ 463 0010 8389     		ldrh	r3, [r0, #12]
+ 464 0012 43F40053 		orr	r3, r3, #8192
+ 465 0016 8381     		strh	r3, [r0, #12]	@ movhi
+ 466 0018 7047     		bx	lr
+ 467              		.cfi_endproc
+ 468              	.LFE128:
+ 470              		.section	.text.USART_INTConfig,"ax",%progbits
+ 471              		.align	1
+ 472              		.global	USART_INTConfig
+ 473              		.syntax unified
+ 474              		.thumb
+ 475              		.thumb_func
+ 476              		.fpu fpv4-sp-d16
+ 478              	USART_INTConfig:
+ 479              	.LFB129:
+ 357:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 358:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /**
+ 359:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @brief  Enables or disables the specified USART interrupts.
+ 360:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USARTx: Select the USART or the UART peripheral.
+ 361:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be one of the following values:
+ 362:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   USART1, USART2, USART3, UART4 or UART5.
+ 363:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USART_INT: specifies the USART interrupt sources to be enabled or disabled.
+ 364:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be one of the following values:
+ 365:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_INT_CTSF:  CTS change interrupt (not available for UART4 and UART5)
+ 366:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_INT_LBDF:  LIN Break detection interrupt
+ 367:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_INT_TDE:  Transmit Data Register empty interrupt
+ 368:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_INT_TRAC:   Transmission complete interrupt
+ 369:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_INT_RDNE: Receive Data register not empty interrupt
+ 370:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_INT_IDLEF: Idle line detection interrupt
+ 371:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_INT_PERR:   Parity Error interrupt
+ 372:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_INT_ERR:  Error interrupt(Frame error, noise error, overrun error)
+ 373:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  NewState: new state of the specified USARTx interrupts.
+ 374:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be: ENABLE or DISABLE.
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 16
+
+
+ 375:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @retval None
+ 376:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+ 377:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** void USART_INTConfig(USART_Type* USARTx, uint16_t USART_INT, FunctionalState NewState)
+ 378:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** {
+ 480              		.loc 1 378 0
+ 481              		.cfi_startproc
+ 482              		@ args = 0, pretend = 0, frame = 0
+ 483              		@ frame_needed = 0, uses_anonymous_args = 0
+ 484              		@ link register save eliminated.
+ 485              	.LVL62:
+ 486 0000 10B4     		push	{r4}
+ 487              	.LCFI7:
+ 488              		.cfi_def_cfa_offset 4
+ 489              		.cfi_offset 4, -4
+ 490              	.LVL63:
+ 379:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   uint32_t usartreg = 0x00, itpos = 0x00, itmask = 0x00;
+ 380:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   uint32_t usartxbase = 0x00;
+ 381:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Check the parameters */
+ 382:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_ALL_PERIPH(USARTx));
+ 383:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_CONFIG_INT(USART_INT));
+ 384:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
+ 385:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 386:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* The CTS interrupt is not available for UART4 and UART5 */
+ 387:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   if (USART_INT == USART_INT_CTSF)
+ 388:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 389:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     assert_param(IS_USART_123_PERIPH(USARTx));
+ 390:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 391:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 392:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   usartxbase = (uint32_t)USARTx;
+ 393:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 394:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Get the USART register index */
+ 395:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   usartreg = (((uint8_t)USART_INT) >> 0x05);
+ 491              		.loc 1 395 0
+ 492 0002 C1F34214 		ubfx	r4, r1, #5, #3
+ 493              	.LVL64:
+ 396:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 397:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Get the interrupt position */
+ 398:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   itpos = USART_INT & INT_Mask;
+ 494              		.loc 1 398 0
+ 495 0006 01F01F01 		and	r1, r1, #31
+ 496              	.LVL65:
+ 399:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   itmask = (((uint32_t)0x01) << itpos);
+ 497              		.loc 1 399 0
+ 498 000a 0123     		movs	r3, #1
+ 499 000c 03FA01F1 		lsl	r1, r3, r1
+ 500              	.LVL66:
+ 400:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 401:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   if (usartreg == 0x01) /* The INT is in CTRL1 register */
+ 501              		.loc 1 401 0
+ 502 0010 9C42     		cmp	r4, r3
+ 503 0012 0AD0     		beq	.L43
+ 402:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 403:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     usartxbase += 0x0C;
+ 404:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 405:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   else if (usartreg == 0x02) /* The INT is in CTRL2 register */
+ 504              		.loc 1 405 0
+ 505 0014 022C     		cmp	r4, #2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 17
+
+
+ 506 0016 0AD0     		beq	.L44
+ 406:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 407:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     usartxbase += 0x10;
+ 408:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 409:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   else /* The INT is in CR3 register */
+ 410:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 411:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     usartxbase += 0x14;
+ 507              		.loc 1 411 0
+ 508 0018 1430     		adds	r0, r0, #20
+ 509              	.LVL67:
+ 510              	.L38:
+ 412:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 413:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 414:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   if (NewState != DISABLE)
+ 511              		.loc 1 414 0
+ 512 001a 52B9     		cbnz	r2, .L45
+ 415:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 416:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     *(__IO uint32_t*)usartxbase  |= itmask;
+ 417:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 418:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   else
+ 419:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 420:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     *(__IO uint32_t*)usartxbase &= ~itmask;
+ 513              		.loc 1 420 0
+ 514 001c 0368     		ldr	r3, [r0]
+ 515 001e 23EA0101 		bic	r1, r3, r1
+ 516              	.LVL68:
+ 517 0022 0160     		str	r1, [r0]
+ 518              	.L36:
+ 421:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 422:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** }
+ 519              		.loc 1 422 0
+ 520 0024 5DF8044B 		ldr	r4, [sp], #4
+ 521              	.LCFI8:
+ 522              		.cfi_remember_state
+ 523              		.cfi_restore 4
+ 524              		.cfi_def_cfa_offset 0
+ 525              	.LVL69:
+ 526 0028 7047     		bx	lr
+ 527              	.LVL70:
+ 528              	.L43:
+ 529              	.LCFI9:
+ 530              		.cfi_restore_state
+ 403:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 531              		.loc 1 403 0
+ 532 002a 0C30     		adds	r0, r0, #12
+ 533              	.LVL71:
+ 534 002c F5E7     		b	.L38
+ 535              	.LVL72:
+ 536              	.L44:
+ 407:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 537              		.loc 1 407 0
+ 538 002e 1030     		adds	r0, r0, #16
+ 539              	.LVL73:
+ 540 0030 F3E7     		b	.L38
+ 541              	.LVL74:
+ 542              	.L45:
+ 416:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 18
+
+
+ 543              		.loc 1 416 0
+ 544 0032 0368     		ldr	r3, [r0]
+ 545 0034 1943     		orrs	r1, r1, r3
+ 546              	.LVL75:
+ 547 0036 0160     		str	r1, [r0]
+ 548 0038 F4E7     		b	.L36
+ 549              		.cfi_endproc
+ 550              	.LFE129:
+ 552              		.section	.text.USART_DMACmd,"ax",%progbits
+ 553              		.align	1
+ 554              		.global	USART_DMACmd
+ 555              		.syntax unified
+ 556              		.thumb
+ 557              		.thumb_func
+ 558              		.fpu fpv4-sp-d16
+ 560              	USART_DMACmd:
+ 561              	.LFB130:
+ 423:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 424:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /**
+ 425:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @brief  Enables or disables the USART's DMA interface.
+ 426:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USARTx: Select the USART or the UART peripheral.
+ 427:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be one of the following values:
+ 428:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   USART1, USART2, USART3, UART4 or UART5.
+ 429:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USART_DMAReq: specifies the DMA request.
+ 430:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be any combination of the following values:
+ 431:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_DMAReq_Tx: USART DMA transmit request
+ 432:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_DMAReq_Rx: USART DMA receive request
+ 433:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  NewState: new state of the DMA Request sources.
+ 434:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be: ENABLE or DISABLE.
+ 435:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @retval None
+ 436:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+ 437:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** void USART_DMACmd(USART_Type* USARTx, uint16_t USART_DMAReq, FunctionalState NewState)
+ 438:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** {
+ 562              		.loc 1 438 0
+ 563              		.cfi_startproc
+ 564              		@ args = 0, pretend = 0, frame = 0
+ 565              		@ frame_needed = 0, uses_anonymous_args = 0
+ 566              		@ link register save eliminated.
+ 567              	.LVL76:
+ 439:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Check the parameters */
+ 440:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_ALL_PERIPH(USARTx));
+ 441:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_DMAREQ(USART_DMAReq));
+ 442:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
+ 443:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 444:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   if (NewState != DISABLE)
+ 568              		.loc 1 444 0
+ 569 0000 22B9     		cbnz	r2, .L49
+ 445:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 446:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     /* Enable the DMA transfer for selected requests by setting the DMAT and/or
+ 447:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****        DMAR bits in the USART CR3 register */
+ 448:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     USARTx->CTRL3 |= USART_DMAReq;
+ 449:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 450:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   else
+ 451:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 452:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     /* Disable the DMA transfer for selected requests by clearing the DMAT and/or
+ 453:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****        DMAR bits in the USART CR3 register */
+ 454:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     USARTx->CTRL3 &= (uint16_t)~USART_DMAReq;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 19
+
+
+ 570              		.loc 1 454 0
+ 571 0002 838A     		ldrh	r3, [r0, #20]
+ 572 0004 23EA0101 		bic	r1, r3, r1
+ 573              	.LVL77:
+ 574 0008 8182     		strh	r1, [r0, #20]	@ movhi
+ 455:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 456:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** }
+ 575              		.loc 1 456 0
+ 576 000a 7047     		bx	lr
+ 577              	.LVL78:
+ 578              	.L49:
+ 448:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 579              		.loc 1 448 0
+ 580 000c 838A     		ldrh	r3, [r0, #20]
+ 581 000e 1943     		orrs	r1, r1, r3
+ 582              	.LVL79:
+ 583 0010 8182     		strh	r1, [r0, #20]	@ movhi
+ 584 0012 7047     		bx	lr
+ 585              		.cfi_endproc
+ 586              	.LFE130:
+ 588              		.section	.text.USART_SetAddress,"ax",%progbits
+ 589              		.align	1
+ 590              		.global	USART_SetAddress
+ 591              		.syntax unified
+ 592              		.thumb
+ 593              		.thumb_func
+ 594              		.fpu fpv4-sp-d16
+ 596              	USART_SetAddress:
+ 597              	.LFB131:
+ 457:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 458:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /**
+ 459:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @brief  Sets the address of the USART node.
+ 460:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USARTx: Select the USART or the UART peripheral.
+ 461:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be one of the following values:
+ 462:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   USART1, USART2, USART3, UART4 or UART5.
+ 463:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USART_Address: Indicates the address of the USART node.
+ 464:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @retval None
+ 465:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+ 466:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** void USART_SetAddress(USART_Type* USARTx, uint8_t USART_Address)
+ 467:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** {
+ 598              		.loc 1 467 0
+ 599              		.cfi_startproc
+ 600              		@ args = 0, pretend = 0, frame = 0
+ 601              		@ frame_needed = 0, uses_anonymous_args = 0
+ 602              		@ link register save eliminated.
+ 603              	.LVL80:
+ 468:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Check the parameters */
+ 469:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_ALL_PERIPH(USARTx));
+ 470:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_ADDRESS(USART_Address));
+ 471:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 472:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Clear the USART address */
+ 473:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   USARTx->CTRL2 &= CTRL2_ADDRESS_Mask;
+ 604              		.loc 1 473 0
+ 605 0000 038A     		ldrh	r3, [r0, #16]
+ 606 0002 9BB2     		uxth	r3, r3
+ 607 0004 23F00F03 		bic	r3, r3, #15
+ 608 0008 9BB2     		uxth	r3, r3
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 20
+
+
+ 609 000a 0382     		strh	r3, [r0, #16]	@ movhi
+ 474:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Set the USART address node */
+ 475:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   USARTx->CTRL2 |= USART_Address;
+ 610              		.loc 1 475 0
+ 611 000c 038A     		ldrh	r3, [r0, #16]
+ 612 000e 1943     		orrs	r1, r1, r3
+ 613              	.LVL81:
+ 614 0010 0182     		strh	r1, [r0, #16]	@ movhi
+ 476:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** }
+ 615              		.loc 1 476 0
+ 616 0012 7047     		bx	lr
+ 617              		.cfi_endproc
+ 618              	.LFE131:
+ 620              		.section	.text.USART_WakeUpConfig,"ax",%progbits
+ 621              		.align	1
+ 622              		.global	USART_WakeUpConfig
+ 623              		.syntax unified
+ 624              		.thumb
+ 625              		.thumb_func
+ 626              		.fpu fpv4-sp-d16
+ 628              	USART_WakeUpConfig:
+ 629              	.LFB132:
+ 477:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 478:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /**
+ 479:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @brief  Selects the USART WakeUp method.
+ 480:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USARTx: Select the USART or the UART peripheral.
+ 481:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be one of the following values:
+ 482:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   USART1, USART2, USART3, UART4 or UART5.
+ 483:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USART_WakeUp: specifies the USART wakeup method.
+ 484:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be one of the following values:
+ 485:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_WakeUp_IdleLine: WakeUp by an idle line detection
+ 486:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_WakeUp_AddressMark: WakeUp by an address mark
+ 487:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @retval None
+ 488:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+ 489:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** void USART_WakeUpConfig(USART_Type* USARTx, uint16_t USART_WakeUp)
+ 490:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** {
+ 630              		.loc 1 490 0
+ 631              		.cfi_startproc
+ 632              		@ args = 0, pretend = 0, frame = 0
+ 633              		@ frame_needed = 0, uses_anonymous_args = 0
+ 634              		@ link register save eliminated.
+ 635              	.LVL82:
+ 491:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Check the parameters */
+ 492:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_ALL_PERIPH(USARTx));
+ 493:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_WAKEUP(USART_WakeUp));
+ 494:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 495:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   USARTx->CTRL1 &= CTRL1_WUMODE_Mask;
+ 636              		.loc 1 495 0
+ 637 0000 8389     		ldrh	r3, [r0, #12]
+ 638 0002 9BB2     		uxth	r3, r3
+ 639 0004 23F40063 		bic	r3, r3, #2048
+ 640 0008 9BB2     		uxth	r3, r3
+ 641 000a 8381     		strh	r3, [r0, #12]	@ movhi
+ 496:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   USARTx->CTRL1 |= USART_WakeUp;
+ 642              		.loc 1 496 0
+ 643 000c 8389     		ldrh	r3, [r0, #12]
+ 644 000e 1943     		orrs	r1, r1, r3
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 21
+
+
+ 645              	.LVL83:
+ 646 0010 8181     		strh	r1, [r0, #12]	@ movhi
+ 497:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** }
+ 647              		.loc 1 497 0
+ 648 0012 7047     		bx	lr
+ 649              		.cfi_endproc
+ 650              	.LFE132:
+ 652              		.section	.text.USART_ReceiverWakeUpCmd,"ax",%progbits
+ 653              		.align	1
+ 654              		.global	USART_ReceiverWakeUpCmd
+ 655              		.syntax unified
+ 656              		.thumb
+ 657              		.thumb_func
+ 658              		.fpu fpv4-sp-d16
+ 660              	USART_ReceiverWakeUpCmd:
+ 661              	.LFB133:
+ 498:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 499:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /**
+ 500:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @brief  Determines if the USART is in mute mode or not.
+ 501:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USARTx: Select the USART or the UART peripheral.
+ 502:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be one of the following values:
+ 503:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   USART1, USART2, USART3, UART4 or UART5.
+ 504:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  NewState: new state of the USART mute mode.
+ 505:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be: ENABLE or DISABLE.
+ 506:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @retval None
+ 507:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+ 508:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** void USART_ReceiverWakeUpCmd(USART_Type* USARTx, FunctionalState NewState)
+ 509:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** {
+ 662              		.loc 1 509 0
+ 663              		.cfi_startproc
+ 664              		@ args = 0, pretend = 0, frame = 0
+ 665              		@ frame_needed = 0, uses_anonymous_args = 0
+ 666              		@ link register save eliminated.
+ 667              	.LVL84:
+ 510:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Check the parameters */
+ 511:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_ALL_PERIPH(USARTx));
+ 512:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
+ 513:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 514:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   if (NewState != DISABLE)
+ 668              		.loc 1 514 0
+ 669 0000 31B9     		cbnz	r1, .L55
+ 515:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 516:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     /* Enable the USART mute mode  by setting the RWU bit in the CTRL1 register */
+ 517:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     USARTx->CTRL1 |= CTRL1_RECMUTE_Set;
+ 518:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 519:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   else
+ 520:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 521:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     /* Disable the USART mute mode by clearing the RWU bit in the CTRL1 register */
+ 522:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     USARTx->CTRL1 &= CTRL1_RECMUTE_Reset;
+ 670              		.loc 1 522 0
+ 671 0002 8389     		ldrh	r3, [r0, #12]
+ 672 0004 9BB2     		uxth	r3, r3
+ 673 0006 23F00203 		bic	r3, r3, #2
+ 674 000a 9BB2     		uxth	r3, r3
+ 675 000c 8381     		strh	r3, [r0, #12]	@ movhi
+ 523:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 524:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** }
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 22
+
+
+ 676              		.loc 1 524 0
+ 677 000e 7047     		bx	lr
+ 678              	.L55:
+ 517:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 679              		.loc 1 517 0
+ 680 0010 8389     		ldrh	r3, [r0, #12]
+ 681 0012 43F00203 		orr	r3, r3, #2
+ 682 0016 8381     		strh	r3, [r0, #12]	@ movhi
+ 683 0018 7047     		bx	lr
+ 684              		.cfi_endproc
+ 685              	.LFE133:
+ 687              		.section	.text.USART_LINBreakDetectLengthConfig,"ax",%progbits
+ 688              		.align	1
+ 689              		.global	USART_LINBreakDetectLengthConfig
+ 690              		.syntax unified
+ 691              		.thumb
+ 692              		.thumb_func
+ 693              		.fpu fpv4-sp-d16
+ 695              	USART_LINBreakDetectLengthConfig:
+ 696              	.LFB134:
+ 525:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 526:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /**
+ 527:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @brief  Sets the USART LIN Break detection length.
+ 528:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USARTx: Select the USART or the UART peripheral.
+ 529:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be one of the following values:
+ 530:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   USART1, USART2, USART3, UART4 or UART5.
+ 531:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USART_LINBreakDetectLength: specifies the LIN break detection length.
+ 532:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be one of the following values:
+ 533:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_LINBreakDetectLength_10b: 10-bit break detection
+ 534:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_LINBreakDetectLength_11b: 11-bit break detection
+ 535:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @retval None
+ 536:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+ 537:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** void USART_LINBreakDetectLengthConfig(USART_Type* USARTx, uint16_t USART_LINBreakDetectLength)
+ 538:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** {
+ 697              		.loc 1 538 0
+ 698              		.cfi_startproc
+ 699              		@ args = 0, pretend = 0, frame = 0
+ 700              		@ frame_needed = 0, uses_anonymous_args = 0
+ 701              		@ link register save eliminated.
+ 702              	.LVL85:
+ 539:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Check the parameters */
+ 540:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_ALL_PERIPH(USARTx));
+ 541:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_LIN_BREAK_DETECT_LENGTH(USART_LINBreakDetectLength));
+ 542:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 543:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   USARTx->CTRL2 &= CTRL2_LBDLEN_Mask;
+ 703              		.loc 1 543 0
+ 704 0000 038A     		ldrh	r3, [r0, #16]
+ 705 0002 9BB2     		uxth	r3, r3
+ 706 0004 23F02003 		bic	r3, r3, #32
+ 707 0008 9BB2     		uxth	r3, r3
+ 708 000a 0382     		strh	r3, [r0, #16]	@ movhi
+ 544:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   USARTx->CTRL2 |= USART_LINBreakDetectLength;
+ 709              		.loc 1 544 0
+ 710 000c 038A     		ldrh	r3, [r0, #16]
+ 711 000e 1943     		orrs	r1, r1, r3
+ 712              	.LVL86:
+ 713 0010 0182     		strh	r1, [r0, #16]	@ movhi
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 23
+
+
+ 545:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** }
+ 714              		.loc 1 545 0
+ 715 0012 7047     		bx	lr
+ 716              		.cfi_endproc
+ 717              	.LFE134:
+ 719              		.section	.text.USART_LINCmd,"ax",%progbits
+ 720              		.align	1
+ 721              		.global	USART_LINCmd
+ 722              		.syntax unified
+ 723              		.thumb
+ 724              		.thumb_func
+ 725              		.fpu fpv4-sp-d16
+ 727              	USART_LINCmd:
+ 728              	.LFB135:
+ 546:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 547:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /**
+ 548:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @brief  Enables or disables the USART’s LIN mode.
+ 549:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USARTx: Select the USART or the UART peripheral.
+ 550:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be one of the following values:
+ 551:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   USART1, USART2, USART3, UART4 or UART5.
+ 552:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  NewState: new state of the USART LIN mode.
+ 553:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be: ENABLE or DISABLE.
+ 554:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @retval None
+ 555:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+ 556:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** void USART_LINCmd(USART_Type* USARTx, FunctionalState NewState)
+ 557:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** {
+ 729              		.loc 1 557 0
+ 730              		.cfi_startproc
+ 731              		@ args = 0, pretend = 0, frame = 0
+ 732              		@ frame_needed = 0, uses_anonymous_args = 0
+ 733              		@ link register save eliminated.
+ 734              	.LVL87:
+ 558:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Check the parameters */
+ 559:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_ALL_PERIPH(USARTx));
+ 560:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
+ 561:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 562:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   if (NewState != DISABLE)
+ 735              		.loc 1 562 0
+ 736 0000 31B9     		cbnz	r1, .L60
+ 563:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 564:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     /* Enable the LIN mode by setting the LINEN bit in the CTRL2 register */
+ 565:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     USARTx->CTRL2 |= CTRL2_LINEN_Set;
+ 566:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 567:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   else
+ 568:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 569:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     /* Disable the LIN mode by clearing the LINEN bit in the CTRL2 register */
+ 570:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     USARTx->CTRL2 &= CTRL2_LINEN_Reset;
+ 737              		.loc 1 570 0
+ 738 0002 038A     		ldrh	r3, [r0, #16]
+ 739 0004 9BB2     		uxth	r3, r3
+ 740 0006 23F48043 		bic	r3, r3, #16384
+ 741 000a 9BB2     		uxth	r3, r3
+ 742 000c 0382     		strh	r3, [r0, #16]	@ movhi
+ 571:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 572:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** }
+ 743              		.loc 1 572 0
+ 744 000e 7047     		bx	lr
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 24
+
+
+ 745              	.L60:
+ 565:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 746              		.loc 1 565 0
+ 747 0010 038A     		ldrh	r3, [r0, #16]
+ 748 0012 43F48043 		orr	r3, r3, #16384
+ 749 0016 0382     		strh	r3, [r0, #16]	@ movhi
+ 750 0018 7047     		bx	lr
+ 751              		.cfi_endproc
+ 752              	.LFE135:
+ 754              		.section	.text.USART_SendData,"ax",%progbits
+ 755              		.align	1
+ 756              		.global	USART_SendData
+ 757              		.syntax unified
+ 758              		.thumb
+ 759              		.thumb_func
+ 760              		.fpu fpv4-sp-d16
+ 762              	USART_SendData:
+ 763              	.LFB136:
+ 573:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 574:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /**
+ 575:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @brief  Transmits single data through the USARTx peripheral.
+ 576:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USARTx: Select the USART or the UART peripheral.
+ 577:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be one of the following values:
+ 578:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   USART1, USART2, USART3, UART4 or UART5.
+ 579:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  Data: the data to transmit.
+ 580:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @retval None
+ 581:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+ 582:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** void USART_SendData(USART_Type* USARTx, uint16_t Data)
+ 583:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** {
+ 764              		.loc 1 583 0
+ 765              		.cfi_startproc
+ 766              		@ args = 0, pretend = 0, frame = 0
+ 767              		@ frame_needed = 0, uses_anonymous_args = 0
+ 768              		@ link register save eliminated.
+ 769              	.LVL88:
+ 584:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Check the parameters */
+ 585:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_ALL_PERIPH(USARTx));
+ 586:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_DATA(Data));
+ 587:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 588:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Transmit Data */
+ 589:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   USARTx->DT = (Data & (uint16_t)0x01FF);
+ 770              		.loc 1 589 0
+ 771 0000 C1F30801 		ubfx	r1, r1, #0, #9
+ 772              	.LVL89:
+ 773 0004 8180     		strh	r1, [r0, #4]	@ movhi
+ 590:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** }
+ 774              		.loc 1 590 0
+ 775 0006 7047     		bx	lr
+ 776              		.cfi_endproc
+ 777              	.LFE136:
+ 779              		.section	.text.USART_ReceiveData,"ax",%progbits
+ 780              		.align	1
+ 781              		.global	USART_ReceiveData
+ 782              		.syntax unified
+ 783              		.thumb
+ 784              		.thumb_func
+ 785              		.fpu fpv4-sp-d16
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 25
+
+
+ 787              	USART_ReceiveData:
+ 788              	.LFB137:
+ 591:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 592:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /**
+ 593:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @brief  Returns the most recent received data by the USARTx peripheral.
+ 594:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USARTx: Select the USART or the UART peripheral.
+ 595:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be one of the following values:
+ 596:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   USART1, USART2, USART3, UART4 or UART5.
+ 597:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @retval The received data.
+ 598:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+ 599:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** uint16_t USART_ReceiveData(USART_Type* USARTx)
+ 600:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** {
+ 789              		.loc 1 600 0
+ 790              		.cfi_startproc
+ 791              		@ args = 0, pretend = 0, frame = 0
+ 792              		@ frame_needed = 0, uses_anonymous_args = 0
+ 793              		@ link register save eliminated.
+ 794              	.LVL90:
+ 601:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Check the parameters */
+ 602:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_ALL_PERIPH(USARTx));
+ 603:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 604:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Receive Data */
+ 605:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   return (uint16_t)(USARTx->DT & (uint16_t)0x01FF);
+ 795              		.loc 1 605 0
+ 796 0000 8088     		ldrh	r0, [r0, #4]
+ 797              	.LVL91:
+ 606:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** }
+ 798              		.loc 1 606 0
+ 799 0002 C0F30800 		ubfx	r0, r0, #0, #9
+ 800 0006 7047     		bx	lr
+ 801              		.cfi_endproc
+ 802              	.LFE137:
+ 804              		.section	.text.USART_SendBreak,"ax",%progbits
+ 805              		.align	1
+ 806              		.global	USART_SendBreak
+ 807              		.syntax unified
+ 808              		.thumb
+ 809              		.thumb_func
+ 810              		.fpu fpv4-sp-d16
+ 812              	USART_SendBreak:
+ 813              	.LFB138:
+ 607:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 608:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /**
+ 609:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @brief  Transmits break characters.
+ 610:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USARTx: Select the USART or the UART peripheral.
+ 611:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be one of the following values:
+ 612:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   USART1, USART2, USART3, UART4 or UART5.
+ 613:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @retval None
+ 614:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+ 615:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** void USART_SendBreak(USART_Type* USARTx)
+ 616:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** {
+ 814              		.loc 1 616 0
+ 815              		.cfi_startproc
+ 816              		@ args = 0, pretend = 0, frame = 0
+ 817              		@ frame_needed = 0, uses_anonymous_args = 0
+ 818              		@ link register save eliminated.
+ 819              	.LVL92:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 26
+
+
+ 617:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Check the parameters */
+ 618:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_ALL_PERIPH(USARTx));
+ 619:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 620:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Send break characters */
+ 621:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   USARTx->CTRL1 |= CTRL1_SBRK_Set;
+ 820              		.loc 1 621 0
+ 821 0000 8389     		ldrh	r3, [r0, #12]
+ 822 0002 43F00103 		orr	r3, r3, #1
+ 823 0006 8381     		strh	r3, [r0, #12]	@ movhi
+ 622:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** }
+ 824              		.loc 1 622 0
+ 825 0008 7047     		bx	lr
+ 826              		.cfi_endproc
+ 827              	.LFE138:
+ 829              		.section	.text.USART_SetGuardTime,"ax",%progbits
+ 830              		.align	1
+ 831              		.global	USART_SetGuardTime
+ 832              		.syntax unified
+ 833              		.thumb
+ 834              		.thumb_func
+ 835              		.fpu fpv4-sp-d16
+ 837              	USART_SetGuardTime:
+ 838              	.LFB139:
+ 623:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 624:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /**
+ 625:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @brief  Sets the specified USART guard time.
+ 626:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USARTx: where x can be 1, 2 or 3 to select the USART peripheral.
+ 627:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USART_GuardTime: specifies the guard time.
+ 628:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @note The guard time bits are not available for UART4 and UART5.
+ 629:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @retval None
+ 630:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+ 631:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** void USART_SetGuardTime(USART_Type* USARTx, uint8_t USART_GuardTime)
+ 632:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** {
+ 839              		.loc 1 632 0
+ 840              		.cfi_startproc
+ 841              		@ args = 0, pretend = 0, frame = 0
+ 842              		@ frame_needed = 0, uses_anonymous_args = 0
+ 843              		@ link register save eliminated.
+ 844              	.LVL93:
+ 633:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Check the parameters */
+ 634:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_123_PERIPH(USARTx));
+ 635:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 636:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Clear the USART Guard time */
+ 637:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   USARTx->GTP &= GTPR_LSB_Mask;
+ 845              		.loc 1 637 0
+ 846 0000 038B     		ldrh	r3, [r0, #24]
+ 847 0002 DBB2     		uxtb	r3, r3
+ 848 0004 0383     		strh	r3, [r0, #24]	@ movhi
+ 638:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Set the USART guard time */
+ 639:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   USARTx->GTP |= (uint16_t)((uint16_t)USART_GuardTime << 0x08);
+ 849              		.loc 1 639 0
+ 850 0006 038B     		ldrh	r3, [r0, #24]
+ 851 0008 43EA0121 		orr	r1, r3, r1, lsl #8
+ 852              	.LVL94:
+ 853 000c 0183     		strh	r1, [r0, #24]	@ movhi
+ 640:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** }
+ 854              		.loc 1 640 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 27
+
+
+ 855 000e 7047     		bx	lr
+ 856              		.cfi_endproc
+ 857              	.LFE139:
+ 859              		.section	.text.USART_SetPrescaler,"ax",%progbits
+ 860              		.align	1
+ 861              		.global	USART_SetPrescaler
+ 862              		.syntax unified
+ 863              		.thumb
+ 864              		.thumb_func
+ 865              		.fpu fpv4-sp-d16
+ 867              	USART_SetPrescaler:
+ 868              	.LFB140:
+ 641:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 642:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /**
+ 643:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @brief  Sets the system clock prescaler.
+ 644:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USARTx: Select the USART or the UART peripheral.
+ 645:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be one of the following values:
+ 646:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   USART1, USART2, USART3, UART4 or UART5.
+ 647:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USART_Prescaler: specifies the prescaler clock.
+ 648:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @note   The function is used for IrDA mode with UART4 and UART5.
+ 649:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @retval None
+ 650:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+ 651:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** void USART_SetPrescaler(USART_Type* USARTx, uint8_t USART_Prescaler)
+ 652:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** {
+ 869              		.loc 1 652 0
+ 870              		.cfi_startproc
+ 871              		@ args = 0, pretend = 0, frame = 0
+ 872              		@ frame_needed = 0, uses_anonymous_args = 0
+ 873              		@ link register save eliminated.
+ 874              	.LVL95:
+ 653:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Check the parameters */
+ 654:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_ALL_PERIPH(USARTx));
+ 655:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 656:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Clear the USART prescaler */
+ 657:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   USARTx->GTP &= GTPR_MSB_Mask;
+ 875              		.loc 1 657 0
+ 876 0000 038B     		ldrh	r3, [r0, #24]
+ 877 0002 03F47F43 		and	r3, r3, #65280
+ 878 0006 0383     		strh	r3, [r0, #24]	@ movhi
+ 658:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Set the USART prescaler */
+ 659:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   USARTx->GTP |= USART_Prescaler;
+ 879              		.loc 1 659 0
+ 880 0008 038B     		ldrh	r3, [r0, #24]
+ 881 000a 1943     		orrs	r1, r1, r3
+ 882              	.LVL96:
+ 883 000c 0183     		strh	r1, [r0, #24]	@ movhi
+ 660:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** }
+ 884              		.loc 1 660 0
+ 885 000e 7047     		bx	lr
+ 886              		.cfi_endproc
+ 887              	.LFE140:
+ 889              		.section	.text.USART_SmartCardCmd,"ax",%progbits
+ 890              		.align	1
+ 891              		.global	USART_SmartCardCmd
+ 892              		.syntax unified
+ 893              		.thumb
+ 894              		.thumb_func
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 28
+
+
+ 895              		.fpu fpv4-sp-d16
+ 897              	USART_SmartCardCmd:
+ 898              	.LFB141:
+ 661:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 662:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /**
+ 663:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @brief  Enables or disables the USART’s Smart Card mode.
+ 664:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USARTx: where x can be 1, 2 or 3 to select the USART peripheral.
+ 665:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  NewState: new state of the Smart Card mode.
+ 666:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be: ENABLE or DISABLE.
+ 667:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @note The Smart Card mode is not available for UART4 and UART5.
+ 668:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @retval None
+ 669:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+ 670:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** void USART_SmartCardCmd(USART_Type* USARTx, FunctionalState NewState)
+ 671:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** {
+ 899              		.loc 1 671 0
+ 900              		.cfi_startproc
+ 901              		@ args = 0, pretend = 0, frame = 0
+ 902              		@ frame_needed = 0, uses_anonymous_args = 0
+ 903              		@ link register save eliminated.
+ 904              	.LVL97:
+ 672:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Check the parameters */
+ 673:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_123_PERIPH(USARTx));
+ 674:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
+ 675:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 676:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   if (NewState != DISABLE)
+ 905              		.loc 1 676 0
+ 906 0000 31B9     		cbnz	r1, .L69
+ 677:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 678:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     /* Enable the SC mode by setting the SCEN bit in the CR3 register */
+ 679:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     USARTx->CTRL3 |= CTRL3_SCMEN_Set;
+ 680:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 681:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   else
+ 682:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 683:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     /* Disable the SC mode by clearing the SCEN bit in the CR3 register */
+ 684:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     USARTx->CTRL3 &= CTRL3_SCMEN_Reset;
+ 907              		.loc 1 684 0
+ 908 0002 838A     		ldrh	r3, [r0, #20]
+ 909 0004 9BB2     		uxth	r3, r3
+ 910 0006 23F02003 		bic	r3, r3, #32
+ 911 000a 9BB2     		uxth	r3, r3
+ 912 000c 8382     		strh	r3, [r0, #20]	@ movhi
+ 685:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 686:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** }
+ 913              		.loc 1 686 0
+ 914 000e 7047     		bx	lr
+ 915              	.L69:
+ 679:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 916              		.loc 1 679 0
+ 917 0010 838A     		ldrh	r3, [r0, #20]
+ 918 0012 43F02003 		orr	r3, r3, #32
+ 919 0016 8382     		strh	r3, [r0, #20]	@ movhi
+ 920 0018 7047     		bx	lr
+ 921              		.cfi_endproc
+ 922              	.LFE141:
+ 924              		.section	.text.USART_SmartCardNACKCmd,"ax",%progbits
+ 925              		.align	1
+ 926              		.global	USART_SmartCardNACKCmd
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 29
+
+
+ 927              		.syntax unified
+ 928              		.thumb
+ 929              		.thumb_func
+ 930              		.fpu fpv4-sp-d16
+ 932              	USART_SmartCardNACKCmd:
+ 933              	.LFB142:
+ 687:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 688:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /**
+ 689:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @brief  Enables or disables NACK transmission.
+ 690:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USARTx: where x can be 1, 2 or 3 to select the USART peripheral.
+ 691:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  NewState: new state of the NACK transmission.
+ 692:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be: ENABLE or DISABLE.
+ 693:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @note The Smart Card mode is not available for UART4 and UART5.
+ 694:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @retval None
+ 695:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+ 696:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** void USART_SmartCardNACKCmd(USART_Type* USARTx, FunctionalState NewState)
+ 697:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** {
+ 934              		.loc 1 697 0
+ 935              		.cfi_startproc
+ 936              		@ args = 0, pretend = 0, frame = 0
+ 937              		@ frame_needed = 0, uses_anonymous_args = 0
+ 938              		@ link register save eliminated.
+ 939              	.LVL98:
+ 698:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Check the parameters */
+ 699:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_123_PERIPH(USARTx));
+ 700:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
+ 701:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 702:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   if (NewState != DISABLE)
+ 940              		.loc 1 702 0
+ 941 0000 31B9     		cbnz	r1, .L73
+ 703:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 704:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     /* Enable the NACK transmission by setting the NACK bit in the CR3 register */
+ 705:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     USARTx->CTRL3 |= CTRL3_NACKEN_Set;
+ 706:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 707:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   else
+ 708:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 709:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     /* Disable the NACK transmission by clearing the NACK bit in the CR3 register */
+ 710:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     USARTx->CTRL3 &= CTRL3_NACKEN_Reset;
+ 942              		.loc 1 710 0
+ 943 0002 838A     		ldrh	r3, [r0, #20]
+ 944 0004 9BB2     		uxth	r3, r3
+ 945 0006 23F01003 		bic	r3, r3, #16
+ 946 000a 9BB2     		uxth	r3, r3
+ 947 000c 8382     		strh	r3, [r0, #20]	@ movhi
+ 711:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 712:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** }
+ 948              		.loc 1 712 0
+ 949 000e 7047     		bx	lr
+ 950              	.L73:
+ 705:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 951              		.loc 1 705 0
+ 952 0010 838A     		ldrh	r3, [r0, #20]
+ 953 0012 43F01003 		orr	r3, r3, #16
+ 954 0016 8382     		strh	r3, [r0, #20]	@ movhi
+ 955 0018 7047     		bx	lr
+ 956              		.cfi_endproc
+ 957              	.LFE142:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 30
+
+
+ 959              		.section	.text.USART_HalfDuplexCmd,"ax",%progbits
+ 960              		.align	1
+ 961              		.global	USART_HalfDuplexCmd
+ 962              		.syntax unified
+ 963              		.thumb
+ 964              		.thumb_func
+ 965              		.fpu fpv4-sp-d16
+ 967              	USART_HalfDuplexCmd:
+ 968              	.LFB143:
+ 713:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 714:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /**
+ 715:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @brief  Enables or disables the USART’s Half Duplex communication.
+ 716:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USARTx: Select the USART or the UART peripheral.
+ 717:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be one of the following values:
+ 718:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   USART1, USART2, USART3, UART4 or UART5.
+ 719:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  NewState: new state of the USART Communication.
+ 720:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be: ENABLE or DISABLE.
+ 721:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @retval None
+ 722:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+ 723:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** void USART_HalfDuplexCmd(USART_Type* USARTx, FunctionalState NewState)
+ 724:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** {
+ 969              		.loc 1 724 0
+ 970              		.cfi_startproc
+ 971              		@ args = 0, pretend = 0, frame = 0
+ 972              		@ frame_needed = 0, uses_anonymous_args = 0
+ 973              		@ link register save eliminated.
+ 974              	.LVL99:
+ 725:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Check the parameters */
+ 726:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_ALL_PERIPH(USARTx));
+ 727:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
+ 728:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 729:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   if (NewState != DISABLE)
+ 975              		.loc 1 729 0
+ 976 0000 31B9     		cbnz	r1, .L77
+ 730:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 731:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     /* Enable the Half-Duplex mode by setting the HDSEL bit in the CR3 register */
+ 732:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     USARTx->CTRL3 |= CTRL3_HALFSEL_Set;
+ 733:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 734:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   else
+ 735:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 736:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     /* Disable the Half-Duplex mode by clearing the HDSEL bit in the CR3 register */
+ 737:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     USARTx->CTRL3 &= CTRL3_HALFSEL_Reset;
+ 977              		.loc 1 737 0
+ 978 0002 838A     		ldrh	r3, [r0, #20]
+ 979 0004 9BB2     		uxth	r3, r3
+ 980 0006 23F00803 		bic	r3, r3, #8
+ 981 000a 9BB2     		uxth	r3, r3
+ 982 000c 8382     		strh	r3, [r0, #20]	@ movhi
+ 738:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 739:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** }
+ 983              		.loc 1 739 0
+ 984 000e 7047     		bx	lr
+ 985              	.L77:
+ 732:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 986              		.loc 1 732 0
+ 987 0010 838A     		ldrh	r3, [r0, #20]
+ 988 0012 43F00803 		orr	r3, r3, #8
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 31
+
+
+ 989 0016 8382     		strh	r3, [r0, #20]	@ movhi
+ 990 0018 7047     		bx	lr
+ 991              		.cfi_endproc
+ 992              	.LFE143:
+ 994              		.section	.text.USART_OverSampling8Cmd,"ax",%progbits
+ 995              		.align	1
+ 996              		.global	USART_OverSampling8Cmd
+ 997              		.syntax unified
+ 998              		.thumb
+ 999              		.thumb_func
+ 1000              		.fpu fpv4-sp-d16
+ 1002              	USART_OverSampling8Cmd:
+ 1003              	.LFB144:
+ 740:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 741:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 742:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /**
+ 743:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @brief  Enables or disables the USART's 8x oversampling mode.
+ 744:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USARTx: Select the USART or the UART peripheral.
+ 745:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be one of the following values:
+ 746:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   USART1, USART2, USART3, UART4 or UART5.
+ 747:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  NewState: new state of the USART one bit sampling method.
+ 748:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be: ENABLE or DISABLE.
+ 749:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @note
+ 750:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     This function has to be called before calling USART_Init()
+ 751:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     function in order to have correct baudrate Divider value.
+ 752:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @retval None
+ 753:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+ 754:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** void USART_OverSampling8Cmd(USART_Type* USARTx, FunctionalState NewState)
+ 755:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** {
+ 1004              		.loc 1 755 0
+ 1005              		.cfi_startproc
+ 1006              		@ args = 0, pretend = 0, frame = 0
+ 1007              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1008              		@ link register save eliminated.
+ 1009              	.LVL100:
+ 756:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Check the parameters */
+ 757:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_ALL_PERIPH(USARTx));
+ 758:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
+ 759:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 760:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   if (NewState != DISABLE)
+ 1010              		.loc 1 760 0
+ 1011 0000 21B9     		cbnz	r1, .L81
+ 761:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 762:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     /* Enable the 8x Oversampling mode by setting the OVER8 bit in the CTRL1 register */
+ 763:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     USARTx->CTRL1 |= CTRL1_OVER8_Set;
+ 764:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 765:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   else
+ 766:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 767:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     /* Disable the 8x Oversampling mode by clearing the OVER8 bit in the CTRL1 register */
+ 768:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     USARTx->CTRL1 &= CTRL1_OVER8_Reset;
+ 1012              		.loc 1 768 0
+ 1013 0002 8389     		ldrh	r3, [r0, #12]
+ 1014 0004 C3F30E03 		ubfx	r3, r3, #0, #15
+ 1015 0008 8381     		strh	r3, [r0, #12]	@ movhi
+ 769:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 770:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** }
+ 1016              		.loc 1 770 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 32
+
+
+ 1017 000a 7047     		bx	lr
+ 1018              	.L81:
+ 763:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 1019              		.loc 1 763 0
+ 1020 000c 8389     		ldrh	r3, [r0, #12]
+ 1021 000e 43F40043 		orr	r3, r3, #32768
+ 1022 0012 8381     		strh	r3, [r0, #12]	@ movhi
+ 1023 0014 7047     		bx	lr
+ 1024              		.cfi_endproc
+ 1025              	.LFE144:
+ 1027              		.section	.text.USART_OneBitMethodCmd,"ax",%progbits
+ 1028              		.align	1
+ 1029              		.global	USART_OneBitMethodCmd
+ 1030              		.syntax unified
+ 1031              		.thumb
+ 1032              		.thumb_func
+ 1033              		.fpu fpv4-sp-d16
+ 1035              	USART_OneBitMethodCmd:
+ 1036              	.LFB145:
+ 771:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 772:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /**
+ 773:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @brief  Enables or disables the USART's one bit sampling method.
+ 774:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USARTx: Select the USART or the UART peripheral.
+ 775:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be one of the following values:
+ 776:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   USART1, USART2, USART3, UART4 or UART5.
+ 777:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  NewState: new state of the USART one bit sampling method.
+ 778:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be: ENABLE or DISABLE.
+ 779:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @retval None
+ 780:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+ 781:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** void USART_OneBitMethodCmd(USART_Type* USARTx, FunctionalState NewState)
+ 782:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** {
+ 1037              		.loc 1 782 0
+ 1038              		.cfi_startproc
+ 1039              		@ args = 0, pretend = 0, frame = 0
+ 1040              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1041              		@ link register save eliminated.
+ 1042              	.LVL101:
+ 783:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Check the parameters */
+ 784:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_ALL_PERIPH(USARTx));
+ 785:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
+ 786:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 787:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   if (NewState != DISABLE)
+ 1043              		.loc 1 787 0
+ 1044 0000 31B9     		cbnz	r1, .L85
+ 788:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 789:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     /* Enable the one bit method by setting the ONEBITE bit in the CR3 register */
+ 790:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     USARTx->CTRL3 |= CTRL3_ONEBITE_Set;
+ 791:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 792:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   else
+ 793:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 794:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     /* Disable tthe one bit method by clearing the ONEBITE bit in the CR3 register */
+ 795:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     USARTx->CTRL3 &= CTRL3_ONEBITE_Reset;
+ 1045              		.loc 1 795 0
+ 1046 0002 838A     		ldrh	r3, [r0, #20]
+ 1047 0004 9BB2     		uxth	r3, r3
+ 1048 0006 23F40063 		bic	r3, r3, #2048
+ 1049 000a 9BB2     		uxth	r3, r3
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 33
+
+
+ 1050 000c 8382     		strh	r3, [r0, #20]	@ movhi
+ 796:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 797:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** }
+ 1051              		.loc 1 797 0
+ 1052 000e 7047     		bx	lr
+ 1053              	.L85:
+ 790:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 1054              		.loc 1 790 0
+ 1055 0010 838A     		ldrh	r3, [r0, #20]
+ 1056 0012 43F40063 		orr	r3, r3, #2048
+ 1057 0016 8382     		strh	r3, [r0, #20]	@ movhi
+ 1058 0018 7047     		bx	lr
+ 1059              		.cfi_endproc
+ 1060              	.LFE145:
+ 1062              		.section	.text.USART_IrDAConfig,"ax",%progbits
+ 1063              		.align	1
+ 1064              		.global	USART_IrDAConfig
+ 1065              		.syntax unified
+ 1066              		.thumb
+ 1067              		.thumb_func
+ 1068              		.fpu fpv4-sp-d16
+ 1070              	USART_IrDAConfig:
+ 1071              	.LFB146:
+ 798:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 799:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /**
+ 800:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @brief  Configures the USART's IrDA interface.
+ 801:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USARTx: Select the USART or the UART peripheral.
+ 802:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be one of the following values:
+ 803:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   USART1, USART2, USART3, UART4 or UART5.
+ 804:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USART_IrDAMode: specifies the IrDA mode.
+ 805:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be one of the following values:
+ 806:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_IrDAMode_LowPower
+ 807:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_IrDAMode_Normal
+ 808:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @retval None
+ 809:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+ 810:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** void USART_IrDAConfig(USART_Type* USARTx, uint16_t USART_IrDAMode)
+ 811:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** {
+ 1072              		.loc 1 811 0
+ 1073              		.cfi_startproc
+ 1074              		@ args = 0, pretend = 0, frame = 0
+ 1075              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1076              		@ link register save eliminated.
+ 1077              	.LVL102:
+ 812:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Check the parameters */
+ 813:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_ALL_PERIPH(USARTx));
+ 814:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_IRDA_MODE(USART_IrDAMode));
+ 815:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 816:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   USARTx->CTRL3 &= CTRL3_IRDALP_Mask;
+ 1078              		.loc 1 816 0
+ 1079 0000 838A     		ldrh	r3, [r0, #20]
+ 1080 0002 9BB2     		uxth	r3, r3
+ 1081 0004 23F00403 		bic	r3, r3, #4
+ 1082 0008 9BB2     		uxth	r3, r3
+ 1083 000a 8382     		strh	r3, [r0, #20]	@ movhi
+ 817:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   USARTx->CTRL3 |= USART_IrDAMode;
+ 1084              		.loc 1 817 0
+ 1085 000c 838A     		ldrh	r3, [r0, #20]
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 34
+
+
+ 1086 000e 1943     		orrs	r1, r1, r3
+ 1087              	.LVL103:
+ 1088 0010 8182     		strh	r1, [r0, #20]	@ movhi
+ 818:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** }
+ 1089              		.loc 1 818 0
+ 1090 0012 7047     		bx	lr
+ 1091              		.cfi_endproc
+ 1092              	.LFE146:
+ 1094              		.section	.text.USART_IrDACmd,"ax",%progbits
+ 1095              		.align	1
+ 1096              		.global	USART_IrDACmd
+ 1097              		.syntax unified
+ 1098              		.thumb
+ 1099              		.thumb_func
+ 1100              		.fpu fpv4-sp-d16
+ 1102              	USART_IrDACmd:
+ 1103              	.LFB147:
+ 819:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 820:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /**
+ 821:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @brief  Enables or disables the USART's IrDA interface.
+ 822:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USARTx: Select the USART or the UART peripheral.
+ 823:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be one of the following values:
+ 824:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   USART1, USART2, USART3, UART4 or UART5.
+ 825:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  NewState: new state of the IrDA mode.
+ 826:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be: ENABLE or DISABLE.
+ 827:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @retval None
+ 828:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+ 829:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** void USART_IrDACmd(USART_Type* USARTx, FunctionalState NewState)
+ 830:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** {
+ 1104              		.loc 1 830 0
+ 1105              		.cfi_startproc
+ 1106              		@ args = 0, pretend = 0, frame = 0
+ 1107              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1108              		@ link register save eliminated.
+ 1109              	.LVL104:
+ 831:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Check the parameters */
+ 832:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_ALL_PERIPH(USARTx));
+ 833:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
+ 834:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 835:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   if (NewState != DISABLE)
+ 1110              		.loc 1 835 0
+ 1111 0000 31B9     		cbnz	r1, .L90
+ 836:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 837:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     /* Enable the IrDA mode by setting the IREN bit in the CR3 register */
+ 838:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     USARTx->CTRL3 |= CTRL3_IRDAEN_Set;
+ 839:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 840:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   else
+ 841:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 842:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     /* Disable the IrDA mode by clearing the IREN bit in the CR3 register */
+ 843:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     USARTx->CTRL3 &= CTRL3_IRDAEN_Reset;
+ 1112              		.loc 1 843 0
+ 1113 0002 838A     		ldrh	r3, [r0, #20]
+ 1114 0004 9BB2     		uxth	r3, r3
+ 1115 0006 23F00203 		bic	r3, r3, #2
+ 1116 000a 9BB2     		uxth	r3, r3
+ 1117 000c 8382     		strh	r3, [r0, #20]	@ movhi
+ 844:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 35
+
+
+ 845:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** }
+ 1118              		.loc 1 845 0
+ 1119 000e 7047     		bx	lr
+ 1120              	.L90:
+ 838:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 1121              		.loc 1 838 0
+ 1122 0010 838A     		ldrh	r3, [r0, #20]
+ 1123 0012 43F00203 		orr	r3, r3, #2
+ 1124 0016 8382     		strh	r3, [r0, #20]	@ movhi
+ 1125 0018 7047     		bx	lr
+ 1126              		.cfi_endproc
+ 1127              	.LFE147:
+ 1129              		.section	.text.USART_GetFlagStatus,"ax",%progbits
+ 1130              		.align	1
+ 1131              		.global	USART_GetFlagStatus
+ 1132              		.syntax unified
+ 1133              		.thumb
+ 1134              		.thumb_func
+ 1135              		.fpu fpv4-sp-d16
+ 1137              	USART_GetFlagStatus:
+ 1138              	.LFB148:
+ 846:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 847:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /**
+ 848:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @brief  Checks whether the specified USART flag is set or not.
+ 849:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USARTx: Select the USART or the UART peripheral.
+ 850:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be one of the following values:
+ 851:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   USART1, USART2, USART3, UART4 or UART5.
+ 852:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USART_FLAG: specifies the flag to check.
+ 853:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be one of the following values:
+ 854:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_FLAG_CTSF:  CTS Change flag (not available for UART4 and UART5)
+ 855:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_FLAG_LBDF:  LIN Break detection flag
+ 856:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_FLAG_TDE:  Transmit data register empty flag
+ 857:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_FLAG_TRAC:   Transmission Complete flag
+ 858:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_FLAG_RDNE: Receive data register not empty flag
+ 859:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_FLAG_IDLEF: Idle Line detection flag
+ 860:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_FLAG_ORERR:  OverRun Error flag
+ 861:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_FLAG_NERR:   Noise Error flag
+ 862:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_FLAG_FERR:   Framing Error flag
+ 863:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_FLAG_PERR:   Parity Error flag
+ 864:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @retval The new state of USART_FLAG (SET or RESET).
+ 865:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+ 866:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** FlagStatus USART_GetFlagStatus(USART_Type* USARTx, uint16_t USART_FLAG)
+ 867:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** {
+ 1139              		.loc 1 867 0
+ 1140              		.cfi_startproc
+ 1141              		@ args = 0, pretend = 0, frame = 0
+ 1142              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1143              		@ link register save eliminated.
+ 1144              	.LVL105:
+ 868:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   FlagStatus bitstatus = RESET;
+ 869:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Check the parameters */
+ 870:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_ALL_PERIPH(USARTx));
+ 871:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_FLAG(USART_FLAG));
+ 872:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 873:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* The CTS flag is not available for UART4 and UART5 */
+ 874:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   if (USART_FLAG == USART_FLAG_CTSF)
+ 875:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 36
+
+
+ 876:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     assert_param(IS_USART_123_PERIPH(USARTx));
+ 877:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 878:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 879:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   if ((USARTx->STS & USART_FLAG) != (uint16_t)RESET)
+ 1145              		.loc 1 879 0
+ 1146 0000 0388     		ldrh	r3, [r0]
+ 1147 0002 1942     		tst	r1, r3
+ 1148 0004 01D1     		bne	.L94
+ 880:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 881:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     bitstatus = SET;
+ 882:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 883:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   else
+ 884:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 885:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     bitstatus = RESET;
+ 1149              		.loc 1 885 0
+ 1150 0006 0020     		movs	r0, #0
+ 1151              	.LVL106:
+ 886:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 887:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 888:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   return bitstatus;
+ 889:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** }
+ 1152              		.loc 1 889 0
+ 1153 0008 7047     		bx	lr
+ 1154              	.LVL107:
+ 1155              	.L94:
+ 881:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 1156              		.loc 1 881 0
+ 1157 000a 0120     		movs	r0, #1
+ 1158              	.LVL108:
+ 1159 000c 7047     		bx	lr
+ 1160              		.cfi_endproc
+ 1161              	.LFE148:
+ 1163              		.section	.text.USART_ClearFlag,"ax",%progbits
+ 1164              		.align	1
+ 1165              		.global	USART_ClearFlag
+ 1166              		.syntax unified
+ 1167              		.thumb
+ 1168              		.thumb_func
+ 1169              		.fpu fpv4-sp-d16
+ 1171              	USART_ClearFlag:
+ 1172              	.LFB149:
+ 890:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 891:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /**
+ 892:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @brief  Clears the USARTx's pending flags.
+ 893:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USARTx: Select the USART or the UART peripheral.
+ 894:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be one of the following values:
+ 895:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   USART1, USART2, USART3, UART4 or UART5.
+ 896:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USART_FLAG: specifies the flag to clear.
+ 897:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be any combination of the following values:
+ 898:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_FLAG_CTSF:  CTS Change flag (not available for UART4 and UART5).
+ 899:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_FLAG_LBDF:  LIN Break detection flag.
+ 900:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_FLAG_TRAC:   Transmission Complete flag.
+ 901:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_FLAG_RDNE: Receive data register not empty flag.
+ 902:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *
+ 903:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @note
+ 904:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   - PE (Parity error), FE (Framing error), NE (Noise error), ORE (OverRun
+ 905:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     error) and IDLE (Idle line detected) flags are cleared by software
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 37
+
+
+ 906:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     sequence: a read operation to USART_SR register (USART_GetFlagStatus())
+ 907:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     followed by a read operation to USART_DR register (USART_ReceiveData()).
+ 908:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   - RXNE flag can be also cleared by a read to the USART_DR register
+ 909:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     (USART_ReceiveData()).
+ 910:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   - TC flag can be also cleared by software sequence: a read operation to
+ 911:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     USART_SR register (USART_GetFlagStatus()) followed by a write operation
+ 912:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     to USART_DR register (USART_SendData()).
+ 913:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   - TXE flag is cleared only by a write to the USART_DR register
+ 914:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     (USART_SendData()).
+ 915:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @retval None
+ 916:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+ 917:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** void USART_ClearFlag(USART_Type* USARTx, uint16_t USART_FLAG)
+ 918:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** {
+ 1173              		.loc 1 918 0
+ 1174              		.cfi_startproc
+ 1175              		@ args = 0, pretend = 0, frame = 0
+ 1176              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1177              		@ link register save eliminated.
+ 1178              	.LVL109:
+ 919:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Check the parameters */
+ 920:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_ALL_PERIPH(USARTx));
+ 921:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_CLEAR_FLAG(USART_FLAG));
+ 922:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 923:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* The CTS flag is not available for UART4 and UART5 */
+ 924:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   if ((USART_FLAG & USART_FLAG_CTSF) == USART_FLAG_CTSF)
+ 925:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 926:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     assert_param(IS_USART_123_PERIPH(USARTx));
+ 927:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 928:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 929:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   USARTx->STS = (uint16_t)~USART_FLAG;
+ 1179              		.loc 1 929 0
+ 1180 0000 C943     		mvns	r1, r1
+ 1181              	.LVL110:
+ 1182 0002 89B2     		uxth	r1, r1
+ 1183 0004 0180     		strh	r1, [r0]	@ movhi
+ 930:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** }
+ 1184              		.loc 1 930 0
+ 1185 0006 7047     		bx	lr
+ 1186              		.cfi_endproc
+ 1187              	.LFE149:
+ 1189              		.section	.text.USART_GetITStatus,"ax",%progbits
+ 1190              		.align	1
+ 1191              		.global	USART_GetITStatus
+ 1192              		.syntax unified
+ 1193              		.thumb
+ 1194              		.thumb_func
+ 1195              		.fpu fpv4-sp-d16
+ 1197              	USART_GetITStatus:
+ 1198              	.LFB150:
+ 931:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 932:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /**
+ 933:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @brief  Checks whether the specified USART interrupt has occurred or not.
+ 934:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USARTx: Select the USART or the UART peripheral.
+ 935:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be one of the following values:
+ 936:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   USART1, USART2, USART3, UART4 or UART5.
+ 937:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USART_INT: specifies the USART interrupt source to check.
+ 938:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be one of the following values:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 38
+
+
+ 939:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_INT_CTSF:  CTS change interrupt (not available for UART4 and UART5)
+ 940:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_INT_LBDF:  LIN Break detection interrupt
+ 941:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_INT_TDE:  Tansmit Data Register empty interrupt
+ 942:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_INT_TRAC:   Transmission complete interrupt
+ 943:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_INT_RDNE: Receive Data register not empty interrupt
+ 944:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_INT_IDLEF: Idle line detection interrupt
+ 945:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_INT_ORERR:  OverRun Error interrupt
+ 946:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_INT_NERR:   Noise Error interrupt
+ 947:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_INT_FERR:   Framing Error interrupt
+ 948:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_INT_PERR:   Parity Error interrupt
+ 949:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @retval The new state of USART_INT (SET or RESET).
+ 950:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+ 951:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** ITStatus USART_GetITStatus(USART_Type* USARTx, uint16_t USART_INT)
+ 952:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** {
+ 1199              		.loc 1 952 0
+ 1200              		.cfi_startproc
+ 1201              		@ args = 0, pretend = 0, frame = 0
+ 1202              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1203              		@ link register save eliminated.
+ 1204              	.LVL111:
+ 1205 0000 10B4     		push	{r4}
+ 1206              	.LCFI10:
+ 1207              		.cfi_def_cfa_offset 4
+ 1208              		.cfi_offset 4, -4
+ 1209              	.LVL112:
+ 953:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   uint32_t bitpos = 0x00, itmask = 0x00, usartreg = 0x00;
+ 954:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   ITStatus bitstatus = RESET;
+ 955:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Check the parameters */
+ 956:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_ALL_PERIPH(USARTx));
+ 957:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_GET_INT(USART_INT));
+ 958:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 959:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* The CTS interrupt is not available for UART4 and UART5 */
+ 960:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   if (USART_INT == USART_INT_CTSF)
+ 961:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 962:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     assert_param(IS_USART_123_PERIPH(USARTx));
+ 963:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 964:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 965:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Get the USART register index */
+ 966:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   usartreg = (((uint8_t)USART_INT) >> 0x05);
+ 1210              		.loc 1 966 0
+ 1211 0002 C1F34212 		ubfx	r2, r1, #5, #3
+ 1212              	.LVL113:
+ 967:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Get the interrupt position */
+ 968:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   itmask = USART_INT & INT_Mask;
+ 1213              		.loc 1 968 0
+ 1214 0006 01F01F04 		and	r4, r1, #31
+ 1215              	.LVL114:
+ 969:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   itmask = (uint32_t)0x01 << itmask;
+ 1216              		.loc 1 969 0
+ 1217 000a 0123     		movs	r3, #1
+ 1218 000c A340     		lsls	r3, r3, r4
+ 1219              	.LVL115:
+ 970:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 971:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   if (usartreg == 0x01) /* The INT  is in CTRL1 register */
+ 1220              		.loc 1 971 0
+ 1221 000e 012A     		cmp	r2, #1
+ 1222 0010 0DD0     		beq	.L104
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 39
+
+
+ 972:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 973:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     itmask &= USARTx->CTRL1;
+ 974:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 975:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   else if (usartreg == 0x02) /* The INT  is in CTRL2 register */
+ 1223              		.loc 1 975 0
+ 1224 0012 022A     		cmp	r2, #2
+ 1225 0014 0ED0     		beq	.L105
+ 976:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 977:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     itmask &= USARTx->CTRL2;
+ 978:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 979:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   else /* The INT  is in CR3 register */
+ 980:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 981:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     itmask &= USARTx->CTRL3;
+ 1226              		.loc 1 981 0
+ 1227 0016 828A     		ldrh	r2, [r0, #20]
+ 1228              	.LVL116:
+ 1229 0018 1340     		ands	r3, r3, r2
+ 1230              	.LVL117:
+ 1231              	.L98:
+ 982:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 983:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 984:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   bitpos = USART_INT >> 0x08;
+ 1232              		.loc 1 984 0
+ 1233 001a 090A     		lsrs	r1, r1, #8
+ 1234              	.LVL118:
+ 985:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   bitpos = (uint32_t)0x01 << bitpos;
+ 1235              		.loc 1 985 0
+ 1236 001c 0122     		movs	r2, #1
+ 1237 001e 02FA01F1 		lsl	r1, r2, r1
+ 1238              	.LVL119:
+ 986:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   bitpos &= USARTx->STS;
+ 1239              		.loc 1 986 0
+ 1240 0022 0288     		ldrh	r2, [r0]
+ 1241 0024 1140     		ands	r1, r1, r2
+ 1242              	.LVL120:
+ 987:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 988:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   if ((itmask != (uint16_t)RESET) && (bitpos != (uint16_t)RESET))
+ 1243              		.loc 1 988 0
+ 1244 0026 43B1     		cbz	r3, .L101
+ 1245              		.loc 1 988 0 is_stmt 0 discriminator 1
+ 1246 0028 59B9     		cbnz	r1, .L102
+ 989:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 990:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     bitstatus = SET;
+ 991:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 992:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   else
+ 993:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+ 994:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     bitstatus = RESET;
+ 1247              		.loc 1 994 0 is_stmt 1
+ 1248 002a 0020     		movs	r0, #0
+ 1249              	.LVL121:
+ 1250 002c 06E0     		b	.L100
+ 1251              	.LVL122:
+ 1252              	.L104:
+ 973:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 1253              		.loc 1 973 0
+ 1254 002e 8289     		ldrh	r2, [r0, #12]
+ 1255              	.LVL123:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 40
+
+
+ 1256 0030 1340     		ands	r3, r3, r2
+ 1257              	.LVL124:
+ 1258 0032 F2E7     		b	.L98
+ 1259              	.LVL125:
+ 1260              	.L105:
+ 977:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 1261              		.loc 1 977 0
+ 1262 0034 028A     		ldrh	r2, [r0, #16]
+ 1263              	.LVL126:
+ 1264 0036 1340     		ands	r3, r3, r2
+ 1265              	.LVL127:
+ 1266 0038 EFE7     		b	.L98
+ 1267              	.LVL128:
+ 1268              	.L101:
+ 1269              		.loc 1 994 0
+ 1270 003a 0020     		movs	r0, #0
+ 1271              	.LVL129:
+ 1272              	.L100:
+ 995:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 996:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+ 997:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   return bitstatus;
+ 998:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** }
+ 1273              		.loc 1 998 0
+ 1274 003c 5DF8044B 		ldr	r4, [sp], #4
+ 1275              	.LCFI11:
+ 1276              		.cfi_remember_state
+ 1277              		.cfi_restore 4
+ 1278              		.cfi_def_cfa_offset 0
+ 1279 0040 7047     		bx	lr
+ 1280              	.LVL130:
+ 1281              	.L102:
+ 1282              	.LCFI12:
+ 1283              		.cfi_restore_state
+ 990:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+ 1284              		.loc 1 990 0
+ 1285 0042 0120     		movs	r0, #1
+ 1286              	.LVL131:
+ 1287 0044 FAE7     		b	.L100
+ 1288              		.cfi_endproc
+ 1289              	.LFE150:
+ 1291              		.section	.text.USART_ClearITPendingBit,"ax",%progbits
+ 1292              		.align	1
+ 1293              		.global	USART_ClearITPendingBit
+ 1294              		.syntax unified
+ 1295              		.thumb
+ 1296              		.thumb_func
+ 1297              		.fpu fpv4-sp-d16
+ 1299              	USART_ClearITPendingBit:
+ 1300              	.LFB151:
+ 999:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+1000:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** /**
+1001:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @brief  Clears the USARTx's interrupt pending bits.
+1002:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USARTx: Select the USART or the UART peripheral.
+1003:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be one of the following values:
+1004:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   USART1, USART2, USART3, UART4 or UART5.
+1005:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @param  USART_INT: specifies the interrupt pending bit to clear.
+1006:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   This parameter can be one of the following values:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 41
+
+
+1007:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_INT_CTSF:  CTS change interrupt (not available for UART4 and UART5)
+1008:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_INT_LBDF:  LIN Break detection interrupt
+1009:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_INT_TRAC:   Transmission complete interrupt.
+1010:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     @arg USART_INT_RDNE: Receive Data register not empty interrupt.
+1011:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *
+1012:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @note
+1013:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   - PE (Parity error), FE (Framing error), NE (Noise error), ORE (OverRun
+1014:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     error) and IDLE (Idle line detected) pending bits are cleared by
+1015:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     software sequence: a read operation to USART_SR register
+1016:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     (USART_GetITStatus()) followed by a read operation to USART_DR register
+1017:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     (USART_ReceiveData()).
+1018:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   - RXNE pending bit can be also cleared by a read to the USART_DR register
+1019:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     (USART_ReceiveData()).
+1020:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   - TC pending bit can be also cleared by software sequence: a read
+1021:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     operation to USART_SR register (USART_GetITStatus()) followed by a write
+1022:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     operation to USART_DR register (USART_SendData()).
+1023:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *   - TXE pending bit is cleared only by a write to the USART_DR register
+1024:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   *     (USART_SendData()).
+1025:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   * @retval None
+1026:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   */
+1027:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** void USART_ClearITPendingBit(USART_Type* USARTx, uint16_t USART_INT)
+1028:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** {
+ 1301              		.loc 1 1028 0
+ 1302              		.cfi_startproc
+ 1303              		@ args = 0, pretend = 0, frame = 0
+ 1304              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1305              		@ link register save eliminated.
+ 1306              	.LVL132:
+1029:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   uint16_t bitpos = 0x00, itmask = 0x00;
+1030:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* Check the parameters */
+1031:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_ALL_PERIPH(USARTx));
+1032:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   assert_param(IS_USART_CLEAR_INT(USART_INT));
+1033:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+1034:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   /* The CTS interrupt is not available for UART4 and UART5 */
+1035:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   if (USART_INT == USART_INT_CTSF)
+1036:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   {
+1037:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****     assert_param(IS_USART_123_PERIPH(USARTx));
+1038:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   }
+1039:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** 
+1040:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   bitpos = USART_INT >> 0x08;
+ 1307              		.loc 1 1040 0
+ 1308 0000 090A     		lsrs	r1, r1, #8
+ 1309              	.LVL133:
+1041:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   itmask = ((uint16_t)0x01 << (uint16_t)bitpos);
+ 1310              		.loc 1 1041 0
+ 1311 0002 0123     		movs	r3, #1
+ 1312 0004 8B40     		lsls	r3, r3, r1
+ 1313 0006 9BB2     		uxth	r3, r3
+ 1314              	.LVL134:
+1042:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c ****   USARTx->STS = (uint16_t)~itmask;
+ 1315              		.loc 1 1042 0
+ 1316 0008 DB43     		mvns	r3, r3
+ 1317              	.LVL135:
+ 1318 000a 9BB2     		uxth	r3, r3
+ 1319              	.LVL136:
+ 1320 000c 0380     		strh	r3, [r0]	@ movhi
+1043:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c **** }
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 42
+
+
+ 1321              		.loc 1 1043 0
+ 1322 000e 7047     		bx	lr
+ 1323              		.cfi_endproc
+ 1324              	.LFE151:
+ 1326              		.text
+ 1327              	.Letext0:
+ 1328              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
+ 1329              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
+ 1330              		.file 4 "../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h"
+ 1331              		.file 5 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
+ 1332              		.file 6 "../Libraries/CMSIS/CM4/DeviceSupport/at32f4xx.h"
+ 1333              		.file 7 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_rcc.h"
+ 1334              		.file 8 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_usart.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 43
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 at32f4xx_usart.c
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:17     .text.USART_Reset:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:24     .text.USART_Reset:0000000000000000 USART_Reset
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:135    .text.USART_Reset:0000000000000090 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:144    .text.USART_Init:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:151    .text.USART_Init:0000000000000000 USART_Init
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:310    .text.USART_Init:00000000000000c0 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:316    .text.USART_StructInit:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:323    .text.USART_StructInit:0000000000000000 USART_StructInit
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:352    .text.USART_ClockInit:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:359    .text.USART_ClockInit:0000000000000000 USART_ClockInit
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:406    .text.USART_ClockStructInit:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:413    .text.USART_ClockStructInit:0000000000000000 USART_ClockStructInit
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:436    .text.USART_Cmd:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:443    .text.USART_Cmd:0000000000000000 USART_Cmd
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:471    .text.USART_INTConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:478    .text.USART_INTConfig:0000000000000000 USART_INTConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:553    .text.USART_DMACmd:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:560    .text.USART_DMACmd:0000000000000000 USART_DMACmd
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:589    .text.USART_SetAddress:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:596    .text.USART_SetAddress:0000000000000000 USART_SetAddress
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:621    .text.USART_WakeUpConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:628    .text.USART_WakeUpConfig:0000000000000000 USART_WakeUpConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:653    .text.USART_ReceiverWakeUpCmd:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:660    .text.USART_ReceiverWakeUpCmd:0000000000000000 USART_ReceiverWakeUpCmd
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:688    .text.USART_LINBreakDetectLengthConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:695    .text.USART_LINBreakDetectLengthConfig:0000000000000000 USART_LINBreakDetectLengthConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:720    .text.USART_LINCmd:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:727    .text.USART_LINCmd:0000000000000000 USART_LINCmd
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:755    .text.USART_SendData:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:762    .text.USART_SendData:0000000000000000 USART_SendData
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:780    .text.USART_ReceiveData:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:787    .text.USART_ReceiveData:0000000000000000 USART_ReceiveData
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:805    .text.USART_SendBreak:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:812    .text.USART_SendBreak:0000000000000000 USART_SendBreak
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:830    .text.USART_SetGuardTime:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:837    .text.USART_SetGuardTime:0000000000000000 USART_SetGuardTime
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:860    .text.USART_SetPrescaler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:867    .text.USART_SetPrescaler:0000000000000000 USART_SetPrescaler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:890    .text.USART_SmartCardCmd:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:897    .text.USART_SmartCardCmd:0000000000000000 USART_SmartCardCmd
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:925    .text.USART_SmartCardNACKCmd:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:932    .text.USART_SmartCardNACKCmd:0000000000000000 USART_SmartCardNACKCmd
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:960    .text.USART_HalfDuplexCmd:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:967    .text.USART_HalfDuplexCmd:0000000000000000 USART_HalfDuplexCmd
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:995    .text.USART_OverSampling8Cmd:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:1002   .text.USART_OverSampling8Cmd:0000000000000000 USART_OverSampling8Cmd
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:1028   .text.USART_OneBitMethodCmd:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:1035   .text.USART_OneBitMethodCmd:0000000000000000 USART_OneBitMethodCmd
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:1063   .text.USART_IrDAConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:1070   .text.USART_IrDAConfig:0000000000000000 USART_IrDAConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:1095   .text.USART_IrDACmd:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:1102   .text.USART_IrDACmd:0000000000000000 USART_IrDACmd
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:1130   .text.USART_GetFlagStatus:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:1137   .text.USART_GetFlagStatus:0000000000000000 USART_GetFlagStatus
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:1164   .text.USART_ClearFlag:0000000000000000 $t
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s 			page 44
+
+
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:1171   .text.USART_ClearFlag:0000000000000000 USART_ClearFlag
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:1190   .text.USART_GetITStatus:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:1197   .text.USART_GetITStatus:0000000000000000 USART_GetITStatus
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:1292   .text.USART_ClearITPendingBit:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGBdNC5.s:1299   .text.USART_ClearITPendingBit:0000000000000000 USART_ClearITPendingBit
+
+UNDEFINED SYMBOLS
+RCC_APB2PeriphResetCmd
+RCC_APB1PeriphResetCmd
+RCC_GetClocksFreq

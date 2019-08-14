@@ -1,0 +1,779 @@
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfuaozr.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"bsp_timer.c"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.text.bsp_InitHardTimer,"ax",%progbits
+  17              		.align	1
+  18              		.global	bsp_InitHardTimer
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu fpv4-sp-d16
+  24              	bsp_InitHardTimer:
+  25              	.LFB131:
+  26              		.file 1 "bsp/src/bsp_timer.c"
+   1:bsp/src/bsp_timer.c **** /**
+   2:bsp/src/bsp_timer.c ****   ******************************************************************************
+   3:bsp/src/bsp_timer.c ****   * @file    FreeRTOS/bsp.c/bsp_timer.c 
+   4:bsp/src/bsp_timer.c ****   * @author  Artery Technology 
+   5:bsp/src/bsp_timer.c ****   * @version V1.1.2
+   6:bsp/src/bsp_timer.c ****   * @date    2019-01-04
+   7:bsp/src/bsp_timer.c ****   * @brief   Bsp Service Routines.
+   8:bsp/src/bsp_timer.c ****   ******************************************************************************
+   9:bsp/src/bsp_timer.c ****   * @attention
+  10:bsp/src/bsp_timer.c ****   *
+  11:bsp/src/bsp_timer.c ****   * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
+  12:bsp/src/bsp_timer.c ****   * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
+  13:bsp/src/bsp_timer.c ****   * TIME. AS A RESULT, ARTERYTEK SHALL NOT BE HELD LIABLE FOR ANY
+  14:bsp/src/bsp_timer.c ****   * DIRECT, INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
+  15:bsp/src/bsp_timer.c ****   * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
+  16:bsp/src/bsp_timer.c ****   * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
+  17:bsp/src/bsp_timer.c ****   *
+  18:bsp/src/bsp_timer.c ****   * <h2><center>&copy; COPYRIGHT 2018 ArteryTek</center></h2>
+  19:bsp/src/bsp_timer.c ****   ******************************************************************************
+  20:bsp/src/bsp_timer.c ****   */ 
+  21:bsp/src/bsp_timer.c **** 
+  22:bsp/src/bsp_timer.c **** /* Includes ------------------------------------------------------------------*/
+  23:bsp/src/bsp_timer.c **** #include "bsp.h"
+  24:bsp/src/bsp_timer.c **** 
+  25:bsp/src/bsp_timer.c **** /** @addtogroup AT32F403_StdPeriph_Examples
+  26:bsp/src/bsp_timer.c ****   * @{
+  27:bsp/src/bsp_timer.c ****   */
+  28:bsp/src/bsp_timer.c **** 
+  29:bsp/src/bsp_timer.c **** /** @addtogroup FreeRTOS_ResManagement_SafelyPrint
+  30:bsp/src/bsp_timer.c ****   * @{
+  31:bsp/src/bsp_timer.c ****   */ 
+  32:bsp/src/bsp_timer.c ****   
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfuaozr.s 			page 2
+
+
+  33:bsp/src/bsp_timer.c **** /* Private typedef -----------------------------------------------------------*/
+  34:bsp/src/bsp_timer.c **** /* Private define ------------------------------------------------------------*/  
+  35:bsp/src/bsp_timer.c **** //#define USE_TMR2
+  36:bsp/src/bsp_timer.c **** #define USE_TMR3
+  37:bsp/src/bsp_timer.c **** //#define USE_TMR4
+  38:bsp/src/bsp_timer.c **** //#define USE_TMR5
+  39:bsp/src/bsp_timer.c **** 
+  40:bsp/src/bsp_timer.c **** #ifdef USE_TMR2
+  41:bsp/src/bsp_timer.c **** 	#define TMR_HARD		TMR2
+  42:bsp/src/bsp_timer.c **** 	#define TMR_HARD_IRQn	TMR2_GLOBAL_IRQn
+  43:bsp/src/bsp_timer.c **** 	#define TMR_HARD_RCC	RCC_APB1PERIPH_TMR2
+  44:bsp/src/bsp_timer.c **** #endif
+  45:bsp/src/bsp_timer.c **** 
+  46:bsp/src/bsp_timer.c **** #ifdef USE_TMR3
+  47:bsp/src/bsp_timer.c **** 	#define TMR_HARD		TMR3
+  48:bsp/src/bsp_timer.c **** 	#define TMR_HARD_IRQn	TMR3_GLOBAL_IRQn
+  49:bsp/src/bsp_timer.c **** 	#define TMR_HARD_RCC	RCC_APB1PERIPH_TMR3
+  50:bsp/src/bsp_timer.c **** #endif
+  51:bsp/src/bsp_timer.c **** 
+  52:bsp/src/bsp_timer.c **** #ifdef USE_TMR4
+  53:bsp/src/bsp_timer.c **** 	#define TMR_HARD		TMR4
+  54:bsp/src/bsp_timer.c **** 	#define TMR_HARD_IRQn	TMR4_GLOBAL_IRQn
+  55:bsp/src/bsp_timer.c **** 	#define TMR_HARD_RCC	RCC_APB1PERIPH_TMR4
+  56:bsp/src/bsp_timer.c **** #endif
+  57:bsp/src/bsp_timer.c **** 
+  58:bsp/src/bsp_timer.c **** #ifdef USE_TMR5
+  59:bsp/src/bsp_timer.c **** 	#define TMR_HARD		TMR5
+  60:bsp/src/bsp_timer.c **** 	#define TMR_HARD_IRQn	TMR5_GLOBAL_IRQn
+  61:bsp/src/bsp_timer.c **** 	#define TMR_HARD_RCC	RCC_APB1PERIPH_TMR5
+  62:bsp/src/bsp_timer.c **** #endif
+  63:bsp/src/bsp_timer.c **** 
+  64:bsp/src/bsp_timer.c **** /* Private macro -------------------------------------------------------------*/
+  65:bsp/src/bsp_timer.c **** /* Private variables ---------------------------------------------------------*/
+  66:bsp/src/bsp_timer.c **** /* Private function prototypes -----------------------------------------------*/
+  67:bsp/src/bsp_timer.c **** static void (*s_TMR_CallBack1)(void);
+  68:bsp/src/bsp_timer.c **** static void (*s_TMR_CallBack2)(void);
+  69:bsp/src/bsp_timer.c **** static void (*s_TMR_CallBack3)(void);
+  70:bsp/src/bsp_timer.c **** static void (*s_TMR_CallBack4)(void);
+  71:bsp/src/bsp_timer.c **** 
+  72:bsp/src/bsp_timer.c **** /* Private functions ---------------------------------------------------------*/
+  73:bsp/src/bsp_timer.c **** #if defined (USE_TMR2) || defined (USE_TMR3)  || defined (USE_TMR4)	|| defined (USE_TMR5)
+  74:bsp/src/bsp_timer.c **** 
+  75:bsp/src/bsp_timer.c **** /**
+  76:bsp/src/bsp_timer.c ****   * @brief  Initialize hard timer
+  77:bsp/src/bsp_timer.c ****   * @param  None
+  78:bsp/src/bsp_timer.c ****   * @retval None
+  79:bsp/src/bsp_timer.c ****   */
+  80:bsp/src/bsp_timer.c **** void bsp_InitHardTimer(void)
+  81:bsp/src/bsp_timer.c **** {
+  27              		.loc 1 81 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 24
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 30B5     		push	{r4, r5, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 12
+  34              		.cfi_offset 4, -12
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfuaozr.s 			page 3
+
+
+  35              		.cfi_offset 5, -8
+  36              		.cfi_offset 14, -4
+  37 0002 87B0     		sub	sp, sp, #28
+  38              	.LCFI1:
+  39              		.cfi_def_cfa_offset 40
+  82:bsp/src/bsp_timer.c **** 	TMR_TimerBaseInitType  TMR_TimeBaseStructure;
+  83:bsp/src/bsp_timer.c **** 	uint32_t usPeriod;
+  84:bsp/src/bsp_timer.c **** 	uint16_t usPrescaler;
+  85:bsp/src/bsp_timer.c **** 	uint32_t uiTMRxCLK;
+  86:bsp/src/bsp_timer.c **** 
+  87:bsp/src/bsp_timer.c **** 	RCC_APB1PeriphClockCmd(TMR_HARD_RCC, ENABLE);
+  40              		.loc 1 87 0
+  41 0004 0121     		movs	r1, #1
+  42 0006 0220     		movs	r0, #2
+  43 0008 FFF7FEFF 		bl	RCC_APB1PeriphClockCmd
+  44              	.LVL0:
+  88:bsp/src/bsp_timer.c **** 	
+  89:bsp/src/bsp_timer.c **** 	uiTMRxCLK = SystemCoreClock / 2;
+  45              		.loc 1 89 0
+  46 000c 164B     		ldr	r3, .L3
+  47 000e 1B68     		ldr	r3, [r3]
+  48              	.LVL1:
+  90:bsp/src/bsp_timer.c **** 
+  91:bsp/src/bsp_timer.c **** 	usPrescaler = uiTMRxCLK / 1000000 ;	//1us
+  49              		.loc 1 91 0
+  50 0010 164A     		ldr	r2, .L3+4
+  51 0012 A2FB0323 		umull	r2, r3, r2, r3
+  52              	.LVL2:
+  53 0016 DB0C     		lsrs	r3, r3, #19
+  54              	.LVL3:
+  92:bsp/src/bsp_timer.c **** 	usPeriod = 1000;
+  93:bsp/src/bsp_timer.c **** 
+  94:bsp/src/bsp_timer.c **** 	/* Time base configuration */
+  95:bsp/src/bsp_timer.c **** 	TMR_TimeBaseStructure.TMR_Period            = usPeriod;
+  55              		.loc 1 95 0
+  56 0018 4FF47A72 		mov	r2, #1000
+  57 001c 0492     		str	r2, [sp, #16]
+  96:bsp/src/bsp_timer.c **** 	TMR_TimeBaseStructure.TMR_DIV               = usPrescaler-1;
+  58              		.loc 1 96 0
+  59 001e 013B     		subs	r3, r3, #1
+  60              	.LVL4:
+  61 0020 ADF80830 		strh	r3, [sp, #8]	@ movhi
+  97:bsp/src/bsp_timer.c **** 	TMR_TimeBaseStructure.TMR_ClockDivision     = 0;
+  62              		.loc 1 97 0
+  63 0024 0024     		movs	r4, #0
+  64 0026 ADF81440 		strh	r4, [sp, #20]	@ movhi
+  98:bsp/src/bsp_timer.c **** 	TMR_TimeBaseStructure.TMR_CounterMode       = TMR_CounterDIR_Up;
+  65              		.loc 1 98 0
+  66 002a 0394     		str	r4, [sp, #12]
+  99:bsp/src/bsp_timer.c **** 
+ 100:bsp/src/bsp_timer.c **** 	TMR_TimeBaseInit(TMR_HARD, &TMR_TimeBaseStructure);
+  67              		.loc 1 100 0
+  68 002c 104D     		ldr	r5, .L3+8
+  69 002e 02A9     		add	r1, sp, #8
+  70 0030 2846     		mov	r0, r5
+  71 0032 FFF7FEFF 		bl	TMR_TimeBaseInit
+  72              	.LVL5:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfuaozr.s 			page 4
+
+
+ 101:bsp/src/bsp_timer.c **** 
+ 102:bsp/src/bsp_timer.c **** 	TMR_ARPreloadConfig(TMR_HARD, ENABLE);
+  73              		.loc 1 102 0
+  74 0036 0121     		movs	r1, #1
+  75 0038 2846     		mov	r0, r5
+  76 003a FFF7FEFF 		bl	TMR_ARPreloadConfig
+  77              	.LVL6:
+ 103:bsp/src/bsp_timer.c **** 
+ 104:bsp/src/bsp_timer.c **** 	/* TMRx enable counter */
+ 105:bsp/src/bsp_timer.c **** 	TMR_Cmd(TMR_HARD, ENABLE);
+  78              		.loc 1 105 0
+  79 003e 0121     		movs	r1, #1
+  80 0040 2846     		mov	r0, r5
+  81 0042 FFF7FEFF 		bl	TMR_Cmd
+  82              	.LVL7:
+ 106:bsp/src/bsp_timer.c **** 
+ 107:bsp/src/bsp_timer.c ****     NVIC_InitType NVIC_InitStructure;	
+ 108:bsp/src/bsp_timer.c **** 
+ 109:bsp/src/bsp_timer.c **** 	NVIC_InitStructure.NVIC_IRQChannel = TMR_HARD_IRQn;
+  83              		.loc 1 109 0
+  84 0046 1D23     		movs	r3, #29
+  85 0048 8DF80430 		strb	r3, [sp, #4]
+ 110:bsp/src/bsp_timer.c **** 
+ 111:bsp/src/bsp_timer.c **** 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority    = 4;	
+  86              		.loc 1 111 0
+  87 004c 0423     		movs	r3, #4
+  88 004e 8DF80530 		strb	r3, [sp, #5]
+ 112:bsp/src/bsp_timer.c **** 	NVIC_InitStructure.NVIC_IRQChannelSubPriority           = 0;
+  89              		.loc 1 112 0
+  90 0052 8DF80640 		strb	r4, [sp, #6]
+ 113:bsp/src/bsp_timer.c **** 	NVIC_InitStructure.NVIC_IRQChannelCmd                   = ENABLE;
+  91              		.loc 1 113 0
+  92 0056 0123     		movs	r3, #1
+  93 0058 8DF80730 		strb	r3, [sp, #7]
+ 114:bsp/src/bsp_timer.c **** 	NVIC_Init(&NVIC_InitStructure);
+  94              		.loc 1 114 0
+  95 005c 01A8     		add	r0, sp, #4
+  96 005e FFF7FEFF 		bl	NVIC_Init
+  97              	.LVL8:
+ 115:bsp/src/bsp_timer.c **** }
+  98              		.loc 1 115 0
+  99 0062 07B0     		add	sp, sp, #28
+ 100              	.LCFI2:
+ 101              		.cfi_def_cfa_offset 12
+ 102              		@ sp needed
+ 103 0064 30BD     		pop	{r4, r5, pc}
+ 104              	.L4:
+ 105 0066 00BF     		.align	2
+ 106              	.L3:
+ 107 0068 00000000 		.word	SystemCoreClock
+ 108 006c 83DE1B43 		.word	1125899907
+ 109 0070 00040040 		.word	1073742848
+ 110              		.cfi_endproc
+ 111              	.LFE131:
+ 113              		.section	.text.bsp_StartHardTimer,"ax",%progbits
+ 114              		.align	1
+ 115              		.global	bsp_StartHardTimer
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfuaozr.s 			page 5
+
+
+ 116              		.syntax unified
+ 117              		.thumb
+ 118              		.thumb_func
+ 119              		.fpu fpv4-sp-d16
+ 121              	bsp_StartHardTimer:
+ 122              	.LFB132:
+ 116:bsp/src/bsp_timer.c **** 
+ 117:bsp/src/bsp_timer.c **** /**
+ 118:bsp/src/bsp_timer.c ****   * @brief  Set interrupt
+ 119:bsp/src/bsp_timer.c ****   * @param  _CC:Compare channel
+ 120:bsp/src/bsp_timer.c ****   * @param  _uiTimeOut:Timeout value
+ 121:bsp/src/bsp_timer.c ****   * @param  _pCallBack:Callback function
+ 122:bsp/src/bsp_timer.c ****   * @retval None
+ 123:bsp/src/bsp_timer.c ****   */
+ 124:bsp/src/bsp_timer.c **** void bsp_StartHardTimer(uint8_t _CC, uint32_t _uiTimeOut, void * _pCallBack)
+ 125:bsp/src/bsp_timer.c **** {
+ 123              		.loc 1 125 0
+ 124              		.cfi_startproc
+ 125              		@ args = 0, pretend = 0, frame = 0
+ 126              		@ frame_needed = 0, uses_anonymous_args = 0
+ 127              	.LVL9:
+ 128 0000 70B5     		push	{r4, r5, r6, lr}
+ 129              	.LCFI3:
+ 130              		.cfi_def_cfa_offset 16
+ 131              		.cfi_offset 4, -16
+ 132              		.cfi_offset 5, -12
+ 133              		.cfi_offset 6, -8
+ 134              		.cfi_offset 14, -4
+ 135 0002 0546     		mov	r5, r0
+ 136 0004 0C46     		mov	r4, r1
+ 137 0006 1646     		mov	r6, r2
+ 126:bsp/src/bsp_timer.c ****     uint32_t cnt_now;
+ 127:bsp/src/bsp_timer.c ****     uint32_t cnt_tar;
+ 128:bsp/src/bsp_timer.c **** 
+ 129:bsp/src/bsp_timer.c ****     if (_uiTimeOut < 5)
+ 138              		.loc 1 129 0
+ 139 0008 0429     		cmp	r1, #4
+ 140 000a 00D9     		bls	.L6
+ 130:bsp/src/bsp_timer.c ****     {
+ 131:bsp/src/bsp_timer.c ****         ;
+ 132:bsp/src/bsp_timer.c ****     }
+ 133:bsp/src/bsp_timer.c ****     else
+ 134:bsp/src/bsp_timer.c ****     {
+ 135:bsp/src/bsp_timer.c ****         _uiTimeOut -= 5;
+ 141              		.loc 1 135 0
+ 142 000c 4C1F     		subs	r4, r1, #5
+ 143              	.LVL10:
+ 144              	.L6:
+ 136:bsp/src/bsp_timer.c ****     }
+ 137:bsp/src/bsp_timer.c **** 
+ 138:bsp/src/bsp_timer.c ****     cnt_now = TMR_GetCounter(TMR_HARD);    	
+ 145              		.loc 1 138 0
+ 146 000e 2648     		ldr	r0, .L16
+ 147              	.LVL11:
+ 148 0010 FFF7FEFF 		bl	TMR_GetCounter
+ 149              	.LVL12:
+ 139:bsp/src/bsp_timer.c ****     cnt_tar = cnt_now + _uiTimeOut;			
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfuaozr.s 			page 6
+
+
+ 150              		.loc 1 139 0
+ 151 0014 2118     		adds	r1, r4, r0
+ 152              	.LVL13:
+ 140:bsp/src/bsp_timer.c ****     if (_CC == 1)
+ 153              		.loc 1 140 0
+ 154 0016 012D     		cmp	r5, #1
+ 155 0018 06D0     		beq	.L12
+ 141:bsp/src/bsp_timer.c ****     {
+ 142:bsp/src/bsp_timer.c ****         s_TMR_CallBack1 = (void (*)(void))_pCallBack;
+ 143:bsp/src/bsp_timer.c **** 
+ 144:bsp/src/bsp_timer.c ****         TMR_SetCompare1(TMR_HARD, cnt_tar);      	
+ 145:bsp/src/bsp_timer.c ****         TMR_ClearITPendingBit(TMR_HARD, TMR_INT_CC1);
+ 146:bsp/src/bsp_timer.c **** 		TMR_INTConfig(TMR_HARD, TMR_INT_CC1, ENABLE);	
+ 147:bsp/src/bsp_timer.c **** 
+ 148:bsp/src/bsp_timer.c ****     }
+ 149:bsp/src/bsp_timer.c ****     else if (_CC == 2)
+ 156              		.loc 1 149 0
+ 157 001a 022D     		cmp	r5, #2
+ 158 001c 14D0     		beq	.L13
+ 150:bsp/src/bsp_timer.c ****     {
+ 151:bsp/src/bsp_timer.c **** 		s_TMR_CallBack2 = (void (*)(void))_pCallBack;
+ 152:bsp/src/bsp_timer.c **** 
+ 153:bsp/src/bsp_timer.c ****         TMR_SetCompare2(TMR_HARD, cnt_tar);      	
+ 154:bsp/src/bsp_timer.c **** 		TMR_ClearITPendingBit(TMR_HARD, TMR_INT_CC2);
+ 155:bsp/src/bsp_timer.c **** 		TMR_INTConfig(TMR_HARD, TMR_INT_CC2, ENABLE);	
+ 156:bsp/src/bsp_timer.c ****     }
+ 157:bsp/src/bsp_timer.c ****     else if (_CC == 3)
+ 159              		.loc 1 157 0
+ 160 001e 032D     		cmp	r5, #3
+ 161 0020 22D0     		beq	.L14
+ 158:bsp/src/bsp_timer.c ****     {
+ 159:bsp/src/bsp_timer.c ****         s_TMR_CallBack3 = (void (*)(void))_pCallBack;
+ 160:bsp/src/bsp_timer.c **** 
+ 161:bsp/src/bsp_timer.c ****         TMR_SetCompare3(TMR_HARD, cnt_tar);      	
+ 162:bsp/src/bsp_timer.c ****         TMR_ClearITPendingBit(TMR_HARD, TMR_INT_CC3);
+ 163:bsp/src/bsp_timer.c **** 		TMR_INTConfig(TMR_HARD, TMR_INT_CC3, ENABLE);	
+ 164:bsp/src/bsp_timer.c ****     }
+ 165:bsp/src/bsp_timer.c ****     else if (_CC == 4)
+ 162              		.loc 1 165 0
+ 163 0022 042D     		cmp	r5, #4
+ 164 0024 30D0     		beq	.L15
+ 165              	.LVL14:
+ 166              	.L5:
+ 166:bsp/src/bsp_timer.c ****     {
+ 167:bsp/src/bsp_timer.c ****         s_TMR_CallBack4 = (void (*)(void))_pCallBack;
+ 168:bsp/src/bsp_timer.c **** 
+ 169:bsp/src/bsp_timer.c ****         TMR_SetCompare4(TMR_HARD, cnt_tar);      	
+ 170:bsp/src/bsp_timer.c **** 		TMR_ClearITPendingBit(TMR_HARD, TMR_INT_CC4);
+ 171:bsp/src/bsp_timer.c **** 		TMR_INTConfig(TMR_HARD, TMR_INT_CC4, ENABLE);	
+ 172:bsp/src/bsp_timer.c ****     }
+ 173:bsp/src/bsp_timer.c **** 	else
+ 174:bsp/src/bsp_timer.c ****     {
+ 175:bsp/src/bsp_timer.c ****         return;
+ 176:bsp/src/bsp_timer.c ****     }
+ 177:bsp/src/bsp_timer.c **** }
+ 167              		.loc 1 177 0
+ 168 0026 70BD     		pop	{r4, r5, r6, pc}
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfuaozr.s 			page 7
+
+
+ 169              	.LVL15:
+ 170              	.L12:
+ 142:bsp/src/bsp_timer.c **** 
+ 171              		.loc 1 142 0
+ 172 0028 204B     		ldr	r3, .L16+4
+ 173 002a 1E60     		str	r6, [r3]
+ 144:bsp/src/bsp_timer.c ****         TMR_ClearITPendingBit(TMR_HARD, TMR_INT_CC1);
+ 174              		.loc 1 144 0
+ 175 002c 1E4C     		ldr	r4, .L16
+ 176              	.LVL16:
+ 177 002e 2046     		mov	r0, r4
+ 178              	.LVL17:
+ 179 0030 FFF7FEFF 		bl	TMR_SetCompare1
+ 180              	.LVL18:
+ 145:bsp/src/bsp_timer.c **** 		TMR_INTConfig(TMR_HARD, TMR_INT_CC1, ENABLE);	
+ 181              		.loc 1 145 0
+ 182 0034 0221     		movs	r1, #2
+ 183 0036 2046     		mov	r0, r4
+ 184 0038 FFF7FEFF 		bl	TMR_ClearITPendingBit
+ 185              	.LVL19:
+ 146:bsp/src/bsp_timer.c **** 
+ 186              		.loc 1 146 0
+ 187 003c 0122     		movs	r2, #1
+ 188 003e 0221     		movs	r1, #2
+ 189 0040 2046     		mov	r0, r4
+ 190 0042 FFF7FEFF 		bl	TMR_INTConfig
+ 191              	.LVL20:
+ 192 0046 EEE7     		b	.L5
+ 193              	.LVL21:
+ 194              	.L13:
+ 151:bsp/src/bsp_timer.c **** 
+ 195              		.loc 1 151 0
+ 196 0048 194B     		ldr	r3, .L16+8
+ 197 004a 1E60     		str	r6, [r3]
+ 153:bsp/src/bsp_timer.c **** 		TMR_ClearITPendingBit(TMR_HARD, TMR_INT_CC2);
+ 198              		.loc 1 153 0
+ 199 004c 164C     		ldr	r4, .L16
+ 200              	.LVL22:
+ 201 004e 2046     		mov	r0, r4
+ 202              	.LVL23:
+ 203 0050 FFF7FEFF 		bl	TMR_SetCompare2
+ 204              	.LVL24:
+ 154:bsp/src/bsp_timer.c **** 		TMR_INTConfig(TMR_HARD, TMR_INT_CC2, ENABLE);	
+ 205              		.loc 1 154 0
+ 206 0054 0421     		movs	r1, #4
+ 207 0056 2046     		mov	r0, r4
+ 208 0058 FFF7FEFF 		bl	TMR_ClearITPendingBit
+ 209              	.LVL25:
+ 155:bsp/src/bsp_timer.c ****     }
+ 210              		.loc 1 155 0
+ 211 005c 0122     		movs	r2, #1
+ 212 005e 0421     		movs	r1, #4
+ 213 0060 2046     		mov	r0, r4
+ 214 0062 FFF7FEFF 		bl	TMR_INTConfig
+ 215              	.LVL26:
+ 216 0066 DEE7     		b	.L5
+ 217              	.LVL27:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfuaozr.s 			page 8
+
+
+ 218              	.L14:
+ 159:bsp/src/bsp_timer.c **** 
+ 219              		.loc 1 159 0
+ 220 0068 124B     		ldr	r3, .L16+12
+ 221 006a 1E60     		str	r6, [r3]
+ 161:bsp/src/bsp_timer.c ****         TMR_ClearITPendingBit(TMR_HARD, TMR_INT_CC3);
+ 222              		.loc 1 161 0
+ 223 006c 0E4C     		ldr	r4, .L16
+ 224              	.LVL28:
+ 225 006e 2046     		mov	r0, r4
+ 226              	.LVL29:
+ 227 0070 FFF7FEFF 		bl	TMR_SetCompare3
+ 228              	.LVL30:
+ 162:bsp/src/bsp_timer.c **** 		TMR_INTConfig(TMR_HARD, TMR_INT_CC3, ENABLE);	
+ 229              		.loc 1 162 0
+ 230 0074 0821     		movs	r1, #8
+ 231 0076 2046     		mov	r0, r4
+ 232 0078 FFF7FEFF 		bl	TMR_ClearITPendingBit
+ 233              	.LVL31:
+ 163:bsp/src/bsp_timer.c ****     }
+ 234              		.loc 1 163 0
+ 235 007c 0122     		movs	r2, #1
+ 236 007e 0821     		movs	r1, #8
+ 237 0080 2046     		mov	r0, r4
+ 238 0082 FFF7FEFF 		bl	TMR_INTConfig
+ 239              	.LVL32:
+ 240 0086 CEE7     		b	.L5
+ 241              	.LVL33:
+ 242              	.L15:
+ 167:bsp/src/bsp_timer.c **** 
+ 243              		.loc 1 167 0
+ 244 0088 0B4B     		ldr	r3, .L16+16
+ 245 008a 1E60     		str	r6, [r3]
+ 169:bsp/src/bsp_timer.c **** 		TMR_ClearITPendingBit(TMR_HARD, TMR_INT_CC4);
+ 246              		.loc 1 169 0
+ 247 008c 064C     		ldr	r4, .L16
+ 248              	.LVL34:
+ 249 008e 2046     		mov	r0, r4
+ 250              	.LVL35:
+ 251 0090 FFF7FEFF 		bl	TMR_SetCompare4
+ 252              	.LVL36:
+ 170:bsp/src/bsp_timer.c **** 		TMR_INTConfig(TMR_HARD, TMR_INT_CC4, ENABLE);	
+ 253              		.loc 1 170 0
+ 254 0094 1021     		movs	r1, #16
+ 255 0096 2046     		mov	r0, r4
+ 256 0098 FFF7FEFF 		bl	TMR_ClearITPendingBit
+ 257              	.LVL37:
+ 171:bsp/src/bsp_timer.c ****     }
+ 258              		.loc 1 171 0
+ 259 009c 0122     		movs	r2, #1
+ 260 009e 1021     		movs	r1, #16
+ 261 00a0 2046     		mov	r0, r4
+ 262 00a2 FFF7FEFF 		bl	TMR_INTConfig
+ 263              	.LVL38:
+ 264 00a6 BEE7     		b	.L5
+ 265              	.L17:
+ 266              		.align	2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfuaozr.s 			page 9
+
+
+ 267              	.L16:
+ 268 00a8 00040040 		.word	1073742848
+ 269 00ac 00000000 		.word	.LANCHOR0
+ 270 00b0 00000000 		.word	.LANCHOR1
+ 271 00b4 00000000 		.word	.LANCHOR2
+ 272 00b8 00000000 		.word	.LANCHOR3
+ 273              		.cfi_endproc
+ 274              	.LFE132:
+ 276              		.section	.text.TMR3_GLOBAL_IRQHandler,"ax",%progbits
+ 277              		.align	1
+ 278              		.global	TMR3_GLOBAL_IRQHandler
+ 279              		.syntax unified
+ 280              		.thumb
+ 281              		.thumb_func
+ 282              		.fpu fpv4-sp-d16
+ 284              	TMR3_GLOBAL_IRQHandler:
+ 285              	.LFB133:
+ 178:bsp/src/bsp_timer.c **** #endif
+ 179:bsp/src/bsp_timer.c **** 
+ 180:bsp/src/bsp_timer.c **** /**
+ 181:bsp/src/bsp_timer.c ****   * @brief  Interrupt handler
+ 182:bsp/src/bsp_timer.c ****   * @param  None
+ 183:bsp/src/bsp_timer.c ****   * @retval None
+ 184:bsp/src/bsp_timer.c ****   */
+ 185:bsp/src/bsp_timer.c **** #ifdef USE_TMR2
+ 186:bsp/src/bsp_timer.c **** void TMR2_GLOBAL_IRQHandler(void)
+ 187:bsp/src/bsp_timer.c **** #endif
+ 188:bsp/src/bsp_timer.c **** 
+ 189:bsp/src/bsp_timer.c **** #ifdef USE_TMR3
+ 190:bsp/src/bsp_timer.c **** void TMR3_GLOBAL_IRQHandler(void)
+ 191:bsp/src/bsp_timer.c **** #endif
+ 192:bsp/src/bsp_timer.c **** 
+ 193:bsp/src/bsp_timer.c **** #ifdef USE_TMR4
+ 194:bsp/src/bsp_timer.c **** void TMR4_GLOBAL_IRQHandler(void)
+ 195:bsp/src/bsp_timer.c **** #endif
+ 196:bsp/src/bsp_timer.c **** 
+ 197:bsp/src/bsp_timer.c **** #ifdef USE_TMR5
+ 198:bsp/src/bsp_timer.c **** void TMR5_GLOBAL_IRQHandler(void)
+ 199:bsp/src/bsp_timer.c **** #endif
+ 200:bsp/src/bsp_timer.c **** {
+ 286              		.loc 1 200 0
+ 287              		.cfi_startproc
+ 288              		@ args = 0, pretend = 0, frame = 0
+ 289              		@ frame_needed = 0, uses_anonymous_args = 0
+ 290 0000 10B5     		push	{r4, lr}
+ 291              	.LCFI4:
+ 292              		.cfi_def_cfa_offset 8
+ 293              		.cfi_offset 4, -8
+ 294              		.cfi_offset 14, -4
+ 201:bsp/src/bsp_timer.c ****     if (TMR_GetINTStatus(TMR_HARD, TMR_INT_CC1))
+ 295              		.loc 1 201 0
+ 296 0002 0221     		movs	r1, #2
+ 297 0004 2548     		ldr	r0, .L28
+ 298 0006 FFF7FEFF 		bl	TMR_GetINTStatus
+ 299              	.LVL39:
+ 300 000a 78B9     		cbnz	r0, .L24
+ 301              	.L19:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfuaozr.s 			page 10
+
+
+ 202:bsp/src/bsp_timer.c ****     {
+ 203:bsp/src/bsp_timer.c ****         TMR_ClearITPendingBit(TMR_HARD, TMR_INT_CC1);
+ 204:bsp/src/bsp_timer.c ****         TMR_INTConfig(TMR_HARD, TMR_INT_CC1, DISABLE);
+ 205:bsp/src/bsp_timer.c ****         
+ 206:bsp/src/bsp_timer.c ****         s_TMR_CallBack1();
+ 207:bsp/src/bsp_timer.c ****     }
+ 208:bsp/src/bsp_timer.c **** 
+ 209:bsp/src/bsp_timer.c ****     if (TMR_GetINTStatus(TMR_HARD, TMR_INT_CC2))
+ 302              		.loc 1 209 0
+ 303 000c 0421     		movs	r1, #4
+ 304 000e 2348     		ldr	r0, .L28
+ 305 0010 FFF7FEFF 		bl	TMR_GetINTStatus
+ 306              	.LVL40:
+ 307 0014 C0B9     		cbnz	r0, .L25
+ 308              	.L20:
+ 210:bsp/src/bsp_timer.c ****     {
+ 211:bsp/src/bsp_timer.c ****         TMR_ClearITPendingBit(TMR_HARD, TMR_INT_CC2);
+ 212:bsp/src/bsp_timer.c ****         TMR_INTConfig(TMR_HARD, TMR_INT_CC2, DISABLE);	
+ 213:bsp/src/bsp_timer.c **** 
+ 214:bsp/src/bsp_timer.c ****         s_TMR_CallBack2();
+ 215:bsp/src/bsp_timer.c ****     }
+ 216:bsp/src/bsp_timer.c **** 
+ 217:bsp/src/bsp_timer.c ****     if (TMR_GetINTStatus(TMR_HARD, TMR_INT_CC3))
+ 309              		.loc 1 217 0
+ 310 0016 0821     		movs	r1, #8
+ 311 0018 2048     		ldr	r0, .L28
+ 312 001a FFF7FEFF 		bl	TMR_GetINTStatus
+ 313              	.LVL41:
+ 314 001e 08BB     		cbnz	r0, .L26
+ 315              	.L21:
+ 218:bsp/src/bsp_timer.c ****     {
+ 219:bsp/src/bsp_timer.c ****         TMR_ClearITPendingBit(TMR_HARD, TMR_INT_CC3);
+ 220:bsp/src/bsp_timer.c ****         TMR_INTConfig(TMR_HARD, TMR_INT_CC3, DISABLE);	
+ 221:bsp/src/bsp_timer.c **** 
+ 222:bsp/src/bsp_timer.c ****         s_TMR_CallBack3();
+ 223:bsp/src/bsp_timer.c ****     }
+ 224:bsp/src/bsp_timer.c **** 
+ 225:bsp/src/bsp_timer.c ****     if (TMR_GetINTStatus(TMR_HARD, TMR_INT_CC4))
+ 316              		.loc 1 225 0
+ 317 0020 1021     		movs	r1, #16
+ 318 0022 1E48     		ldr	r0, .L28
+ 319 0024 FFF7FEFF 		bl	TMR_GetINTStatus
+ 320              	.LVL42:
+ 321 0028 50BB     		cbnz	r0, .L27
+ 322              	.L18:
+ 226:bsp/src/bsp_timer.c ****     {
+ 227:bsp/src/bsp_timer.c ****         TMR_ClearITPendingBit(TMR_HARD, TMR_INT_CC4);
+ 228:bsp/src/bsp_timer.c ****         TMR_INTConfig(TMR_HARD, TMR_INT_CC4, DISABLE);	
+ 229:bsp/src/bsp_timer.c **** 
+ 230:bsp/src/bsp_timer.c ****         s_TMR_CallBack4();
+ 231:bsp/src/bsp_timer.c ****     }
+ 232:bsp/src/bsp_timer.c **** }
+ 323              		.loc 1 232 0
+ 324 002a 10BD     		pop	{r4, pc}
+ 325              	.L24:
+ 203:bsp/src/bsp_timer.c ****         TMR_INTConfig(TMR_HARD, TMR_INT_CC1, DISABLE);
+ 326              		.loc 1 203 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfuaozr.s 			page 11
+
+
+ 327 002c 1B4C     		ldr	r4, .L28
+ 328 002e 0221     		movs	r1, #2
+ 329 0030 2046     		mov	r0, r4
+ 330 0032 FFF7FEFF 		bl	TMR_ClearITPendingBit
+ 331              	.LVL43:
+ 204:bsp/src/bsp_timer.c ****         
+ 332              		.loc 1 204 0
+ 333 0036 0022     		movs	r2, #0
+ 334 0038 0221     		movs	r1, #2
+ 335 003a 2046     		mov	r0, r4
+ 336 003c FFF7FEFF 		bl	TMR_INTConfig
+ 337              	.LVL44:
+ 206:bsp/src/bsp_timer.c ****     }
+ 338              		.loc 1 206 0
+ 339 0040 174B     		ldr	r3, .L28+4
+ 340 0042 1B68     		ldr	r3, [r3]
+ 341 0044 9847     		blx	r3
+ 342              	.LVL45:
+ 343 0046 E1E7     		b	.L19
+ 344              	.L25:
+ 211:bsp/src/bsp_timer.c ****         TMR_INTConfig(TMR_HARD, TMR_INT_CC2, DISABLE);	
+ 345              		.loc 1 211 0
+ 346 0048 144C     		ldr	r4, .L28
+ 347 004a 0421     		movs	r1, #4
+ 348 004c 2046     		mov	r0, r4
+ 349 004e FFF7FEFF 		bl	TMR_ClearITPendingBit
+ 350              	.LVL46:
+ 212:bsp/src/bsp_timer.c **** 
+ 351              		.loc 1 212 0
+ 352 0052 0022     		movs	r2, #0
+ 353 0054 0421     		movs	r1, #4
+ 354 0056 2046     		mov	r0, r4
+ 355 0058 FFF7FEFF 		bl	TMR_INTConfig
+ 356              	.LVL47:
+ 214:bsp/src/bsp_timer.c ****     }
+ 357              		.loc 1 214 0
+ 358 005c 114B     		ldr	r3, .L28+8
+ 359 005e 1B68     		ldr	r3, [r3]
+ 360 0060 9847     		blx	r3
+ 361              	.LVL48:
+ 362 0062 D8E7     		b	.L20
+ 363              	.L26:
+ 219:bsp/src/bsp_timer.c ****         TMR_INTConfig(TMR_HARD, TMR_INT_CC3, DISABLE);	
+ 364              		.loc 1 219 0
+ 365 0064 0D4C     		ldr	r4, .L28
+ 366 0066 0821     		movs	r1, #8
+ 367 0068 2046     		mov	r0, r4
+ 368 006a FFF7FEFF 		bl	TMR_ClearITPendingBit
+ 369              	.LVL49:
+ 220:bsp/src/bsp_timer.c **** 
+ 370              		.loc 1 220 0
+ 371 006e 0022     		movs	r2, #0
+ 372 0070 0821     		movs	r1, #8
+ 373 0072 2046     		mov	r0, r4
+ 374 0074 FFF7FEFF 		bl	TMR_INTConfig
+ 375              	.LVL50:
+ 222:bsp/src/bsp_timer.c ****     }
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfuaozr.s 			page 12
+
+
+ 376              		.loc 1 222 0
+ 377 0078 0B4B     		ldr	r3, .L28+12
+ 378 007a 1B68     		ldr	r3, [r3]
+ 379 007c 9847     		blx	r3
+ 380              	.LVL51:
+ 381 007e CFE7     		b	.L21
+ 382              	.L27:
+ 227:bsp/src/bsp_timer.c ****         TMR_INTConfig(TMR_HARD, TMR_INT_CC4, DISABLE);	
+ 383              		.loc 1 227 0
+ 384 0080 064C     		ldr	r4, .L28
+ 385 0082 1021     		movs	r1, #16
+ 386 0084 2046     		mov	r0, r4
+ 387 0086 FFF7FEFF 		bl	TMR_ClearITPendingBit
+ 388              	.LVL52:
+ 228:bsp/src/bsp_timer.c **** 
+ 389              		.loc 1 228 0
+ 390 008a 0022     		movs	r2, #0
+ 391 008c 1021     		movs	r1, #16
+ 392 008e 2046     		mov	r0, r4
+ 393 0090 FFF7FEFF 		bl	TMR_INTConfig
+ 394              	.LVL53:
+ 230:bsp/src/bsp_timer.c ****     }
+ 395              		.loc 1 230 0
+ 396 0094 054B     		ldr	r3, .L28+16
+ 397 0096 1B68     		ldr	r3, [r3]
+ 398 0098 9847     		blx	r3
+ 399              	.LVL54:
+ 400              		.loc 1 232 0
+ 401 009a C6E7     		b	.L18
+ 402              	.L29:
+ 403              		.align	2
+ 404              	.L28:
+ 405 009c 00040040 		.word	1073742848
+ 406 00a0 00000000 		.word	.LANCHOR0
+ 407 00a4 00000000 		.word	.LANCHOR1
+ 408 00a8 00000000 		.word	.LANCHOR2
+ 409 00ac 00000000 		.word	.LANCHOR3
+ 410              		.cfi_endproc
+ 411              	.LFE133:
+ 413              		.section	.bss.s_TMR_CallBack1,"aw",%nobits
+ 414              		.align	2
+ 415              		.set	.LANCHOR0,. + 0
+ 418              	s_TMR_CallBack1:
+ 419 0000 00000000 		.space	4
+ 420              		.section	.bss.s_TMR_CallBack2,"aw",%nobits
+ 421              		.align	2
+ 422              		.set	.LANCHOR1,. + 0
+ 425              	s_TMR_CallBack2:
+ 426 0000 00000000 		.space	4
+ 427              		.section	.bss.s_TMR_CallBack3,"aw",%nobits
+ 428              		.align	2
+ 429              		.set	.LANCHOR2,. + 0
+ 432              	s_TMR_CallBack3:
+ 433 0000 00000000 		.space	4
+ 434              		.section	.bss.s_TMR_CallBack4,"aw",%nobits
+ 435              		.align	2
+ 436              		.set	.LANCHOR3,. + 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfuaozr.s 			page 13
+
+
+ 439              	s_TMR_CallBack4:
+ 440 0000 00000000 		.space	4
+ 441              		.text
+ 442              	.Letext0:
+ 443              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
+ 444              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
+ 445              		.file 4 "../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h"
+ 446              		.file 5 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
+ 447              		.file 6 "../Libraries/CMSIS/CM4/DeviceSupport/at32f4xx.h"
+ 448              		.file 7 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_tim.h"
+ 449              		.file 8 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/misc.h"
+ 450              		.file 9 "Inc/FreeRTOSConfig.h"
+ 451              		.file 10 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
+ 452              		.file 11 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
+ 453              		.file 12 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.
+ 454              		.file 13 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
+ 455              		.file 14 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdlib.h"
+ 456              		.file 15 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_rcc.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfuaozr.s 			page 14
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 bsp_timer.c
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfuaozr.s:17     .text.bsp_InitHardTimer:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfuaozr.s:24     .text.bsp_InitHardTimer:0000000000000000 bsp_InitHardTimer
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfuaozr.s:107    .text.bsp_InitHardTimer:0000000000000068 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfuaozr.s:114    .text.bsp_StartHardTimer:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfuaozr.s:121    .text.bsp_StartHardTimer:0000000000000000 bsp_StartHardTimer
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfuaozr.s:268    .text.bsp_StartHardTimer:00000000000000a8 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfuaozr.s:277    .text.TMR3_GLOBAL_IRQHandler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfuaozr.s:284    .text.TMR3_GLOBAL_IRQHandler:0000000000000000 TMR3_GLOBAL_IRQHandler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfuaozr.s:405    .text.TMR3_GLOBAL_IRQHandler:000000000000009c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfuaozr.s:414    .bss.s_TMR_CallBack1:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfuaozr.s:418    .bss.s_TMR_CallBack1:0000000000000000 s_TMR_CallBack1
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfuaozr.s:421    .bss.s_TMR_CallBack2:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfuaozr.s:425    .bss.s_TMR_CallBack2:0000000000000000 s_TMR_CallBack2
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfuaozr.s:428    .bss.s_TMR_CallBack3:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfuaozr.s:432    .bss.s_TMR_CallBack3:0000000000000000 s_TMR_CallBack3
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfuaozr.s:435    .bss.s_TMR_CallBack4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfuaozr.s:439    .bss.s_TMR_CallBack4:0000000000000000 s_TMR_CallBack4
+
+UNDEFINED SYMBOLS
+RCC_APB1PeriphClockCmd
+TMR_TimeBaseInit
+TMR_ARPreloadConfig
+TMR_Cmd
+NVIC_Init
+SystemCoreClock
+TMR_GetCounter
+TMR_SetCompare1
+TMR_ClearITPendingBit
+TMR_INTConfig
+TMR_SetCompare2
+TMR_SetCompare3
+TMR_SetCompare4
+TMR_GetINTStatus

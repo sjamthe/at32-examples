@@ -1,0 +1,145 @@
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbM5Ki1.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"bsp.c"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.text.bsp_Init,"ax",%progbits
+  17              		.align	1
+  18              		.global	bsp_Init
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu fpv4-sp-d16
+  24              	bsp_Init:
+  25              	.LFB131:
+  26              		.file 1 "bsp/src/bsp.c"
+   1:bsp/src/bsp.c **** /**
+   2:bsp/src/bsp.c ****   ******************************************************************************
+   3:bsp/src/bsp.c ****   * @file    FreeRTOS/bsp/bsp.c 
+   4:bsp/src/bsp.c ****   * @author  Artery Technology 
+   5:bsp/src/bsp.c ****   * @version V1.1.2
+   6:bsp/src/bsp.c ****   * @date    2019-01-04
+   7:bsp/src/bsp.c ****   * @brief   Bsp Service Routines.
+   8:bsp/src/bsp.c ****   ******************************************************************************
+   9:bsp/src/bsp.c ****   * @attention
+  10:bsp/src/bsp.c ****   *
+  11:bsp/src/bsp.c ****   * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
+  12:bsp/src/bsp.c ****   * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
+  13:bsp/src/bsp.c ****   * TIME. AS A RESULT, ARTERYTEK SHALL NOT BE HELD LIABLE FOR ANY
+  14:bsp/src/bsp.c ****   * DIRECT, INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
+  15:bsp/src/bsp.c ****   * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
+  16:bsp/src/bsp.c ****   * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
+  17:bsp/src/bsp.c ****   *
+  18:bsp/src/bsp.c ****   * <h2><center>&copy; COPYRIGHT 2018 ArteryTek</center></h2>
+  19:bsp/src/bsp.c ****   ******************************************************************************
+  20:bsp/src/bsp.c ****   */ 
+  21:bsp/src/bsp.c **** 
+  22:bsp/src/bsp.c **** /* Includes ------------------------------------------------------------------*/
+  23:bsp/src/bsp.c **** #include "bsp.h"
+  24:bsp/src/bsp.c **** 
+  25:bsp/src/bsp.c **** /** @addtogroup AT32F403_StdPeriph_Examples
+  26:bsp/src/bsp.c ****   * @{
+  27:bsp/src/bsp.c ****   */
+  28:bsp/src/bsp.c **** 
+  29:bsp/src/bsp.c **** /** @addtogroup FreeRTOS_ResManagement_SafelyPrint
+  30:bsp/src/bsp.c ****   * @{
+  31:bsp/src/bsp.c ****   */ 
+  32:bsp/src/bsp.c **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbM5Ki1.s 			page 2
+
+
+  33:bsp/src/bsp.c **** /* Private typedef -----------------------------------------------------------*/
+  34:bsp/src/bsp.c **** /* Private define ------------------------------------------------------------*/
+  35:bsp/src/bsp.c **** /* Private macro -------------------------------------------------------------*/
+  36:bsp/src/bsp.c **** /* Private variables ---------------------------------------------------------*/
+  37:bsp/src/bsp.c **** /* Private function prototypes -----------------------------------------------*/
+  38:bsp/src/bsp.c **** /* Private functions ---------------------------------------------------------*/
+  39:bsp/src/bsp.c **** 
+  40:bsp/src/bsp.c **** void bsp_Init(void)
+  41:bsp/src/bsp.c **** {
+  27              		.loc 1 41 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 08B5     		push	{r3, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  42:bsp/src/bsp.c ****     /* It is recommended to assign all the priority bits to be preempt 
+  43:bsp/src/bsp.c ****      * priority bits, leaving no priority bits as subpriority bits
+  44:bsp/src/bsp.c ****      */
+  45:bsp/src/bsp.c **** 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);
+  36              		.loc 1 45 0
+  37 0002 4FF44070 		mov	r0, #768
+  38 0006 FFF7FEFF 		bl	NVIC_PriorityGroupConfig
+  39              	.LVL0:
+  46:bsp/src/bsp.c **** 
+  47:bsp/src/bsp.c **** 	bsp_InitUart(); 	/* initialize USART1 */
+  40              		.loc 1 47 0
+  41 000a FFF7FEFF 		bl	bsp_InitUart
+  42              	.LVL1:
+  48:bsp/src/bsp.c **** 	bsp_InitLed(); 		/* initialize LED */
+  43              		.loc 1 48 0
+  44 000e FFF7FEFF 		bl	bsp_InitLed
+  45              	.LVL2:
+  49:bsp/src/bsp.c **** 	bsp_InitKey();		/* initialize KEY */
+  46              		.loc 1 49 0
+  47 0012 FFF7FEFF 		bl	bsp_InitKey
+  48              	.LVL3:
+  50:bsp/src/bsp.c ****   bsp_InitHardTimer();/* initialize TMR2 */
+  49              		.loc 1 50 0
+  50 0016 FFF7FEFF 		bl	bsp_InitHardTimer
+  51              	.LVL4:
+  51:bsp/src/bsp.c **** }
+  52              		.loc 1 51 0
+  53 001a 08BD     		pop	{r3, pc}
+  54              		.cfi_endproc
+  55              	.LFE131:
+  57              		.text
+  58              	.Letext0:
+  59              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
+  60              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
+  61              		.file 4 "../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h"
+  62              		.file 5 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
+  63              		.file 6 "Inc/FreeRTOSConfig.h"
+  64              		.file 7 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
+  65              		.file 8 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbM5Ki1.s 			page 3
+
+
+  66              		.file 9 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h
+  67              		.file 10 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
+  68              		.file 11 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdlib.h"
+  69              		.file 12 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/misc.h"
+  70              		.file 13 "bsp/inc/bsp_uart_fifo.h"
+  71              		.file 14 "bsp/inc/bsp_led.h"
+  72              		.file 15 "bsp/inc/bsp_key.h"
+  73              		.file 16 "bsp/inc/bsp_timer.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbM5Ki1.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 bsp.c
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbM5Ki1.s:17     .text.bsp_Init:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbM5Ki1.s:24     .text.bsp_Init:0000000000000000 bsp_Init
+
+UNDEFINED SYMBOLS
+NVIC_PriorityGroupConfig
+bsp_InitUart
+bsp_InitLed
+bsp_InitKey
+bsp_InitHardTimer

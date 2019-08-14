@@ -1,0 +1,521 @@
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccndHsPP.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"misc.c"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.text.NVIC_PriorityGroupConfig,"ax",%progbits
+  17              		.align	1
+  18              		.global	NVIC_PriorityGroupConfig
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu fpv4-sp-d16
+  24              	NVIC_PriorityGroupConfig:
+  25              	.LFB123:
+  26              		.file 1 "../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c"
+   1:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** /**
+   2:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****  **************************************************************************
+   3:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****  * File Name    : misc.c
+   4:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****  * Description  : at32f4xx MISC source file
+   5:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****  * Date         : 2018-10-08
+   6:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****  * Version      : V1.0.5
+   7:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****  **************************************************************************
+   8:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****  */
+   9:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** 
+  10:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** 
+  11:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** /* Includes ------------------------------------------------------------------*/
+  12:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** #include "misc.h"
+  13:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** 
+  14:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** /** @addtogroup at32f4xx_StdPeriph_Driver
+  15:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   * @{
+  16:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   */
+  17:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** 
+  18:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** /** @defgroup MISC
+  19:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   * @brief MISC driver modules
+  20:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   * @{
+  21:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   */
+  22:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** 
+  23:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** /** @defgroup MISC_Private_TypesDefinitions
+  24:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   * @{
+  25:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   */
+  26:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** 
+  27:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** /**
+  28:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   * @}
+  29:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   */
+  30:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** 
+  31:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** /** @defgroup MISC_Private_Defines
+  32:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   * @{
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccndHsPP.s 			page 2
+
+
+  33:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   */
+  34:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** 
+  35:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** #define AIRCR_VECTKEY_MASK    ((uint32_t)0x05FA0000)
+  36:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** /**
+  37:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   * @}
+  38:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   */
+  39:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** 
+  40:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** /** @defgroup MISC_Private_Macros
+  41:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   * @{
+  42:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   */
+  43:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** 
+  44:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** /**
+  45:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   * @}
+  46:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   */
+  47:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** 
+  48:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** /** @defgroup MISC_Private_Variables
+  49:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   * @{
+  50:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   */
+  51:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** 
+  52:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** /**
+  53:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   * @}
+  54:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   */
+  55:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** 
+  56:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** /** @defgroup MISC_Private_FunctionPrototypes
+  57:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   * @{
+  58:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   */
+  59:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** 
+  60:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** /**
+  61:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   * @}
+  62:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   */
+  63:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** 
+  64:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** /** @defgroup MISC_Private_Functions
+  65:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   * @{
+  66:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   */
+  67:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** 
+  68:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** /**
+  69:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   * @brief  Configures the priority grouping: pre-emption priority and subpriority.
+  70:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   * @param  NVIC_PriorityGroup: specifies the priority grouping bits length.
+  71:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   *   This parameter can be one of the following values:
+  72:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   *     @arg NVIC_PriorityGroup_0: 0 bits for pre-emption priority
+  73:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   *                                4 bits for subpriority
+  74:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   *     @arg NVIC_PriorityGroup_1: 1 bits for pre-emption priority
+  75:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   *                                3 bits for subpriority
+  76:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   *     @arg NVIC_PriorityGroup_2: 2 bits for pre-emption priority
+  77:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   *                                2 bits for subpriority
+  78:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   *     @arg NVIC_PriorityGroup_3: 3 bits for pre-emption priority
+  79:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   *                                1 bits for subpriority
+  80:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   *     @arg NVIC_PriorityGroup_4: 4 bits for pre-emption priority
+  81:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   *                                0 bits for subpriority
+  82:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   * @retval None
+  83:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   */
+  84:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** void NVIC_PriorityGroupConfig(uint32_t NVIC_PriorityGroup)
+  85:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** {
+  27              		.loc 1 85 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccndHsPP.s 			page 3
+
+
+  31              		@ link register save eliminated.
+  32              	.LVL0:
+  86:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   /* Check the parameters */
+  87:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   assert_param(IS_NVIC_PRIORITY_GROUP(NVIC_PriorityGroup));
+  88:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** 
+  89:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   /* Set the PRIGROUP[10:8] bits according to NVIC_PriorityGroup value */
+  90:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   SCB->AIRCR = AIRCR_VECTKEY_MASK | NVIC_PriorityGroup;
+  33              		.loc 1 90 0
+  34 0000 40F0BF60 		orr	r0, r0, #100139008
+  35              	.LVL1:
+  36 0004 40F40030 		orr	r0, r0, #131072
+  37 0008 014B     		ldr	r3, .L2
+  38 000a D860     		str	r0, [r3, #12]
+  91:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** }
+  39              		.loc 1 91 0
+  40 000c 7047     		bx	lr
+  41              	.L3:
+  42 000e 00BF     		.align	2
+  43              	.L2:
+  44 0010 00ED00E0 		.word	-536810240
+  45              		.cfi_endproc
+  46              	.LFE123:
+  48              		.section	.text.NVIC_Init,"ax",%progbits
+  49              		.align	1
+  50              		.global	NVIC_Init
+  51              		.syntax unified
+  52              		.thumb
+  53              		.thumb_func
+  54              		.fpu fpv4-sp-d16
+  56              	NVIC_Init:
+  57              	.LFB124:
+  92:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** 
+  93:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** /**
+  94:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   * @brief  Initializes the NVIC peripheral according to the specified
+  95:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   *         parameters in the NVIC_InitStruct.
+  96:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   * @param  NVIC_InitStruct: pointer to a NVIC_InitType structure that contains
+  97:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   *         the configuration information for the specified NVIC peripheral.
+  98:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   * @retval None
+  99:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   */
+ 100:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** void NVIC_Init(NVIC_InitType* NVIC_InitStruct)
+ 101:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** {
+  58              		.loc 1 101 0
+  59              		.cfi_startproc
+  60              		@ args = 0, pretend = 0, frame = 0
+  61              		@ frame_needed = 0, uses_anonymous_args = 0
+  62              		@ link register save eliminated.
+  63              	.LVL2:
+ 102:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   uint32_t tmppriority = 0x00, tmppre = 0x00, tmpsub = 0x0F;
+ 103:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** 
+ 104:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   /* Check the parameters */
+ 105:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   assert_param(IS_FUNCTIONAL_STATE(NVIC_InitStruct->NVIC_IRQChannelCmd));
+ 106:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   assert_param(IS_NVIC_PREEMPTION_PRIORITY(NVIC_InitStruct->NVIC_IRQChannelPreemptionPriority));
+ 107:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   assert_param(IS_NVIC_SUB_PRIORITY(NVIC_InitStruct->NVIC_IRQChannelSubPriority));
+ 108:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** 
+ 109:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   if (NVIC_InitStruct->NVIC_IRQChannelCmd != DISABLE)
+  64              		.loc 1 109 0
+  65 0000 C378     		ldrb	r3, [r0, #3]	@ zero_extendqisi2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccndHsPP.s 			page 4
+
+
+  66 0002 53B9     		cbnz	r3, .L11
+ 110:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   {
+ 111:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****     /* Compute the Corresponding IRQ Priority --------------------------------*/
+ 112:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****     tmppriority = (0x700 - ((SCB->AIRCR) & (uint32_t)0x700)) >> 0x08;
+ 113:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****     tmppre = (0x4 - tmppriority);
+ 114:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****     tmpsub = tmpsub >> tmppriority;
+ 115:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** 
+ 116:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****     tmppriority = (uint32_t)NVIC_InitStruct->NVIC_IRQChannelPreemptionPriority << tmppre;
+ 117:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****     tmppriority |=  NVIC_InitStruct->NVIC_IRQChannelSubPriority & tmpsub;
+ 118:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****     tmppriority = tmppriority << 0x04;
+ 119:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** 
+ 120:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****     NVIC->IP[NVIC_InitStruct->NVIC_IRQChannel] = tmppriority;
+ 121:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** 
+ 122:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****     /* Enable the Selected IRQ Channels --------------------------------------*/
+ 123:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****     NVIC->ISER[NVIC_InitStruct->NVIC_IRQChannel >> 0x05] =
+ 124:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****       (uint32_t)0x01 << (NVIC_InitStruct->NVIC_IRQChannel & (uint8_t)0x1F);
+ 125:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   }
+ 126:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   else
+ 127:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   {
+ 128:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****     /* Disable the Selected IRQ Channels -------------------------------------*/
+ 129:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****     NVIC->ICER[NVIC_InitStruct->NVIC_IRQChannel >> 0x05] =
+ 130:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****       (uint32_t)0x01 << (NVIC_InitStruct->NVIC_IRQChannel & (uint8_t)0x1F);
+  67              		.loc 1 130 0
+  68 0004 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
+  69 0006 03F01F01 		and	r1, r3, #31
+ 129:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****       (uint32_t)0x01 << (NVIC_InitStruct->NVIC_IRQChannel & (uint8_t)0x1F);
+  70              		.loc 1 129 0
+  71 000a 5B09     		lsrs	r3, r3, #5
+  72              		.loc 1 130 0
+  73 000c 0122     		movs	r2, #1
+  74 000e 8A40     		lsls	r2, r2, r1
+ 129:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****       (uint32_t)0x01 << (NVIC_InitStruct->NVIC_IRQChannel & (uint8_t)0x1F);
+  75              		.loc 1 129 0
+  76 0010 2033     		adds	r3, r3, #32
+  77 0012 1349     		ldr	r1, .L12
+  78 0014 41F82320 		str	r2, [r1, r3, lsl #2]
+  79 0018 7047     		bx	lr
+  80              	.L11:
+ 101:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   uint32_t tmppriority = 0x00, tmppre = 0x00, tmpsub = 0x0F;
+  81              		.loc 1 101 0
+  82 001a 10B4     		push	{r4}
+  83              	.LCFI0:
+  84              		.cfi_def_cfa_offset 4
+  85              		.cfi_offset 4, -4
+ 112:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****     tmppre = (0x4 - tmppriority);
+  86              		.loc 1 112 0
+  87 001c 114B     		ldr	r3, .L12+4
+  88 001e DA68     		ldr	r2, [r3, #12]
+  89 0020 D243     		mvns	r2, r2
+  90 0022 C2F30222 		ubfx	r2, r2, #8, #3
+  91              	.LVL3:
+ 113:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****     tmpsub = tmpsub >> tmppriority;
+  92              		.loc 1 113 0
+  93 0026 C2F10404 		rsb	r4, r2, #4
+  94              	.LVL4:
+ 114:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** 
+  95              		.loc 1 114 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccndHsPP.s 			page 5
+
+
+  96 002a 0F23     		movs	r3, #15
+  97 002c 23FA02F2 		lsr	r2, r3, r2
+  98              	.LVL5:
+ 116:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****     tmppriority |=  NVIC_InitStruct->NVIC_IRQChannelSubPriority & tmpsub;
+  99              		.loc 1 116 0
+ 100 0030 4178     		ldrb	r1, [r0, #1]	@ zero_extendqisi2
+ 101 0032 A140     		lsls	r1, r1, r4
+ 102              	.LVL6:
+ 117:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****     tmppriority = tmppriority << 0x04;
+ 103              		.loc 1 117 0
+ 104 0034 8378     		ldrb	r3, [r0, #2]	@ zero_extendqisi2
+ 105 0036 1340     		ands	r3, r3, r2
+ 106 0038 0B43     		orrs	r3, r3, r1
+ 107              	.LVL7:
+ 118:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** 
+ 108              		.loc 1 118 0
+ 109 003a 1B01     		lsls	r3, r3, #4
+ 110              	.LVL8:
+ 120:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** 
+ 111              		.loc 1 120 0
+ 112 003c 0278     		ldrb	r2, [r0]	@ zero_extendqisi2
+ 113              	.LVL9:
+ 114 003e DBB2     		uxtb	r3, r3
+ 115              	.LVL10:
+ 116 0040 0749     		ldr	r1, .L12
+ 117 0042 0A44     		add	r2, r2, r1
+ 118 0044 82F80033 		strb	r3, [r2, #768]
+ 124:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   }
+ 119              		.loc 1 124 0
+ 120 0048 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
+ 121 004a 03F01F00 		and	r0, r3, #31
+ 122              	.LVL11:
+ 123:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****       (uint32_t)0x01 << (NVIC_InitStruct->NVIC_IRQChannel & (uint8_t)0x1F);
+ 123              		.loc 1 123 0
+ 124 004e 5B09     		lsrs	r3, r3, #5
+ 124:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   }
+ 125              		.loc 1 124 0
+ 126 0050 0122     		movs	r2, #1
+ 127 0052 8240     		lsls	r2, r2, r0
+ 123:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****       (uint32_t)0x01 << (NVIC_InitStruct->NVIC_IRQChannel & (uint8_t)0x1F);
+ 128              		.loc 1 123 0
+ 129 0054 41F82320 		str	r2, [r1, r3, lsl #2]
+ 131:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   }
+ 132:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** }
+ 130              		.loc 1 132 0
+ 131 0058 5DF8044B 		ldr	r4, [sp], #4
+ 132              	.LCFI1:
+ 133              		.cfi_restore 4
+ 134              		.cfi_def_cfa_offset 0
+ 135              	.LVL12:
+ 136 005c 7047     		bx	lr
+ 137              	.L13:
+ 138 005e 00BF     		.align	2
+ 139              	.L12:
+ 140 0060 00E100E0 		.word	-536813312
+ 141 0064 00ED00E0 		.word	-536810240
+ 142              		.cfi_endproc
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccndHsPP.s 			page 6
+
+
+ 143              	.LFE124:
+ 145              		.section	.text.NVIC_SetVectorTable,"ax",%progbits
+ 146              		.align	1
+ 147              		.global	NVIC_SetVectorTable
+ 148              		.syntax unified
+ 149              		.thumb
+ 150              		.thumb_func
+ 151              		.fpu fpv4-sp-d16
+ 153              	NVIC_SetVectorTable:
+ 154              	.LFB125:
+ 133:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** 
+ 134:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** /**
+ 135:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   * @brief  Sets the vector table location and Offset.
+ 136:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   * @param  NVIC_VectTab: specifies if the vector table is in RAM or FLASH memory.
+ 137:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   *   This parameter can be one of the following values:
+ 138:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   *     @arg NVIC_VectTab_RAM
+ 139:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   *     @arg NVIC_VectTab_FLASH
+ 140:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   * @param  Offset: Vector Table base offset field. This value must be a multiple
+ 141:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   *         of 0x200.
+ 142:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   * @retval None
+ 143:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   */
+ 144:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** void NVIC_SetVectorTable(uint32_t NVIC_VectTab, uint32_t Offset)
+ 145:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** {
+ 155              		.loc 1 145 0
+ 156              		.cfi_startproc
+ 157              		@ args = 0, pretend = 0, frame = 0
+ 158              		@ frame_needed = 0, uses_anonymous_args = 0
+ 159              		@ link register save eliminated.
+ 160              	.LVL13:
+ 146:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   /* Check the parameters */
+ 147:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   assert_param(IS_NVIC_VECTTAB(NVIC_VectTab));
+ 148:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   assert_param(IS_NVIC_OFFSET(Offset));
+ 149:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** 
+ 150:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   SCB->VTOR = NVIC_VectTab | (Offset & (uint32_t)0x1FFFFF80);
+ 161              		.loc 1 150 0
+ 162 0000 21F06041 		bic	r1, r1, #-536870912
+ 163              	.LVL14:
+ 164 0004 21F07F01 		bic	r1, r1, #127
+ 165 0008 0143     		orrs	r1, r1, r0
+ 166 000a 014B     		ldr	r3, .L15
+ 167 000c 9960     		str	r1, [r3, #8]
+ 151:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** }
+ 168              		.loc 1 151 0
+ 169 000e 7047     		bx	lr
+ 170              	.L16:
+ 171              		.align	2
+ 172              	.L15:
+ 173 0010 00ED00E0 		.word	-536810240
+ 174              		.cfi_endproc
+ 175              	.LFE125:
+ 177              		.section	.text.NVIC_SystemLPConfig,"ax",%progbits
+ 178              		.align	1
+ 179              		.global	NVIC_SystemLPConfig
+ 180              		.syntax unified
+ 181              		.thumb
+ 182              		.thumb_func
+ 183              		.fpu fpv4-sp-d16
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccndHsPP.s 			page 7
+
+
+ 185              	NVIC_SystemLPConfig:
+ 186              	.LFB126:
+ 152:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** 
+ 153:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** /**
+ 154:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   * @brief  Selects the condition for the system to enter low power mode.
+ 155:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   * @param  LowPowerMode: Specifies the new mode for the system to enter low power mode.
+ 156:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   *   This parameter can be one of the following values:
+ 157:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   *     @arg NVIC_LP_SEVONPEND
+ 158:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   *     @arg NVIC_LP_SLEEPDEEP
+ 159:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   *     @arg NVIC_LP_SLEEPONEXIT
+ 160:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   * @param  NewState: new state of LP condition. This parameter can be: ENABLE or DISABLE.
+ 161:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   * @retval None
+ 162:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   */
+ 163:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** void NVIC_SystemLPConfig(uint8_t LowPowerMode, FunctionalState NewState)
+ 164:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** {
+ 187              		.loc 1 164 0
+ 188              		.cfi_startproc
+ 189              		@ args = 0, pretend = 0, frame = 0
+ 190              		@ frame_needed = 0, uses_anonymous_args = 0
+ 191              		@ link register save eliminated.
+ 192              	.LVL15:
+ 165:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   /* Check the parameters */
+ 166:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   assert_param(IS_NVIC_LP(LowPowerMode));
+ 167:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
+ 168:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** 
+ 169:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   if (NewState != DISABLE)
+ 193              		.loc 1 169 0
+ 194 0000 29B9     		cbnz	r1, .L20
+ 170:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   {
+ 171:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****     SCB->SCR |= LowPowerMode;
+ 172:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   }
+ 173:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   else
+ 174:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   {
+ 175:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****     SCB->SCR &= (uint32_t)(~(uint32_t)LowPowerMode);
+ 195              		.loc 1 175 0
+ 196 0002 054A     		ldr	r2, .L21
+ 197 0004 1369     		ldr	r3, [r2, #16]
+ 198 0006 23EA0000 		bic	r0, r3, r0
+ 199              	.LVL16:
+ 200 000a 1061     		str	r0, [r2, #16]
+ 176:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   }
+ 177:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** }
+ 201              		.loc 1 177 0
+ 202 000c 7047     		bx	lr
+ 203              	.LVL17:
+ 204              	.L20:
+ 171:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   }
+ 205              		.loc 1 171 0
+ 206 000e 024B     		ldr	r3, .L21
+ 207 0010 1A69     		ldr	r2, [r3, #16]
+ 208 0012 1043     		orrs	r0, r0, r2
+ 209              	.LVL18:
+ 210 0014 1861     		str	r0, [r3, #16]
+ 211 0016 7047     		bx	lr
+ 212              	.L22:
+ 213              		.align	2
+ 214              	.L21:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccndHsPP.s 			page 8
+
+
+ 215 0018 00ED00E0 		.word	-536810240
+ 216              		.cfi_endproc
+ 217              	.LFE126:
+ 219              		.section	.text.SysTick_CLKSourceConfig,"ax",%progbits
+ 220              		.align	1
+ 221              		.global	SysTick_CLKSourceConfig
+ 222              		.syntax unified
+ 223              		.thumb
+ 224              		.thumb_func
+ 225              		.fpu fpv4-sp-d16
+ 227              	SysTick_CLKSourceConfig:
+ 228              	.LFB127:
+ 178:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** 
+ 179:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** /**
+ 180:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   * @brief  Configures the SysTick clock source.
+ 181:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   * @param  SysTick_CLKSource: specifies the SysTick clock source.
+ 182:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   *   This parameter can be one of the following values:
+ 183:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   *     @arg SysTick_CLKSource_HCLK_Div8: AHB clock divided by 8 selected as SysTick clock source.
+ 184:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   *     @arg SysTick_CLKSource_HCLK: AHB clock selected as SysTick clock source.
+ 185:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   * @retval None
+ 186:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   */
+ 187:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** void SysTick_CLKSourceConfig(uint32_t SysTick_CLKSource)
+ 188:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** {
+ 229              		.loc 1 188 0
+ 230              		.cfi_startproc
+ 231              		@ args = 0, pretend = 0, frame = 0
+ 232              		@ frame_needed = 0, uses_anonymous_args = 0
+ 233              		@ link register save eliminated.
+ 234              	.LVL19:
+ 189:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   /* Check the parameters */
+ 190:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   assert_param(IS_SYSTICK_CLK_SOURCE(SysTick_CLKSource));
+ 191:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** 
+ 192:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   if (SysTick_CLKSource == SysTick_CLKSource_HCLK)
+ 235              		.loc 1 192 0
+ 236 0000 0428     		cmp	r0, #4
+ 237 0002 05D0     		beq	.L26
+ 193:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   {
+ 194:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****     SysTick->CTRL |= SysTick_CLKSource_HCLK;
+ 195:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   }
+ 196:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   else
+ 197:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   {
+ 198:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****     SysTick->CTRL &= SysTick_CLKSource_HCLK_Div8;
+ 238              		.loc 1 198 0
+ 239 0004 054A     		ldr	r2, .L27
+ 240 0006 1368     		ldr	r3, [r2]
+ 241 0008 23F00403 		bic	r3, r3, #4
+ 242 000c 1360     		str	r3, [r2]
+ 199:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   }
+ 200:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** }
+ 243              		.loc 1 200 0
+ 244 000e 7047     		bx	lr
+ 245              	.L26:
+ 194:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   }
+ 246              		.loc 1 194 0
+ 247 0010 024A     		ldr	r2, .L27
+ 248 0012 1368     		ldr	r3, [r2]
+ 249 0014 43F00403 		orr	r3, r3, #4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccndHsPP.s 			page 9
+
+
+ 250 0018 1360     		str	r3, [r2]
+ 251 001a 7047     		bx	lr
+ 252              	.L28:
+ 253              		.align	2
+ 254              	.L27:
+ 255 001c 10E000E0 		.word	-536813552
+ 256              		.cfi_endproc
+ 257              	.LFE127:
+ 259              		.text
+ 260              	.Letext0:
+ 261              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
+ 262              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
+ 263              		.file 4 "../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h"
+ 264              		.file 5 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
+ 265              		.file 6 "../Libraries/CMSIS/CM4/DeviceSupport/at32f4xx.h"
+ 266              		.file 7 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/misc.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccndHsPP.s 			page 10
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 misc.c
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccndHsPP.s:17     .text.NVIC_PriorityGroupConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccndHsPP.s:24     .text.NVIC_PriorityGroupConfig:0000000000000000 NVIC_PriorityGroupConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccndHsPP.s:44     .text.NVIC_PriorityGroupConfig:0000000000000010 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccndHsPP.s:49     .text.NVIC_Init:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccndHsPP.s:56     .text.NVIC_Init:0000000000000000 NVIC_Init
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccndHsPP.s:140    .text.NVIC_Init:0000000000000060 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccndHsPP.s:146    .text.NVIC_SetVectorTable:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccndHsPP.s:153    .text.NVIC_SetVectorTable:0000000000000000 NVIC_SetVectorTable
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccndHsPP.s:173    .text.NVIC_SetVectorTable:0000000000000010 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccndHsPP.s:178    .text.NVIC_SystemLPConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccndHsPP.s:185    .text.NVIC_SystemLPConfig:0000000000000000 NVIC_SystemLPConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccndHsPP.s:215    .text.NVIC_SystemLPConfig:0000000000000018 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccndHsPP.s:220    .text.SysTick_CLKSourceConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccndHsPP.s:227    .text.SysTick_CLKSourceConfig:0000000000000000 SysTick_CLKSourceConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccndHsPP.s:255    .text.SysTick_CLKSourceConfig:000000000000001c $d
+
+NO UNDEFINED SYMBOLS
