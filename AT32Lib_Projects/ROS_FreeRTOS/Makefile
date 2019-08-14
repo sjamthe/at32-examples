@@ -59,11 +59,11 @@ bsp/src/bsp_uart_fifo.c \
 bsp/src/bsp.c \
 Src/at32f4xx_it.c \
 Src/at32f4xx_assert.c \
-Src//TimerForRunTimeState.c
+Src//TimerForRunTimeState.c \
+Src/main.c 
 
 # CPP sources
 CPP_SOURCES = \
-Src/main.cpp \
 ../Libraries/ROSSerial/duration.cpp \
 ../Libraries/ROSSerial/time.cpp 
 
@@ -78,13 +78,13 @@ PREFIX = arm-none-eabi-
 # The gcc compiler bin path can be either defined in make command via GCC_PATH variable (> make GCC_PATH=xxx)
 # either it can be added to the PATH environment variable.
 ifdef GCC_PATH
-CC = $(GCC_PATH)/$(PREFIX)gcc
+CC = $(GCC_PATH)/$(PREFIX)g++
 CXX = $(GCC_PATH)/$(PREFIX)g++ 
 AS = $(GCC_PATH)/$(PREFIX)gcc -x assembler-with-cpp
 CP = $(GCC_PATH)/$(PREFIX)objcopy
 SZ = $(GCC_PATH)/$(PREFIX)size
 else
-CC = $(PREFIX)gcc
+CC = $(PREFIX)g++
 CXX = $(PREFIX)g++
 AS = $(PREFIX)gcc -x assembler-with-cpp
 CP = $(PREFIX)objcopy
@@ -143,12 +143,14 @@ CXX_INCLUDES =  \
 -I../Libraries/ROSSerial/std_msgs \
 -IROSTasks/Inc
 
+C_INCLUDES += $(CXX_INCLUDES)
+
 # compile gcc flags
 ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
 
-CFLAGS = $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
+CFLAGS = $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections -fpermissive
 
-CXXFLAGS = $(MCU) $(C_DEFS) $(CXX_INCLUDES) $(C_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections 
+CXXFLAGS = $(MCU) $(C_DEFS) $(CXX_INCLUDES) $(C_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections -fpermissive
 
 ifeq ($(DEBUG), 1)
 CFLAGS += -g -gdwarf-2

@@ -4,6 +4,12 @@
         "freertos.h": "c",
         "portable.h": "c",
         "at32_hoverboard.h": "c",
-        "bsp.h": "c"
+        "bsp.h": "c",
+        "cstring": "cpp",
+        "bsp_uart_fifo.h": "c",
+        "spin_task.h": "c",
+        "ros.h": "c",
+        "stm32hardware.h": "c",
+        "node_handle.h": "c"
     }
 }
