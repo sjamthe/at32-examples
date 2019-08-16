@@ -57,13 +57,13 @@ bsp/src/bsp_tim_pwm.c \
 bsp/src/bsp_timer.c \
 bsp/src/bsp_uart_fifo.c \
 bsp/src/bsp.c \
-Src/main.c \
 Src/at32f4xx_it.c \
 Src/at32f4xx_assert.c \
 Src//TimerForRunTimeState.c 
 
 # CPP sources
 CPP_SOURCES = \
+Src/main.cpp \
 ../Libraries/ROSSerial/duration.cpp \
 ../Libraries/ROSSerial/time.cpp 
 
@@ -84,7 +84,7 @@ AS = $(GCC_PATH)/$(PREFIX)gcc -x assembler-with-cpp
 CP = $(GCC_PATH)/$(PREFIX)objcopy
 SZ = $(GCC_PATH)/$(PREFIX)size
 else
-CC = $(PREFIX)gcc
+CC = $(PREFIX)gcc 
 CXX = $(PREFIX)g++
 AS = $(PREFIX)gcc -x assembler-with-cpp
 CP = $(PREFIX)objcopy
@@ -150,7 +150,7 @@ ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -fdata-sections -ffuncti
 
 CFLAGS = $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections 
 
-CXXFLAGS = $(MCU) $(C_DEFS) $(CXX_INCLUDES) $(C_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections -fpermissive
+CXXFLAGS = $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections -fpermissive
 
 ifeq ($(DEBUG), 1)
 CFLAGS += -g -gdwarf-2

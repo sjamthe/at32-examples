@@ -26,7 +26,7 @@
 
 #include  <bsp.h>
 
-extern void vTimerInitForRunTimeState(void);
+//extern void vTimerInitForRunTimeState(void);
 
 #endif
 

@@ -1,6 +1,6 @@
 /**
   ******************************************************************************
-  * @file    FreeRTOS/ResManagement_SafelyPrint/TimerForRunTimeState.c
+  * @file    FreeRTOS/Src/TimerForRunTimeState.c
   * @author  Artery Technology
   * @version V1.1.2
   * @date    2019-01-04
@@ -42,6 +42,14 @@ volatile uint32_t ulHighFrequencyTimerTicks = 0UL;
 
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+void vTimerInitForRunTimeState(void);
+#ifdef __cplusplus
+}
+#endif
 
 /**
   * @brief  Configure timer6 for gather task statistcs

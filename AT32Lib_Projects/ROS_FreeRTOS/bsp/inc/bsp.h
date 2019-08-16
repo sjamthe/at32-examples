@@ -125,9 +125,18 @@ bool;
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 void bsp_Init(void);
 void bsp_Idle(void);
 void BSP_Tick_Init (void);
+
+#ifdef __cplusplus
+}
+#endif
 
 /* Private functions ---------------------------------------------------------*/
 

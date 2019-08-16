@@ -73,11 +73,15 @@ typedef struct
 	__IO uint16_t usRxRead;			    /* index for read */
 	__IO uint16_t usRxCount;		    /* the remain number for reading */
 
-	void (*SendBefor)(void); 	        /* callback function for before starting transmit£¨used to change to transmit mode for RS485£© */
-	void (*SendOver)(void); 	        /* callback function for after transmit complete£¨used to change to receive mode for RS485£© */
+	void (*SendBefor)(void); 	        /* callback function for before starting transmitï¿½ï¿½used to change to transmit mode for RS485ï¿½ï¿½ */
+	void (*SendOver)(void); 	        /* callback function for after transmit completeï¿½ï¿½used to change to receive mode for RS485ï¿½ï¿½ */
 	void (*ReciveNew)(uint8_t _byte);	/* callback function while some data arrived */
 }UART_T;
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 void bsp_InitUart(void);
 void comSendBuf(COM_PORT_E _ucPort, uint8_t *_ucaBuf, uint16_t _usLen);
 void comSendChar(COM_PORT_E _ucPort, uint8_t _ucByte);
@@ -87,6 +91,9 @@ void comClearTxFifo(COM_PORT_E _ucPort);
 void comClearRxFifo(COM_PORT_E _ucPort);
 
 void bsp_SetUart1Baud(uint32_t _baud);
+#ifdef __cplusplus
+}
+#endif
 
 #endif
 

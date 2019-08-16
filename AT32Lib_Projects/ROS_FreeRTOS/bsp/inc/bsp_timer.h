@@ -40,7 +40,10 @@ typedef struct
 	volatile uint32_t PreLoad;	
 }SOFT_TMR;
 
-
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 void bsp_InitTimer(void);
 void bsp_DelayMS(uint32_t n);
 void bsp_DelayUS(uint32_t n);
@@ -53,7 +56,9 @@ int32_t bsp_CheckRunTime(int32_t _LastTime);
 
 void bsp_InitHardTimer(void);
 void bsp_StartHardTimer(uint8_t _CC, uint32_t _uiTimeOut, void * _pCallBack);
-
+#ifdef __cplusplus
+}
+#endif
 #endif
 
   
