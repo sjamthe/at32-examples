@@ -11,6 +11,7 @@
         "ros.h": "c",
         "stm32hardware.h": "c",
         "node_handle.h": "c",
-        "includes.h": "c"
+        "includes.h": "c",
+        "freertosconfig.h": "c"
     }
 }

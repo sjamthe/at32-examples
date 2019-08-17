@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5nkMrb.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclWkhrh.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5nkMrb.s 			page 1
   30:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** 
   31:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** /** @defgroup MISC_Private_Defines
   32:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   * @{
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5nkMrb.s 			page 2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclWkhrh.s 			page 2
 
 
   33:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   */
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5nkMrb.s 			page 1
   28              		.cfi_startproc
   29              		@ args = 0, pretend = 0, frame = 0
   30              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5nkMrb.s 			page 3
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclWkhrh.s 			page 3
 
 
   31              		@ link register save eliminated.
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5nkMrb.s 			page 1
  109:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c ****   if (NVIC_InitStruct->NVIC_IRQChannelCmd != DISABLE)
   64              		.loc 1 109 0
   65 0000 C378     		ldrb	r3, [r0, #3]	@ zero_extendqisi2
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5nkMrb.s 			page 4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclWkhrh.s 			page 4
 
 
   66 0002 53B9     		cbnz	r3, .L11
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5nkMrb.s 			page 1
   94              	.LVL4:
  114:../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c **** 
   95              		.loc 1 114 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5nkMrb.s 			page 5
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclWkhrh.s 			page 5
 
 
   96 002a 0F23     		movs	r3, #15
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5nkMrb.s 			page 1
  140 0060 00E100E0 		.word	-536813312
  141 0064 00ED00E0 		.word	-536810240
  142              		.cfi_endproc
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5nkMrb.s 			page 6
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclWkhrh.s 			page 6
 
 
  143              	.LFE124:
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5nkMrb.s 			page 1
  181              		.thumb
  182              		.thumb_func
  183              		.fpu fpv4-sp-d16
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5nkMrb.s 			page 7
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclWkhrh.s 			page 7
 
 
  185              	NVIC_SystemLPConfig:
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5nkMrb.s 			page 1
  212              	.L22:
  213              		.align	2
  214              	.L21:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5nkMrb.s 			page 8
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclWkhrh.s 			page 8
 
 
  215 0018 00ED00E0 		.word	-536810240
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5nkMrb.s 			page 1
  247 0010 024A     		ldr	r2, .L27
  248 0012 1368     		ldr	r3, [r2]
  249 0014 43F00403 		orr	r3, r3, #4
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5nkMrb.s 			page 9
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclWkhrh.s 			page 9
 
 
  250 0018 1360     		str	r3, [r2]
@@ -497,25 +497,25 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5nkMrb.s 			page 1
  264              		.file 5 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
  265              		.file 6 "../Libraries/CMSIS/CM4/DeviceSupport/at32f4xx.h"
  266              		.file 7 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/misc.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5nkMrb.s 			page 10
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclWkhrh.s 			page 10
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 misc.c
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5nkMrb.s:17     .text.NVIC_PriorityGroupConfig:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5nkMrb.s:24     .text.NVIC_PriorityGroupConfig:0000000000000000 NVIC_PriorityGroupConfig
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5nkMrb.s:44     .text.NVIC_PriorityGroupConfig:0000000000000010 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5nkMrb.s:49     .text.NVIC_Init:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5nkMrb.s:56     .text.NVIC_Init:0000000000000000 NVIC_Init
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5nkMrb.s:140    .text.NVIC_Init:0000000000000060 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5nkMrb.s:146    .text.NVIC_SetVectorTable:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5nkMrb.s:153    .text.NVIC_SetVectorTable:0000000000000000 NVIC_SetVectorTable
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5nkMrb.s:173    .text.NVIC_SetVectorTable:0000000000000010 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5nkMrb.s:178    .text.NVIC_SystemLPConfig:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5nkMrb.s:185    .text.NVIC_SystemLPConfig:0000000000000000 NVIC_SystemLPConfig
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5nkMrb.s:215    .text.NVIC_SystemLPConfig:0000000000000018 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5nkMrb.s:220    .text.SysTick_CLKSourceConfig:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5nkMrb.s:227    .text.SysTick_CLKSourceConfig:0000000000000000 SysTick_CLKSourceConfig
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5nkMrb.s:255    .text.SysTick_CLKSourceConfig:000000000000001c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclWkhrh.s:17     .text.NVIC_PriorityGroupConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclWkhrh.s:24     .text.NVIC_PriorityGroupConfig:0000000000000000 NVIC_PriorityGroupConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclWkhrh.s:44     .text.NVIC_PriorityGroupConfig:0000000000000010 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclWkhrh.s:49     .text.NVIC_Init:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclWkhrh.s:56     .text.NVIC_Init:0000000000000000 NVIC_Init
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclWkhrh.s:140    .text.NVIC_Init:0000000000000060 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclWkhrh.s:146    .text.NVIC_SetVectorTable:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclWkhrh.s:153    .text.NVIC_SetVectorTable:0000000000000000 NVIC_SetVectorTable
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclWkhrh.s:173    .text.NVIC_SetVectorTable:0000000000000010 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclWkhrh.s:178    .text.NVIC_SystemLPConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclWkhrh.s:185    .text.NVIC_SystemLPConfig:0000000000000000 NVIC_SystemLPConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclWkhrh.s:215    .text.NVIC_SystemLPConfig:0000000000000018 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclWkhrh.s:220    .text.SysTick_CLKSourceConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclWkhrh.s:227    .text.SysTick_CLKSourceConfig:0000000000000000 SysTick_CLKSourceConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclWkhrh.s:255    .text.SysTick_CLKSourceConfig:000000000000001c $d
 
 NO UNDEFINED SYMBOLS
