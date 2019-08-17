@@ -48,9 +48,9 @@
 #define configUSE_PREEMPTION			1 //kernal will execute during each tick interrupt, which can result in a context switch occurring in the tick interrupt
 #define configUSE_IDLE_HOOK				0
 #define configUSE_TICK_HOOK				0
-#define configCPU_CLOCK_HZ				( 192000000UL )
+#define configCPU_CLOCK_HZ				( 8000000UL )
 #define configTICK_RATE_HZ				( ( TickType_t ) 1000 )     //unit: Hz. pdMS_TO_TICKS() can only be used when configTICK_RATE_HZ is less than or equal to 1000
-#define configMAX_PRIORITIES			( 10 )                       //priority that be assigned to a task
+#define configMAX_PRIORITIES			( 5 )                       //priority that be assigned to a task
 #define configMINIMAL_STACK_SIZE		( ( unsigned short ) 130 )  //stack allocated to the Idle task. Specified in words
 #define configTOTAL_HEAP_SIZE			( ( size_t ) ( 20 * 1024 ) )    //in bytes
 #define configMAX_TASK_NAME_LEN			( 20 )

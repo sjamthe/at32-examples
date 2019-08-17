@@ -5,7 +5,17 @@
     "version": "0.2.0",
     "configurations": [
 
-
+        {
+            "name": "ROS_FreeRTOS_v2",
+            "cwd": "${workspaceRoot}",
+            "executable": "./ROS_FreeRTOS_v2/build/ROS_FreeRTOS_v2.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "configFiles": [
+                "interface/stlink.cfg",
+                "target/stm32f3x.cfg"
+            ]        },
         {
             "name": "ROS_FreeRTOS",
             "cwd": "${workspaceRoot}",

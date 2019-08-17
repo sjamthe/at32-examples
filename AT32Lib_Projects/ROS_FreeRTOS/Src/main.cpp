@@ -78,6 +78,9 @@ int main(void)
 	/* Perform any hardware setup necessary */
 	bsp_Init(); 
 
+    /* ROS init, we can start UART hear in not in bsp */ 
+     nh.initNode();
+
     /* setup a timer for gather task statistics */
 	vTimerInitForRunTimeState();
 	
@@ -107,12 +110,23 @@ int main(void)
 
 static void vTaskLED(void *pvParameters)
 {
-    while(1)
+    TickType_t xLastWakeTime;
+    const TickType_t xFrequency = 1000;
+    xLastWakeTime=xTaskGetTickCount();
+    for( ;; )
     {
-		bsp_LedToggle(2);//LED2
-		vTaskDelay(pdMS_TO_TICKS(1000));//delay in ms
-		App_Printf("This is LED Task, lower priority than Ctrol task and longer information needed to print on standard output\r\n");
-	}
+      bsp_LedToggle(2);
+      vTaskDelayUntil(&xLastWakeTime,xFrequency);
+        App_Printf("%ld\n",xLastWakeTime);
+    }
+    
+    // while(1)
+    // {
+	// 	bsp_LedToggle(2);//LED2
+	// 	vTaskDelay(pdMS_TO_TICKS(500));//delay in ms
+    //     //osDelay(500);
+	// 	App_Printf("This is LED Task, lower priority than Ctrol task and longer information needed to print on standard output\r\n");
+	// }
 }
 
 /**

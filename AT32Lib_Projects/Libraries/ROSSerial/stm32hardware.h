@@ -36,7 +36,7 @@
 #define STM32HARDWARE_H_
 
 #include "FreeRTOS.h"
-
+#include "bsp_uart_fifo.h"
 
 class STM32Hardware
 {
@@ -66,9 +66,11 @@ public:
 	 */
 	int read(void)
 	{
-		int data;
-
-		return data;
+		uint8_t ucData;
+		if(comGetChar(COM1,&ucData) == 0) {
+			return -1;
+		}
+		return ucData;
 	}
 
 	/*
@@ -80,7 +82,7 @@ public:
 	 */
 	void write(uint8_t* data, uint32_t length)
 	{
-	
+		comSendBuf(COM1,data,length);
 	}
 
 	/*
