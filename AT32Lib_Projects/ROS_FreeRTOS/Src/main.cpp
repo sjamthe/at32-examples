@@ -64,7 +64,7 @@ static TaskHandle_t xHandleTaskLED          = NULL;
 static TaskHandle_t xHandleTaskMsgProcess   = NULL;
 static TaskHandle_t xHandleTaskCtrolProcess      = NULL;
 static SemaphoreHandle_t xHandleMutexPrint = NULL;
-//ros::NodeHandle nh; /* ROS node handle */
+ros::NodeHandle nh; /* ROS node handle */
 
 /**
  * @brief   Main program

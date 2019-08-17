@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 1
   31:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c ****      *                                                                       *
   32:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c ****      *    Help yourself get started quickly while simultaneously helping     *
   33:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c ****      *    to support the FreeRTOS project by purchasing a FreeRTOS           *
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s 			page 2
 
 
   34:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c ****      *    tutorial book, reference manual, or both:                          *
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 1
   88:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c **** #undef MPU_WRAPPERS_INCLUDED_FROM_API_FILE
   89:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c **** 
   90:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c **** #if( configSUPPORT_DYNAMIC_ALLOCATION == 0 )
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 3
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s 			page 3
 
 
   91:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c **** 	#error This file must not be used if configSUPPORT_DYNAMIC_ALLOCATION is 0
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 1
  145:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c **** static size_t xMinimumEverFreeBytesRemaining = 0U;
  146:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c **** 
  147:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c **** /* Gets set to the top bit of an size_t type.  When this bit in the xBlockSize
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s 			page 4
 
 
  148:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c **** member of an BlockLink_t structure is set then the block belongs to the
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 1
  202:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c **** 
  203:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c **** 			if( ( xWantedSize > 0 ) && ( xWantedSize <= xFreeBytesRemaining ) )
  204:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c **** 			{
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 5
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s 			page 5
 
 
  205:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c **** 				/* Traverse the list from the start	(lowest address) block until
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 1
  259:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c **** 						mtCOVERAGE_TEST_MARKER();
  260:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c **** 					}
  261:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 6
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s 			page 6
 
 
  262:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c **** 					/* The block is being returned - it is allocated and owned
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 1
  316:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c **** 		/* This casting is to keep the compiler from issuing warnings. */
  317:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c **** 		pxLink = ( void * ) puc;
  318:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 7
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s 			page 7
 
 
  319:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c **** 		/* Check the block is actually allocated. */
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 1
   26              		.loc 1 372 0
   27              		.cfi_startproc
   28              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 8
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s 			page 8
 
 
   29              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 1
  397:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c **** 	uxAddress = ( ( size_t ) pucAlignedHeap ) + xTotalHeapSize;
   58              		.loc 1 397 0
   59 001e 1344     		add	r3, r3, r2
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 9
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s 			page 9
 
 
   60              	.LVL6:
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 1
   95              	.L3:
  376:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c **** 
   96              		.loc 1 376 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 10
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s 			page 10
 
 
   97 0046 4FF4A043 		mov	r3, #20480
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 1
  430:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c **** 
  431:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c **** 	/* Do the block being inserted, and the block it is being inserted after
  432:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c **** 	make a contiguous block of memory? */
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 11
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s 			page 11
 
 
  433:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c **** 	puc = ( uint8_t * ) pxIterator;
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 1
  173              	.L11:
  454:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c **** 		}
  455:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c **** 		else
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 12
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s 			page 12
 
 
  456:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c **** 		{
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 1
  203 004c F3E7     		b	.L11
  204              	.L16:
  205 004e 00BF     		.align	2
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 13
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s 			page 13
 
 
  206              	.L15:
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 1
  256              	.LBB13:
  291:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c **** 		}
  257              		.loc 1 291 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 14
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s 			page 14
 
 
  258 001c FFF7FEFF 		bl	vApplicationMallocFailedHook
@@ -838,7 +838,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 1
   44:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h ****     embedded software for free we request you assist our global community by
   45:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h ****     participating in the support forum.
   46:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 15
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s 			page 15
 
 
   47:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h ****     http://www.FreeRTOS.org/training - Investing in training allows your team to
@@ -898,7 +898,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 1
  101:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** #if( configUSE_16_BIT_TICKS == 1 )
  102:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 	typedef uint16_t TickType_t;
  103:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 	#define portMAX_DELAY ( TickType_t ) 0xffff
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 16
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s 			page 16
 
 
  104:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** #else
@@ -958,7 +958,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 1
  158:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** #ifndef portSUPPRESS_TICKS_AND_SLEEP
  159:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 	extern void vPortSuppressTicksAndSleep( TickType_t xExpectedIdleTime );
  160:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 	#define portSUPPRESS_TICKS_AND_SLEEP( xExpectedIdleTime ) vPortSuppressTicksAndSleep( xExpectedIdl
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 17
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s 			page 17
 
 
  161:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** #endif
@@ -1018,7 +1018,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 1
  215:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 
  216:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 	/* Obtain the number of the currently executing interrupt. */
  217:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 	__asm volatile( "mrs %0, ipsr" : "=r"( ulCurrentInterrupt ) );
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 18
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s 			page 18
 
 
  218:../Middlewares/FreeRTOS//Source/portable/GCC/ARM_CM4F/portmacro.h **** 
@@ -1078,7 +1078,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 1
  298 0046 0ED0     		beq	.L21
  190:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c **** 					configASSERT( ( xWantedSize & portBYTE_ALIGNMENT_MASK ) == 0 );
  299              		.loc 1 190 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 19
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s 			page 19
 
 
  300 0048 24F00704 		bic	r4, r4, #7
@@ -1138,7 +1138,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 1
  347 007c CEE7     		b	.L20
  348              	.L39:
  284:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 20
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s 			page 20
 
 
  349              		.loc 1 284 0
@@ -1198,7 +1198,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 1
  393              	.LVL46:
  236:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c **** 
  394              		.loc 1 236 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 21
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s 			page 21
 
 
  395 00b0 10F0070F 		tst	r0, #7
@@ -1258,7 +1258,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 1
  442 00e6 8B42     		cmp	r3, r1
  443 00e8 01D2     		bcs	.L31
  255:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c **** 					}
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 22
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s 			page 22
 
 
  444              		.loc 1 255 0
@@ -1318,7 +1318,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 1
  494              	.LVL55:
  310:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c **** 	{
  495              		.loc 1 310 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 23
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s 			page 23
 
 
  496 0000 80B3     		cbz	r0, .L50
@@ -1378,7 +1378,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 1
  546 003a BFF34F8F 		dsb														
  547              	
  548              	@ 0 "" 2
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 24
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s 			page 24
 
 
  549              	.LVL59:
@@ -1438,7 +1438,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 1
  598              		.syntax unified
  599              		.thumb
  600              		.thumb_func
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 25
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s 			page 25
 
 
  601              		.fpu fpv4-sp-d16
@@ -1498,7 +1498,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 1
  656              	.LFB132:
  366:../Middlewares/FreeRTOS//Source/portable/MemMang/heap_4.c **** 	/* This just exists to keep the linker quiet. */
  657              		.loc 1 366 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 26
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s 			page 26
 
 
  658              		.cfi_startproc
@@ -1557,43 +1557,43 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 1
  718              		.file 11 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
  719              		.file 12 "Inc/FreeRTOSConfig.h"
  720              		.file 13 "../Middlewares/FreeRTOS//Source/include/task.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s 			page 27
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s 			page 27
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 heap_4.c
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s:17     .text.prvHeapInit:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s:23     .text.prvHeapInit:0000000000000000 prvHeapInit
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s:102    .text.prvHeapInit:000000000000004c $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s:678    .bss.ucHeap:0000000000000000 ucHeap
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s:112    .text.prvInsertBlockIntoFreeList:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s:118    .text.prvInsertBlockIntoFreeList:0000000000000000 prvInsertBlockIntoFreeList
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s:207    .text.prvInsertBlockIntoFreeList:0000000000000050 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s:213    .text.pvPortMalloc:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s:220    .text.pvPortMalloc:0000000000000000 pvPortMalloc
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s:472    .text.pvPortMalloc:0000000000000108 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s:481    .text.vPortFree:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s:488    .text.vPortFree:0000000000000000 vPortFree
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s:590    .text.vPortFree:0000000000000068 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s:596    .text.xPortGetFreeHeapSize:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s:603    .text.xPortGetFreeHeapSize:0000000000000000 xPortGetFreeHeapSize
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s:617    .text.xPortGetFreeHeapSize:0000000000000008 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s:622    .text.xPortGetMinimumEverFreeHeapSize:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s:629    .text.xPortGetMinimumEverFreeHeapSize:0000000000000000 xPortGetMinimumEverFreeHeapSize
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s:643    .text.xPortGetMinimumEverFreeHeapSize:0000000000000008 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s:648    .text.vPortInitialiseBlocks:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s:655    .text.vPortInitialiseBlocks:0000000000000000 vPortInitialiseBlocks
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s:668    .bss.pxEnd:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s:672    .bss.pxEnd:0000000000000000 pxEnd
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s:675    .bss.ucHeap:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s:681    .bss.xBlockAllocatedBit:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s:685    .bss.xBlockAllocatedBit:0000000000000000 xBlockAllocatedBit
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s:688    .bss.xFreeBytesRemaining:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s:692    .bss.xFreeBytesRemaining:0000000000000000 xFreeBytesRemaining
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s:695    .bss.xMinimumEverFreeBytesRemaining:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s:699    .bss.xMinimumEverFreeBytesRemaining:0000000000000000 xMinimumEverFreeBytesRemaining
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s:702    .bss.xStart:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccspBcpE.s:706    .bss.xStart:0000000000000000 xStart
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s:17     .text.prvHeapInit:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s:23     .text.prvHeapInit:0000000000000000 prvHeapInit
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s:102    .text.prvHeapInit:000000000000004c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s:678    .bss.ucHeap:0000000000000000 ucHeap
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s:112    .text.prvInsertBlockIntoFreeList:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s:118    .text.prvInsertBlockIntoFreeList:0000000000000000 prvInsertBlockIntoFreeList
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s:207    .text.prvInsertBlockIntoFreeList:0000000000000050 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s:213    .text.pvPortMalloc:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s:220    .text.pvPortMalloc:0000000000000000 pvPortMalloc
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s:472    .text.pvPortMalloc:0000000000000108 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s:481    .text.vPortFree:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s:488    .text.vPortFree:0000000000000000 vPortFree
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s:590    .text.vPortFree:0000000000000068 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s:596    .text.xPortGetFreeHeapSize:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s:603    .text.xPortGetFreeHeapSize:0000000000000000 xPortGetFreeHeapSize
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s:617    .text.xPortGetFreeHeapSize:0000000000000008 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s:622    .text.xPortGetMinimumEverFreeHeapSize:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s:629    .text.xPortGetMinimumEverFreeHeapSize:0000000000000000 xPortGetMinimumEverFreeHeapSize
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s:643    .text.xPortGetMinimumEverFreeHeapSize:0000000000000008 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s:648    .text.vPortInitialiseBlocks:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s:655    .text.vPortInitialiseBlocks:0000000000000000 vPortInitialiseBlocks
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s:668    .bss.pxEnd:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s:672    .bss.pxEnd:0000000000000000 pxEnd
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s:675    .bss.ucHeap:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s:681    .bss.xBlockAllocatedBit:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s:685    .bss.xBlockAllocatedBit:0000000000000000 xBlockAllocatedBit
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s:688    .bss.xFreeBytesRemaining:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s:692    .bss.xFreeBytesRemaining:0000000000000000 xFreeBytesRemaining
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s:695    .bss.xMinimumEverFreeBytesRemaining:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s:699    .bss.xMinimumEverFreeBytesRemaining:0000000000000000 xMinimumEverFreeBytesRemaining
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s:702    .bss.xStart:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccSXwEFf.s:706    .bss.xStart:0000000000000000 xStart
 
 UNDEFINED SYMBOLS
 vTaskSuspendAll

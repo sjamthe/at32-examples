@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s 			page 1
   31:bsp/src/bsp_key.c ****   */ 
   32:bsp/src/bsp_key.c ****   
   33:bsp/src/bsp_key.c **** /* Private typedef -----------------------------------------------------------*/
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s 			page 2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s 			page 2
 
 
   34:bsp/src/bsp_key.c **** /* Private define ------------------------------------------------------------*/  
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s 			page 1
   47 0014 00080140 		.word	1073809408
   48              		.cfi_endproc
   49              	.LFE131:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s 			page 3
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s 			page 3
 
 
   51              		.section	.text.bsp_InitKeyVar,"ax",%progbits
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s 			page 1
  112:bsp/src/bsp_key.c **** 			s_tKey.Read = 0;
  113:bsp/src/bsp_key.c **** 		}
  114:bsp/src/bsp_key.c **** 		return ret;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s 			page 4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s 			page 4
 
 
  115:bsp/src/bsp_key.c **** 	}
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s 			page 1
  169:bsp/src/bsp_key.c ****   */
  170:bsp/src/bsp_key.c **** static void bsp_InitKeyVar(void)
  171:bsp/src/bsp_key.c **** {
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s 			page 5
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s 			page 5
 
 
   60              		.loc 1 171 0
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s 			page 1
   94 0022 9172     		strb	r1, [r2, #10]
  183:bsp/src/bsp_key.c **** 		s_tBtn[i].RepeatCount = 0;						
   95              		.loc 1 183 0 discriminator 3
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s 			page 6
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s 			page 6
 
 
   96 0024 D172     		strb	r1, [r2, #11]
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s 			page 1
  145              		.loc 1 161 0
  146 0018 02A9     		add	r1, sp, #8
  147 001a 0123     		movs	r3, #1
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s 			page 7
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s 			page 7
 
 
  148 001c 21F8043D 		strh	r3, [r1, #-4]!	@ movhi
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s 			page 1
  199              		.syntax unified
  200              		.thumb
  201              		.thumb_func
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s 			page 8
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s 			page 8
 
 
  202              		.fpu fpv4-sp-d16
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s 			page 1
  246              		.cfi_startproc
  247              		@ args = 0, pretend = 0, frame = 0
  248              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s 			page 9
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s 			page 9
 
 
  249              	.LVL10:
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s 			page 1
  220:bsp/src/bsp_key.c **** 			if (pBtn->LongTime > 0)
  280              		.loc 1 220 0
  281 002a 3A4B     		ldr	r3, .L36
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s 			page 10
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s 			page 10
 
 
  282 002c 03EB0413 		add	r3, r3, r4, lsl #4
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s 			page 1
  326 0076 32E0     		b	.L22
  327              	.LVL20:
  328              	.L35:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s 			page 11
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s 			page 11
 
 
  214:bsp/src/bsp_key.c **** 
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s 			page 1
  241:bsp/src/bsp_key.c **** 					}
  242:bsp/src/bsp_key.c **** 				}
  243:bsp/src/bsp_key.c **** 			}
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s 			page 12
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s 			page 12
 
 
  244:bsp/src/bsp_key.c **** 		}
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s 			page 1
  395 00e0 2BB1     		cbz	r3, .L31
  254:bsp/src/bsp_key.c **** 		}
  396              		.loc 1 254 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s 			page 13
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s 			page 13
 
 
  397 00e2 0C4A     		ldr	r2, .L36
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s 			page 1
  448 0008 0AD0     		beq	.L40
  108:bsp/src/bsp_key.c **** 
  449              		.loc 1 108 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s 			page 14
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s 			page 14
 
 
  450 000a 064A     		ldr	r2, .L41
@@ -838,7 +838,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s 			page 1
  499 0006 807A     		ldrb	r0, [r0, #10]	@ zero_extendqisi2
  500 0008 7047     		bx	lr
  501              	.L45:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s 			page 15
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s 			page 15
 
 
  502 000a 00BF     		.align	2
@@ -898,7 +898,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s 			page 1
  554              		.cfi_startproc
  555              		@ args = 0, pretend = 0, frame = 0
  556              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s 			page 16
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s 			page 16
 
 
  557              		@ link register save eliminated.
@@ -958,7 +958,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s 			page 1
  285:bsp/src/bsp_key.c **** }
  597              		.loc 1 285 0 is_stmt 1
  598 0006 10BD     		pop	{r4, pc}
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s 			page 17
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s 			page 17
 
 
  599              	.LVL36:
@@ -1009,46 +1009,46 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s 			page 1
  641              		.file 13 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdlib.h"
  642              		.file 14 "bsp/inc/bsp_key.h"
  643              		.file 15 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_rcc.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s 			page 18
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s 			page 18
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 bsp_key.c
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s:17     .text.IsKeyDown1:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s:23     .text.IsKeyDown1:0000000000000000 IsKeyDown1
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s:47     .text.IsKeyDown1:0000000000000014 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s:52     .text.bsp_InitKeyVar:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s:58     .text.bsp_InitKeyVar:0000000000000000 bsp_InitKeyVar
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s:108    .text.bsp_InitKeyVar:0000000000000030 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s:115    .text.bsp_InitKeyHard:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s:121    .text.bsp_InitKeyHard:0000000000000000 bsp_InitKeyHard
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s:162    .text.bsp_InitKeyHard:000000000000002c $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s:167    .text.bsp_InitKey:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s:174    .text.bsp_InitKey:0000000000000000 bsp_InitKey
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s:197    .text.bsp_PutKey:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s:204    .text.bsp_PutKey:0000000000000000 bsp_PutKey
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s:232    .text.bsp_PutKey:0000000000000018 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s:237    .text.bsp_DetectKey:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s:243    .text.bsp_DetectKey:0000000000000000 bsp_DetectKey
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s:424    .text.bsp_DetectKey:0000000000000114 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s:429    .text.bsp_GetKey:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s:436    .text.bsp_GetKey:0000000000000000 bsp_GetKey
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s:474    .text.bsp_GetKey:0000000000000024 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s:479    .text.bsp_GetKeyState:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s:486    .text.bsp_GetKeyState:0000000000000000 bsp_GetKeyState
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s:504    .text.bsp_GetKeyState:000000000000000c $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s:509    .text.bsp_SetKeyParam:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s:516    .text.bsp_SetKeyParam:0000000000000000 bsp_SetKeyParam
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s:539    .text.bsp_SetKeyParam:0000000000000010 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s:544    .text.bsp_ClearKey:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s:551    .text.bsp_ClearKey:0000000000000000 bsp_ClearKey
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s:567    .text.bsp_ClearKey:0000000000000008 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s:572    .text.bsp_KeyScan:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s:579    .text.bsp_KeyScan:0000000000000000 bsp_KeyScan
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s:615    .bss.s_tBtn:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s:619    .bss.s_tBtn:0000000000000000 s_tBtn
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s:622    .bss.s_tKey:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccBCKICc.s:626    .bss.s_tKey:0000000000000000 s_tKey
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s:17     .text.IsKeyDown1:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s:23     .text.IsKeyDown1:0000000000000000 IsKeyDown1
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s:47     .text.IsKeyDown1:0000000000000014 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s:52     .text.bsp_InitKeyVar:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s:58     .text.bsp_InitKeyVar:0000000000000000 bsp_InitKeyVar
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s:108    .text.bsp_InitKeyVar:0000000000000030 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s:115    .text.bsp_InitKeyHard:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s:121    .text.bsp_InitKeyHard:0000000000000000 bsp_InitKeyHard
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s:162    .text.bsp_InitKeyHard:000000000000002c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s:167    .text.bsp_InitKey:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s:174    .text.bsp_InitKey:0000000000000000 bsp_InitKey
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s:197    .text.bsp_PutKey:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s:204    .text.bsp_PutKey:0000000000000000 bsp_PutKey
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s:232    .text.bsp_PutKey:0000000000000018 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s:237    .text.bsp_DetectKey:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s:243    .text.bsp_DetectKey:0000000000000000 bsp_DetectKey
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s:424    .text.bsp_DetectKey:0000000000000114 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s:429    .text.bsp_GetKey:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s:436    .text.bsp_GetKey:0000000000000000 bsp_GetKey
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s:474    .text.bsp_GetKey:0000000000000024 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s:479    .text.bsp_GetKeyState:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s:486    .text.bsp_GetKeyState:0000000000000000 bsp_GetKeyState
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s:504    .text.bsp_GetKeyState:000000000000000c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s:509    .text.bsp_SetKeyParam:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s:516    .text.bsp_SetKeyParam:0000000000000000 bsp_SetKeyParam
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s:539    .text.bsp_SetKeyParam:0000000000000010 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s:544    .text.bsp_ClearKey:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s:551    .text.bsp_ClearKey:0000000000000000 bsp_ClearKey
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s:567    .text.bsp_ClearKey:0000000000000008 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s:572    .text.bsp_KeyScan:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s:579    .text.bsp_KeyScan:0000000000000000 bsp_KeyScan
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s:615    .bss.s_tBtn:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s:619    .bss.s_tBtn:0000000000000000 s_tBtn
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s:622    .bss.s_tKey:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLScrN3.s:626    .bss.s_tKey:0000000000000000 s_tKey
 
 UNDEFINED SYMBOLS
 RCC_APB2PeriphClockCmd
