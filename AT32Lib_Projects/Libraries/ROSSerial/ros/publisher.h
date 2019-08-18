@@ -52,8 +52,10 @@ public:
 
   int publish(const Msg * msg)
   {
-    return nh_->publish(id_, msg);
+    printf("nh_ = %x, id_ = %d, chatter publishing %s\n",nh_, id_,msg->getType());
+    return nh_->publish(id_, msg); //this doesn't work so moved to publish_task
   };
+
   int getEndpointType()
   {
     return endpoint_;
@@ -63,6 +65,7 @@ public:
   Msg *msg_;
   // id_ and no_ are set by NodeHandle when we advertise
   int id_;
+  
   NodeHandleBase_* nh_;
 
 private:

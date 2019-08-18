@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -25,7 +25,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
   22              		.fpu fpv4-sp-d16
   24              	_ZNK8std_msgs6UInt169serializeEPh:
   25              		.fnstart
-  26              	.LFB463:
+  26              	.LFB464:
   27              		.file 1 "../Libraries/ROSSerial/std_msgs/UInt16.h"
    1:../Libraries/ROSSerial/std_msgs/UInt16.h **** #ifndef _ROS_std_msgs_UInt16_h
    2:../Libraries/ROSSerial/std_msgs/UInt16.h **** #define _ROS_std_msgs_UInt16_h
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
   36 0002 0B70     		strb	r3, [r1]
   21:../Libraries/ROSSerial/std_msgs/UInt16.h ****       *(outbuffer + offset + 1) = (this->data >> (8 * 1)) & 0xFF;
   37              		.loc 1 21 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s 			page 2
 
 
   38 0004 8388     		ldrh	r3, [r0, #4]
@@ -73,7 +73,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
   44              	.LVL2:
   45 000c 7047     		bx	lr
   46              		.cfi_endproc
-  47              	.LFE463:
+  47              	.LFE464:
   48              		.cantunwind
   49              		.fnend
   51              		.section	.text._ZN8std_msgs6UInt1611deserializeEPh,"axG",%progbits,_ZN8std_msgs6UInt1611deserializ
@@ -85,7 +85,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
   57              		.fpu fpv4-sp-d16
   59              	_ZN8std_msgs6UInt1611deserializeEPh:
   60              		.fnstart
-  61              	.LFB464:
+  61              	.LFB465:
   25:../Libraries/ROSSerial/std_msgs/UInt16.h **** 
   26:../Libraries/ROSSerial/std_msgs/UInt16.h ****     virtual int deserialize(unsigned char *inbuffer)
   62              		.loc 1 26 0
@@ -114,11 +114,11 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
   78              	.LVL5:
   79 000e 7047     		bx	lr
   80              		.cfi_endproc
-  81              	.LFE464:
+  81              	.LFE465:
   82              		.cantunwind
   83              		.fnend
   85              		.section	.text._ZN8std_msgs6UInt167getTypeEv,"axG",%progbits,_ZN8std_msgs6UInt167getTypeEv,comdat
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 3
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s 			page 3
 
 
   86              		.align	1
@@ -129,7 +129,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
   91              		.fpu fpv4-sp-d16
   93              	_ZN8std_msgs6UInt167getTypeEv:
   94              		.fnstart
-  95              	.LFB465:
+  95              	.LFB466:
   34:../Libraries/ROSSerial/std_msgs/UInt16.h **** 
   35:../Libraries/ROSSerial/std_msgs/UInt16.h ****     const char * getType(){ return "std_msgs/UInt16"; };
   96              		.loc 1 35 0
@@ -147,7 +147,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
  108              	.L4:
  109 0004 00000000 		.word	.LC2
  110              		.cfi_endproc
- 111              	.LFE465:
+ 111              	.LFE466:
  112              		.cantunwind
  113              		.fnend
  115              		.section	.text._ZN8std_msgs6UInt166getMD5Ev,"axG",%progbits,_ZN8std_msgs6UInt166getMD5Ev,comdat
@@ -159,7 +159,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
  121              		.fpu fpv4-sp-d16
  123              	_ZN8std_msgs6UInt166getMD5Ev:
  124              		.fnstart
- 125              	.LFB466:
+ 125              	.LFB467:
   36:../Libraries/ROSSerial/std_msgs/UInt16.h ****     const char * getMD5(){ return "1df79edf208b629fe6b81923a544552d"; };
  126              		.loc 1 36 0
  127              		.cfi_startproc
@@ -176,9 +176,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
  138              	.L7:
  139 0004 00000000 		.word	.LC3
  140              		.cfi_endproc
- 141              	.LFE466:
+ 141              	.LFE467:
  142              		.cantunwind
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s 			page 4
 
 
  143              		.fnend
@@ -190,7 +190,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
  150              		.fpu fpv4-sp-d16
  152              	_Z41__static_initialization_and_destruction_0ii:
  153              		.fnstart
- 154              	.LFB483:
+ 154              	.LFB484:
  155              		.file 2 "ROSTasks/Src/subscribe_task.cpp"
    1:ROSTasks/Src/subscribe_task.cpp **** /*
    2:ROSTasks/Src/subscribe_task.cpp ****  * subscribe_task.cpp
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
   44:ROSTasks/Src/subscribe_task.cpp ****   }
   45:ROSTasks/Src/subscribe_task.cpp **** 
   46:ROSTasks/Src/subscribe_task.cpp ****   /* USER CODE END ROS_SubscribeTaskHandler */
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 5
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s 			page 5
 
 
   47:ROSTasks/Src/subscribe_task.cpp **** }
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
    3:../Libraries/ROSSerial/ros/subscriber.h ****  *
    4:../Libraries/ROSSerial/ros/subscriber.h ****  * Copyright (c) 2011, Willow Garage, Inc.
    5:../Libraries/ROSSerial/ros/subscriber.h ****  * All rights reserved.
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 6
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s 			page 6
 
 
    6:../Libraries/ROSSerial/ros/subscriber.h ****  *
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
   60:../Libraries/ROSSerial/ros/subscriber.h **** class Subscriber: public Subscriber_
   61:../Libraries/ROSSerial/ros/subscriber.h **** {
   62:../Libraries/ROSSerial/ros/subscriber.h **** public:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 7
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s 			page 7
 
 
   63:../Libraries/ROSSerial/ros/subscriber.h ****   typedef void(ObjT::*CallbackT)(const MsgT&);
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
   12:../Libraries/ROSSerial/std_msgs/UInt16.h ****   {
  184              		.loc 1 12 0
  185 0014 064A     		ldr	r2, .L12+8
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 8
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s 			page 8
 
 
  186 0016 DA60     		str	r2, [r3, #12]
@@ -449,7 +449,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
  209 0034 00000000 		.word	_Z6led_cbRKN8std_msgs6UInt16E
  210 0038 00000000 		.word	.LC4
  211              		.cfi_endproc
- 212              	.LFE483:
+ 212              	.LFE484:
  213              		.cantunwind
  214              		.fnend
  216              		.section	.text._ZN3ros10SubscriberIN8std_msgs6UInt16EvE8callbackEPh,"axG",%progbits,_ZN3ros10Subsc
@@ -461,7 +461,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
  222              		.fpu fpv4-sp-d16
  224              	_ZN3ros10SubscriberIN8std_msgs6UInt16EvE8callbackEPh:
  225              		.fnstart
- 226              	.LFB484:
+ 226              	.LFB485:
  112:../Libraries/ROSSerial/ros/subscriber.h ****   };
  113:../Libraries/ROSSerial/ros/subscriber.h **** 
  114:../Libraries/ROSSerial/ros/subscriber.h ****   virtual void callback(unsigned char* data)
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
  237              		.cfi_offset 14, -4
  238              	.LVL15:
  239              	.LBB35:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 9
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s 			page 9
 
 
  240              	.LBB36:
@@ -507,7 +507,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
  257              		.loc 3 118 0
  258 0014 08BD     		pop	{r3, pc}
  259              		.cfi_endproc
- 260              	.LFE484:
+ 260              	.LFE485:
  261              		.fnend
  263              		.section	.text._ZN3ros10SubscriberIN8std_msgs6UInt16EvE15getEndpointTypeEv,"axG",%progbits,_ZN3ros
  264              		.align	1
@@ -518,7 +518,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
  269              		.fpu fpv4-sp-d16
  271              	_ZN3ros10SubscriberIN8std_msgs6UInt16EvE15getEndpointTypeEv:
  272              		.fnstart
- 273              	.LFB485:
+ 273              	.LFB486:
  119:../Libraries/ROSSerial/ros/subscriber.h **** 
  120:../Libraries/ROSSerial/ros/subscriber.h ****   virtual const char * getMsgType()
  121:../Libraries/ROSSerial/ros/subscriber.h ****   {
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
  129:../Libraries/ROSSerial/ros/subscriber.h ****   {
  130:../Libraries/ROSSerial/ros/subscriber.h ****     return endpoint_;
  131:../Libraries/ROSSerial/ros/subscriber.h ****   }
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 10
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s 			page 10
 
 
  280              		.loc 3 131 0
@@ -546,7 +546,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
  282              	.LVL20:
  283 0002 7047     		bx	lr
  284              		.cfi_endproc
- 285              	.LFE485:
+ 285              	.LFE486:
  286              		.cantunwind
  287              		.fnend
  289              		.section	.text._ZN3ros10SubscriberIN8std_msgs6UInt16EvE10getMsgTypeEv,"axG",%progbits,_ZN3ros10Sub
@@ -558,7 +558,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
  295              		.fpu fpv4-sp-d16
  297              	_ZN3ros10SubscriberIN8std_msgs6UInt16EvE10getMsgTypeEv:
  298              		.fnstart
- 299              	.LFB486:
+ 299              	.LFB487:
  120:../Libraries/ROSSerial/ros/subscriber.h ****   {
  300              		.loc 3 120 0
  301              		.cfi_startproc
@@ -576,7 +576,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
  312              	.L18:
  313 0004 00000000 		.word	.LC2
  314              		.cfi_endproc
- 315              	.LFE486:
+ 315              	.LFE487:
  316              		.cantunwind
  317              		.fnend
  319              		.section	.text._ZN3ros10SubscriberIN8std_msgs6UInt16EvE9getMsgMD5Ev,"axG",%progbits,_ZN3ros10Subsc
@@ -588,7 +588,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
  325              		.fpu fpv4-sp-d16
  327              	_ZN3ros10SubscriberIN8std_msgs6UInt16EvE9getMsgMD5Ev:
  328              		.fnstart
- 329              	.LFB487:
+ 329              	.LFB488:
  124:../Libraries/ROSSerial/ros/subscriber.h ****   {
  330              		.loc 3 124 0
  331              		.cfi_startproc
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
  335              	.LVL23:
  127:../Libraries/ROSSerial/ros/subscriber.h ****   virtual int getEndpointType()
  336              		.loc 3 127 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 11
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s 			page 11
 
 
  337 0000 0048     		ldr	r0, .L21
@@ -609,7 +609,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
  342              	.L21:
  343 0004 00000000 		.word	.LC3
  344              		.cfi_endproc
- 345              	.LFE487:
+ 345              	.LFE488:
  346              		.cantunwind
  347              		.fnend
  349              		.section	.text._Z6led_cbRKN8std_msgs6UInt16E,"ax",%progbits
@@ -621,7 +621,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
  355              		.fpu fpv4-sp-d16
  357              	_Z6led_cbRKN8std_msgs6UInt16E:
  358              		.fnstart
- 359              	.LFB467:
+ 359              	.LFB468:
   22:ROSTasks/Src/subscribe_task.cpp **** 	xQueueSend( subscribeQueueHandle, (uint16_t*)&cmd_msg.data, portMAX_DELAY);
  360              		.loc 2 22 0
  361              		.cfi_startproc
@@ -652,13 +652,13 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
  384              	.L25:
  385 0014 00000000 		.word	.LANCHOR1
  386              		.cfi_endproc
- 387              	.LFE467:
+ 387              	.LFE468:
  388              		.fnend
  390              		.section	.text._Z24ROS_SubscribeTaskHandlerPKv,"ax",%progbits
  391              		.align	1
  392              		.global	_Z24ROS_SubscribeTaskHandlerPKv
  393              		.syntax unified
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 12
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s 			page 12
 
 
  394              		.thumb
@@ -666,7 +666,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
  396              		.fpu fpv4-sp-d16
  398              	_Z24ROS_SubscribeTaskHandlerPKv:
  399              		.fnstart
- 400              	.LFB468:
+ 400              	.LFB469:
   28:ROSTasks/Src/subscribe_task.cpp **** 
  401              		.loc 2 28 0
  402              		.cfi_startproc
@@ -718,11 +718,11 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
  444              	.L33:
  445 0034 00000000 		.word	.LANCHOR2
  446 0038 00000000 		.word	.LANCHOR1
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 13
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s 			page 13
 
 
  447              		.cfi_endproc
- 448              	.LFE468:
+ 448              	.LFE469:
  449              		.fnend
  451              		.section	.text._Z20rosSubscribeInitTaskPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE,"
  452              		.align	1
@@ -733,7 +733,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
  457              		.fpu fpv4-sp-d16
  459              	_Z20rosSubscribeInitTaskPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:
  460              		.fnstart
- 461              	.LFB469:
+ 461              	.LFB470:
   52:ROSTasks/Src/subscribe_task.cpp **** 	osThreadId ROS_SubscribeTaskHandle;
  462              		.loc 2 52 0
  463              		.cfi_startproc
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
   21:../Libraries/ROSSerial/ros/node_handle.h ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
   22:../Libraries/ROSSerial/ros/node_handle.h ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
   23:../Libraries/ROSSerial/ros/node_handle.h ****  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 14
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s 			page 14
 
 
   24:../Libraries/ROSSerial/ros/node_handle.h ****  * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
@@ -838,7 +838,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
   78:../Libraries/ROSSerial/ros/node_handle.h ****  * rosserial_arduino. It must be changed in both this file and in
   79:../Libraries/ROSSerial/ros/node_handle.h ****  * rosserial_python/src/rosserial_python/SerialClient.py
   80:../Libraries/ROSSerial/ros/node_handle.h ****  */
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 15
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s 			page 15
 
 
   81:../Libraries/ROSSerial/ros/node_handle.h **** const uint8_t MODE_PROTOCOL_VER   = 1;
@@ -898,7 +898,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
  135:../Libraries/ROSSerial/ros/node_handle.h ****       subscribers[i] = 0;
  136:../Libraries/ROSSerial/ros/node_handle.h **** 
  137:../Libraries/ROSSerial/ros/node_handle.h ****     for (unsigned int i = 0; i < INPUT_SIZE; i++)
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 16
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s 			page 16
 
 
  138:../Libraries/ROSSerial/ros/node_handle.h ****       message_in[i] = 0;
@@ -958,7 +958,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
  192:../Libraries/ROSSerial/ros/node_handle.h **** protected:
  193:../Libraries/ROSSerial/ros/node_handle.h ****   //State machine variables for spinOnce
  194:../Libraries/ROSSerial/ros/node_handle.h ****   int mode_;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 17
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s 			page 17
 
 
  195:../Libraries/ROSSerial/ros/node_handle.h ****   int bytes_;
@@ -982,273 +982,274 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
  213:../Libraries/ROSSerial/ros/node_handle.h ****     return spinOnce1();
  214:../Libraries/ROSSerial/ros/node_handle.h ****   }
  215:../Libraries/ROSSerial/ros/node_handle.h **** 
- 216:../Libraries/ROSSerial/ros/node_handle.h ****   int spinOnce1()
- 217:../Libraries/ROSSerial/ros/node_handle.h ****   {
- 218:../Libraries/ROSSerial/ros/node_handle.h ****     printf("spinOnce\n");
- 219:../Libraries/ROSSerial/ros/node_handle.h ****     /* restart if timed out */
- 220:../Libraries/ROSSerial/ros/node_handle.h ****     uint32_t c_time = hardware_.time();
- 221:../Libraries/ROSSerial/ros/node_handle.h ****     printf("spinOnce %ld\n",c_time);
- 222:../Libraries/ROSSerial/ros/node_handle.h **** 
- 223:../Libraries/ROSSerial/ros/node_handle.h ****     if ((c_time - last_sync_receive_time) > (SYNC_SECONDS * 2200))
- 224:../Libraries/ROSSerial/ros/node_handle.h ****     {
- 225:../Libraries/ROSSerial/ros/node_handle.h ****       configured_ = false;
- 226:../Libraries/ROSSerial/ros/node_handle.h ****     }
- 227:../Libraries/ROSSerial/ros/node_handle.h **** 
- 228:../Libraries/ROSSerial/ros/node_handle.h ****     /* reset if message has timed out */
- 229:../Libraries/ROSSerial/ros/node_handle.h ****     if (mode_ != MODE_FIRST_FF)
- 230:../Libraries/ROSSerial/ros/node_handle.h ****     {
- 231:../Libraries/ROSSerial/ros/node_handle.h ****       if (c_time > last_msg_timeout_time)
- 232:../Libraries/ROSSerial/ros/node_handle.h ****       {
- 233:../Libraries/ROSSerial/ros/node_handle.h ****         mode_ = MODE_FIRST_FF;
- 234:../Libraries/ROSSerial/ros/node_handle.h ****       }
- 235:../Libraries/ROSSerial/ros/node_handle.h ****     }
- 236:../Libraries/ROSSerial/ros/node_handle.h **** 
- 237:../Libraries/ROSSerial/ros/node_handle.h ****     /* while available buffer, read data */
- 238:../Libraries/ROSSerial/ros/node_handle.h ****     while (true)
- 239:../Libraries/ROSSerial/ros/node_handle.h ****     {
- 240:../Libraries/ROSSerial/ros/node_handle.h ****       // If a timeout has been specified, check how long spinOnce has been running.
- 241:../Libraries/ROSSerial/ros/node_handle.h ****       if (spin_timeout_ > 0)
- 242:../Libraries/ROSSerial/ros/node_handle.h ****       {
- 243:../Libraries/ROSSerial/ros/node_handle.h ****         // If the maximum processing timeout has been exceeded, exit with error.
- 244:../Libraries/ROSSerial/ros/node_handle.h ****         // The next spinOnce can continue where it left off, or optionally
- 245:../Libraries/ROSSerial/ros/node_handle.h ****         // based on the application in use, the hardware buffer could be flushed
- 246:../Libraries/ROSSerial/ros/node_handle.h ****         // and start fresh.
- 247:../Libraries/ROSSerial/ros/node_handle.h ****         if ((hardware_.time() - c_time) > spin_timeout_)
- 248:../Libraries/ROSSerial/ros/node_handle.h ****         {
- 249:../Libraries/ROSSerial/ros/node_handle.h ****           // Exit the spin, processing timeout exceeded.
- 250:../Libraries/ROSSerial/ros/node_handle.h ****           return SPIN_TIMEOUT;
- 251:../Libraries/ROSSerial/ros/node_handle.h ****         }
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 18
+ 216:../Libraries/ROSSerial/ros/node_handle.h **** //calling spinOnce() directly from spin_task gives stackoverflow
+ 217:../Libraries/ROSSerial/ros/node_handle.h ****   int spinOnce1()
+ 218:../Libraries/ROSSerial/ros/node_handle.h ****   {
+ 219:../Libraries/ROSSerial/ros/node_handle.h ****     //printf("spinOnce\n");
+ 220:../Libraries/ROSSerial/ros/node_handle.h ****     /* restart if timed out */
+ 221:../Libraries/ROSSerial/ros/node_handle.h ****     uint32_t c_time = hardware_.time();
+ 222:../Libraries/ROSSerial/ros/node_handle.h ****     //printf("spinOnce %ld\n",c_time);
+ 223:../Libraries/ROSSerial/ros/node_handle.h **** 
+ 224:../Libraries/ROSSerial/ros/node_handle.h ****     if ((c_time - last_sync_receive_time) > (SYNC_SECONDS * 2200))
+ 225:../Libraries/ROSSerial/ros/node_handle.h ****     {
+ 226:../Libraries/ROSSerial/ros/node_handle.h ****       configured_ = false;
+ 227:../Libraries/ROSSerial/ros/node_handle.h ****     }
+ 228:../Libraries/ROSSerial/ros/node_handle.h **** 
+ 229:../Libraries/ROSSerial/ros/node_handle.h ****     /* reset if message has timed out */
+ 230:../Libraries/ROSSerial/ros/node_handle.h ****     if (mode_ != MODE_FIRST_FF)
+ 231:../Libraries/ROSSerial/ros/node_handle.h ****     {
+ 232:../Libraries/ROSSerial/ros/node_handle.h ****       if (c_time > last_msg_timeout_time)
+ 233:../Libraries/ROSSerial/ros/node_handle.h ****       {
+ 234:../Libraries/ROSSerial/ros/node_handle.h ****         mode_ = MODE_FIRST_FF;
+ 235:../Libraries/ROSSerial/ros/node_handle.h ****       }
+ 236:../Libraries/ROSSerial/ros/node_handle.h ****     }
+ 237:../Libraries/ROSSerial/ros/node_handle.h **** 
+ 238:../Libraries/ROSSerial/ros/node_handle.h ****     /* while available buffer, read data */
+ 239:../Libraries/ROSSerial/ros/node_handle.h ****     while (true)
+ 240:../Libraries/ROSSerial/ros/node_handle.h ****     {
+ 241:../Libraries/ROSSerial/ros/node_handle.h ****       // If a timeout has been specified, check how long spinOnce has been running.
+ 242:../Libraries/ROSSerial/ros/node_handle.h ****       if (spin_timeout_ > 0)
+ 243:../Libraries/ROSSerial/ros/node_handle.h ****       {
+ 244:../Libraries/ROSSerial/ros/node_handle.h ****         // If the maximum processing timeout has been exceeded, exit with error.
+ 245:../Libraries/ROSSerial/ros/node_handle.h ****         // The next spinOnce can continue where it left off, or optionally
+ 246:../Libraries/ROSSerial/ros/node_handle.h ****         // based on the application in use, the hardware buffer could be flushed
+ 247:../Libraries/ROSSerial/ros/node_handle.h ****         // and start fresh.
+ 248:../Libraries/ROSSerial/ros/node_handle.h ****         if ((hardware_.time() - c_time) > spin_timeout_)
+ 249:../Libraries/ROSSerial/ros/node_handle.h ****         {
+ 250:../Libraries/ROSSerial/ros/node_handle.h ****           // Exit the spin, processing timeout exceeded.
+ 251:../Libraries/ROSSerial/ros/node_handle.h ****           return SPIN_TIMEOUT;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s 			page 18
 
 
- 252:../Libraries/ROSSerial/ros/node_handle.h ****       }
- 253:../Libraries/ROSSerial/ros/node_handle.h ****       int data = hardware_.read();
- 254:../Libraries/ROSSerial/ros/node_handle.h ****       if (data < 0)
- 255:../Libraries/ROSSerial/ros/node_handle.h ****         break;
- 256:../Libraries/ROSSerial/ros/node_handle.h ****       checksum_ += data;
- 257:../Libraries/ROSSerial/ros/node_handle.h ****       if (mode_ == MODE_MESSAGE)          /* message data being recieved */
- 258:../Libraries/ROSSerial/ros/node_handle.h ****       {
- 259:../Libraries/ROSSerial/ros/node_handle.h ****         message_in[index_++] = data;
- 260:../Libraries/ROSSerial/ros/node_handle.h ****         bytes_--;
- 261:../Libraries/ROSSerial/ros/node_handle.h ****         if (bytes_ == 0)                 /* is message complete? if so, checksum */
- 262:../Libraries/ROSSerial/ros/node_handle.h ****           mode_ = MODE_MSG_CHECKSUM;
- 263:../Libraries/ROSSerial/ros/node_handle.h ****       }
- 264:../Libraries/ROSSerial/ros/node_handle.h ****       else if (mode_ == MODE_FIRST_FF)
- 265:../Libraries/ROSSerial/ros/node_handle.h ****       {
- 266:../Libraries/ROSSerial/ros/node_handle.h ****         if (data == 0xff)
- 267:../Libraries/ROSSerial/ros/node_handle.h ****         {
- 268:../Libraries/ROSSerial/ros/node_handle.h ****           mode_++;
- 269:../Libraries/ROSSerial/ros/node_handle.h ****           last_msg_timeout_time = c_time + SERIAL_MSG_TIMEOUT;
- 270:../Libraries/ROSSerial/ros/node_handle.h ****         }
- 271:../Libraries/ROSSerial/ros/node_handle.h ****         else if (hardware_.time() - c_time > (SYNC_SECONDS * 1000))
- 272:../Libraries/ROSSerial/ros/node_handle.h ****         {
- 273:../Libraries/ROSSerial/ros/node_handle.h ****           /* We have been stuck in spinOnce too long, return error */
- 274:../Libraries/ROSSerial/ros/node_handle.h ****           configured_ = false;
- 275:../Libraries/ROSSerial/ros/node_handle.h ****           return SPIN_TIMEOUT;
- 276:../Libraries/ROSSerial/ros/node_handle.h ****         }
- 277:../Libraries/ROSSerial/ros/node_handle.h ****       }
- 278:../Libraries/ROSSerial/ros/node_handle.h ****       else if (mode_ == MODE_PROTOCOL_VER)
- 279:../Libraries/ROSSerial/ros/node_handle.h ****       {
- 280:../Libraries/ROSSerial/ros/node_handle.h ****         if (data == PROTOCOL_VER)
- 281:../Libraries/ROSSerial/ros/node_handle.h ****         {
- 282:../Libraries/ROSSerial/ros/node_handle.h ****           mode_++;
- 283:../Libraries/ROSSerial/ros/node_handle.h ****         }
- 284:../Libraries/ROSSerial/ros/node_handle.h ****         else
- 285:../Libraries/ROSSerial/ros/node_handle.h ****         {
- 286:../Libraries/ROSSerial/ros/node_handle.h ****           mode_ = MODE_FIRST_FF;
- 287:../Libraries/ROSSerial/ros/node_handle.h ****           if (configured_ == false)
- 288:../Libraries/ROSSerial/ros/node_handle.h ****             requestSyncTime();  /* send a msg back showing our protocol version */
- 289:../Libraries/ROSSerial/ros/node_handle.h ****         }
- 290:../Libraries/ROSSerial/ros/node_handle.h ****       }
- 291:../Libraries/ROSSerial/ros/node_handle.h ****       else if (mode_ == MODE_SIZE_L)      /* bottom half of message size */
- 292:../Libraries/ROSSerial/ros/node_handle.h ****       {
- 293:../Libraries/ROSSerial/ros/node_handle.h ****         bytes_ = data;
- 294:../Libraries/ROSSerial/ros/node_handle.h ****         index_ = 0;
- 295:../Libraries/ROSSerial/ros/node_handle.h ****         mode_++;
- 296:../Libraries/ROSSerial/ros/node_handle.h ****         checksum_ = data;               /* first byte for calculating size checksum */
- 297:../Libraries/ROSSerial/ros/node_handle.h ****       }
- 298:../Libraries/ROSSerial/ros/node_handle.h ****       else if (mode_ == MODE_SIZE_H)      /* top half of message size */
- 299:../Libraries/ROSSerial/ros/node_handle.h ****       {
- 300:../Libraries/ROSSerial/ros/node_handle.h ****         bytes_ += data << 8;
- 301:../Libraries/ROSSerial/ros/node_handle.h ****         mode_++;
- 302:../Libraries/ROSSerial/ros/node_handle.h ****       }
- 303:../Libraries/ROSSerial/ros/node_handle.h ****       else if (mode_ == MODE_SIZE_CHECKSUM)
- 304:../Libraries/ROSSerial/ros/node_handle.h ****       {
- 305:../Libraries/ROSSerial/ros/node_handle.h ****         if ((checksum_ % 256) == 255)
- 306:../Libraries/ROSSerial/ros/node_handle.h ****           mode_++;
- 307:../Libraries/ROSSerial/ros/node_handle.h ****         else
- 308:../Libraries/ROSSerial/ros/node_handle.h ****           mode_ = MODE_FIRST_FF;          /* Abandon the frame if the msg len is wrong */
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 19
+ 252:../Libraries/ROSSerial/ros/node_handle.h ****         }
+ 253:../Libraries/ROSSerial/ros/node_handle.h ****       }
+ 254:../Libraries/ROSSerial/ros/node_handle.h ****       int data = hardware_.read();
+ 255:../Libraries/ROSSerial/ros/node_handle.h ****       if (data < 0)
+ 256:../Libraries/ROSSerial/ros/node_handle.h ****         break;
+ 257:../Libraries/ROSSerial/ros/node_handle.h ****       checksum_ += data;
+ 258:../Libraries/ROSSerial/ros/node_handle.h ****       if (mode_ == MODE_MESSAGE)          /* message data being recieved */
+ 259:../Libraries/ROSSerial/ros/node_handle.h ****       {
+ 260:../Libraries/ROSSerial/ros/node_handle.h ****         message_in[index_++] = data;
+ 261:../Libraries/ROSSerial/ros/node_handle.h ****         bytes_--;
+ 262:../Libraries/ROSSerial/ros/node_handle.h ****         if (bytes_ == 0)                 /* is message complete? if so, checksum */
+ 263:../Libraries/ROSSerial/ros/node_handle.h ****           mode_ = MODE_MSG_CHECKSUM;
+ 264:../Libraries/ROSSerial/ros/node_handle.h ****       }
+ 265:../Libraries/ROSSerial/ros/node_handle.h ****       else if (mode_ == MODE_FIRST_FF)
+ 266:../Libraries/ROSSerial/ros/node_handle.h ****       {
+ 267:../Libraries/ROSSerial/ros/node_handle.h ****         if (data == 0xff)
+ 268:../Libraries/ROSSerial/ros/node_handle.h ****         {
+ 269:../Libraries/ROSSerial/ros/node_handle.h ****           mode_++;
+ 270:../Libraries/ROSSerial/ros/node_handle.h ****           last_msg_timeout_time = c_time + SERIAL_MSG_TIMEOUT;
+ 271:../Libraries/ROSSerial/ros/node_handle.h ****         }
+ 272:../Libraries/ROSSerial/ros/node_handle.h ****         else if (hardware_.time() - c_time > (SYNC_SECONDS * 1000))
+ 273:../Libraries/ROSSerial/ros/node_handle.h ****         {
+ 274:../Libraries/ROSSerial/ros/node_handle.h ****           /* We have been stuck in spinOnce too long, return error */
+ 275:../Libraries/ROSSerial/ros/node_handle.h ****           configured_ = false;
+ 276:../Libraries/ROSSerial/ros/node_handle.h ****           return SPIN_TIMEOUT;
+ 277:../Libraries/ROSSerial/ros/node_handle.h ****         }
+ 278:../Libraries/ROSSerial/ros/node_handle.h ****       }
+ 279:../Libraries/ROSSerial/ros/node_handle.h ****       else if (mode_ == MODE_PROTOCOL_VER)
+ 280:../Libraries/ROSSerial/ros/node_handle.h ****       {
+ 281:../Libraries/ROSSerial/ros/node_handle.h ****         if (data == PROTOCOL_VER)
+ 282:../Libraries/ROSSerial/ros/node_handle.h ****         {
+ 283:../Libraries/ROSSerial/ros/node_handle.h ****           mode_++;
+ 284:../Libraries/ROSSerial/ros/node_handle.h ****         }
+ 285:../Libraries/ROSSerial/ros/node_handle.h ****         else
+ 286:../Libraries/ROSSerial/ros/node_handle.h ****         {
+ 287:../Libraries/ROSSerial/ros/node_handle.h ****           mode_ = MODE_FIRST_FF;
+ 288:../Libraries/ROSSerial/ros/node_handle.h ****           if (configured_ == false)
+ 289:../Libraries/ROSSerial/ros/node_handle.h ****             requestSyncTime();  /* send a msg back showing our protocol version */
+ 290:../Libraries/ROSSerial/ros/node_handle.h ****         }
+ 291:../Libraries/ROSSerial/ros/node_handle.h ****       }
+ 292:../Libraries/ROSSerial/ros/node_handle.h ****       else if (mode_ == MODE_SIZE_L)      /* bottom half of message size */
+ 293:../Libraries/ROSSerial/ros/node_handle.h ****       {
+ 294:../Libraries/ROSSerial/ros/node_handle.h ****         bytes_ = data;
+ 295:../Libraries/ROSSerial/ros/node_handle.h ****         index_ = 0;
+ 296:../Libraries/ROSSerial/ros/node_handle.h ****         mode_++;
+ 297:../Libraries/ROSSerial/ros/node_handle.h ****         checksum_ = data;               /* first byte for calculating size checksum */
+ 298:../Libraries/ROSSerial/ros/node_handle.h ****       }
+ 299:../Libraries/ROSSerial/ros/node_handle.h ****       else if (mode_ == MODE_SIZE_H)      /* top half of message size */
+ 300:../Libraries/ROSSerial/ros/node_handle.h ****       {
+ 301:../Libraries/ROSSerial/ros/node_handle.h ****         bytes_ += data << 8;
+ 302:../Libraries/ROSSerial/ros/node_handle.h ****         mode_++;
+ 303:../Libraries/ROSSerial/ros/node_handle.h ****       }
+ 304:../Libraries/ROSSerial/ros/node_handle.h ****       else if (mode_ == MODE_SIZE_CHECKSUM)
+ 305:../Libraries/ROSSerial/ros/node_handle.h ****       {
+ 306:../Libraries/ROSSerial/ros/node_handle.h ****         if ((checksum_ % 256) == 255)
+ 307:../Libraries/ROSSerial/ros/node_handle.h ****           mode_++;
+ 308:../Libraries/ROSSerial/ros/node_handle.h ****         else
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s 			page 19
 
 
- 309:../Libraries/ROSSerial/ros/node_handle.h ****       }
- 310:../Libraries/ROSSerial/ros/node_handle.h ****       else if (mode_ == MODE_TOPIC_L)     /* bottom half of topic id */
- 311:../Libraries/ROSSerial/ros/node_handle.h ****       {
- 312:../Libraries/ROSSerial/ros/node_handle.h ****         topic_ = data;
- 313:../Libraries/ROSSerial/ros/node_handle.h ****         mode_++;
- 314:../Libraries/ROSSerial/ros/node_handle.h ****         checksum_ = data;               /* first byte included in checksum */
- 315:../Libraries/ROSSerial/ros/node_handle.h ****       }
- 316:../Libraries/ROSSerial/ros/node_handle.h ****       else if (mode_ == MODE_TOPIC_H)     /* top half of topic id */
- 317:../Libraries/ROSSerial/ros/node_handle.h ****       {
- 318:../Libraries/ROSSerial/ros/node_handle.h ****         topic_ += data << 8;
- 319:../Libraries/ROSSerial/ros/node_handle.h ****         mode_ = MODE_MESSAGE;
- 320:../Libraries/ROSSerial/ros/node_handle.h ****         if (bytes_ == 0)
- 321:../Libraries/ROSSerial/ros/node_handle.h ****           mode_ = MODE_MSG_CHECKSUM;
- 322:../Libraries/ROSSerial/ros/node_handle.h ****       }
- 323:../Libraries/ROSSerial/ros/node_handle.h ****       else if (mode_ == MODE_MSG_CHECKSUM)    /* do checksum */
- 324:../Libraries/ROSSerial/ros/node_handle.h ****       {
- 325:../Libraries/ROSSerial/ros/node_handle.h ****         mode_ = MODE_FIRST_FF;
- 326:../Libraries/ROSSerial/ros/node_handle.h ****         if ((checksum_ % 256) == 255)
- 327:../Libraries/ROSSerial/ros/node_handle.h ****         {
- 328:../Libraries/ROSSerial/ros/node_handle.h ****           if (topic_ == TopicInfo::ID_PUBLISHER)
- 329:../Libraries/ROSSerial/ros/node_handle.h ****           {
- 330:../Libraries/ROSSerial/ros/node_handle.h ****             requestSyncTime();
- 331:../Libraries/ROSSerial/ros/node_handle.h ****             negotiateTopics();
- 332:../Libraries/ROSSerial/ros/node_handle.h ****             last_sync_time = c_time;
- 333:../Libraries/ROSSerial/ros/node_handle.h ****             last_sync_receive_time = c_time;
- 334:../Libraries/ROSSerial/ros/node_handle.h ****             return SPIN_ERR;
- 335:../Libraries/ROSSerial/ros/node_handle.h ****           }
- 336:../Libraries/ROSSerial/ros/node_handle.h ****           else if (topic_ == TopicInfo::ID_TIME)
- 337:../Libraries/ROSSerial/ros/node_handle.h ****           {
- 338:../Libraries/ROSSerial/ros/node_handle.h ****             syncTime(message_in);
- 339:../Libraries/ROSSerial/ros/node_handle.h ****           }
- 340:../Libraries/ROSSerial/ros/node_handle.h ****           else if (topic_ == TopicInfo::ID_PARAMETER_REQUEST)
- 341:../Libraries/ROSSerial/ros/node_handle.h ****           {
- 342:../Libraries/ROSSerial/ros/node_handle.h ****             req_param_resp.deserialize(message_in);
- 343:../Libraries/ROSSerial/ros/node_handle.h ****             param_recieved = true;
- 344:../Libraries/ROSSerial/ros/node_handle.h ****           }
- 345:../Libraries/ROSSerial/ros/node_handle.h ****           else if (topic_ == TopicInfo::ID_TX_STOP)
- 346:../Libraries/ROSSerial/ros/node_handle.h ****           {
- 347:../Libraries/ROSSerial/ros/node_handle.h ****             configured_ = false;
- 348:../Libraries/ROSSerial/ros/node_handle.h ****           }
- 349:../Libraries/ROSSerial/ros/node_handle.h ****           else
- 350:../Libraries/ROSSerial/ros/node_handle.h ****           {
- 351:../Libraries/ROSSerial/ros/node_handle.h ****             if (subscribers[topic_ - 100])
- 352:../Libraries/ROSSerial/ros/node_handle.h ****               subscribers[topic_ - 100]->callback(message_in);
- 353:../Libraries/ROSSerial/ros/node_handle.h ****           }
- 354:../Libraries/ROSSerial/ros/node_handle.h ****         }
- 355:../Libraries/ROSSerial/ros/node_handle.h ****       }
- 356:../Libraries/ROSSerial/ros/node_handle.h ****     }
- 357:../Libraries/ROSSerial/ros/node_handle.h **** 
- 358:../Libraries/ROSSerial/ros/node_handle.h ****     /* occasionally sync time */
- 359:../Libraries/ROSSerial/ros/node_handle.h ****     if (configured_ && ((c_time - last_sync_time) > (SYNC_SECONDS * 500)))
- 360:../Libraries/ROSSerial/ros/node_handle.h ****     {
- 361:../Libraries/ROSSerial/ros/node_handle.h ****       requestSyncTime();
- 362:../Libraries/ROSSerial/ros/node_handle.h ****       last_sync_time = c_time;
- 363:../Libraries/ROSSerial/ros/node_handle.h ****     }
- 364:../Libraries/ROSSerial/ros/node_handle.h **** 
- 365:../Libraries/ROSSerial/ros/node_handle.h ****     return SPIN_OK;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 20
+ 309:../Libraries/ROSSerial/ros/node_handle.h ****           mode_ = MODE_FIRST_FF;          /* Abandon the frame if the msg len is wrong */
+ 310:../Libraries/ROSSerial/ros/node_handle.h ****       }
+ 311:../Libraries/ROSSerial/ros/node_handle.h ****       else if (mode_ == MODE_TOPIC_L)     /* bottom half of topic id */
+ 312:../Libraries/ROSSerial/ros/node_handle.h ****       {
+ 313:../Libraries/ROSSerial/ros/node_handle.h ****         topic_ = data;
+ 314:../Libraries/ROSSerial/ros/node_handle.h ****         mode_++;
+ 315:../Libraries/ROSSerial/ros/node_handle.h ****         checksum_ = data;               /* first byte included in checksum */
+ 316:../Libraries/ROSSerial/ros/node_handle.h ****       }
+ 317:../Libraries/ROSSerial/ros/node_handle.h ****       else if (mode_ == MODE_TOPIC_H)     /* top half of topic id */
+ 318:../Libraries/ROSSerial/ros/node_handle.h ****       {
+ 319:../Libraries/ROSSerial/ros/node_handle.h ****         topic_ += data << 8;
+ 320:../Libraries/ROSSerial/ros/node_handle.h ****         mode_ = MODE_MESSAGE;
+ 321:../Libraries/ROSSerial/ros/node_handle.h ****         if (bytes_ == 0)
+ 322:../Libraries/ROSSerial/ros/node_handle.h ****           mode_ = MODE_MSG_CHECKSUM;
+ 323:../Libraries/ROSSerial/ros/node_handle.h ****       }
+ 324:../Libraries/ROSSerial/ros/node_handle.h ****       else if (mode_ == MODE_MSG_CHECKSUM)    /* do checksum */
+ 325:../Libraries/ROSSerial/ros/node_handle.h ****       {
+ 326:../Libraries/ROSSerial/ros/node_handle.h ****         mode_ = MODE_FIRST_FF;
+ 327:../Libraries/ROSSerial/ros/node_handle.h ****         if ((checksum_ % 256) == 255)
+ 328:../Libraries/ROSSerial/ros/node_handle.h ****         {
+ 329:../Libraries/ROSSerial/ros/node_handle.h ****           if (topic_ == TopicInfo::ID_PUBLISHER)
+ 330:../Libraries/ROSSerial/ros/node_handle.h ****           {
+ 331:../Libraries/ROSSerial/ros/node_handle.h ****             requestSyncTime();
+ 332:../Libraries/ROSSerial/ros/node_handle.h ****             negotiateTopics();
+ 333:../Libraries/ROSSerial/ros/node_handle.h ****             last_sync_time = c_time;
+ 334:../Libraries/ROSSerial/ros/node_handle.h ****             last_sync_receive_time = c_time;
+ 335:../Libraries/ROSSerial/ros/node_handle.h ****             return SPIN_ERR;
+ 336:../Libraries/ROSSerial/ros/node_handle.h ****           }
+ 337:../Libraries/ROSSerial/ros/node_handle.h ****           else if (topic_ == TopicInfo::ID_TIME)
+ 338:../Libraries/ROSSerial/ros/node_handle.h ****           {
+ 339:../Libraries/ROSSerial/ros/node_handle.h ****             syncTime(message_in);
+ 340:../Libraries/ROSSerial/ros/node_handle.h ****           }
+ 341:../Libraries/ROSSerial/ros/node_handle.h ****           else if (topic_ == TopicInfo::ID_PARAMETER_REQUEST)
+ 342:../Libraries/ROSSerial/ros/node_handle.h ****           {
+ 343:../Libraries/ROSSerial/ros/node_handle.h ****             req_param_resp.deserialize(message_in);
+ 344:../Libraries/ROSSerial/ros/node_handle.h ****             param_recieved = true;
+ 345:../Libraries/ROSSerial/ros/node_handle.h ****           }
+ 346:../Libraries/ROSSerial/ros/node_handle.h ****           else if (topic_ == TopicInfo::ID_TX_STOP)
+ 347:../Libraries/ROSSerial/ros/node_handle.h ****           {
+ 348:../Libraries/ROSSerial/ros/node_handle.h ****             configured_ = false;
+ 349:../Libraries/ROSSerial/ros/node_handle.h ****           }
+ 350:../Libraries/ROSSerial/ros/node_handle.h ****           else
+ 351:../Libraries/ROSSerial/ros/node_handle.h ****           {
+ 352:../Libraries/ROSSerial/ros/node_handle.h ****             if (subscribers[topic_ - 100])
+ 353:../Libraries/ROSSerial/ros/node_handle.h ****               subscribers[topic_ - 100]->callback(message_in);
+ 354:../Libraries/ROSSerial/ros/node_handle.h ****           }
+ 355:../Libraries/ROSSerial/ros/node_handle.h ****         }
+ 356:../Libraries/ROSSerial/ros/node_handle.h ****       }
+ 357:../Libraries/ROSSerial/ros/node_handle.h ****     }
+ 358:../Libraries/ROSSerial/ros/node_handle.h **** 
+ 359:../Libraries/ROSSerial/ros/node_handle.h ****     /* occasionally sync time */
+ 360:../Libraries/ROSSerial/ros/node_handle.h ****     if (configured_ && ((c_time - last_sync_time) > (SYNC_SECONDS * 500)))
+ 361:../Libraries/ROSSerial/ros/node_handle.h ****     {
+ 362:../Libraries/ROSSerial/ros/node_handle.h ****       requestSyncTime();
+ 363:../Libraries/ROSSerial/ros/node_handle.h ****       last_sync_time = c_time;
+ 364:../Libraries/ROSSerial/ros/node_handle.h ****     }
+ 365:../Libraries/ROSSerial/ros/node_handle.h **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s 			page 20
 
 
- 366:../Libraries/ROSSerial/ros/node_handle.h ****   }
- 367:../Libraries/ROSSerial/ros/node_handle.h **** 
+ 366:../Libraries/ROSSerial/ros/node_handle.h ****     return SPIN_OK;
+ 367:../Libraries/ROSSerial/ros/node_handle.h ****   }
  368:../Libraries/ROSSerial/ros/node_handle.h **** 
- 369:../Libraries/ROSSerial/ros/node_handle.h ****   /* Are we connected to the PC? */
- 370:../Libraries/ROSSerial/ros/node_handle.h ****   virtual bool connected()
- 371:../Libraries/ROSSerial/ros/node_handle.h ****   {
- 372:../Libraries/ROSSerial/ros/node_handle.h ****     return configured_;
- 373:../Libraries/ROSSerial/ros/node_handle.h ****   };
- 374:../Libraries/ROSSerial/ros/node_handle.h **** 
- 375:../Libraries/ROSSerial/ros/node_handle.h ****   /********************************************************************
- 376:../Libraries/ROSSerial/ros/node_handle.h ****    * Time functions
- 377:../Libraries/ROSSerial/ros/node_handle.h ****    */
- 378:../Libraries/ROSSerial/ros/node_handle.h **** 
- 379:../Libraries/ROSSerial/ros/node_handle.h ****   void requestSyncTime()
- 380:../Libraries/ROSSerial/ros/node_handle.h ****   {
- 381:../Libraries/ROSSerial/ros/node_handle.h ****     std_msgs::Time t;
- 382:../Libraries/ROSSerial/ros/node_handle.h ****     publish(TopicInfo::ID_TIME, &t);
- 383:../Libraries/ROSSerial/ros/node_handle.h ****     rt_time = hardware_.time();
- 384:../Libraries/ROSSerial/ros/node_handle.h ****   }
- 385:../Libraries/ROSSerial/ros/node_handle.h **** 
- 386:../Libraries/ROSSerial/ros/node_handle.h ****   void syncTime(uint8_t * data)
- 387:../Libraries/ROSSerial/ros/node_handle.h ****   {
- 388:../Libraries/ROSSerial/ros/node_handle.h ****     std_msgs::Time t;
- 389:../Libraries/ROSSerial/ros/node_handle.h ****     uint32_t offset = hardware_.time() - rt_time;
- 390:../Libraries/ROSSerial/ros/node_handle.h **** 
- 391:../Libraries/ROSSerial/ros/node_handle.h ****     t.deserialize(data);
- 392:../Libraries/ROSSerial/ros/node_handle.h ****     t.data.sec += offset / 1000;
- 393:../Libraries/ROSSerial/ros/node_handle.h ****     t.data.nsec += (offset % 1000) * 1000000UL;
- 394:../Libraries/ROSSerial/ros/node_handle.h **** 
- 395:../Libraries/ROSSerial/ros/node_handle.h ****     this->setNow(t.data);
- 396:../Libraries/ROSSerial/ros/node_handle.h ****     last_sync_receive_time = hardware_.time();
- 397:../Libraries/ROSSerial/ros/node_handle.h ****   }
- 398:../Libraries/ROSSerial/ros/node_handle.h **** 
- 399:../Libraries/ROSSerial/ros/node_handle.h ****   Time now()
- 400:../Libraries/ROSSerial/ros/node_handle.h ****   {
- 401:../Libraries/ROSSerial/ros/node_handle.h ****     uint32_t ms = hardware_.time();
- 402:../Libraries/ROSSerial/ros/node_handle.h ****     Time current_time;
- 403:../Libraries/ROSSerial/ros/node_handle.h ****     current_time.sec = ms / 1000 + sec_offset;
- 404:../Libraries/ROSSerial/ros/node_handle.h ****     current_time.nsec = (ms % 1000) * 1000000UL + nsec_offset;
- 405:../Libraries/ROSSerial/ros/node_handle.h ****     normalizeSecNSec(current_time.sec, current_time.nsec);
- 406:../Libraries/ROSSerial/ros/node_handle.h ****     return current_time;
- 407:../Libraries/ROSSerial/ros/node_handle.h ****   }
- 408:../Libraries/ROSSerial/ros/node_handle.h **** 
- 409:../Libraries/ROSSerial/ros/node_handle.h ****   void setNow(Time & new_now)
- 410:../Libraries/ROSSerial/ros/node_handle.h ****   {
- 411:../Libraries/ROSSerial/ros/node_handle.h ****     uint32_t ms = hardware_.time();
- 412:../Libraries/ROSSerial/ros/node_handle.h ****     sec_offset = new_now.sec - ms / 1000 - 1;
- 413:../Libraries/ROSSerial/ros/node_handle.h ****     nsec_offset = new_now.nsec - (ms % 1000) * 1000000UL + 1000000000UL;
- 414:../Libraries/ROSSerial/ros/node_handle.h ****     normalizeSecNSec(sec_offset, nsec_offset);
- 415:../Libraries/ROSSerial/ros/node_handle.h ****   }
- 416:../Libraries/ROSSerial/ros/node_handle.h **** 
- 417:../Libraries/ROSSerial/ros/node_handle.h ****   /********************************************************************
- 418:../Libraries/ROSSerial/ros/node_handle.h ****    * Topic Management
- 419:../Libraries/ROSSerial/ros/node_handle.h ****    */
- 420:../Libraries/ROSSerial/ros/node_handle.h **** 
- 421:../Libraries/ROSSerial/ros/node_handle.h ****   /* Register a new publisher */
- 422:../Libraries/ROSSerial/ros/node_handle.h ****   bool advertise(Publisher & p)
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 21
+ 369:../Libraries/ROSSerial/ros/node_handle.h **** 
+ 370:../Libraries/ROSSerial/ros/node_handle.h ****   /* Are we connected to the PC? */
+ 371:../Libraries/ROSSerial/ros/node_handle.h ****   virtual bool connected()
+ 372:../Libraries/ROSSerial/ros/node_handle.h ****   {
+ 373:../Libraries/ROSSerial/ros/node_handle.h ****     return configured_;
+ 374:../Libraries/ROSSerial/ros/node_handle.h ****   };
+ 375:../Libraries/ROSSerial/ros/node_handle.h **** 
+ 376:../Libraries/ROSSerial/ros/node_handle.h ****   /********************************************************************
+ 377:../Libraries/ROSSerial/ros/node_handle.h ****    * Time functions
+ 378:../Libraries/ROSSerial/ros/node_handle.h ****    */
+ 379:../Libraries/ROSSerial/ros/node_handle.h **** 
+ 380:../Libraries/ROSSerial/ros/node_handle.h ****   void requestSyncTime()
+ 381:../Libraries/ROSSerial/ros/node_handle.h ****   {
+ 382:../Libraries/ROSSerial/ros/node_handle.h ****     std_msgs::Time t;
+ 383:../Libraries/ROSSerial/ros/node_handle.h ****     publish(TopicInfo::ID_TIME, &t);
+ 384:../Libraries/ROSSerial/ros/node_handle.h ****     rt_time = hardware_.time();
+ 385:../Libraries/ROSSerial/ros/node_handle.h ****   }
+ 386:../Libraries/ROSSerial/ros/node_handle.h **** 
+ 387:../Libraries/ROSSerial/ros/node_handle.h ****   void syncTime(uint8_t * data)
+ 388:../Libraries/ROSSerial/ros/node_handle.h ****   {
+ 389:../Libraries/ROSSerial/ros/node_handle.h ****     std_msgs::Time t;
+ 390:../Libraries/ROSSerial/ros/node_handle.h ****     uint32_t offset = hardware_.time() - rt_time;
+ 391:../Libraries/ROSSerial/ros/node_handle.h **** 
+ 392:../Libraries/ROSSerial/ros/node_handle.h ****     t.deserialize(data);
+ 393:../Libraries/ROSSerial/ros/node_handle.h ****     t.data.sec += offset / 1000;
+ 394:../Libraries/ROSSerial/ros/node_handle.h ****     t.data.nsec += (offset % 1000) * 1000000UL;
+ 395:../Libraries/ROSSerial/ros/node_handle.h **** 
+ 396:../Libraries/ROSSerial/ros/node_handle.h ****     this->setNow(t.data);
+ 397:../Libraries/ROSSerial/ros/node_handle.h ****     last_sync_receive_time = hardware_.time();
+ 398:../Libraries/ROSSerial/ros/node_handle.h ****   }
+ 399:../Libraries/ROSSerial/ros/node_handle.h **** 
+ 400:../Libraries/ROSSerial/ros/node_handle.h ****   Time now()
+ 401:../Libraries/ROSSerial/ros/node_handle.h ****   {
+ 402:../Libraries/ROSSerial/ros/node_handle.h ****     uint32_t ms = hardware_.time();
+ 403:../Libraries/ROSSerial/ros/node_handle.h ****     Time current_time;
+ 404:../Libraries/ROSSerial/ros/node_handle.h ****     current_time.sec = ms / 1000 + sec_offset;
+ 405:../Libraries/ROSSerial/ros/node_handle.h ****     current_time.nsec = (ms % 1000) * 1000000UL + nsec_offset;
+ 406:../Libraries/ROSSerial/ros/node_handle.h ****     normalizeSecNSec(current_time.sec, current_time.nsec);
+ 407:../Libraries/ROSSerial/ros/node_handle.h ****     return current_time;
+ 408:../Libraries/ROSSerial/ros/node_handle.h ****   }
+ 409:../Libraries/ROSSerial/ros/node_handle.h **** 
+ 410:../Libraries/ROSSerial/ros/node_handle.h ****   void setNow(Time & new_now)
+ 411:../Libraries/ROSSerial/ros/node_handle.h ****   {
+ 412:../Libraries/ROSSerial/ros/node_handle.h ****     uint32_t ms = hardware_.time();
+ 413:../Libraries/ROSSerial/ros/node_handle.h ****     sec_offset = new_now.sec - ms / 1000 - 1;
+ 414:../Libraries/ROSSerial/ros/node_handle.h ****     nsec_offset = new_now.nsec - (ms % 1000) * 1000000UL + 1000000000UL;
+ 415:../Libraries/ROSSerial/ros/node_handle.h ****     normalizeSecNSec(sec_offset, nsec_offset);
+ 416:../Libraries/ROSSerial/ros/node_handle.h ****   }
+ 417:../Libraries/ROSSerial/ros/node_handle.h **** 
+ 418:../Libraries/ROSSerial/ros/node_handle.h ****   /********************************************************************
+ 419:../Libraries/ROSSerial/ros/node_handle.h ****    * Topic Management
+ 420:../Libraries/ROSSerial/ros/node_handle.h ****    */
+ 421:../Libraries/ROSSerial/ros/node_handle.h **** 
+ 422:../Libraries/ROSSerial/ros/node_handle.h ****   /* Register a new publisher */
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s 			page 21
 
 
- 423:../Libraries/ROSSerial/ros/node_handle.h ****   {
- 424:../Libraries/ROSSerial/ros/node_handle.h ****     for (int i = 0; i < MAX_PUBLISHERS; i++)
- 425:../Libraries/ROSSerial/ros/node_handle.h ****     {
- 426:../Libraries/ROSSerial/ros/node_handle.h ****       if (publishers[i] == 0) // empty slot
- 427:../Libraries/ROSSerial/ros/node_handle.h ****       {
- 428:../Libraries/ROSSerial/ros/node_handle.h ****         publishers[i] = &p;
- 429:../Libraries/ROSSerial/ros/node_handle.h ****         p.id_ = i + 100 + MAX_SUBSCRIBERS;
- 430:../Libraries/ROSSerial/ros/node_handle.h ****         p.nh_ = this;
- 431:../Libraries/ROSSerial/ros/node_handle.h ****         return true;
- 432:../Libraries/ROSSerial/ros/node_handle.h ****       }
- 433:../Libraries/ROSSerial/ros/node_handle.h ****     }
- 434:../Libraries/ROSSerial/ros/node_handle.h ****     return false;
- 435:../Libraries/ROSSerial/ros/node_handle.h ****   }
- 436:../Libraries/ROSSerial/ros/node_handle.h **** 
- 437:../Libraries/ROSSerial/ros/node_handle.h ****   /* Register a new subscriber */
- 438:../Libraries/ROSSerial/ros/node_handle.h ****   template<typename SubscriberT>
- 439:../Libraries/ROSSerial/ros/node_handle.h ****   bool subscribe(SubscriberT& s)
- 440:../Libraries/ROSSerial/ros/node_handle.h ****   {
- 441:../Libraries/ROSSerial/ros/node_handle.h ****     for (int i = 0; i < MAX_SUBSCRIBERS; i++)
- 482              		.loc 4 441 0
+ 423:../Libraries/ROSSerial/ros/node_handle.h ****   bool advertise(Publisher & p)
+ 424:../Libraries/ROSSerial/ros/node_handle.h ****   {
+ 425:../Libraries/ROSSerial/ros/node_handle.h ****     for (int i = 0; i < MAX_PUBLISHERS; i++)
+ 426:../Libraries/ROSSerial/ros/node_handle.h ****     {
+ 427:../Libraries/ROSSerial/ros/node_handle.h ****       if (publishers[i] == 0) // empty slot
+ 428:../Libraries/ROSSerial/ros/node_handle.h ****       {
+ 429:../Libraries/ROSSerial/ros/node_handle.h ****         publishers[i] = &p;
+ 430:../Libraries/ROSSerial/ros/node_handle.h ****         p.id_ = i + 100 + MAX_SUBSCRIBERS;
+ 431:../Libraries/ROSSerial/ros/node_handle.h ****         p.nh_ = this;
+ 432:../Libraries/ROSSerial/ros/node_handle.h ****         return true;
+ 433:../Libraries/ROSSerial/ros/node_handle.h ****       }
+ 434:../Libraries/ROSSerial/ros/node_handle.h ****     }
+ 435:../Libraries/ROSSerial/ros/node_handle.h ****     return false;
+ 436:../Libraries/ROSSerial/ros/node_handle.h ****   }
+ 437:../Libraries/ROSSerial/ros/node_handle.h **** 
+ 438:../Libraries/ROSSerial/ros/node_handle.h ****   /* Register a new subscriber */
+ 439:../Libraries/ROSSerial/ros/node_handle.h ****   template<typename SubscriberT>
+ 440:../Libraries/ROSSerial/ros/node_handle.h ****   bool subscribe(SubscriberT& s)
+ 441:../Libraries/ROSSerial/ros/node_handle.h ****   {
+ 442:../Libraries/ROSSerial/ros/node_handle.h ****     for (int i = 0; i < MAX_SUBSCRIBERS; i++)
+ 482              		.loc 4 442 0
  483 0004 0023     		movs	r3, #0
  484              	.LVL35:
  485              	.L38:
  486 0006 042B     		cmp	r3, #4
  487 0008 0FDC     		bgt	.L36
- 442:../Libraries/ROSSerial/ros/node_handle.h ****     {
- 443:../Libraries/ROSSerial/ros/node_handle.h ****       if (subscribers[i] == 0) // empty slot
- 488              		.loc 4 443 0
+ 443:../Libraries/ROSSerial/ros/node_handle.h ****     {
+ 444:../Libraries/ROSSerial/ros/node_handle.h ****       if (subscribers[i] == 0) // empty slot
+ 488              		.loc 4 444 0
  489 000a 03F58572 		add	r2, r3, #266
  490 000e 00EB8202 		add	r2, r0, r2, lsl #2
  491 0012 5268     		ldr	r2, [r2, #4]
  492 0014 0AB1     		cbz	r2, .L43
- 441:../Libraries/ROSSerial/ros/node_handle.h ****     {
- 493              		.loc 4 441 0
+ 442:../Libraries/ROSSerial/ros/node_handle.h ****     {
+ 493              		.loc 4 442 0
  494 0016 0133     		adds	r3, r3, #1
  495              	.LVL36:
  496 0018 F5E7     		b	.L38
  497              	.L43:
- 444:../Libraries/ROSSerial/ros/node_handle.h ****       {
- 445:../Libraries/ROSSerial/ros/node_handle.h ****         subscribers[i] = static_cast<Subscriber_*>(&s);
- 498              		.loc 4 445 0
+ 445:../Libraries/ROSSerial/ros/node_handle.h ****       {
+ 446:../Libraries/ROSSerial/ros/node_handle.h ****         subscribers[i] = static_cast<Subscriber_*>(&s);
+ 498              		.loc 4 446 0
  499 001a 03F58572 		add	r2, r3, #266
  500 001e 00EB8200 		add	r0, r0, r2, lsl #2
  501              	.LVL37:
  502 0022 104A     		ldr	r2, .L45
  503 0024 4260     		str	r2, [r0, #4]
- 446:../Libraries/ROSSerial/ros/node_handle.h ****         s.id_ = i + 100;
- 504              		.loc 4 446 0
+ 447:../Libraries/ROSSerial/ros/node_handle.h ****         s.id_ = i + 100;
+ 504              		.loc 4 447 0
  505 0026 6433     		adds	r3, r3, #100
  506              	.LVL38:
  507 0028 5360     		str	r3, [r2, #4]
@@ -1257,10 +1258,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
  510              	.LBE38:
  511              	.LBE37:
   57:ROSTasks/Src/subscribe_task.cpp **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s 			page 22
+
+
  512              		.loc 2 57 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 22
-
-
  513 002a 0120     		movs	r0, #1
  514 002c FFF7FEFF 		bl	osDelay
  515              	.LVL40:
@@ -1317,16 +1318,16 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
  558              		@ sp needed
  559 0062 30BD     		pop	{r4, r5, pc}
  560              	.L46:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s 			page 23
+
+
  561              		.align	2
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 23
-
-
  562              	.L45:
  563 0064 00000000 		.word	.LANCHOR0
  564 0068 00000000 		.word	.LANCHOR1
  565 006c 00000000 		.word	.LANCHOR3
  566              		.cfi_endproc
- 567              	.LFE469:
+ 567              	.LFE470:
  568              		.fnend
  570              		.section	.text._GLOBAL__sub_I_sub_led,"ax",%progbits
  571              		.align	1
@@ -1336,7 +1337,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
  575              		.fpu fpv4-sp-d16
  577              	_GLOBAL__sub_I_sub_led:
  578              		.fnstart
- 579              	.LFB488:
+ 579              	.LFB489:
  580              		.loc 2 77 0
  581              		.cfi_startproc
  582              		@ args = 0, pretend = 0, frame = 0
@@ -1353,7 +1354,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
  593              	.LVL46:
  594 000c 08BD     		pop	{r3, pc}
  595              		.cfi_endproc
- 596              	.LFE488:
+ 596              	.LFE489:
  597              		.cantunwind
  598              		.fnend
  600              		.section	.init_array,"aw",%init_array
@@ -1377,10 +1378,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
  622 0004 00000000 		.word	0
  623 0008 00000000 		.word	_ZN3ros10SubscriberIN8std_msgs6UInt16EvE8callbackEPh
  624 000c 00000000 		.word	_ZN3ros10SubscriberIN8std_msgs6UInt16EvE15getEndpointTypeEv
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s 			page 24
+
+
  625 0010 00000000 		.word	_ZN3ros10SubscriberIN8std_msgs6UInt16EvE10getMsgTypeEv
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 24
-
-
  626 0014 00000000 		.word	_ZN3ros10SubscriberIN8std_msgs6UInt16EvE9getMsgMD5Ev
  627              		.global	subscribeQueueHandle
  628              		.global	sub_led
@@ -1437,10 +1438,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
  674              	.LC0:
  675 0000 524F535F 		.ascii	"ROS_SubscribeTask\000"
  675      53756273 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s 			page 25
+
+
  675      63726962 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 25
-
-
  675      65546173 
  675      6B00
  676              		.text
@@ -1473,80 +1474,80 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 1
  703              		.file 30 "../Libraries/ROSSerial/rosserial_msgs/RequestParam.h"
  704              		.file 31 "../Libraries/ROSSerial/std_msgs/Time.h"
  705              		.file 32 "bsp/inc/bsp_led.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 26
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s 			page 26
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 subscribe_task.cpp
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:17     .text._ZNK8std_msgs6UInt169serializeEPh:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:24     .text._ZNK8std_msgs6UInt169serializeEPh:0000000000000000 _ZNK8std_msgs6UInt169serializeEPh
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:17     .text._ZNK8std_msgs6UInt169serializeEPh:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:24     .text._ZNK8std_msgs6UInt169serializeEPh:0000000000000000 _ZNK8std_msgs6UInt169serializeEPh
 .ARM.exidx.text._ZNK8std_msgs6UInt169serializeEPh:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:52     .text._ZN8std_msgs6UInt1611deserializeEPh:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:59     .text._ZN8std_msgs6UInt1611deserializeEPh:0000000000000000 _ZN8std_msgs6UInt1611deserializeEPh
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:52     .text._ZN8std_msgs6UInt1611deserializeEPh:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:59     .text._ZN8std_msgs6UInt1611deserializeEPh:0000000000000000 _ZN8std_msgs6UInt1611deserializeEPh
 .ARM.exidx.text._ZN8std_msgs6UInt1611deserializeEPh:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:86     .text._ZN8std_msgs6UInt167getTypeEv:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:93     .text._ZN8std_msgs6UInt167getTypeEv:0000000000000000 _ZN8std_msgs6UInt167getTypeEv
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:109    .text._ZN8std_msgs6UInt167getTypeEv:0000000000000004 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:86     .text._ZN8std_msgs6UInt167getTypeEv:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:93     .text._ZN8std_msgs6UInt167getTypeEv:0000000000000000 _ZN8std_msgs6UInt167getTypeEv
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:109    .text._ZN8std_msgs6UInt167getTypeEv:0000000000000004 $d
 .ARM.exidx.text._ZN8std_msgs6UInt167getTypeEv:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:116    .text._ZN8std_msgs6UInt166getMD5Ev:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:123    .text._ZN8std_msgs6UInt166getMD5Ev:0000000000000000 _ZN8std_msgs6UInt166getMD5Ev
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:139    .text._ZN8std_msgs6UInt166getMD5Ev:0000000000000004 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:116    .text._ZN8std_msgs6UInt166getMD5Ev:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:123    .text._ZN8std_msgs6UInt166getMD5Ev:0000000000000000 _ZN8std_msgs6UInt166getMD5Ev
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:139    .text._ZN8std_msgs6UInt166getMD5Ev:0000000000000004 $d
 .ARM.exidx.text._ZN8std_msgs6UInt166getMD5Ev:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:146    .text._Z41__static_initialization_and_destruction_0ii:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:152    .text._Z41__static_initialization_and_destruction_0ii:0000000000000000 _Z41__static_initialization_and_destruction_0ii
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:206    .text._Z41__static_initialization_and_destruction_0ii:0000000000000028 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:620    .rodata._ZTVN3ros10SubscriberIN8std_msgs6UInt16EvEE:0000000000000000 _ZTVN3ros10SubscriberIN8std_msgs6UInt16EvEE
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:608    .rodata._ZTVN8std_msgs6UInt16E:0000000000000000 _ZTVN8std_msgs6UInt16E
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:357    .text._Z6led_cbRKN8std_msgs6UInt16E:0000000000000000 _Z6led_cbRKN8std_msgs6UInt16E
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:146    .text._Z41__static_initialization_and_destruction_0ii:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:152    .text._Z41__static_initialization_and_destruction_0ii:0000000000000000 _Z41__static_initialization_and_destruction_0ii
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:206    .text._Z41__static_initialization_and_destruction_0ii:0000000000000028 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:620    .rodata._ZTVN3ros10SubscriberIN8std_msgs6UInt16EvEE:0000000000000000 _ZTVN3ros10SubscriberIN8std_msgs6UInt16EvEE
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:608    .rodata._ZTVN8std_msgs6UInt16E:0000000000000000 _ZTVN8std_msgs6UInt16E
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:357    .text._Z6led_cbRKN8std_msgs6UInt16E:0000000000000000 _Z6led_cbRKN8std_msgs6UInt16E
 .ARM.exidx.text._Z41__static_initialization_and_destruction_0ii:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:217    .text._ZN3ros10SubscriberIN8std_msgs6UInt16EvE8callbackEPh:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:224    .text._ZN3ros10SubscriberIN8std_msgs6UInt16EvE8callbackEPh:0000000000000000 _ZN3ros10SubscriberIN8std_msgs6UInt16EvE8callbackEPh
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:217    .text._ZN3ros10SubscriberIN8std_msgs6UInt16EvE8callbackEPh:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:224    .text._ZN3ros10SubscriberIN8std_msgs6UInt16EvE8callbackEPh:0000000000000000 _ZN3ros10SubscriberIN8std_msgs6UInt16EvE8callbackEPh
 .ARM.extab.text._ZN3ros10SubscriberIN8std_msgs6UInt16EvE8callbackEPh:0000000000000000 $d
 .ARM.exidx.text._ZN3ros10SubscriberIN8std_msgs6UInt16EvE8callbackEPh:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:264    .text._ZN3ros10SubscriberIN8std_msgs6UInt16EvE15getEndpointTypeEv:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:271    .text._ZN3ros10SubscriberIN8std_msgs6UInt16EvE15getEndpointTypeEv:0000000000000000 _ZN3ros10SubscriberIN8std_msgs6UInt16EvE15getEndpointTypeEv
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:264    .text._ZN3ros10SubscriberIN8std_msgs6UInt16EvE15getEndpointTypeEv:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:271    .text._ZN3ros10SubscriberIN8std_msgs6UInt16EvE15getEndpointTypeEv:0000000000000000 _ZN3ros10SubscriberIN8std_msgs6UInt16EvE15getEndpointTypeEv
 .ARM.exidx.text._ZN3ros10SubscriberIN8std_msgs6UInt16EvE15getEndpointTypeEv:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:290    .text._ZN3ros10SubscriberIN8std_msgs6UInt16EvE10getMsgTypeEv:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:297    .text._ZN3ros10SubscriberIN8std_msgs6UInt16EvE10getMsgTypeEv:0000000000000000 _ZN3ros10SubscriberIN8std_msgs6UInt16EvE10getMsgTypeEv
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:313    .text._ZN3ros10SubscriberIN8std_msgs6UInt16EvE10getMsgTypeEv:0000000000000004 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:290    .text._ZN3ros10SubscriberIN8std_msgs6UInt16EvE10getMsgTypeEv:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:297    .text._ZN3ros10SubscriberIN8std_msgs6UInt16EvE10getMsgTypeEv:0000000000000000 _ZN3ros10SubscriberIN8std_msgs6UInt16EvE10getMsgTypeEv
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:313    .text._ZN3ros10SubscriberIN8std_msgs6UInt16EvE10getMsgTypeEv:0000000000000004 $d
 .ARM.exidx.text._ZN3ros10SubscriberIN8std_msgs6UInt16EvE10getMsgTypeEv:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:320    .text._ZN3ros10SubscriberIN8std_msgs6UInt16EvE9getMsgMD5Ev:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:327    .text._ZN3ros10SubscriberIN8std_msgs6UInt16EvE9getMsgMD5Ev:0000000000000000 _ZN3ros10SubscriberIN8std_msgs6UInt16EvE9getMsgMD5Ev
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:343    .text._ZN3ros10SubscriberIN8std_msgs6UInt16EvE9getMsgMD5Ev:0000000000000004 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:320    .text._ZN3ros10SubscriberIN8std_msgs6UInt16EvE9getMsgMD5Ev:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:327    .text._ZN3ros10SubscriberIN8std_msgs6UInt16EvE9getMsgMD5Ev:0000000000000000 _ZN3ros10SubscriberIN8std_msgs6UInt16EvE9getMsgMD5Ev
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:343    .text._ZN3ros10SubscriberIN8std_msgs6UInt16EvE9getMsgMD5Ev:0000000000000004 $d
 .ARM.exidx.text._ZN3ros10SubscriberIN8std_msgs6UInt16EvE9getMsgMD5Ev:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:350    .text._Z6led_cbRKN8std_msgs6UInt16E:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:385    .text._Z6led_cbRKN8std_msgs6UInt16E:0000000000000014 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:350    .text._Z6led_cbRKN8std_msgs6UInt16E:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:385    .text._Z6led_cbRKN8std_msgs6UInt16E:0000000000000014 $d
 .ARM.extab.text._Z6led_cbRKN8std_msgs6UInt16E:0000000000000000 $d
 .ARM.exidx.text._Z6led_cbRKN8std_msgs6UInt16E:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:391    .text._Z24ROS_SubscribeTaskHandlerPKv:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:398    .text._Z24ROS_SubscribeTaskHandlerPKv:0000000000000000 _Z24ROS_SubscribeTaskHandlerPKv
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:445    .text._Z24ROS_SubscribeTaskHandlerPKv:0000000000000034 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:391    .text._Z24ROS_SubscribeTaskHandlerPKv:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:398    .text._Z24ROS_SubscribeTaskHandlerPKv:0000000000000000 _Z24ROS_SubscribeTaskHandlerPKv
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:445    .text._Z24ROS_SubscribeTaskHandlerPKv:0000000000000034 $d
 .ARM.extab.text._Z24ROS_SubscribeTaskHandlerPKv:0000000000000000 $d
 .ARM.exidx.text._Z24ROS_SubscribeTaskHandlerPKv:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:452    .text._Z20rosSubscribeInitTaskPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:459    .text._Z20rosSubscribeInitTaskPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:0000000000000000 _Z20rosSubscribeInitTaskPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:563    .text._Z20rosSubscribeInitTaskPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:0000000000000064 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:452    .text._Z20rosSubscribeInitTaskPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:459    .text._Z20rosSubscribeInitTaskPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:0000000000000000 _Z20rosSubscribeInitTaskPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:563    .text._Z20rosSubscribeInitTaskPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:0000000000000064 $d
 .ARM.exidx.text._Z20rosSubscribeInitTaskPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:571    .text._GLOBAL__sub_I_sub_led:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:577    .text._GLOBAL__sub_I_sub_led:0000000000000000 _GLOBAL__sub_I_sub_led
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:571    .text._GLOBAL__sub_I_sub_led:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:577    .text._GLOBAL__sub_I_sub_led:0000000000000000 _GLOBAL__sub_I_sub_led
 .ARM.exidx.text._GLOBAL__sub_I_sub_led:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:601    .init_array:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:605    .rodata._ZTVN8std_msgs6UInt16E:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:617    .rodata._ZTVN3ros10SubscriberIN8std_msgs6UInt16EvEE:0000000000000000 $d
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s 			page 27
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:601    .init_array:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:605    .rodata._ZTVN8std_msgs6UInt16E:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:617    .rodata._ZTVN3ros10SubscriberIN8std_msgs6UInt16EvEE:0000000000000000 $d
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s 			page 27
 
 
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:658    .bss.subscribeQueueHandle:0000000000000000 subscribeQueueHandle
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:651    .bss.sub_led:0000000000000000 sub_led
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:630    .rodata:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:640    .bss._ZZ24ROS_SubscribeTaskHandlerPKvE8ledState:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:644    .bss._ZZ24ROS_SubscribeTaskHandlerPKvE8ledState:0000000000000000 _ZZ24ROS_SubscribeTaskHandlerPKvE8ledState
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:647    .bss.sub_led:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:654    .bss.subscribeQueueHandle:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:661    .rodata._Z41__static_initialization_and_destruction_0ii.str1.4:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:665    .rodata._ZN8std_msgs6UInt166getMD5Ev.str1.4:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:669    .rodata._ZN8std_msgs6UInt167getTypeEv.str1.4:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfITWeu.s:673    .rodata.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:658    .bss.subscribeQueueHandle:0000000000000000 subscribeQueueHandle
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:651    .bss.sub_led:0000000000000000 sub_led
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:630    .rodata:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:640    .bss._ZZ24ROS_SubscribeTaskHandlerPKvE8ledState:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:644    .bss._ZZ24ROS_SubscribeTaskHandlerPKvE8ledState:0000000000000000 _ZZ24ROS_SubscribeTaskHandlerPKvE8ledState
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:647    .bss.sub_led:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:654    .bss.subscribeQueueHandle:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:661    .rodata._Z41__static_initialization_and_destruction_0ii.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:665    .rodata._ZN8std_msgs6UInt166getMD5Ev.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:669    .rodata._ZN8std_msgs6UInt167getTypeEv.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfqwvOf.s:673    .rodata.str1.4:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 __aeabi_unwind_cpp_pr1

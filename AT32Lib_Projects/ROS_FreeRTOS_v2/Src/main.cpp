@@ -21,6 +21,7 @@
 
 #include "includes.h"
 #include "spin_task.h"
+#include "publish_task.h"
 #include "subscribe_task.h"
 #include "heartbeat_task.h"
 
@@ -97,11 +98,11 @@ int main(void)
     //     while(1);
     // }
 
-    // if(publishInitTask(&nh))
-    // {
-    //     /* task is not created */
-    //     while(1);
-    // }
+    if(publishInitTask(&nh))
+    {
+        /* task is not created */
+        while(1);
+    }
 
     // if (heartbeatInitTask())
     // {
@@ -347,6 +348,7 @@ void vApplicationTickHook( void )
 
 void vApplicationMallocFailedHook(void)
 {
+    printf("mallock failed hook\n");
     while(1);
 }
 

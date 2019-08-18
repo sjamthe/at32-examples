@@ -213,12 +213,13 @@ public:
     return spinOnce1();
   }
 
+//calling spinOnce() directly from spin_task gives stackoverflow
   int spinOnce1()
   {
-    printf("spinOnce\n");
+    //printf("spinOnce\n");
     /* restart if timed out */
     uint32_t c_time = hardware_.time();
-    printf("spinOnce %ld\n",c_time);
+    //printf("spinOnce %ld\n",c_time);
 
     if ((c_time - last_sync_receive_time) > (SYNC_SECONDS * 2200))
     {
@@ -517,9 +518,15 @@ public:
 
   virtual int publish(int id, const Msg * msg)
   {
+    return publish1(id, msg);
+  }
+
+  int publish1(int id, const Msg * msg)
+  {
+    printf("in nh.publsh\n");
     if (id >= 100 && !configured_)
       return 0;
-
+    printf("in nh.publsh2\n");
     /* serialize message */
     int l = msg->serialize(message_out + 7);
 
@@ -538,7 +545,7 @@ public:
       chk += message_out[i];
     l += 7;
     message_out[l++] = 255 - (chk % 256);
-
+    //printf("Sending message - %s\n",message_out);
     if (l <= OUTPUT_SIZE)
     {
       hardware_.write(message_out, l);

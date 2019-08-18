@@ -6,7 +6,7 @@
  */
 
 #include "publish_task.h"
-
+#include "bsp_led.h"
 
 static ros::NodeHandle *nh_;
 
@@ -24,7 +24,13 @@ void ROS_PublisheTaskHandler(void const * argument)
   for(;;)
   {
 	  str_msg.data = hello;
-	  chatter.publish( &str_msg );
+	  bsp_LedToggle(2);
+	  //printf("nh_ = %x, id_=%d\n",nh_,chatter.id_);
+	  //chatter.publish( &str_msg ); //didn't work.
+	   int ret = nh_->publish1(chatter.id_, &str_msg); //publish() doesn't work same like spinOnce() but publish1 works
+	   if(ret <=0) {
+		   printf("Failed to publish %d\n",ret);
+	   }
 	  osDelay(1500);
   }
 

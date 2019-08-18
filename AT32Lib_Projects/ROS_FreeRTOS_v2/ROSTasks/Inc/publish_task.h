@@ -10,11 +10,10 @@
 
 #include "FreeRTOS.h"
 #include "task.h"
-#include "main.h"
 #include "cmsis_os.h"
 
 #include "ros.h"
-#include "std_msgs/String.h"
+#include "std_msgs/ROSString.h"
 
 uint32_t publishInitTask(ros::NodeHandle *nh);
 

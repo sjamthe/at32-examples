@@ -66,6 +66,7 @@ CPP_SOURCES = \
 Src/main.cpp \
 ROSTasks/Src/spin_task.cpp \
 ROSTasks/Src/subscribe_task.cpp \
+ROSTasks/Src/publish_task.cpp \
 ROSTasks/Src/heartbeat_task.cpp \
 ../Libraries/ROSSerial/duration.cpp \
 ../Libraries/ROSSerial/time.cpp 

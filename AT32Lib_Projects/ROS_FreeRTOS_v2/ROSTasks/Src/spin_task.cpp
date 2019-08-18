@@ -20,11 +20,10 @@ void ROS_SpinTaskHandler(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-	bsp_LedToggle(2);
-	printf("This is spin Task\r\n");
+	//bsp_LedToggle(2);
+	//printf("This is spin Task\r\n");
 	osDelay(1000);
-	//nh_->initNode();
-	nh_->spinOnce1();
+	nh_->spinOnce1(); //calling spinOnce() directly give stackoverflow
   }
   /* USER CODE END ROS_SpinTaskHandler */
 }
