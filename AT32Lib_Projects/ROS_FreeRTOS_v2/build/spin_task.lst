@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
   34              		.loc 1 22 0
   35 0000 4368     		ldr	r3, [r0, #4]
   36 0002 0B70     		strb	r3, [r1]
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 2
 
 
   23:../Libraries/ROSSerial/std_msgs/Time.h ****       *(outbuffer + offset + 1) = (this->data.sec >> (8 * 1)) & 0xFF;
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
   34:../Libraries/ROSSerial/std_msgs/Time.h **** 
   35:../Libraries/ROSSerial/std_msgs/Time.h ****     virtual int deserialize(unsigned char *inbuffer)
   82              		.loc 1 35 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 3
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 3
 
 
   83              		.cfi_startproc
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  123 003a 7047     		bx	lr
  124              		.cfi_endproc
  125              	.LFE384:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 4
 
 
  126              		.cantunwind
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  181              		.align	2
  182              	.L7:
  183 0004 00000000 		.word	.LC3
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 5
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 5
 
 
  184              		.cfi_endproc
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
   40:../Libraries/ROSSerial/rosserial_msgs/TopicInfo.h ****       uint32_t length_message_type = strlen(this->message_type);
   41:../Libraries/ROSSerial/rosserial_msgs/TopicInfo.h ****       memcpy(outbuffer + offset, &length_message_type, sizeof(uint32_t));
   42:../Libraries/ROSSerial/rosserial_msgs/TopicInfo.h ****       offset += 4;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 6
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 6
 
 
   43:../Libraries/ROSSerial/rosserial_msgs/TopicInfo.h ****       memcpy(outbuffer + offset, this->message_type, length_message_type);
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
   72:../Libraries/ROSSerial/rosserial_msgs/TopicInfo.h ****       for(unsigned int k= offset; k< offset+length_topic_name; ++k){
  226              		.loc 2 72 0
  227 0012 0623     		movs	r3, #6
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 7
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 7
 
 
  228              	.LVL16:
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  271 003c CD5C     		ldrb	r5, [r1, r3]	@ zero_extendqisi2
  272 003e 8D54     		strb	r5, [r1, r2]
   81:../Libraries/ROSSerial/rosserial_msgs/TopicInfo.h ****       for(unsigned int k= offset; k< offset+length_message_type; ++k){
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 8
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 8
 
 
  273              		.loc 2 81 0 discriminator 2
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
   93:../Libraries/ROSSerial/rosserial_msgs/TopicInfo.h ****       inbuffer[offset+length_md5sum-1]=0;
  316              		.loc 2 93 0
  317 0066 631E     		subs	r3, r4, #1
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 9
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 9
 
 
  318              	.LVL33:
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  358              		.section	.text._ZN14rosserial_msgs9TopicInfo7getTypeEv,"axG",%progbits,_ZN14rosserial_msgs9TopicIn
  359              		.align	1
  360              		.weak	_ZN14rosserial_msgs9TopicInfo7getTypeEv
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 10
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 10
 
 
  361              		.syntax unified
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  415              		.cantunwind
  416              		.fnend
  418              		.section	.text._ZNK14rosserial_msgs9TopicInfo9serializeEPh,"axG",%progbits,_ZNK14rosserial_msgs9To
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 11
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 11
 
 
  419              		.align	1
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  468              	.LVL48:
  469 0024 FFF7FEFF 		bl	memcpy
  470              	.LVL49:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 12
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 12
 
 
   39:../Libraries/ROSSerial/rosserial_msgs/TopicInfo.h ****       uint32_t length_message_type = strlen(this->message_type);
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  514 005c E819     		adds	r0, r5, r7
  515              	.LVL62:
   54:../Libraries/ROSSerial/rosserial_msgs/TopicInfo.h ****       *(outbuffer + offset + 0) = (u_buffer_size.base >> (8 * 0)) & 0xFF;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 13
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 13
 
 
  516              		.loc 2 54 0
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
   14:ROSTasks/Src/spin_task.cpp **** 
   15:ROSTasks/Src/spin_task.cpp **** void ROS_SpinTaskHandler(void const * argument)
   16:ROSTasks/Src/spin_task.cpp **** {
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 14
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 14
 
 
  554              		.loc 3 16 0
@@ -838,7 +838,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
   26:../Libraries/ROSSerial/stm32hardware.h ****  * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
   27:../Libraries/ROSSerial/stm32hardware.h ****  * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
   28:../Libraries/ROSSerial/stm32hardware.h ****  * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 15
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 15
 
 
   29:../Libraries/ROSSerial/stm32hardware.h ****  * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
@@ -898,7 +898,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
    3:../Libraries/ROSSerial/ros/node_handle.h ****  *
    4:../Libraries/ROSSerial/ros/node_handle.h ****  * Copyright (c) 2011, Willow Garage, Inc.
    5:../Libraries/ROSSerial/ros/node_handle.h ****  * All rights reserved.
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 16
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 16
 
 
    6:../Libraries/ROSSerial/ros/node_handle.h ****  *
@@ -958,7 +958,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
   60:../Libraries/ROSSerial/ros/node_handle.h **** #include "ros/subscriber.h"
   61:../Libraries/ROSSerial/ros/node_handle.h **** #include "ros/service_server.h"
   62:../Libraries/ROSSerial/ros/node_handle.h **** #include "ros/service_client.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 17
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 17
 
 
   63:../Libraries/ROSSerial/ros/node_handle.h **** 
@@ -1018,7 +1018,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  117:../Libraries/ROSSerial/ros/node_handle.h **** 
  118:../Libraries/ROSSerial/ros/node_handle.h ****   uint8_t message_in[INPUT_SIZE];
  119:../Libraries/ROSSerial/ros/node_handle.h ****   uint8_t message_out[OUTPUT_SIZE];
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 18
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 18
 
 
  120:../Libraries/ROSSerial/ros/node_handle.h **** 
@@ -1078,7 +1078,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  174:../Libraries/ROSSerial/ros/node_handle.h ****     bytes_ = 0;
  175:../Libraries/ROSSerial/ros/node_handle.h ****     index_ = 0;
  176:../Libraries/ROSSerial/ros/node_handle.h ****     topic_ = 0;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 19
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 19
 
 
  177:../Libraries/ROSSerial/ros/node_handle.h ****   };
@@ -1138,7 +1138,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  231:../Libraries/ROSSerial/ros/node_handle.h ****     {
  232:../Libraries/ROSSerial/ros/node_handle.h ****       if (c_time > last_msg_timeout_time)
  233:../Libraries/ROSSerial/ros/node_handle.h ****       {
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 20
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 20
 
 
  234:../Libraries/ROSSerial/ros/node_handle.h ****         mode_ = MODE_FIRST_FF;
@@ -1198,7 +1198,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
   74:../Libraries/ROSSerial/stm32hardware.h **** 		printf("Got %c\n",ucData);
   75:../Libraries/ROSSerial/stm32hardware.h **** 		return ucData;
   76:../Libraries/ROSSerial/stm32hardware.h **** 	}
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 21
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 21
 
 
   77:../Libraries/ROSSerial/stm32hardware.h **** 
@@ -1258,7 +1258,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  640 0058 FFF7FEFF 		bl	printf
  641              	.LVL72:
   75:../Libraries/ROSSerial/stm32hardware.h **** 	}
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 22
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 22
 
 
  642              		.loc 4 75 0
@@ -1318,7 +1318,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  684 009a C8D9     		bls	.L28
  273:../Libraries/ROSSerial/ros/node_handle.h ****         {
  274:../Libraries/ROSSerial/ros/node_handle.h ****           /* We have been stuck in spinOnce too long, return error */
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 23
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 23
 
 
  275:../Libraries/ROSSerial/ros/node_handle.h ****           configured_ = false;
@@ -1378,7 +1378,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  702              		.loc 5 311 0
  703 00b4 052B     		cmp	r3, #5
  704 00b6 6CD0     		beq	.L73
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 24
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 24
 
 
  312:../Libraries/ROSSerial/ros/node_handle.h ****       {
@@ -1438,7 +1438,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  729              		.loc 5 341 0
  730 00e2 062E     		cmp	r6, #6
  731 00e4 00F02E81 		beq	.L77
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 25
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 25
 
 
  342:../Libraries/ROSSerial/ros/node_handle.h ****           {
@@ -1498,7 +1498,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  770              	.LVL78:
  771              	.LBB141:
  772              	.LBB142:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 26
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 26
 
 
  773              	.LBB143:
@@ -1558,7 +1558,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  776 0128 0023     		movs	r3, #0
  777 012a 0193     		str	r3, [sp, #4]
  778 012c 0293     		str	r3, [sp, #8]
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 27
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 27
 
 
  779              	.LVL79:
@@ -1618,7 +1618,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  802 0140 75E7     		b	.L28
  803              	.LVL82:
  804              	.L79:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 28
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 28
 
 
  805              	.LBE138:
@@ -1678,7 +1678,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  849 0190 4DE7     		b	.L28
  850              	.L73:
  313:../Libraries/ROSSerial/ros/node_handle.h ****         mode_++;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 29
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 29
 
 
  851              		.loc 5 313 0
@@ -1738,7 +1738,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  383:../Libraries/ROSSerial/ros/node_handle.h ****     rt_time = hardware_.time();
  898              		.loc 5 383 0
  899 01d0 2368     		ldr	r3, [r4]
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 30
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 30
 
 
  900 01d2 1B68     		ldr	r3, [r3]
@@ -1798,7 +1798,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  410:../Libraries/ROSSerial/ros/node_handle.h ****   void setNow(Time & new_now)
  411:../Libraries/ROSSerial/ros/node_handle.h ****   {
  412:../Libraries/ROSSerial/ros/node_handle.h ****     uint32_t ms = hardware_.time();
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 31
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 31
 
 
  413:../Libraries/ROSSerial/ros/node_handle.h ****     sec_offset = new_now.sec - ms / 1000 - 1;
@@ -1858,7 +1858,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  467:../Libraries/ROSSerial/ros/node_handle.h ****     }
  468:../Libraries/ROSSerial/ros/node_handle.h ****     return false;
  469:../Libraries/ROSSerial/ros/node_handle.h ****   }
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 32
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 32
 
 
  470:../Libraries/ROSSerial/ros/node_handle.h **** 
@@ -1918,7 +1918,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  953 020c 9847     		blx	r3
  954              	.LVL92:
  955 020e 0390     		str	r0, [sp, #12]
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 33
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 33
 
 
  499:../Libraries/ROSSerial/ros/node_handle.h ****         ti.md5sum = (char *) publishers[i]->msg_->getMD5();
@@ -1978,7 +1978,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  998              		.loc 5 510 0
  999 0258 0368     		ldr	r3, [r0]
  1000 025a 9B68     		ldr	r3, [r3, #8]
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 34
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 34
 
 
  1001 025c 9847     		blx	r3
@@ -2038,7 +2038,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  1046              	.LBB159:
  1047              	.LBB160:
  1048              	.LBB161:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 35
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 35
 
 
  1049              	.LBB162:
@@ -2098,7 +2098,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  1093 02e0 1344     		add	r3, r3, r2
  1094 02e2 0193     		str	r3, [sp, #4]
  394:../Libraries/ROSSerial/ros/node_handle.h **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 36
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 36
 
 
  1095              		.loc 5 394 0
@@ -2158,7 +2158,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  1145              	.L85:
  1146 032c 00000000 		.word	.LC6
  1147 0330 08000000 		.word	_ZTVN8std_msgs4TimeE+8
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 37
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 37
 
 
  1148 0334 08000000 		.word	_ZTVN14rosserial_msgs9TopicInfoE+8
@@ -2218,7 +2218,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
   39:../Libraries/ROSSerial/rosserial_msgs/RequestParam.h ****       }
   40:../Libraries/ROSSerial/rosserial_msgs/RequestParam.h ****       inbuffer[offset+length_name-1]=0;
   41:../Libraries/ROSSerial/rosserial_msgs/RequestParam.h ****       this->name = (char *)(inbuffer + offset-1);
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 38
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 38
 
 
   42:../Libraries/ROSSerial/rosserial_msgs/RequestParam.h ****       offset += length_name;
@@ -2278,7 +2278,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
   96:../Libraries/ROSSerial/rosserial_msgs/RequestParam.h ****       *(outbuffer + offset + 3) = (u_floatsi.base >> (8 * 3)) & 0xFF;
   97:../Libraries/ROSSerial/rosserial_msgs/RequestParam.h ****       offset += sizeof(this->floats[i]);
   98:../Libraries/ROSSerial/rosserial_msgs/RequestParam.h ****       }
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 39
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 39
 
 
   99:../Libraries/ROSSerial/rosserial_msgs/RequestParam.h ****       *(outbuffer + offset++) = strings_length;
@@ -2338,7 +2338,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  126:../Libraries/ROSSerial/rosserial_msgs/RequestParam.h ****       u_st_ints.base = 0;
  127:../Libraries/ROSSerial/rosserial_msgs/RequestParam.h ****       u_st_ints.base |= ((uint32_t) (*(inbuffer + offset + 0))) << (8 * 0);
  1189              		.loc 7 127 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 40
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 40
 
 
  1190 0366 BB5D     		ldrb	r3, [r7, r6]	@ zero_extendqisi2
@@ -2398,7 +2398,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  1233              		.loc 7 136 0
  1234 03a8 98F81030 		ldrb	r3, [r8, #16]	@ zero_extendqisi2
  1235 03ac 9945     		cmp	r9, r3
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 41
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 41
 
 
  1236 03ae 1ED8     		bhi	.L82
@@ -2458,7 +2458,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  1274 03e0 D8F81810 		ldr	r1, [r8, #24]
  1275 03e4 41F82230 		str	r3, [r1, r2, lsl #2]	@ unaligned
  1276              	.LBE177:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 42
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 42
 
 
  140:../Libraries/ROSSerial/rosserial_msgs/RequestParam.h ****       union {
@@ -2518,7 +2518,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  1321              	.LVL140:
  1322 0424 C8F82400 		str	r0, [r8, #36]
  1323 0428 F0E7     		b	.L59
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 43
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 43
 
 
  1324              	.LVL141:
@@ -2578,7 +2578,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  1364 0456 8219     		adds	r2, r0, r6
  1365 0458 9A42     		cmp	r2, r3
  1366 045a E6D9     		bls	.L61
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 44
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 44
 
 
  164:../Libraries/ROSSerial/rosserial_msgs/RequestParam.h ****       }
@@ -2638,7 +2638,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  1407 048e FFF7FEFF 		bl	osDelay
  1408              	.LVL153:
   26:ROSTasks/Src/spin_task.cpp **** 	nh_->spinOnce1(); //calling spinOnce() directly give stackoverflow
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 45
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 45
 
 
  1409              		.loc 3 26 0 discriminator 1
@@ -2698,7 +2698,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  1457              	.LBB190:
  1458              	.LBB191:
  1459              		.loc 6 51 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 46
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 46
 
 
  1460 04d0 0023     		movs	r3, #0
@@ -2758,7 +2758,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  1513              	.LFB465:
   27:ROSTasks/Src/spin_task.cpp ****   }
   28:ROSTasks/Src/spin_task.cpp ****   /* USER CODE END ROS_SpinTaskHandler */
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 47
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 47
 
 
   29:ROSTasks/Src/spin_task.cpp **** }
@@ -2818,7 +2818,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  1548              		.loc 3 48 0
  1549 001e 0020     		movs	r0, #0
  1550              	.LVL166:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 48
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 48
 
 
  1551              	.L89:
@@ -2878,7 +2878,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  1607 000a 0000     		.space	2
  1608 000c 00000000 		.word	0
  1609 0010 80000000 		.word	128
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 49
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 49
 
 
  1610              		.section	.bss._ZL3nh_,"aw",%nobits
@@ -2938,7 +2938,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  1647              		.file 12 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
  1648              		.file 13 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
  1649              		.file 14 "../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 50
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 50
 
 
  1650              		.file 15 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
@@ -2960,67 +2960,67 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 1
  1666              		.file 31 "../Libraries/ROSSerial/ros.h"
  1667              		.file 32 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdio.h"
  1668              		.file 33 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/string.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 51
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 51
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 spin_task.cpp
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:17     .text._ZNK8std_msgs4Time9serializeEPh:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:24     .text._ZNK8std_msgs4Time9serializeEPh:0000000000000000 _ZNK8std_msgs4Time9serializeEPh
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:17     .text._ZNK8std_msgs4Time9serializeEPh:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:24     .text._ZNK8std_msgs4Time9serializeEPh:0000000000000000 _ZNK8std_msgs4Time9serializeEPh
 .ARM.exidx.text._ZNK8std_msgs4Time9serializeEPh:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:72     .text._ZN8std_msgs4Time11deserializeEPh:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:79     .text._ZN8std_msgs4Time11deserializeEPh:0000000000000000 _ZN8std_msgs4Time11deserializeEPh
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:72     .text._ZN8std_msgs4Time11deserializeEPh:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:79     .text._ZN8std_msgs4Time11deserializeEPh:0000000000000000 _ZN8std_msgs4Time11deserializeEPh
 .ARM.exidx.text._ZN8std_msgs4Time11deserializeEPh:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:130    .text._ZN8std_msgs4Time7getTypeEv:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:137    .text._ZN8std_msgs4Time7getTypeEv:0000000000000000 _ZN8std_msgs4Time7getTypeEv
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:153    .text._ZN8std_msgs4Time7getTypeEv:0000000000000004 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:130    .text._ZN8std_msgs4Time7getTypeEv:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:137    .text._ZN8std_msgs4Time7getTypeEv:0000000000000000 _ZN8std_msgs4Time7getTypeEv
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:153    .text._ZN8std_msgs4Time7getTypeEv:0000000000000004 $d
 .ARM.exidx.text._ZN8std_msgs4Time7getTypeEv:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:160    .text._ZN8std_msgs4Time6getMD5Ev:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:167    .text._ZN8std_msgs4Time6getMD5Ev:0000000000000000 _ZN8std_msgs4Time6getMD5Ev
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:183    .text._ZN8std_msgs4Time6getMD5Ev:0000000000000004 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:160    .text._ZN8std_msgs4Time6getMD5Ev:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:167    .text._ZN8std_msgs4Time6getMD5Ev:0000000000000000 _ZN8std_msgs4Time6getMD5Ev
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:183    .text._ZN8std_msgs4Time6getMD5Ev:0000000000000004 $d
 .ARM.exidx.text._ZN8std_msgs4Time6getMD5Ev:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:190    .text._ZN14rosserial_msgs9TopicInfo11deserializeEPh:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:197    .text._ZN14rosserial_msgs9TopicInfo11deserializeEPh:0000000000000000 _ZN14rosserial_msgs9TopicInfo11deserializeEPh
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:190    .text._ZN14rosserial_msgs9TopicInfo11deserializeEPh:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:197    .text._ZN14rosserial_msgs9TopicInfo11deserializeEPh:0000000000000000 _ZN14rosserial_msgs9TopicInfo11deserializeEPh
 .ARM.exidx.text._ZN14rosserial_msgs9TopicInfo11deserializeEPh:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:359    .text._ZN14rosserial_msgs9TopicInfo7getTypeEv:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:366    .text._ZN14rosserial_msgs9TopicInfo7getTypeEv:0000000000000000 _ZN14rosserial_msgs9TopicInfo7getTypeEv
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:382    .text._ZN14rosserial_msgs9TopicInfo7getTypeEv:0000000000000004 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:359    .text._ZN14rosserial_msgs9TopicInfo7getTypeEv:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:366    .text._ZN14rosserial_msgs9TopicInfo7getTypeEv:0000000000000000 _ZN14rosserial_msgs9TopicInfo7getTypeEv
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:382    .text._ZN14rosserial_msgs9TopicInfo7getTypeEv:0000000000000004 $d
 .ARM.exidx.text._ZN14rosserial_msgs9TopicInfo7getTypeEv:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:389    .text._ZN14rosserial_msgs9TopicInfo6getMD5Ev:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:396    .text._ZN14rosserial_msgs9TopicInfo6getMD5Ev:0000000000000000 _ZN14rosserial_msgs9TopicInfo6getMD5Ev
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:412    .text._ZN14rosserial_msgs9TopicInfo6getMD5Ev:0000000000000004 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:389    .text._ZN14rosserial_msgs9TopicInfo6getMD5Ev:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:396    .text._ZN14rosserial_msgs9TopicInfo6getMD5Ev:0000000000000000 _ZN14rosserial_msgs9TopicInfo6getMD5Ev
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:412    .text._ZN14rosserial_msgs9TopicInfo6getMD5Ev:0000000000000004 $d
 .ARM.exidx.text._ZN14rosserial_msgs9TopicInfo6getMD5Ev:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:419    .text._ZNK14rosserial_msgs9TopicInfo9serializeEPh:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:426    .text._ZNK14rosserial_msgs9TopicInfo9serializeEPh:0000000000000000 _ZNK14rosserial_msgs9TopicInfo9serializeEPh
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:419    .text._ZNK14rosserial_msgs9TopicInfo9serializeEPh:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:426    .text._ZNK14rosserial_msgs9TopicInfo9serializeEPh:0000000000000000 _ZNK14rosserial_msgs9TopicInfo9serializeEPh
 .ARM.exidx.text._ZNK14rosserial_msgs9TopicInfo9serializeEPh:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:543    .text._Z19ROS_SpinTaskHandlerPKv:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:550    .text._Z19ROS_SpinTaskHandlerPKv:0000000000000000 _Z19ROS_SpinTaskHandlerPKv
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:1146   .text._Z19ROS_SpinTaskHandlerPKv:000000000000032c $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:1581   .rodata._ZTVN8std_msgs4TimeE:0000000000000000 _ZTVN8std_msgs4TimeE
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:1593   .rodata._ZTVN14rosserial_msgs9TopicInfoE:0000000000000000 _ZTVN14rosserial_msgs9TopicInfoE
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:1157   .text._Z19ROS_SpinTaskHandlerPKv:0000000000000344 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:1495   .text._Z19ROS_SpinTaskHandlerPKv:00000000000004f0 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:543    .text._Z19ROS_SpinTaskHandlerPKv:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:550    .text._Z19ROS_SpinTaskHandlerPKv:0000000000000000 _Z19ROS_SpinTaskHandlerPKv
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:1146   .text._Z19ROS_SpinTaskHandlerPKv:000000000000032c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:1581   .rodata._ZTVN8std_msgs4TimeE:0000000000000000 _ZTVN8std_msgs4TimeE
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:1593   .rodata._ZTVN14rosserial_msgs9TopicInfoE:0000000000000000 _ZTVN14rosserial_msgs9TopicInfoE
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:1157   .text._Z19ROS_SpinTaskHandlerPKv:0000000000000344 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:1495   .text._Z19ROS_SpinTaskHandlerPKv:00000000000004f0 $d
 .ARM.exidx.text._Z19ROS_SpinTaskHandlerPKv:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:1504   .text._Z15rosSpinTaskInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:1511   .text._Z15rosSpinTaskInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:0000000000000000 _Z15rosSpinTaskInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:1570   .text._Z15rosSpinTaskInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:0000000000000028 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:1504   .text._Z15rosSpinTaskInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:1511   .text._Z15rosSpinTaskInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:0000000000000000 _Z15rosSpinTaskInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:1570   .text._Z15rosSpinTaskInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:0000000000000028 $d
 .ARM.exidx.text._Z15rosSpinTaskInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:1578   .rodata._ZTVN8std_msgs4TimeE:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:1590   .rodata._ZTVN14rosserial_msgs9TopicInfoE:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:1601   .rodata:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:1611   .bss._ZL3nh_:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:1615   .bss._ZL3nh_:0000000000000000 _ZL3nh_
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:1618   .rodata._Z19ROS_SpinTaskHandlerPKv.str1.4:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:1622   .rodata._ZN14rosserial_msgs9TopicInfo6getMD5Ev.str1.4:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:1626   .rodata._ZN14rosserial_msgs9TopicInfo7getTypeEv.str1.4:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:1630   .rodata._ZN8std_msgs4Time6getMD5Ev.str1.4:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:1634   .rodata._ZN8std_msgs4Time7getTypeEv.str1.4:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s:1638   .rodata.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:1578   .rodata._ZTVN8std_msgs4TimeE:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:1590   .rodata._ZTVN14rosserial_msgs9TopicInfoE:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:1601   .rodata:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:1611   .bss._ZL3nh_:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:1615   .bss._ZL3nh_:0000000000000000 _ZL3nh_
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:1618   .rodata._Z19ROS_SpinTaskHandlerPKv.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:1622   .rodata._ZN14rosserial_msgs9TopicInfo6getMD5Ev.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:1626   .rodata._ZN14rosserial_msgs9TopicInfo7getTypeEv.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:1630   .rodata._ZN8std_msgs4Time6getMD5Ev.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:1634   .rodata._ZN8std_msgs4Time7getTypeEv.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s:1638   .rodata.str1.4:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 strlen
 memcpy
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccFxiDEC.s 			page 52
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccff8Qkp.s 			page 52
 
 
 xTaskGetTickCount

@@ -97,20 +97,37 @@ typedef enum
 #endif
 
 /**************** UART printf ****************/
-#define AT32_PRINT_UART                USART2
-#define USARTx_IRQn                    USART2_IRQn
-#define USARTx_IRQ_Handler             USART2_IRQHandler
-#define AT32_PRINT_UART_RCC            RCC_APB1PERIPH_USART2
+// #define AT32_PRINT_UART                USART2
+// #define USARTx_IRQn                    USART2_IRQn
+// #define USARTx_IRQ_Handler             USART2_IRQHandler
+// #define AT32_PRINT_UART_RCC            RCC_APB1PERIPH_USART2
+
+// /*Tx*/
+// #define AT32_PRINT_UARTTX_PIN          GPIO_Pins_2
+// #define AT32_PRINT_UARTTX_GPIO         GPIOA
+// #define AT32_PRINT_UARTTX_GPIO_RCC     RCC_APB2PERIPH_GPIOA
+
+// /*Rx*/
+// #define AT32_PRINT_UARTRX_PIN          GPIO_Pins_3
+// #define AT32_PRINT_UARTRX_GPIO         GPIOA
+// #define AT32_PRINT_UARTRX_GPIO_RCC     RCC_APB2PERIPH_GPIOA
+/**************** End UART printf ****************/
+
+/**************** UART printf ****************/
+#define AT32_PRINT_UART                USART3
+#define USARTx_IRQn                    USART3_IRQn
+#define USARTx_IRQ_Handler             USART3_IRQHandler
+#define AT32_PRINT_UART_RCC            RCC_APB1PERIPH_USART3
 
 /*Tx*/
-#define AT32_PRINT_UARTTX_PIN          GPIO_Pins_2
-#define AT32_PRINT_UARTTX_GPIO         GPIOA
-#define AT32_PRINT_UARTTX_GPIO_RCC     RCC_APB2PERIPH_GPIOA
+#define AT32_PRINT_UARTTX_PIN          GPIO_Pins_10
+#define AT32_PRINT_UARTTX_GPIO         GPIOB
+#define AT32_PRINT_UARTTX_GPIO_RCC     RCC_APB2PERIPH_GPIOB
 
 /*Rx*/
-#define AT32_PRINT_UARTRX_PIN          GPIO_Pins_3
-#define AT32_PRINT_UARTRX_GPIO         GPIOA
-#define AT32_PRINT_UARTRX_GPIO_RCC     RCC_APB2PERIPH_GPIOA
+#define AT32_PRINT_UARTRX_PIN          GPIO_Pins_11
+#define AT32_PRINT_UARTRX_GPIO         GPIOB
+#define AT32_PRINT_UARTRX_GPIO_RCC     RCC_APB2PERIPH_GPIOB
 /**************** End UART printf ****************/
 
 void AT32_Hoverboard_Init(void);
