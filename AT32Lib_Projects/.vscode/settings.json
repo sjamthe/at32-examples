@@ -13,6 +13,7 @@
         "node_handle.h": "c",
         "includes.h": "c",
         "freertosconfig.h": "c",
-        "*.tcc": "c"
+        "*.tcc": "c",
+        "service_client.h": "c"
     }
 }

@@ -37,6 +37,7 @@
 
 #include "FreeRTOS.h"
 #include "bsp_uart_fifo.h"
+#include <stdio.h>
 
 class STM32Hardware
 {
@@ -66,10 +67,11 @@ public:
 	 */
 	int read(void)
 	{
-		uint8_t ucData;
+		uint8_t ucData = -1;
 		if(comGetChar(COM1,&ucData) == 0) {
 			return -1;
 		}
+		printf("Got %c\n",ucData);
 		return ucData;
 	}
 

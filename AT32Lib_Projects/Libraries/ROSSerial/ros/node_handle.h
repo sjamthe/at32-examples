@@ -163,6 +163,7 @@ public:
     bytes_ = 0;
     index_ = 0;
     topic_ = 0;
+    printf("Node init\n");
   };
 
   /* Start a named port, which may be network server IP, initialize buffers */
@@ -208,11 +209,17 @@ public:
    *  serial input and callbacks for subscribers.
    */
 
+  virtual int spinOnce() {
+    return spinOnce1();
+  }
 
-  virtual int spinOnce()
+  int spinOnce1()
   {
+    printf("spinOnce\n");
     /* restart if timed out */
     uint32_t c_time = hardware_.time();
+    printf("spinOnce %ld\n",c_time);
+
     if ((c_time - last_sync_receive_time) > (SYNC_SECONDS * 2200))
     {
       configured_ = false;

@@ -1,0 +1,350 @@
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc1AfdxZ.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"at32f4xx_it.c"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.text.NMI_Handler,"ax",%progbits
+  17              		.align	1
+  18              		.global	NMI_Handler
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu fpv4-sp-d16
+  24              	NMI_Handler:
+  25              	.LFB123:
+  26              		.file 1 "Src/at32f4xx_it.c"
+   1:Src/at32f4xx_it.c **** /**
+   2:Src/at32f4xx_it.c ****   ******************************************************************************
+   3:Src/at32f4xx_it.c ****   * @file    FreeRTOS/ResManagement_SafelyPrint/at32f4xx_it.c
+   4:Src/at32f4xx_it.c ****   * @author  Artery Technology 
+   5:Src/at32f4xx_it.c ****   * @version V1.1.2
+   6:Src/at32f4xx_it.c ****   * @date    2019-01-04
+   7:Src/at32f4xx_it.c ****   * @brief   Main Interrupt Service Routines.
+   8:Src/at32f4xx_it.c ****   *          This file provides template for all exceptions handler and peripherals
+   9:Src/at32f4xx_it.c ****   *          interrupt service routine.
+  10:Src/at32f4xx_it.c ****   ******************************************************************************
+  11:Src/at32f4xx_it.c ****   * @attention
+  12:Src/at32f4xx_it.c ****   *
+  13:Src/at32f4xx_it.c ****   * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
+  14:Src/at32f4xx_it.c ****   * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
+  15:Src/at32f4xx_it.c ****   * TIME. AS A RESULT, ARTERYTEK SHALL NOT BE HELD LIABLE FOR ANY
+  16:Src/at32f4xx_it.c ****   * DIRECT, INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
+  17:Src/at32f4xx_it.c ****   * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
+  18:Src/at32f4xx_it.c ****   * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
+  19:Src/at32f4xx_it.c ****   *
+  20:Src/at32f4xx_it.c ****   * <h2><center>&copy; COPYRIGHT 2018 ArteryTek</center></h2>
+  21:Src/at32f4xx_it.c ****   ******************************************************************************
+  22:Src/at32f4xx_it.c ****   */ 
+  23:Src/at32f4xx_it.c **** 
+  24:Src/at32f4xx_it.c **** /* Includes ------------------------------------------------------------------*/
+  25:Src/at32f4xx_it.c **** #include "at32f4xx_it.h"
+  26:Src/at32f4xx_it.c **** 
+  27:Src/at32f4xx_it.c **** /** @addtogroup AT32F403_StdPeriph_Examples
+  28:Src/at32f4xx_it.c ****   * @{
+  29:Src/at32f4xx_it.c ****   */
+  30:Src/at32f4xx_it.c **** 
+  31:Src/at32f4xx_it.c **** /** @addtogroup FreeRTOS_ResManagement_SafelyPrint
+  32:Src/at32f4xx_it.c ****   * @{
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc1AfdxZ.s 			page 2
+
+
+  33:Src/at32f4xx_it.c ****   */ 
+  34:Src/at32f4xx_it.c **** 
+  35:Src/at32f4xx_it.c **** /* Private typedef -----------------------------------------------------------*/
+  36:Src/at32f4xx_it.c **** /* Private define ------------------------------------------------------------*/
+  37:Src/at32f4xx_it.c **** #define ERR_INFO "\r\nEnter HardFault_Handler, System Halt.\r\n"
+  38:Src/at32f4xx_it.c **** 
+  39:Src/at32f4xx_it.c **** /* Private macro -------------------------------------------------------------*/
+  40:Src/at32f4xx_it.c **** /* Private variables ---------------------------------------------------------*/
+  41:Src/at32f4xx_it.c **** /* Private function prototypes -----------------------------------------------*/
+  42:Src/at32f4xx_it.c **** /* Private functions ---------------------------------------------------------*/
+  43:Src/at32f4xx_it.c **** 
+  44:Src/at32f4xx_it.c **** /*
+  45:Src/at32f4xx_it.c ****  * @brief  This function handles NMI exception.
+  46:Src/at32f4xx_it.c ****  * @param  None
+  47:Src/at32f4xx_it.c ****  * @retval None
+  48:Src/at32f4xx_it.c ****  */
+  49:Src/at32f4xx_it.c **** void NMI_Handler(void)
+  50:Src/at32f4xx_it.c **** {
+  27              		.loc 1 50 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  51:Src/at32f4xx_it.c **** }
+  32              		.loc 1 51 0
+  33 0000 7047     		bx	lr
+  34              		.cfi_endproc
+  35              	.LFE123:
+  37              		.section	.text.HardFault_Handler,"ax",%progbits
+  38              		.align	1
+  39              		.global	HardFault_Handler
+  40              		.syntax unified
+  41              		.thumb
+  42              		.thumb_func
+  43              		.fpu fpv4-sp-d16
+  45              	HardFault_Handler:
+  46              	.LFB124:
+  52:Src/at32f4xx_it.c **** 
+  53:Src/at32f4xx_it.c **** /*
+  54:Src/at32f4xx_it.c ****  * @brief  This function handles Hard Fault exception.
+  55:Src/at32f4xx_it.c ****  * @param  None
+  56:Src/at32f4xx_it.c ****  * @retval None
+  57:Src/at32f4xx_it.c ****  */
+  58:Src/at32f4xx_it.c **** void HardFault_Handler(void)
+  59:Src/at32f4xx_it.c **** {
+  47              		.loc 1 59 0
+  48              		.cfi_startproc
+  49              		@ args = 0, pretend = 0, frame = 0
+  50              		@ frame_needed = 0, uses_anonymous_args = 0
+  51              		@ link register save eliminated.
+  52              	.LVL0:
+  60:Src/at32f4xx_it.c **** #if 1
+  61:Src/at32f4xx_it.c ****     const char *pError = ERR_INFO;
+  62:Src/at32f4xx_it.c ****     uint8_t i;
+  63:Src/at32f4xx_it.c ****     
+  64:Src/at32f4xx_it.c ****     for (i = 0; i < sizeof(ERR_INFO); i++)
+  53              		.loc 1 64 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc1AfdxZ.s 			page 3
+
+
+  54 0000 0022     		movs	r2, #0
+  55 0002 0AE0     		b	.L3
+  56              	.LVL1:
+  57              	.L5:
+  65:Src/at32f4xx_it.c ****     {
+  66:Src/at32f4xx_it.c ****         USART1->DT = pError[i];
+  58              		.loc 1 66 0
+  59 0004 064B     		ldr	r3, .L7
+  60 0006 995C     		ldrb	r1, [r3, r2]	@ zero_extendqisi2
+  61 0008 064B     		ldr	r3, .L7+4
+  62 000a 9980     		strh	r1, [r3, #4]	@ movhi
+  63              	.L4:
+  67:Src/at32f4xx_it.c ****          
+  68:Src/at32f4xx_it.c ****         while ((USART1->STS & USART_FLAG_TRAC) == (uint16_t)RESET);
+  64              		.loc 1 68 0 discriminator 1
+  65 000c 054B     		ldr	r3, .L7+4
+  66 000e 1B88     		ldrh	r3, [r3]
+  67 0010 13F0400F 		tst	r3, #64
+  68 0014 FAD0     		beq	.L4
+  64:Src/at32f4xx_it.c ****     {
+  69              		.loc 1 64 0 discriminator 2
+  70 0016 0132     		adds	r2, r2, #1
+  71              	.LVL2:
+  72 0018 D2B2     		uxtb	r2, r2
+  73              	.LVL3:
+  74              	.L3:
+  64:Src/at32f4xx_it.c ****     {
+  75              		.loc 1 64 0 is_stmt 0 discriminator 1
+  76 001a 292A     		cmp	r2, #41
+  77 001c F2D9     		bls	.L5
+  78              	.L6:
+  79 001e FEE7     		b	.L6
+  80              	.L8:
+  81              		.align	2
+  82              	.L7:
+  83 0020 00000000 		.word	.LC0
+  84 0024 00380140 		.word	1073821696
+  85              		.cfi_endproc
+  86              	.LFE124:
+  88              		.section	.text.MemManage_Handler,"ax",%progbits
+  89              		.align	1
+  90              		.global	MemManage_Handler
+  91              		.syntax unified
+  92              		.thumb
+  93              		.thumb_func
+  94              		.fpu fpv4-sp-d16
+  96              	MemManage_Handler:
+  97              	.LFB125:
+  69:Src/at32f4xx_it.c ****     }
+  70:Src/at32f4xx_it.c **** #endif	
+  71:Src/at32f4xx_it.c **** 
+  72:Src/at32f4xx_it.c ****     /* Go to infinite loop when Hard Fault exception occurs */
+  73:Src/at32f4xx_it.c ****     while (1)
+  74:Src/at32f4xx_it.c ****     {
+  75:Src/at32f4xx_it.c ****     }
+  76:Src/at32f4xx_it.c **** }
+  77:Src/at32f4xx_it.c **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc1AfdxZ.s 			page 4
+
+
+  78:Src/at32f4xx_it.c **** /*
+  79:Src/at32f4xx_it.c ****  * @brief  This function handles Memory Manage exception.
+  80:Src/at32f4xx_it.c ****  * @param  None
+  81:Src/at32f4xx_it.c ****  * @retval None
+  82:Src/at32f4xx_it.c ****  */
+  83:Src/at32f4xx_it.c **** void MemManage_Handler(void)
+  84:Src/at32f4xx_it.c **** {
+  98              		.loc 1 84 0 is_stmt 1
+  99              		.cfi_startproc
+ 100              		@ Volatile: function does not return.
+ 101              		@ args = 0, pretend = 0, frame = 0
+ 102              		@ frame_needed = 0, uses_anonymous_args = 0
+ 103              		@ link register save eliminated.
+ 104              	.L10:
+ 105 0000 FEE7     		b	.L10
+ 106              		.cfi_endproc
+ 107              	.LFE125:
+ 109              		.section	.text.BusFault_Handler,"ax",%progbits
+ 110              		.align	1
+ 111              		.global	BusFault_Handler
+ 112              		.syntax unified
+ 113              		.thumb
+ 114              		.thumb_func
+ 115              		.fpu fpv4-sp-d16
+ 117              	BusFault_Handler:
+ 118              	.LFB126:
+  85:Src/at32f4xx_it.c ****     /* Go to infinite loop when Memory Manage exception occurs */
+  86:Src/at32f4xx_it.c ****     while (1)
+  87:Src/at32f4xx_it.c ****     {
+  88:Src/at32f4xx_it.c ****     }
+  89:Src/at32f4xx_it.c **** }
+  90:Src/at32f4xx_it.c **** 
+  91:Src/at32f4xx_it.c **** /*
+  92:Src/at32f4xx_it.c ****  * @brief  This function handles Bus Fault exception.
+  93:Src/at32f4xx_it.c ****  * @param  None
+  94:Src/at32f4xx_it.c ****  * @retval None
+  95:Src/at32f4xx_it.c ****  */
+  96:Src/at32f4xx_it.c **** void BusFault_Handler(void)
+  97:Src/at32f4xx_it.c **** {
+ 119              		.loc 1 97 0
+ 120              		.cfi_startproc
+ 121              		@ Volatile: function does not return.
+ 122              		@ args = 0, pretend = 0, frame = 0
+ 123              		@ frame_needed = 0, uses_anonymous_args = 0
+ 124              		@ link register save eliminated.
+ 125              	.L12:
+ 126 0000 FEE7     		b	.L12
+ 127              		.cfi_endproc
+ 128              	.LFE126:
+ 130              		.section	.text.UsageFault_Handler,"ax",%progbits
+ 131              		.align	1
+ 132              		.global	UsageFault_Handler
+ 133              		.syntax unified
+ 134              		.thumb
+ 135              		.thumb_func
+ 136              		.fpu fpv4-sp-d16
+ 138              	UsageFault_Handler:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc1AfdxZ.s 			page 5
+
+
+ 139              	.LFB127:
+  98:Src/at32f4xx_it.c ****     /* Go to infinite loop when Bus Fault exception occurs */
+  99:Src/at32f4xx_it.c ****     while (1)
+ 100:Src/at32f4xx_it.c ****     {
+ 101:Src/at32f4xx_it.c ****     }
+ 102:Src/at32f4xx_it.c **** }
+ 103:Src/at32f4xx_it.c **** 
+ 104:Src/at32f4xx_it.c **** /*
+ 105:Src/at32f4xx_it.c ****  * @brief  This function handles Usage Fault exception.
+ 106:Src/at32f4xx_it.c ****  * @param  None
+ 107:Src/at32f4xx_it.c ****  * @retval None
+ 108:Src/at32f4xx_it.c ****  */
+ 109:Src/at32f4xx_it.c **** void UsageFault_Handler(void)
+ 110:Src/at32f4xx_it.c **** {
+ 140              		.loc 1 110 0
+ 141              		.cfi_startproc
+ 142              		@ Volatile: function does not return.
+ 143              		@ args = 0, pretend = 0, frame = 0
+ 144              		@ frame_needed = 0, uses_anonymous_args = 0
+ 145              		@ link register save eliminated.
+ 146              	.L14:
+ 147 0000 FEE7     		b	.L14
+ 148              		.cfi_endproc
+ 149              	.LFE127:
+ 151              		.section	.text.DebugMon_Handler,"ax",%progbits
+ 152              		.align	1
+ 153              		.global	DebugMon_Handler
+ 154              		.syntax unified
+ 155              		.thumb
+ 156              		.thumb_func
+ 157              		.fpu fpv4-sp-d16
+ 159              	DebugMon_Handler:
+ 160              	.LFB128:
+ 111:Src/at32f4xx_it.c ****     /* Go to infinite loop when Usage Fault exception occurs */
+ 112:Src/at32f4xx_it.c ****     while (1)
+ 113:Src/at32f4xx_it.c ****     {
+ 114:Src/at32f4xx_it.c ****     }
+ 115:Src/at32f4xx_it.c **** }
+ 116:Src/at32f4xx_it.c **** 
+ 117:Src/at32f4xx_it.c **** #if 0
+ 118:Src/at32f4xx_it.c **** /*
+ 119:Src/at32f4xx_it.c ****  * @brief  This function handles SVCall exception.
+ 120:Src/at32f4xx_it.c ****  * @param  None
+ 121:Src/at32f4xx_it.c ****  * @retval None
+ 122:Src/at32f4xx_it.c ****  */
+ 123:Src/at32f4xx_it.c **** void SVC_Handler(void)
+ 124:Src/at32f4xx_it.c **** {
+ 125:Src/at32f4xx_it.c **** }
+ 126:Src/at32f4xx_it.c **** #endif
+ 127:Src/at32f4xx_it.c **** 
+ 128:Src/at32f4xx_it.c **** /*
+ 129:Src/at32f4xx_it.c ****  * @brief  This function handles Debug Monitor exception.
+ 130:Src/at32f4xx_it.c ****  * @param  None
+ 131:Src/at32f4xx_it.c ****  * @retval None
+ 132:Src/at32f4xx_it.c ****  */
+ 133:Src/at32f4xx_it.c **** void DebugMon_Handler(void)
+ 134:Src/at32f4xx_it.c **** {
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc1AfdxZ.s 			page 6
+
+
+ 161              		.loc 1 134 0
+ 162              		.cfi_startproc
+ 163              		@ args = 0, pretend = 0, frame = 0
+ 164              		@ frame_needed = 0, uses_anonymous_args = 0
+ 165              		@ link register save eliminated.
+ 135:Src/at32f4xx_it.c **** }
+ 166              		.loc 1 135 0
+ 167 0000 7047     		bx	lr
+ 168              		.cfi_endproc
+ 169              	.LFE128:
+ 171              		.section	.rodata.HardFault_Handler.str1.4,"aMS",%progbits,1
+ 172              		.align	2
+ 173              	.LC0:
+ 174 0000 0D0A456E 		.ascii	"\015\012Enter HardFault_Handler, System Halt.\015\012"
+ 174      74657220 
+ 174      48617264 
+ 174      4661756C 
+ 174      745F4861 
+ 175 0029 00       		.ascii	"\000"
+ 176              		.text
+ 177              	.Letext0:
+ 178              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
+ 179              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
+ 180              		.file 4 "../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h"
+ 181              		.file 5 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
+ 182              		.file 6 "../Libraries/CMSIS/CM4/DeviceSupport/at32f4xx.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc1AfdxZ.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 at32f4xx_it.c
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc1AfdxZ.s:17     .text.NMI_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc1AfdxZ.s:24     .text.NMI_Handler:0000000000000000 NMI_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc1AfdxZ.s:38     .text.HardFault_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc1AfdxZ.s:45     .text.HardFault_Handler:0000000000000000 HardFault_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc1AfdxZ.s:83     .text.HardFault_Handler:0000000000000020 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc1AfdxZ.s:89     .text.MemManage_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc1AfdxZ.s:96     .text.MemManage_Handler:0000000000000000 MemManage_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc1AfdxZ.s:110    .text.BusFault_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc1AfdxZ.s:117    .text.BusFault_Handler:0000000000000000 BusFault_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc1AfdxZ.s:131    .text.UsageFault_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc1AfdxZ.s:138    .text.UsageFault_Handler:0000000000000000 UsageFault_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc1AfdxZ.s:152    .text.DebugMon_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc1AfdxZ.s:159    .text.DebugMon_Handler:0000000000000000 DebugMon_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc1AfdxZ.s:172    .rodata.HardFault_Handler.str1.4:0000000000000000 $d
+
+NO UNDEFINED SYMBOLS
