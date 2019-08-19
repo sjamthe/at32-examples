@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLABSAk.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclLWfkk.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLABSAk.s 			page 1
   30:bsp/src/bsp.c ****   * @{
   31:bsp/src/bsp.c ****   */ 
   32:bsp/src/bsp.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLABSAk.s 			page 2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclLWfkk.s 			page 2
 
 
   33:bsp/src/bsp.c **** /* Private typedef -----------------------------------------------------------*/
@@ -88,57 +88,63 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLABSAk.s 			page 1
   38 0006 FFF7FEFF 		bl	NVIC_PriorityGroupConfig
   39              	.LVL0:
   46:bsp/src/bsp.c **** 
-  47:bsp/src/bsp.c **** 	bsp_InitUart(); 	/* initialize USART1 */
+  47:bsp/src/bsp.c ****   UART_Print_Init(115200); /* enable print on USART3 */
   40              		.loc 1 47 0
-  41 000a FFF7FEFF 		bl	bsp_InitUart
-  42              	.LVL1:
-  48:bsp/src/bsp.c **** 	bsp_InitLed(); 		/* initialize LED */
-  43              		.loc 1 48 0
-  44 000e FFF7FEFF 		bl	bsp_InitLed
-  45              	.LVL2:
-  49:bsp/src/bsp.c **** 	bsp_InitKey();		/* initialize KEY */
-  46              		.loc 1 49 0
-  47 0012 FFF7FEFF 		bl	bsp_InitKey
-  48              	.LVL3:
-  50:bsp/src/bsp.c ****   bsp_InitHardTimer();/* initialize TMR2 */
-  49              		.loc 1 50 0
-  50 0016 FFF7FEFF 		bl	bsp_InitHardTimer
-  51              	.LVL4:
-  51:bsp/src/bsp.c **** }
-  52              		.loc 1 51 0
-  53 001a 08BD     		pop	{r3, pc}
-  54              		.cfi_endproc
-  55              	.LFE131:
-  57              		.text
-  58              	.Letext0:
-  59              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
-  60              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
-  61              		.file 4 "../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h"
-  62              		.file 5 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
-  63              		.file 6 "Inc/FreeRTOSConfig.h"
-  64              		.file 7 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
-  65              		.file 8 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLABSAk.s 			page 3
+  41 000a 4FF4E130 		mov	r0, #115200
+  42 000e FFF7FEFF 		bl	UART_Print_Init
+  43              	.LVL1:
+  48:bsp/src/bsp.c **** 	bsp_InitUart(); 	/* initialize USART2 */
+  44              		.loc 1 48 0
+  45 0012 FFF7FEFF 		bl	bsp_InitUart
+  46              	.LVL2:
+  49:bsp/src/bsp.c **** 	bsp_InitLed(); 		/* initialize LED */
+  47              		.loc 1 49 0
+  48 0016 FFF7FEFF 		bl	bsp_InitLed
+  49              	.LVL3:
+  50:bsp/src/bsp.c **** 	bsp_InitKey();		/* initialize KEY */
+  50              		.loc 1 50 0
+  51 001a FFF7FEFF 		bl	bsp_InitKey
+  52              	.LVL4:
+  51:bsp/src/bsp.c ****   bsp_InitHardTimer();/* initialize TMR2 */
+  53              		.loc 1 51 0
+  54 001e FFF7FEFF 		bl	bsp_InitHardTimer
+  55              	.LVL5:
+  52:bsp/src/bsp.c **** }
+  56              		.loc 1 52 0
+  57 0022 08BD     		pop	{r3, pc}
+  58              		.cfi_endproc
+  59              	.LFE131:
+  61              		.text
+  62              	.Letext0:
+  63              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
+  64              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclLWfkk.s 			page 3
 
 
-  66              		.file 9 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h
-  67              		.file 10 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
-  68              		.file 11 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdlib.h"
-  69              		.file 12 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/misc.h"
-  70              		.file 13 "bsp/inc/bsp_uart_fifo.h"
-  71              		.file 14 "bsp/inc/bsp_led.h"
-  72              		.file 15 "bsp/inc/bsp_key.h"
-  73              		.file 16 "bsp/inc/bsp_timer.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLABSAk.s 			page 4
+  65              		.file 4 "../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h"
+  66              		.file 5 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
+  67              		.file 6 "Inc/FreeRTOSConfig.h"
+  68              		.file 7 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
+  69              		.file 8 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
+  70              		.file 9 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h
+  71              		.file 10 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
+  72              		.file 11 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdlib.h"
+  73              		.file 12 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/misc.h"
+  74              		.file 13 "bsp/inc/bsp_uart_fifo.h"
+  75              		.file 14 "bsp/inc/bsp_led.h"
+  76              		.file 15 "bsp/inc/bsp_key.h"
+  77              		.file 16 "bsp/inc/bsp_timer.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclLWfkk.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 bsp.c
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLABSAk.s:17     .text.bsp_Init:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccLABSAk.s:24     .text.bsp_Init:0000000000000000 bsp_Init
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclLWfkk.s:17     .text.bsp_Init:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclLWfkk.s:24     .text.bsp_Init:0000000000000000 bsp_Init
 
 UNDEFINED SYMBOLS
 NVIC_PriorityGroupConfig
+UART_Print_Init
 bsp_InitUart
 bsp_InitLed
 bsp_InitKey

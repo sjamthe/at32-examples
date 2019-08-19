@@ -163,7 +163,7 @@ public:
     bytes_ = 0;
     index_ = 0;
     topic_ = 0;
-    printf("Node init\n");
+    //printf("Node init\n");
   };
 
   /* Start a named port, which may be network server IP, initialize buffers */
@@ -380,7 +380,7 @@ public:
   void requestSyncTime()
   {
     std_msgs::Time t;
-    publish(TopicInfo::ID_TIME, &t);
+    publish1(TopicInfo::ID_TIME, &t);
     rt_time = hardware_.time();
   }
 
@@ -498,7 +498,7 @@ public:
         ti.message_type = (char *) publishers[i]->msg_->getType();
         ti.md5sum = (char *) publishers[i]->msg_->getMD5();
         ti.buffer_size = OUTPUT_SIZE;
-        publish(publishers[i]->getEndpointType(), &ti);
+        publish1(publishers[i]->getEndpointType(), &ti);
       }
     }
     for (i = 0; i < MAX_SUBSCRIBERS; i++)
@@ -510,7 +510,7 @@ public:
         ti.message_type = (char *) subscribers[i]->getMsgType();
         ti.md5sum = (char *) subscribers[i]->getMsgMD5();
         ti.buffer_size = INPUT_SIZE;
-        publish(subscribers[i]->getEndpointType(), &ti);
+        publish1(subscribers[i]->getEndpointType(), &ti);
       }
     }
     configured_ = true;
@@ -523,10 +523,10 @@ public:
 
   int publish1(int id, const Msg * msg)
   {
-    printf("in nh.publsh\n");
+    //printf("in nh.publsh\n");
     if (id >= 100 && !configured_)
       return 0;
-    printf("in nh.publsh2\n");
+    //printf("in nh.publsh2\n");
     /* serialize message */
     int l = msg->serialize(message_out + 7);
 
@@ -568,7 +568,7 @@ private:
     rosserial_msgs::Log l;
     l.level = byte;
     l.msg = (char*)msg;
-    publish(rosserial_msgs::TopicInfo::ID_LOG, &l);
+    publish1(rosserial_msgs::TopicInfo::ID_LOG, &l);
   }
 
 public:
@@ -606,7 +606,7 @@ private:
     param_recieved = false;
     rosserial_msgs::RequestParamRequest req;
     req.name  = (char*)name;
-    publish(TopicInfo::ID_PARAMETER_REQUEST, &req);
+    publish1(TopicInfo::ID_PARAMETER_REQUEST, &req);
     uint32_t end_time = hardware_.time() + time_out;
     while (!param_recieved)
     {

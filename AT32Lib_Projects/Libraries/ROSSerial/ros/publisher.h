@@ -52,7 +52,7 @@ public:
 
   int publish(const Msg * msg)
   {
-    printf("nh_ = %x, id_ = %d, chatter publishing %s\n",nh_, id_,msg->getType());
+    //printf("nh_ = %x, id_ = %d, chatter publishing %s\n",nh_, id_,msg->getType());
     return nh_->publish(id_, msg); //this doesn't work so moved to publish_task
   };
 

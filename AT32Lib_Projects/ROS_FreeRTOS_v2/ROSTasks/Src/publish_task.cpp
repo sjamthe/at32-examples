@@ -29,7 +29,7 @@ void ROS_PublisheTaskHandler(void const * argument)
 	  //chatter.publish( &str_msg ); //didn't work.
 	   int ret = nh_->publish1(chatter.id_, &str_msg); //publish() doesn't work same like spinOnce() but publish1 works
 	   if(ret <=0) {
-		   printf("Failed to publish %d\n",ret);
+		   //printf("Failed to publish %d\n",ret);
 	   }
 	  osDelay(1500);
   }

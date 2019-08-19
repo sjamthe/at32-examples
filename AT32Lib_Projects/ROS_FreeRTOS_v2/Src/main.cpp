@@ -81,6 +81,7 @@ int main(void)
 	
 	/* Perform any hardware setup necessary */
 	bsp_Init(); 
+    //printf ("after bspinit \n");
 
     /* ROS init, we can start UART hear in not in bsp */ 
      nh.initNode();

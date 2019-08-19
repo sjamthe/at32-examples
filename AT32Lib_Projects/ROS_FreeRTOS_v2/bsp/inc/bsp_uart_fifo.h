@@ -56,6 +56,40 @@ typedef enum
 	#define UART1_BAUD			115200
 	#define UART1_TX_BUF_SIZE	2*1024
 	#define UART1_RX_BUF_SIZE	2*1024
+
+#ifndef UART2_PRINT_PORT //use port different from print_port
+
+	#define UART1_PORT         		USART2
+	#define UART1_IRQ             	USART2_IRQn
+	#define USARTx_IRQ_Handler      USART2_IRQHandler
+	#define UART1_RCC         		RCC_APB1PERIPH_USART2
+
+	/*Tx*/
+	#define UART1_TX_PIN          	GPIO_Pins_2
+	#define UART1_TX_GPIO         	GPIOA
+	#define UART1_TX_GPIO_RCC     	RCC_APB2PERIPH_GPIOA
+
+	/*Rx*/
+	#define UART1_RX_PIN          	GPIO_Pins_3
+	#define UART1_RX_GPIO         	GPIOA
+	#define UART1_RX_GPIO_RCC     	RCC_APB2PERIPH_GPIOA
+#else
+
+	#define UART1_PORT         		USART3
+	#define UART1_IRQ             	USART3_IRQn
+	#define USARTx_IRQ_Handler      USART3_IRQHandler
+	#define UART1_RCC         		RCC_APB1PERIPH_USART3
+
+	/*Tx*/
+	#define UART1_TX_PIN          	GPIO_Pins_10
+	#define UART1_TX_GPIO         	GPIOB
+	#define UART1_TX_GPIO_RCC     	RCC_APB2PERIPH_GPIOB
+
+	/*Rx*/
+	#define UART1_RX_PIN          	GPIO_Pins_11
+	#define UART1_RX_GPIO         	GPIOB
+	#define UART1_RX_GPIO_RCC     	RCC_APB2PERIPH_GPIOB
+#endif
 #endif
 
 typedef struct

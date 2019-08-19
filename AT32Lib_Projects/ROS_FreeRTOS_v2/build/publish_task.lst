@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 1
   29:../Libraries/ROSSerial/rosserial_msgs/Log.h ****       uint32_t length_msg = strlen(this->msg);
   30:../Libraries/ROSSerial/rosserial_msgs/Log.h ****       memcpy(outbuffer + offset, &length_msg, sizeof(uint32_t));
   31:../Libraries/ROSSerial/rosserial_msgs/Log.h ****       offset += 4;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 2
 
 
   32:../Libraries/ROSSerial/rosserial_msgs/Log.h ****       memcpy(outbuffer + offset, this->msg, length_msg);
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 1
   47:../Libraries/ROSSerial/rosserial_msgs/Log.h ****       }
   48:../Libraries/ROSSerial/rosserial_msgs/Log.h ****       inbuffer[offset+length_msg-1]=0;
   66              		.loc 1 48 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 3
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 3
 
 
   67 001c 0435     		adds	r5, r5, #4
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 1
  117              	.LFE393:
  118              		.cantunwind
  119              		.fnend
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 4
 
 
  121              		.section	.text._ZN14rosserial_msgs3Log6getMD5Ev,"axG",%progbits,_ZN14rosserial_msgs3Log6getMD5Ev,c
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 1
   15:../Libraries/ROSSerial/std_msgs/ROSString.h ****     public:
   16:../Libraries/ROSSerial/std_msgs/ROSString.h ****       const char* data;
   17:../Libraries/ROSSerial/std_msgs/ROSString.h **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 5
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 5
 
 
   18:../Libraries/ROSSerial/std_msgs/ROSString.h ****     virtual int serialize(unsigned char *outbuffer) const
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 1
   37:../Libraries/ROSSerial/std_msgs/ROSString.h ****       }
   38:../Libraries/ROSSerial/std_msgs/ROSString.h ****       inbuffer[offset+length_data-1]=0;
  197              		.loc 2 38 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 6
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 6
 
 
  198 0016 0335     		adds	r5, r5, #3
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 1
  248              	.LFE471:
  249              		.cantunwind
  250              		.fnend
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 7
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 7
 
 
  252              		.section	.text._ZN8std_msgs6String6getMD5Ev,"axG",%progbits,_ZN8std_msgs6String6getMD5Ev,comdat
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 1
  307              	.LVL30:
   21:../Libraries/ROSSerial/std_msgs/ROSString.h ****       memcpy(outbuffer + offset, &length_data, sizeof(uint32_t));
  308              		.loc 2 21 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 8
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 8
 
 
  309 0006 4068     		ldr	r0, [r0, #4]
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 1
  360              		.loc 1 27 0
  361 0006 0379     		ldrb	r3, [r0, #4]	@ zero_extendqisi2
  362 0008 0B70     		strb	r3, [r1]
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 9
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 9
 
 
  363              	.LVL40:
@@ -511,16 +511,16 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 1
  386              	.LFE391:
  387              		.cantunwind
  388              		.fnend
- 390              		.section	.text._Z23ROS_PublisheTaskHandlerPKv,"ax",%progbits
+ 390              		.section	.text._Z15publishInitTaskPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE,"ax",%
  391              		.align	1
- 392              		.global	_Z23ROS_PublisheTaskHandlerPKv
+ 392              		.global	_Z15publishInitTaskPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE
  393              		.syntax unified
  394              		.thumb
  395              		.thumb_func
  396              		.fpu fpv4-sp-d16
- 398              	_Z23ROS_PublisheTaskHandlerPKv:
+ 398              	_Z15publishInitTaskPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:
  399              		.fnstart
- 400              	.LFB473:
+ 400              	.LFB480:
  401              		.file 3 "ROSTasks/Src/publish_task.cpp"
    1:ROSTasks/Src/publish_task.cpp **** /*
    2:ROSTasks/Src/publish_task.cpp ****  * publish_task.cpp
@@ -538,129 +538,134 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 1
   14:ROSTasks/Src/publish_task.cpp **** 
   15:ROSTasks/Src/publish_task.cpp **** void ROS_PublisheTaskHandler(void const * argument)
   16:ROSTasks/Src/publish_task.cpp **** {
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 10
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 10
 
 
- 402              		.loc 3 16 0
- 403              		.cfi_startproc
- 404              		@ args = 0, pretend = 0, frame = 40
- 405              		@ frame_needed = 0, uses_anonymous_args = 0
- 406              	.LVL48:
- 407 0000 70B5     		push	{r4, r5, r6, lr}
- 408              		.save {r4, r5, r6, lr}
- 409              	.LCFI6:
- 410              		.cfi_def_cfa_offset 16
- 411              		.cfi_offset 4, -16
- 412              		.cfi_offset 5, -12
- 413              		.cfi_offset 6, -8
- 414              		.cfi_offset 14, -4
- 415              		.pad #40
- 416 0002 8AB0     		sub	sp, sp, #40
- 417              	.LCFI7:
- 418              		.cfi_def_cfa_offset 56
- 419              	.LVL49:
- 420              	.LBB62:
- 421              	.LBB63:
-  13:../Libraries/ROSSerial/std_msgs/ROSString.h ****   {
- 422              		.loc 2 13 0
- 423 0004 444B     		ldr	r3, .L40
- 424 0006 0893     		str	r3, [sp, #32]
- 425              	.LVL50:
- 426              	.LBE63:
- 427              	.LBE62:
- 428              	.LBB64:
- 429              	.LBB65:
- 430              	.LBB66:
- 431              		.file 4 "../Libraries/ROSSerial/ros/publisher.h"
-   1:../Libraries/ROSSerial/ros/publisher.h **** /*
-   2:../Libraries/ROSSerial/ros/publisher.h ****  * Software License Agreement (BSD License)
-   3:../Libraries/ROSSerial/ros/publisher.h ****  *
-   4:../Libraries/ROSSerial/ros/publisher.h ****  * Copyright (c) 2011, Willow Garage, Inc.
-   5:../Libraries/ROSSerial/ros/publisher.h ****  * All rights reserved.
-   6:../Libraries/ROSSerial/ros/publisher.h ****  *
-   7:../Libraries/ROSSerial/ros/publisher.h ****  * Redistribution and use in source and binary forms, with or without
-   8:../Libraries/ROSSerial/ros/publisher.h ****  * modification, are permitted provided that the following conditions
-   9:../Libraries/ROSSerial/ros/publisher.h ****  * are met:
-  10:../Libraries/ROSSerial/ros/publisher.h ****  *
-  11:../Libraries/ROSSerial/ros/publisher.h ****  *  * Redistributions of source code must retain the above copyright
-  12:../Libraries/ROSSerial/ros/publisher.h ****  *    notice, this list of conditions and the following disclaimer.
-  13:../Libraries/ROSSerial/ros/publisher.h ****  *  * Redistributions in binary form must reproduce the above
-  14:../Libraries/ROSSerial/ros/publisher.h ****  *    copyright notice, this list of conditions and the following
-  15:../Libraries/ROSSerial/ros/publisher.h ****  *    disclaimer in the documentation and/or other materials provided
-  16:../Libraries/ROSSerial/ros/publisher.h ****  *    with the distribution.
-  17:../Libraries/ROSSerial/ros/publisher.h ****  *  * Neither the name of Willow Garage, Inc. nor the names of its
-  18:../Libraries/ROSSerial/ros/publisher.h ****  *    contributors may be used to endorse or promote prducts derived
-  19:../Libraries/ROSSerial/ros/publisher.h ****  *    from this software without specific prior written permission.
-  20:../Libraries/ROSSerial/ros/publisher.h ****  *
-  21:../Libraries/ROSSerial/ros/publisher.h ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-  22:../Libraries/ROSSerial/ros/publisher.h ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-  23:../Libraries/ROSSerial/ros/publisher.h ****  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
-  24:../Libraries/ROSSerial/ros/publisher.h ****  * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
-  25:../Libraries/ROSSerial/ros/publisher.h ****  * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
-  26:../Libraries/ROSSerial/ros/publisher.h ****  * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 11
-
-
-  27:../Libraries/ROSSerial/ros/publisher.h ****  * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-  28:../Libraries/ROSSerial/ros/publisher.h ****  * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-  29:../Libraries/ROSSerial/ros/publisher.h ****  * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
-  30:../Libraries/ROSSerial/ros/publisher.h ****  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
-  31:../Libraries/ROSSerial/ros/publisher.h ****  * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-  32:../Libraries/ROSSerial/ros/publisher.h ****  * POSSIBILITY OF SUCH DAMAGE.
-  33:../Libraries/ROSSerial/ros/publisher.h ****  */
-  34:../Libraries/ROSSerial/ros/publisher.h **** 
-  35:../Libraries/ROSSerial/ros/publisher.h **** #ifndef _ROS_PUBLISHER_H_
-  36:../Libraries/ROSSerial/ros/publisher.h **** #define _ROS_PUBLISHER_H_
-  37:../Libraries/ROSSerial/ros/publisher.h **** 
-  38:../Libraries/ROSSerial/ros/publisher.h **** #include "rosserial_msgs/TopicInfo.h"
-  39:../Libraries/ROSSerial/ros/publisher.h **** #include "ros/node_handle.h"
-  40:../Libraries/ROSSerial/ros/publisher.h **** 
-  41:../Libraries/ROSSerial/ros/publisher.h **** namespace ros
-  42:../Libraries/ROSSerial/ros/publisher.h **** {
-  43:../Libraries/ROSSerial/ros/publisher.h **** 
-  44:../Libraries/ROSSerial/ros/publisher.h **** /* Generic Publisher */
-  45:../Libraries/ROSSerial/ros/publisher.h **** class Publisher
-  46:../Libraries/ROSSerial/ros/publisher.h **** {
-  47:../Libraries/ROSSerial/ros/publisher.h **** public:
-  48:../Libraries/ROSSerial/ros/publisher.h ****   Publisher(const char * topic_name, Msg * msg, int endpoint = rosserial_msgs::TopicInfo::ID_PUBLIS
-  49:../Libraries/ROSSerial/ros/publisher.h ****     topic_(topic_name),
-  50:../Libraries/ROSSerial/ros/publisher.h ****     msg_(msg),
-  51:../Libraries/ROSSerial/ros/publisher.h ****     endpoint_(endpoint) {};
- 432              		.loc 4 51 0
- 433 0008 444B     		ldr	r3, .L40+4
- 434 000a 0393     		str	r3, [sp, #12]
- 435 000c 08AB     		add	r3, sp, #32
- 436              	.LVL51:
- 437 000e 0493     		str	r3, [sp, #16]
- 438 0010 0023     		movs	r3, #0
- 439              	.LVL52:
- 440 0012 0793     		str	r3, [sp, #28]
- 441              	.LVL53:
- 442              	.LBE66:
- 443              	.LBE65:
- 444              	.LBE64:
   17:ROSTasks/Src/publish_task.cpp ****   /* USER CODE BEGIN ROS_PublisheTaskHandler */
   18:ROSTasks/Src/publish_task.cpp ****   std_msgs::String str_msg;
   19:ROSTasks/Src/publish_task.cpp ****   ros::Publisher chatter("chatter", &str_msg);
   20:ROSTasks/Src/publish_task.cpp **** 
   21:ROSTasks/Src/publish_task.cpp ****   nh_->advertise(chatter);
- 445              		.loc 3 21 0
- 446 0014 424A     		ldr	r2, .L40+8
- 447 0016 1268     		ldr	r2, [r2]
- 448              	.LVL54:
- 449              	.L28:
- 450              	.LBB67:
- 451              	.LBB68:
- 452              		.file 5 "../Libraries/ROSSerial/ros/node_handle.h"
+  22:ROSTasks/Src/publish_task.cpp **** 
+  23:ROSTasks/Src/publish_task.cpp ****   /* Infinite loop */
+  24:ROSTasks/Src/publish_task.cpp ****   for(;;)
+  25:ROSTasks/Src/publish_task.cpp ****   {
+  26:ROSTasks/Src/publish_task.cpp **** 	  str_msg.data = hello;
+  27:ROSTasks/Src/publish_task.cpp **** 	  bsp_LedToggle(2);
+  28:ROSTasks/Src/publish_task.cpp **** 	  //printf("nh_ = %x, id_=%d\n",nh_,chatter.id_);
+  29:ROSTasks/Src/publish_task.cpp **** 	  //chatter.publish( &str_msg ); //didn't work.
+  30:ROSTasks/Src/publish_task.cpp **** 	   int ret = nh_->publish1(chatter.id_, &str_msg); //publish() doesn't work same like spinOnce() b
+  31:ROSTasks/Src/publish_task.cpp **** 	   if(ret <=0) {
+  32:ROSTasks/Src/publish_task.cpp **** 		   //printf("Failed to publish %d\n",ret);
+  33:ROSTasks/Src/publish_task.cpp **** 	   }
+  34:ROSTasks/Src/publish_task.cpp **** 	  osDelay(1500);
+  35:ROSTasks/Src/publish_task.cpp ****   }
+  36:ROSTasks/Src/publish_task.cpp **** 
+  37:ROSTasks/Src/publish_task.cpp ****   /* USER CODE END ROS_PublisheTaskHandler */
+  38:ROSTasks/Src/publish_task.cpp **** }
+  39:ROSTasks/Src/publish_task.cpp **** 
+  40:ROSTasks/Src/publish_task.cpp **** 
+  41:ROSTasks/Src/publish_task.cpp **** 
+  42:ROSTasks/Src/publish_task.cpp **** uint32_t publishInitTask(ros::NodeHandle *nh)
+  43:ROSTasks/Src/publish_task.cpp **** {
+ 402              		.loc 3 43 0
+ 403              		.cfi_startproc
+ 404              		@ args = 0, pretend = 0, frame = 24
+ 405              		@ frame_needed = 0, uses_anonymous_args = 0
+ 406              	.LVL48:
+ 407 0000 30B5     		push	{r4, r5, lr}
+ 408              		.save {r4, r5, lr}
+ 409              	.LCFI6:
+ 410              		.cfi_def_cfa_offset 12
+ 411              		.cfi_offset 4, -12
+ 412              		.cfi_offset 5, -8
+ 413              		.cfi_offset 14, -4
+ 414              		.pad #28
+ 415 0002 87B0     		sub	sp, sp, #28
+ 416              	.LCFI7:
+ 417              		.cfi_def_cfa_offset 40
+  44:ROSTasks/Src/publish_task.cpp **** 	osThreadId ROS_PublisherTaskHandle;
+  45:ROSTasks/Src/publish_task.cpp **** 
+  46:ROSTasks/Src/publish_task.cpp **** 	nh_ = nh;
+ 418              		.loc 3 46 0
+ 419 0004 084B     		ldr	r3, .L30
+ 420 0006 1860     		str	r0, [r3]
+  47:ROSTasks/Src/publish_task.cpp **** 
+  48:ROSTasks/Src/publish_task.cpp **** 	/* definition and creation of ROS_PublishTask */
+  49:ROSTasks/Src/publish_task.cpp **** 	osThreadDef(ROS_PublisherTask, ROS_PublisheTaskHandler, osPriorityNormal, 0, 128);
+ 421              		.loc 3 49 0
+ 422 0008 01AC     		add	r4, sp, #4
+ 423 000a 084D     		ldr	r5, .L30+4
+ 424 000c 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
+ 425              	.LVL49:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 11
+
+
+ 426 000e 0FC4     		stmia	r4!, {r0, r1, r2, r3}
+ 427 0010 2B68     		ldr	r3, [r5]
+ 428 0012 2360     		str	r3, [r4]
+  50:ROSTasks/Src/publish_task.cpp **** 	ROS_PublisherTaskHandle = osThreadCreate(osThread(ROS_PublisherTask), NULL);
+ 429              		.loc 3 50 0
+ 430 0014 0021     		movs	r1, #0
+ 431 0016 01A8     		add	r0, sp, #4
+ 432 0018 FFF7FEFF 		bl	osThreadCreate
+ 433              	.LVL50:
+  51:ROSTasks/Src/publish_task.cpp **** 	if (NULL == ROS_PublisherTaskHandle)
+ 434              		.loc 3 51 0
+ 435 001c 10B1     		cbz	r0, .L29
+  52:ROSTasks/Src/publish_task.cpp **** 	{
+  53:ROSTasks/Src/publish_task.cpp **** 		return 1;
+  54:ROSTasks/Src/publish_task.cpp **** 	}
+  55:ROSTasks/Src/publish_task.cpp **** 	return 0;
+ 436              		.loc 3 55 0
+ 437 001e 0020     		movs	r0, #0
+ 438              	.LVL51:
+ 439              	.L25:
+  56:ROSTasks/Src/publish_task.cpp **** }
+ 440              		.loc 3 56 0
+ 441 0020 07B0     		add	sp, sp, #28
+ 442              	.LCFI8:
+ 443              		.cfi_remember_state
+ 444              		.cfi_def_cfa_offset 12
+ 445              		@ sp needed
+ 446 0022 30BD     		pop	{r4, r5, pc}
+ 447              	.LVL52:
+ 448              	.L29:
+ 449              	.LCFI9:
+ 450              		.cfi_restore_state
+  53:ROSTasks/Src/publish_task.cpp **** 	}
+ 451              		.loc 3 53 0
+ 452 0024 0120     		movs	r0, #1
+ 453              	.LVL53:
+ 454 0026 FBE7     		b	.L25
+ 455              	.L31:
+ 456              		.align	2
+ 457              	.L30:
+ 458 0028 00000000 		.word	.LANCHOR0
+ 459 002c 00000000 		.word	.LANCHOR1
+ 460              		.cfi_endproc
+ 461              	.LFE480:
+ 462              		.fnend
+ 464              		.section	.text._ZN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EE8publish1EiPKNS_3MsgE,"axG
+ 465              		.align	1
+ 466              		.weak	_ZN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EE8publish1EiPKNS_3MsgE
+ 467              		.syntax unified
+ 468              		.thumb
+ 469              		.thumb_func
+ 470              		.fpu fpv4-sp-d16
+ 472              	_ZN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EE8publish1EiPKNS_3MsgE:
+ 473              		.fnstart
+ 474              	.LFB482:
+ 475              		.file 4 "../Libraries/ROSSerial/ros/node_handle.h"
    1:../Libraries/ROSSerial/ros/node_handle.h **** /*
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 12
+
+
    2:../Libraries/ROSSerial/ros/node_handle.h ****  * Software License Agreement (BSD License)
    3:../Libraries/ROSSerial/ros/node_handle.h ****  *
    4:../Libraries/ROSSerial/ros/node_handle.h ****  * Copyright (c) 2011, Willow Garage, Inc.
    5:../Libraries/ROSSerial/ros/node_handle.h ****  * All rights reserved.
    6:../Libraries/ROSSerial/ros/node_handle.h ****  *
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 12
-
-
    7:../Libraries/ROSSerial/ros/node_handle.h ****  * Redistribution and use in source and binary forms, with or without
    8:../Libraries/ROSSerial/ros/node_handle.h ****  * modification, are permitted provided that the following conditions
    9:../Libraries/ROSSerial/ros/node_handle.h ****  * are met:
@@ -713,14 +718,14 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 1
   56:../Libraries/ROSSerial/ros/node_handle.h **** };
   57:../Libraries/ROSSerial/ros/node_handle.h **** }
   58:../Libraries/ROSSerial/ros/node_handle.h **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 13
+
+
   59:../Libraries/ROSSerial/ros/node_handle.h **** #include "ros/publisher.h"
   60:../Libraries/ROSSerial/ros/node_handle.h **** #include "ros/subscriber.h"
   61:../Libraries/ROSSerial/ros/node_handle.h **** #include "ros/service_server.h"
   62:../Libraries/ROSSerial/ros/node_handle.h **** #include "ros/service_client.h"
   63:../Libraries/ROSSerial/ros/node_handle.h **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 13
-
-
   64:../Libraries/ROSSerial/ros/node_handle.h **** namespace ros
   65:../Libraries/ROSSerial/ros/node_handle.h **** {
   66:../Libraries/ROSSerial/ros/node_handle.h **** 
@@ -773,14 +778,14 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 1
  113:../Libraries/ROSSerial/ros/node_handle.h ****   uint32_t sec_offset, nsec_offset;
  114:../Libraries/ROSSerial/ros/node_handle.h **** 
  115:../Libraries/ROSSerial/ros/node_handle.h ****   /* Spinonce maximum work timeout */
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 14
+
+
  116:../Libraries/ROSSerial/ros/node_handle.h ****   uint32_t spin_timeout_;
  117:../Libraries/ROSSerial/ros/node_handle.h **** 
  118:../Libraries/ROSSerial/ros/node_handle.h ****   uint8_t message_in[INPUT_SIZE];
  119:../Libraries/ROSSerial/ros/node_handle.h ****   uint8_t message_out[OUTPUT_SIZE];
  120:../Libraries/ROSSerial/ros/node_handle.h **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 14
-
-
  121:../Libraries/ROSSerial/ros/node_handle.h ****   Publisher * publishers[MAX_PUBLISHERS];
  122:../Libraries/ROSSerial/ros/node_handle.h ****   Subscriber_ * subscribers[MAX_SUBSCRIBERS];
  123:../Libraries/ROSSerial/ros/node_handle.h **** 
@@ -826,21 +831,21 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 1
  163:../Libraries/ROSSerial/ros/node_handle.h ****     bytes_ = 0;
  164:../Libraries/ROSSerial/ros/node_handle.h ****     index_ = 0;
  165:../Libraries/ROSSerial/ros/node_handle.h ****     topic_ = 0;
- 166:../Libraries/ROSSerial/ros/node_handle.h ****     printf("Node init\n");
+ 166:../Libraries/ROSSerial/ros/node_handle.h ****     //printf("Node init\n");
  167:../Libraries/ROSSerial/ros/node_handle.h ****   };
  168:../Libraries/ROSSerial/ros/node_handle.h **** 
  169:../Libraries/ROSSerial/ros/node_handle.h ****   /* Start a named port, which may be network server IP, initialize buffers */
  170:../Libraries/ROSSerial/ros/node_handle.h ****   void initNode(char *portName)
  171:../Libraries/ROSSerial/ros/node_handle.h ****   {
  172:../Libraries/ROSSerial/ros/node_handle.h ****     hardware_.init(portName);
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 15
+
+
  173:../Libraries/ROSSerial/ros/node_handle.h ****     mode_ = 0;
  174:../Libraries/ROSSerial/ros/node_handle.h ****     bytes_ = 0;
  175:../Libraries/ROSSerial/ros/node_handle.h ****     index_ = 0;
  176:../Libraries/ROSSerial/ros/node_handle.h ****     topic_ = 0;
  177:../Libraries/ROSSerial/ros/node_handle.h ****   };
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 15
-
-
  178:../Libraries/ROSSerial/ros/node_handle.h **** 
  179:../Libraries/ROSSerial/ros/node_handle.h ****   /**
  180:../Libraries/ROSSerial/ros/node_handle.h ****    * @brief Sets the maximum time in millisconds that spinOnce() can work.
@@ -893,14 +898,14 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 1
  227:../Libraries/ROSSerial/ros/node_handle.h ****     }
  228:../Libraries/ROSSerial/ros/node_handle.h **** 
  229:../Libraries/ROSSerial/ros/node_handle.h ****     /* reset if message has timed out */
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 16
+
+
  230:../Libraries/ROSSerial/ros/node_handle.h ****     if (mode_ != MODE_FIRST_FF)
  231:../Libraries/ROSSerial/ros/node_handle.h ****     {
  232:../Libraries/ROSSerial/ros/node_handle.h ****       if (c_time > last_msg_timeout_time)
  233:../Libraries/ROSSerial/ros/node_handle.h ****       {
  234:../Libraries/ROSSerial/ros/node_handle.h ****         mode_ = MODE_FIRST_FF;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 16
-
-
  235:../Libraries/ROSSerial/ros/node_handle.h ****       }
  236:../Libraries/ROSSerial/ros/node_handle.h ****     }
  237:../Libraries/ROSSerial/ros/node_handle.h **** 
@@ -953,14 +958,14 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 1
  284:../Libraries/ROSSerial/ros/node_handle.h ****         }
  285:../Libraries/ROSSerial/ros/node_handle.h ****         else
  286:../Libraries/ROSSerial/ros/node_handle.h ****         {
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 17
+
+
  287:../Libraries/ROSSerial/ros/node_handle.h ****           mode_ = MODE_FIRST_FF;
  288:../Libraries/ROSSerial/ros/node_handle.h ****           if (configured_ == false)
  289:../Libraries/ROSSerial/ros/node_handle.h ****             requestSyncTime();  /* send a msg back showing our protocol version */
  290:../Libraries/ROSSerial/ros/node_handle.h ****         }
  291:../Libraries/ROSSerial/ros/node_handle.h ****       }
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 17
-
-
  292:../Libraries/ROSSerial/ros/node_handle.h ****       else if (mode_ == MODE_SIZE_L)      /* bottom half of message size */
  293:../Libraries/ROSSerial/ros/node_handle.h ****       {
  294:../Libraries/ROSSerial/ros/node_handle.h ****         bytes_ = data;
@@ -1013,14 +1018,14 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 1
  341:../Libraries/ROSSerial/ros/node_handle.h ****           else if (topic_ == TopicInfo::ID_PARAMETER_REQUEST)
  342:../Libraries/ROSSerial/ros/node_handle.h ****           {
  343:../Libraries/ROSSerial/ros/node_handle.h ****             req_param_resp.deserialize(message_in);
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 18
+
+
  344:../Libraries/ROSSerial/ros/node_handle.h ****             param_recieved = true;
  345:../Libraries/ROSSerial/ros/node_handle.h ****           }
  346:../Libraries/ROSSerial/ros/node_handle.h ****           else if (topic_ == TopicInfo::ID_TX_STOP)
  347:../Libraries/ROSSerial/ros/node_handle.h ****           {
  348:../Libraries/ROSSerial/ros/node_handle.h ****             configured_ = false;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 18
-
-
  349:../Libraries/ROSSerial/ros/node_handle.h ****           }
  350:../Libraries/ROSSerial/ros/node_handle.h ****           else
  351:../Libraries/ROSSerial/ros/node_handle.h ****           {
@@ -1055,7 +1060,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 1
  380:../Libraries/ROSSerial/ros/node_handle.h ****   void requestSyncTime()
  381:../Libraries/ROSSerial/ros/node_handle.h ****   {
  382:../Libraries/ROSSerial/ros/node_handle.h ****     std_msgs::Time t;
- 383:../Libraries/ROSSerial/ros/node_handle.h ****     publish(TopicInfo::ID_TIME, &t);
+ 383:../Libraries/ROSSerial/ros/node_handle.h ****     publish1(TopicInfo::ID_TIME, &t);
  384:../Libraries/ROSSerial/ros/node_handle.h ****     rt_time = hardware_.time();
  385:../Libraries/ROSSerial/ros/node_handle.h ****   }
  386:../Libraries/ROSSerial/ros/node_handle.h **** 
@@ -1073,14 +1078,14 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 1
  398:../Libraries/ROSSerial/ros/node_handle.h ****   }
  399:../Libraries/ROSSerial/ros/node_handle.h **** 
  400:../Libraries/ROSSerial/ros/node_handle.h ****   Time now()
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 19
+
+
  401:../Libraries/ROSSerial/ros/node_handle.h ****   {
  402:../Libraries/ROSSerial/ros/node_handle.h ****     uint32_t ms = hardware_.time();
  403:../Libraries/ROSSerial/ros/node_handle.h ****     Time current_time;
  404:../Libraries/ROSSerial/ros/node_handle.h ****     current_time.sec = ms / 1000 + sec_offset;
  405:../Libraries/ROSSerial/ros/node_handle.h ****     current_time.nsec = (ms % 1000) * 1000000UL + nsec_offset;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 19
-
-
  406:../Libraries/ROSSerial/ros/node_handle.h ****     normalizeSecNSec(current_time.sec, current_time.nsec);
  407:../Libraries/ROSSerial/ros/node_handle.h ****     return current_time;
  408:../Libraries/ROSSerial/ros/node_handle.h ****   }
@@ -1101,47 +1106,12 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 1
  423:../Libraries/ROSSerial/ros/node_handle.h ****   bool advertise(Publisher & p)
  424:../Libraries/ROSSerial/ros/node_handle.h ****   {
  425:../Libraries/ROSSerial/ros/node_handle.h ****     for (int i = 0; i < MAX_PUBLISHERS; i++)
- 453              		.loc 5 425 0
- 454 0018 042B     		cmp	r3, #4
- 455 001a 29DC     		bgt	.L35
  426:../Libraries/ROSSerial/ros/node_handle.h ****     {
  427:../Libraries/ROSSerial/ros/node_handle.h ****       if (publishers[i] == 0) // empty slot
- 456              		.loc 5 427 0
- 457 001c 03F58371 		add	r1, r3, #262
- 458 0020 52F82110 		ldr	r1, [r2, r1, lsl #2]
- 459 0024 09B1     		cbz	r1, .L38
- 425:../Libraries/ROSSerial/ros/node_handle.h ****     {
- 460              		.loc 5 425 0
- 461 0026 0133     		adds	r3, r3, #1
- 462              	.LVL55:
- 463 0028 F6E7     		b	.L28
- 464              	.L38:
  428:../Libraries/ROSSerial/ros/node_handle.h ****       {
  429:../Libraries/ROSSerial/ros/node_handle.h ****         publishers[i] = &p;
- 465              		.loc 5 429 0
- 466 002a 03F58371 		add	r1, r3, #262
- 467 002e 03A8     		add	r0, sp, #12
- 468              	.LVL56:
- 469 0030 42F82100 		str	r0, [r2, r1, lsl #2]
  430:../Libraries/ROSSerial/ros/node_handle.h ****         p.id_ = i + 100 + MAX_SUBSCRIBERS;
- 470              		.loc 5 430 0
- 471 0034 6933     		adds	r3, r3, #105
- 472              	.LVL57:
- 473 0036 0593     		str	r3, [sp, #20]
  431:../Libraries/ROSSerial/ros/node_handle.h ****         p.nh_ = this;
- 474              		.loc 5 431 0
- 475 0038 0692     		str	r2, [sp, #24]
- 476 003a 19E0     		b	.L35
- 477              	.LVL58:
- 478              	.L31:
- 479              	.LBE68:
- 480              	.LBE67:
- 481              	.LBB69:
- 482              	.LBB70:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 20
-
-
- 483              	.LBB71:
  432:../Libraries/ROSSerial/ros/node_handle.h ****         return true;
  433:../Libraries/ROSSerial/ros/node_handle.h ****       }
  434:../Libraries/ROSSerial/ros/node_handle.h ****     }
@@ -1168,6 +1138,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 1
  455:../Libraries/ROSSerial/ros/node_handle.h ****   template<typename MReq, typename MRes, typename ObjT>
  456:../Libraries/ROSSerial/ros/node_handle.h ****   bool advertiseService(ServiceServer<MReq, MRes, ObjT>& srv)
  457:../Libraries/ROSSerial/ros/node_handle.h ****   {
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 20
+
+
  458:../Libraries/ROSSerial/ros/node_handle.h ****     bool v = advertise(srv.pub);
  459:../Libraries/ROSSerial/ros/node_handle.h ****     for (int i = 0; i < MAX_SUBSCRIBERS; i++)
  460:../Libraries/ROSSerial/ros/node_handle.h ****     {
@@ -1198,9 +1171,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 1
  485:../Libraries/ROSSerial/ros/node_handle.h ****     return false;
  486:../Libraries/ROSSerial/ros/node_handle.h ****   }
  487:../Libraries/ROSSerial/ros/node_handle.h **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 21
-
-
  488:../Libraries/ROSSerial/ros/node_handle.h ****   void negotiateTopics()
  489:../Libraries/ROSSerial/ros/node_handle.h ****   {
  490:../Libraries/ROSSerial/ros/node_handle.h ****     rosserial_msgs::TopicInfo ti;
@@ -1214,7 +1184,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 1
  498:../Libraries/ROSSerial/ros/node_handle.h ****         ti.message_type = (char *) publishers[i]->msg_->getType();
  499:../Libraries/ROSSerial/ros/node_handle.h ****         ti.md5sum = (char *) publishers[i]->msg_->getMD5();
  500:../Libraries/ROSSerial/ros/node_handle.h ****         ti.buffer_size = OUTPUT_SIZE;
- 501:../Libraries/ROSSerial/ros/node_handle.h ****         publish(publishers[i]->getEndpointType(), &ti);
+ 501:../Libraries/ROSSerial/ros/node_handle.h ****         publish1(publishers[i]->getEndpointType(), &ti);
  502:../Libraries/ROSSerial/ros/node_handle.h ****       }
  503:../Libraries/ROSSerial/ros/node_handle.h ****     }
  504:../Libraries/ROSSerial/ros/node_handle.h ****     for (i = 0; i < MAX_SUBSCRIBERS; i++)
@@ -1226,8 +1196,11 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 1
  510:../Libraries/ROSSerial/ros/node_handle.h ****         ti.message_type = (char *) subscribers[i]->getMsgType();
  511:../Libraries/ROSSerial/ros/node_handle.h ****         ti.md5sum = (char *) subscribers[i]->getMsgMD5();
  512:../Libraries/ROSSerial/ros/node_handle.h ****         ti.buffer_size = INPUT_SIZE;
- 513:../Libraries/ROSSerial/ros/node_handle.h ****         publish(subscribers[i]->getEndpointType(), &ti);
+ 513:../Libraries/ROSSerial/ros/node_handle.h ****         publish1(subscribers[i]->getEndpointType(), &ti);
  514:../Libraries/ROSSerial/ros/node_handle.h ****       }
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 21
+
+
  515:../Libraries/ROSSerial/ros/node_handle.h ****     }
  516:../Libraries/ROSSerial/ros/node_handle.h ****     configured_ = true;
  517:../Libraries/ROSSerial/ros/node_handle.h ****   }
@@ -1238,54 +1211,142 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 1
  522:../Libraries/ROSSerial/ros/node_handle.h ****   }
  523:../Libraries/ROSSerial/ros/node_handle.h **** 
  524:../Libraries/ROSSerial/ros/node_handle.h ****   int publish1(int id, const Msg * msg)
+ 476              		.loc 4 524 0
+ 477              		.cfi_startproc
+ 478              		@ args = 0, pretend = 0, frame = 16
+ 479              		@ frame_needed = 0, uses_anonymous_args = 0
+ 480              	.LVL54:
+ 481 0000 30B5     		push	{r4, r5, lr}
+ 482              		.save {r4, r5, lr}
+ 483              	.LCFI10:
+ 484              		.cfi_def_cfa_offset 12
+ 485              		.cfi_offset 4, -12
+ 486              		.cfi_offset 5, -8
+ 487              		.cfi_offset 14, -4
+ 488              		.pad #20
+ 489 0002 85B0     		sub	sp, sp, #20
+ 490              	.LCFI11:
+ 491              		.cfi_def_cfa_offset 32
  525:../Libraries/ROSSerial/ros/node_handle.h ****   {
- 526:../Libraries/ROSSerial/ros/node_handle.h ****     printf("in nh.publsh\n");
+ 526:../Libraries/ROSSerial/ros/node_handle.h ****     //printf("in nh.publsh\n");
  527:../Libraries/ROSSerial/ros/node_handle.h ****     if (id >= 100 && !configured_)
+ 492              		.loc 4 527 0
+ 493 0004 6329     		cmp	r1, #99
+ 494 0006 03DD     		ble	.L33
+ 495              		.loc 4 527 0 is_stmt 0 discriminator 1
+ 496 0008 90F85434 		ldrb	r3, [r0, #1108]	@ zero_extendqisi2
+ 497 000c 002B     		cmp	r3, #0
+ 498 000e 50D0     		beq	.L38
+ 499              	.L33:
+ 500 0010 0D46     		mov	r5, r1
+ 501 0012 0446     		mov	r4, r0
  528:../Libraries/ROSSerial/ros/node_handle.h ****       return 0;
- 529:../Libraries/ROSSerial/ros/node_handle.h ****     printf("in nh.publsh2\n");
+ 529:../Libraries/ROSSerial/ros/node_handle.h ****     //printf("in nh.publsh2\n");
  530:../Libraries/ROSSerial/ros/node_handle.h ****     /* serialize message */
  531:../Libraries/ROSSerial/ros/node_handle.h ****     int l = msg->serialize(message_out + 7);
+ 502              		.loc 4 531 0 is_stmt 1
+ 503 0014 1368     		ldr	r3, [r2]
+ 504 0016 1B68     		ldr	r3, [r3]
+ 505 0018 00F21F21 		addw	r1, r0, #543
+ 506              	.LVL55:
+ 507 001c 1046     		mov	r0, r2
+ 508              	.LVL56:
+ 509 001e 9847     		blx	r3
+ 510              	.LVL57:
  532:../Libraries/ROSSerial/ros/node_handle.h **** 
  533:../Libraries/ROSSerial/ros/node_handle.h ****     /* setup the header */
  534:../Libraries/ROSSerial/ros/node_handle.h ****     message_out[0] = 0xff;
+ 511              		.loc 4 534 0
+ 512 0020 FF23     		movs	r3, #255
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 22
+
+
+ 513 0022 84F81832 		strb	r3, [r4, #536]
  535:../Libraries/ROSSerial/ros/node_handle.h ****     message_out[1] = PROTOCOL_VER;
+ 514              		.loc 4 535 0
+ 515 0026 FE23     		movs	r3, #254
+ 516 0028 84F81932 		strb	r3, [r4, #537]
  536:../Libraries/ROSSerial/ros/node_handle.h ****     message_out[2] = (uint8_t)((uint16_t)l & 255);
+ 517              		.loc 4 536 0
+ 518 002c C3B2     		uxtb	r3, r0
+ 519 002e 84F81A32 		strb	r3, [r4, #538]
  537:../Libraries/ROSSerial/ros/node_handle.h ****     message_out[3] = (uint8_t)((uint16_t)l >> 8);
+ 520              		.loc 4 537 0
+ 521 0032 C0F30722 		ubfx	r2, r0, #8, #8
+ 522 0036 84F81B22 		strb	r2, [r4, #539]
  538:../Libraries/ROSSerial/ros/node_handle.h ****     message_out[4] = 255 - ((message_out[2] + message_out[3]) % 256);
+ 523              		.loc 4 538 0
+ 524 003a 1344     		add	r3, r3, r2
+ 525 003c DBB2     		uxtb	r3, r3
+ 526 003e DB43     		mvns	r3, r3
+ 527 0040 84F81C32 		strb	r3, [r4, #540]
  539:../Libraries/ROSSerial/ros/node_handle.h ****     message_out[5] = (uint8_t)((int16_t)id & 255);
+ 528              		.loc 4 539 0
+ 529 0044 84F81D52 		strb	r5, [r4, #541]
  540:../Libraries/ROSSerial/ros/node_handle.h ****     message_out[6] = (uint8_t)((int16_t)id >> 8);
+ 530              		.loc 4 540 0
+ 531 0048 45F30721 		sbfx	r1, r5, #8, #8
+ 532 004c 84F81E12 		strb	r1, [r4, #542]
+ 533              	.LVL58:
+ 534              	.LBB51:
  541:../Libraries/ROSSerial/ros/node_handle.h **** 
  542:../Libraries/ROSSerial/ros/node_handle.h ****     /* calculate checksum */
  543:../Libraries/ROSSerial/ros/node_handle.h ****     int chk = 0;
  544:../Libraries/ROSSerial/ros/node_handle.h ****     for (int i = 5; i < l + 7; i++)
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 22
-
-
+ 535              		.loc 4 544 0
+ 536 0050 0523     		movs	r3, #5
+ 537              	.LBE51:
+ 543:../Libraries/ROSSerial/ros/node_handle.h ****     for (int i = 5; i < l + 7; i++)
+ 538              		.loc 4 543 0
+ 539 0052 0022     		movs	r2, #0
+ 540              	.LVL59:
+ 541              	.L36:
+ 542              	.LBB52:
+ 543              		.loc 4 544 0 discriminator 3
+ 544 0054 C11D     		adds	r1, r0, #7
+ 545 0056 9942     		cmp	r1, r3
+ 546 0058 05DD     		ble	.L35
  545:../Libraries/ROSSerial/ros/node_handle.h ****       chk += message_out[i];
+ 547              		.loc 4 545 0 discriminator 2
+ 548 005a E118     		adds	r1, r4, r3
+ 549 005c 91F81812 		ldrb	r1, [r1, #536]	@ zero_extendqisi2
+ 550 0060 0A44     		add	r2, r2, r1
+ 551              	.LVL60:
+ 544:../Libraries/ROSSerial/ros/node_handle.h ****       chk += message_out[i];
+ 552              		.loc 4 544 0 discriminator 2
+ 553 0062 0133     		adds	r3, r3, #1
+ 554              	.LVL61:
+ 555 0064 F6E7     		b	.L36
+ 556              	.L35:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 23
+
+
+ 557              	.LVL62:
+ 558              	.LBE52:
  546:../Libraries/ROSSerial/ros/node_handle.h ****     l += 7;
  547:../Libraries/ROSSerial/ros/node_handle.h ****     message_out[l++] = 255 - (chk % 256);
- 484              		.loc 5 547 0
- 485 003c 5342     		rsbs	r3, r2, #0
- 486              	.LVL59:
- 487 003e D2B2     		uxtb	r2, r2
- 488              	.LVL60:
- 489 0040 DBB2     		uxtb	r3, r3
- 490 0042 58BF     		it	pl
- 491 0044 5A42     		rsbpl	r2, r3, #0
- 492 0046 00F10806 		add	r6, r0, #8
- 493              	.LVL61:
- 494 004a D243     		mvns	r2, r2
- 495 004c 2544     		add	r5, r5, r4
- 496 004e 85F81822 		strb	r2, [r5, #536]
+ 559              		.loc 4 547 0
+ 560 0066 5342     		rsbs	r3, r2, #0
+ 561              	.LVL63:
+ 562 0068 D2B2     		uxtb	r2, r2
+ 563              	.LVL64:
+ 564 006a DBB2     		uxtb	r3, r3
+ 565 006c 58BF     		it	pl
+ 566 006e 5A42     		rsbpl	r2, r3, #0
+ 567 0070 00F10805 		add	r5, r0, #8
+ 568              	.LVL65:
+ 569 0074 D243     		mvns	r2, r2
+ 570 0076 2144     		add	r1, r1, r4
+ 571 0078 81F81822 		strb	r2, [r1, #536]
  548:../Libraries/ROSSerial/ros/node_handle.h ****     //printf("Sending message - %s\n",message_out);
  549:../Libraries/ROSSerial/ros/node_handle.h ****     if (l <= OUTPUT_SIZE)
- 497              		.loc 5 549 0
- 498 0052 B6F5007F 		cmp	r6, #512
- 499 0056 48DC     		bgt	.L33
- 500              	.LVL62:
- 501              	.LBB72:
- 502              	.LBB73:
- 503              		.file 6 "../Libraries/ROSSerial/stm32hardware.h"
+ 572              		.loc 4 549 0
+ 573 007c B5F5007F 		cmp	r5, #512
+ 574 0080 08DC     		bgt	.L37
+ 575              	.LVL66:
+ 576              	.LBB53:
+ 577              	.LBB54:
+ 578              		.file 5 "../Libraries/ROSSerial/stm32hardware.h"
    1:../Libraries/ROSSerial/stm32hardware.h **** /*
    2:../Libraries/ROSSerial/stm32hardware.h ****  * Software License Agreement (BSD License)
    3:../Libraries/ROSSerial/stm32hardware.h ****  *
@@ -1317,10 +1378,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 1
   29:../Libraries/ROSSerial/stm32hardware.h ****  * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
   30:../Libraries/ROSSerial/stm32hardware.h ****  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
   31:../Libraries/ROSSerial/stm32hardware.h ****  * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 24
+
+
   32:../Libraries/ROSSerial/stm32hardware.h ****  * POSSIBILITY OF SUCH DAMAGE.
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 23
-
-
   33:../Libraries/ROSSerial/stm32hardware.h ****  */
   34:../Libraries/ROSSerial/stm32hardware.h **** 
   35:../Libraries/ROSSerial/stm32hardware.h **** #ifndef STM32HARDWARE_H_
@@ -1362,7 +1423,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 1
   71:../Libraries/ROSSerial/stm32hardware.h **** 		if(comGetChar(COM1,&ucData) == 0) {
   72:../Libraries/ROSSerial/stm32hardware.h **** 			return -1;
   73:../Libraries/ROSSerial/stm32hardware.h **** 		}
-  74:../Libraries/ROSSerial/stm32hardware.h **** 		printf("Got %c\n",ucData);
+  74:../Libraries/ROSSerial/stm32hardware.h **** 		//printf("Got %c\n",ucData);
   75:../Libraries/ROSSerial/stm32hardware.h **** 		return ucData;
   76:../Libraries/ROSSerial/stm32hardware.h **** 	}
   77:../Libraries/ROSSerial/stm32hardware.h **** 
@@ -1376,166 +1437,19 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 1
   85:../Libraries/ROSSerial/stm32hardware.h **** 	void write(uint8_t* data, uint32_t length)
   86:../Libraries/ROSSerial/stm32hardware.h **** 	{
   87:../Libraries/ROSSerial/stm32hardware.h **** 		comSendBuf(COM1,data,length);
- 504              		.loc 6 87 0
- 505 0058 B2B2     		uxth	r2, r6
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 24
+ 579              		.loc 5 87 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 25
 
 
- 506 005a 04F50671 		add	r1, r4, #536
- 507              	.LVL63:
- 508 005e 0020     		movs	r0, #0
- 509 0060 FFF7FEFF 		bl	comSendBuf
- 510              	.LVL64:
- 511              	.L30:
- 512              	.LBE73:
- 513              	.LBE72:
- 514              	.LBE71:
- 515              	.LBE70:
-  22:ROSTasks/Src/publish_task.cpp **** 
-  23:ROSTasks/Src/publish_task.cpp ****   /* Infinite loop */
-  24:ROSTasks/Src/publish_task.cpp ****   for(;;)
-  25:ROSTasks/Src/publish_task.cpp ****   {
-  26:ROSTasks/Src/publish_task.cpp **** 	  str_msg.data = hello;
-  27:ROSTasks/Src/publish_task.cpp **** 	  bsp_LedToggle(2);
-  28:ROSTasks/Src/publish_task.cpp **** 	  //printf("nh_ = %x, id_=%d\n",nh_,chatter.id_);
-  29:ROSTasks/Src/publish_task.cpp **** 	  //chatter.publish( &str_msg ); //didn't work.
-  30:ROSTasks/Src/publish_task.cpp **** 	   int ret = nh_->publish1(chatter.id_, &str_msg); //publish() doesn't work same like spinOnce() b
-  31:ROSTasks/Src/publish_task.cpp **** 	   if(ret <=0) {
- 516              		.loc 3 31 0
- 517 0064 002E     		cmp	r6, #0
- 518 0066 52DD     		ble	.L39
- 519              	.L34:
-  32:ROSTasks/Src/publish_task.cpp **** 		   printf("Failed to publish %d\n",ret);
-  33:ROSTasks/Src/publish_task.cpp **** 	   }
-  34:ROSTasks/Src/publish_task.cpp **** 	  osDelay(1500);
- 520              		.loc 3 34 0
- 521 0068 40F2DC50 		movw	r0, #1500
- 522 006c FFF7FEFF 		bl	osDelay
- 523              	.LVL65:
- 524              	.L35:
-  26:ROSTasks/Src/publish_task.cpp **** 	  bsp_LedToggle(2);
- 525              		.loc 3 26 0
- 526 0070 2C4B     		ldr	r3, .L40+12
- 527 0072 0993     		str	r3, [sp, #36]
-  27:ROSTasks/Src/publish_task.cpp **** 	  //printf("nh_ = %x, id_=%d\n",nh_,chatter.id_);
- 528              		.loc 3 27 0
- 529 0074 0220     		movs	r0, #2
- 530 0076 FFF7FEFF 		bl	bsp_LedToggle
- 531              	.LVL66:
-  30:ROSTasks/Src/publish_task.cpp **** 	   if(ret <=0) {
- 532              		.loc 3 30 0
- 533 007a 294B     		ldr	r3, .L40+8
- 534 007c 1C68     		ldr	r4, [r3]
- 535 007e 059D     		ldr	r5, [sp, #20]
- 536              	.LVL67:
- 537              	.LBB82:
- 538              	.LBB81:
- 526:../Libraries/ROSSerial/ros/node_handle.h ****     if (id >= 100 && !configured_)
- 539              		.loc 5 526 0
- 540 0080 2948     		ldr	r0, .L40+16
- 541 0082 FFF7FEFF 		bl	puts
- 542              	.LVL68:
- 527:../Libraries/ROSSerial/ros/node_handle.h ****       return 0;
- 543              		.loc 5 527 0
- 544 0086 632D     		cmp	r5, #99
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 25
-
-
- 545 0088 03DD     		ble	.L29
- 546 008a 94F85434 		ldrb	r3, [r4, #1108]	@ zero_extendqisi2
- 547 008e 002B     		cmp	r3, #0
- 548 0090 3BD0     		beq	.L36
- 549              	.L29:
- 529:../Libraries/ROSSerial/ros/node_handle.h ****     /* serialize message */
- 550              		.loc 5 529 0
- 551 0092 2648     		ldr	r0, .L40+20
- 552 0094 FFF7FEFF 		bl	puts
- 553              	.LVL69:
- 531:../Libraries/ROSSerial/ros/node_handle.h **** 
- 554              		.loc 5 531 0
- 555 0098 089B     		ldr	r3, [sp, #32]
- 556 009a 1B68     		ldr	r3, [r3]
- 557 009c 04F21F21 		addw	r1, r4, #543
- 558 00a0 08A8     		add	r0, sp, #32
- 559              	.LVL70:
- 560 00a2 9847     		blx	r3
- 561              	.LVL71:
- 534:../Libraries/ROSSerial/ros/node_handle.h ****     message_out[1] = PROTOCOL_VER;
- 562              		.loc 5 534 0
- 563 00a4 FF23     		movs	r3, #255
- 564 00a6 84F81832 		strb	r3, [r4, #536]
- 535:../Libraries/ROSSerial/ros/node_handle.h ****     message_out[2] = (uint8_t)((uint16_t)l & 255);
- 565              		.loc 5 535 0
- 566 00aa FE23     		movs	r3, #254
- 567 00ac 84F81932 		strb	r3, [r4, #537]
- 536:../Libraries/ROSSerial/ros/node_handle.h ****     message_out[3] = (uint8_t)((uint16_t)l >> 8);
- 568              		.loc 5 536 0
- 569 00b0 C3B2     		uxtb	r3, r0
- 570 00b2 84F81A32 		strb	r3, [r4, #538]
- 537:../Libraries/ROSSerial/ros/node_handle.h ****     message_out[4] = 255 - ((message_out[2] + message_out[3]) % 256);
- 571              		.loc 5 537 0
- 572 00b6 C0F30722 		ubfx	r2, r0, #8, #8
- 573 00ba 84F81B22 		strb	r2, [r4, #539]
- 538:../Libraries/ROSSerial/ros/node_handle.h ****     message_out[5] = (uint8_t)((int16_t)id & 255);
- 574              		.loc 5 538 0
- 575 00be 1344     		add	r3, r3, r2
- 576 00c0 DBB2     		uxtb	r3, r3
- 577 00c2 DB43     		mvns	r3, r3
- 578 00c4 84F81C32 		strb	r3, [r4, #540]
- 539:../Libraries/ROSSerial/ros/node_handle.h ****     message_out[6] = (uint8_t)((int16_t)id >> 8);
- 579              		.loc 5 539 0
- 580 00c8 84F81D52 		strb	r5, [r4, #541]
- 540:../Libraries/ROSSerial/ros/node_handle.h **** 
- 581              		.loc 5 540 0
- 582 00cc 45F30725 		sbfx	r5, r5, #8, #8
- 583              	.LVL72:
- 584 00d0 84F81E52 		strb	r5, [r4, #542]
- 585              	.LVL73:
- 586              	.LBB74:
- 544:../Libraries/ROSSerial/ros/node_handle.h ****       chk += message_out[i];
- 587              		.loc 5 544 0
- 588 00d4 0523     		movs	r3, #5
- 589              	.LBE74:
- 543:../Libraries/ROSSerial/ros/node_handle.h ****     for (int i = 5; i < l + 7; i++)
- 590              		.loc 5 543 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 26
-
-
- 591 00d6 0022     		movs	r2, #0
- 592              	.LVL74:
- 593              	.L32:
- 594              	.LBB75:
- 544:../Libraries/ROSSerial/ros/node_handle.h ****       chk += message_out[i];
- 595              		.loc 5 544 0
- 596 00d8 C51D     		adds	r5, r0, #7
- 597 00da 9D42     		cmp	r5, r3
- 598 00dc AEDD     		ble	.L31
- 545:../Libraries/ROSSerial/ros/node_handle.h ****     l += 7;
- 599              		.loc 5 545 0
- 600 00de E118     		adds	r1, r4, r3
- 601 00e0 91F81812 		ldrb	r1, [r1, #536]	@ zero_extendqisi2
- 602 00e4 0A44     		add	r2, r2, r1
- 603              	.LVL75:
- 544:../Libraries/ROSSerial/ros/node_handle.h ****       chk += message_out[i];
- 604              		.loc 5 544 0
- 605 00e6 0133     		adds	r3, r3, #1
- 606              	.LVL76:
- 607 00e8 F6E7     		b	.L32
- 608              	.LVL77:
- 609              	.L33:
- 610              	.LBE75:
- 611              	.LBB76:
- 612              	.LBB77:
- 613              	.LBB78:
- 614              	.LBB79:
- 615              	.LBB80:
-  13:../Libraries/ROSSerial/rosserial_msgs/Log.h ****   {
- 616              		.loc 1 13 0
- 617 00ea 114B     		ldr	r3, .L40+24
- 618 00ec 0093     		str	r3, [sp]
- 619              	.LVL78:
- 620              	.LBE80:
- 621              	.LBE79:
+ 580 0082 AAB2     		uxth	r2, r5
+ 581 0084 04F50671 		add	r1, r4, #536
+ 582              	.LVL67:
+ 583 0088 0020     		movs	r0, #0
+ 584 008a FFF7FEFF 		bl	comSendBuf
+ 585              	.LVL68:
+ 586              	.L32:
+ 587              	.LBE54:
+ 588              	.LBE53:
  550:../Libraries/ROSSerial/ros/node_handle.h ****     {
  551:../Libraries/ROSSerial/ros/node_handle.h ****       hardware_.write(message_out, l);
  552:../Libraries/ROSSerial/ros/node_handle.h ****       return l;
@@ -1546,6 +1460,30 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 1
  557:../Libraries/ROSSerial/ros/node_handle.h ****       return -1;
  558:../Libraries/ROSSerial/ros/node_handle.h ****     }
  559:../Libraries/ROSSerial/ros/node_handle.h ****   }
+ 589              		.loc 4 559 0
+ 590 008e 2846     		mov	r0, r5
+ 591 0090 05B0     		add	sp, sp, #20
+ 592              	.LCFI12:
+ 593              		.cfi_remember_state
+ 594              		.cfi_def_cfa_offset 12
+ 595              		@ sp needed
+ 596 0092 30BD     		pop	{r4, r5, pc}
+ 597              	.LVL69:
+ 598              	.L37:
+ 599              	.LCFI13:
+ 600              		.cfi_restore_state
+ 601              	.LBB55:
+ 602              	.LBB56:
+ 603              	.LBB57:
+ 604              	.LBB58:
+ 605              	.LBB59:
+  13:../Libraries/ROSSerial/rosserial_msgs/Log.h ****   {
+ 606              		.loc 1 13 0
+ 607 0094 084B     		ldr	r3, .L40
+ 608 0096 0193     		str	r3, [sp, #4]
+ 609              	.LVL70:
+ 610              	.LBE59:
+ 611              	.LBE58:
  560:../Libraries/ROSSerial/ros/node_handle.h **** 
  561:../Libraries/ROSSerial/ros/node_handle.h ****   /********************************************************************
  562:../Libraries/ROSSerial/ros/node_handle.h ****    * Logging
@@ -1556,388 +1494,732 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 1
  567:../Libraries/ROSSerial/ros/node_handle.h ****   {
  568:../Libraries/ROSSerial/ros/node_handle.h ****     rosserial_msgs::Log l;
  569:../Libraries/ROSSerial/ros/node_handle.h ****     l.level = byte;
- 622              		.loc 5 569 0
- 623 00ee 0323     		movs	r3, #3
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 27
-
-
- 624 00f0 8DF80430 		strb	r3, [sp, #4]
+ 612              		.loc 4 569 0
+ 613 0098 0323     		movs	r3, #3
+ 614 009a 8DF80830 		strb	r3, [sp, #8]
  570:../Libraries/ROSSerial/ros/node_handle.h ****     l.msg = (char*)msg;
- 625              		.loc 5 570 0
- 626 00f4 0F4B     		ldr	r3, .L40+28
- 627 00f6 0293     		str	r3, [sp, #8]
- 571:../Libraries/ROSSerial/ros/node_handle.h ****     publish(rosserial_msgs::TopicInfo::ID_LOG, &l);
- 628              		.loc 5 571 0
- 629 00f8 2368     		ldr	r3, [r4]
- 630 00fa 1B68     		ldr	r3, [r3]
- 631 00fc 6A46     		mov	r2, sp
- 632 00fe 0721     		movs	r1, #7
- 633 0100 2046     		mov	r0, r4
- 634 0102 9847     		blx	r3
- 635              	.LVL79:
- 636              	.LBE78:
- 637              	.LBE77:
- 638              	.LBE76:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 26
+
+
+ 615              		.loc 4 570 0
+ 616 009e 074B     		ldr	r3, .L40+4
+ 617 00a0 0393     		str	r3, [sp, #12]
+ 571:../Libraries/ROSSerial/ros/node_handle.h ****     publish1(rosserial_msgs::TopicInfo::ID_LOG, &l);
+ 618              		.loc 4 571 0
+ 619 00a2 01AA     		add	r2, sp, #4
+ 620 00a4 0721     		movs	r1, #7
+ 621 00a6 2046     		mov	r0, r4
+ 622 00a8 FFF7FEFF 		bl	_ZN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EE8publish1EiPKNS_3MsgE
+ 623              	.LVL71:
+ 624              	.LBE57:
+ 625              	.LBE56:
+ 626              	.LBE55:
  557:../Libraries/ROSSerial/ros/node_handle.h ****     }
- 639              		.loc 5 557 0
- 640 0104 4FF0FF36 		mov	r6, #-1
- 641              	.LVL80:
- 642 0108 ACE7     		b	.L30
- 643              	.LVL81:
- 644              	.L36:
- 528:../Libraries/ROSSerial/ros/node_handle.h ****     printf("in nh.publsh2\n");
- 645              		.loc 5 528 0
- 646 010a 0026     		movs	r6, #0
- 647 010c AAE7     		b	.L30
- 648              	.LVL82:
- 649              	.L39:
- 650              	.LBE81:
- 651              	.LBE82:
-  32:ROSTasks/Src/publish_task.cpp **** 	   }
- 652              		.loc 3 32 0
- 653 010e 3146     		mov	r1, r6
- 654 0110 0948     		ldr	r0, .L40+32
- 655 0112 FFF7FEFF 		bl	printf
- 656              	.LVL83:
- 657 0116 A7E7     		b	.L34
- 658              	.L41:
- 659              		.align	2
- 660              	.L40:
- 661 0118 08000000 		.word	_ZTVN8std_msgs6StringE+8
- 662 011c 00000000 		.word	.LC6
- 663 0120 00000000 		.word	.LANCHOR0
- 664 0124 00000000 		.word	.LANCHOR1
- 665 0128 08000000 		.word	.LC7
- 666 012c 18000000 		.word	.LC8
- 667 0130 08000000 		.word	_ZTVN14rosserial_msgs3LogE+8
- 668 0134 28000000 		.word	.LC9
- 669 0138 64000000 		.word	.LC10
- 670              	.LBE69:
- 671              		.cfi_endproc
- 672              	.LFE473:
- 673              		.fnend
- 675              		.section	.text._Z15publishInitTaskPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE,"ax",%
- 676              		.align	1
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 28
+ 627              		.loc 4 557 0
+ 628 00ac 4FF0FF35 		mov	r5, #-1
+ 629              	.LVL72:
+ 630 00b0 EDE7     		b	.L32
+ 631              	.LVL73:
+ 632              	.L38:
+ 528:../Libraries/ROSSerial/ros/node_handle.h ****     //printf("in nh.publsh2\n");
+ 633              		.loc 4 528 0
+ 634 00b2 0025     		movs	r5, #0
+ 635 00b4 EBE7     		b	.L32
+ 636              	.L41:
+ 637 00b6 00BF     		.align	2
+ 638              	.L40:
+ 639 00b8 08000000 		.word	_ZTVN14rosserial_msgs3LogE+8
+ 640 00bc 00000000 		.word	.LC7
+ 641              		.cfi_endproc
+ 642              	.LFE482:
+ 643              		.fnend
+ 645              		.section	.text._Z23ROS_PublisheTaskHandlerPKv,"ax",%progbits
+ 646              		.align	1
+ 647              		.global	_Z23ROS_PublisheTaskHandlerPKv
+ 648              		.syntax unified
+ 649              		.thumb
+ 650              		.thumb_func
+ 651              		.fpu fpv4-sp-d16
+ 653              	_Z23ROS_PublisheTaskHandlerPKv:
+ 654              		.fnstart
+ 655              	.LFB473:
+  16:ROSTasks/Src/publish_task.cpp ****   /* USER CODE BEGIN ROS_PublisheTaskHandler */
+ 656              		.loc 3 16 0
+ 657              		.cfi_startproc
+ 658              		@ args = 0, pretend = 0, frame = 56
+ 659              		@ frame_needed = 0, uses_anonymous_args = 0
+ 660              	.LVL74:
+ 661 0000 30B5     		push	{r4, r5, lr}
+ 662              		.save {r4, r5, lr}
+ 663              	.LCFI14:
+ 664              		.cfi_def_cfa_offset 12
+ 665              		.cfi_offset 4, -12
+ 666              		.cfi_offset 5, -8
+ 667              		.cfi_offset 14, -4
+ 668              		.pad #60
+ 669 0002 8FB0     		sub	sp, sp, #60
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 27
 
 
- 677              		.global	_Z15publishInitTaskPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE
- 678              		.syntax unified
- 679              		.thumb
- 680              		.thumb_func
- 681              		.fpu fpv4-sp-d16
- 683              	_Z15publishInitTaskPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:
- 684              		.fnstart
- 685              	.LFB480:
-  35:ROSTasks/Src/publish_task.cpp ****   }
-  36:ROSTasks/Src/publish_task.cpp **** 
-  37:ROSTasks/Src/publish_task.cpp ****   /* USER CODE END ROS_PublisheTaskHandler */
-  38:ROSTasks/Src/publish_task.cpp **** }
-  39:ROSTasks/Src/publish_task.cpp **** 
-  40:ROSTasks/Src/publish_task.cpp **** 
-  41:ROSTasks/Src/publish_task.cpp **** 
-  42:ROSTasks/Src/publish_task.cpp **** uint32_t publishInitTask(ros::NodeHandle *nh)
-  43:ROSTasks/Src/publish_task.cpp **** {
- 686              		.loc 3 43 0
- 687              		.cfi_startproc
- 688              		@ args = 0, pretend = 0, frame = 24
- 689              		@ frame_needed = 0, uses_anonymous_args = 0
- 690              	.LVL84:
- 691 0000 30B5     		push	{r4, r5, lr}
- 692              		.save {r4, r5, lr}
- 693              	.LCFI8:
- 694              		.cfi_def_cfa_offset 12
- 695              		.cfi_offset 4, -12
- 696              		.cfi_offset 5, -8
- 697              		.cfi_offset 14, -4
- 698              		.pad #28
- 699 0002 87B0     		sub	sp, sp, #28
- 700              	.LCFI9:
- 701              		.cfi_def_cfa_offset 40
-  44:ROSTasks/Src/publish_task.cpp **** 	osThreadId ROS_PublisherTaskHandle;
-  45:ROSTasks/Src/publish_task.cpp **** 
-  46:ROSTasks/Src/publish_task.cpp **** 	nh_ = nh;
- 702              		.loc 3 46 0
- 703 0004 084B     		ldr	r3, .L47
- 704 0006 1860     		str	r0, [r3]
-  47:ROSTasks/Src/publish_task.cpp **** 
-  48:ROSTasks/Src/publish_task.cpp **** 	/* definition and creation of ROS_PublishTask */
-  49:ROSTasks/Src/publish_task.cpp **** 	osThreadDef(ROS_PublisherTask, ROS_PublisheTaskHandler, osPriorityNormal, 0, 128);
- 705              		.loc 3 49 0
- 706 0008 01AC     		add	r4, sp, #4
- 707 000a 084D     		ldr	r5, .L47+4
- 708 000c 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
- 709              	.LVL85:
- 710 000e 0FC4     		stmia	r4!, {r0, r1, r2, r3}
- 711 0010 2B68     		ldr	r3, [r5]
- 712 0012 2360     		str	r3, [r4]
-  50:ROSTasks/Src/publish_task.cpp **** 	ROS_PublisherTaskHandle = osThreadCreate(osThread(ROS_PublisherTask), NULL);
- 713              		.loc 3 50 0
- 714 0014 0021     		movs	r1, #0
- 715 0016 01A8     		add	r0, sp, #4
- 716 0018 FFF7FEFF 		bl	osThreadCreate
- 717              	.LVL86:
-  51:ROSTasks/Src/publish_task.cpp **** 	if (NULL == ROS_PublisherTaskHandle)
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 29
+ 670              	.LCFI15:
+ 671              		.cfi_def_cfa_offset 72
+ 672              	.LVL75:
+ 673              	.LBB91:
+ 674              	.LBB92:
+  13:../Libraries/ROSSerial/std_msgs/ROSString.h ****   {
+ 675              		.loc 2 13 0
+ 676 0004 5D4B     		ldr	r3, .L58
+ 677 0006 0C93     		str	r3, [sp, #48]
+ 678              	.LVL76:
+ 679              	.LBE92:
+ 680              	.LBE91:
+ 681              	.LBB93:
+ 682              	.LBB94:
+ 683              	.LBB95:
+ 684              		.file 6 "../Libraries/ROSSerial/ros/publisher.h"
+   1:../Libraries/ROSSerial/ros/publisher.h **** /*
+   2:../Libraries/ROSSerial/ros/publisher.h ****  * Software License Agreement (BSD License)
+   3:../Libraries/ROSSerial/ros/publisher.h ****  *
+   4:../Libraries/ROSSerial/ros/publisher.h ****  * Copyright (c) 2011, Willow Garage, Inc.
+   5:../Libraries/ROSSerial/ros/publisher.h ****  * All rights reserved.
+   6:../Libraries/ROSSerial/ros/publisher.h ****  *
+   7:../Libraries/ROSSerial/ros/publisher.h ****  * Redistribution and use in source and binary forms, with or without
+   8:../Libraries/ROSSerial/ros/publisher.h ****  * modification, are permitted provided that the following conditions
+   9:../Libraries/ROSSerial/ros/publisher.h ****  * are met:
+  10:../Libraries/ROSSerial/ros/publisher.h ****  *
+  11:../Libraries/ROSSerial/ros/publisher.h ****  *  * Redistributions of source code must retain the above copyright
+  12:../Libraries/ROSSerial/ros/publisher.h ****  *    notice, this list of conditions and the following disclaimer.
+  13:../Libraries/ROSSerial/ros/publisher.h ****  *  * Redistributions in binary form must reproduce the above
+  14:../Libraries/ROSSerial/ros/publisher.h ****  *    copyright notice, this list of conditions and the following
+  15:../Libraries/ROSSerial/ros/publisher.h ****  *    disclaimer in the documentation and/or other materials provided
+  16:../Libraries/ROSSerial/ros/publisher.h ****  *    with the distribution.
+  17:../Libraries/ROSSerial/ros/publisher.h ****  *  * Neither the name of Willow Garage, Inc. nor the names of its
+  18:../Libraries/ROSSerial/ros/publisher.h ****  *    contributors may be used to endorse or promote prducts derived
+  19:../Libraries/ROSSerial/ros/publisher.h ****  *    from this software without specific prior written permission.
+  20:../Libraries/ROSSerial/ros/publisher.h ****  *
+  21:../Libraries/ROSSerial/ros/publisher.h ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  22:../Libraries/ROSSerial/ros/publisher.h ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  23:../Libraries/ROSSerial/ros/publisher.h ****  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+  24:../Libraries/ROSSerial/ros/publisher.h ****  * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+  25:../Libraries/ROSSerial/ros/publisher.h ****  * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+  26:../Libraries/ROSSerial/ros/publisher.h ****  * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+  27:../Libraries/ROSSerial/ros/publisher.h ****  * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+  28:../Libraries/ROSSerial/ros/publisher.h ****  * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+  29:../Libraries/ROSSerial/ros/publisher.h ****  * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+  30:../Libraries/ROSSerial/ros/publisher.h ****  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+  31:../Libraries/ROSSerial/ros/publisher.h ****  * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  32:../Libraries/ROSSerial/ros/publisher.h ****  * POSSIBILITY OF SUCH DAMAGE.
+  33:../Libraries/ROSSerial/ros/publisher.h ****  */
+  34:../Libraries/ROSSerial/ros/publisher.h **** 
+  35:../Libraries/ROSSerial/ros/publisher.h **** #ifndef _ROS_PUBLISHER_H_
+  36:../Libraries/ROSSerial/ros/publisher.h **** #define _ROS_PUBLISHER_H_
+  37:../Libraries/ROSSerial/ros/publisher.h **** 
+  38:../Libraries/ROSSerial/ros/publisher.h **** #include "rosserial_msgs/TopicInfo.h"
+  39:../Libraries/ROSSerial/ros/publisher.h **** #include "ros/node_handle.h"
+  40:../Libraries/ROSSerial/ros/publisher.h **** 
+  41:../Libraries/ROSSerial/ros/publisher.h **** namespace ros
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 28
 
 
- 718              		.loc 3 51 0
- 719 001c 10B1     		cbz	r0, .L46
-  52:ROSTasks/Src/publish_task.cpp **** 	{
-  53:ROSTasks/Src/publish_task.cpp **** 		return 1;
-  54:ROSTasks/Src/publish_task.cpp **** 	}
-  55:ROSTasks/Src/publish_task.cpp **** 	return 0;
- 720              		.loc 3 55 0
- 721 001e 0020     		movs	r0, #0
- 722              	.LVL87:
- 723              	.L42:
-  56:ROSTasks/Src/publish_task.cpp **** }
- 724              		.loc 3 56 0
- 725 0020 07B0     		add	sp, sp, #28
- 726              	.LCFI10:
- 727              		.cfi_remember_state
- 728              		.cfi_def_cfa_offset 12
- 729              		@ sp needed
- 730 0022 30BD     		pop	{r4, r5, pc}
- 731              	.LVL88:
- 732              	.L46:
- 733              	.LCFI11:
- 734              		.cfi_restore_state
-  53:ROSTasks/Src/publish_task.cpp **** 	}
- 735              		.loc 3 53 0
- 736 0024 0120     		movs	r0, #1
- 737              	.LVL89:
- 738 0026 FBE7     		b	.L42
- 739              	.L48:
- 740              		.align	2
- 741              	.L47:
- 742 0028 00000000 		.word	.LANCHOR0
- 743 002c 00000000 		.word	.LANCHOR2
- 744              		.cfi_endproc
- 745              	.LFE480:
- 746              		.fnend
- 748              		.weak	_ZTVN14rosserial_msgs3LogE
- 749              		.section	.rodata._ZTVN14rosserial_msgs3LogE,"aG",%progbits,_ZTVN14rosserial_msgs3LogE,comdat
- 750              		.align	2
- 753              	_ZTVN14rosserial_msgs3LogE:
- 754 0000 00000000 		.word	0
- 755 0004 00000000 		.word	0
- 756 0008 00000000 		.word	_ZNK14rosserial_msgs3Log9serializeEPh
- 757 000c 00000000 		.word	_ZN14rosserial_msgs3Log11deserializeEPh
- 758 0010 00000000 		.word	_ZN14rosserial_msgs3Log7getTypeEv
- 759 0014 00000000 		.word	_ZN14rosserial_msgs3Log6getMD5Ev
- 760              		.weak	_ZTVN8std_msgs6StringE
- 761              		.section	.rodata._ZTVN8std_msgs6StringE,"aG",%progbits,_ZTVN8std_msgs6StringE,comdat
- 762              		.align	2
- 765              	_ZTVN8std_msgs6StringE:
- 766 0000 00000000 		.word	0
- 767 0004 00000000 		.word	0
- 768 0008 00000000 		.word	_ZNK8std_msgs6String9serializeEPh
- 769 000c 00000000 		.word	_ZN8std_msgs6String11deserializeEPh
- 770 0010 00000000 		.word	_ZN8std_msgs6String7getTypeEv
- 771 0014 00000000 		.word	_ZN8std_msgs6String6getMD5Ev
- 772              		.global	hello
- 773              		.section	.rodata
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 30
+  42:../Libraries/ROSSerial/ros/publisher.h **** {
+  43:../Libraries/ROSSerial/ros/publisher.h **** 
+  44:../Libraries/ROSSerial/ros/publisher.h **** /* Generic Publisher */
+  45:../Libraries/ROSSerial/ros/publisher.h **** class Publisher
+  46:../Libraries/ROSSerial/ros/publisher.h **** {
+  47:../Libraries/ROSSerial/ros/publisher.h **** public:
+  48:../Libraries/ROSSerial/ros/publisher.h ****   Publisher(const char * topic_name, Msg * msg, int endpoint = rosserial_msgs::TopicInfo::ID_PUBLIS
+  49:../Libraries/ROSSerial/ros/publisher.h ****     topic_(topic_name),
+  50:../Libraries/ROSSerial/ros/publisher.h ****     msg_(msg),
+  51:../Libraries/ROSSerial/ros/publisher.h ****     endpoint_(endpoint) {};
+ 685              		.loc 6 51 0
+ 686 0008 5D4B     		ldr	r3, .L58+4
+ 687 000a 0793     		str	r3, [sp, #28]
+ 688 000c 0CAB     		add	r3, sp, #48
+ 689              	.LVL77:
+ 690 000e 0893     		str	r3, [sp, #32]
+ 691 0010 0023     		movs	r3, #0
+ 692              	.LVL78:
+ 693 0012 0B93     		str	r3, [sp, #44]
+ 694              	.LVL79:
+ 695              	.LBE95:
+ 696              	.LBE94:
+ 697              	.LBE93:
+  21:ROSTasks/Src/publish_task.cpp **** 
+ 698              		.loc 3 21 0
+ 699 0014 5B4A     		ldr	r2, .L58+8
+ 700 0016 1268     		ldr	r2, [r2]
+ 701              	.LVL80:
+ 702              	.L45:
+ 703              	.LBB96:
+ 704              	.LBB97:
+ 425:../Libraries/ROSSerial/ros/node_handle.h ****     {
+ 705              		.loc 4 425 0
+ 706 0018 042B     		cmp	r3, #4
+ 707 001a 27DC     		bgt	.L55
+ 427:../Libraries/ROSSerial/ros/node_handle.h ****       {
+ 708              		.loc 4 427 0
+ 709 001c 03F58371 		add	r1, r3, #262
+ 710 0020 52F82110 		ldr	r1, [r2, r1, lsl #2]
+ 711 0024 09B1     		cbz	r1, .L57
+ 425:../Libraries/ROSSerial/ros/node_handle.h ****     {
+ 712              		.loc 4 425 0
+ 713 0026 0133     		adds	r3, r3, #1
+ 714              	.LVL81:
+ 715 0028 F6E7     		b	.L45
+ 716              	.L57:
+ 429:../Libraries/ROSSerial/ros/node_handle.h ****         p.id_ = i + 100 + MAX_SUBSCRIBERS;
+ 717              		.loc 4 429 0
+ 718 002a 03F58371 		add	r1, r3, #262
+ 719 002e 07A8     		add	r0, sp, #28
+ 720              	.LVL82:
+ 721 0030 42F82100 		str	r0, [r2, r1, lsl #2]
+ 430:../Libraries/ROSSerial/ros/node_handle.h ****         p.nh_ = this;
+ 722              		.loc 4 430 0
+ 723 0034 6933     		adds	r3, r3, #105
+ 724              	.LVL83:
+ 725 0036 0993     		str	r3, [sp, #36]
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 29
 
 
- 774              		.align	2
- 775              		.set	.LANCHOR2,. + 0
- 776              	.LC11:
- 777 0000 00000000 		.word	.LC0
- 778 0004 00000000 		.word	_Z23ROS_PublisheTaskHandlerPKv
- 779 0008 0000     		.short	0
- 780 000a 0000     		.space	2
- 781 000c 00000000 		.word	0
- 782 0010 80000000 		.word	128
- 783              		.section	.bss._ZL3nh_,"aw",%nobits
- 784              		.align	2
- 785              		.set	.LANCHOR0,. + 0
- 788              	_ZL3nh_:
- 789 0000 00000000 		.space	4
- 790              		.section	.data.hello,"aw",%progbits
- 791              		.align	2
- 792              		.set	.LANCHOR1,. + 0
- 795              	hello:
- 796 0000 68656C6C 		.ascii	"hello world!\000"
- 796      6F20776F 
- 796      726C6421 
- 796      00
- 797              		.section	.rodata._Z23ROS_PublisheTaskHandlerPKv.str1.4,"aMS",%progbits,1
- 798              		.align	2
- 799              	.LC6:
- 800 0000 63686174 		.ascii	"chatter\000"
- 800      74657200 
- 801              	.LC7:
- 802 0008 696E206E 		.ascii	"in nh.publsh\000"
- 802      682E7075 
- 802      626C7368 
- 802      00
- 803 0015 000000   		.space	3
- 804              	.LC8:
- 805 0018 696E206E 		.ascii	"in nh.publsh2\000"
- 805      682E7075 
- 805      626C7368 
- 805      3200
- 806 0026 0000     		.space	2
- 807              	.LC9:
- 808 0028 4D657373 		.ascii	"Message from device dropped: message larger than bu"
- 808      61676520 
- 808      66726F6D 
- 808      20646576 
- 808      69636520 
- 809 005b 66666572 		.ascii	"ffer.\000"
- 809      2E00
- 810 0061 000000   		.space	3
- 811              	.LC10:
- 812 0064 4661696C 		.ascii	"Failed to publish %d\012\000"
- 812      65642074 
- 812      6F207075 
- 812      626C6973 
- 812      68202564 
- 813              		.section	.rodata._ZN14rosserial_msgs3Log6getMD5Ev.str1.4,"aMS",%progbits,1
- 814              		.align	2
- 815              	.LC3:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 31
+ 431:../Libraries/ROSSerial/ros/node_handle.h ****         return true;
+ 726              		.loc 4 431 0
+ 727 0038 0A92     		str	r2, [sp, #40]
+ 728 003a 17E0     		b	.L55
+ 729              	.LVL84:
+ 730              	.L48:
+ 731              	.LBE97:
+ 732              	.LBE96:
+ 733              	.LBB98:
+ 734              	.LBB99:
+ 735              	.LBB100:
+ 547:../Libraries/ROSSerial/ros/node_handle.h ****     //printf("Sending message - %s\n",message_out);
+ 736              		.loc 4 547 0
+ 737 003c 4B42     		rsbs	r3, r1, #0
+ 738              	.LVL85:
+ 739 003e C9B2     		uxtb	r1, r1
+ 740              	.LVL86:
+ 741 0040 DBB2     		uxtb	r3, r3
+ 742 0042 58BF     		it	pl
+ 743 0044 5942     		rsbpl	r1, r3, #0
+ 744 0046 00F10802 		add	r2, r0, #8
+ 745              	.LVL87:
+ 746 004a C943     		mvns	r1, r1
+ 747 004c 2544     		add	r5, r5, r4
+ 748 004e 85F81812 		strb	r1, [r5, #536]
+ 549:../Libraries/ROSSerial/ros/node_handle.h ****     {
+ 749              		.loc 4 549 0
+ 750 0052 B2F5007F 		cmp	r2, #512
+ 751 0056 40DC     		bgt	.L50
+ 752              	.LVL88:
+ 753              	.LBB101:
+ 754              	.LBB102:
+ 755              		.loc 5 87 0
+ 756 0058 92B2     		uxth	r2, r2
+ 757              	.LVL89:
+ 758 005a 04F50671 		add	r1, r4, #536
+ 759              	.LVL90:
+ 760 005e 0020     		movs	r0, #0
+ 761              	.LVL91:
+ 762 0060 FFF7FEFF 		bl	comSendBuf
+ 763              	.LVL92:
+ 764              	.L47:
+ 765              	.LBE102:
+ 766              	.LBE101:
+ 767              	.LBE100:
+ 768              	.LBE99:
+  34:ROSTasks/Src/publish_task.cpp ****   }
+ 769              		.loc 3 34 0
+ 770 0064 40F2DC50 		movw	r0, #1500
+ 771 0068 FFF7FEFF 		bl	osDelay
+ 772              	.LVL93:
+ 773              	.L55:
+  26:ROSTasks/Src/publish_task.cpp **** 	  bsp_LedToggle(2);
+ 774              		.loc 3 26 0
+ 775 006c 464B     		ldr	r3, .L58+12
+ 776 006e 0D93     		str	r3, [sp, #52]
+  27:ROSTasks/Src/publish_task.cpp **** 	  //printf("nh_ = %x, id_=%d\n",nh_,chatter.id_);
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 30
 
 
- 816 0000 31316162 		.ascii	"11abd731c25933261cd6183bd12d6295\000"
- 816      64373331 
- 816      63323539 
- 816      33333236 
- 816      31636436 
- 817              		.section	.rodata._ZN14rosserial_msgs3Log7getTypeEv.str1.4,"aMS",%progbits,1
- 818              		.align	2
- 819              	.LC2:
- 820 0000 726F7373 		.ascii	"rosserial_msgs/Log\000"
- 820      65726961 
- 820      6C5F6D73 
- 820      67732F4C 
- 820      6F6700
- 821              		.section	.rodata._ZN8std_msgs6String6getMD5Ev.str1.4,"aMS",%progbits,1
- 822              		.align	2
- 823              	.LC5:
- 824 0000 39393263 		.ascii	"992ce8a1687cec8c8bd883ec73ca41d1\000"
- 824      65386131 
- 824      36383763 
- 824      65633863 
- 824      38626438 
- 825              		.section	.rodata._ZN8std_msgs6String7getTypeEv.str1.4,"aMS",%progbits,1
- 826              		.align	2
- 827              	.LC4:
- 828 0000 7374645F 		.ascii	"std_msgs/String\000"
- 828      6D736773 
- 828      2F537472 
- 828      696E6700 
- 829              		.section	.rodata.str1.4,"aMS",%progbits,1
- 830              		.align	2
- 831              	.LC0:
- 832 0000 524F535F 		.ascii	"ROS_PublisherTask\000"
- 832      5075626C 
- 832      69736865 
- 832      72546173 
- 832      6B00
- 833              		.text
- 834              	.Letext0:
- 835              		.file 7 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h
- 836              		.file 8 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
- 837              		.file 9 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
- 838              		.file 10 "../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h"
- 839              		.file 11 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
- 840              		.file 12 "Inc/FreeRTOSConfig.h"
- 841              		.file 13 "../Middlewares/FreeRTOS//Source/include/task.h"
- 842              		.file 14 "../Middlewares/FreeRTOS//Source/CMSIS_RTOS/cmsis_os.h"
- 843              		.file 15 "bsp/inc/bsp_uart_fifo.h"
- 844              		.file 16 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
- 845              		.file 17 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
- 846              		.file 18 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
- 847              		.file 19 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/cstdlib"
- 848              		.file 20 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/cmath"
- 849              		.file 21 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/cstring"
- 850              		.file 22 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/arm-none-ea
- 851              		.file 23 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdlib.h"
- 852              		.file 24 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/stdlib.h"
- 853              		.file 25 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/math.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 32
+ 777              		.loc 3 27 0
+ 778 0070 0220     		movs	r0, #2
+ 779 0072 FFF7FEFF 		bl	bsp_LedToggle
+ 780              	.LVL94:
+  30:ROSTasks/Src/publish_task.cpp **** 	   if(ret <=0) {
+ 781              		.loc 3 30 0
+ 782 0076 434B     		ldr	r3, .L58+8
+ 783 0078 1C68     		ldr	r4, [r3]
+ 784 007a 099D     		ldr	r5, [sp, #36]
+ 785              	.LVL95:
+ 786              	.LBB121:
+ 787              	.LBB120:
+ 527:../Libraries/ROSSerial/ros/node_handle.h ****       return 0;
+ 788              		.loc 4 527 0
+ 789 007c 632D     		cmp	r5, #99
+ 790 007e 03DD     		ble	.L46
+ 791 0080 94F85434 		ldrb	r3, [r4, #1108]	@ zero_extendqisi2
+ 792 0084 002B     		cmp	r3, #0
+ 793 0086 EDD0     		beq	.L47
+ 794              	.L46:
+ 531:../Libraries/ROSSerial/ros/node_handle.h **** 
+ 795              		.loc 4 531 0
+ 796 0088 0C9B     		ldr	r3, [sp, #48]
+ 797 008a 1B68     		ldr	r3, [r3]
+ 798 008c 04F21F21 		addw	r1, r4, #543
+ 799 0090 0CA8     		add	r0, sp, #48
+ 800              	.LVL96:
+ 801 0092 9847     		blx	r3
+ 802              	.LVL97:
+ 534:../Libraries/ROSSerial/ros/node_handle.h ****     message_out[1] = PROTOCOL_VER;
+ 803              		.loc 4 534 0
+ 804 0094 FF23     		movs	r3, #255
+ 805 0096 84F81832 		strb	r3, [r4, #536]
+ 535:../Libraries/ROSSerial/ros/node_handle.h ****     message_out[2] = (uint8_t)((uint16_t)l & 255);
+ 806              		.loc 4 535 0
+ 807 009a FE23     		movs	r3, #254
+ 808 009c 84F81932 		strb	r3, [r4, #537]
+ 536:../Libraries/ROSSerial/ros/node_handle.h ****     message_out[3] = (uint8_t)((uint16_t)l >> 8);
+ 809              		.loc 4 536 0
+ 810 00a0 C3B2     		uxtb	r3, r0
+ 811 00a2 84F81A32 		strb	r3, [r4, #538]
+ 537:../Libraries/ROSSerial/ros/node_handle.h ****     message_out[4] = 255 - ((message_out[2] + message_out[3]) % 256);
+ 812              		.loc 4 537 0
+ 813 00a6 C0F30722 		ubfx	r2, r0, #8, #8
+ 814 00aa 84F81B22 		strb	r2, [r4, #539]
+ 538:../Libraries/ROSSerial/ros/node_handle.h ****     message_out[5] = (uint8_t)((int16_t)id & 255);
+ 815              		.loc 4 538 0
+ 816 00ae 1344     		add	r3, r3, r2
+ 817 00b0 DBB2     		uxtb	r3, r3
+ 818 00b2 DB43     		mvns	r3, r3
+ 819 00b4 84F81C32 		strb	r3, [r4, #540]
+ 539:../Libraries/ROSSerial/ros/node_handle.h ****     message_out[6] = (uint8_t)((int16_t)id >> 8);
+ 820              		.loc 4 539 0
+ 821 00b8 84F81D52 		strb	r5, [r4, #541]
+ 540:../Libraries/ROSSerial/ros/node_handle.h **** 
+ 822              		.loc 4 540 0
+ 823 00bc 45F30725 		sbfx	r5, r5, #8, #8
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 31
 
 
- 854              		.file 26 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/math.h"
- 855              		.file 27 "<built-in>"
- 856              		.file 28 "../Libraries/ROSSerial/ros/msg.h"
- 857              		.file 29 "../Libraries/ROSSerial/ros.h"
- 858              		.file 30 "../Libraries/ROSSerial/rosserial_msgs/TopicInfo.h"
- 859              		.file 31 "../Libraries/ROSSerial/rosserial_msgs/RequestParam.h"
- 860              		.file 32 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/string.h"
- 861              		.file 33 "../Libraries/ROSSerial/std_msgs/Time.h"
- 862              		.file 34 "bsp/inc/bsp_led.h"
- 863              		.file 35 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdio.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 33
+ 824              	.LVL98:
+ 825 00c0 84F81E52 		strb	r5, [r4, #542]
+ 826              	.LVL99:
+ 827              	.LBB103:
+ 544:../Libraries/ROSSerial/ros/node_handle.h ****       chk += message_out[i];
+ 828              		.loc 4 544 0
+ 829 00c4 0523     		movs	r3, #5
+ 830              	.LBE103:
+ 543:../Libraries/ROSSerial/ros/node_handle.h ****     for (int i = 5; i < l + 7; i++)
+ 831              		.loc 4 543 0
+ 832 00c6 0021     		movs	r1, #0
+ 833              	.LVL100:
+ 834              	.L49:
+ 835              	.LBB104:
+ 544:../Libraries/ROSSerial/ros/node_handle.h ****       chk += message_out[i];
+ 836              		.loc 4 544 0
+ 837 00c8 C51D     		adds	r5, r0, #7
+ 838 00ca 9D42     		cmp	r5, r3
+ 839 00cc B6DD     		ble	.L48
+ 545:../Libraries/ROSSerial/ros/node_handle.h ****     l += 7;
+ 840              		.loc 4 545 0
+ 841 00ce E218     		adds	r2, r4, r3
+ 842 00d0 92F81822 		ldrb	r2, [r2, #536]	@ zero_extendqisi2
+ 843 00d4 1144     		add	r1, r1, r2
+ 844              	.LVL101:
+ 544:../Libraries/ROSSerial/ros/node_handle.h ****       chk += message_out[i];
+ 845              		.loc 4 544 0
+ 846 00d6 0133     		adds	r3, r3, #1
+ 847              	.LVL102:
+ 848 00d8 F6E7     		b	.L49
+ 849              	.LVL103:
+ 850              	.L50:
+ 851              	.LBE104:
+ 852              	.LBB105:
+ 853              	.LBB106:
+ 854              	.LBB107:
+ 855              	.LBB108:
+ 856              	.LBB109:
+  13:../Libraries/ROSSerial/rosserial_msgs/Log.h ****   {
+ 857              		.loc 1 13 0
+ 858 00da 2C4B     		ldr	r3, .L58+16
+ 859 00dc 0193     		str	r3, [sp, #4]
+ 860              	.LVL104:
+ 861              	.LBE109:
+ 862              	.LBE108:
+ 569:../Libraries/ROSSerial/ros/node_handle.h ****     l.msg = (char*)msg;
+ 863              		.loc 4 569 0
+ 864 00de 0322     		movs	r2, #3
+ 865              	.LVL105:
+ 866 00e0 8DF80820 		strb	r2, [sp, #8]
+ 570:../Libraries/ROSSerial/ros/node_handle.h ****     publish1(rosserial_msgs::TopicInfo::ID_LOG, &l);
+ 867              		.loc 4 570 0
+ 868 00e4 2A4A     		ldr	r2, .L58+20
+ 869 00e6 0392     		str	r2, [sp, #12]
+ 870              	.LVL106:
+ 871              	.LBB110:
+ 872              	.LBB111:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 32
+
+
+ 531:../Libraries/ROSSerial/ros/node_handle.h **** 
+ 873              		.loc 4 531 0
+ 874 00e8 1B68     		ldr	r3, [r3]
+ 875 00ea 04F21F21 		addw	r1, r4, #543
+ 876 00ee 01A8     		add	r0, sp, #4
+ 877              	.LVL107:
+ 878 00f0 9847     		blx	r3
+ 879              	.LVL108:
+ 534:../Libraries/ROSSerial/ros/node_handle.h ****     message_out[1] = PROTOCOL_VER;
+ 880              		.loc 4 534 0
+ 881 00f2 FF23     		movs	r3, #255
+ 882 00f4 84F81832 		strb	r3, [r4, #536]
+ 535:../Libraries/ROSSerial/ros/node_handle.h ****     message_out[2] = (uint8_t)((uint16_t)l & 255);
+ 883              		.loc 4 535 0
+ 884 00f8 FE23     		movs	r3, #254
+ 885 00fa 84F81932 		strb	r3, [r4, #537]
+ 536:../Libraries/ROSSerial/ros/node_handle.h ****     message_out[3] = (uint8_t)((uint16_t)l >> 8);
+ 886              		.loc 4 536 0
+ 887 00fe C3B2     		uxtb	r3, r0
+ 888 0100 84F81A32 		strb	r3, [r4, #538]
+ 537:../Libraries/ROSSerial/ros/node_handle.h ****     message_out[4] = 255 - ((message_out[2] + message_out[3]) % 256);
+ 889              		.loc 4 537 0
+ 890 0104 C0F30722 		ubfx	r2, r0, #8, #8
+ 891 0108 84F81B22 		strb	r2, [r4, #539]
+ 538:../Libraries/ROSSerial/ros/node_handle.h ****     message_out[5] = (uint8_t)((int16_t)id & 255);
+ 892              		.loc 4 538 0
+ 893 010c 1344     		add	r3, r3, r2
+ 894 010e DBB2     		uxtb	r3, r3
+ 895 0110 DB43     		mvns	r3, r3
+ 896 0112 84F81C32 		strb	r3, [r4, #540]
+ 539:../Libraries/ROSSerial/ros/node_handle.h ****     message_out[6] = (uint8_t)((int16_t)id >> 8);
+ 897              		.loc 4 539 0
+ 898 0116 0723     		movs	r3, #7
+ 899 0118 84F81D32 		strb	r3, [r4, #541]
+ 540:../Libraries/ROSSerial/ros/node_handle.h **** 
+ 900              		.loc 4 540 0
+ 901 011c 0023     		movs	r3, #0
+ 902 011e 84F81E32 		strb	r3, [r4, #542]
+ 903              	.LVL109:
+ 904              	.LBB112:
+ 544:../Libraries/ROSSerial/ros/node_handle.h ****       chk += message_out[i];
+ 905              		.loc 4 544 0
+ 906 0122 0522     		movs	r2, #5
+ 907              	.LVL110:
+ 908              	.L52:
+ 909 0124 C11D     		adds	r1, r0, #7
+ 910 0126 9142     		cmp	r1, r2
+ 911 0128 05DD     		ble	.L51
+ 545:../Libraries/ROSSerial/ros/node_handle.h ****     l += 7;
+ 912              		.loc 4 545 0
+ 913 012a A118     		adds	r1, r4, r2
+ 914 012c 91F81812 		ldrb	r1, [r1, #536]	@ zero_extendqisi2
+ 915 0130 0B44     		add	r3, r3, r1
+ 916              	.LVL111:
+ 544:../Libraries/ROSSerial/ros/node_handle.h ****       chk += message_out[i];
+ 917              		.loc 4 544 0
+ 918 0132 0132     		adds	r2, r2, #1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 33
+
+
+ 919              	.LVL112:
+ 920 0134 F6E7     		b	.L52
+ 921              	.L51:
+ 922              	.LVL113:
+ 923              	.LBE112:
+ 547:../Libraries/ROSSerial/ros/node_handle.h ****     //printf("Sending message - %s\n",message_out);
+ 924              		.loc 4 547 0
+ 925 0136 5A42     		rsbs	r2, r3, #0
+ 926              	.LVL114:
+ 927 0138 DBB2     		uxtb	r3, r3
+ 928              	.LVL115:
+ 929 013a D2B2     		uxtb	r2, r2
+ 930 013c 58BF     		it	pl
+ 931 013e 5342     		rsbpl	r3, r2, #0
+ 932 0140 00F10802 		add	r2, r0, #8
+ 933              	.LVL116:
+ 934 0144 DB43     		mvns	r3, r3
+ 935 0146 2144     		add	r1, r1, r4
+ 936 0148 81F81832 		strb	r3, [r1, #536]
+ 549:../Libraries/ROSSerial/ros/node_handle.h ****     {
+ 937              		.loc 4 549 0
+ 938 014c B2F5007F 		cmp	r2, #512
+ 939 0150 06DC     		bgt	.L53
+ 940              	.LVL117:
+ 941              	.LBB113:
+ 942              	.LBB114:
+ 943              		.loc 5 87 0
+ 944 0152 92B2     		uxth	r2, r2
+ 945              	.LVL118:
+ 946 0154 04F50671 		add	r1, r4, #536
+ 947              	.LVL119:
+ 948 0158 0020     		movs	r0, #0
+ 949              	.LVL120:
+ 950 015a FFF7FEFF 		bl	comSendBuf
+ 951              	.LVL121:
+ 952 015e 81E7     		b	.L47
+ 953              	.LVL122:
+ 954              	.L53:
+ 955              	.LBE114:
+ 956              	.LBE113:
+ 957              	.LBB115:
+ 958              	.LBB116:
+ 959              	.LBB117:
+ 960              	.LBB118:
+ 961              	.LBB119:
+  13:../Libraries/ROSSerial/rosserial_msgs/Log.h ****   {
+ 962              		.loc 1 13 0
+ 963 0160 0A4B     		ldr	r3, .L58+16
+ 964 0162 0493     		str	r3, [sp, #16]
+ 965              	.LVL123:
+ 966              	.LBE119:
+ 967              	.LBE118:
+ 569:../Libraries/ROSSerial/ros/node_handle.h ****     l.msg = (char*)msg;
+ 968              		.loc 4 569 0
+ 969 0164 0323     		movs	r3, #3
+ 970 0166 8DF81430 		strb	r3, [sp, #20]
+ 570:../Libraries/ROSSerial/ros/node_handle.h ****     publish1(rosserial_msgs::TopicInfo::ID_LOG, &l);
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 34
+
+
+ 971              		.loc 4 570 0
+ 972 016a 094B     		ldr	r3, .L58+20
+ 973 016c 0693     		str	r3, [sp, #24]
+ 974              		.loc 4 571 0
+ 975 016e 04AA     		add	r2, sp, #16
+ 976              	.LVL124:
+ 977 0170 0721     		movs	r1, #7
+ 978 0172 2046     		mov	r0, r4
+ 979              	.LVL125:
+ 980 0174 FFF7FEFF 		bl	_ZN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EE8publish1EiPKNS_3MsgE
+ 981              	.LVL126:
+ 982 0178 74E7     		b	.L47
+ 983              	.L59:
+ 984 017a 00BF     		.align	2
+ 985              	.L58:
+ 986 017c 08000000 		.word	_ZTVN8std_msgs6StringE+8
+ 987 0180 00000000 		.word	.LC8
+ 988 0184 00000000 		.word	.LANCHOR0
+ 989 0188 00000000 		.word	.LANCHOR2
+ 990 018c 08000000 		.word	_ZTVN14rosserial_msgs3LogE+8
+ 991 0190 00000000 		.word	.LC7
+ 992              	.LBE117:
+ 993              	.LBE116:
+ 994              	.LBE115:
+ 995              	.LBE111:
+ 996              	.LBE110:
+ 997              	.LBE107:
+ 998              	.LBE106:
+ 999              	.LBE105:
+ 1000              	.LBE120:
+ 1001              	.LBE121:
+ 1002              	.LBE98:
+ 1003              		.cfi_endproc
+ 1004              	.LFE473:
+ 1005              		.fnend
+ 1007              		.weak	_ZTVN14rosserial_msgs3LogE
+ 1008              		.section	.rodata._ZTVN14rosserial_msgs3LogE,"aG",%progbits,_ZTVN14rosserial_msgs3LogE,comdat
+ 1009              		.align	2
+ 1012              	_ZTVN14rosserial_msgs3LogE:
+ 1013 0000 00000000 		.word	0
+ 1014 0004 00000000 		.word	0
+ 1015 0008 00000000 		.word	_ZNK14rosserial_msgs3Log9serializeEPh
+ 1016 000c 00000000 		.word	_ZN14rosserial_msgs3Log11deserializeEPh
+ 1017 0010 00000000 		.word	_ZN14rosserial_msgs3Log7getTypeEv
+ 1018 0014 00000000 		.word	_ZN14rosserial_msgs3Log6getMD5Ev
+ 1019              		.weak	_ZTVN8std_msgs6StringE
+ 1020              		.section	.rodata._ZTVN8std_msgs6StringE,"aG",%progbits,_ZTVN8std_msgs6StringE,comdat
+ 1021              		.align	2
+ 1024              	_ZTVN8std_msgs6StringE:
+ 1025 0000 00000000 		.word	0
+ 1026 0004 00000000 		.word	0
+ 1027 0008 00000000 		.word	_ZNK8std_msgs6String9serializeEPh
+ 1028 000c 00000000 		.word	_ZN8std_msgs6String11deserializeEPh
+ 1029 0010 00000000 		.word	_ZN8std_msgs6String7getTypeEv
+ 1030 0014 00000000 		.word	_ZN8std_msgs6String6getMD5Ev
+ 1031              		.global	hello
+ 1032              		.section	.rodata
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 35
+
+
+ 1033              		.align	2
+ 1034              		.set	.LANCHOR1,. + 0
+ 1035              	.LC6:
+ 1036 0000 00000000 		.word	.LC0
+ 1037 0004 00000000 		.word	_Z23ROS_PublisheTaskHandlerPKv
+ 1038 0008 0000     		.short	0
+ 1039 000a 0000     		.space	2
+ 1040 000c 00000000 		.word	0
+ 1041 0010 80000000 		.word	128
+ 1042              		.section	.bss._ZL3nh_,"aw",%nobits
+ 1043              		.align	2
+ 1044              		.set	.LANCHOR0,. + 0
+ 1047              	_ZL3nh_:
+ 1048 0000 00000000 		.space	4
+ 1049              		.section	.data.hello,"aw",%progbits
+ 1050              		.align	2
+ 1051              		.set	.LANCHOR2,. + 0
+ 1054              	hello:
+ 1055 0000 68656C6C 		.ascii	"hello world!\000"
+ 1055      6F20776F 
+ 1055      726C6421 
+ 1055      00
+ 1056              		.section	.rodata._Z23ROS_PublisheTaskHandlerPKv.str1.4,"aMS",%progbits,1
+ 1057              		.align	2
+ 1058              	.LC8:
+ 1059 0000 63686174 		.ascii	"chatter\000"
+ 1059      74657200 
+ 1060              		.section	.rodata._ZN14rosserial_msgs3Log6getMD5Ev.str1.4,"aMS",%progbits,1
+ 1061              		.align	2
+ 1062              	.LC3:
+ 1063 0000 31316162 		.ascii	"11abd731c25933261cd6183bd12d6295\000"
+ 1063      64373331 
+ 1063      63323539 
+ 1063      33333236 
+ 1063      31636436 
+ 1064              		.section	.rodata._ZN14rosserial_msgs3Log7getTypeEv.str1.4,"aMS",%progbits,1
+ 1065              		.align	2
+ 1066              	.LC2:
+ 1067 0000 726F7373 		.ascii	"rosserial_msgs/Log\000"
+ 1067      65726961 
+ 1067      6C5F6D73 
+ 1067      67732F4C 
+ 1067      6F6700
+ 1068              		.section	.rodata._ZN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EE8publish1EiPKNS_3MsgE.st
+ 1069              		.align	2
+ 1070              	.LC7:
+ 1071 0000 4D657373 		.ascii	"Message from device dropped: message larger than bu"
+ 1071      61676520 
+ 1071      66726F6D 
+ 1071      20646576 
+ 1071      69636520 
+ 1072 0033 66666572 		.ascii	"ffer.\000"
+ 1072      2E00
+ 1073              		.section	.rodata._ZN8std_msgs6String6getMD5Ev.str1.4,"aMS",%progbits,1
+ 1074              		.align	2
+ 1075              	.LC5:
+ 1076 0000 39393263 		.ascii	"992ce8a1687cec8c8bd883ec73ca41d1\000"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 36
+
+
+ 1076      65386131 
+ 1076      36383763 
+ 1076      65633863 
+ 1076      38626438 
+ 1077              		.section	.rodata._ZN8std_msgs6String7getTypeEv.str1.4,"aMS",%progbits,1
+ 1078              		.align	2
+ 1079              	.LC4:
+ 1080 0000 7374645F 		.ascii	"std_msgs/String\000"
+ 1080      6D736773 
+ 1080      2F537472 
+ 1080      696E6700 
+ 1081              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 1082              		.align	2
+ 1083              	.LC0:
+ 1084 0000 524F535F 		.ascii	"ROS_PublisherTask\000"
+ 1084      5075626C 
+ 1084      69736865 
+ 1084      72546173 
+ 1084      6B00
+ 1085              		.text
+ 1086              	.Letext0:
+ 1087              		.file 7 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h
+ 1088              		.file 8 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
+ 1089              		.file 9 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
+ 1090              		.file 10 "../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h"
+ 1091              		.file 11 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
+ 1092              		.file 12 "Inc/FreeRTOSConfig.h"
+ 1093              		.file 13 "../Middlewares/FreeRTOS//Source/include/task.h"
+ 1094              		.file 14 "../Middlewares/FreeRTOS//Source/CMSIS_RTOS/cmsis_os.h"
+ 1095              		.file 15 "bsp/inc/bsp_uart_fifo.h"
+ 1096              		.file 16 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
+ 1097              		.file 17 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
+ 1098              		.file 18 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
+ 1099              		.file 19 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/cstdlib"
+ 1100              		.file 20 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/cmath"
+ 1101              		.file 21 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/cstring"
+ 1102              		.file 22 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/arm-none-ea
+ 1103              		.file 23 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdlib.h"
+ 1104              		.file 24 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/stdlib.h"
+ 1105              		.file 25 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/math.h"
+ 1106              		.file 26 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/math.h"
+ 1107              		.file 27 "<built-in>"
+ 1108              		.file 28 "../Libraries/ROSSerial/ros/msg.h"
+ 1109              		.file 29 "../Libraries/ROSSerial/ros.h"
+ 1110              		.file 30 "../Libraries/ROSSerial/rosserial_msgs/TopicInfo.h"
+ 1111              		.file 31 "../Libraries/ROSSerial/rosserial_msgs/RequestParam.h"
+ 1112              		.file 32 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/string.h"
+ 1113              		.file 33 "../Libraries/ROSSerial/std_msgs/Time.h"
+ 1114              		.file 34 "bsp/inc/bsp_led.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 37
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 publish_task.cpp
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:17     .text._ZN14rosserial_msgs3Log11deserializeEPh:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:24     .text._ZN14rosserial_msgs3Log11deserializeEPh:0000000000000000 _ZN14rosserial_msgs3Log11deserializeEPh
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:17     .text._ZN14rosserial_msgs3Log11deserializeEPh:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:24     .text._ZN14rosserial_msgs3Log11deserializeEPh:0000000000000000 _ZN14rosserial_msgs3Log11deserializeEPh
 .ARM.exidx.text._ZN14rosserial_msgs3Log11deserializeEPh:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:92     .text._ZN14rosserial_msgs3Log7getTypeEv:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:99     .text._ZN14rosserial_msgs3Log7getTypeEv:0000000000000000 _ZN14rosserial_msgs3Log7getTypeEv
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:115    .text._ZN14rosserial_msgs3Log7getTypeEv:0000000000000004 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:92     .text._ZN14rosserial_msgs3Log7getTypeEv:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:99     .text._ZN14rosserial_msgs3Log7getTypeEv:0000000000000000 _ZN14rosserial_msgs3Log7getTypeEv
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:115    .text._ZN14rosserial_msgs3Log7getTypeEv:0000000000000004 $d
 .ARM.exidx.text._ZN14rosserial_msgs3Log7getTypeEv:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:122    .text._ZN14rosserial_msgs3Log6getMD5Ev:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:129    .text._ZN14rosserial_msgs3Log6getMD5Ev:0000000000000000 _ZN14rosserial_msgs3Log6getMD5Ev
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:145    .text._ZN14rosserial_msgs3Log6getMD5Ev:0000000000000004 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:122    .text._ZN14rosserial_msgs3Log6getMD5Ev:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:129    .text._ZN14rosserial_msgs3Log6getMD5Ev:0000000000000000 _ZN14rosserial_msgs3Log6getMD5Ev
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:145    .text._ZN14rosserial_msgs3Log6getMD5Ev:0000000000000004 $d
 .ARM.exidx.text._ZN14rosserial_msgs3Log6getMD5Ev:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:152    .text._ZN8std_msgs6String11deserializeEPh:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:159    .text._ZN8std_msgs6String11deserializeEPh:0000000000000000 _ZN8std_msgs6String11deserializeEPh
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:152    .text._ZN8std_msgs6String11deserializeEPh:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:159    .text._ZN8std_msgs6String11deserializeEPh:0000000000000000 _ZN8std_msgs6String11deserializeEPh
 .ARM.exidx.text._ZN8std_msgs6String11deserializeEPh:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:223    .text._ZN8std_msgs6String7getTypeEv:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:230    .text._ZN8std_msgs6String7getTypeEv:0000000000000000 _ZN8std_msgs6String7getTypeEv
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:246    .text._ZN8std_msgs6String7getTypeEv:0000000000000004 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:223    .text._ZN8std_msgs6String7getTypeEv:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:230    .text._ZN8std_msgs6String7getTypeEv:0000000000000000 _ZN8std_msgs6String7getTypeEv
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:246    .text._ZN8std_msgs6String7getTypeEv:0000000000000004 $d
 .ARM.exidx.text._ZN8std_msgs6String7getTypeEv:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:253    .text._ZN8std_msgs6String6getMD5Ev:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:260    .text._ZN8std_msgs6String6getMD5Ev:0000000000000000 _ZN8std_msgs6String6getMD5Ev
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:276    .text._ZN8std_msgs6String6getMD5Ev:0000000000000004 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:253    .text._ZN8std_msgs6String6getMD5Ev:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:260    .text._ZN8std_msgs6String6getMD5Ev:0000000000000000 _ZN8std_msgs6String6getMD5Ev
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:276    .text._ZN8std_msgs6String6getMD5Ev:0000000000000004 $d
 .ARM.exidx.text._ZN8std_msgs6String6getMD5Ev:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:283    .text._ZNK8std_msgs6String9serializeEPh:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:290    .text._ZNK8std_msgs6String9serializeEPh:0000000000000000 _ZNK8std_msgs6String9serializeEPh
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:283    .text._ZNK8std_msgs6String9serializeEPh:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:290    .text._ZNK8std_msgs6String9serializeEPh:0000000000000000 _ZNK8std_msgs6String9serializeEPh
 .ARM.exidx.text._ZNK8std_msgs6String9serializeEPh:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:335    .text._ZNK14rosserial_msgs3Log9serializeEPh:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:342    .text._ZNK14rosserial_msgs3Log9serializeEPh:0000000000000000 _ZNK14rosserial_msgs3Log9serializeEPh
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:335    .text._ZNK14rosserial_msgs3Log9serializeEPh:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:342    .text._ZNK14rosserial_msgs3Log9serializeEPh:0000000000000000 _ZNK14rosserial_msgs3Log9serializeEPh
 .ARM.exidx.text._ZNK14rosserial_msgs3Log9serializeEPh:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:391    .text._Z23ROS_PublisheTaskHandlerPKv:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:398    .text._Z23ROS_PublisheTaskHandlerPKv:0000000000000000 _Z23ROS_PublisheTaskHandlerPKv
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:661    .text._Z23ROS_PublisheTaskHandlerPKv:0000000000000118 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:765    .rodata._ZTVN8std_msgs6StringE:0000000000000000 _ZTVN8std_msgs6StringE
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:753    .rodata._ZTVN14rosserial_msgs3LogE:0000000000000000 _ZTVN14rosserial_msgs3LogE
-.ARM.exidx.text._Z23ROS_PublisheTaskHandlerPKv:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:676    .text._Z15publishInitTaskPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:683    .text._Z15publishInitTaskPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:0000000000000000 _Z15publishInitTaskPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:742    .text._Z15publishInitTaskPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:0000000000000028 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:391    .text._Z15publishInitTaskPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:398    .text._Z15publishInitTaskPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:0000000000000000 _Z15publishInitTaskPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:458    .text._Z15publishInitTaskPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:0000000000000028 $d
 .ARM.exidx.text._Z15publishInitTaskPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:750    .rodata._ZTVN14rosserial_msgs3LogE:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:762    .rodata._ZTVN8std_msgs6StringE:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:795    .data.hello:0000000000000000 hello
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:774    .rodata:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:784    .bss._ZL3nh_:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:788    .bss._ZL3nh_:0000000000000000 _ZL3nh_
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:791    .data.hello:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:798    .rodata._Z23ROS_PublisheTaskHandlerPKv.str1.4:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:814    .rodata._ZN14rosserial_msgs3Log6getMD5Ev.str1.4:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:818    .rodata._ZN14rosserial_msgs3Log7getTypeEv.str1.4:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:822    .rodata._ZN8std_msgs6String6getMD5Ev.str1.4:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:826    .rodata._ZN8std_msgs6String7getTypeEv.str1.4:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s:830    .rodata.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:465    .text._ZN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EE8publish1EiPKNS_3MsgE:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:472    .text._ZN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EE8publish1EiPKNS_3MsgE:0000000000000000 _ZN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EE8publish1EiPKNS_3MsgE
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:639    .text._ZN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EE8publish1EiPKNS_3MsgE:00000000000000b8 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:1012   .rodata._ZTVN14rosserial_msgs3LogE:0000000000000000 _ZTVN14rosserial_msgs3LogE
+.ARM.exidx.text._ZN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EE8publish1EiPKNS_3MsgE:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:646    .text._Z23ROS_PublisheTaskHandlerPKv:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:653    .text._Z23ROS_PublisheTaskHandlerPKv:0000000000000000 _Z23ROS_PublisheTaskHandlerPKv
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:986    .text._Z23ROS_PublisheTaskHandlerPKv:000000000000017c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:1024   .rodata._ZTVN8std_msgs6StringE:0000000000000000 _ZTVN8std_msgs6StringE
+.ARM.exidx.text._Z23ROS_PublisheTaskHandlerPKv:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:1009   .rodata._ZTVN14rosserial_msgs3LogE:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:1021   .rodata._ZTVN8std_msgs6StringE:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:1054   .data.hello:0000000000000000 hello
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:1033   .rodata:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:1043   .bss._ZL3nh_:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:1047   .bss._ZL3nh_:0000000000000000 _ZL3nh_
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:1050   .data.hello:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:1057   .rodata._Z23ROS_PublisheTaskHandlerPKv.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:1061   .rodata._ZN14rosserial_msgs3Log6getMD5Ev.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:1065   .rodata._ZN14rosserial_msgs3Log7getTypeEv.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:1069   .rodata._ZN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EE8publish1EiPKNS_3MsgE.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:1074   .rodata._ZN8std_msgs6String6getMD5Ev.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:1078   .rodata._ZN8std_msgs6String7getTypeEv.str1.4:0000000000000000 $d
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s 			page 38
+
+
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc7viDjc.s:1082   .rodata.str1.4:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 strlen
 memcpy
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cceoFfry.s 			page 34
-
-
+osThreadCreate
+__aeabi_unwind_cpp_pr0
 comSendBuf
 osDelay
 bsp_LedToggle
-puts
-printf
-__aeabi_unwind_cpp_pr0
-osThreadCreate

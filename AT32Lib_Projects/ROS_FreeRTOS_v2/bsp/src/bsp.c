@@ -44,7 +44,8 @@ void bsp_Init(void)
      */
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);
 
-	bsp_InitUart(); 	/* initialize USART1 */
+  UART_Print_Init(115200); /* enable print on USART3 */
+	bsp_InitUart(); 	/* initialize USART2 */
 	bsp_InitLed(); 		/* initialize LED */
 	bsp_InitKey();		/* initialize KEY */
   bsp_InitHardTimer();/* initialize TMR2 */

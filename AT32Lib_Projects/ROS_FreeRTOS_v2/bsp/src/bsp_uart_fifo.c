@@ -236,7 +236,7 @@ void bsp_SetUart1Baud(uint32_t _baud)
 	USART_InitStructure.USART_Parity        = USART_Parity_No ;
 	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
 	USART_InitStructure.USART_Mode                  = USART_Mode_Rx | USART_Mode_Tx;
-	USART_Init(AT32_PRINT_UART, &USART_InitStructure);
+	USART_Init(UART1_PORT, &USART_InitStructure);
 }
 
 /**
@@ -247,7 +247,7 @@ void bsp_SetUart1Baud(uint32_t _baud)
 static void UartVarInit(void)
 {
 #if UART1_FIFO_EN == 1
-	g_tUart1.uart           = AT32_PRINT_UART;						
+	g_tUart1.uart           = UART1_PORT;						
 	g_tUart1.pTxBuf         = g_TxBuf1;					
 	g_tUart1.pRxBuf         = g_RxBuf1;					
 	g_tUart1.usTxBufSize    = UART1_TX_BUF_SIZE;	
@@ -275,8 +275,39 @@ static void InitHardUart(void)
 	USART_InitType USART_InitStructure;
 
 #if UART1_FIFO_EN == 1	
-	UART_Print_Init(UART1_BAUD);
-	USART_ClearFlag(AT32_PRINT_UART, USART_FLAG_TRAC);     /* clear Transmission Complete flag */
+    /*Enable the UART Clock*/
+    RCC_APB2PeriphClockCmd(UART1_TX_GPIO_RCC | UART1_RX_GPIO_RCC, ENABLE);
+    RCC_APB1PeriphClockCmd(UART1_RCC, ENABLE);
+
+    /* Configure the UART RX pin */
+    GPIO_StructInit(&GPIO_InitStructure);
+    GPIO_InitStructure.GPIO_Pins = UART1_TX_PIN;
+    GPIO_InitStructure.GPIO_MaxSpeed = GPIO_MaxSpeed_50MHz;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+    GPIO_Init(UART1_TX_GPIO, &GPIO_InitStructure);
+
+    /* Configure the UART TX pin */
+    GPIO_InitStructure.GPIO_Pins = UART1_RX_PIN;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+    GPIO_Init(UART1_RX_GPIO, &GPIO_InitStructure);
+
+    /*Configure UART param*/
+    USART_StructInit(&USART_InitStructure);
+    USART_InitStructure.USART_BaudRate = UART1_BAUD;
+    USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+    USART_InitStructure.USART_StopBits = USART_StopBits_1;
+    USART_InitStructure.USART_Parity = USART_Parity_No;
+    USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+    USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
+
+  /* Enable USART2 Receive and Transmit interrupts */
+    USART_Init(UART1_PORT, &USART_InitStructure);
+    USART_INTConfig(UART1_PORT, USART_INT_RDNE, ENABLE);
+    USART_INTConfig(UART1_PORT, USART_INT_TDE, ENABLE);
+
+    USART_Cmd(UART1_PORT, ENABLE);
+
+	USART_ClearFlag(UART1_PORT, USART_FLAG_TRAC);     /* clear Transmission Complete flag */
 #endif
 }
 
@@ -288,9 +319,9 @@ static void InitHardUart(void)
 static void ConfigUartNVIC(void)
 {
 	NVIC_InitType NVIC_InitStructure;
-
+	
 #if UART1_FIFO_EN == 1
-    NVIC_InitStructure.NVIC_IRQChannel                      = USARTx_IRQn;  
+	NVIC_InitStructure.NVIC_IRQChannel                      = UART1_IRQ;  
     NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority    = 1;
     NVIC_InitStructure.NVIC_IRQChannelSubPriority           = 0;
     NVIC_InitStructure.NVIC_IRQChannelCmd                   = ENABLE;
@@ -482,20 +513,20 @@ void USARTx_IRQ_Handler(void)
 //#endif
 //}
 
-int fgetc(FILE *f)
-{
-#if 1	
-	uint8_t ucData;
+// int fgetc(FILE *f)
+// {
+// #if 1	
+// 	uint8_t ucData;
 
-	while(comGetChar(COM1, &ucData) == 0);
+// 	while(comGetChar(COM1, &ucData) == 0);
 
-	return ucData;
-#else
-	while (USART_GetFlagStatus(AT32_PRINT_UART, USART_FLAG_RXNE) == RESET);
+// 	return ucData;
+// #else
+// 	while (USART_GetFlagStatus(AT32_PRINT_UART, USART_FLAG_RXNE) == RESET);
 
-	return (int)USART_ReceiveData(AT32_PRINT_UART);
-#endif
-}
+// 	return (int)USART_ReceiveData(AT32_PRINT_UART);
+// #endif
+// }
 
 /**
   * @}

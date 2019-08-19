@@ -71,7 +71,7 @@ public:
 		if(comGetChar(COM1,&ucData) == 0) {
 			return -1;
 		}
-		printf("Got %c\n",ucData);
+		//printf("Got %c\n",ucData);
 		return ucData;
 	}
 
