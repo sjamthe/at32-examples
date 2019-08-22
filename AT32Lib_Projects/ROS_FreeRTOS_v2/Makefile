@@ -147,14 +147,16 @@ CXX_INCLUDES =  \
 -I../Libraries/ROSSerial/std_msgs \
 -IROSTasks/Inc
 
-C_INCLUDES += $(CXX_INCLUDES)
-
+#C_INCLUDES += $(CXX_INCLUDES)
+# 
 # compile gcc flags
 ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
 
 CFLAGS = $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
 
-CXXFLAGS = $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections -fpermissive -fno-rtti
+CXXFLAGS = $(MCU) $(C_DEFS) $(C_INCLUDES) $(CXX_INCLUDES) $(OPT) -Wall  -fno-rtti
+CXXFLAGS += -fdata-sections -ffunction-sections -fpermissive
+#CXXFLAGS += -fPIC -Wshadow  
 
 ifeq ($(DEBUG), 1)
 CFLAGS += -g2  -gdwarf-2 
@@ -166,6 +168,7 @@ endif
 
 # Generate dependency information
 CFLAGS += -MMD -MP -MF"$(@:%.o=%.d)"
+# CXXFLAGS += -MMD -MP -MF"$(@:%.o=%.d)"
 
 
 #######################################

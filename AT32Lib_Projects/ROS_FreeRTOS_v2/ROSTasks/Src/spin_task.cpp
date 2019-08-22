@@ -22,7 +22,7 @@ void ROS_SpinTaskHandler(void const * argument)
   {
 	//bsp_LedToggle(2);
 	//printf("This is spin Task\r\n");
-	osDelay(1000);
+	osDelay(333);
 	nh_->spinOnce1(); //calling spinOnce() directly give stackoverflow
   }
   /* USER CODE END ROS_SpinTaskHandler */
@@ -39,7 +39,7 @@ uint32_t rosSpinTaskInit(ros::NodeHandle *nh)
 	nh_ = nh;
 
 	/* definition and creation of ROS_SpinTask */
-	osThreadDef(ROS_SpinTask, ROS_SpinTaskHandler, osPriorityIdle, 0, 128);
+	osThreadDef(ROS_SpinTask, ROS_SpinTaskHandler, osPriorityNormal, 0, 128); //osPriorityIdle
 	ROS_SpinTaskHandle = osThreadCreate(osThread(ROS_SpinTask), NULL);
 	if (NULL == ROS_SpinTaskHandle)
 	{

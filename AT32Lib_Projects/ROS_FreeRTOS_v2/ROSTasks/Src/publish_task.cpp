@@ -23,15 +23,16 @@ void ROS_PublisheTaskHandler(void const * argument)
   /* Infinite loop */
   for(;;)
   {
+	  //bsp_LedToggle(2);
+	  sprintf(hello, "LedState[2] is %d",bsp_LedState(2));
 	  str_msg.data = hello;
-	  bsp_LedToggle(2);
 	  //printf("nh_ = %x, id_=%d\n",nh_,chatter.id_);
 	  //chatter.publish( &str_msg ); //didn't work.
 	   int ret = nh_->publish1(chatter.id_, &str_msg); //publish() doesn't work same like spinOnce() but publish1 works
 	   if(ret <=0) {
 		   //printf("Failed to publish %d\n",ret);
 	   }
-	  osDelay(1500);
+	  osDelay(2000);
   }
 
   /* USER CODE END ROS_PublisheTaskHandler */

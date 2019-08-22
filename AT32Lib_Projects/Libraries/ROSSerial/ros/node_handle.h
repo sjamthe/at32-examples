@@ -60,6 +60,10 @@ public:
 #include "ros/subscriber.h"
 #include "ros/service_server.h"
 #include "ros/service_client.h"
+#include "std_msgs/UInt16.h"
+
+
+extern void led_cb(unsigned char*);
 
 namespace ros
 {
@@ -70,6 +74,7 @@ const int SPIN_TIMEOUT = -2;
 
 const uint8_t SYNC_SECONDS  = 5;
 const uint8_t MODE_FIRST_FF = 0;
+
 /*
  * The second sync byte is a protocol version. It's value is 0xff for the first
  * version of the rosserial protocol (used up to hydro), 0xfe for the second version
@@ -350,7 +355,8 @@ public:
           else
           {
             if (subscribers[topic_ - 100])
-              subscribers[topic_ - 100]->callback(message_in);
+              //subscribers[topic_ - 100]->callback(message_in);
+              led_cb( message_in);
           }
         }
       }
@@ -451,6 +457,7 @@ public:
     return false;
   }
 
+
   /* Register a new Service Server */
   template<typename MReq, typename MRes, typename ObjT>
   bool advertiseService(ServiceServer<MReq, MRes, ObjT>& srv)
@@ -506,11 +513,12 @@ public:
       if (subscribers[i] != 0) // non-empty slot
       {
         ti.topic_id = subscribers[i]->id_;
-        ti.topic_name = (char *) subscribers[i]->topic_;
-        ti.message_type = (char *) subscribers[i]->getMsgType();
-        ti.md5sum = (char *) subscribers[i]->getMsgMD5();
+        ti.topic_name = "led"; //(char *) subscribers[i]->topic_;
+        ti.message_type = "std_msgs/UInt16" ; //(char *) subscribers[i]->getMsgType();
+        ti.md5sum = "1df79edf208b629fe6b81923a544552d"; // (char *) subscribers[i]->getMsgMD5();
         ti.buffer_size = INPUT_SIZE;
-        publish1(subscribers[i]->getEndpointType(), &ti);
+        publish1(rosserial_msgs::TopicInfo::ID_SUBSCRIBER, &ti);
+        //publish1(subscribers[i]->getEndpointType(), &ti);
       }
     }
     configured_ = true;

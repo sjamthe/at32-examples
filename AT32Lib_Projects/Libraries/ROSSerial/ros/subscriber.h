@@ -62,10 +62,12 @@ class Subscriber: public Subscriber_
 public:
   typedef void(ObjT::*CallbackT)(const MsgT&);
   MsgT msg;
+  const char * topic_;
 
   Subscriber(const char * topic_name, CallbackT cb, ObjT* obj, int endpoint = rosserial_msgs::TopicInfo::ID_SUBSCRIBER) :
     cb_(cb),
     obj_(obj),
+    topic_(topic_name),
     endpoint_(endpoint)
   {
     topic_ = topic_name;
@@ -74,7 +76,7 @@ public:
   virtual void callback(unsigned char* data)
   {
     msg.deserialize(data);
-    (obj_->*cb_)(msg);
+    obj_->*cb_(msg);
   }
 
   virtual const char * getMsgType()
@@ -103,6 +105,7 @@ class Subscriber<MsgT, void>: public Subscriber_
 public:
   typedef void(*CallbackT)(const MsgT&);
   MsgT msg;
+  const char * topic_;
 
   Subscriber(const char * topic_name, CallbackT cb, int endpoint = rosserial_msgs::TopicInfo::ID_SUBSCRIBER) :
     cb_(cb),

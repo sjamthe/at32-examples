@@ -25,6 +25,7 @@
 #include "subscribe_task.h"
 #include "heartbeat_task.h"
 
+uint32_t rosListenerInitTask(ros::NodeHandle *nh);
 
 #ifdef __cplusplus
 extern "C"
@@ -93,13 +94,13 @@ int main(void)
         while(1);
     }
 
-    // if(rosSubscribeInitTask(&nh))
-    // {
-    //     /* task is not created */
-    //     while(1);
-    // }
-
     if(publishInitTask(&nh))
+    {
+        /* task is not created */
+        while(1);
+    }
+    
+    if(rosSubscribeInitTask(&nh))
     {
         /* task is not created */
         while(1);
@@ -117,7 +118,7 @@ int main(void)
 	//AppTaskCreate();
 
     /* Application communication mechanism created */
-	AppObjCreate();
+	//AppObjCreate();
 	
     /* Start the created tasks running */
     vTaskStartScheduler();
