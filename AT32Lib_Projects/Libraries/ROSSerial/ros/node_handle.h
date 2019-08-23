@@ -100,6 +100,17 @@ const uint8_t SERIAL_MSG_TIMEOUT  = 20;   // 20 milliseconds to recieve all of m
 
 using rosserial_msgs::TopicInfo;
 
+typedef struct
+{
+    uint16_t topic_id;
+    const char* topic_name;
+    const char* message_type;
+    const char* md5sum;
+    void (*callback)(const Msg& );
+    //void * callback;
+} SubscriberType;
+
+
 /* Node Handle */
 template<class Hardware,
          int MAX_SUBSCRIBERS = 25,
@@ -125,6 +136,7 @@ protected:
 
   Publisher * publishers[MAX_PUBLISHERS];
   Subscriber_ * subscribers[MAX_SUBSCRIBERS];
+  SubscriberType subscribers2[MAX_SUBSCRIBERS];
 
   /*
    * Setup Functions
@@ -136,8 +148,10 @@ public:
     for (unsigned int i = 0; i < MAX_PUBLISHERS; i++)
       publishers[i] = 0;
 
-    for (unsigned int i = 0; i < MAX_SUBSCRIBERS; i++)
+    for (unsigned int i = 0; i < MAX_SUBSCRIBERS; i++) {
       subscribers[i] = 0;
+      subscribers2[i].topic_id = 0;
+    }
 
     for (unsigned int i = 0; i < INPUT_SIZE; i++)
       message_in[i] = 0;
@@ -221,6 +235,8 @@ public:
 //calling spinOnce() directly from spin_task gives stackoverflow
   int spinOnce1()
   {
+    static void (*s_CallBack)(char *);
+    
     //printf("spinOnce\n");
     /* restart if timed out */
     uint32_t c_time = hardware_.time();
@@ -354,9 +370,11 @@ public:
           }
           else
           {
-            if (subscribers[topic_ - 100])
+            if (subscribers2[topic_ - 100].topic_id != 0) {
               //subscribers[topic_ - 100]->callback(message_in);
-              led_cb( message_in);
+              s_CallBack = (void (*)(void))subscribers2[topic_ - 100].callback;
+              s_CallBack(message_in);
+            }
           }
         }
       }
@@ -457,6 +475,20 @@ public:
     return false;
   }
 
+  bool addSubscriber(SubscriberType sub)
+  {
+    for (int i = 0; i < MAX_SUBSCRIBERS; i++)
+    {
+      if (subscribers2[i].topic_id == 0) {// empty slot}
+        void * ptr = &subscribers2[i];
+        memcpy(ptr, &sub, sizeof(sub));
+        subscribers2[i].topic_id = i + 100;
+        
+        return true;
+      }
+    }
+    return false;
+  }
 
   /* Register a new Service Server */
   template<typename MReq, typename MRes, typename ObjT>
@@ -510,15 +542,21 @@ public:
     }
     for (i = 0; i < MAX_SUBSCRIBERS; i++)
     {
-      if (subscribers[i] != 0) // non-empty slot
+      if (subscribers2[i].topic_id != 0) // non-empty slot
       {
-        ti.topic_id = subscribers[i]->id_;
-        ti.topic_name = "led"; //(char *) subscribers[i]->topic_;
-        ti.message_type = "std_msgs/UInt16" ; //(char *) subscribers[i]->getMsgType();
-        ti.md5sum = "1df79edf208b629fe6b81923a544552d"; // (char *) subscribers[i]->getMsgMD5();
+        // ti.topic_id = subscribers[i]->id_;
+        // ti.topic_name = "led"; //(char *) subscribers[i]->topic_;
+        // ti.message_type = "std_msgs/UInt16" ; //(char *) subscribers[i]->getMsgType();
+        // ti.md5sum = "1df79edf208b629fe6b81923a544552d"; // (char *) subscribers[i]->getMsgMD5();
+        // ti.buffer_size = INPUT_SIZE;
+        // publish1(rosserial_msgs::TopicInfo::ID_SUBSCRIBER, &ti);
+
+        ti.topic_id = subscribers2[i].topic_id;
+        ti.topic_name = subscribers2[i].topic_name;
+        ti.message_type = subscribers2[i].message_type;
+        ti.md5sum = subscribers2[i].md5sum;
         ti.buffer_size = INPUT_SIZE;
         publish1(rosserial_msgs::TopicInfo::ID_SUBSCRIBER, &ti);
-        //publish1(subscribers[i]->getEndpointType(), &ti);
       }
     }
     configured_ = true;

@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccwv6xDC.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s 			page 1
   30:bsp/src/bsp_led.c **** /** @addtogroup FreeRTOS_ResManagement_SafelyPrint
   31:bsp/src/bsp_led.c ****   * @{
   32:bsp/src/bsp_led.c ****   */ 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s 			page 2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccwv6xDC.s 			page 2
 
 
   33:bsp/src/bsp_led.c ****   
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s 			page 1
   31              		@ link register save eliminated.
   32              	.LVL0:
   83:bsp/src/bsp_led.c **** 	switch(_no)
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s 			page 3
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccwv6xDC.s 			page 3
 
 
   33              		.loc 1 83 0
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s 			page 1
   63              		.loc 1 92 0
   64 0030 7047     		bx	lr
   65              	.L4:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s 			page 4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccwv6xDC.s 			page 4
 
 
   94:bsp/src/bsp_led.c **** 			ledState[_no] = 1;
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s 			page 1
  114:bsp/src/bsp_led.c **** 			ledState[_no] = 0;
  115:bsp/src/bsp_led.c **** 		    break;
  116:bsp/src/bsp_led.c **** 		case 3:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s 			page 5
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccwv6xDC.s 			page 5
 
 
  117:bsp/src/bsp_led.c **** 		    LED3_GPIO->BRE = LED3_PIN;
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s 			page 1
  143              	.L16:
  144              		.align	2
  145              	.L15:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s 			page 6
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccwv6xDC.s 			page 6
 
 
  146 0044 00100140 		.word	1073811456
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s 			page 1
   59:bsp/src/bsp_led.c **** 	GPIO_Init(LED2_GPIO, &GPIO_InitStructure);
  196              		.loc 1 59 0
  197 0028 02AC     		add	r4, sp, #8
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s 			page 7
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccwv6xDC.s 			page 7
 
 
  198 002a 4FF40053 		mov	r3, #8192
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s 			page 1
  241 0076 1A61     		str	r2, [r3, #16]
   74:bsp/src/bsp_led.c **** 
  242              		.loc 1 74 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s 			page 8
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccwv6xDC.s 			page 8
 
 
  243 0078 02B0     		add	sp, sp, #8
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s 			page 1
  147:bsp/src/bsp_led.c **** 	    case 2:
  148:bsp/src/bsp_led.c **** 		    LED2_GPIO->OPTDT ^= LED2_PIN;
  149:bsp/src/bsp_led.c **** 			ledState[_no] = (ledState[_no]) ? 0:1;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s 			page 9
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccwv6xDC.s 			page 9
 
 
  150:bsp/src/bsp_led.c **** 		    break;
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s 			page 1
  313 0048 D368     		ldr	r3, [r2, #12]
  314 004a 83F40043 		eor	r3, r3, #32768
  315 004e D360     		str	r3, [r2, #12]
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s 			page 10
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccwv6xDC.s 			page 10
 
 
  157:bsp/src/bsp_led.c **** 		    break;
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s 			page 1
  366      00000000 
  366      00000000 
  367              		.text
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s 			page 11
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccwv6xDC.s 			page 11
 
 
  368              	.Letext0:
@@ -615,28 +615,28 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s 			page 1
  379              		.file 12 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
  380              		.file 13 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdlib.h"
  381              		.file 14 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_rcc.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s 			page 12
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccwv6xDC.s 			page 12
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 bsp_led.c
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s:17     .text.bsp_LedOn:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s:24     .text.bsp_LedOn:0000000000000000 bsp_LedOn
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s:79     .text.bsp_LedOn:0000000000000044 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s:85     .text.bsp_LedOff:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s:92     .text.bsp_LedOff:0000000000000000 bsp_LedOff
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s:146    .text.bsp_LedOff:0000000000000044 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s:152    .text.bsp_InitLed:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s:159    .text.bsp_InitLed:0000000000000000 bsp_InitLed
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s:251    .text.bsp_InitLed:000000000000007c $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s:257    .text.bsp_LedToggle:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s:264    .text.bsp_LedToggle:0000000000000000 bsp_LedToggle
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s:327    .text.bsp_LedToggle:0000000000000064 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s:333    .text.bsp_LedState:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s:340    .text.bsp_LedState:0000000000000000 bsp_LedState
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s:356    .text.bsp_LedState:0000000000000008 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s:361    .bss.ledState:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccjdBEyB.s:365    .bss.ledState:0000000000000000 ledState
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccwv6xDC.s:17     .text.bsp_LedOn:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccwv6xDC.s:24     .text.bsp_LedOn:0000000000000000 bsp_LedOn
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccwv6xDC.s:79     .text.bsp_LedOn:0000000000000044 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccwv6xDC.s:85     .text.bsp_LedOff:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccwv6xDC.s:92     .text.bsp_LedOff:0000000000000000 bsp_LedOff
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccwv6xDC.s:146    .text.bsp_LedOff:0000000000000044 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccwv6xDC.s:152    .text.bsp_InitLed:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccwv6xDC.s:159    .text.bsp_InitLed:0000000000000000 bsp_InitLed
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccwv6xDC.s:251    .text.bsp_InitLed:000000000000007c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccwv6xDC.s:257    .text.bsp_LedToggle:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccwv6xDC.s:264    .text.bsp_LedToggle:0000000000000000 bsp_LedToggle
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccwv6xDC.s:327    .text.bsp_LedToggle:0000000000000064 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccwv6xDC.s:333    .text.bsp_LedState:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccwv6xDC.s:340    .text.bsp_LedState:0000000000000000 bsp_LedState
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccwv6xDC.s:356    .text.bsp_LedState:0000000000000008 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccwv6xDC.s:361    .bss.ledState:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccwv6xDC.s:365    .bss.ledState:0000000000000000 ledState
 
 UNDEFINED SYMBOLS
 RCC_APB2PeriphClockCmd

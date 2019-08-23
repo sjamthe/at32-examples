@@ -11,16 +11,12 @@
 
 static ros::NodeHandle *nh_;
 
-//void led_cb(const std_msgs::UInt16& cmd_msg);
 void led_cb(unsigned char* cmd_msg);
 
-ros::Subscriber<std_msgs::UInt16> sub_led("led", led_cb);
-
-QueueHandle_t subscribeQueueHandle;
+//QueueHandle_t subscribeQueueHandle;
 
 static int useLed = 3;
 
-//void led_cb(const std_msgs::UInt16& cmd_msg)
 void led_cb(unsigned char* msg)
 {
 	const std_msgs::UInt16 cmd_msg;
@@ -39,7 +35,6 @@ void ROS_SubscribeTaskHandler(void const * argument)
 {
 
   /* USER CODE BEGIN ROS_SpinTaskHandler */
-  static uint16_t ledState = 0;
 
   /* Infinite loop */
   for(;;)
@@ -67,9 +62,19 @@ uint32_t rosSubscribeInitTask(ros::NodeHandle *nh)
 {
 
 	osThreadId ROS_SubscribeTaskHandle;
+	ros::SubscriberType sub ;
 
 	nh_ = nh;
-	nh_->subscribe(sub_led);
+	//nh_->subscribe(sub_led);
+
+	const std_msgs::UInt16 msg;
+	sub.topic_name = "led";
+	sub.message_type = msg.getType();
+	sub.md5sum = msg.getMD5();
+	sub.callback = led_cb;
+	
+	nh_->addSubscriber(sub);
+	
 	osDelay(10);
 
 	/* Create the queue(s) */

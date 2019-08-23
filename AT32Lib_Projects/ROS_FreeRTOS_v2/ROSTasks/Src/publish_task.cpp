@@ -10,7 +10,7 @@
 
 static ros::NodeHandle *nh_;
 
-char hello[] = "hello world!";
+char hello[255];
 
 void ROS_PublisheTaskHandler(void const * argument)
 {
