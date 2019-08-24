@@ -30,17 +30,27 @@ int main(void)
   int i=0;
   char buf[512];
   uint8_t ch;
+  int written = 0;
   while (1)
   {
     Delay_ms(1000);
     i++;
-    sprintf(buf,"Testing %d\n",i);
+    if(i == 0) {
+      sprintf(buf,"Testing %d\n",i);
+    }
     comSendBuf(TESTCOM, buf, strlen(buf));
-    while(comGetChar(TESTCOM, &ch) == 1) {
-      comSendChar(TESTCOM, ch);
+
+    written = 0;
+    int j=0;
+    while(comGetChar(COM2, &ch) == 1) {
+      comSendChar(COM2, ch);
+      buf[j++] = ch;
+      written = 1;
     }
 
-    comSendChar(TESTCOM,'\n');
+    if(written) {
+      comSendChar(COM2,'\n');
+    }
   }
 
 }

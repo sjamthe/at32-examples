@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -56,9 +56,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 1
   29:bsp/src/bsp_uart_fifo.c **** static void UartIRQ(UART_T *_pUart);
   30:bsp/src/bsp_uart_fifo.c **** static void ConfigUartNVIC(void);
   31:bsp/src/bsp_uart_fifo.c **** 
-  32:bsp/src/bsp_uart_fifo.c **** //#define ENABLE_COM2
+  32:bsp/src/bsp_uart_fifo.c **** #define ENABLE_COM2
   33:bsp/src/bsp_uart_fifo.c **** #define ENABLE_COM3
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 2
 
 
   34:bsp/src/bsp_uart_fifo.c **** 
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 1
   88:bsp/src/bsp_uart_fifo.c ****  * @brief   send data to TX FIFO,and in fact send out data by ISR
   89:bsp/src/bsp_uart_fifo.c ****  * @param   _ucPort: serial number that send the data           
   90:bsp/src/bsp_uart_fifo.c ****                 COM2
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 3
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 3
 
 
   91:bsp/src/bsp_uart_fifo.c ****                 COM3
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 1
  145:bsp/src/bsp_uart_fifo.c **** 	}
  146:bsp/src/bsp_uart_fifo.c **** 
  147:bsp/src/bsp_uart_fifo.c **** 	return UartGetChar(pUart, _pByte);
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 4
 
 
  148:bsp/src/bsp_uart_fifo.c **** }
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 1
  202:bsp/src/bsp_uart_fifo.c **** 	UART_T *pUart;
  203:bsp/src/bsp_uart_fifo.c **** 
  204:bsp/src/bsp_uart_fifo.c **** 	pUart = ComToUart(_ucPort);
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 5
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 5
 
 
  205:bsp/src/bsp_uart_fifo.c **** 	if (pUart == 0)
@@ -273,96 +273,132 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 1
   30              		@ link register save eliminated.
  230:bsp/src/bsp_uart_fifo.c **** #ifdef ENABLE_COM2 
  231:bsp/src/bsp_uart_fifo.c **** 		g_tUart1.uart           = USART2;
+  31              		.loc 1 231 0
+  32 0000 134A     		ldr	r2, .L2
+  33 0002 144B     		ldr	r3, .L2+4
+  34 0004 1360     		str	r3, [r2]
  232:bsp/src/bsp_uart_fifo.c **** 		g_tUart1.pTxBuf         = g_TxBuf1;					
+  35              		.loc 1 232 0
+  36 0006 144B     		ldr	r3, .L2+8
+  37 0008 5360     		str	r3, [r2, #4]
  233:bsp/src/bsp_uart_fifo.c **** 		g_tUart1.pRxBuf         = g_RxBuf1;					
+  38              		.loc 1 233 0
+  39 000a 144B     		ldr	r3, .L2+12
+  40 000c 9360     		str	r3, [r2, #8]
  234:bsp/src/bsp_uart_fifo.c **** 		g_tUart1.usTxBufSize    = UART1_TX_BUF_SIZE;	
+  41              		.loc 1 234 0
+  42 000e 4FF40071 		mov	r1, #512
+  43 0012 9181     		strh	r1, [r2, #12]	@ movhi
  235:bsp/src/bsp_uart_fifo.c **** 		g_tUart1.usRxBufSize    = UART1_RX_BUF_SIZE;	
+  44              		.loc 1 235 0
+  45 0014 D181     		strh	r1, [r2, #14]	@ movhi
  236:bsp/src/bsp_uart_fifo.c **** 		g_tUart1.usTxWrite      = 0;						
+  46              		.loc 1 236 0
+  47 0016 0023     		movs	r3, #0
+  48 0018 1382     		strh	r3, [r2, #16]	@ movhi
  237:bsp/src/bsp_uart_fifo.c **** 		g_tUart1.usTxRead       = 0;						
+  49              		.loc 1 237 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 6
+
+
+  50 001a 5382     		strh	r3, [r2, #18]	@ movhi
  238:bsp/src/bsp_uart_fifo.c **** 		g_tUart1.usRxWrite      = 0;						
+  51              		.loc 1 238 0
+  52 001c D382     		strh	r3, [r2, #22]	@ movhi
  239:bsp/src/bsp_uart_fifo.c **** 		g_tUart1.usRxRead       = 0;						
+  53              		.loc 1 239 0
+  54 001e 1383     		strh	r3, [r2, #24]	@ movhi
  240:bsp/src/bsp_uart_fifo.c **** 		g_tUart1.usRxCount      = 0;						
+  55              		.loc 1 240 0
+  56 0020 5383     		strh	r3, [r2, #26]	@ movhi
  241:bsp/src/bsp_uart_fifo.c **** 		g_tUart1.usTxCount      = 0;						
+  57              		.loc 1 241 0
+  58 0022 9382     		strh	r3, [r2, #20]	@ movhi
  242:bsp/src/bsp_uart_fifo.c **** 		g_tUart1.SendBefor      = 0;						
+  59              		.loc 1 242 0
+  60 0024 D361     		str	r3, [r2, #28]
  243:bsp/src/bsp_uart_fifo.c **** 		g_tUart1.SendOver       = 0;						
+  61              		.loc 1 243 0
+  62 0026 1362     		str	r3, [r2, #32]
  244:bsp/src/bsp_uart_fifo.c **** 		g_tUart1.ReciveNew      = 0;						
+  63              		.loc 1 244 0
+  64 0028 5362     		str	r3, [r2, #36]
  245:bsp/src/bsp_uart_fifo.c **** #endif
  246:bsp/src/bsp_uart_fifo.c **** #ifdef ENABLE_COM3
  247:bsp/src/bsp_uart_fifo.c **** 		g_tUart2.uart           = USART3;
-  31              		.loc 1 247 0
-  32 0000 0A4B     		ldr	r3, .L2
-  33 0002 0B4A     		ldr	r2, .L2+4
-  34 0004 1A60     		str	r2, [r3]
+  65              		.loc 1 247 0
+  66 002a 0D4A     		ldr	r2, .L2+16
+  67 002c 0D48     		ldr	r0, .L2+20
+  68 002e 1060     		str	r0, [r2]
  248:bsp/src/bsp_uart_fifo.c **** 		g_tUart2.pTxBuf         = g_TxBuf2;					
-  35              		.loc 1 248 0
-  36 0006 0B4A     		ldr	r2, .L2+8
-  37 0008 5A60     		str	r2, [r3, #4]
+  69              		.loc 1 248 0
+  70 0030 0D48     		ldr	r0, .L2+24
+  71 0032 5060     		str	r0, [r2, #4]
  249:bsp/src/bsp_uart_fifo.c **** 		g_tUart2.pRxBuf         = g_RxBuf2;					
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 6
-
-
-  38              		.loc 1 249 0
-  39 000a 0B4A     		ldr	r2, .L2+12
-  40 000c 9A60     		str	r2, [r3, #8]
+  72              		.loc 1 249 0
+  73 0034 0D48     		ldr	r0, .L2+28
+  74 0036 9060     		str	r0, [r2, #8]
  250:bsp/src/bsp_uart_fifo.c **** 		g_tUart2.usTxBufSize    = UART2_TX_BUF_SIZE;	
-  41              		.loc 1 250 0
-  42 000e 4FF40072 		mov	r2, #512
-  43 0012 9A81     		strh	r2, [r3, #12]	@ movhi
+  75              		.loc 1 250 0
+  76 0038 9181     		strh	r1, [r2, #12]	@ movhi
  251:bsp/src/bsp_uart_fifo.c **** 		g_tUart2.usRxBufSize    = UART2_RX_BUF_SIZE;	
-  44              		.loc 1 251 0
-  45 0014 DA81     		strh	r2, [r3, #14]	@ movhi
+  77              		.loc 1 251 0
+  78 003a D181     		strh	r1, [r2, #14]	@ movhi
  252:bsp/src/bsp_uart_fifo.c **** 		g_tUart2.usTxWrite      = 0;						
-  46              		.loc 1 252 0
-  47 0016 0022     		movs	r2, #0
-  48 0018 1A82     		strh	r2, [r3, #16]	@ movhi
+  79              		.loc 1 252 0
+  80 003c 1382     		strh	r3, [r2, #16]	@ movhi
  253:bsp/src/bsp_uart_fifo.c **** 		g_tUart2.usTxRead       = 0;						
-  49              		.loc 1 253 0
-  50 001a 5A82     		strh	r2, [r3, #18]	@ movhi
+  81              		.loc 1 253 0
+  82 003e 5382     		strh	r3, [r2, #18]	@ movhi
  254:bsp/src/bsp_uart_fifo.c **** 		g_tUart2.usRxWrite      = 0;						
-  51              		.loc 1 254 0
-  52 001c DA82     		strh	r2, [r3, #22]	@ movhi
+  83              		.loc 1 254 0
+  84 0040 D382     		strh	r3, [r2, #22]	@ movhi
  255:bsp/src/bsp_uart_fifo.c **** 		g_tUart2.usRxRead       = 0;						
-  53              		.loc 1 255 0
-  54 001e 1A83     		strh	r2, [r3, #24]	@ movhi
+  85              		.loc 1 255 0
+  86 0042 1383     		strh	r3, [r2, #24]	@ movhi
  256:bsp/src/bsp_uart_fifo.c **** 		g_tUart2.usRxCount      = 0;						
-  55              		.loc 1 256 0
-  56 0020 5A83     		strh	r2, [r3, #26]	@ movhi
+  87              		.loc 1 256 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 7
+
+
+  88 0044 5383     		strh	r3, [r2, #26]	@ movhi
  257:bsp/src/bsp_uart_fifo.c **** 		g_tUart2.usTxCount      = 0;						
-  57              		.loc 1 257 0
-  58 0022 9A82     		strh	r2, [r3, #20]	@ movhi
+  89              		.loc 1 257 0
+  90 0046 9382     		strh	r3, [r2, #20]	@ movhi
  258:bsp/src/bsp_uart_fifo.c **** 		g_tUart2.SendBefor      = 0;						
-  59              		.loc 1 258 0
-  60 0024 DA61     		str	r2, [r3, #28]
+  91              		.loc 1 258 0
+  92 0048 D361     		str	r3, [r2, #28]
  259:bsp/src/bsp_uart_fifo.c **** 		g_tUart2.SendOver       = 0;						
-  61              		.loc 1 259 0
-  62 0026 1A62     		str	r2, [r3, #32]
+  93              		.loc 1 259 0
+  94 004a 1362     		str	r3, [r2, #32]
  260:bsp/src/bsp_uart_fifo.c **** 		g_tUart2.ReciveNew      = 0;						
-  63              		.loc 1 260 0
-  64 0028 5A62     		str	r2, [r3, #36]
+  95              		.loc 1 260 0
+  96 004c 5362     		str	r3, [r2, #36]
  261:bsp/src/bsp_uart_fifo.c **** #endif
  262:bsp/src/bsp_uart_fifo.c **** }
-  65              		.loc 1 262 0
-  66 002a 7047     		bx	lr
-  67              	.L3:
-  68              		.align	2
-  69              	.L2:
-  70 002c 00000000 		.word	.LANCHOR0
-  71 0030 00480040 		.word	1073760256
-  72 0034 00000000 		.word	.LANCHOR1
-  73 0038 00000000 		.word	.LANCHOR2
-  74              		.cfi_endproc
-  75              	.LFE131:
-  77              		.section	.text.UartGetChar,"ax",%progbits
-  78              		.align	1
-  79              		.syntax unified
-  80              		.thumb
-  81              		.thumb_func
-  82              		.fpu fpv4-sp-d16
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 7
-
-
-  84              	UartGetChar:
-  85              	.LFB137:
+  97              		.loc 1 262 0
+  98 004e 7047     		bx	lr
+  99              	.L3:
+ 100              		.align	2
+ 101              	.L2:
+ 102 0050 00000000 		.word	.LANCHOR0
+ 103 0054 00440040 		.word	1073759232
+ 104 0058 00000000 		.word	.LANCHOR1
+ 105 005c 00000000 		.word	.LANCHOR2
+ 106 0060 00000000 		.word	.LANCHOR3
+ 107 0064 00480040 		.word	1073760256
+ 108 0068 00000000 		.word	.LANCHOR4
+ 109 006c 00000000 		.word	.LANCHOR5
+ 110              		.cfi_endproc
+ 111              	.LFE131:
+ 113              		.section	.text.UartGetChar,"ax",%progbits
+ 114              		.align	1
+ 115              		.syntax unified
+ 116              		.thumb
+ 117              		.thumb_func
+ 118              		.fpu fpv4-sp-d16
+ 120              	UartGetChar:
+ 121              	.LFB137:
  263:bsp/src/bsp_uart_fifo.c **** 
  264:bsp/src/bsp_uart_fifo.c **** /**
  265:bsp/src/bsp_uart_fifo.c ****   * @brief  Hard uart2 initialization
@@ -382,6 +418,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 1
  279:bsp/src/bsp_uart_fifo.c **** 
  280:bsp/src/bsp_uart_fifo.c ****     /*------ GPIO CONFIGURATION ------*/
  281:bsp/src/bsp_uart_fifo.c ****     GPIO_InitType GPIO_InitStructure;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 8
+
+
  282:bsp/src/bsp_uart_fifo.c **** 
  283:bsp/src/bsp_uart_fifo.c ****     /* Configure USART2 Rx as input floating */
  284:bsp/src/bsp_uart_fifo.c ****     GPIO_InitStructure.GPIO_Pins = GPIO_Pins_3;
@@ -418,9 +457,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 1
  315:bsp/src/bsp_uart_fifo.c ****     GPIO_InitType GPIO_InitStructure;
  316:bsp/src/bsp_uart_fifo.c **** 
  317:bsp/src/bsp_uart_fifo.c ****     /* Configure USART2 Rx as input floating */
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 8
-
-
  318:bsp/src/bsp_uart_fifo.c ****     GPIO_InitStructure.GPIO_Pins = GPIO_Pins_11;
  319:bsp/src/bsp_uart_fifo.c ****     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
  320:bsp/src/bsp_uart_fifo.c ****     GPIO_Init(GPIOB, &GPIO_InitStructure);
@@ -442,6 +478,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 1
  336:bsp/src/bsp_uart_fifo.c ****   */
  337:bsp/src/bsp_uart_fifo.c **** static void ConfigUartNVIC(void)
  338:bsp/src/bsp_uart_fifo.c **** {
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 9
+
+
  339:bsp/src/bsp_uart_fifo.c **** 	/* Configure the NVIC Preemption Priority Bits */  
  340:bsp/src/bsp_uart_fifo.c ****     NVIC_PriorityGroupConfig(NVIC_PriorityGroup_0);
  341:bsp/src/bsp_uart_fifo.c **** 
@@ -478,9 +517,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 1
  372:bsp/src/bsp_uart_fifo.c **** 	if (pUart == 0)
  373:bsp/src/bsp_uart_fifo.c **** 	{
  374:bsp/src/bsp_uart_fifo.c **** 		return;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 9
-
-
  375:bsp/src/bsp_uart_fifo.c **** 	}
  376:bsp/src/bsp_uart_fifo.c ****     /*------ ENABLE USART ------*/
  377:bsp/src/bsp_uart_fifo.c **** 
@@ -502,6 +538,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 1
  393:bsp/src/bsp_uart_fifo.c **** static void UartSend(UART_T *_pUart, uint8_t *_ucaBuf, uint16_t _usLen)
  394:bsp/src/bsp_uart_fifo.c **** {
  395:bsp/src/bsp_uart_fifo.c **** 	uint16_t i;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 10
+
+
  396:bsp/src/bsp_uart_fifo.c **** 
  397:bsp/src/bsp_uart_fifo.c **** 	for (i = 0; i < _usLen; i++)
  398:bsp/src/bsp_uart_fifo.c **** 	{
@@ -538,23 +577,20 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 1
  429:bsp/src/bsp_uart_fifo.c ****   * @brief  Uart interrupt config
  430:bsp/src/bsp_uart_fifo.c ****   * @param  _pUart:Uart to use
  431:bsp/src/bsp_uart_fifo.c ****   * @param  _pByte:buffer to receive data
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 10
-
-
  432:bsp/src/bsp_uart_fifo.c ****   * @retval 0:No data received
  433:bsp/src/bsp_uart_fifo.c ****             1:Data read complete
  434:bsp/src/bsp_uart_fifo.c ****   */
  435:bsp/src/bsp_uart_fifo.c **** static uint8_t UartGetChar(UART_T *_pUart, uint8_t *_pByte)
  436:bsp/src/bsp_uart_fifo.c **** {
-  86              		.loc 1 436 0
-  87              		.cfi_startproc
-  88              		@ args = 0, pretend = 0, frame = 0
-  89              		@ frame_needed = 0, uses_anonymous_args = 0
-  90              		@ link register save eliminated.
-  91              	.LVL0:
-  92              	.LBB19:
-  93              	.LBB20:
-  94              		.file 2 "../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h"
+ 122              		.loc 1 436 0
+ 123              		.cfi_startproc
+ 124              		@ args = 0, pretend = 0, frame = 0
+ 125              		@ frame_needed = 0, uses_anonymous_args = 0
+ 126              		@ link register save eliminated.
+ 127              	.LVL0:
+ 128              	.LBB19:
+ 129              	.LBB20:
+ 130              		.file 2 "../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h"
    1:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** /**************************************************************************//**
    2:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****  * @file     cmsis_gcc.h
    3:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****  * @brief    CMSIS Cortex-M Core Function/Instruction Header File
@@ -562,6 +598,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 1
    5:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****  * @date     20. October 2015
    6:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****  ******************************************************************************/
    7:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** /* Copyright (c) 2009 - 2015 ARM LIMITED
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 11
+
+
    8:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
    9:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****    All rights reserved.
   10:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****    Redistribution and use in source and binary forms, with or without
@@ -598,9 +637,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 1
   41:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wsign-conversion"
   42:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wconversion"
   43:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wunused-parameter"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 11
-
-
   44:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** #endif
   45:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
   46:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
@@ -622,6 +658,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 1
   62:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
   63:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
   64:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** /**
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 12
+
+
   65:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \brief   Disable IRQ Interrupts
   66:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \details Disables IRQ interrupts by setting the I-bit in the CPSR.
   67:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   Can only be executed in Privileged modes.
@@ -658,9 +697,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 1
   98:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
   99:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
  100:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** /**
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 12
-
-
  101:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \brief   Get IPSR Register
  102:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \details Returns the content of the IPSR Register.
  103:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \return               IPSR Register value
@@ -682,6 +718,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 1
  119:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** __attribute__( ( always_inline ) ) __STATIC_INLINE uint32_t __get_APSR(void)
  120:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** {
  121:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   uint32_t result;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 13
+
+
  122:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
  123:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   __ASM volatile ("MRS %0, apsr" : "=r" (result) );
  124:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   return(result);
@@ -718,9 +757,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 1
  155:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
  156:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
  157:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** /**
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 13
-
-
  158:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \brief   Set Process Stack Pointer
  159:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \details Assigns the given value to the Process Stack Pointer (PSP).
  160:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \param [in]    topOfProcStack  Process Stack Pointer value to set
@@ -742,6 +778,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 1
  176:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
  177:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   __ASM volatile ("MRS %0, msp\n" : "=r" (result) );
  178:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   return(result);
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 14
+
+
  179:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** }
  180:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
  181:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
@@ -778,371 +817,391 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 1
  212:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****  */
  213:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** __attribute__( ( always_inline ) ) __STATIC_INLINE void __set_PRIMASK(uint32_t priMask)
  214:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** {
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 14
-
-
  215:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   __ASM volatile ("MSR primask, %0" : : "r" (priMask) : "memory");
-  95              		.loc 2 215 0
-  96 0000 0123     		movs	r3, #1
-  97              		.syntax unified
-  98              	@ 215 "../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h" 1
-  99 0002 83F31088 		MSR primask, r3
- 100              	@ 0 "" 2
- 101              	.LVL1:
- 102              		.thumb
- 103              		.syntax unified
- 104              	.LBE20:
- 105              	.LBE19:
+ 131              		.loc 2 215 0
+ 132 0000 0123     		movs	r3, #1
+ 133              		.syntax unified
+ 134              	@ 215 "../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h" 1
+ 135 0002 83F31088 		MSR primask, r3
+ 136              	@ 0 "" 2
+ 137              	.LVL1:
+ 138              		.thumb
+ 139              		.syntax unified
+ 140              	.LBE20:
+ 141              	.LBE19:
  437:bsp/src/bsp_uart_fifo.c **** 	uint16_t usCount;
  438:bsp/src/bsp_uart_fifo.c **** 
  439:bsp/src/bsp_uart_fifo.c **** 	DISABLE_INT();
  440:bsp/src/bsp_uart_fifo.c **** 	usCount = _pUart->usRxCount;
- 106              		.loc 1 440 0
- 107 0006 438B     		ldrh	r3, [r0, #26]
- 108 0008 9BB2     		uxth	r3, r3
- 109              	.LVL2:
- 110              	.LBB21:
- 111              	.LBB22:
- 112              		.loc 2 215 0
- 113 000a 0022     		movs	r2, #0
- 114              		.syntax unified
- 115              	@ 215 "../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h" 1
- 116 000c 82F31088 		MSR primask, r2
- 117              	@ 0 "" 2
- 118              	.LVL3:
- 119              		.thumb
- 120              		.syntax unified
- 121              	.LBE22:
- 122              	.LBE21:
+ 142              		.loc 1 440 0
+ 143 0006 438B     		ldrh	r3, [r0, #26]
+ 144 0008 9BB2     		uxth	r3, r3
+ 145              	.LVL2:
+ 146              	.LBB21:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 15
+
+
+ 147              	.LBB22:
+ 148              		.loc 2 215 0
+ 149 000a 0022     		movs	r2, #0
+ 150              		.syntax unified
+ 151              	@ 215 "../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h" 1
+ 152 000c 82F31088 		MSR primask, r2
+ 153              	@ 0 "" 2
+ 154              	.LVL3:
+ 155              		.thumb
+ 156              		.syntax unified
+ 157              	.LBE22:
+ 158              	.LBE21:
  441:bsp/src/bsp_uart_fifo.c **** 	ENABLE_INT();
  442:bsp/src/bsp_uart_fifo.c **** 
  443:bsp/src/bsp_uart_fifo.c **** 	
  444:bsp/src/bsp_uart_fifo.c **** 	if (usCount == 0)	
- 123              		.loc 1 444 0
- 124 0010 CBB1     		cbz	r3, .L7
+ 159              		.loc 1 444 0
+ 160 0010 CBB1     		cbz	r3, .L7
  445:bsp/src/bsp_uart_fifo.c **** 	{
  446:bsp/src/bsp_uart_fifo.c **** 		return 0;
  447:bsp/src/bsp_uart_fifo.c **** 	}
  448:bsp/src/bsp_uart_fifo.c **** 	else
  449:bsp/src/bsp_uart_fifo.c **** 	{
  450:bsp/src/bsp_uart_fifo.c **** 		*_pByte = _pUart->pRxBuf[_pUart->usRxRead];		
- 125              		.loc 1 450 0
- 126 0012 8268     		ldr	r2, [r0, #8]
- 127 0014 038B     		ldrh	r3, [r0, #24]
- 128              	.LVL4:
- 129 0016 9BB2     		uxth	r3, r3
- 130 0018 D35C     		ldrb	r3, [r2, r3]	@ zero_extendqisi2
- 131 001a 0B70     		strb	r3, [r1]
- 132              	.LVL5:
- 133              	.LBB23:
- 134              	.LBB24:
- 135              		.loc 2 215 0
- 136 001c 0123     		movs	r3, #1
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 15
-
-
- 137              		.syntax unified
- 138              	@ 215 "../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h" 1
- 139 001e 83F31088 		MSR primask, r3
- 140              	@ 0 "" 2
- 141              	.LVL6:
- 142              		.thumb
- 143              		.syntax unified
- 144              	.LBE24:
- 145              	.LBE23:
+ 161              		.loc 1 450 0
+ 162 0012 8268     		ldr	r2, [r0, #8]
+ 163 0014 038B     		ldrh	r3, [r0, #24]
+ 164              	.LVL4:
+ 165 0016 9BB2     		uxth	r3, r3
+ 166 0018 D35C     		ldrb	r3, [r2, r3]	@ zero_extendqisi2
+ 167 001a 0B70     		strb	r3, [r1]
+ 168              	.LVL5:
+ 169              	.LBB23:
+ 170              	.LBB24:
+ 171              		.loc 2 215 0
+ 172 001c 0123     		movs	r3, #1
+ 173              		.syntax unified
+ 174              	@ 215 "../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h" 1
+ 175 001e 83F31088 		MSR primask, r3
+ 176              	@ 0 "" 2
+ 177              	.LVL6:
+ 178              		.thumb
+ 179              		.syntax unified
+ 180              	.LBE24:
+ 181              	.LBE23:
  451:bsp/src/bsp_uart_fifo.c **** 		
  452:bsp/src/bsp_uart_fifo.c **** 		DISABLE_INT();
  453:bsp/src/bsp_uart_fifo.c **** 		if (++_pUart->usRxRead >= _pUart->usRxBufSize)
- 146              		.loc 1 453 0
- 147 0022 038B     		ldrh	r3, [r0, #24]
- 148 0024 0133     		adds	r3, r3, #1
- 149 0026 9BB2     		uxth	r3, r3
- 150 0028 0383     		strh	r3, [r0, #24]	@ movhi
- 151 002a C289     		ldrh	r2, [r0, #14]
- 152 002c 9342     		cmp	r3, r2
- 153 002e 01D3     		bcc	.L6
+ 182              		.loc 1 453 0
+ 183 0022 038B     		ldrh	r3, [r0, #24]
+ 184 0024 0133     		adds	r3, r3, #1
+ 185 0026 9BB2     		uxth	r3, r3
+ 186 0028 0383     		strh	r3, [r0, #24]	@ movhi
+ 187 002a C289     		ldrh	r2, [r0, #14]
+ 188 002c 9342     		cmp	r3, r2
+ 189 002e 01D3     		bcc	.L6
  454:bsp/src/bsp_uart_fifo.c **** 		{
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 16
+
+
  455:bsp/src/bsp_uart_fifo.c **** 			_pUart->usRxRead = 0;
- 154              		.loc 1 455 0
- 155 0030 0023     		movs	r3, #0
- 156 0032 0383     		strh	r3, [r0, #24]	@ movhi
- 157              	.L6:
+ 190              		.loc 1 455 0
+ 191 0030 0023     		movs	r3, #0
+ 192 0032 0383     		strh	r3, [r0, #24]	@ movhi
+ 193              	.L6:
  456:bsp/src/bsp_uart_fifo.c **** 		}
  457:bsp/src/bsp_uart_fifo.c **** 		_pUart->usRxCount--;
- 158              		.loc 1 457 0
- 159 0034 438B     		ldrh	r3, [r0, #26]
- 160 0036 013B     		subs	r3, r3, #1
- 161 0038 9BB2     		uxth	r3, r3
- 162 003a 4383     		strh	r3, [r0, #26]	@ movhi
- 163              	.LVL7:
- 164              	.LBB25:
- 165              	.LBB26:
- 166              		.loc 2 215 0
- 167 003c 0023     		movs	r3, #0
- 168              		.syntax unified
- 169              	@ 215 "../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h" 1
- 170 003e 83F31088 		MSR primask, r3
- 171              	@ 0 "" 2
- 172              	.LVL8:
- 173              		.thumb
- 174              		.syntax unified
- 175              	.LBE26:
- 176              	.LBE25:
+ 194              		.loc 1 457 0
+ 195 0034 438B     		ldrh	r3, [r0, #26]
+ 196 0036 013B     		subs	r3, r3, #1
+ 197 0038 9BB2     		uxth	r3, r3
+ 198 003a 4383     		strh	r3, [r0, #26]	@ movhi
+ 199              	.LVL7:
+ 200              	.LBB25:
+ 201              	.LBB26:
+ 202              		.loc 2 215 0
+ 203 003c 0023     		movs	r3, #0
+ 204              		.syntax unified
+ 205              	@ 215 "../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h" 1
+ 206 003e 83F31088 		MSR primask, r3
+ 207              	@ 0 "" 2
+ 208              	.LVL8:
+ 209              		.thumb
+ 210              		.syntax unified
+ 211              	.LBE26:
+ 212              	.LBE25:
  458:bsp/src/bsp_uart_fifo.c **** 		ENABLE_INT();
  459:bsp/src/bsp_uart_fifo.c **** 		return 1;
- 177              		.loc 1 459 0
- 178 0042 0120     		movs	r0, #1
- 179              	.LVL9:
- 180 0044 7047     		bx	lr
- 181              	.LVL10:
- 182              	.L7:
+ 213              		.loc 1 459 0
+ 214 0042 0120     		movs	r0, #1
+ 215              	.LVL9:
+ 216 0044 7047     		bx	lr
+ 217              	.LVL10:
+ 218              	.L7:
  446:bsp/src/bsp_uart_fifo.c **** 	}
- 183              		.loc 1 446 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 16
-
-
- 184 0046 0020     		movs	r0, #0
- 185              	.LVL11:
+ 219              		.loc 1 446 0
+ 220 0046 0020     		movs	r0, #0
+ 221              	.LVL11:
  460:bsp/src/bsp_uart_fifo.c **** 	}
  461:bsp/src/bsp_uart_fifo.c **** }
- 186              		.loc 1 461 0
- 187 0048 7047     		bx	lr
- 188              		.cfi_endproc
- 189              	.LFE137:
- 191              		.section	.text.ConfigUartNVIC,"ax",%progbits
- 192              		.align	1
- 193              		.syntax unified
- 194              		.thumb
- 195              		.thumb_func
- 196              		.fpu fpv4-sp-d16
- 198              	ConfigUartNVIC:
- 199              	.LFB134:
+ 222              		.loc 1 461 0
+ 223 0048 7047     		bx	lr
+ 224              		.cfi_endproc
+ 225              	.LFE137:
+ 227              		.section	.text.ConfigUartNVIC,"ax",%progbits
+ 228              		.align	1
+ 229              		.syntax unified
+ 230              		.thumb
+ 231              		.thumb_func
+ 232              		.fpu fpv4-sp-d16
+ 234              	ConfigUartNVIC:
+ 235              	.LFB134:
  338:bsp/src/bsp_uart_fifo.c **** 	/* Configure the NVIC Preemption Priority Bits */  
- 200              		.loc 1 338 0
- 201              		.cfi_startproc
- 202              		@ args = 0, pretend = 0, frame = 8
- 203              		@ frame_needed = 0, uses_anonymous_args = 0
- 204 0000 00B5     		push	{lr}
- 205              	.LCFI0:
- 206              		.cfi_def_cfa_offset 4
- 207              		.cfi_offset 14, -4
- 208 0002 83B0     		sub	sp, sp, #12
- 209              	.LCFI1:
- 210              		.cfi_def_cfa_offset 16
+ 236              		.loc 1 338 0
+ 237              		.cfi_startproc
+ 238              		@ args = 0, pretend = 0, frame = 8
+ 239              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 17
+
+
+ 240 0000 30B5     		push	{r4, r5, lr}
+ 241              	.LCFI0:
+ 242              		.cfi_def_cfa_offset 12
+ 243              		.cfi_offset 4, -12
+ 244              		.cfi_offset 5, -8
+ 245              		.cfi_offset 14, -4
+ 246 0002 83B0     		sub	sp, sp, #12
+ 247              	.LCFI1:
+ 248              		.cfi_def_cfa_offset 24
  340:bsp/src/bsp_uart_fifo.c **** 
- 211              		.loc 1 340 0
- 212 0004 4FF4E060 		mov	r0, #1792
- 213 0008 FFF7FEFF 		bl	NVIC_PriorityGroupConfig
- 214              	.LVL12:
+ 249              		.loc 1 340 0
+ 250 0004 4FF4E060 		mov	r0, #1792
+ 251 0008 FFF7FEFF 		bl	NVIC_PriorityGroupConfig
+ 252              	.LVL12:
+ 345:bsp/src/bsp_uart_fifo.c ****     NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority    = 0;
+ 253              		.loc 1 345 0
+ 254 000c 2623     		movs	r3, #38
+ 255 000e 8DF80430 		strb	r3, [sp, #4]
+ 346:bsp/src/bsp_uart_fifo.c ****     NVIC_InitStructure.NVIC_IRQChannelSubPriority           = 0;
+ 256              		.loc 1 346 0
+ 257 0012 0025     		movs	r5, #0
+ 258 0014 8DF80550 		strb	r5, [sp, #5]
+ 347:bsp/src/bsp_uart_fifo.c ****     NVIC_InitStructure.NVIC_IRQChannelCmd                   = ENABLE;
+ 259              		.loc 1 347 0
+ 260 0018 8DF80650 		strb	r5, [sp, #6]
+ 348:bsp/src/bsp_uart_fifo.c ****     NVIC_Init(&NVIC_InitStructure);
+ 261              		.loc 1 348 0
+ 262 001c 0124     		movs	r4, #1
+ 263 001e 8DF80740 		strb	r4, [sp, #7]
+ 349:bsp/src/bsp_uart_fifo.c **** #endif
+ 264              		.loc 1 349 0
+ 265 0022 01A8     		add	r0, sp, #4
+ 266 0024 FFF7FEFF 		bl	NVIC_Init
+ 267              	.LVL13:
  352:bsp/src/bsp_uart_fifo.c ****     NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority    = 0;
- 215              		.loc 1 352 0
- 216 000c 2723     		movs	r3, #39
- 217 000e 8DF80430 		strb	r3, [sp, #4]
+ 268              		.loc 1 352 0
+ 269 0028 2723     		movs	r3, #39
+ 270 002a 8DF80430 		strb	r3, [sp, #4]
  353:bsp/src/bsp_uart_fifo.c ****     NVIC_InitStructure.NVIC_IRQChannelSubPriority           = 1;
- 218              		.loc 1 353 0
- 219 0012 0023     		movs	r3, #0
- 220 0014 8DF80530 		strb	r3, [sp, #5]
+ 271              		.loc 1 353 0
+ 272 002e 8DF80550 		strb	r5, [sp, #5]
  354:bsp/src/bsp_uart_fifo.c ****     NVIC_InitStructure.NVIC_IRQChannelCmd                   = ENABLE;
- 221              		.loc 1 354 0
- 222 0018 0123     		movs	r3, #1
- 223 001a 8DF80630 		strb	r3, [sp, #6]
+ 273              		.loc 1 354 0
+ 274 0032 8DF80640 		strb	r4, [sp, #6]
  355:bsp/src/bsp_uart_fifo.c ****     NVIC_Init(&NVIC_InitStructure);
- 224              		.loc 1 355 0
- 225 001e 8DF80730 		strb	r3, [sp, #7]
+ 275              		.loc 1 355 0
+ 276 0036 8DF80740 		strb	r4, [sp, #7]
  356:bsp/src/bsp_uart_fifo.c **** #endif
- 226              		.loc 1 356 0
- 227 0022 01A8     		add	r0, sp, #4
- 228 0024 FFF7FEFF 		bl	NVIC_Init
- 229              	.LVL13:
+ 277              		.loc 1 356 0
+ 278 003a 01A8     		add	r0, sp, #4
+ 279 003c FFF7FEFF 		bl	NVIC_Init
+ 280              	.LVL14:
  358:bsp/src/bsp_uart_fifo.c **** 
- 230              		.loc 1 358 0
- 231 0028 03B0     		add	sp, sp, #12
- 232              	.LCFI2:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 17
+ 281              		.loc 1 358 0
+ 282 0040 03B0     		add	sp, sp, #12
+ 283              	.LCFI2:
+ 284              		.cfi_def_cfa_offset 12
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 18
 
 
- 233              		.cfi_def_cfa_offset 4
- 234              		@ sp needed
- 235 002a 5DF804FB 		ldr	pc, [sp], #4
- 236              		.cfi_endproc
- 237              	.LFE134:
- 239              		.section	.text.UartSend,"ax",%progbits
- 240              		.align	1
- 241              		.syntax unified
- 242              		.thumb
- 243              		.thumb_func
- 244              		.fpu fpv4-sp-d16
- 246              	UartSend:
- 247              	.LFB136:
+ 285              		@ sp needed
+ 286 0042 30BD     		pop	{r4, r5, pc}
+ 287              		.cfi_endproc
+ 288              	.LFE134:
+ 290              		.section	.text.UartSend,"ax",%progbits
+ 291              		.align	1
+ 292              		.syntax unified
+ 293              		.thumb
+ 294              		.thumb_func
+ 295              		.fpu fpv4-sp-d16
+ 297              	UartSend:
+ 298              	.LFB136:
  394:bsp/src/bsp_uart_fifo.c **** 	uint16_t i;
- 248              		.loc 1 394 0
- 249              		.cfi_startproc
- 250              		@ args = 0, pretend = 0, frame = 8
- 251              		@ frame_needed = 0, uses_anonymous_args = 0
- 252              	.LVL14:
- 253 0000 70B5     		push	{r4, r5, r6, lr}
- 254              	.LCFI3:
- 255              		.cfi_def_cfa_offset 16
- 256              		.cfi_offset 4, -16
- 257              		.cfi_offset 5, -12
- 258              		.cfi_offset 6, -8
- 259              		.cfi_offset 14, -4
- 260 0002 82B0     		sub	sp, sp, #8
- 261              	.LCFI4:
- 262              		.cfi_def_cfa_offset 24
- 263              	.LVL15:
+ 299              		.loc 1 394 0
+ 300              		.cfi_startproc
+ 301              		@ args = 0, pretend = 0, frame = 8
+ 302              		@ frame_needed = 0, uses_anonymous_args = 0
+ 303              	.LVL15:
+ 304 0000 70B5     		push	{r4, r5, r6, lr}
+ 305              	.LCFI3:
+ 306              		.cfi_def_cfa_offset 16
+ 307              		.cfi_offset 4, -16
+ 308              		.cfi_offset 5, -12
+ 309              		.cfi_offset 6, -8
+ 310              		.cfi_offset 14, -4
+ 311 0002 82B0     		sub	sp, sp, #8
+ 312              	.LCFI4:
+ 313              		.cfi_def_cfa_offset 24
+ 314              	.LVL16:
  397:bsp/src/bsp_uart_fifo.c **** 	{
- 264              		.loc 1 397 0
- 265 0004 0025     		movs	r5, #0
- 266 0006 08E0     		b	.L11
- 267              	.LVL16:
- 268              	.L13:
+ 315              		.loc 1 397 0
+ 316 0004 0025     		movs	r5, #0
+ 317 0006 08E0     		b	.L11
+ 318              	.LVL17:
+ 319              	.L13:
  421:bsp/src/bsp_uart_fifo.c **** 		ENABLE_INT();
- 269              		.loc 1 421 0 discriminator 2
- 270 0008 838A     		ldrh	r3, [r0, #20]
- 271 000a 0133     		adds	r3, r3, #1
- 272 000c 9BB2     		uxth	r3, r3
- 273 000e 8382     		strh	r3, [r0, #20]	@ movhi
- 274              	.LVL17:
- 275              	.LBB27:
- 276              	.LBB28:
- 277              		.loc 2 215 0 discriminator 2
- 278 0010 0023     		movs	r3, #0
- 279              		.syntax unified
- 280              	@ 215 "../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h" 1
- 281 0012 83F31088 		MSR primask, r3
- 282              	@ 0 "" 2
- 283              	.LVL18:
- 284              		.thumb
- 285              		.syntax unified
- 286              	.LBE28:
- 287              	.LBE27:
+ 320              		.loc 1 421 0 discriminator 2
+ 321 0008 838A     		ldrh	r3, [r0, #20]
+ 322 000a 0133     		adds	r3, r3, #1
+ 323 000c 9BB2     		uxth	r3, r3
+ 324 000e 8382     		strh	r3, [r0, #20]	@ movhi
+ 325              	.LVL18:
+ 326              	.LBB27:
+ 327              	.LBB28:
+ 328              		.loc 2 215 0 discriminator 2
+ 329 0010 0023     		movs	r3, #0
+ 330              		.syntax unified
+ 331              	@ 215 "../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h" 1
+ 332 0012 83F31088 		MSR primask, r3
+ 333              	@ 0 "" 2
+ 334              	.LVL19:
+ 335              		.thumb
+ 336              		.syntax unified
+ 337              	.LBE28:
+ 338              	.LBE27:
  397:bsp/src/bsp_uart_fifo.c **** 	{
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 18
+ 339              		.loc 1 397 0 discriminator 2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 19
 
 
- 288              		.loc 1 397 0 discriminator 2
- 289 0016 0135     		adds	r5, r5, #1
- 290              	.LVL19:
- 291 0018 ADB2     		uxth	r5, r5
- 292              	.LVL20:
- 293              	.L11:
+ 340 0016 0135     		adds	r5, r5, #1
+ 341              	.LVL20:
+ 342 0018 ADB2     		uxth	r5, r5
+ 343              	.LVL21:
+ 344              	.L11:
  397:bsp/src/bsp_uart_fifo.c **** 	{
- 294              		.loc 1 397 0 is_stmt 0 discriminator 1
- 295 001a 9542     		cmp	r5, r2
- 296 001c 21D2     		bcs	.L15
- 297              	.L12:
- 298              	.LVL21:
- 299              	.LBB29:
- 300              	.LBB30:
- 301              	.LBB31:
- 302              		.loc 2 215 0 is_stmt 1
- 303 001e 0123     		movs	r3, #1
- 304              		.syntax unified
- 305              	@ 215 "../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h" 1
- 306 0020 83F31088 		MSR primask, r3
- 307              	@ 0 "" 2
- 308              	.LVL22:
- 309              		.thumb
- 310              		.syntax unified
- 311              	.LBE31:
- 312              	.LBE30:
- 404:bsp/src/bsp_uart_fifo.c **** 			ENABLE_INT();
- 313              		.loc 1 404 0
- 314 0024 838A     		ldrh	r3, [r0, #20]
- 315 0026 9BB2     		uxth	r3, r3
- 316 0028 ADF80630 		strh	r3, [sp, #6]	@ movhi
- 317              	.LVL23:
- 318              	.LBB32:
- 319              	.LBB33:
- 320              		.loc 2 215 0
- 321 002c 0023     		movs	r3, #0
- 322              		.syntax unified
- 323              	@ 215 "../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h" 1
- 324 002e 83F31088 		MSR primask, r3
- 325              	@ 0 "" 2
- 326              	.LVL24:
- 327              		.thumb
- 328              		.syntax unified
- 329              	.LBE33:
- 330              	.LBE32:
- 407:bsp/src/bsp_uart_fifo.c **** 			{
- 331              		.loc 1 407 0
- 332 0032 8489     		ldrh	r4, [r0, #12]
- 333 0034 BDF80630 		ldrh	r3, [sp, #6]
- 334 0038 9BB2     		uxth	r3, r3
- 335 003a 9C42     		cmp	r4, r3
- 336 003c EFD9     		bls	.L12
- 337              	.LBE29:
- 414:bsp/src/bsp_uart_fifo.c **** 
- 338              		.loc 1 414 0
- 339 003e 4468     		ldr	r4, [r0, #4]
- 340 0040 038A     		ldrh	r3, [r0, #16]
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 19
-
-
- 341 0042 9BB2     		uxth	r3, r3
- 342 0044 4E5D     		ldrb	r6, [r1, r5]	@ zero_extendqisi2
- 343 0046 E654     		strb	r6, [r4, r3]
- 344              	.LVL25:
- 345              	.LBB34:
- 346              	.LBB35:
- 347              		.loc 2 215 0
- 348 0048 0123     		movs	r3, #1
- 349              		.syntax unified
- 350              	@ 215 "../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h" 1
- 351 004a 83F31088 		MSR primask, r3
- 352              	@ 0 "" 2
- 353              	.LVL26:
- 354              		.thumb
+ 345              		.loc 1 397 0 is_stmt 0 discriminator 1
+ 346 001a 9542     		cmp	r5, r2
+ 347 001c 21D2     		bcs	.L15
+ 348              	.L12:
+ 349              	.LVL22:
+ 350              	.LBB29:
+ 351              	.LBB30:
+ 352              	.LBB31:
+ 353              		.loc 2 215 0 is_stmt 1
+ 354 001e 0123     		movs	r3, #1
  355              		.syntax unified
- 356              	.LBE35:
- 357              	.LBE34:
+ 356              	@ 215 "../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h" 1
+ 357 0020 83F31088 		MSR primask, r3
+ 358              	@ 0 "" 2
+ 359              	.LVL23:
+ 360              		.thumb
+ 361              		.syntax unified
+ 362              	.LBE31:
+ 363              	.LBE30:
+ 404:bsp/src/bsp_uart_fifo.c **** 			ENABLE_INT();
+ 364              		.loc 1 404 0
+ 365 0024 838A     		ldrh	r3, [r0, #20]
+ 366 0026 9BB2     		uxth	r3, r3
+ 367 0028 ADF80630 		strh	r3, [sp, #6]	@ movhi
+ 368              	.LVL24:
+ 369              	.LBB32:
+ 370              	.LBB33:
+ 371              		.loc 2 215 0
+ 372 002c 0023     		movs	r3, #0
+ 373              		.syntax unified
+ 374              	@ 215 "../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h" 1
+ 375 002e 83F31088 		MSR primask, r3
+ 376              	@ 0 "" 2
+ 377              	.LVL25:
+ 378              		.thumb
+ 379              		.syntax unified
+ 380              	.LBE33:
+ 381              	.LBE32:
+ 407:bsp/src/bsp_uart_fifo.c **** 			{
+ 382              		.loc 1 407 0
+ 383 0032 8489     		ldrh	r4, [r0, #12]
+ 384 0034 BDF80630 		ldrh	r3, [sp, #6]
+ 385 0038 9BB2     		uxth	r3, r3
+ 386 003a 9C42     		cmp	r4, r3
+ 387 003c EFD9     		bls	.L12
+ 388              	.LBE29:
+ 414:bsp/src/bsp_uart_fifo.c **** 
+ 389              		.loc 1 414 0
+ 390 003e 4468     		ldr	r4, [r0, #4]
+ 391 0040 038A     		ldrh	r3, [r0, #16]
+ 392 0042 9BB2     		uxth	r3, r3
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 20
+
+
+ 393 0044 4E5D     		ldrb	r6, [r1, r5]	@ zero_extendqisi2
+ 394 0046 E654     		strb	r6, [r4, r3]
+ 395              	.LVL26:
+ 396              	.LBB34:
+ 397              	.LBB35:
+ 398              		.loc 2 215 0
+ 399 0048 0123     		movs	r3, #1
+ 400              		.syntax unified
+ 401              	@ 215 "../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h" 1
+ 402 004a 83F31088 		MSR primask, r3
+ 403              	@ 0 "" 2
+ 404              	.LVL27:
+ 405              		.thumb
+ 406              		.syntax unified
+ 407              	.LBE35:
+ 408              	.LBE34:
  417:bsp/src/bsp_uart_fifo.c **** 		{
- 358              		.loc 1 417 0
- 359 004e 038A     		ldrh	r3, [r0, #16]
- 360 0050 0133     		adds	r3, r3, #1
- 361 0052 9BB2     		uxth	r3, r3
- 362 0054 0382     		strh	r3, [r0, #16]	@ movhi
- 363 0056 8489     		ldrh	r4, [r0, #12]
- 364 0058 A342     		cmp	r3, r4
- 365 005a D5D3     		bcc	.L13
+ 409              		.loc 1 417 0
+ 410 004e 038A     		ldrh	r3, [r0, #16]
+ 411 0050 0133     		adds	r3, r3, #1
+ 412 0052 9BB2     		uxth	r3, r3
+ 413 0054 0382     		strh	r3, [r0, #16]	@ movhi
+ 414 0056 8489     		ldrh	r4, [r0, #12]
+ 415 0058 A342     		cmp	r3, r4
+ 416 005a D5D3     		bcc	.L13
  419:bsp/src/bsp_uart_fifo.c **** 		}
- 366              		.loc 1 419 0
- 367 005c 0023     		movs	r3, #0
- 368 005e 0382     		strh	r3, [r0, #16]	@ movhi
- 369 0060 D2E7     		b	.L13
- 370              	.L15:
+ 417              		.loc 1 419 0
+ 418 005c 0023     		movs	r3, #0
+ 419 005e 0382     		strh	r3, [r0, #16]	@ movhi
+ 420 0060 D2E7     		b	.L13
+ 421              	.L15:
  425:bsp/src/bsp_uart_fifo.c **** }
- 371              		.loc 1 425 0
- 372 0062 0122     		movs	r2, #1
- 373              	.LVL27:
- 374 0064 40F22771 		movw	r1, #1831
- 375              	.LVL28:
- 376 0068 0068     		ldr	r0, [r0]
- 377              	.LVL29:
- 378 006a FFF7FEFF 		bl	USART_INTConfig
- 379              	.LVL30:
+ 422              		.loc 1 425 0
+ 423 0062 0122     		movs	r2, #1
+ 424              	.LVL28:
+ 425 0064 40F22771 		movw	r1, #1831
+ 426              	.LVL29:
+ 427 0068 0068     		ldr	r0, [r0]
+ 428              	.LVL30:
+ 429 006a FFF7FEFF 		bl	USART_INTConfig
+ 430              	.LVL31:
  426:bsp/src/bsp_uart_fifo.c **** 
- 380              		.loc 1 426 0
- 381 006e 02B0     		add	sp, sp, #8
- 382              	.LCFI5:
- 383              		.cfi_def_cfa_offset 16
- 384              		@ sp needed
- 385 0070 70BD     		pop	{r4, r5, r6, pc}
- 386              		.cfi_endproc
- 387              	.LFE136:
- 389              		.section	.text.UartIRQ,"ax",%progbits
- 390              		.align	1
- 391              		.syntax unified
- 392              		.thumb
- 393              		.thumb_func
- 394              		.fpu fpv4-sp-d16
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 20
+ 431              		.loc 1 426 0
+ 432 006e 02B0     		add	sp, sp, #8
+ 433              	.LCFI5:
+ 434              		.cfi_def_cfa_offset 16
+ 435              		@ sp needed
+ 436 0070 70BD     		pop	{r4, r5, r6, pc}
+ 437              		.cfi_endproc
+ 438              	.LFE136:
+ 440              		.section	.text.UartIRQ,"ax",%progbits
+ 441              		.align	1
+ 442              		.syntax unified
+ 443              		.thumb
+ 444              		.thumb_func
+ 445              		.fpu fpv4-sp-d16
+ 447              	UartIRQ:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 21
 
 
- 396              	UartIRQ:
- 397              	.LFB138:
+ 448              	.LFB138:
  462:bsp/src/bsp_uart_fifo.c **** 
  463:bsp/src/bsp_uart_fifo.c **** /**
  464:bsp/src/bsp_uart_fifo.c ****   * @brief  Uart interrupt config
@@ -1151,27 +1210,27 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 1
  467:bsp/src/bsp_uart_fifo.c ****   */
  468:bsp/src/bsp_uart_fifo.c **** static void UartIRQ(UART_T *_pUart)
  469:bsp/src/bsp_uart_fifo.c **** {
- 398              		.loc 1 469 0
- 399              		.cfi_startproc
- 400              		@ args = 0, pretend = 0, frame = 0
- 401              		@ frame_needed = 0, uses_anonymous_args = 0
- 402              	.LVL31:
- 403 0000 10B5     		push	{r4, lr}
- 404              	.LCFI6:
- 405              		.cfi_def_cfa_offset 8
- 406              		.cfi_offset 4, -8
- 407              		.cfi_offset 14, -4
- 408 0002 0446     		mov	r4, r0
+ 449              		.loc 1 469 0
+ 450              		.cfi_startproc
+ 451              		@ args = 0, pretend = 0, frame = 0
+ 452              		@ frame_needed = 0, uses_anonymous_args = 0
+ 453              	.LVL32:
+ 454 0000 10B5     		push	{r4, lr}
+ 455              	.LCFI6:
+ 456              		.cfi_def_cfa_offset 8
+ 457              		.cfi_offset 4, -8
+ 458              		.cfi_offset 14, -4
+ 459 0002 0446     		mov	r4, r0
  470:bsp/src/bsp_uart_fifo.c **** 	//receive data process
  471:bsp/src/bsp_uart_fifo.c **** 	if (USART_GetITStatus(_pUart->uart, USART_INT_RDNE) != RESET)
- 409              		.loc 1 471 0
- 410 0004 40F22551 		movw	r1, #1317
- 411 0008 0068     		ldr	r0, [r0]
- 412              	.LVL32:
- 413 000a FFF7FEFF 		bl	USART_GetITStatus
- 414              	.LVL33:
- 415 000e F8B9     		cbnz	r0, .L27
- 416              	.L17:
+ 460              		.loc 1 471 0
+ 461 0004 40F22551 		movw	r1, #1317
+ 462 0008 0068     		ldr	r0, [r0]
+ 463              	.LVL33:
+ 464 000a FFF7FEFF 		bl	USART_GetITStatus
+ 465              	.LVL34:
+ 466 000e F8B9     		cbnz	r0, .L27
+ 467              	.L17:
  472:bsp/src/bsp_uart_fifo.c **** 	{
  473:bsp/src/bsp_uart_fifo.c **** 		uint8_t ch;
  474:bsp/src/bsp_uart_fifo.c **** 
@@ -1198,24 +1257,24 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 1
  495:bsp/src/bsp_uart_fifo.c **** 
  496:bsp/src/bsp_uart_fifo.c ****     //transmit data process
  497:bsp/src/bsp_uart_fifo.c **** 	if (USART_GetITStatus(_pUart->uart, USART_INT_TDE) != RESET)
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 21
+ 468              		.loc 1 497 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 22
 
 
- 417              		.loc 1 497 0
- 418 0010 40F22771 		movw	r1, #1831
- 419 0014 2068     		ldr	r0, [r4]
- 420 0016 FFF7FEFF 		bl	USART_GetITStatus
- 421              	.LVL34:
- 422 001a 0028     		cmp	r0, #0
- 423 001c 43D0     		beq	.L20
+ 469 0010 40F22771 		movw	r1, #1831
+ 470 0014 2068     		ldr	r0, [r4]
+ 471 0016 FFF7FEFF 		bl	USART_GetITStatus
+ 472              	.LVL35:
+ 473 001a 0028     		cmp	r0, #0
+ 474 001c 43D0     		beq	.L20
  498:bsp/src/bsp_uart_fifo.c **** 	{
  499:bsp/src/bsp_uart_fifo.c **** 		//if (_pUart->usTxRead == _pUart->usTxWrite)
  500:bsp/src/bsp_uart_fifo.c **** 		if (_pUart->usTxCount == 0)
- 424              		.loc 1 500 0
- 425 001e A38A     		ldrh	r3, [r4, #20]
- 426 0020 9BB2     		uxth	r3, r3
- 427 0022 002B     		cmp	r3, #0
- 428 0024 32D0     		beq	.L28
+ 475              		.loc 1 500 0
+ 476 001e A38A     		ldrh	r3, [r4, #20]
+ 477 0020 9BB2     		uxth	r3, r3
+ 478 0022 002B     		cmp	r3, #0
+ 479 0024 32D0     		beq	.L28
  501:bsp/src/bsp_uart_fifo.c **** 		{
  502:bsp/src/bsp_uart_fifo.c **** 			USART_INTConfig(_pUart->uart, USART_INT_TDE, DISABLE);
  503:bsp/src/bsp_uart_fifo.c **** 			USART_INTConfig(_pUart->uart, USART_INT_TRAC, ENABLE);
@@ -1223,45 +1282,45 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 1
  505:bsp/src/bsp_uart_fifo.c **** 		else
  506:bsp/src/bsp_uart_fifo.c **** 		{
  507:bsp/src/bsp_uart_fifo.c **** 			USART_SendData(_pUart->uart, _pUart->pTxBuf[_pUart->usTxRead]);
- 429              		.loc 1 507 0
- 430 0026 6268     		ldr	r2, [r4, #4]
- 431 0028 638A     		ldrh	r3, [r4, #18]
- 432 002a 9BB2     		uxth	r3, r3
- 433 002c D15C     		ldrb	r1, [r2, r3]	@ zero_extendqisi2
- 434 002e 2068     		ldr	r0, [r4]
- 435 0030 FFF7FEFF 		bl	USART_SendData
- 436              	.LVL35:
+ 480              		.loc 1 507 0
+ 481 0026 6268     		ldr	r2, [r4, #4]
+ 482 0028 638A     		ldrh	r3, [r4, #18]
+ 483 002a 9BB2     		uxth	r3, r3
+ 484 002c D15C     		ldrb	r1, [r2, r3]	@ zero_extendqisi2
+ 485 002e 2068     		ldr	r0, [r4]
+ 486 0030 FFF7FEFF 		bl	USART_SendData
+ 487              	.LVL36:
  508:bsp/src/bsp_uart_fifo.c **** 			if (++_pUart->usTxRead >= _pUart->usTxBufSize)
- 437              		.loc 1 508 0
- 438 0034 638A     		ldrh	r3, [r4, #18]
- 439 0036 0133     		adds	r3, r3, #1
- 440 0038 9BB2     		uxth	r3, r3
- 441 003a 6382     		strh	r3, [r4, #18]	@ movhi
- 442 003c A289     		ldrh	r2, [r4, #12]
- 443 003e 9342     		cmp	r3, r2
- 444 0040 01D3     		bcc	.L23
+ 488              		.loc 1 508 0
+ 489 0034 638A     		ldrh	r3, [r4, #18]
+ 490 0036 0133     		adds	r3, r3, #1
+ 491 0038 9BB2     		uxth	r3, r3
+ 492 003a 6382     		strh	r3, [r4, #18]	@ movhi
+ 493 003c A289     		ldrh	r2, [r4, #12]
+ 494 003e 9342     		cmp	r3, r2
+ 495 0040 01D3     		bcc	.L23
  509:bsp/src/bsp_uart_fifo.c **** 			{
  510:bsp/src/bsp_uart_fifo.c **** 				_pUart->usTxRead = 0;
- 445              		.loc 1 510 0
- 446 0042 0023     		movs	r3, #0
- 447 0044 6382     		strh	r3, [r4, #18]	@ movhi
- 448              	.L23:
+ 496              		.loc 1 510 0
+ 497 0042 0023     		movs	r3, #0
+ 498 0044 6382     		strh	r3, [r4, #18]	@ movhi
+ 499              	.L23:
  511:bsp/src/bsp_uart_fifo.c **** 			}
  512:bsp/src/bsp_uart_fifo.c **** 			_pUart->usTxCount--;
- 449              		.loc 1 512 0
- 450 0046 A38A     		ldrh	r3, [r4, #20]
- 451 0048 013B     		subs	r3, r3, #1
- 452 004a 9BB2     		uxth	r3, r3
- 453 004c A382     		strh	r3, [r4, #20]	@ movhi
- 454              	.L16:
+ 500              		.loc 1 512 0
+ 501 0046 A38A     		ldrh	r3, [r4, #20]
+ 502 0048 013B     		subs	r3, r3, #1
+ 503 004a 9BB2     		uxth	r3, r3
+ 504 004c A382     		strh	r3, [r4, #20]	@ movhi
+ 505              	.L16:
  513:bsp/src/bsp_uart_fifo.c **** 		}
  514:bsp/src/bsp_uart_fifo.c **** 
  515:bsp/src/bsp_uart_fifo.c **** 	}
  516:bsp/src/bsp_uart_fifo.c **** 	else if (USART_GetITStatus(_pUart->uart, USART_INT_TRAC) != RESET)
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 22
-
-
  517:bsp/src/bsp_uart_fifo.c **** 	{
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 23
+
+
  518:bsp/src/bsp_uart_fifo.c **** 		//if (_pUart->usTxRead == _pUart->usTxWrite)
  519:bsp/src/bsp_uart_fifo.c **** 		if (_pUart->usTxCount == 0)
  520:bsp/src/bsp_uart_fifo.c **** 		{
@@ -1284,724 +1343,824 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 1
  537:bsp/src/bsp_uart_fifo.c **** 		}
  538:bsp/src/bsp_uart_fifo.c **** 	}
  539:bsp/src/bsp_uart_fifo.c **** }
- 455              		.loc 1 539 0
- 456 004e 10BD     		pop	{r4, pc}
- 457              	.LVL36:
- 458              	.L27:
- 459              	.LBB36:
+ 506              		.loc 1 539 0
+ 507 004e 10BD     		pop	{r4, pc}
+ 508              	.LVL37:
+ 509              	.L27:
+ 510              	.LBB36:
  475:bsp/src/bsp_uart_fifo.c **** 		_pUart->pRxBuf[_pUart->usRxWrite] = ch;
- 460              		.loc 1 475 0
- 461 0050 2068     		ldr	r0, [r4]
- 462 0052 FFF7FEFF 		bl	USART_ReceiveData
- 463              	.LVL37:
- 464 0056 C0B2     		uxtb	r0, r0
- 465              	.LVL38:
+ 511              		.loc 1 475 0
+ 512 0050 2068     		ldr	r0, [r4]
+ 513 0052 FFF7FEFF 		bl	USART_ReceiveData
+ 514              	.LVL38:
+ 515 0056 C0B2     		uxtb	r0, r0
+ 516              	.LVL39:
  476:bsp/src/bsp_uart_fifo.c **** 		if (++_pUart->usRxWrite >= _pUart->usRxBufSize)
- 466              		.loc 1 476 0
- 467 0058 A268     		ldr	r2, [r4, #8]
- 468 005a E38A     		ldrh	r3, [r4, #22]
- 469 005c 9BB2     		uxth	r3, r3
- 470 005e D054     		strb	r0, [r2, r3]
+ 517              		.loc 1 476 0
+ 518 0058 A268     		ldr	r2, [r4, #8]
+ 519 005a E38A     		ldrh	r3, [r4, #22]
+ 520 005c 9BB2     		uxth	r3, r3
+ 521 005e D054     		strb	r0, [r2, r3]
  477:bsp/src/bsp_uart_fifo.c **** 		{
- 471              		.loc 1 477 0
- 472 0060 E38A     		ldrh	r3, [r4, #22]
- 473 0062 0133     		adds	r3, r3, #1
- 474 0064 9BB2     		uxth	r3, r3
- 475 0066 E382     		strh	r3, [r4, #22]	@ movhi
- 476 0068 E289     		ldrh	r2, [r4, #14]
- 477 006a 9342     		cmp	r3, r2
- 478 006c 01D3     		bcc	.L18
+ 522              		.loc 1 477 0
+ 523 0060 E38A     		ldrh	r3, [r4, #22]
+ 524 0062 0133     		adds	r3, r3, #1
+ 525 0064 9BB2     		uxth	r3, r3
+ 526 0066 E382     		strh	r3, [r4, #22]	@ movhi
+ 527 0068 E289     		ldrh	r2, [r4, #14]
+ 528 006a 9342     		cmp	r3, r2
+ 529 006c 01D3     		bcc	.L18
  479:bsp/src/bsp_uart_fifo.c **** 		}
- 479              		.loc 1 479 0
- 480 006e 0023     		movs	r3, #0
- 481 0070 E382     		strh	r3, [r4, #22]	@ movhi
- 482              	.L18:
+ 530              		.loc 1 479 0
+ 531 006e 0023     		movs	r3, #0
+ 532 0070 E382     		strh	r3, [r4, #22]	@ movhi
+ 533              	.L18:
  481:bsp/src/bsp_uart_fifo.c **** 		{
- 483              		.loc 1 481 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 23
+ 534              		.loc 1 481 0
+ 535 0072 638B     		ldrh	r3, [r4, #26]
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 24
 
 
- 484 0072 638B     		ldrh	r3, [r4, #26]
- 485 0074 9BB2     		uxth	r3, r3
- 486 0076 9A42     		cmp	r2, r3
- 487 0078 03D9     		bls	.L19
+ 536 0074 9BB2     		uxth	r3, r3
+ 537 0076 9A42     		cmp	r2, r3
+ 538 0078 03D9     		bls	.L19
  483:bsp/src/bsp_uart_fifo.c **** 		}
- 488              		.loc 1 483 0
- 489 007a 638B     		ldrh	r3, [r4, #26]
- 490 007c 0133     		adds	r3, r3, #1
- 491 007e 9BB2     		uxth	r3, r3
- 492 0080 6383     		strh	r3, [r4, #26]	@ movhi
- 493              	.L19:
+ 539              		.loc 1 483 0
+ 540 007a 638B     		ldrh	r3, [r4, #26]
+ 541 007c 0133     		adds	r3, r3, #1
+ 542 007e 9BB2     		uxth	r3, r3
+ 543 0080 6383     		strh	r3, [r4, #26]	@ movhi
+ 544              	.L19:
  489:bsp/src/bsp_uart_fifo.c **** 			{
- 494              		.loc 1 489 0
- 495 0082 636A     		ldr	r3, [r4, #36]
- 496 0084 002B     		cmp	r3, #0
- 497 0086 C3D0     		beq	.L17
+ 545              		.loc 1 489 0
+ 546 0082 636A     		ldr	r3, [r4, #36]
+ 547 0084 002B     		cmp	r3, #0
+ 548 0086 C3D0     		beq	.L17
  491:bsp/src/bsp_uart_fifo.c **** 			}
- 498              		.loc 1 491 0
- 499 0088 9847     		blx	r3
- 500              	.LVL39:
- 501 008a C1E7     		b	.L17
- 502              	.L28:
- 503              	.LBE36:
+ 549              		.loc 1 491 0
+ 550 0088 9847     		blx	r3
+ 551              	.LVL40:
+ 552 008a C1E7     		b	.L17
+ 553              	.L28:
+ 554              	.LBE36:
  502:bsp/src/bsp_uart_fifo.c **** 			USART_INTConfig(_pUart->uart, USART_INT_TRAC, ENABLE);
- 504              		.loc 1 502 0
- 505 008c 0022     		movs	r2, #0
- 506 008e 40F22771 		movw	r1, #1831
- 507 0092 2068     		ldr	r0, [r4]
- 508 0094 FFF7FEFF 		bl	USART_INTConfig
- 509              	.LVL40:
+ 555              		.loc 1 502 0
+ 556 008c 0022     		movs	r2, #0
+ 557 008e 40F22771 		movw	r1, #1831
+ 558 0092 2068     		ldr	r0, [r4]
+ 559 0094 FFF7FEFF 		bl	USART_INTConfig
+ 560              	.LVL41:
  503:bsp/src/bsp_uart_fifo.c **** 		}
- 510              		.loc 1 503 0
- 511 0098 0122     		movs	r2, #1
- 512 009a 40F22661 		movw	r1, #1574
- 513 009e 2068     		ldr	r0, [r4]
- 514 00a0 FFF7FEFF 		bl	USART_INTConfig
- 515              	.LVL41:
- 516 00a4 D3E7     		b	.L16
- 517              	.L20:
+ 561              		.loc 1 503 0
+ 562 0098 0122     		movs	r2, #1
+ 563 009a 40F22661 		movw	r1, #1574
+ 564 009e 2068     		ldr	r0, [r4]
+ 565 00a0 FFF7FEFF 		bl	USART_INTConfig
+ 566              	.LVL42:
+ 567 00a4 D3E7     		b	.L16
+ 568              	.L20:
  516:bsp/src/bsp_uart_fifo.c **** 	{
- 518              		.loc 1 516 0
- 519 00a6 40F22661 		movw	r1, #1574
- 520 00aa 2068     		ldr	r0, [r4]
- 521 00ac FFF7FEFF 		bl	USART_GetITStatus
- 522              	.LVL42:
- 523 00b0 0028     		cmp	r0, #0
- 524 00b2 CCD0     		beq	.L16
+ 569              		.loc 1 516 0
+ 570 00a6 40F22661 		movw	r1, #1574
+ 571 00aa 2068     		ldr	r0, [r4]
+ 572 00ac FFF7FEFF 		bl	USART_GetITStatus
+ 573              	.LVL43:
+ 574 00b0 0028     		cmp	r0, #0
+ 575 00b2 CCD0     		beq	.L16
  519:bsp/src/bsp_uart_fifo.c **** 		{
- 525              		.loc 1 519 0
- 526 00b4 A38A     		ldrh	r3, [r4, #20]
- 527 00b6 9BB2     		uxth	r3, r3
- 528 00b8 53B9     		cbnz	r3, .L24
+ 576              		.loc 1 519 0
+ 577 00b4 A38A     		ldrh	r3, [r4, #20]
+ 578 00b6 9BB2     		uxth	r3, r3
+ 579 00b8 53B9     		cbnz	r3, .L24
  522:bsp/src/bsp_uart_fifo.c **** 
- 529              		.loc 1 522 0
- 530 00ba 0022     		movs	r2, #0
- 531 00bc 40F22661 		movw	r1, #1574
- 532 00c0 2068     		ldr	r0, [r4]
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 24
+ 580              		.loc 1 522 0
+ 581 00ba 0022     		movs	r2, #0
+ 582 00bc 40F22661 		movw	r1, #1574
+ 583 00c0 2068     		ldr	r0, [r4]
+ 584 00c2 FFF7FEFF 		bl	USART_INTConfig
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 25
 
 
- 533 00c2 FFF7FEFF 		bl	USART_INTConfig
- 534              	.LVL43:
+ 585              	.LVL44:
  524:bsp/src/bsp_uart_fifo.c **** 			{
- 535              		.loc 1 524 0
- 536 00c6 236A     		ldr	r3, [r4, #32]
- 537 00c8 002B     		cmp	r3, #0
- 538 00ca C0D0     		beq	.L16
+ 586              		.loc 1 524 0
+ 587 00c6 236A     		ldr	r3, [r4, #32]
+ 588 00c8 002B     		cmp	r3, #0
+ 589 00ca C0D0     		beq	.L16
  526:bsp/src/bsp_uart_fifo.c **** 			}
- 539              		.loc 1 526 0
- 540 00cc 9847     		blx	r3
- 541              	.LVL44:
- 542 00ce BEE7     		b	.L16
- 543              	.L24:
+ 590              		.loc 1 526 0
+ 591 00cc 9847     		blx	r3
+ 592              	.LVL45:
+ 593 00ce BEE7     		b	.L16
+ 594              	.L24:
  531:bsp/src/bsp_uart_fifo.c **** 			if (++_pUart->usTxRead >= _pUart->usTxBufSize)
- 544              		.loc 1 531 0
- 545 00d0 6268     		ldr	r2, [r4, #4]
- 546 00d2 638A     		ldrh	r3, [r4, #18]
- 547 00d4 9BB2     		uxth	r3, r3
- 548 00d6 D15C     		ldrb	r1, [r2, r3]	@ zero_extendqisi2
- 549 00d8 2068     		ldr	r0, [r4]
- 550 00da FFF7FEFF 		bl	USART_SendData
- 551              	.LVL45:
+ 595              		.loc 1 531 0
+ 596 00d0 6268     		ldr	r2, [r4, #4]
+ 597 00d2 638A     		ldrh	r3, [r4, #18]
+ 598 00d4 9BB2     		uxth	r3, r3
+ 599 00d6 D15C     		ldrb	r1, [r2, r3]	@ zero_extendqisi2
+ 600 00d8 2068     		ldr	r0, [r4]
+ 601 00da FFF7FEFF 		bl	USART_SendData
+ 602              	.LVL46:
  532:bsp/src/bsp_uart_fifo.c **** 			{
- 552              		.loc 1 532 0
- 553 00de 638A     		ldrh	r3, [r4, #18]
- 554 00e0 0133     		adds	r3, r3, #1
- 555 00e2 9BB2     		uxth	r3, r3
- 556 00e4 6382     		strh	r3, [r4, #18]	@ movhi
- 557 00e6 A289     		ldrh	r2, [r4, #12]
- 558 00e8 9342     		cmp	r3, r2
- 559 00ea 01D3     		bcc	.L25
+ 603              		.loc 1 532 0
+ 604 00de 638A     		ldrh	r3, [r4, #18]
+ 605 00e0 0133     		adds	r3, r3, #1
+ 606 00e2 9BB2     		uxth	r3, r3
+ 607 00e4 6382     		strh	r3, [r4, #18]	@ movhi
+ 608 00e6 A289     		ldrh	r2, [r4, #12]
+ 609 00e8 9342     		cmp	r3, r2
+ 610 00ea 01D3     		bcc	.L25
  534:bsp/src/bsp_uart_fifo.c **** 			}
- 560              		.loc 1 534 0
- 561 00ec 0023     		movs	r3, #0
- 562 00ee 6382     		strh	r3, [r4, #18]	@ movhi
- 563              	.L25:
+ 611              		.loc 1 534 0
+ 612 00ec 0023     		movs	r3, #0
+ 613 00ee 6382     		strh	r3, [r4, #18]	@ movhi
+ 614              	.L25:
  536:bsp/src/bsp_uart_fifo.c **** 		}
- 564              		.loc 1 536 0
- 565 00f0 A38A     		ldrh	r3, [r4, #20]
- 566 00f2 013B     		subs	r3, r3, #1
- 567 00f4 9BB2     		uxth	r3, r3
- 568 00f6 A382     		strh	r3, [r4, #20]	@ movhi
- 569              		.loc 1 539 0
- 570 00f8 A9E7     		b	.L16
- 571              		.cfi_endproc
- 572              	.LFE138:
- 574              		.section	.text.ComToUart,"ax",%progbits
- 575              		.align	1
- 576              		.global	ComToUart
- 577              		.syntax unified
- 578              		.thumb
- 579              		.thumb_func
- 580              		.fpu fpv4-sp-d16
- 582              	ComToUart:
- 583              	.LFB124:
+ 615              		.loc 1 536 0
+ 616 00f0 A38A     		ldrh	r3, [r4, #20]
+ 617 00f2 013B     		subs	r3, r3, #1
+ 618 00f4 9BB2     		uxth	r3, r3
+ 619 00f6 A382     		strh	r3, [r4, #20]	@ movhi
+ 620              		.loc 1 539 0
+ 621 00f8 A9E7     		b	.L16
+ 622              		.cfi_endproc
+ 623              	.LFE138:
+ 625              		.section	.text.ComToUart,"ax",%progbits
+ 626              		.align	1
+ 627              		.global	ComToUart
+ 628              		.syntax unified
+ 629              		.thumb
+ 630              		.thumb_func
+ 631              		.fpu fpv4-sp-d16
+ 633              	ComToUart:
+ 634              	.LFB124:
   75:bsp/src/bsp_uart_fifo.c **** 	if (_ucPort == COM2)
- 584              		.loc 1 75 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 25
+ 635              		.loc 1 75 0
+ 636              		.cfi_startproc
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 26
 
 
- 585              		.cfi_startproc
- 586              		@ args = 0, pretend = 0, frame = 0
- 587              		@ frame_needed = 0, uses_anonymous_args = 0
- 588              		@ link register save eliminated.
- 589              	.LVL46:
+ 637              		@ args = 0, pretend = 0, frame = 0
+ 638              		@ frame_needed = 0, uses_anonymous_args = 0
+ 639              		@ link register save eliminated.
+ 640              	.LVL47:
   76:bsp/src/bsp_uart_fifo.c **** 	{
- 590              		.loc 1 76 0
- 591 0000 0128     		cmp	r0, #1
- 592 0002 03D0     		beq	.L31
+ 641              		.loc 1 76 0
+ 642 0000 0128     		cmp	r0, #1
+ 643 0002 03D0     		beq	.L31
   80:bsp/src/bsp_uart_fifo.c **** 	{
- 593              		.loc 1 80 0
- 594 0004 0228     		cmp	r0, #2
- 595 0006 03D1     		bne	.L32
+ 644              		.loc 1 80 0
+ 645 0004 0228     		cmp	r0, #2
+ 646 0006 03D1     		bne	.L32
   82:bsp/src/bsp_uart_fifo.c **** 	}
- 596              		.loc 1 82 0
- 597 0008 0248     		ldr	r0, .L33
- 598              	.LVL47:
- 599 000a 7047     		bx	lr
- 600              	.LVL48:
- 601              	.L31:
+ 647              		.loc 1 82 0
+ 648 0008 0248     		ldr	r0, .L33
+ 649              	.LVL48:
+ 650 000a 7047     		bx	lr
+ 651              	.LVL49:
+ 652              	.L31:
   78:bsp/src/bsp_uart_fifo.c **** 	}
- 602              		.loc 1 78 0
- 603 000c 0248     		ldr	r0, .L33+4
- 604              	.LVL49:
- 605 000e 7047     		bx	lr
- 606              	.LVL50:
- 607              	.L32:
+ 653              		.loc 1 78 0
+ 654 000c 0248     		ldr	r0, .L33+4
+ 655              	.LVL50:
+ 656 000e 7047     		bx	lr
+ 657              	.LVL51:
+ 658              	.L32:
   84:bsp/src/bsp_uart_fifo.c **** }
- 608              		.loc 1 84 0
- 609 0010 0020     		movs	r0, #0
- 610              	.LVL51:
+ 659              		.loc 1 84 0
+ 660 0010 0020     		movs	r0, #0
+ 661              	.LVL52:
   85:bsp/src/bsp_uart_fifo.c **** 
- 611              		.loc 1 85 0
- 612 0012 7047     		bx	lr
- 613              	.L34:
- 614              		.align	2
- 615              	.L33:
- 616 0014 00000000 		.word	.LANCHOR0
- 617 0018 00000000 		.word	.LANCHOR3
- 618              		.cfi_endproc
- 619              	.LFE124:
- 621              		.section	.text.EnableUart,"ax",%progbits
- 622              		.align	1
- 623              		.syntax unified
- 624              		.thumb
- 625              		.thumb_func
- 626              		.fpu fpv4-sp-d16
- 628              	EnableUart:
- 629              	.LFB135:
+ 662              		.loc 1 85 0
+ 663 0012 7047     		bx	lr
+ 664              	.L34:
+ 665              		.align	2
+ 666              	.L33:
+ 667 0014 00000000 		.word	.LANCHOR3
+ 668 0018 00000000 		.word	.LANCHOR0
+ 669              		.cfi_endproc
+ 670              	.LFE124:
+ 672              		.section	.text.EnableUart,"ax",%progbits
+ 673              		.align	1
+ 674              		.syntax unified
+ 675              		.thumb
+ 676              		.thumb_func
+ 677              		.fpu fpv4-sp-d16
+ 679              	EnableUart:
+ 680              	.LFB135:
  368:bsp/src/bsp_uart_fifo.c **** 	UART_T *pUart;
- 630              		.loc 1 368 0
- 631              		.cfi_startproc
- 632              		@ args = 0, pretend = 0, frame = 0
- 633              		@ frame_needed = 0, uses_anonymous_args = 0
- 634              	.LVL52:
- 635 0000 10B5     		push	{r4, lr}
- 636              	.LCFI7:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 26
+ 681              		.loc 1 368 0
+ 682              		.cfi_startproc
+ 683              		@ args = 0, pretend = 0, frame = 0
+ 684              		@ frame_needed = 0, uses_anonymous_args = 0
+ 685              	.LVL53:
+ 686 0000 10B5     		push	{r4, lr}
+ 687              	.LCFI7:
+ 688              		.cfi_def_cfa_offset 8
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 27
 
 
- 637              		.cfi_def_cfa_offset 8
- 638              		.cfi_offset 4, -8
- 639              		.cfi_offset 14, -4
+ 689              		.cfi_offset 4, -8
+ 690              		.cfi_offset 14, -4
  371:bsp/src/bsp_uart_fifo.c **** 	if (pUart == 0)
- 640              		.loc 1 371 0
- 641 0002 FFF7FEFF 		bl	ComToUart
- 642              	.LVL53:
+ 691              		.loc 1 371 0
+ 692 0002 FFF7FEFF 		bl	ComToUart
+ 693              	.LVL54:
  372:bsp/src/bsp_uart_fifo.c **** 	{
- 643              		.loc 1 372 0
- 644 0006 80B1     		cbz	r0, .L35
- 645 0008 0446     		mov	r4, r0
+ 694              		.loc 1 372 0
+ 695 0006 80B1     		cbz	r0, .L35
+ 696 0008 0446     		mov	r4, r0
  379:bsp/src/bsp_uart_fifo.c ****     USART_INTConfig(pUart->uart, USART_INT_TDE, ENABLE);
- 646              		.loc 1 379 0
- 647 000a 0122     		movs	r2, #1
- 648 000c 40F22551 		movw	r1, #1317
- 649 0010 0068     		ldr	r0, [r0]
- 650              	.LVL54:
- 651 0012 FFF7FEFF 		bl	USART_INTConfig
- 652              	.LVL55:
+ 697              		.loc 1 379 0
+ 698 000a 0122     		movs	r2, #1
+ 699 000c 40F22551 		movw	r1, #1317
+ 700 0010 0068     		ldr	r0, [r0]
+ 701              	.LVL55:
+ 702 0012 FFF7FEFF 		bl	USART_INTConfig
+ 703              	.LVL56:
  380:bsp/src/bsp_uart_fifo.c **** 
- 653              		.loc 1 380 0
- 654 0016 0122     		movs	r2, #1
- 655 0018 40F22771 		movw	r1, #1831
- 656 001c 2068     		ldr	r0, [r4]
- 657 001e FFF7FEFF 		bl	USART_INTConfig
- 658              	.LVL56:
+ 704              		.loc 1 380 0
+ 705 0016 0122     		movs	r2, #1
+ 706 0018 40F22771 		movw	r1, #1831
+ 707 001c 2068     		ldr	r0, [r4]
+ 708 001e FFF7FEFF 		bl	USART_INTConfig
+ 709              	.LVL57:
  383:bsp/src/bsp_uart_fifo.c **** }
- 659              		.loc 1 383 0
- 660 0022 0121     		movs	r1, #1
- 661 0024 2068     		ldr	r0, [r4]
- 662 0026 FFF7FEFF 		bl	USART_Cmd
- 663              	.LVL57:
- 664              	.L35:
+ 710              		.loc 1 383 0
+ 711 0022 0121     		movs	r1, #1
+ 712 0024 2068     		ldr	r0, [r4]
+ 713 0026 FFF7FEFF 		bl	USART_Cmd
+ 714              	.LVL58:
+ 715              	.L35:
  384:bsp/src/bsp_uart_fifo.c **** 
- 665              		.loc 1 384 0
- 666 002a 10BD     		pop	{r4, pc}
- 667              		.cfi_endproc
- 668              	.LFE135:
- 670              		.section	.text.comSendBuf,"ax",%progbits
- 671              		.align	1
- 672              		.global	comSendBuf
- 673              		.syntax unified
- 674              		.thumb
- 675              		.thumb_func
- 676              		.fpu fpv4-sp-d16
- 678              	comSendBuf:
- 679              	.LFB125:
+ 716              		.loc 1 384 0
+ 717 002a 10BD     		pop	{r4, pc}
+ 718              		.cfi_endproc
+ 719              	.LFE135:
+ 721              		.section	.text.comSendBuf,"ax",%progbits
+ 722              		.align	1
+ 723              		.global	comSendBuf
+ 724              		.syntax unified
+ 725              		.thumb
+ 726              		.thumb_func
+ 727              		.fpu fpv4-sp-d16
+ 729              	comSendBuf:
+ 730              	.LFB125:
   97:bsp/src/bsp_uart_fifo.c **** 	UART_T *pUart;
- 680              		.loc 1 97 0
- 681              		.cfi_startproc
- 682              		@ args = 0, pretend = 0, frame = 0
- 683              		@ frame_needed = 0, uses_anonymous_args = 0
- 684              	.LVL58:
- 685 0000 70B5     		push	{r4, r5, r6, lr}
- 686              	.LCFI8:
- 687              		.cfi_def_cfa_offset 16
- 688              		.cfi_offset 4, -16
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 27
+ 731              		.loc 1 97 0
+ 732              		.cfi_startproc
+ 733              		@ args = 0, pretend = 0, frame = 0
+ 734              		@ frame_needed = 0, uses_anonymous_args = 0
+ 735              	.LVL59:
+ 736 0000 70B5     		push	{r4, r5, r6, lr}
+ 737              	.LCFI8:
+ 738              		.cfi_def_cfa_offset 16
+ 739              		.cfi_offset 4, -16
+ 740              		.cfi_offset 5, -12
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 28
 
 
- 689              		.cfi_offset 5, -12
- 690              		.cfi_offset 6, -8
- 691              		.cfi_offset 14, -4
- 692 0002 0D46     		mov	r5, r1
- 693 0004 1646     		mov	r6, r2
+ 741              		.cfi_offset 6, -8
+ 742              		.cfi_offset 14, -4
+ 743 0002 0D46     		mov	r5, r1
+ 744 0004 1646     		mov	r6, r2
  100:bsp/src/bsp_uart_fifo.c **** 	if (pUart == 0)
- 694              		.loc 1 100 0
- 695 0006 FFF7FEFF 		bl	ComToUart
- 696              	.LVL59:
+ 745              		.loc 1 100 0
+ 746 0006 FFF7FEFF 		bl	ComToUart
+ 747              	.LVL60:
  101:bsp/src/bsp_uart_fifo.c **** 	{
- 697              		.loc 1 101 0
- 698 000a 40B1     		cbz	r0, .L38
- 699 000c 0446     		mov	r4, r0
+ 748              		.loc 1 101 0
+ 749 000a 40B1     		cbz	r0, .L38
+ 750 000c 0446     		mov	r4, r0
  106:bsp/src/bsp_uart_fifo.c **** 	{
- 700              		.loc 1 106 0
- 701 000e C369     		ldr	r3, [r0, #28]
- 702 0010 03B1     		cbz	r3, .L40
+ 751              		.loc 1 106 0
+ 752 000e C369     		ldr	r3, [r0, #28]
+ 753 0010 03B1     		cbz	r3, .L40
  108:bsp/src/bsp_uart_fifo.c **** 	}
- 703              		.loc 1 108 0
- 704 0012 9847     		blx	r3
- 705              	.LVL60:
- 706              	.L40:
+ 754              		.loc 1 108 0
+ 755 0012 9847     		blx	r3
+ 756              	.LVL61:
+ 757              	.L40:
  111:bsp/src/bsp_uart_fifo.c **** }
- 707              		.loc 1 111 0
- 708 0014 3246     		mov	r2, r6
- 709 0016 2946     		mov	r1, r5
- 710 0018 2046     		mov	r0, r4
- 711 001a FFF7FEFF 		bl	UartSend
- 712              	.LVL61:
- 713              	.L38:
+ 758              		.loc 1 111 0
+ 759 0014 3246     		mov	r2, r6
+ 760 0016 2946     		mov	r1, r5
+ 761 0018 2046     		mov	r0, r4
+ 762 001a FFF7FEFF 		bl	UartSend
+ 763              	.LVL62:
+ 764              	.L38:
  112:bsp/src/bsp_uart_fifo.c **** 
- 714              		.loc 1 112 0
- 715 001e 70BD     		pop	{r4, r5, r6, pc}
- 716              		.cfi_endproc
- 717              	.LFE125:
- 719              		.section	.text.comSendChar,"ax",%progbits
- 720              		.align	1
- 721              		.global	comSendChar
- 722              		.syntax unified
- 723              		.thumb
- 724              		.thumb_func
- 725              		.fpu fpv4-sp-d16
- 727              	comSendChar:
- 728              	.LFB126:
+ 765              		.loc 1 112 0
+ 766 001e 70BD     		pop	{r4, r5, r6, pc}
+ 767              		.cfi_endproc
+ 768              	.LFE125:
+ 770              		.section	.text.comSendChar,"ax",%progbits
+ 771              		.align	1
+ 772              		.global	comSendChar
+ 773              		.syntax unified
+ 774              		.thumb
+ 775              		.thumb_func
+ 776              		.fpu fpv4-sp-d16
+ 778              	comSendChar:
+ 779              	.LFB126:
  124:bsp/src/bsp_uart_fifo.c **** 	comSendBuf(_ucPort, &_ucByte, 1);
- 729              		.loc 1 124 0
- 730              		.cfi_startproc
- 731              		@ args = 0, pretend = 0, frame = 8
- 732              		@ frame_needed = 0, uses_anonymous_args = 0
- 733              	.LVL62:
- 734 0000 00B5     		push	{lr}
- 735              	.LCFI9:
- 736              		.cfi_def_cfa_offset 4
- 737              		.cfi_offset 14, -4
- 738 0002 83B0     		sub	sp, sp, #12
- 739              	.LCFI10:
- 740              		.cfi_def_cfa_offset 16
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 28
+ 780              		.loc 1 124 0
+ 781              		.cfi_startproc
+ 782              		@ args = 0, pretend = 0, frame = 8
+ 783              		@ frame_needed = 0, uses_anonymous_args = 0
+ 784              	.LVL63:
+ 785 0000 00B5     		push	{lr}
+ 786              	.LCFI9:
+ 787              		.cfi_def_cfa_offset 4
+ 788              		.cfi_offset 14, -4
+ 789 0002 83B0     		sub	sp, sp, #12
+ 790              	.LCFI10:
+ 791              		.cfi_def_cfa_offset 16
+ 792 0004 02AB     		add	r3, sp, #8
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 29
 
 
- 741 0004 02AB     		add	r3, sp, #8
- 742 0006 03F8011D 		strb	r1, [r3, #-1]!
+ 793 0006 03F8011D 		strb	r1, [r3, #-1]!
  125:bsp/src/bsp_uart_fifo.c **** }
- 743              		.loc 1 125 0
- 744 000a 0122     		movs	r2, #1
- 745 000c 1946     		mov	r1, r3
- 746              	.LVL63:
- 747 000e FFF7FEFF 		bl	comSendBuf
- 748              	.LVL64:
+ 794              		.loc 1 125 0
+ 795 000a 0122     		movs	r2, #1
+ 796 000c 1946     		mov	r1, r3
+ 797              	.LVL64:
+ 798 000e FFF7FEFF 		bl	comSendBuf
+ 799              	.LVL65:
  126:bsp/src/bsp_uart_fifo.c **** 
- 749              		.loc 1 126 0
- 750 0012 03B0     		add	sp, sp, #12
- 751              	.LCFI11:
- 752              		.cfi_def_cfa_offset 4
- 753              		@ sp needed
- 754 0014 5DF804FB 		ldr	pc, [sp], #4
- 755              		.cfi_endproc
- 756              	.LFE126:
- 758              		.section	.text.comGetChar,"ax",%progbits
- 759              		.align	1
- 760              		.global	comGetChar
- 761              		.syntax unified
- 762              		.thumb
- 763              		.thumb_func
- 764              		.fpu fpv4-sp-d16
- 766              	comGetChar:
- 767              	.LFB127:
+ 800              		.loc 1 126 0
+ 801 0012 03B0     		add	sp, sp, #12
+ 802              	.LCFI11:
+ 803              		.cfi_def_cfa_offset 4
+ 804              		@ sp needed
+ 805 0014 5DF804FB 		ldr	pc, [sp], #4
+ 806              		.cfi_endproc
+ 807              	.LFE126:
+ 809              		.section	.text.comGetChar,"ax",%progbits
+ 810              		.align	1
+ 811              		.global	comGetChar
+ 812              		.syntax unified
+ 813              		.thumb
+ 814              		.thumb_func
+ 815              		.fpu fpv4-sp-d16
+ 817              	comGetChar:
+ 818              	.LFB127:
  138:bsp/src/bsp_uart_fifo.c **** 	UART_T *pUart;
- 768              		.loc 1 138 0
- 769              		.cfi_startproc
- 770              		@ args = 0, pretend = 0, frame = 0
- 771              		@ frame_needed = 0, uses_anonymous_args = 0
- 772              	.LVL65:
- 773 0000 10B5     		push	{r4, lr}
- 774              	.LCFI12:
- 775              		.cfi_def_cfa_offset 8
- 776              		.cfi_offset 4, -8
- 777              		.cfi_offset 14, -4
- 778 0002 0C46     		mov	r4, r1
+ 819              		.loc 1 138 0
+ 820              		.cfi_startproc
+ 821              		@ args = 0, pretend = 0, frame = 0
+ 822              		@ frame_needed = 0, uses_anonymous_args = 0
+ 823              	.LVL66:
+ 824 0000 10B5     		push	{r4, lr}
+ 825              	.LCFI12:
+ 826              		.cfi_def_cfa_offset 8
+ 827              		.cfi_offset 4, -8
+ 828              		.cfi_offset 14, -4
+ 829 0002 0C46     		mov	r4, r1
  141:bsp/src/bsp_uart_fifo.c **** 	if (pUart == 0)
- 779              		.loc 1 141 0
- 780 0004 FFF7FEFF 		bl	ComToUart
- 781              	.LVL66:
+ 830              		.loc 1 141 0
+ 831 0004 FFF7FEFF 		bl	ComToUart
+ 832              	.LVL67:
  142:bsp/src/bsp_uart_fifo.c **** 	{
- 782              		.loc 1 142 0
- 783 0008 18B1     		cbz	r0, .L46
+ 833              		.loc 1 142 0
+ 834 0008 18B1     		cbz	r0, .L46
  147:bsp/src/bsp_uart_fifo.c **** }
- 784              		.loc 1 147 0
- 785 000a 2146     		mov	r1, r4
- 786 000c FFF7FEFF 		bl	UartGetChar
- 787              	.LVL67:
- 788              	.L45:
+ 835              		.loc 1 147 0
+ 836 000a 2146     		mov	r1, r4
+ 837 000c FFF7FEFF 		bl	UartGetChar
+ 838              	.LVL68:
+ 839              	.L45:
  148:bsp/src/bsp_uart_fifo.c **** 
- 789              		.loc 1 148 0
- 790 0010 10BD     		pop	{r4, pc}
- 791              	.LVL68:
- 792              	.L46:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 29
-
-
+ 840              		.loc 1 148 0
+ 841 0010 10BD     		pop	{r4, pc}
+ 842              	.LVL69:
+ 843              	.L46:
  144:bsp/src/bsp_uart_fifo.c **** 	}
- 793              		.loc 1 144 0
- 794 0012 0020     		movs	r0, #0
- 795              	.LVL69:
- 796 0014 FCE7     		b	.L45
- 797              		.cfi_endproc
- 798              	.LFE127:
- 800              		.section	.text.comClearTxFifo,"ax",%progbits
- 801              		.align	1
- 802              		.global	comClearTxFifo
- 803              		.syntax unified
- 804              		.thumb
- 805              		.thumb_func
- 806              		.fpu fpv4-sp-d16
- 808              	comClearTxFifo:
- 809              	.LFB128:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 30
+
+
+ 844              		.loc 1 144 0
+ 845 0012 0020     		movs	r0, #0
+ 846              	.LVL70:
+ 847 0014 FCE7     		b	.L45
+ 848              		.cfi_endproc
+ 849              	.LFE127:
+ 851              		.section	.text.comClearTxFifo,"ax",%progbits
+ 852              		.align	1
+ 853              		.global	comClearTxFifo
+ 854              		.syntax unified
+ 855              		.thumb
+ 856              		.thumb_func
+ 857              		.fpu fpv4-sp-d16
+ 859              	comClearTxFifo:
+ 860              	.LFB128:
  158:bsp/src/bsp_uart_fifo.c **** 	UART_T *pUart;
- 810              		.loc 1 158 0
- 811              		.cfi_startproc
- 812              		@ args = 0, pretend = 0, frame = 0
- 813              		@ frame_needed = 0, uses_anonymous_args = 0
- 814              	.LVL70:
- 815 0000 08B5     		push	{r3, lr}
- 816              	.LCFI13:
- 817              		.cfi_def_cfa_offset 8
- 818              		.cfi_offset 3, -8
- 819              		.cfi_offset 14, -4
+ 861              		.loc 1 158 0
+ 862              		.cfi_startproc
+ 863              		@ args = 0, pretend = 0, frame = 0
+ 864              		@ frame_needed = 0, uses_anonymous_args = 0
+ 865              	.LVL71:
+ 866 0000 08B5     		push	{r3, lr}
+ 867              	.LCFI13:
+ 868              		.cfi_def_cfa_offset 8
+ 869              		.cfi_offset 3, -8
+ 870              		.cfi_offset 14, -4
  161:bsp/src/bsp_uart_fifo.c **** 	if (pUart == 0)
- 820              		.loc 1 161 0
- 821 0002 FFF7FEFF 		bl	ComToUart
- 822              	.LVL71:
+ 871              		.loc 1 161 0
+ 872 0002 FFF7FEFF 		bl	ComToUart
+ 873              	.LVL72:
  162:bsp/src/bsp_uart_fifo.c **** 	{
- 823              		.loc 1 162 0
- 824 0006 18B1     		cbz	r0, .L48
+ 874              		.loc 1 162 0
+ 875 0006 18B1     		cbz	r0, .L48
  167:bsp/src/bsp_uart_fifo.c **** 	pUart->usTxRead = 0;
- 825              		.loc 1 167 0
- 826 0008 0022     		movs	r2, #0
- 827 000a 0282     		strh	r2, [r0, #16]	@ movhi
+ 876              		.loc 1 167 0
+ 877 0008 0022     		movs	r2, #0
+ 878 000a 0282     		strh	r2, [r0, #16]	@ movhi
  168:bsp/src/bsp_uart_fifo.c **** 	pUart->usTxCount = 0;
- 828              		.loc 1 168 0
- 829 000c 4282     		strh	r2, [r0, #18]	@ movhi
+ 879              		.loc 1 168 0
+ 880 000c 4282     		strh	r2, [r0, #18]	@ movhi
  169:bsp/src/bsp_uart_fifo.c **** }
- 830              		.loc 1 169 0
- 831 000e 8282     		strh	r2, [r0, #20]	@ movhi
- 832              	.L48:
+ 881              		.loc 1 169 0
+ 882 000e 8282     		strh	r2, [r0, #20]	@ movhi
+ 883              	.L48:
  170:bsp/src/bsp_uart_fifo.c **** 
- 833              		.loc 1 170 0
- 834 0010 08BD     		pop	{r3, pc}
- 835              		.cfi_endproc
- 836              	.LFE128:
- 838              		.section	.text.comClearRxFifo,"ax",%progbits
- 839              		.align	1
- 840              		.global	comClearRxFifo
- 841              		.syntax unified
- 842              		.thumb
- 843              		.thumb_func
- 844              		.fpu fpv4-sp-d16
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 30
+ 884              		.loc 1 170 0
+ 885 0010 08BD     		pop	{r3, pc}
+ 886              		.cfi_endproc
+ 887              	.LFE128:
+ 889              		.section	.text.comClearRxFifo,"ax",%progbits
+ 890              		.align	1
+ 891              		.global	comClearRxFifo
+ 892              		.syntax unified
+ 893              		.thumb
+ 894              		.thumb_func
+ 895              		.fpu fpv4-sp-d16
+ 897              	comClearRxFifo:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 31
 
 
- 846              	comClearRxFifo:
- 847              	.LFB129:
+ 898              	.LFB129:
  180:bsp/src/bsp_uart_fifo.c **** 	UART_T *pUart;
- 848              		.loc 1 180 0
- 849              		.cfi_startproc
- 850              		@ args = 0, pretend = 0, frame = 0
- 851              		@ frame_needed = 0, uses_anonymous_args = 0
- 852              	.LVL72:
- 853 0000 08B5     		push	{r3, lr}
- 854              	.LCFI14:
- 855              		.cfi_def_cfa_offset 8
- 856              		.cfi_offset 3, -8
- 857              		.cfi_offset 14, -4
+ 899              		.loc 1 180 0
+ 900              		.cfi_startproc
+ 901              		@ args = 0, pretend = 0, frame = 0
+ 902              		@ frame_needed = 0, uses_anonymous_args = 0
+ 903              	.LVL73:
+ 904 0000 08B5     		push	{r3, lr}
+ 905              	.LCFI14:
+ 906              		.cfi_def_cfa_offset 8
+ 907              		.cfi_offset 3, -8
+ 908              		.cfi_offset 14, -4
  183:bsp/src/bsp_uart_fifo.c **** 	if (pUart == 0)
- 858              		.loc 1 183 0
- 859 0002 FFF7FEFF 		bl	ComToUart
- 860              	.LVL73:
+ 909              		.loc 1 183 0
+ 910 0002 FFF7FEFF 		bl	ComToUart
+ 911              	.LVL74:
  184:bsp/src/bsp_uart_fifo.c **** 	{
- 861              		.loc 1 184 0
- 862 0006 18B1     		cbz	r0, .L51
+ 912              		.loc 1 184 0
+ 913 0006 18B1     		cbz	r0, .L51
  189:bsp/src/bsp_uart_fifo.c **** 	pUart->usRxRead = 0;
- 863              		.loc 1 189 0
- 864 0008 0022     		movs	r2, #0
- 865 000a C282     		strh	r2, [r0, #22]	@ movhi
+ 914              		.loc 1 189 0
+ 915 0008 0022     		movs	r2, #0
+ 916 000a C282     		strh	r2, [r0, #22]	@ movhi
  190:bsp/src/bsp_uart_fifo.c **** 	pUart->usRxCount = 0;
- 866              		.loc 1 190 0
- 867 000c 0283     		strh	r2, [r0, #24]	@ movhi
+ 917              		.loc 1 190 0
+ 918 000c 0283     		strh	r2, [r0, #24]	@ movhi
  191:bsp/src/bsp_uart_fifo.c **** }
- 868              		.loc 1 191 0
- 869 000e 4283     		strh	r2, [r0, #26]	@ movhi
- 870              	.L51:
+ 919              		.loc 1 191 0
+ 920 000e 4283     		strh	r2, [r0, #26]	@ movhi
+ 921              	.L51:
  192:bsp/src/bsp_uart_fifo.c **** 
- 871              		.loc 1 192 0
- 872 0010 08BD     		pop	{r3, pc}
- 873              		.cfi_endproc
- 874              	.LFE129:
- 876              		.section	.text.bsp_SetUartBaud,"ax",%progbits
- 877              		.align	1
- 878              		.global	bsp_SetUartBaud
- 879              		.syntax unified
- 880              		.thumb
- 881              		.thumb_func
- 882              		.fpu fpv4-sp-d16
- 884              	bsp_SetUartBaud:
- 885              	.LFB130:
+ 922              		.loc 1 192 0
+ 923 0010 08BD     		pop	{r3, pc}
+ 924              		.cfi_endproc
+ 925              	.LFE129:
+ 927              		.section	.text.bsp_SetUartBaud,"ax",%progbits
+ 928              		.align	1
+ 929              		.global	bsp_SetUartBaud
+ 930              		.syntax unified
+ 931              		.thumb
+ 932              		.thumb_func
+ 933              		.fpu fpv4-sp-d16
+ 935              	bsp_SetUartBaud:
+ 936              	.LFB130:
  201:bsp/src/bsp_uart_fifo.c **** 	UART_T *pUart;
- 886              		.loc 1 201 0
- 887              		.cfi_startproc
- 888              		@ args = 0, pretend = 0, frame = 16
- 889              		@ frame_needed = 0, uses_anonymous_args = 0
- 890              	.LVL74:
- 891 0000 10B5     		push	{r4, lr}
- 892              	.LCFI15:
- 893              		.cfi_def_cfa_offset 8
- 894              		.cfi_offset 4, -8
- 895              		.cfi_offset 14, -4
- 896 0002 84B0     		sub	sp, sp, #16
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 31
+ 937              		.loc 1 201 0
+ 938              		.cfi_startproc
+ 939              		@ args = 0, pretend = 0, frame = 16
+ 940              		@ frame_needed = 0, uses_anonymous_args = 0
+ 941              	.LVL75:
+ 942 0000 10B5     		push	{r4, lr}
+ 943              	.LCFI15:
+ 944              		.cfi_def_cfa_offset 8
+ 945              		.cfi_offset 4, -8
+ 946              		.cfi_offset 14, -4
+ 947 0002 84B0     		sub	sp, sp, #16
+ 948              	.LCFI16:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 32
 
 
- 897              	.LCFI16:
- 898              		.cfi_def_cfa_offset 24
- 899 0004 0C46     		mov	r4, r1
+ 949              		.cfi_def_cfa_offset 24
+ 950 0004 0C46     		mov	r4, r1
  204:bsp/src/bsp_uart_fifo.c **** 	if (pUart == 0)
- 900              		.loc 1 204 0
- 901 0006 FFF7FEFF 		bl	ComToUart
- 902              	.LVL75:
+ 951              		.loc 1 204 0
+ 952 0006 FFF7FEFF 		bl	ComToUart
+ 953              	.LVL76:
  205:bsp/src/bsp_uart_fifo.c **** 	{
- 903              		.loc 1 205 0
- 904 000a 08B9     		cbnz	r0, .L58
- 905              	.LVL76:
- 906              	.L54:
+ 954              		.loc 1 205 0
+ 955 000a 08B9     		cbnz	r0, .L58
+ 956              	.LVL77:
+ 957              	.L54:
  221:bsp/src/bsp_uart_fifo.c **** 
- 907              		.loc 1 221 0
- 908 000c 04B0     		add	sp, sp, #16
- 909              	.LCFI17:
- 910              		.cfi_remember_state
- 911              		.cfi_def_cfa_offset 8
- 912              		@ sp needed
- 913 000e 10BD     		pop	{r4, pc}
- 914              	.LVL77:
- 915              	.L58:
- 916              	.LCFI18:
- 917              		.cfi_restore_state
+ 958              		.loc 1 221 0
+ 959 000c 04B0     		add	sp, sp, #16
+ 960              	.LCFI17:
+ 961              		.cfi_remember_state
+ 962              		.cfi_def_cfa_offset 8
+ 963              		@ sp needed
+ 964 000e 10BD     		pop	{r4, pc}
+ 965              	.LVL78:
+ 966              	.L58:
+ 967              	.LCFI18:
+ 968              		.cfi_restore_state
  212:bsp/src/bsp_uart_fifo.c **** 	USART_InitStructure.USART_WordLength    = USART_WordLength_8b;
- 918              		.loc 1 212 0
- 919 0010 0094     		str	r4, [sp]
+ 969              		.loc 1 212 0
+ 970 0010 0094     		str	r4, [sp]
  213:bsp/src/bsp_uart_fifo.c **** 	USART_InitStructure.USART_StopBits      = USART_StopBits_1;
- 920              		.loc 1 213 0
- 921 0012 0023     		movs	r3, #0
- 922 0014 ADF80430 		strh	r3, [sp, #4]	@ movhi
+ 971              		.loc 1 213 0
+ 972 0012 0023     		movs	r3, #0
+ 973 0014 ADF80430 		strh	r3, [sp, #4]	@ movhi
  214:bsp/src/bsp_uart_fifo.c **** 	USART_InitStructure.USART_Parity        = USART_Parity_No ;
- 923              		.loc 1 214 0
- 924 0018 ADF80630 		strh	r3, [sp, #6]	@ movhi
+ 974              		.loc 1 214 0
+ 975 0018 ADF80630 		strh	r3, [sp, #6]	@ movhi
  215:bsp/src/bsp_uart_fifo.c **** 	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
- 925              		.loc 1 215 0
- 926 001c ADF80830 		strh	r3, [sp, #8]	@ movhi
+ 976              		.loc 1 215 0
+ 977 001c ADF80830 		strh	r3, [sp, #8]	@ movhi
  216:bsp/src/bsp_uart_fifo.c **** 	USART_InitStructure.USART_Mode          = USART_Mode_Rx | USART_Mode_Tx;
- 927              		.loc 1 216 0
- 928 0020 ADF80C30 		strh	r3, [sp, #12]	@ movhi
+ 978              		.loc 1 216 0
+ 979 0020 ADF80C30 		strh	r3, [sp, #12]	@ movhi
  217:bsp/src/bsp_uart_fifo.c **** 
- 929              		.loc 1 217 0
- 930 0024 0C23     		movs	r3, #12
- 931 0026 ADF80A30 		strh	r3, [sp, #10]	@ movhi
+ 980              		.loc 1 217 0
+ 981 0024 0C23     		movs	r3, #12
+ 982 0026 ADF80A30 		strh	r3, [sp, #10]	@ movhi
  219:bsp/src/bsp_uart_fifo.c **** 	
- 932              		.loc 1 219 0
- 933 002a 6946     		mov	r1, sp
- 934 002c 0068     		ldr	r0, [r0]
- 935              	.LVL78:
- 936 002e FFF7FEFF 		bl	USART_Init
- 937              	.LVL79:
- 938 0032 EBE7     		b	.L54
- 939              		.cfi_endproc
- 940              	.LFE130:
- 942              		.section	.text.InitHardUart3,"ax",%progbits
- 943              		.align	1
- 944              		.syntax unified
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 32
+ 983              		.loc 1 219 0
+ 984 002a 6946     		mov	r1, sp
+ 985 002c 0068     		ldr	r0, [r0]
+ 986              	.LVL79:
+ 987 002e FFF7FEFF 		bl	USART_Init
+ 988              	.LVL80:
+ 989 0032 EBE7     		b	.L54
+ 990              		.cfi_endproc
+ 991              	.LFE130:
+ 993              		.section	.text.InitHardUart2,"ax",%progbits
+ 994              		.align	1
+ 995              		.syntax unified
+ 996              		.thumb
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 33
 
 
- 945              		.thumb
- 946              		.thumb_func
- 947              		.fpu fpv4-sp-d16
- 949              	InitHardUart3:
- 950              	.LFB133:
- 305:bsp/src/bsp_uart_fifo.c **** 	/* ------ CLOCK CONFIGURATION ------*/
- 951              		.loc 1 305 0
- 952              		.cfi_startproc
- 953              		@ args = 0, pretend = 0, frame = 8
- 954              		@ frame_needed = 0, uses_anonymous_args = 0
- 955 0000 30B5     		push	{r4, r5, lr}
- 956              	.LCFI19:
- 957              		.cfi_def_cfa_offset 12
- 958              		.cfi_offset 4, -12
- 959              		.cfi_offset 5, -8
- 960              		.cfi_offset 14, -4
- 961 0002 83B0     		sub	sp, sp, #12
- 962              	.LCFI20:
- 963              		.cfi_def_cfa_offset 24
- 308:bsp/src/bsp_uart_fifo.c **** 
- 964              		.loc 1 308 0
- 965 0004 0121     		movs	r1, #1
- 966 0006 0820     		movs	r0, #8
- 967 0008 FFF7FEFF 		bl	RCC_APB2PeriphClockCmd
- 968              	.LVL80:
- 311:bsp/src/bsp_uart_fifo.c **** 
- 969              		.loc 1 311 0
- 970 000c 0121     		movs	r1, #1
- 971 000e 4FF48020 		mov	r0, #262144
- 972 0012 FFF7FEFF 		bl	RCC_APB1PeriphClockCmd
- 973              	.LVL81:
- 318:bsp/src/bsp_uart_fifo.c ****     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
- 974              		.loc 1 318 0
- 975 0016 4FF40063 		mov	r3, #2048
- 976 001a ADF80430 		strh	r3, [sp, #4]	@ movhi
- 319:bsp/src/bsp_uart_fifo.c ****     GPIO_Init(GPIOB, &GPIO_InitStructure);
- 977              		.loc 1 319 0
- 978 001e 0423     		movs	r3, #4
- 979 0020 8DF80730 		strb	r3, [sp, #7]
- 320:bsp/src/bsp_uart_fifo.c **** 
- 980              		.loc 1 320 0
- 981 0024 0D4D     		ldr	r5, .L61
- 982 0026 0DEB0301 		add	r1, sp, r3
- 983 002a 2846     		mov	r0, r5
- 984 002c FFF7FEFF 		bl	GPIO_Init
- 985              	.LVL82:
- 323:bsp/src/bsp_uart_fifo.c ****     GPIO_InitStructure.GPIO_MaxSpeed = GPIO_MaxSpeed_50MHz;
- 986              		.loc 1 323 0
- 987 0030 4FF48063 		mov	r3, #1024
- 988 0034 ADF80430 		strh	r3, [sp, #4]	@ movhi
- 324:bsp/src/bsp_uart_fifo.c ****     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
- 989              		.loc 1 324 0
- 990 0038 0224     		movs	r4, #2
- 991 003a 8DF80640 		strb	r4, [sp, #6]
- 325:bsp/src/bsp_uart_fifo.c ****     GPIO_Init(GPIOB, &GPIO_InitStructure);
- 992              		.loc 1 325 0
- 993 003e 1823     		movs	r3, #24
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 33
-
-
- 994 0040 8DF80730 		strb	r3, [sp, #7]
- 326:bsp/src/bsp_uart_fifo.c **** 
- 995              		.loc 1 326 0
- 996 0044 01A9     		add	r1, sp, #4
- 997 0046 2846     		mov	r0, r5
- 998 0048 FFF7FEFF 		bl	GPIO_Init
- 999              	.LVL83:
- 329:bsp/src/bsp_uart_fifo.c **** }
- 1000              		.loc 1 329 0
- 1001 004c 4FF4E131 		mov	r1, #115200
- 1002 0050 2046     		mov	r0, r4
- 1003 0052 FFF7FEFF 		bl	bsp_SetUartBaud
- 1004              	.LVL84:
- 330:bsp/src/bsp_uart_fifo.c **** 
- 1005              		.loc 1 330 0
- 1006 0056 03B0     		add	sp, sp, #12
- 1007              	.LCFI21:
+ 997              		.thumb_func
+ 998              		.fpu fpv4-sp-d16
+ 1000              	InitHardUart2:
+ 1001              	.LFB132:
+ 271:bsp/src/bsp_uart_fifo.c **** 	/* ------ CLOCK CONFIGURATION ------*/
+ 1002              		.loc 1 271 0
+ 1003              		.cfi_startproc
+ 1004              		@ args = 0, pretend = 0, frame = 8
+ 1005              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1006 0000 30B5     		push	{r4, r5, lr}
+ 1007              	.LCFI19:
  1008              		.cfi_def_cfa_offset 12
- 1009              		@ sp needed
- 1010 0058 30BD     		pop	{r4, r5, pc}
- 1011              	.L62:
- 1012 005a 00BF     		.align	2
- 1013              	.L61:
- 1014 005c 000C0140 		.word	1073810432
- 1015              		.cfi_endproc
- 1016              	.LFE133:
- 1018              		.section	.text.bsp_InitUart,"ax",%progbits
- 1019              		.align	1
- 1020              		.global	bsp_InitUart
- 1021              		.syntax unified
- 1022              		.thumb
- 1023              		.thumb_func
- 1024              		.fpu fpv4-sp-d16
- 1026              	bsp_InitUart:
- 1027              	.LFB123:
+ 1009              		.cfi_offset 4, -12
+ 1010              		.cfi_offset 5, -8
+ 1011              		.cfi_offset 14, -4
+ 1012 0002 83B0     		sub	sp, sp, #12
+ 1013              	.LCFI20:
+ 1014              		.cfi_def_cfa_offset 24
+ 274:bsp/src/bsp_uart_fifo.c **** 
+ 1015              		.loc 1 274 0
+ 1016 0004 0121     		movs	r1, #1
+ 1017 0006 0420     		movs	r0, #4
+ 1018 0008 FFF7FEFF 		bl	RCC_APB2PeriphClockCmd
+ 1019              	.LVL81:
+ 277:bsp/src/bsp_uart_fifo.c **** 
+ 1020              		.loc 1 277 0
+ 1021 000c 0121     		movs	r1, #1
+ 1022 000e 4FF40030 		mov	r0, #131072
+ 1023 0012 FFF7FEFF 		bl	RCC_APB1PeriphClockCmd
+ 1024              	.LVL82:
+ 284:bsp/src/bsp_uart_fifo.c ****     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+ 1025              		.loc 1 284 0
+ 1026 0016 0823     		movs	r3, #8
+ 1027 0018 ADF80430 		strh	r3, [sp, #4]	@ movhi
+ 285:bsp/src/bsp_uart_fifo.c ****     GPIO_Init(GPIOA, &GPIO_InitStructure);
+ 1028              		.loc 1 285 0
+ 1029 001c 0425     		movs	r5, #4
+ 1030 001e 8DF80750 		strb	r5, [sp, #7]
+ 286:bsp/src/bsp_uart_fifo.c **** 
+ 1031              		.loc 1 286 0
+ 1032 0022 0D4C     		ldr	r4, .L61
+ 1033 0024 0DEB0501 		add	r1, sp, r5
+ 1034 0028 2046     		mov	r0, r4
+ 1035 002a FFF7FEFF 		bl	GPIO_Init
+ 1036              	.LVL83:
+ 289:bsp/src/bsp_uart_fifo.c ****     GPIO_InitStructure.GPIO_MaxSpeed = GPIO_MaxSpeed_50MHz;
+ 1037              		.loc 1 289 0
+ 1038 002e ADF80450 		strh	r5, [sp, #4]	@ movhi
+ 290:bsp/src/bsp_uart_fifo.c ****     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+ 1039              		.loc 1 290 0
+ 1040 0032 0223     		movs	r3, #2
+ 1041 0034 8DF80630 		strb	r3, [sp, #6]
+ 291:bsp/src/bsp_uart_fifo.c ****     GPIO_Init(GPIOA, &GPIO_InitStructure);
+ 1042              		.loc 1 291 0
+ 1043 0038 1823     		movs	r3, #24
+ 1044 003a 8DF80730 		strb	r3, [sp, #7]
+ 292:bsp/src/bsp_uart_fifo.c **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 34
+
+
+ 1045              		.loc 1 292 0
+ 1046 003e 0DEB0501 		add	r1, sp, r5
+ 1047 0042 2046     		mov	r0, r4
+ 1048 0044 FFF7FEFF 		bl	GPIO_Init
+ 1049              	.LVL84:
+ 295:bsp/src/bsp_uart_fifo.c **** }
+ 1050              		.loc 1 295 0
+ 1051 0048 4FF4E131 		mov	r1, #115200
+ 1052 004c 0120     		movs	r0, #1
+ 1053 004e FFF7FEFF 		bl	bsp_SetUartBaud
+ 1054              	.LVL85:
+ 296:bsp/src/bsp_uart_fifo.c **** 
+ 1055              		.loc 1 296 0
+ 1056 0052 03B0     		add	sp, sp, #12
+ 1057              	.LCFI21:
+ 1058              		.cfi_def_cfa_offset 12
+ 1059              		@ sp needed
+ 1060 0054 30BD     		pop	{r4, r5, pc}
+ 1061              	.L62:
+ 1062 0056 00BF     		.align	2
+ 1063              	.L61:
+ 1064 0058 00080140 		.word	1073809408
+ 1065              		.cfi_endproc
+ 1066              	.LFE132:
+ 1068              		.section	.text.InitHardUart3,"ax",%progbits
+ 1069              		.align	1
+ 1070              		.syntax unified
+ 1071              		.thumb
+ 1072              		.thumb_func
+ 1073              		.fpu fpv4-sp-d16
+ 1075              	InitHardUart3:
+ 1076              	.LFB133:
+ 305:bsp/src/bsp_uart_fifo.c **** 	/* ------ CLOCK CONFIGURATION ------*/
+ 1077              		.loc 1 305 0
+ 1078              		.cfi_startproc
+ 1079              		@ args = 0, pretend = 0, frame = 8
+ 1080              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1081 0000 30B5     		push	{r4, r5, lr}
+ 1082              	.LCFI22:
+ 1083              		.cfi_def_cfa_offset 12
+ 1084              		.cfi_offset 4, -12
+ 1085              		.cfi_offset 5, -8
+ 1086              		.cfi_offset 14, -4
+ 1087 0002 83B0     		sub	sp, sp, #12
+ 1088              	.LCFI23:
+ 1089              		.cfi_def_cfa_offset 24
+ 308:bsp/src/bsp_uart_fifo.c **** 
+ 1090              		.loc 1 308 0
+ 1091 0004 0121     		movs	r1, #1
+ 1092 0006 0820     		movs	r0, #8
+ 1093 0008 FFF7FEFF 		bl	RCC_APB2PeriphClockCmd
+ 1094              	.LVL86:
+ 311:bsp/src/bsp_uart_fifo.c **** 
+ 1095              		.loc 1 311 0
+ 1096 000c 0121     		movs	r1, #1
+ 1097 000e 4FF48020 		mov	r0, #262144
+ 1098 0012 FFF7FEFF 		bl	RCC_APB1PeriphClockCmd
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 35
+
+
+ 1099              	.LVL87:
+ 318:bsp/src/bsp_uart_fifo.c ****     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+ 1100              		.loc 1 318 0
+ 1101 0016 4FF40063 		mov	r3, #2048
+ 1102 001a ADF80430 		strh	r3, [sp, #4]	@ movhi
+ 319:bsp/src/bsp_uart_fifo.c ****     GPIO_Init(GPIOB, &GPIO_InitStructure);
+ 1103              		.loc 1 319 0
+ 1104 001e 0423     		movs	r3, #4
+ 1105 0020 8DF80730 		strb	r3, [sp, #7]
+ 320:bsp/src/bsp_uart_fifo.c **** 
+ 1106              		.loc 1 320 0
+ 1107 0024 0D4D     		ldr	r5, .L65
+ 1108 0026 0DEB0301 		add	r1, sp, r3
+ 1109 002a 2846     		mov	r0, r5
+ 1110 002c FFF7FEFF 		bl	GPIO_Init
+ 1111              	.LVL88:
+ 323:bsp/src/bsp_uart_fifo.c ****     GPIO_InitStructure.GPIO_MaxSpeed = GPIO_MaxSpeed_50MHz;
+ 1112              		.loc 1 323 0
+ 1113 0030 4FF48063 		mov	r3, #1024
+ 1114 0034 ADF80430 		strh	r3, [sp, #4]	@ movhi
+ 324:bsp/src/bsp_uart_fifo.c ****     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+ 1115              		.loc 1 324 0
+ 1116 0038 0224     		movs	r4, #2
+ 1117 003a 8DF80640 		strb	r4, [sp, #6]
+ 325:bsp/src/bsp_uart_fifo.c ****     GPIO_Init(GPIOB, &GPIO_InitStructure);
+ 1118              		.loc 1 325 0
+ 1119 003e 1823     		movs	r3, #24
+ 1120 0040 8DF80730 		strb	r3, [sp, #7]
+ 326:bsp/src/bsp_uart_fifo.c **** 
+ 1121              		.loc 1 326 0
+ 1122 0044 01A9     		add	r1, sp, #4
+ 1123 0046 2846     		mov	r0, r5
+ 1124 0048 FFF7FEFF 		bl	GPIO_Init
+ 1125              	.LVL89:
+ 329:bsp/src/bsp_uart_fifo.c **** }
+ 1126              		.loc 1 329 0
+ 1127 004c 4FF4E131 		mov	r1, #115200
+ 1128 0050 2046     		mov	r0, r4
+ 1129 0052 FFF7FEFF 		bl	bsp_SetUartBaud
+ 1130              	.LVL90:
+ 330:bsp/src/bsp_uart_fifo.c **** 
+ 1131              		.loc 1 330 0
+ 1132 0056 03B0     		add	sp, sp, #12
+ 1133              	.LCFI24:
+ 1134              		.cfi_def_cfa_offset 12
+ 1135              		@ sp needed
+ 1136 0058 30BD     		pop	{r4, r5, pc}
+ 1137              	.L66:
+ 1138 005a 00BF     		.align	2
+ 1139              	.L65:
+ 1140 005c 000C0140 		.word	1073810432
+ 1141              		.cfi_endproc
+ 1142              	.LFE133:
+ 1144              		.section	.text.bsp_InitUart,"ax",%progbits
+ 1145              		.align	1
+ 1146              		.global	bsp_InitUart
+ 1147              		.syntax unified
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 36
+
+
+ 1148              		.thumb
+ 1149              		.thumb_func
+ 1150              		.fpu fpv4-sp-d16
+ 1152              	bsp_InitUart:
+ 1153              	.LFB123:
   43:bsp/src/bsp_uart_fifo.c **** 	UartVarInit();		/* initialize all global parameters */
- 1028              		.loc 1 43 0
- 1029              		.cfi_startproc
- 1030              		@ args = 0, pretend = 0, frame = 0
- 1031              		@ frame_needed = 0, uses_anonymous_args = 0
- 1032 0000 08B5     		push	{r3, lr}
- 1033              	.LCFI22:
- 1034              		.cfi_def_cfa_offset 8
- 1035              		.cfi_offset 3, -8
- 1036              		.cfi_offset 14, -4
+ 1154              		.loc 1 43 0
+ 1155              		.cfi_startproc
+ 1156              		@ args = 0, pretend = 0, frame = 0
+ 1157              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1158 0000 08B5     		push	{r3, lr}
+ 1159              	.LCFI25:
+ 1160              		.cfi_def_cfa_offset 8
+ 1161              		.cfi_offset 3, -8
+ 1162              		.cfi_offset 14, -4
   44:bsp/src/bsp_uart_fifo.c **** 
- 1037              		.loc 1 44 0
- 1038 0002 FFF7FEFF 		bl	UartVarInit
- 1039              	.LVL85:
+ 1163              		.loc 1 44 0
+ 1164 0002 FFF7FEFF 		bl	UartVarInit
+ 1165              	.LVL91:
+  49:bsp/src/bsp_uart_fifo.c **** #endif
+ 1166              		.loc 1 49 0
+ 1167 0006 FFF7FEFF 		bl	InitHardUart2
+ 1168              	.LVL92:
   52:bsp/src/bsp_uart_fifo.c **** #endif
- 1040              		.loc 1 52 0
- 1041 0006 FFF7FEFF 		bl	InitHardUart3
- 1042              	.LVL86:
+ 1169              		.loc 1 52 0
+ 1170 000a FFF7FEFF 		bl	InitHardUart3
+ 1171              	.LVL93:
   55:bsp/src/bsp_uart_fifo.c **** 
- 1043              		.loc 1 55 0
- 1044 000a FFF7FEFF 		bl	ConfigUartNVIC
- 1045              	.LVL87:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 34
-
-
+ 1172              		.loc 1 55 0
+ 1173 000e FFF7FEFF 		bl	ConfigUartNVIC
+ 1174              	.LVL94:
+  58:bsp/src/bsp_uart_fifo.c **** #endif
+ 1175              		.loc 1 58 0
+ 1176 0012 0120     		movs	r0, #1
+ 1177 0014 FFF7FEFF 		bl	EnableUart
+ 1178              	.LVL95:
   61:bsp/src/bsp_uart_fifo.c **** #endif
- 1046              		.loc 1 61 0
- 1047 000e 0220     		movs	r0, #2
- 1048 0010 FFF7FEFF 		bl	EnableUart
- 1049              	.LVL88:
+ 1179              		.loc 1 61 0
+ 1180 0018 0220     		movs	r0, #2
+ 1181 001a FFF7FEFF 		bl	EnableUart
+ 1182              	.LVL96:
   63:bsp/src/bsp_uart_fifo.c **** 
- 1050              		.loc 1 63 0
- 1051 0014 08BD     		pop	{r3, pc}
- 1052              		.cfi_endproc
- 1053              	.LFE123:
- 1055              		.section	.text.USART2_IRQHandler,"ax",%progbits
- 1056              		.align	1
- 1057              		.global	USART2_IRQHandler
- 1058              		.syntax unified
- 1059              		.thumb
- 1060              		.thumb_func
- 1061              		.fpu fpv4-sp-d16
- 1063              	USART2_IRQHandler:
- 1064              	.LFB139:
+ 1183              		.loc 1 63 0
+ 1184 001e 08BD     		pop	{r3, pc}
+ 1185              		.cfi_endproc
+ 1186              	.LFE123:
+ 1188              		.section	.text.USART2_IRQHandler,"ax",%progbits
+ 1189              		.align	1
+ 1190              		.global	USART2_IRQHandler
+ 1191              		.syntax unified
+ 1192              		.thumb
+ 1193              		.thumb_func
+ 1194              		.fpu fpv4-sp-d16
+ 1196              	USART2_IRQHandler:
+ 1197              	.LFB139:
  540:bsp/src/bsp_uart_fifo.c **** 
  541:bsp/src/bsp_uart_fifo.c **** /**
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 37
+
+
  542:bsp/src/bsp_uart_fifo.c ****  * @brief   This function handles USART2 exception
  543:bsp/src/bsp_uart_fifo.c ****  * @param   None
  544:bsp/src/bsp_uart_fifo.c ****  * @retval  None
@@ -2009,41 +2168,38 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 1
  546:bsp/src/bsp_uart_fifo.c **** 
  547:bsp/src/bsp_uart_fifo.c **** void USART2_IRQHandler(void)
  548:bsp/src/bsp_uart_fifo.c **** {
- 1065              		.loc 1 548 0
- 1066              		.cfi_startproc
- 1067              		@ args = 0, pretend = 0, frame = 0
- 1068              		@ frame_needed = 0, uses_anonymous_args = 0
- 1069 0000 08B5     		push	{r3, lr}
- 1070              	.LCFI23:
- 1071              		.cfi_def_cfa_offset 8
- 1072              		.cfi_offset 3, -8
- 1073              		.cfi_offset 14, -4
+ 1198              		.loc 1 548 0
+ 1199              		.cfi_startproc
+ 1200              		@ args = 0, pretend = 0, frame = 0
+ 1201              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1202 0000 08B5     		push	{r3, lr}
+ 1203              	.LCFI26:
+ 1204              		.cfi_def_cfa_offset 8
+ 1205              		.cfi_offset 3, -8
+ 1206              		.cfi_offset 14, -4
  549:bsp/src/bsp_uart_fifo.c **** 	UartIRQ(&g_tUart1);
- 1074              		.loc 1 549 0
- 1075 0002 0248     		ldr	r0, .L67
- 1076 0004 FFF7FEFF 		bl	UartIRQ
- 1077              	.LVL89:
+ 1207              		.loc 1 549 0
+ 1208 0002 0248     		ldr	r0, .L71
+ 1209 0004 FFF7FEFF 		bl	UartIRQ
+ 1210              	.LVL97:
  550:bsp/src/bsp_uart_fifo.c **** }
- 1078              		.loc 1 550 0
- 1079 0008 08BD     		pop	{r3, pc}
- 1080              	.L68:
- 1081 000a 00BF     		.align	2
- 1082              	.L67:
- 1083 000c 00000000 		.word	.LANCHOR3
- 1084              		.cfi_endproc
- 1085              	.LFE139:
- 1087              		.section	.text.USART3_IRQHandler,"ax",%progbits
- 1088              		.align	1
- 1089              		.global	USART3_IRQHandler
- 1090              		.syntax unified
- 1091              		.thumb
- 1092              		.thumb_func
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 35
-
-
- 1093              		.fpu fpv4-sp-d16
- 1095              	USART3_IRQHandler:
- 1096              	.LFB140:
+ 1211              		.loc 1 550 0
+ 1212 0008 08BD     		pop	{r3, pc}
+ 1213              	.L72:
+ 1214 000a 00BF     		.align	2
+ 1215              	.L71:
+ 1216 000c 00000000 		.word	.LANCHOR0
+ 1217              		.cfi_endproc
+ 1218              	.LFE139:
+ 1220              		.section	.text.USART3_IRQHandler,"ax",%progbits
+ 1221              		.align	1
+ 1222              		.global	USART3_IRQHandler
+ 1223              		.syntax unified
+ 1224              		.thumb
+ 1225              		.thumb_func
+ 1226              		.fpu fpv4-sp-d16
+ 1228              	USART3_IRQHandler:
+ 1229              	.LFB140:
  551:bsp/src/bsp_uart_fifo.c **** 
  552:bsp/src/bsp_uart_fifo.c **** /**
  553:bsp/src/bsp_uart_fifo.c ****  * @brief   This function handles USART2 exception
@@ -2053,132 +2209,163 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 1
  557:bsp/src/bsp_uart_fifo.c **** 
  558:bsp/src/bsp_uart_fifo.c **** void USART3_IRQHandler(void)
  559:bsp/src/bsp_uart_fifo.c **** {
- 1097              		.loc 1 559 0
- 1098              		.cfi_startproc
- 1099              		@ args = 0, pretend = 0, frame = 0
- 1100              		@ frame_needed = 0, uses_anonymous_args = 0
- 1101 0000 08B5     		push	{r3, lr}
- 1102              	.LCFI24:
- 1103              		.cfi_def_cfa_offset 8
- 1104              		.cfi_offset 3, -8
- 1105              		.cfi_offset 14, -4
+ 1230              		.loc 1 559 0
+ 1231              		.cfi_startproc
+ 1232              		@ args = 0, pretend = 0, frame = 0
+ 1233              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1234 0000 08B5     		push	{r3, lr}
+ 1235              	.LCFI27:
+ 1236              		.cfi_def_cfa_offset 8
+ 1237              		.cfi_offset 3, -8
+ 1238              		.cfi_offset 14, -4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 38
+
+
  560:bsp/src/bsp_uart_fifo.c **** 	UartIRQ(&g_tUart2);
- 1106              		.loc 1 560 0
- 1107 0002 0248     		ldr	r0, .L71
- 1108 0004 FFF7FEFF 		bl	UartIRQ
- 1109              	.LVL90:
+ 1239              		.loc 1 560 0
+ 1240 0002 0248     		ldr	r0, .L75
+ 1241 0004 FFF7FEFF 		bl	UartIRQ
+ 1242              	.LVL98:
  561:bsp/src/bsp_uart_fifo.c **** }
- 1110              		.loc 1 561 0
- 1111 0008 08BD     		pop	{r3, pc}
- 1112              	.L72:
- 1113 000a 00BF     		.align	2
- 1114              	.L71:
- 1115 000c 00000000 		.word	.LANCHOR0
- 1116              		.cfi_endproc
- 1117              	.LFE140:
- 1119              		.section	.bss.g_RxBuf2,"aw",%nobits
- 1120              		.align	2
- 1121              		.set	.LANCHOR2,. + 0
- 1124              	g_RxBuf2:
- 1125 0000 00000000 		.space	512
- 1125      00000000 
- 1125      00000000 
- 1125      00000000 
- 1125      00000000 
- 1126              		.section	.bss.g_TxBuf2,"aw",%nobits
- 1127              		.align	2
- 1128              		.set	.LANCHOR1,. + 0
- 1131              	g_TxBuf2:
- 1132 0000 00000000 		.space	512
- 1132      00000000 
- 1132      00000000 
- 1132      00000000 
- 1132      00000000 
- 1133              		.section	.bss.g_tUart1,"aw",%nobits
- 1134              		.align	2
- 1135              		.set	.LANCHOR3,. + 0
- 1138              	g_tUart1:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 36
+ 1243              		.loc 1 561 0
+ 1244 0008 08BD     		pop	{r3, pc}
+ 1245              	.L76:
+ 1246 000a 00BF     		.align	2
+ 1247              	.L75:
+ 1248 000c 00000000 		.word	.LANCHOR3
+ 1249              		.cfi_endproc
+ 1250              	.LFE140:
+ 1252              		.section	.bss.g_RxBuf1,"aw",%nobits
+ 1253              		.align	2
+ 1254              		.set	.LANCHOR2,. + 0
+ 1257              	g_RxBuf1:
+ 1258 0000 00000000 		.space	512
+ 1258      00000000 
+ 1258      00000000 
+ 1258      00000000 
+ 1258      00000000 
+ 1259              		.section	.bss.g_RxBuf2,"aw",%nobits
+ 1260              		.align	2
+ 1261              		.set	.LANCHOR5,. + 0
+ 1264              	g_RxBuf2:
+ 1265 0000 00000000 		.space	512
+ 1265      00000000 
+ 1265      00000000 
+ 1265      00000000 
+ 1265      00000000 
+ 1266              		.section	.bss.g_TxBuf1,"aw",%nobits
+ 1267              		.align	2
+ 1268              		.set	.LANCHOR1,. + 0
+ 1271              	g_TxBuf1:
+ 1272 0000 00000000 		.space	512
+ 1272      00000000 
+ 1272      00000000 
+ 1272      00000000 
+ 1272      00000000 
+ 1273              		.section	.bss.g_TxBuf2,"aw",%nobits
+ 1274              		.align	2
+ 1275              		.set	.LANCHOR4,. + 0
+ 1278              	g_TxBuf2:
+ 1279 0000 00000000 		.space	512
+ 1279      00000000 
+ 1279      00000000 
+ 1279      00000000 
+ 1279      00000000 
+ 1280              		.section	.bss.g_tUart1,"aw",%nobits
+ 1281              		.align	2
+ 1282              		.set	.LANCHOR0,. + 0
+ 1285              	g_tUart1:
+ 1286 0000 00000000 		.space	40
+ 1286      00000000 
+ 1286      00000000 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 39
 
 
- 1139 0000 00000000 		.space	40
- 1139      00000000 
- 1139      00000000 
- 1139      00000000 
- 1139      00000000 
- 1140              		.section	.bss.g_tUart2,"aw",%nobits
- 1141              		.align	2
- 1142              		.set	.LANCHOR0,. + 0
- 1145              	g_tUart2:
- 1146 0000 00000000 		.space	40
- 1146      00000000 
- 1146      00000000 
- 1146      00000000 
- 1146      00000000 
- 1147              		.text
- 1148              	.Letext0:
- 1149              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
- 1150              		.file 4 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
- 1151              		.file 5 "../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h"
- 1152              		.file 6 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
- 1153              		.file 7 "../Libraries/CMSIS/CM4/DeviceSupport/at32f4xx.h"
- 1154              		.file 8 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_gpio.h"
- 1155              		.file 9 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_usart.h"
- 1156              		.file 10 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/misc.h"
- 1157              		.file 11 "bsp/inc/bsp_uart_fifo.h"
- 1158              		.file 12 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_rcc.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 37
+ 1286      00000000 
+ 1286      00000000 
+ 1287              		.section	.bss.g_tUart2,"aw",%nobits
+ 1288              		.align	2
+ 1289              		.set	.LANCHOR3,. + 0
+ 1292              	g_tUart2:
+ 1293 0000 00000000 		.space	40
+ 1293      00000000 
+ 1293      00000000 
+ 1293      00000000 
+ 1293      00000000 
+ 1294              		.text
+ 1295              	.Letext0:
+ 1296              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
+ 1297              		.file 4 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
+ 1298              		.file 5 "../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h"
+ 1299              		.file 6 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
+ 1300              		.file 7 "../Libraries/CMSIS/CM4/DeviceSupport/at32f4xx.h"
+ 1301              		.file 8 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_gpio.h"
+ 1302              		.file 9 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_usart.h"
+ 1303              		.file 10 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/misc.h"
+ 1304              		.file 11 "bsp/inc/bsp_uart_fifo.h"
+ 1305              		.file 12 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_rcc.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 40
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 bsp_uart_fifo.c
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:17     .text.UartVarInit:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:23     .text.UartVarInit:0000000000000000 UartVarInit
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:70     .text.UartVarInit:000000000000002c $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:78     .text.UartGetChar:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:84     .text.UartGetChar:0000000000000000 UartGetChar
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:192    .text.ConfigUartNVIC:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:198    .text.ConfigUartNVIC:0000000000000000 ConfigUartNVIC
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:240    .text.UartSend:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:246    .text.UartSend:0000000000000000 UartSend
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:390    .text.UartIRQ:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:396    .text.UartIRQ:0000000000000000 UartIRQ
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:575    .text.ComToUart:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:582    .text.ComToUart:0000000000000000 ComToUart
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:616    .text.ComToUart:0000000000000014 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:622    .text.EnableUart:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:628    .text.EnableUart:0000000000000000 EnableUart
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:671    .text.comSendBuf:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:678    .text.comSendBuf:0000000000000000 comSendBuf
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:720    .text.comSendChar:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:727    .text.comSendChar:0000000000000000 comSendChar
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:759    .text.comGetChar:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:766    .text.comGetChar:0000000000000000 comGetChar
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:801    .text.comClearTxFifo:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:808    .text.comClearTxFifo:0000000000000000 comClearTxFifo
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:839    .text.comClearRxFifo:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:846    .text.comClearRxFifo:0000000000000000 comClearRxFifo
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:877    .text.bsp_SetUartBaud:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:884    .text.bsp_SetUartBaud:0000000000000000 bsp_SetUartBaud
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:943    .text.InitHardUart3:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:949    .text.InitHardUart3:0000000000000000 InitHardUart3
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:1014   .text.InitHardUart3:000000000000005c $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:1019   .text.bsp_InitUart:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:1026   .text.bsp_InitUart:0000000000000000 bsp_InitUart
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:1056   .text.USART2_IRQHandler:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:1063   .text.USART2_IRQHandler:0000000000000000 USART2_IRQHandler
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:1083   .text.USART2_IRQHandler:000000000000000c $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:1088   .text.USART3_IRQHandler:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:1095   .text.USART3_IRQHandler:0000000000000000 USART3_IRQHandler
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:1115   .text.USART3_IRQHandler:000000000000000c $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:1120   .bss.g_RxBuf2:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:1124   .bss.g_RxBuf2:0000000000000000 g_RxBuf2
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:1127   .bss.g_TxBuf2:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:1131   .bss.g_TxBuf2:0000000000000000 g_TxBuf2
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:1134   .bss.g_tUart1:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:1138   .bss.g_tUart1:0000000000000000 g_tUart1
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:1141   .bss.g_tUart2:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s:1145   .bss.g_tUart2:0000000000000000 g_tUart2
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:17     .text.UartVarInit:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:23     .text.UartVarInit:0000000000000000 UartVarInit
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:102    .text.UartVarInit:0000000000000050 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:114    .text.UartGetChar:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:120    .text.UartGetChar:0000000000000000 UartGetChar
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:228    .text.ConfigUartNVIC:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:234    .text.ConfigUartNVIC:0000000000000000 ConfigUartNVIC
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:291    .text.UartSend:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:297    .text.UartSend:0000000000000000 UartSend
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:441    .text.UartIRQ:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:447    .text.UartIRQ:0000000000000000 UartIRQ
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:626    .text.ComToUart:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:633    .text.ComToUart:0000000000000000 ComToUart
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:667    .text.ComToUart:0000000000000014 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:673    .text.EnableUart:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:679    .text.EnableUart:0000000000000000 EnableUart
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:722    .text.comSendBuf:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:729    .text.comSendBuf:0000000000000000 comSendBuf
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:771    .text.comSendChar:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:778    .text.comSendChar:0000000000000000 comSendChar
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:810    .text.comGetChar:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:817    .text.comGetChar:0000000000000000 comGetChar
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:852    .text.comClearTxFifo:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:859    .text.comClearTxFifo:0000000000000000 comClearTxFifo
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:890    .text.comClearRxFifo:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:897    .text.comClearRxFifo:0000000000000000 comClearRxFifo
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:928    .text.bsp_SetUartBaud:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:935    .text.bsp_SetUartBaud:0000000000000000 bsp_SetUartBaud
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:994    .text.InitHardUart2:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1000   .text.InitHardUart2:0000000000000000 InitHardUart2
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1064   .text.InitHardUart2:0000000000000058 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1069   .text.InitHardUart3:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1075   .text.InitHardUart3:0000000000000000 InitHardUart3
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1140   .text.InitHardUart3:000000000000005c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1145   .text.bsp_InitUart:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1152   .text.bsp_InitUart:0000000000000000 bsp_InitUart
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1189   .text.USART2_IRQHandler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1196   .text.USART2_IRQHandler:0000000000000000 USART2_IRQHandler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1216   .text.USART2_IRQHandler:000000000000000c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1221   .text.USART3_IRQHandler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1228   .text.USART3_IRQHandler:0000000000000000 USART3_IRQHandler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1248   .text.USART3_IRQHandler:000000000000000c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1253   .bss.g_RxBuf1:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1257   .bss.g_RxBuf1:0000000000000000 g_RxBuf1
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1260   .bss.g_RxBuf2:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1264   .bss.g_RxBuf2:0000000000000000 g_RxBuf2
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1267   .bss.g_TxBuf1:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1271   .bss.g_TxBuf1:0000000000000000 g_TxBuf1
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1274   .bss.g_TxBuf2:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1278   .bss.g_TxBuf2:0000000000000000 g_TxBuf2
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1281   .bss.g_tUart1:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1285   .bss.g_tUart1:0000000000000000 g_tUart1
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1288   .bss.g_tUart2:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1292   .bss.g_tUart2:0000000000000000 g_tUart2
+
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 41
+
 
 UNDEFINED SYMBOLS
 NVIC_PriorityGroupConfig
@@ -2187,9 +2374,6 @@ USART_INTConfig
 USART_GetITStatus
 USART_SendData
 USART_ReceiveData
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXzGfl0.s 			page 38
-
-
 USART_Cmd
 USART_Init
 RCC_APB2PeriphClockCmd

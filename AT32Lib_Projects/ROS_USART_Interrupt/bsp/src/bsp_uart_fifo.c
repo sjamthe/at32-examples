@@ -29,7 +29,7 @@ static uint8_t UartGetChar(UART_T *_pUart, uint8_t *_pByte);
 static void UartIRQ(UART_T *_pUart);
 static void ConfigUartNVIC(void);
 
-//#define ENABLE_COM2
+#define ENABLE_COM2
 #define ENABLE_COM3
 
 /* Private functions ---------------------------------------------------------*/
