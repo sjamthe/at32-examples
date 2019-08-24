@@ -10,6 +10,20 @@
 #include <stdio.h>
 #include <string.h>
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+void Delay_init();
+void Delay_ms(u16 nms);
+void Delay_us(u32 nus);
+void Delay_sec(u16 sec);
+
+#ifdef __cplusplus
+}
+#endif
+
 void uart_write(char *buf);
 
 int main(void)

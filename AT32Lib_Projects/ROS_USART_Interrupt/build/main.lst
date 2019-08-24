@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cctIJ2mV.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccT6hSO9.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -12,7 +12,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cctIJ2mV.s 			page 1
    9              		.eabi_attribute 30, 1
   10              		.eabi_attribute 34, 1
   11              		.eabi_attribute 18, 4
-  12              		.file	"main.c"
+  12              		.file	"main.cpp"
   13              		.text
   14              	.Ltext0:
   15              		.cfi_sections	.debug_frame
@@ -24,215 +24,241 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cctIJ2mV.s 			page 1
   21              		.thumb_func
   22              		.fpu fpv4-sp-d16
   24              	main:
-  25              	.LFB126:
-  26              		.file 1 "Src/main.c"
-   1:Src/main.c    **** /**
-   2:Src/main.c    ****  * UART read/write on two cop ports, with one used for ROS
-   3:Src/main.c    ****  **/ 
-   4:Src/main.c    ****   
-   5:Src/main.c    **** /* Includes ------------------------------------------------------------------*/
-   6:Src/main.c    **** //#include "comms.h"
-   7:Src/main.c    **** 
-   8:Src/main.c    **** #include "bsp_uart_fifo.h"
-   9:Src/main.c    **** #include "bsp_delay.h"
-  10:Src/main.c    **** #include <stdio.h>
-  11:Src/main.c    **** #include <string.h>
-  12:Src/main.c    **** 
-  13:Src/main.c    **** void uart_write(char *buf);
-  14:Src/main.c    **** 
-  15:Src/main.c    **** int main(void)
-  16:Src/main.c    **** {  
-  27              		.loc 1 16 0
-  28              		.cfi_startproc
-  29              		@ args = 0, pretend = 0, frame = 520
-  30              		@ frame_needed = 0, uses_anonymous_args = 0
-  31 0000 70B5     		push	{r4, r5, r6, lr}
-  32              	.LCFI0:
-  33              		.cfi_def_cfa_offset 16
-  34              		.cfi_offset 4, -16
-  35              		.cfi_offset 5, -12
-  36              		.cfi_offset 6, -8
-  37              		.cfi_offset 14, -4
-  38 0002 ADF5027D 		sub	sp, sp, #520
-  39              	.LCFI1:
-  40              		.cfi_def_cfa_offset 536
-  17:Src/main.c    **** 
-  18:Src/main.c    ****   Delay_init();
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cctIJ2mV.s 			page 2
+  25              		.fnstart
+  26              	.LFB124:
+  27              		.file 1 "Src/main.cpp"
+   1:Src/main.cpp  **** /**
+   2:Src/main.cpp  ****  * UART read/write on two cop ports, with one used for ROS
+   3:Src/main.cpp  ****  **/ 
+   4:Src/main.cpp  ****   
+   5:Src/main.cpp  **** /* Includes ------------------------------------------------------------------*/
+   6:Src/main.cpp  **** //#include "comms.h"
+   7:Src/main.cpp  **** 
+   8:Src/main.cpp  **** #include "bsp_uart_fifo.h"
+   9:Src/main.cpp  **** #include "bsp_delay.h"
+  10:Src/main.cpp  **** #include <stdio.h>
+  11:Src/main.cpp  **** #include <string.h>
+  12:Src/main.cpp  **** 
+  13:Src/main.cpp  **** #ifdef __cplusplus
+  14:Src/main.cpp  **** extern "C"
+  15:Src/main.cpp  **** {
+  16:Src/main.cpp  **** #endif
+  17:Src/main.cpp  **** 
+  18:Src/main.cpp  **** void Delay_init();
+  19:Src/main.cpp  **** void Delay_ms(u16 nms);
+  20:Src/main.cpp  **** void Delay_us(u32 nus);
+  21:Src/main.cpp  **** void Delay_sec(u16 sec);
+  22:Src/main.cpp  **** 
+  23:Src/main.cpp  **** #ifdef __cplusplus
+  24:Src/main.cpp  **** }
+  25:Src/main.cpp  **** #endif
+  26:Src/main.cpp  **** 
+  27:Src/main.cpp  **** void uart_write(char *buf);
+  28:Src/main.cpp  **** 
+  29:Src/main.cpp  **** int main(void)
+  30:Src/main.cpp  **** {  
+  28              		.loc 1 30 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccT6hSO9.s 			page 2
 
 
-  41              		.loc 1 18 0
-  42 0006 FFF7FEFF 		bl	Delay_init
-  43              	.LVL0:
-  19:Src/main.c    ****   /* Setup USART */
-  20:Src/main.c    ****   bsp_InitUart();
-  44              		.loc 1 20 0
-  45 000a FFF7FEFF 		bl	bsp_InitUart
-  46              	.LVL1:
-  21:Src/main.c    **** 
-  22:Src/main.c    **** #define TESTCOM COM3
-  23:Src/main.c    **** 
-  24:Src/main.c    ****   int i=0;
-  25:Src/main.c    ****   char buf[512];
-  26:Src/main.c    ****   uint8_t ch;
-  27:Src/main.c    ****   int written = 0;
-  47              		.loc 1 27 0
-  48 000e 0025     		movs	r5, #0
-  24:Src/main.c    ****   char buf[512];
-  49              		.loc 1 24 0
-  50 0010 2E46     		mov	r6, r5
-  51 0012 1FE0     		b	.L2
-  52              	.LVL2:
-  53              	.L8:
-  54              	.LBB2:
-  28:Src/main.c    ****   while (1)
-  29:Src/main.c    ****   {
-  30:Src/main.c    ****     Delay_ms(5000);
-  31:Src/main.c    ****     i++;
-  32:Src/main.c    ****     if(written == 0) {
-  33:Src/main.c    ****       sprintf(buf,"Testing %d\n",i);
-  55              		.loc 1 33 0
-  56 0014 3246     		mov	r2, r6
-  57 0016 1849     		ldr	r1, .L9
-  58 0018 02A8     		add	r0, sp, #8
-  59 001a FFF7FEFF 		bl	sprintf
-  60              	.LVL3:
-  61 001e 20E0     		b	.L3
-  62              	.LVL4:
-  63              	.L5:
-  34:Src/main.c    ****     }
-  35:Src/main.c    ****     comSendBuf(TESTCOM, buf, strlen(buf));
-  36:Src/main.c    **** 
-  37:Src/main.c    ****     written = 0;
-  38:Src/main.c    ****     int j=0;
-  39:Src/main.c    ****     while(comGetChar(COM2, &ch) == 1) {
-  40:Src/main.c    ****       comSendChar(COM2, ch);
-  64              		.loc 1 40 0
-  65 0020 9DF80710 		ldrb	r1, [sp, #7]	@ zero_extendqisi2
-  66 0024 0120     		movs	r0, #1
-  67 0026 FFF7FEFF 		bl	comSendChar
-  68              	.LVL5:
-  41:Src/main.c    ****       buf[j++] = ch;
-  69              		.loc 1 41 0
-  70 002a 9DF80720 		ldrb	r2, [sp, #7]	@ zero_extendqisi2
-  71 002e 02AB     		add	r3, sp, #8
-  72 0030 1A55     		strb	r2, [r3, r4]
-  73              	.LVL6:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cctIJ2mV.s 			page 3
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 520
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 70B5     		push	{r4, r5, r6, lr}
+  33              		.save {r4, r5, r6, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 16
+  36              		.cfi_offset 4, -16
+  37              		.cfi_offset 5, -12
+  38              		.cfi_offset 6, -8
+  39              		.cfi_offset 14, -4
+  40              		.pad #520
+  41 0002 ADF5027D 		sub	sp, sp, #520
+  42              	.LCFI1:
+  43              		.cfi_def_cfa_offset 536
+  31:Src/main.cpp  **** 
+  32:Src/main.cpp  ****   Delay_init();
+  44              		.loc 1 32 0
+  45 0006 FFF7FEFF 		bl	Delay_init
+  46              	.LVL0:
+  33:Src/main.cpp  ****   /* Setup USART */
+  34:Src/main.cpp  ****   bsp_InitUart();
+  47              		.loc 1 34 0
+  48 000a FFF7FEFF 		bl	bsp_InitUart
+  49              	.LVL1:
+  35:Src/main.cpp  **** 
+  36:Src/main.cpp  **** #define TESTCOM COM3
+  37:Src/main.cpp  **** 
+  38:Src/main.cpp  ****   int i=0;
+  39:Src/main.cpp  ****   char buf[512];
+  40:Src/main.cpp  ****   uint8_t ch;
+  41:Src/main.cpp  ****   int written = 0;
+  50              		.loc 1 41 0
+  51 000e 0025     		movs	r5, #0
+  38:Src/main.cpp  ****   char buf[512];
+  52              		.loc 1 38 0
+  53 0010 2E46     		mov	r6, r5
+  54 0012 0DE0     		b	.L2
+  55              	.LVL2:
+  56              	.L8:
+  57              	.LBB2:
+  42:Src/main.cpp  ****   while (1)
+  43:Src/main.cpp  ****   {
+  44:Src/main.cpp  ****     Delay_ms(5000);
+  45:Src/main.cpp  ****     i++;
+  46:Src/main.cpp  ****     if(written == 0) {
+  47:Src/main.cpp  ****       sprintf(buf,"Testing %d\n",i);
+  58              		.loc 1 47 0
+  59 0014 3246     		mov	r2, r6
+  60 0016 1849     		ldr	r1, .L9
+  61 0018 02A8     		add	r0, sp, #8
+  62 001a FFF7FEFF 		bl	sprintf
+  63              	.LVL3:
+  64 001e 0EE0     		b	.L3
+  65              	.LVL4:
+  66              	.L4:
+  48:Src/main.cpp  ****     }
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccT6hSO9.s 			page 3
 
 
-  42:Src/main.c    ****       written = 1;
-  74              		.loc 1 42 0
-  75 0032 0125     		movs	r5, #1
-  41:Src/main.c    ****       buf[j++] = ch;
-  76              		.loc 1 41 0
-  77 0034 2C44     		add	r4, r4, r5
-  78              	.LVL7:
-  79              	.L4:
-  39:Src/main.c    ****       comSendChar(COM2, ch);
-  80              		.loc 1 39 0
-  81 0036 0DF10701 		add	r1, sp, #7
-  82 003a 0120     		movs	r0, #1
-  83 003c FFF7FEFF 		bl	comGetChar
-  84              	.LVL8:
-  85 0040 0128     		cmp	r0, #1
-  86 0042 EDD0     		beq	.L5
-  43:Src/main.c    ****     }
-  44:Src/main.c    **** 
-  45:Src/main.c    ****     if(written) {
-  87              		.loc 1 45 0
-  88 0044 35B1     		cbz	r5, .L2
-  89              	.LVL9:
-  46:Src/main.c    ****       buf[j++] = '\0';
-  90              		.loc 1 46 0
-  91 0046 02AB     		add	r3, sp, #8
-  92 0048 0022     		movs	r2, #0
-  93 004a 1A55     		strb	r2, [r3, r4]
-  47:Src/main.c    ****       comSendChar(COM2,'\n');
-  94              		.loc 1 47 0
-  95 004c 0A21     		movs	r1, #10
-  96 004e 0120     		movs	r0, #1
-  97 0050 FFF7FEFF 		bl	comSendChar
-  98              	.LVL10:
-  99              	.L2:
-  30:Src/main.c    ****     i++;
- 100              		.loc 1 30 0
- 101 0054 41F28830 		movw	r0, #5000
- 102 0058 FFF7FEFF 		bl	Delay_ms
- 103              	.LVL11:
-  31:Src/main.c    ****     if(written == 0) {
- 104              		.loc 1 31 0
- 105 005c 0136     		adds	r6, r6, #1
- 106              	.LVL12:
-  32:Src/main.c    ****       sprintf(buf,"Testing %d\n",i);
- 107              		.loc 1 32 0
- 108 005e 002D     		cmp	r5, #0
- 109 0060 D8D0     		beq	.L8
- 110              	.L3:
-  35:Src/main.c    **** 
- 111              		.loc 1 35 0
- 112 0062 02A8     		add	r0, sp, #8
- 113 0064 FFF7FEFF 		bl	strlen
- 114              	.LVL13:
- 115 0068 82B2     		uxth	r2, r0
- 116 006a 02A9     		add	r1, sp, #8
- 117 006c 0220     		movs	r0, #2
- 118 006e FFF7FEFF 		bl	comSendBuf
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cctIJ2mV.s 			page 4
+  49:Src/main.cpp  ****     comSendBuf(TESTCOM, buf, strlen(buf));
+  50:Src/main.cpp  **** 
+  51:Src/main.cpp  ****     written = 0;
+  52:Src/main.cpp  ****     int j=0;
+  53:Src/main.cpp  ****     while(comGetChar(COM2, &ch) == 1) {
+  54:Src/main.cpp  ****       comSendChar(COM2, ch);
+  55:Src/main.cpp  ****       buf[j++] = ch;
+  56:Src/main.cpp  ****       written = 1;
+  57:Src/main.cpp  ****     }
+  58:Src/main.cpp  **** 
+  59:Src/main.cpp  ****     if(written) {
+  67              		.loc 1 59 0
+  68 0020 35B1     		cbz	r5, .L2
+  69              	.LVL5:
+  60:Src/main.cpp  ****       buf[j++] = '\0';
+  70              		.loc 1 60 0
+  71 0022 02AB     		add	r3, sp, #8
+  72 0024 0022     		movs	r2, #0
+  73 0026 1A55     		strb	r2, [r3, r4]
+  61:Src/main.cpp  ****       comSendChar(COM2,'\n');
+  74              		.loc 1 61 0
+  75 0028 0A21     		movs	r1, #10
+  76 002a 0120     		movs	r0, #1
+  77 002c FFF7FEFF 		bl	comSendChar
+  78              	.LVL6:
+  79              	.L2:
+  44:Src/main.cpp  ****     i++;
+  80              		.loc 1 44 0
+  81 0030 41F28830 		movw	r0, #5000
+  82 0034 FFF7FEFF 		bl	Delay_ms
+  83              	.LVL7:
+  45:Src/main.cpp  ****     if(written == 0) {
+  84              		.loc 1 45 0
+  85 0038 0136     		adds	r6, r6, #1
+  86              	.LVL8:
+  46:Src/main.cpp  ****       sprintf(buf,"Testing %d\n",i);
+  87              		.loc 1 46 0
+  88 003a 002D     		cmp	r5, #0
+  89 003c EAD0     		beq	.L8
+  90              	.L3:
+  49:Src/main.cpp  **** 
+  91              		.loc 1 49 0
+  92 003e 02A8     		add	r0, sp, #8
+  93 0040 FFF7FEFF 		bl	strlen
+  94              	.LVL9:
+  95 0044 82B2     		uxth	r2, r0
+  96 0046 02A9     		add	r1, sp, #8
+  97 0048 0220     		movs	r0, #2
+  98 004a FFF7FEFF 		bl	comSendBuf
+  99              	.LVL10:
+  52:Src/main.cpp  ****     while(comGetChar(COM2, &ch) == 1) {
+ 100              		.loc 1 52 0
+ 101 004e 0024     		movs	r4, #0
+  51:Src/main.cpp  ****     int j=0;
+ 102              		.loc 1 51 0
+ 103 0050 2546     		mov	r5, r4
+ 104              	.LVL11:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccT6hSO9.s 			page 4
 
 
- 119              	.LVL14:
-  38:Src/main.c    ****     while(comGetChar(COM2, &ch) == 1) {
- 120              		.loc 1 38 0
- 121 0072 0024     		movs	r4, #0
-  37:Src/main.c    ****     int j=0;
- 122              		.loc 1 37 0
- 123 0074 2546     		mov	r5, r4
-  39:Src/main.c    ****       comSendChar(COM2, ch);
- 124              		.loc 1 39 0
- 125 0076 DEE7     		b	.L4
- 126              	.L10:
- 127              		.align	2
- 128              	.L9:
- 129 0078 00000000 		.word	.LC0
- 130              	.LBE2:
- 131              		.cfi_endproc
- 132              	.LFE126:
- 134              		.section	.rodata.main.str1.4,"aMS",%progbits,1
- 135              		.align	2
- 136              	.LC0:
- 137 0000 54657374 		.ascii	"Testing %d\012\000"
- 137      696E6720 
- 137      25640A00 
- 138              		.text
- 139              	.Letext0:
- 140              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
- 141              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
- 142              		.file 4 "../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h"
- 143              		.file 5 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
- 144              		.file 6 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
- 145              		.file 7 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
- 146              		.file 8 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h
- 147              		.file 9 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
- 148              		.file 10 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdio.h"
- 149              		.file 11 "bsp/inc/bsp_uart_fifo.h"
- 150              		.file 12 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/string.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cctIJ2mV.s 			page 5
+ 105              	.L5:
+  53:Src/main.cpp  ****       comSendChar(COM2, ch);
+ 106              		.loc 1 53 0
+ 107 0052 0DF10701 		add	r1, sp, #7
+ 108 0056 0120     		movs	r0, #1
+ 109 0058 FFF7FEFF 		bl	comGetChar
+ 110              	.LVL12:
+ 111 005c 0128     		cmp	r0, #1
+ 112 005e DFD1     		bne	.L4
+  54:Src/main.cpp  ****       buf[j++] = ch;
+ 113              		.loc 1 54 0
+ 114 0060 9DF80710 		ldrb	r1, [sp, #7]	@ zero_extendqisi2
+ 115 0064 FFF7FEFF 		bl	comSendChar
+ 116              	.LVL13:
+  55:Src/main.cpp  ****       written = 1;
+ 117              		.loc 1 55 0
+ 118 0068 9DF80720 		ldrb	r2, [sp, #7]	@ zero_extendqisi2
+ 119 006c 02AB     		add	r3, sp, #8
+ 120 006e 1A55     		strb	r2, [r3, r4]
+ 121              	.LVL14:
+  56:Src/main.cpp  ****     }
+ 122              		.loc 1 56 0
+ 123 0070 0125     		movs	r5, #1
+  55:Src/main.cpp  ****       written = 1;
+ 124              		.loc 1 55 0
+ 125 0072 2C44     		add	r4, r4, r5
+ 126              	.LVL15:
+  53:Src/main.cpp  ****       comSendChar(COM2, ch);
+ 127              		.loc 1 53 0
+ 128 0074 EDE7     		b	.L5
+ 129              	.L10:
+ 130 0076 00BF     		.align	2
+ 131              	.L9:
+ 132 0078 00000000 		.word	.LC0
+ 133              	.LBE2:
+ 134              		.cfi_endproc
+ 135              	.LFE124:
+ 136              		.fnend
+ 138              		.section	.rodata.main.str1.4,"aMS",%progbits,1
+ 139              		.align	2
+ 140              	.LC0:
+ 141 0000 54657374 		.ascii	"Testing %d\012\000"
+ 141      696E6720 
+ 141      25640A00 
+ 142              		.text
+ 143              	.Letext0:
+ 144              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
+ 145              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
+ 146              		.file 4 "../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h"
+ 147              		.file 5 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
+ 148              		.file 6 "bsp/inc/bsp_uart_fifo.h"
+ 149              		.file 7 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
+ 150              		.file 8 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
+ 151              		.file 9 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h
+ 152              		.file 10 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
+ 153              		.file 11 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdio.h"
+ 154              		.file 12 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/string.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccT6hSO9.s 			page 5
+
+
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccT6hSO9.s 			page 6
 
 
 DEFINED SYMBOLS
-                            *ABS*:0000000000000000 main.c
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cctIJ2mV.s:17     .text.main:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cctIJ2mV.s:24     .text.main:0000000000000000 main
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cctIJ2mV.s:129    .text.main:0000000000000078 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cctIJ2mV.s:135    .rodata.main.str1.4:0000000000000000 $d
+                            *ABS*:0000000000000000 main.cpp
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccT6hSO9.s:17     .text.main:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccT6hSO9.s:24     .text.main:0000000000000000 main
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccT6hSO9.s:132    .text.main:0000000000000078 $d
+             .ARM.exidx.text.main:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccT6hSO9.s:139    .rodata.main.str1.4:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 Delay_init
 bsp_InitUart
 sprintf
 comSendChar
-comGetChar
 Delay_ms
 strlen
 comSendBuf
+comGetChar
+__aeabi_unwind_cpp_pr0
