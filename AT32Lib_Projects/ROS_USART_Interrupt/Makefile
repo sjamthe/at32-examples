@@ -42,6 +42,7 @@ C_SOURCES =  \
 ../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c \
 Src/main.c \
 bsp/src/bsp_uart_fifo.c \
+bsp/src/bsp_delay.c \
 Src/at32f4xx_it.c 
 
 ASM_SOURCES =  \
