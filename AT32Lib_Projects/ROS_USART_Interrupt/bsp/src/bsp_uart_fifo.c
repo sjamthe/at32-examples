@@ -29,8 +29,8 @@ static uint8_t UartGetChar(UART_T *_pUart, uint8_t *_pByte);
 static void UartIRQ(UART_T *_pUart);
 static void ConfigUartNVIC(void);
 
-#define ENABLE_COM2
-//#define ENABLE_COM3
+//#define ENABLE_COM2
+#define ENABLE_COM3
 
 /* Private functions ---------------------------------------------------------*/
 
@@ -366,14 +366,21 @@ static void ConfigUartNVIC(void)
  */
 void EnableUart(COM_PORT_E _ucPort)
 {
-    /*------ ENABLE USART2 ------*/
+	UART_T *pUart;
+
+	pUart = ComToUart(_ucPort);
+	if (pUart == 0)
+	{
+		return;
+	}
+    /*------ ENABLE USART ------*/
 
     /* Enable USART2 Receive and Transmit interrupts */
-    USART_INTConfig(USART2, USART_INT_RDNE, ENABLE);
-    USART_INTConfig(USART2, USART_INT_TDE, ENABLE);
+    USART_INTConfig(pUart->uart, USART_INT_RDNE, ENABLE);
+    USART_INTConfig(pUart->uart, USART_INT_TDE, ENABLE);
 
     /* Enable the USART2 Peripheral */
-    USART_Cmd(USART2, ENABLE);
+    USART_Cmd(pUart->uart, ENABLE);
 }
 
 /**

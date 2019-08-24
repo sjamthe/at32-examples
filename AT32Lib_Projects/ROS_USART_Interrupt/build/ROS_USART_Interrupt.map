@@ -453,29 +453,27 @@ LOAD /usr/local/Cellar/gcc-arm-none-eabi/20180627/bin/../lib/gcc/arm-none-eabi/7
                 0x000000000800093e       0x2e build/bsp_uart_fifo.o
  .text.UartSend
                 0x000000000800096c       0x72 build/bsp_uart_fifo.o
- *fill*         0x00000000080009de        0x2 
- .text.EnableUart
-                0x00000000080009e0       0x2c build/bsp_uart_fifo.o
- .text.UartIRQ  0x0000000008000a0c       0xfa build/bsp_uart_fifo.o
- *fill*         0x0000000008000b06        0x2 
+ .text.UartIRQ  0x00000000080009de       0xfa build/bsp_uart_fifo.o
  .text.ComToUart
-                0x0000000008000b08       0x1c build/bsp_uart_fifo.o
-                0x0000000008000b08                ComToUart
+                0x0000000008000ad8       0x1c build/bsp_uart_fifo.o
+                0x0000000008000ad8                ComToUart
+ .text.EnableUart
+                0x0000000008000af4       0x2c build/bsp_uart_fifo.o
  .text.comSendBuf
-                0x0000000008000b24       0x20 build/bsp_uart_fifo.o
-                0x0000000008000b24                comSendBuf
+                0x0000000008000b20       0x20 build/bsp_uart_fifo.o
+                0x0000000008000b20                comSendBuf
  .text.comSendChar
-                0x0000000008000b44       0x18 build/bsp_uart_fifo.o
-                0x0000000008000b44                comSendChar
+                0x0000000008000b40       0x18 build/bsp_uart_fifo.o
+                0x0000000008000b40                comSendChar
  .text.comGetChar
-                0x0000000008000b5c       0x16 build/bsp_uart_fifo.o
-                0x0000000008000b5c                comGetChar
+                0x0000000008000b58       0x16 build/bsp_uart_fifo.o
+                0x0000000008000b58                comGetChar
  .text.bsp_SetUartBaud
-                0x0000000008000b72       0x34 build/bsp_uart_fifo.o
-                0x0000000008000b72                bsp_SetUartBaud
- *fill*         0x0000000008000ba6        0x2 
- .text.InitHardUart2
-                0x0000000008000ba8       0x5c build/bsp_uart_fifo.o
+                0x0000000008000b6e       0x34 build/bsp_uart_fifo.o
+                0x0000000008000b6e                bsp_SetUartBaud
+ *fill*         0x0000000008000ba2        0x2 
+ .text.InitHardUart3
+                0x0000000008000ba4       0x60 build/bsp_uart_fifo.o
  .text.bsp_InitUart
                 0x0000000008000c04       0x16 build/bsp_uart_fifo.o
                 0x0000000008000c04                bsp_InitUart
@@ -728,8 +726,8 @@ LOAD /usr/local/Cellar/gcc-arm-none-eabi/20180627/bin/../lib/gcc/arm-none-eabi/7
  *(.bss*)
  .bss.fac_ms    0x0000000020000094        0x4 build/main.o
  .bss.fac_us    0x0000000020000098        0x4 build/main.o
- .bss.g_RxBuf1  0x000000002000009c      0x200 build/bsp_uart_fifo.o
- .bss.g_TxBuf1  0x000000002000029c      0x200 build/bsp_uart_fifo.o
+ .bss.g_RxBuf2  0x000000002000009c      0x200 build/bsp_uart_fifo.o
+ .bss.g_TxBuf2  0x000000002000029c      0x200 build/bsp_uart_fifo.o
  .bss.g_tUart1  0x000000002000049c       0x28 build/bsp_uart_fifo.o
  .bss.g_tUart2  0x00000000200004c4       0x28 build/bsp_uart_fifo.o
  .bss.__malloc_free_list
@@ -823,16 +821,16 @@ LOAD /usr/local/Cellar/gcc-arm-none-eabi/20180627/bin/../lib/gcc/arm-none-eabi/7
                 0x0000000000000528       0x22 /usr/local/Cellar/gcc-arm-none-eabi/20180627/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/softfp/crtn.o
 OUTPUT(build/ROS_USART_Interrupt.elf elf32-littlearm)
 
-.debug_info     0x0000000000000000     0x480b
+.debug_info     0x0000000000000000     0x4809
  .debug_info    0x0000000000000000      0x4e6 build/system_at32f4xx.o
  .debug_info    0x00000000000004e6      0x899 build/at32f4xx_gpio.o
  .debug_info    0x0000000000000d7f      0xa35 build/at32f4xx_rcc.o
  .debug_info    0x00000000000017b4      0xbf0 build/at32f4xx_usart.o
  .debug_info    0x00000000000023a4      0x5bf build/misc.o
  .debug_info    0x0000000000002963      0xd12 build/main.o
- .debug_info    0x0000000000003675      0xf39 build/bsp_uart_fifo.o
- .debug_info    0x00000000000045ae      0x23b build/at32f4xx_it.o
- .debug_info    0x00000000000047e9       0x22 build/startup_at32f403xe.o
+ .debug_info    0x0000000000003675      0xf37 build/bsp_uart_fifo.o
+ .debug_info    0x00000000000045ac      0x23b build/at32f4xx_it.o
+ .debug_info    0x00000000000047e7       0x22 build/startup_at32f403xe.o
 
 .debug_abbrev   0x0000000000000000     0x1067
  .debug_abbrev  0x0000000000000000      0x19f build/system_at32f4xx.o
@@ -845,14 +843,14 @@ OUTPUT(build/ROS_USART_Interrupt.elf elf32-littlearm)
  .debug_abbrev  0x0000000000000fcd       0x88 build/at32f4xx_it.o
  .debug_abbrev  0x0000000000001055       0x12 build/startup_at32f403xe.o
 
-.debug_loc      0x0000000000000000     0x20e0
+.debug_loc      0x0000000000000000     0x20fe
  .debug_loc     0x0000000000000000      0x12f build/system_at32f4xx.o
  .debug_loc     0x000000000000012f      0x58b build/at32f4xx_gpio.o
  .debug_loc     0x00000000000006ba      0x8bc build/at32f4xx_rcc.o
  .debug_loc     0x0000000000000f76      0x8d4 build/at32f4xx_usart.o
  .debug_loc     0x000000000000184a      0x13c build/misc.o
  .debug_loc     0x0000000000001986      0x132 build/main.o
- .debug_loc     0x0000000000001ab8      0x628 build/bsp_uart_fifo.o
+ .debug_loc     0x0000000000001ab8      0x646 build/bsp_uart_fifo.o
 
 .debug_aranges  0x0000000000000000      0x4a0
  .debug_aranges
@@ -885,16 +883,16 @@ OUTPUT(build/ROS_USART_Interrupt.elf elf32-littlearm)
  .debug_ranges  0x00000000000003a8       0x50 build/at32f4xx_it.o
  .debug_ranges  0x00000000000003f8       0x20 build/startup_at32f403xe.o
 
-.debug_line     0x0000000000000000     0x1b93
+.debug_line     0x0000000000000000     0x1b95
  .debug_line    0x0000000000000000      0x214 build/system_at32f4xx.o
  .debug_line    0x0000000000000214      0x420 build/at32f4xx_gpio.o
  .debug_line    0x0000000000000634      0x51b build/at32f4xx_rcc.o
  .debug_line    0x0000000000000b4f      0x489 build/at32f4xx_usart.o
  .debug_line    0x0000000000000fd8      0x22d build/misc.o
  .debug_line    0x0000000000001205      0x323 build/main.o
- .debug_line    0x0000000000001528      0x414 build/bsp_uart_fifo.o
- .debug_line    0x000000000000193c      0x1e4 build/at32f4xx_it.o
- .debug_line    0x0000000000001b20       0x73 build/startup_at32f403xe.o
+ .debug_line    0x0000000000001528      0x416 build/bsp_uart_fifo.o
+ .debug_line    0x000000000000193e      0x1e4 build/at32f4xx_it.o
+ .debug_line    0x0000000000001b22       0x73 build/startup_at32f403xe.o
 
 .debug_str      0x0000000000000000     0x1ccf
  .debug_str     0x0000000000000000      0x2f9 build/system_at32f4xx.o

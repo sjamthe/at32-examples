@@ -25,6 +25,8 @@ int main(void)
   /* Setup USART */
   bsp_InitUart();
 
+#define TESTCOM COM3
+
   int i=0;
   char buf[512];
   uint8_t ch;
@@ -33,12 +35,12 @@ int main(void)
     Delay_ms(1000);
     i++;
     sprintf(buf,"Testing %d\n",i);
-    comSendBuf(COM2, buf, strlen(buf));
-    while(comGetChar(COM2, &ch) == 1) {
-      comSendChar(COM2, ch);
+    comSendBuf(TESTCOM, buf, strlen(buf));
+    while(comGetChar(TESTCOM, &ch) == 1) {
+      comSendChar(TESTCOM, ch);
     }
 
-    comSendChar(COM2,'\n');
+    comSendChar(TESTCOM,'\n');
   }
 
 }
