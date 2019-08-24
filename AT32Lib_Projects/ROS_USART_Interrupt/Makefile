@@ -41,7 +41,7 @@ C_SOURCES =  \
 ../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c \
 ../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c \
 Src/main.c \
-Src/comms.c \
+bsp/src/bsp_uart_fifo.c \
 Src/at32f4xx_it.c 
 
 ASM_SOURCES =  \
@@ -101,6 +101,7 @@ AS_INCLUDES =
 # C includes
 C_INCLUDES =  \
 -IInc \
+-Ibsp/inc \
 -I../Libraries/AT32F4xx_StdPeriph_Driver/inc \
 -I../Libraries/CMSIS/CM4/DeviceSupport \
 -I../Libraries/CMSIS/CM4/CoreSupport 

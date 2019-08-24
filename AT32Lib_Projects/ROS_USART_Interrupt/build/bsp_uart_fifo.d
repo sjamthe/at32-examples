@@ -1,5 +1,4 @@
-build/at32_hoverboard.o: ../hoverboard/at32_hoverboard.c \
- ../hoverboard/at32_hoverboard.h \
+build/bsp_uart_fifo.o: bsp/src/bsp_uart_fifo.c bsp/inc/bsp_uart_fifo.h \
  ../Libraries/CMSIS/CM4/DeviceSupport/at32f4xx.h \
  ../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h \
  ../Libraries/CMSIS/CM4/CoreSupport/core_cmInstr.h \
@@ -31,7 +30,7 @@ build/at32_hoverboard.o: ../hoverboard/at32_hoverboard.c \
  ../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_wwdg.h \
  ../Libraries/AT32F4xx_StdPeriph_Driver/inc/misc.h
 
-../hoverboard/at32_hoverboard.h:
+bsp/inc/bsp_uart_fifo.h:
 
 ../Libraries/CMSIS/CM4/DeviceSupport/at32f4xx.h:
 

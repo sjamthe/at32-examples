@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsEEIjS.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccCTL2oR.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -16,611 +16,556 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsEEIjS.s 			page 1
   13              		.text
   14              	.Ltext0:
   15              		.cfi_sections	.debug_frame
-  16              		.section	.text.uart_write,"ax",%progbits
+  16              		.section	.text.Delay_init,"ax",%progbits
   17              		.align	1
-  18              		.global	uart_write
+  18              		.global	Delay_init
   19              		.syntax unified
   20              		.thumb
   21              		.thumb_func
   22              		.fpu fpv4-sp-d16
-  24              	uart_write:
+  24              	Delay_init:
   25              	.LFB127:
   26              		.file 1 "Src/main.c"
    1:Src/main.c    **** /**
-   2:Src/main.c    ****  * 
+   2:Src/main.c    ****  * UART read/write on two cop ports, with one used for ROS
    3:Src/main.c    ****  **/ 
    4:Src/main.c    ****   
    5:Src/main.c    **** /* Includes ------------------------------------------------------------------*/
-   6:Src/main.c    **** #include "comms.h"
-   7:Src/main.c    **** #include <stdio.h>
-   8:Src/main.c    **** #include <string.h>
-   9:Src/main.c    **** 
-  10:Src/main.c    **** extern uint8_t TxBuffer[];
-  11:Src/main.c    **** extern uint8_t NbrOfDataToTransfer; 
-  12:Src/main.c    **** 
-  13:Src/main.c    ****  /*delay macros*/
-  14:Src/main.c    **** #define STEP_DELAY_MS	500
-  15:Src/main.c    **** /*delay variable*/
-  16:Src/main.c    **** static __IO float fac_us;
-  17:Src/main.c    **** static __IO float fac_ms;
-  18:Src/main.c    **** void Delay_ms(u16 nms);
-  19:Src/main.c    **** void Delay_init();
-  20:Src/main.c    **** void uart_write(char *buf);
-  21:Src/main.c    **** 
-  22:Src/main.c    **** int main(void)
-  23:Src/main.c    **** {  
-  24:Src/main.c    **** 
-  25:Src/main.c    ****   Delay_init();
-  26:Src/main.c    ****   /* Setup USART */
-  27:Src/main.c    ****   UART2_Init();
-  28:Src/main.c    **** 
-  29:Src/main.c    ****   int i;
-  30:Src/main.c    ****   char buf[512];
+   6:Src/main.c    **** //#include "comms.h"
+   7:Src/main.c    **** 
+   8:Src/main.c    **** #include "bsp_uart_fifo.h"
+   9:Src/main.c    **** #include <stdio.h>
+  10:Src/main.c    **** #include <string.h>
+  11:Src/main.c    **** 
+  12:Src/main.c    ****  /*delay macros*/
+  13:Src/main.c    **** #define STEP_DELAY_MS	500
+  14:Src/main.c    **** /*delay variable*/
+  15:Src/main.c    **** static __IO float fac_us;
+  16:Src/main.c    **** static __IO float fac_ms;
+  17:Src/main.c    **** void Delay_ms(u16 nms);
+  18:Src/main.c    **** void Delay_init();
+  19:Src/main.c    **** void uart_write(char *buf);
+  20:Src/main.c    **** 
+  21:Src/main.c    **** int main(void)
+  22:Src/main.c    **** {  
+  23:Src/main.c    **** 
+  24:Src/main.c    ****   Delay_init();
+  25:Src/main.c    ****   /* Setup USART */
+  26:Src/main.c    ****   bsp_InitUart();
+  27:Src/main.c    **** 
+  28:Src/main.c    ****   int i=0;
+  29:Src/main.c    ****   char buf[512];
+  30:Src/main.c    ****   uint8_t ch;
   31:Src/main.c    ****   while (1)
   32:Src/main.c    ****   {
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsEEIjS.s 			page 2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccCTL2oR.s 			page 2
 
 
   33:Src/main.c    ****     Delay_ms(1000);
   34:Src/main.c    ****     i++;
   35:Src/main.c    ****     sprintf(buf,"Testing %d\n",i);
-  36:Src/main.c    ****     uart_write(buf);
-  37:Src/main.c    ****   }
-  38:Src/main.c    **** 
-  39:Src/main.c    **** }
+  36:Src/main.c    ****     comSendBuf(COM2, buf, strlen(buf));
+  37:Src/main.c    ****     while(comGetChar(COM2, &ch) == 1) {
+  38:Src/main.c    ****       comSendChar(COM2, ch);
+  39:Src/main.c    ****     }
   40:Src/main.c    **** 
-  41:Src/main.c    **** void uart_write(char *buf)
-  42:Src/main.c    **** {
-  27              		.loc 1 42 0
+  41:Src/main.c    ****     comSendChar(COM2,'\n');
+  42:Src/main.c    ****   }
+  43:Src/main.c    **** 
+  44:Src/main.c    **** }
+  45:Src/main.c    **** 
+  46:Src/main.c    **** void Delay_init()
+  47:Src/main.c    **** {
+  27              		.loc 1 47 0
   28              		.cfi_startproc
   29              		@ args = 0, pretend = 0, frame = 0
   30              		@ frame_needed = 0, uses_anonymous_args = 0
-  31              	.LVL0:
-  32 0000 38B5     		push	{r3, r4, r5, lr}
-  33              	.LCFI0:
-  34              		.cfi_def_cfa_offset 16
-  35              		.cfi_offset 3, -16
-  36              		.cfi_offset 4, -12
-  37              		.cfi_offset 5, -8
-  38              		.cfi_offset 14, -4
-  39 0002 0546     		mov	r5, r0
-  43:Src/main.c    ****   NbrOfDataToTransfer = 0;
-  40              		.loc 1 43 0
-  41 0004 0024     		movs	r4, #0
-  42 0006 0B4B     		ldr	r3, .L5
-  43 0008 1C70     		strb	r4, [r3]
-  44              	.LVL1:
-  45              	.LBB2:
-  44:Src/main.c    ****   for (int i=0;i<strlen(buf); i++) {
-  46              		.loc 1 44 0
-  47 000a 07E0     		b	.L2
-  48              	.LVL2:
-  49              	.L3:
-  45:Src/main.c    ****     TxBuffer[i] = buf[i];
-  50              		.loc 1 45 0 discriminator 3
-  51 000c 2A5D     		ldrb	r2, [r5, r4]	@ zero_extendqisi2
-  52 000e 0A4B     		ldr	r3, .L5+4
-  53 0010 1A55     		strb	r2, [r3, r4]
-  46:Src/main.c    ****     NbrOfDataToTransfer++;
-  54              		.loc 1 46 0 discriminator 3
-  55 0012 084A     		ldr	r2, .L5
-  56 0014 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
-  57 0016 0133     		adds	r3, r3, #1
-  58 0018 1370     		strb	r3, [r2]
-  44:Src/main.c    ****   for (int i=0;i<strlen(buf); i++) {
-  59              		.loc 1 44 0 discriminator 3
-  60 001a 0134     		adds	r4, r4, #1
-  61              	.LVL3:
-  62              	.L2:
-  44:Src/main.c    ****   for (int i=0;i<strlen(buf); i++) {
-  63              		.loc 1 44 0 is_stmt 0 discriminator 1
-  64 001c 2846     		mov	r0, r5
-  65 001e FFF7FEFF 		bl	strlen
-  66              	.LVL4:
-  67 0022 A042     		cmp	r0, r4
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsEEIjS.s 			page 3
+  31 0000 08B5     		push	{r3, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  48:Src/main.c    ****     /*Config Systick*/
+  49:Src/main.c    ****     SysTick_CLKSourceConfig(SysTick_CLKSource_HCLK_Div8);
+  36              		.loc 1 49 0
+  37 0002 6FF00400 		mvn	r0, #4
+  38 0006 FFF7FEFF 		bl	SysTick_CLKSourceConfig
+  39              	.LVL0:
+  50:Src/main.c    ****     fac_us=(float)SystemCoreClock/(192 * 1000000);
+  40              		.loc 1 50 0
+  41 000a 0B4B     		ldr	r3, .L3
+  42 000c D3ED007A 		vldr.32	s15, [r3]	@ int
+  43 0010 F8EE677A 		vcvt.f32.u32	s15, s15
+  44 0014 DFED096A 		vldr.32	s13, .L3+4
+  45 0018 87EEA67A 		vdiv.f32	s14, s15, s13
+  46 001c 084B     		ldr	r3, .L3+8
+  47 001e 83ED007A 		vstr.32	s14, [r3]
+  51:Src/main.c    ****     fac_ms=fac_us*1000;
+  48              		.loc 1 51 0
+  49 0022 D3ED007A 		vldr.32	s15, [r3]
+  50 0026 9FED077A 		vldr.32	s14, .L3+12
+  51 002a 67EE877A 		vmul.f32	s15, s15, s14
+  52 002e 064B     		ldr	r3, .L3+16
+  53 0030 C3ED007A 		vstr.32	s15, [r3]
+  52:Src/main.c    **** }
+  54              		.loc 1 52 0
+  55 0034 08BD     		pop	{r3, pc}
+  56              	.L4:
+  57 0036 00BF     		.align	2
+  58              	.L3:
+  59 0038 00000000 		.word	SystemCoreClock
+  60 003c 001B374D 		.word	1295457024
+  61 0040 00000000 		.word	.LANCHOR0
+  62 0044 00007A44 		.word	1148846080
+  63 0048 00000000 		.word	.LANCHOR1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccCTL2oR.s 			page 3
 
 
-  68 0024 F2D8     		bhi	.L3
-  69              	.LBE2:
-  47:Src/main.c    ****   }
-  48:Src/main.c    ****   // for (int i=32; i<117; i++) {
-  49:Src/main.c    ****   //   TxBuffer[i-32] = i;
-  50:Src/main.c    ****   //   NbrOfDataToTransfer++;
-  51:Src/main.c    ****   // }
-  52:Src/main.c    ****   // TxBuffer[117-32] = '\n';
-  53:Src/main.c    ****   // NbrOfDataToTransfer++;
-  54:Src/main.c    ****   USART_INTConfig(USART2, USART_INT_TDE, ENABLE);
-  70              		.loc 1 54 0 is_stmt 1
-  71 0026 0122     		movs	r2, #1
-  72 0028 40F22771 		movw	r1, #1831
-  73 002c 0348     		ldr	r0, .L5+8
-  74 002e FFF7FEFF 		bl	USART_INTConfig
-  75              	.LVL5:
-  55:Src/main.c    **** }
-  76              		.loc 1 55 0
-  77 0032 38BD     		pop	{r3, r4, r5, pc}
-  78              	.LVL6:
-  79              	.L6:
-  80              		.align	2
-  81              	.L5:
-  82 0034 00000000 		.word	NbrOfDataToTransfer
-  83 0038 00000000 		.word	TxBuffer
-  84 003c 00440040 		.word	1073759232
-  85              		.cfi_endproc
-  86              	.LFE127:
-  88              		.section	.text.Delay_init,"ax",%progbits
-  89              		.align	1
-  90              		.global	Delay_init
-  91              		.syntax unified
-  92              		.thumb
-  93              		.thumb_func
-  94              		.fpu fpv4-sp-d16
-  96              	Delay_init:
-  97              	.LFB128:
-  56:Src/main.c    **** 
-  57:Src/main.c    **** void Delay_init()
-  58:Src/main.c    **** {
-  98              		.loc 1 58 0
-  99              		.cfi_startproc
- 100              		@ args = 0, pretend = 0, frame = 0
- 101              		@ frame_needed = 0, uses_anonymous_args = 0
- 102 0000 08B5     		push	{r3, lr}
- 103              	.LCFI1:
- 104              		.cfi_def_cfa_offset 8
- 105              		.cfi_offset 3, -8
- 106              		.cfi_offset 14, -4
-  59:Src/main.c    ****     /*Config Systick*/
-  60:Src/main.c    ****     SysTick_CLKSourceConfig(SysTick_CLKSource_HCLK_Div8);
- 107              		.loc 1 60 0
- 108 0002 6FF00400 		mvn	r0, #4
- 109 0006 FFF7FEFF 		bl	SysTick_CLKSourceConfig
- 110              	.LVL7:
-  61:Src/main.c    ****     fac_us=(float)SystemCoreClock/(192 * 1000000);
- 111              		.loc 1 61 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsEEIjS.s 			page 4
+  64              		.cfi_endproc
+  65              	.LFE127:
+  67              		.section	.text.Delay_us,"ax",%progbits
+  68              		.align	1
+  69              		.global	Delay_us
+  70              		.syntax unified
+  71              		.thumb
+  72              		.thumb_func
+  73              		.fpu fpv4-sp-d16
+  75              	Delay_us:
+  76              	.LFB128:
+  53:Src/main.c    **** 
+  54:Src/main.c    **** 
+  55:Src/main.c    **** /**
+  56:Src/main.c    ****   * @brief  Inserts a delay time.
+  57:Src/main.c    ****   * @param  nus: specifies the delay time length, in microsecond.
+  58:Src/main.c    ****   * @retval None
+  59:Src/main.c    ****   */
+  60:Src/main.c    **** void Delay_us(u32 nus)
+  61:Src/main.c    **** {
+  77              		.loc 1 61 0
+  78              		.cfi_startproc
+  79              		@ args = 0, pretend = 0, frame = 0
+  80              		@ frame_needed = 0, uses_anonymous_args = 0
+  81              		@ link register save eliminated.
+  82              	.LVL1:
+  62:Src/main.c    ****     u32 temp;
+  63:Src/main.c    ****     SysTick->LOAD = nus*fac_us;
+  83              		.loc 1 63 0
+  84 0000 104B     		ldr	r3, .L7
+  85 0002 93ED007A 		vldr.32	s14, [r3]
+  86 0006 07EE900A 		vmov	s15, r0	@ int
+  87 000a F8EE677A 		vcvt.f32.u32	s15, s15
+  88 000e 67EE877A 		vmul.f32	s15, s15, s14
+  89 0012 FCEEE77A 		vcvt.u32.f32	s15, s15
+  90 0016 0C4B     		ldr	r3, .L7+4
+  91 0018 C3ED017A 		vstr.32	s15, [r3, #4]	@ int
+  64:Src/main.c    ****     SysTick->VAL = 0x00;
+  92              		.loc 1 64 0
+  93 001c 0022     		movs	r2, #0
+  94 001e 9A60     		str	r2, [r3, #8]
+  65:Src/main.c    ****     SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk ;
+  95              		.loc 1 65 0
+  96 0020 1A68     		ldr	r2, [r3]
+  97 0022 42F00102 		orr	r2, r2, #1
+  98 0026 1A60     		str	r2, [r3]
+  99              	.L6:
+  66:Src/main.c    ****     do
+  67:Src/main.c    ****     {
+  68:Src/main.c    ****         temp = SysTick->CTRL;
+ 100              		.loc 1 68 0 discriminator 1
+ 101 0028 074B     		ldr	r3, .L7+4
+ 102 002a 1B68     		ldr	r3, [r3]
+ 103              	.LVL2:
+  69:Src/main.c    ****     }while((temp & 0x01) &&! (temp & (1<<16)));
+ 104              		.loc 1 69 0 discriminator 1
+ 105 002c 03F00113 		and	r3, r3, #65537
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccCTL2oR.s 			page 4
 
 
- 112 000a 0B4B     		ldr	r3, .L9
- 113 000c D3ED007A 		vldr.32	s15, [r3]	@ int
- 114 0010 F8EE677A 		vcvt.f32.u32	s15, s15
- 115 0014 DFED096A 		vldr.32	s13, .L9+4
- 116 0018 87EEA67A 		vdiv.f32	s14, s15, s13
- 117 001c 084B     		ldr	r3, .L9+8
- 118 001e 83ED007A 		vstr.32	s14, [r3]
-  62:Src/main.c    ****     fac_ms=fac_us*1000;
- 119              		.loc 1 62 0
- 120 0022 D3ED007A 		vldr.32	s15, [r3]
- 121 0026 9FED077A 		vldr.32	s14, .L9+12
- 122 002a 67EE877A 		vmul.f32	s15, s15, s14
- 123 002e 064B     		ldr	r3, .L9+16
- 124 0030 C3ED007A 		vstr.32	s15, [r3]
-  63:Src/main.c    **** }
- 125              		.loc 1 63 0
- 126 0034 08BD     		pop	{r3, pc}
- 127              	.L10:
- 128 0036 00BF     		.align	2
- 129              	.L9:
- 130 0038 00000000 		.word	SystemCoreClock
- 131 003c 001B374D 		.word	1295457024
- 132 0040 00000000 		.word	.LANCHOR0
- 133 0044 00007A44 		.word	1148846080
- 134 0048 00000000 		.word	.LANCHOR1
- 135              		.cfi_endproc
- 136              	.LFE128:
- 138              		.section	.text.Delay_us,"ax",%progbits
- 139              		.align	1
- 140              		.global	Delay_us
- 141              		.syntax unified
- 142              		.thumb
- 143              		.thumb_func
- 144              		.fpu fpv4-sp-d16
- 146              	Delay_us:
- 147              	.LFB129:
-  64:Src/main.c    **** 
-  65:Src/main.c    **** 
-  66:Src/main.c    **** /**
-  67:Src/main.c    ****   * @brief  Inserts a delay time.
-  68:Src/main.c    ****   * @param  nus: specifies the delay time length, in microsecond.
-  69:Src/main.c    ****   * @retval None
-  70:Src/main.c    ****   */
-  71:Src/main.c    **** void Delay_us(u32 nus)
-  72:Src/main.c    **** {
- 148              		.loc 1 72 0
- 149              		.cfi_startproc
- 150              		@ args = 0, pretend = 0, frame = 0
- 151              		@ frame_needed = 0, uses_anonymous_args = 0
- 152              		@ link register save eliminated.
- 153              	.LVL8:
-  73:Src/main.c    ****     u32 temp;
-  74:Src/main.c    ****     SysTick->LOAD = nus*fac_us;
- 154              		.loc 1 74 0
- 155 0000 104B     		ldr	r3, .L13
- 156 0002 93ED007A 		vldr.32	s14, [r3]
- 157 0006 07EE900A 		vmov	s15, r0	@ int
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsEEIjS.s 			page 5
+ 106              	.LVL3:
+ 107 0030 012B     		cmp	r3, #1
+ 108 0032 F9D0     		beq	.L6
+  70:Src/main.c    **** 
+  71:Src/main.c    ****     SysTick->CTRL &= ~SysTick_CTRL_ENABLE_Msk;
+ 109              		.loc 1 71 0
+ 110 0034 044B     		ldr	r3, .L7+4
+ 111 0036 1A68     		ldr	r2, [r3]
+ 112 0038 22F00102 		bic	r2, r2, #1
+ 113 003c 1A60     		str	r2, [r3]
+  72:Src/main.c    ****     SysTick->VAL = 0X00;
+ 114              		.loc 1 72 0
+ 115 003e 0022     		movs	r2, #0
+ 116 0040 9A60     		str	r2, [r3, #8]
+  73:Src/main.c    **** }
+ 117              		.loc 1 73 0
+ 118 0042 7047     		bx	lr
+ 119              	.L8:
+ 120              		.align	2
+ 121              	.L7:
+ 122 0044 00000000 		.word	.LANCHOR0
+ 123 0048 10E000E0 		.word	-536813552
+ 124              		.cfi_endproc
+ 125              	.LFE128:
+ 127              		.section	.text.Delay_ms,"ax",%progbits
+ 128              		.align	1
+ 129              		.global	Delay_ms
+ 130              		.syntax unified
+ 131              		.thumb
+ 132              		.thumb_func
+ 133              		.fpu fpv4-sp-d16
+ 135              	Delay_ms:
+ 136              	.LFB129:
+  74:Src/main.c    **** 
+  75:Src/main.c    **** /**
+  76:Src/main.c    ****   * @brief  Inserts a delay time.
+  77:Src/main.c    ****   * @param  nms: specifies the delay time length, in milliseconds.
+  78:Src/main.c    ****   * @retval None
+  79:Src/main.c    ****   */
+  80:Src/main.c    **** void Delay_ms(u16 nms)
+  81:Src/main.c    **** {
+ 137              		.loc 1 81 0
+ 138              		.cfi_startproc
+ 139              		@ args = 0, pretend = 0, frame = 0
+ 140              		@ frame_needed = 0, uses_anonymous_args = 0
+ 141              		@ link register save eliminated.
+ 142              	.LVL4:
+  82:Src/main.c    ****     u32 temp;
+  83:Src/main.c    ****     while(nms)
+ 143              		.loc 1 83 0
+ 144 0000 22E0     		b	.L10
+ 145              	.L11:
+  84:Src/main.c    ****     {
+  85:Src/main.c    ****         if(nms > STEP_DELAY_MS)
+  86:Src/main.c    ****         {
+  87:Src/main.c    ****             SysTick->LOAD = (u32)STEP_DELAY_MS * fac_ms;
+  88:Src/main.c    ****             nms -= STEP_DELAY_MS;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccCTL2oR.s 			page 5
 
 
- 158 000a F8EE677A 		vcvt.f32.u32	s15, s15
- 159 000e 67EE877A 		vmul.f32	s15, s15, s14
- 160 0012 FCEEE77A 		vcvt.u32.f32	s15, s15
- 161 0016 0C4B     		ldr	r3, .L13+4
- 162 0018 C3ED017A 		vstr.32	s15, [r3, #4]	@ int
-  75:Src/main.c    ****     SysTick->VAL = 0x00;
- 163              		.loc 1 75 0
- 164 001c 0022     		movs	r2, #0
- 165 001e 9A60     		str	r2, [r3, #8]
-  76:Src/main.c    ****     SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk ;
- 166              		.loc 1 76 0
- 167 0020 1A68     		ldr	r2, [r3]
- 168 0022 42F00102 		orr	r2, r2, #1
- 169 0026 1A60     		str	r2, [r3]
- 170              	.L12:
-  77:Src/main.c    ****     do
-  78:Src/main.c    ****     {
-  79:Src/main.c    ****         temp = SysTick->CTRL;
- 171              		.loc 1 79 0 discriminator 1
- 172 0028 074B     		ldr	r3, .L13+4
- 173 002a 1B68     		ldr	r3, [r3]
- 174              	.LVL9:
-  80:Src/main.c    ****     }while((temp & 0x01) &&! (temp & (1<<16)));
- 175              		.loc 1 80 0 discriminator 1
- 176 002c 03F00113 		and	r3, r3, #65537
- 177              	.LVL10:
- 178 0030 012B     		cmp	r3, #1
- 179 0032 F9D0     		beq	.L12
-  81:Src/main.c    **** 
-  82:Src/main.c    ****     SysTick->CTRL &= ~SysTick_CTRL_ENABLE_Msk;
- 180              		.loc 1 82 0
- 181 0034 044B     		ldr	r3, .L13+4
- 182 0036 1A68     		ldr	r2, [r3]
- 183 0038 22F00102 		bic	r2, r2, #1
- 184 003c 1A60     		str	r2, [r3]
-  83:Src/main.c    ****     SysTick->VAL = 0X00;
- 185              		.loc 1 83 0
- 186 003e 0022     		movs	r2, #0
- 187 0040 9A60     		str	r2, [r3, #8]
-  84:Src/main.c    **** }
- 188              		.loc 1 84 0
- 189 0042 7047     		bx	lr
- 190              	.L14:
- 191              		.align	2
- 192              	.L13:
- 193 0044 00000000 		.word	.LANCHOR0
- 194 0048 10E000E0 		.word	-536813552
- 195              		.cfi_endproc
- 196              	.LFE129:
- 198              		.section	.text.Delay_ms,"ax",%progbits
- 199              		.align	1
- 200              		.global	Delay_ms
- 201              		.syntax unified
- 202              		.thumb
- 203              		.thumb_func
- 204              		.fpu fpv4-sp-d16
- 206              	Delay_ms:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsEEIjS.s 			page 6
+  89:Src/main.c    ****         }
+  90:Src/main.c    ****         else
+  91:Src/main.c    ****         {
+  92:Src/main.c    ****             SysTick->LOAD = (u32)nms * fac_ms;
+ 146              		.loc 1 92 0
+ 147 0002 1C4B     		ldr	r3, .L16
+ 148 0004 93ED007A 		vldr.32	s14, [r3]
+ 149 0008 07EE900A 		vmov	s15, r0	@ int
+ 150 000c F8EE677A 		vcvt.f32.u32	s15, s15
+ 151 0010 67EE877A 		vmul.f32	s15, s15, s14
+ 152 0014 FCEEE77A 		vcvt.u32.f32	s15, s15
+ 153 0018 174B     		ldr	r3, .L16+4
+ 154 001a C3ED017A 		vstr.32	s15, [r3, #4]	@ int
+ 155              	.LVL5:
+  93:Src/main.c    ****             nms = 0;
+ 156              		.loc 1 93 0
+ 157 001e 0020     		movs	r0, #0
+ 158              	.LVL6:
+ 159              	.L12:
+  94:Src/main.c    ****         }
+  95:Src/main.c    ****         SysTick->VAL = 0x00;
+ 160              		.loc 1 95 0
+ 161 0020 154B     		ldr	r3, .L16+4
+ 162 0022 0022     		movs	r2, #0
+ 163 0024 9A60     		str	r2, [r3, #8]
+  96:Src/main.c    ****         SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk;
+ 164              		.loc 1 96 0
+ 165 0026 1A68     		ldr	r2, [r3]
+ 166 0028 42F00102 		orr	r2, r2, #1
+ 167 002c 1A60     		str	r2, [r3]
+ 168              	.L13:
+  97:Src/main.c    ****         do
+  98:Src/main.c    ****         {
+  99:Src/main.c    ****             temp = SysTick->CTRL;
+ 169              		.loc 1 99 0 discriminator 1
+ 170 002e 124B     		ldr	r3, .L16+4
+ 171 0030 1B68     		ldr	r3, [r3]
+ 172              	.LVL7:
+ 100:Src/main.c    ****         }while( (temp & 0x01) && !(temp & (1<<16)) );
+ 173              		.loc 1 100 0 discriminator 1
+ 174 0032 03F00113 		and	r3, r3, #65537
+ 175              	.LVL8:
+ 176 0036 012B     		cmp	r3, #1
+ 177 0038 F9D0     		beq	.L13
+ 101:Src/main.c    **** 
+ 102:Src/main.c    ****         SysTick->CTRL &= ~SysTick_CTRL_ENABLE_Msk;
+ 178              		.loc 1 102 0
+ 179 003a 0F4B     		ldr	r3, .L16+4
+ 180 003c 1A68     		ldr	r2, [r3]
+ 181 003e 22F00102 		bic	r2, r2, #1
+ 182 0042 1A60     		str	r2, [r3]
+ 103:Src/main.c    ****         SysTick->VAL = 0X00;
+ 183              		.loc 1 103 0
+ 184 0044 0022     		movs	r2, #0
+ 185 0046 9A60     		str	r2, [r3, #8]
+ 186              	.L10:
+  83:Src/main.c    ****     {
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccCTL2oR.s 			page 6
 
 
- 207              	.LFB130:
-  85:Src/main.c    **** 
-  86:Src/main.c    **** /**
-  87:Src/main.c    ****   * @brief  Inserts a delay time.
-  88:Src/main.c    ****   * @param  nms: specifies the delay time length, in milliseconds.
-  89:Src/main.c    ****   * @retval None
-  90:Src/main.c    ****   */
-  91:Src/main.c    **** void Delay_ms(u16 nms)
-  92:Src/main.c    **** {
- 208              		.loc 1 92 0
- 209              		.cfi_startproc
- 210              		@ args = 0, pretend = 0, frame = 0
- 211              		@ frame_needed = 0, uses_anonymous_args = 0
- 212              		@ link register save eliminated.
- 213              	.LVL11:
-  93:Src/main.c    ****     u32 temp;
-  94:Src/main.c    ****     while(nms)
- 214              		.loc 1 94 0
- 215 0000 22E0     		b	.L16
- 216              	.L17:
-  95:Src/main.c    ****     {
-  96:Src/main.c    ****         if(nms > STEP_DELAY_MS)
-  97:Src/main.c    ****         {
-  98:Src/main.c    ****             SysTick->LOAD = (u32)STEP_DELAY_MS * fac_ms;
-  99:Src/main.c    ****             nms -= STEP_DELAY_MS;
- 100:Src/main.c    ****         }
- 101:Src/main.c    ****         else
- 102:Src/main.c    ****         {
- 103:Src/main.c    ****             SysTick->LOAD = (u32)nms * fac_ms;
- 217              		.loc 1 103 0
- 218 0002 1C4B     		ldr	r3, .L22
- 219 0004 93ED007A 		vldr.32	s14, [r3]
- 220 0008 07EE900A 		vmov	s15, r0	@ int
- 221 000c F8EE677A 		vcvt.f32.u32	s15, s15
- 222 0010 67EE877A 		vmul.f32	s15, s15, s14
- 223 0014 FCEEE77A 		vcvt.u32.f32	s15, s15
- 224 0018 174B     		ldr	r3, .L22+4
- 225 001a C3ED017A 		vstr.32	s15, [r3, #4]	@ int
- 226              	.LVL12:
- 104:Src/main.c    ****             nms = 0;
- 227              		.loc 1 104 0
- 228 001e 0020     		movs	r0, #0
- 229              	.LVL13:
- 230              	.L18:
- 105:Src/main.c    ****         }
- 106:Src/main.c    ****         SysTick->VAL = 0x00;
- 231              		.loc 1 106 0
- 232 0020 154B     		ldr	r3, .L22+4
- 233 0022 0022     		movs	r2, #0
- 234 0024 9A60     		str	r2, [r3, #8]
- 107:Src/main.c    ****         SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk;
- 235              		.loc 1 107 0
- 236 0026 1A68     		ldr	r2, [r3]
- 237 0028 42F00102 		orr	r2, r2, #1
- 238 002c 1A60     		str	r2, [r3]
- 239              	.L19:
- 108:Src/main.c    ****         do
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsEEIjS.s 			page 7
+ 187              		.loc 1 83 0
+ 188 0048 90B1     		cbz	r0, .L15
+  85:Src/main.c    ****         {
+ 189              		.loc 1 85 0
+ 190 004a B0F5FA7F 		cmp	r0, #500
+ 191 004e D8D9     		bls	.L11
+  87:Src/main.c    ****             nms -= STEP_DELAY_MS;
+ 192              		.loc 1 87 0
+ 193 0050 084B     		ldr	r3, .L16
+ 194 0052 D3ED007A 		vldr.32	s15, [r3]
+ 195 0056 9FED097A 		vldr.32	s14, .L16+8
+ 196 005a 67EE877A 		vmul.f32	s15, s15, s14
+ 197 005e FCEEE77A 		vcvt.u32.f32	s15, s15
+ 198 0062 054B     		ldr	r3, .L16+4
+ 199 0064 C3ED017A 		vstr.32	s15, [r3, #4]	@ int
+  88:Src/main.c    ****         }
+ 200              		.loc 1 88 0
+ 201 0068 A0F5FA70 		sub	r0, r0, #500
+ 202              	.LVL9:
+ 203 006c 80B2     		uxth	r0, r0
+ 204              	.LVL10:
+ 205 006e D7E7     		b	.L12
+ 206              	.L15:
+ 104:Src/main.c    ****     }
+ 105:Src/main.c    **** }
+ 207              		.loc 1 105 0
+ 208 0070 7047     		bx	lr
+ 209              	.L17:
+ 210 0072 00BF     		.align	2
+ 211              	.L16:
+ 212 0074 00000000 		.word	.LANCHOR1
+ 213 0078 10E000E0 		.word	-536813552
+ 214 007c 0000FA43 		.word	1140457472
+ 215              		.cfi_endproc
+ 216              	.LFE129:
+ 218              		.section	.text.main,"ax",%progbits
+ 219              		.align	1
+ 220              		.global	main
+ 221              		.syntax unified
+ 222              		.thumb
+ 223              		.thumb_func
+ 224              		.fpu fpv4-sp-d16
+ 226              	main:
+ 227              	.LFB126:
+  22:Src/main.c    **** 
+ 228              		.loc 1 22 0
+ 229              		.cfi_startproc
+ 230              		@ args = 0, pretend = 0, frame = 520
+ 231              		@ frame_needed = 0, uses_anonymous_args = 0
+ 232 0000 10B5     		push	{r4, lr}
+ 233              	.LCFI1:
+ 234              		.cfi_def_cfa_offset 8
+ 235              		.cfi_offset 4, -8
+ 236              		.cfi_offset 14, -4
+ 237 0002 ADF5027D 		sub	sp, sp, #520
+ 238              	.LCFI2:
+ 239              		.cfi_def_cfa_offset 528
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccCTL2oR.s 			page 7
 
 
- 109:Src/main.c    ****         {
- 110:Src/main.c    ****             temp = SysTick->CTRL;
- 240              		.loc 1 110 0 discriminator 1
- 241 002e 124B     		ldr	r3, .L22+4
- 242 0030 1B68     		ldr	r3, [r3]
- 243              	.LVL14:
- 111:Src/main.c    ****         }while( (temp & 0x01) && !(temp & (1<<16)) );
- 244              		.loc 1 111 0 discriminator 1
- 245 0032 03F00113 		and	r3, r3, #65537
- 246              	.LVL15:
- 247 0036 012B     		cmp	r3, #1
- 248 0038 F9D0     		beq	.L19
- 112:Src/main.c    **** 
- 113:Src/main.c    ****         SysTick->CTRL &= ~SysTick_CTRL_ENABLE_Msk;
- 249              		.loc 1 113 0
- 250 003a 0F4B     		ldr	r3, .L22+4
- 251 003c 1A68     		ldr	r2, [r3]
- 252 003e 22F00102 		bic	r2, r2, #1
- 253 0042 1A60     		str	r2, [r3]
- 114:Src/main.c    ****         SysTick->VAL = 0X00;
- 254              		.loc 1 114 0
- 255 0044 0022     		movs	r2, #0
- 256 0046 9A60     		str	r2, [r3, #8]
- 257              	.L16:
-  94:Src/main.c    ****     {
- 258              		.loc 1 94 0
- 259 0048 90B1     		cbz	r0, .L21
-  96:Src/main.c    ****         {
- 260              		.loc 1 96 0
- 261 004a B0F5FA7F 		cmp	r0, #500
- 262 004e D8D9     		bls	.L17
-  98:Src/main.c    ****             nms -= STEP_DELAY_MS;
- 263              		.loc 1 98 0
- 264 0050 084B     		ldr	r3, .L22
- 265 0052 D3ED007A 		vldr.32	s15, [r3]
- 266 0056 9FED097A 		vldr.32	s14, .L22+8
- 267 005a 67EE877A 		vmul.f32	s15, s15, s14
- 268 005e FCEEE77A 		vcvt.u32.f32	s15, s15
- 269 0062 054B     		ldr	r3, .L22+4
- 270 0064 C3ED017A 		vstr.32	s15, [r3, #4]	@ int
-  99:Src/main.c    ****         }
- 271              		.loc 1 99 0
- 272 0068 A0F5FA70 		sub	r0, r0, #500
- 273              	.LVL16:
- 274 006c 80B2     		uxth	r0, r0
- 275              	.LVL17:
- 276 006e D7E7     		b	.L18
- 277              	.L21:
- 115:Src/main.c    ****     }
- 116:Src/main.c    **** }
- 278              		.loc 1 116 0
- 279 0070 7047     		bx	lr
- 280              	.L23:
- 281 0072 00BF     		.align	2
- 282              	.L22:
- 283 0074 00000000 		.word	.LANCHOR1
- 284 0078 10E000E0 		.word	-536813552
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsEEIjS.s 			page 8
-
-
- 285 007c 0000FA43 		.word	1140457472
- 286              		.cfi_endproc
- 287              	.LFE130:
- 289              		.section	.text.main,"ax",%progbits
- 290              		.align	1
- 291              		.global	main
- 292              		.syntax unified
- 293              		.thumb
- 294              		.thumb_func
- 295              		.fpu fpv4-sp-d16
- 297              	main:
- 298              	.LFB126:
-  23:Src/main.c    **** 
- 299              		.loc 1 23 0
- 300              		.cfi_startproc
- 301              		@ args = 0, pretend = 0, frame = 512
- 302              		@ frame_needed = 0, uses_anonymous_args = 0
- 303 0000 10B5     		push	{r4, lr}
- 304              	.LCFI2:
- 305              		.cfi_def_cfa_offset 8
- 306              		.cfi_offset 4, -8
- 307              		.cfi_offset 14, -4
- 308 0002 ADF5007D 		sub	sp, sp, #512
- 309              	.LCFI3:
- 310              		.cfi_def_cfa_offset 520
-  25:Src/main.c    ****   /* Setup USART */
- 311              		.loc 1 25 0
- 312 0006 FFF7FEFF 		bl	Delay_init
- 313              	.LVL18:
-  27:Src/main.c    **** 
- 314              		.loc 1 27 0
- 315 000a FFF7FEFF 		bl	UART2_Init
- 316              	.LVL19:
- 317              	.L25:
+  24:Src/main.c    ****   /* Setup USART */
+ 240              		.loc 1 24 0
+ 241 0006 FFF7FEFF 		bl	Delay_init
+ 242              	.LVL11:
+  26:Src/main.c    **** 
+ 243              		.loc 1 26 0
+ 244 000a FFF7FEFF 		bl	bsp_InitUart
+ 245              	.LVL12:
+  28:Src/main.c    ****   char buf[512];
+ 246              		.loc 1 28 0
+ 247 000e 0024     		movs	r4, #0
+ 248 0010 0FE0     		b	.L21
+ 249              	.LVL13:
+ 250              	.L20:
+  38:Src/main.c    ****     }
+ 251              		.loc 1 38 0
+ 252 0012 9DF80710 		ldrb	r1, [sp, #7]	@ zero_extendqisi2
+ 253 0016 0120     		movs	r0, #1
+ 254 0018 FFF7FEFF 		bl	comSendChar
+ 255              	.LVL14:
+ 256              	.L19:
+  37:Src/main.c    ****       comSendChar(COM2, ch);
+ 257              		.loc 1 37 0
+ 258 001c 0DF10701 		add	r1, sp, #7
+ 259 0020 0120     		movs	r0, #1
+ 260 0022 FFF7FEFF 		bl	comGetChar
+ 261              	.LVL15:
+ 262 0026 0128     		cmp	r0, #1
+ 263 0028 F3D0     		beq	.L20
+  41:Src/main.c    ****   }
+ 264              		.loc 1 41 0
+ 265 002a 0A21     		movs	r1, #10
+ 266 002c 0120     		movs	r0, #1
+ 267 002e FFF7FEFF 		bl	comSendChar
+ 268              	.LVL16:
+ 269              	.L21:
   33:Src/main.c    ****     i++;
- 318              		.loc 1 33 0 discriminator 1
- 319 000e 4FF47A70 		mov	r0, #1000
- 320 0012 FFF7FEFF 		bl	Delay_ms
- 321              	.LVL20:
+ 270              		.loc 1 33 0
+ 271 0032 4FF47A70 		mov	r0, #1000
+ 272 0036 FFF7FEFF 		bl	Delay_ms
+ 273              	.LVL17:
   34:Src/main.c    ****     sprintf(buf,"Testing %d\n",i);
- 322              		.loc 1 34 0 discriminator 1
- 323 0016 0134     		adds	r4, r4, #1
- 324              	.LVL21:
-  35:Src/main.c    ****     uart_write(buf);
- 325              		.loc 1 35 0 discriminator 1
- 326 0018 2246     		mov	r2, r4
- 327 001a 0449     		ldr	r1, .L27
- 328 001c 6846     		mov	r0, sp
- 329 001e FFF7FEFF 		bl	sprintf
- 330              	.LVL22:
-  36:Src/main.c    ****   }
- 331              		.loc 1 36 0 discriminator 1
- 332 0022 6846     		mov	r0, sp
- 333 0024 FFF7FEFF 		bl	uart_write
- 334              	.LVL23:
- 335 0028 F1E7     		b	.L25
- 336              	.L28:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsEEIjS.s 			page 9
+ 274              		.loc 1 34 0
+ 275 003a 0134     		adds	r4, r4, #1
+ 276              	.LVL18:
+  35:Src/main.c    ****     comSendBuf(COM2, buf, strlen(buf));
+ 277              		.loc 1 35 0
+ 278 003c 2246     		mov	r2, r4
+ 279 003e 0649     		ldr	r1, .L23
+ 280 0040 02A8     		add	r0, sp, #8
+ 281 0042 FFF7FEFF 		bl	sprintf
+ 282              	.LVL19:
+  36:Src/main.c    ****     while(comGetChar(COM2, &ch) == 1) {
+ 283              		.loc 1 36 0
+ 284 0046 02A8     		add	r0, sp, #8
+ 285 0048 FFF7FEFF 		bl	strlen
+ 286              	.LVL20:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccCTL2oR.s 			page 8
 
 
- 337 002a 00BF     		.align	2
- 338              	.L27:
- 339 002c 00000000 		.word	.LC0
- 340              		.cfi_endproc
- 341              	.LFE126:
- 343              		.section	.text.Delay_sec,"ax",%progbits
- 344              		.align	1
- 345              		.global	Delay_sec
- 346              		.syntax unified
- 347              		.thumb
- 348              		.thumb_func
- 349              		.fpu fpv4-sp-d16
- 351              	Delay_sec:
- 352              	.LFB131:
- 117:Src/main.c    **** 
- 118:Src/main.c    **** /**
- 119:Src/main.c    ****   * @brief  Inserts a delay time.
- 120:Src/main.c    ****   * @param  sec: specifies the delay time length, in seconds.
- 121:Src/main.c    ****   * @retval None
- 122:Src/main.c    ****   */
- 123:Src/main.c    **** void Delay_sec(u16 sec)
- 124:Src/main.c    **** {
- 353              		.loc 1 124 0
- 354              		.cfi_startproc
- 355              		@ args = 0, pretend = 0, frame = 0
- 356              		@ frame_needed = 0, uses_anonymous_args = 0
- 357              	.LVL24:
- 358 0000 38B5     		push	{r3, r4, r5, lr}
- 359              	.LCFI4:
- 360              		.cfi_def_cfa_offset 16
- 361              		.cfi_offset 3, -16
- 362              		.cfi_offset 4, -12
- 363              		.cfi_offset 5, -8
- 364              		.cfi_offset 14, -4
- 365 0002 0546     		mov	r5, r0
- 366              	.LVL25:
- 125:Src/main.c    ****     u16 i;
- 126:Src/main.c    ****     for(i=0; i<sec; i++)
- 367              		.loc 1 126 0
- 368 0004 0024     		movs	r4, #0
- 369 0006 09E0     		b	.L30
- 370              	.LVL26:
- 371              	.L31:
- 127:Src/main.c    ****     {
- 128:Src/main.c    ****         Delay_ms(500);
- 372              		.loc 1 128 0 discriminator 3
- 373 0008 4FF4FA70 		mov	r0, #500
- 374 000c FFF7FEFF 		bl	Delay_ms
- 375              	.LVL27:
- 129:Src/main.c    ****         Delay_ms(500);
- 376              		.loc 1 129 0 discriminator 3
- 377 0010 4FF4FA70 		mov	r0, #500
- 378 0014 FFF7FEFF 		bl	Delay_ms
- 379              	.LVL28:
- 126:Src/main.c    ****     {
- 380              		.loc 1 126 0 discriminator 3
- 381 0018 0134     		adds	r4, r4, #1
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsEEIjS.s 			page 10
+ 287 004c 82B2     		uxth	r2, r0
+ 288 004e 02A9     		add	r1, sp, #8
+ 289 0050 0120     		movs	r0, #1
+ 290 0052 FFF7FEFF 		bl	comSendBuf
+ 291              	.LVL21:
+  37:Src/main.c    ****       comSendChar(COM2, ch);
+ 292              		.loc 1 37 0
+ 293 0056 E1E7     		b	.L19
+ 294              	.L24:
+ 295              		.align	2
+ 296              	.L23:
+ 297 0058 00000000 		.word	.LC0
+ 298              		.cfi_endproc
+ 299              	.LFE126:
+ 301              		.section	.text.Delay_sec,"ax",%progbits
+ 302              		.align	1
+ 303              		.global	Delay_sec
+ 304              		.syntax unified
+ 305              		.thumb
+ 306              		.thumb_func
+ 307              		.fpu fpv4-sp-d16
+ 309              	Delay_sec:
+ 310              	.LFB130:
+ 106:Src/main.c    **** 
+ 107:Src/main.c    **** /**
+ 108:Src/main.c    ****   * @brief  Inserts a delay time.
+ 109:Src/main.c    ****   * @param  sec: specifies the delay time length, in seconds.
+ 110:Src/main.c    ****   * @retval None
+ 111:Src/main.c    ****   */
+ 112:Src/main.c    **** void Delay_sec(u16 sec)
+ 113:Src/main.c    **** {
+ 311              		.loc 1 113 0
+ 312              		.cfi_startproc
+ 313              		@ args = 0, pretend = 0, frame = 0
+ 314              		@ frame_needed = 0, uses_anonymous_args = 0
+ 315              	.LVL22:
+ 316 0000 38B5     		push	{r3, r4, r5, lr}
+ 317              	.LCFI3:
+ 318              		.cfi_def_cfa_offset 16
+ 319              		.cfi_offset 3, -16
+ 320              		.cfi_offset 4, -12
+ 321              		.cfi_offset 5, -8
+ 322              		.cfi_offset 14, -4
+ 323 0002 0546     		mov	r5, r0
+ 324              	.LVL23:
+ 114:Src/main.c    ****     u16 i;
+ 115:Src/main.c    ****     for(i=0; i<sec; i++)
+ 325              		.loc 1 115 0
+ 326 0004 0024     		movs	r4, #0
+ 327 0006 09E0     		b	.L26
+ 328              	.LVL24:
+ 329              	.L27:
+ 116:Src/main.c    ****     {
+ 117:Src/main.c    ****         Delay_ms(500);
+ 330              		.loc 1 117 0 discriminator 3
+ 331 0008 4FF4FA70 		mov	r0, #500
+ 332 000c FFF7FEFF 		bl	Delay_ms
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccCTL2oR.s 			page 9
 
 
- 382              	.LVL29:
- 383 001a A4B2     		uxth	r4, r4
- 384              	.LVL30:
- 385              	.L30:
- 126:Src/main.c    ****     {
- 386              		.loc 1 126 0 is_stmt 0 discriminator 1
- 387 001c AC42     		cmp	r4, r5
- 388 001e F3D3     		bcc	.L31
- 130:Src/main.c    ****     }
- 131:Src/main.c    **** }...
- 389              		.loc 1 131 0 is_stmt 1
- 390 0020 38BD     		pop	{r3, r4, r5, pc}
- 391              		.cfi_endproc
- 392              	.LFE131:
- 394              		.section	.bss.fac_ms,"aw",%nobits
- 395              		.align	2
- 396              		.set	.LANCHOR1,. + 0
- 399              	fac_ms:
- 400 0000 00000000 		.space	4
- 401              		.section	.bss.fac_us,"aw",%nobits
- 402              		.align	2
- 403              		.set	.LANCHOR0,. + 0
- 406              	fac_us:
- 407 0000 00000000 		.space	4
- 408              		.section	.rodata.main.str1.4,"aMS",%progbits,1
- 409              		.align	2
- 410              	.LC0:
- 411 0000 54657374 		.ascii	"Testing %d\012\000"
- 411      696E6720 
- 411      25640A00 
- 412              		.text
- 413              	.Letext0:
- 414              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
- 415              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
- 416              		.file 4 "../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h"
- 417              		.file 5 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
- 418              		.file 6 "../Libraries/CMSIS/CM4/DeviceSupport/at32f4xx.h"
- 419              		.file 7 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
- 420              		.file 8 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
- 421              		.file 9 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h
- 422              		.file 10 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
- 423              		.file 11 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/misc.h"
- 424              		.file 12 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/string.h"
- 425              		.file 13 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_usart.h"
- 426              		.file 14 "Inc/comms.h"
- 427              		.file 15 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdio.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsEEIjS.s 			page 11
+ 333              	.LVL25:
+ 118:Src/main.c    ****         Delay_ms(500);
+ 334              		.loc 1 118 0 discriminator 3
+ 335 0010 4FF4FA70 		mov	r0, #500
+ 336 0014 FFF7FEFF 		bl	Delay_ms
+ 337              	.LVL26:
+ 115:Src/main.c    ****     {
+ 338              		.loc 1 115 0 discriminator 3
+ 339 0018 0134     		adds	r4, r4, #1
+ 340              	.LVL27:
+ 341 001a A4B2     		uxth	r4, r4
+ 342              	.LVL28:
+ 343              	.L26:
+ 115:Src/main.c    ****     {
+ 344              		.loc 1 115 0 is_stmt 0 discriminator 1
+ 345 001c AC42     		cmp	r4, r5
+ 346 001e F3D3     		bcc	.L27
+ 119:Src/main.c    ****     }
+ 120:Src/main.c    **** }...
+ 347              		.loc 1 120 0 is_stmt 1
+ 348 0020 38BD     		pop	{r3, r4, r5, pc}
+ 349              		.cfi_endproc
+ 350              	.LFE130:
+ 352              		.section	.bss.fac_ms,"aw",%nobits
+ 353              		.align	2
+ 354              		.set	.LANCHOR1,. + 0
+ 357              	fac_ms:
+ 358 0000 00000000 		.space	4
+ 359              		.section	.bss.fac_us,"aw",%nobits
+ 360              		.align	2
+ 361              		.set	.LANCHOR0,. + 0
+ 364              	fac_us:
+ 365 0000 00000000 		.space	4
+ 366              		.section	.rodata.main.str1.4,"aMS",%progbits,1
+ 367              		.align	2
+ 368              	.LC0:
+ 369 0000 54657374 		.ascii	"Testing %d\012\000"
+ 369      696E6720 
+ 369      25640A00 
+ 370              		.text
+ 371              	.Letext0:
+ 372              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
+ 373              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
+ 374              		.file 4 "../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h"
+ 375              		.file 5 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
+ 376              		.file 6 "../Libraries/CMSIS/CM4/DeviceSupport/at32f4xx.h"
+ 377              		.file 7 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
+ 378              		.file 8 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
+ 379              		.file 9 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h
+ 380              		.file 10 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
+ 381              		.file 11 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/misc.h"
+ 382              		.file 12 "bsp/inc/bsp_uart_fifo.h"
+ 383              		.file 13 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdio.h"
+ 384              		.file 14 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/string.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccCTL2oR.s 			page 10
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsEEIjS.s:17     .text.uart_write:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsEEIjS.s:24     .text.uart_write:0000000000000000 uart_write
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsEEIjS.s:82     .text.uart_write:0000000000000034 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsEEIjS.s:89     .text.Delay_init:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsEEIjS.s:96     .text.Delay_init:0000000000000000 Delay_init
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsEEIjS.s:130    .text.Delay_init:0000000000000038 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsEEIjS.s:139    .text.Delay_us:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsEEIjS.s:146    .text.Delay_us:0000000000000000 Delay_us
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsEEIjS.s:193    .text.Delay_us:0000000000000044 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsEEIjS.s:199    .text.Delay_ms:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsEEIjS.s:206    .text.Delay_ms:0000000000000000 Delay_ms
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsEEIjS.s:283    .text.Delay_ms:0000000000000074 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsEEIjS.s:290    .text.main:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsEEIjS.s:297    .text.main:0000000000000000 main
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsEEIjS.s:339    .text.main:000000000000002c $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsEEIjS.s:344    .text.Delay_sec:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsEEIjS.s:351    .text.Delay_sec:0000000000000000 Delay_sec
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsEEIjS.s:395    .bss.fac_ms:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsEEIjS.s:399    .bss.fac_ms:0000000000000000 fac_ms
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsEEIjS.s:402    .bss.fac_us:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsEEIjS.s:406    .bss.fac_us:0000000000000000 fac_us
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsEEIjS.s:409    .rodata.main.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccCTL2oR.s:17     .text.Delay_init:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccCTL2oR.s:24     .text.Delay_init:0000000000000000 Delay_init
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccCTL2oR.s:59     .text.Delay_init:0000000000000038 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccCTL2oR.s:68     .text.Delay_us:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccCTL2oR.s:75     .text.Delay_us:0000000000000000 Delay_us
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccCTL2oR.s:122    .text.Delay_us:0000000000000044 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccCTL2oR.s:128    .text.Delay_ms:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccCTL2oR.s:135    .text.Delay_ms:0000000000000000 Delay_ms
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccCTL2oR.s:212    .text.Delay_ms:0000000000000074 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccCTL2oR.s:219    .text.main:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccCTL2oR.s:226    .text.main:0000000000000000 main
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccCTL2oR.s:297    .text.main:0000000000000058 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccCTL2oR.s:302    .text.Delay_sec:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccCTL2oR.s:309    .text.Delay_sec:0000000000000000 Delay_sec
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccCTL2oR.s:353    .bss.fac_ms:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccCTL2oR.s:357    .bss.fac_ms:0000000000000000 fac_ms
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccCTL2oR.s:360    .bss.fac_us:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccCTL2oR.s:364    .bss.fac_us:0000000000000000 fac_us
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccCTL2oR.s:367    .rodata.main.str1.4:0000000000000000 $d
 
 UNDEFINED SYMBOLS
-strlen
-USART_INTConfig
-NbrOfDataToTransfer
-TxBuffer
 SysTick_CLKSourceConfig
 SystemCoreClock
-UART2_Init
+bsp_InitUart
+comSendChar
+comGetChar
 sprintf
+strlen
+comSendBuf

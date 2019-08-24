@@ -107,4 +107,9 @@ void USART2_IRQHandler(void)
       TxCounter = 0;
     }
   }
+  if(USART_GetITStatus(USART2, USART_INT_TRAC) != RESET)
+  {
+      /* Enable the USART Transmit interrupt */
+      USART_INTConfig(USART2, USART_INT_TDE, ENABLE);
+  }
 }

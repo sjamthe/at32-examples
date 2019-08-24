@@ -1,14 +1,13 @@
 /**
- * 
+ * UART read/write on two cop ports, with one used for ROS
  **/ 
   
 /* Includes ------------------------------------------------------------------*/
-#include "comms.h"
+//#include "comms.h"
+
+#include "bsp_uart_fifo.h"
 #include <stdio.h>
 #include <string.h>
-
-extern uint8_t TxBuffer[];
-extern uint8_t NbrOfDataToTransfer; 
 
  /*delay macros*/
 #define STEP_DELAY_MS	500
@@ -24,34 +23,24 @@ int main(void)
 
   Delay_init();
   /* Setup USART */
-  UART2_Init();
+  bsp_InitUart();
 
-  int i;
+  int i=0;
   char buf[512];
+  uint8_t ch;
   while (1)
   {
     Delay_ms(1000);
     i++;
     sprintf(buf,"Testing %d\n",i);
-    uart_write(buf);
+    comSendBuf(COM2, buf, strlen(buf));
+    while(comGetChar(COM2, &ch) == 1) {
+      comSendChar(COM2, ch);
+    }
+
+    comSendChar(COM2,'\n');
   }
 
-}
-
-void uart_write(char *buf)
-{
-  NbrOfDataToTransfer = 0;
-  for (int i=0;i<strlen(buf); i++) {
-    TxBuffer[i] = buf[i];
-    NbrOfDataToTransfer++;
-  }
-  // for (int i=32; i<117; i++) {
-  //   TxBuffer[i-32] = i;
-  //   NbrOfDataToTransfer++;
-  // }
-  // TxBuffer[117-32] = '\n';
-  // NbrOfDataToTransfer++;
-  USART_INTConfig(USART2, USART_INT_TDE, ENABLE);
 }
 
 void Delay_init()
