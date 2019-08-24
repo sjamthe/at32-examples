@@ -33,9 +33,9 @@ int main(void)
   int written = 0;
   while (1)
   {
-    Delay_ms(1000);
+    Delay_ms(5000);
     i++;
-    if(i == 0) {
+    if(written == 0) {
       sprintf(buf,"Testing %d\n",i);
     }
     comSendBuf(TESTCOM, buf, strlen(buf));

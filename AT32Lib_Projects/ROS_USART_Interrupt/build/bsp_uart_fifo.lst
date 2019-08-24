@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
   31:bsp/src/bsp_uart_fifo.c **** 
   32:bsp/src/bsp_uart_fifo.c **** #define ENABLE_COM2
   33:bsp/src/bsp_uart_fifo.c **** #define ENABLE_COM3
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 2
 
 
   34:bsp/src/bsp_uart_fifo.c **** 
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
   88:bsp/src/bsp_uart_fifo.c ****  * @brief   send data to TX FIFO,and in fact send out data by ISR
   89:bsp/src/bsp_uart_fifo.c ****  * @param   _ucPort: serial number that send the data           
   90:bsp/src/bsp_uart_fifo.c ****                 COM2
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 3
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 3
 
 
   91:bsp/src/bsp_uart_fifo.c ****                 COM3
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
  145:bsp/src/bsp_uart_fifo.c **** 	}
  146:bsp/src/bsp_uart_fifo.c **** 
  147:bsp/src/bsp_uart_fifo.c **** 	return UartGetChar(pUart, _pByte);
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 4
 
 
  148:bsp/src/bsp_uart_fifo.c **** }
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
  202:bsp/src/bsp_uart_fifo.c **** 	UART_T *pUart;
  203:bsp/src/bsp_uart_fifo.c **** 
  204:bsp/src/bsp_uart_fifo.c **** 	pUart = ComToUart(_ucPort);
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 5
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 5
 
 
  205:bsp/src/bsp_uart_fifo.c **** 	if (pUart == 0)
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
   48 0018 1382     		strh	r3, [r2, #16]	@ movhi
  237:bsp/src/bsp_uart_fifo.c **** 		g_tUart1.usTxRead       = 0;						
   49              		.loc 1 237 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 6
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 6
 
 
   50 001a 5382     		strh	r3, [r2, #18]	@ movhi
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
   86 0042 1383     		strh	r3, [r2, #24]	@ movhi
  256:bsp/src/bsp_uart_fifo.c **** 		g_tUart2.usRxCount      = 0;						
   87              		.loc 1 256 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 7
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 7
 
 
   88 0044 5383     		strh	r3, [r2, #26]	@ movhi
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
  279:bsp/src/bsp_uart_fifo.c **** 
  280:bsp/src/bsp_uart_fifo.c ****     /*------ GPIO CONFIGURATION ------*/
  281:bsp/src/bsp_uart_fifo.c ****     GPIO_InitType GPIO_InitStructure;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 8
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 8
 
 
  282:bsp/src/bsp_uart_fifo.c **** 
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
  336:bsp/src/bsp_uart_fifo.c ****   */
  337:bsp/src/bsp_uart_fifo.c **** static void ConfigUartNVIC(void)
  338:bsp/src/bsp_uart_fifo.c **** {
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 9
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 9
 
 
  339:bsp/src/bsp_uart_fifo.c **** 	/* Configure the NVIC Preemption Priority Bits */  
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
  393:bsp/src/bsp_uart_fifo.c **** static void UartSend(UART_T *_pUart, uint8_t *_ucaBuf, uint16_t _usLen)
  394:bsp/src/bsp_uart_fifo.c **** {
  395:bsp/src/bsp_uart_fifo.c **** 	uint16_t i;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 10
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 10
 
 
  396:bsp/src/bsp_uart_fifo.c **** 
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
    5:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****  * @date     20. October 2015
    6:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****  ******************************************************************************/
    7:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** /* Copyright (c) 2009 - 2015 ARM LIMITED
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 11
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 11
 
 
    8:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
   62:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
   63:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
   64:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** /**
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 12
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 12
 
 
   65:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   \brief   Disable IRQ Interrupts
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
  119:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** __attribute__( ( always_inline ) ) __STATIC_INLINE uint32_t __get_APSR(void)
  120:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** {
  121:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   uint32_t result;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 13
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 13
 
 
  122:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
  176:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** 
  177:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   __ASM volatile ("MRS %0, msp\n" : "=r" (result) );
  178:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h ****   return(result);
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 14
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 14
 
 
  179:../Libraries/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** }
@@ -838,7 +838,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
  144 0008 9BB2     		uxth	r3, r3
  145              	.LVL2:
  146              	.LBB21:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 15
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 15
 
 
  147              	.LBB22:
@@ -898,7 +898,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
  188 002c 9342     		cmp	r3, r2
  189 002e 01D3     		bcc	.L6
  454:bsp/src/bsp_uart_fifo.c **** 		{
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 16
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 16
 
 
  455:bsp/src/bsp_uart_fifo.c **** 			_pUart->usRxRead = 0;
@@ -958,7 +958,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
  237              		.cfi_startproc
  238              		@ args = 0, pretend = 0, frame = 8
  239              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 17
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 17
 
 
  240 0000 30B5     		push	{r4, r5, lr}
@@ -1018,7 +1018,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
  282 0040 03B0     		add	sp, sp, #12
  283              	.LCFI2:
  284              		.cfi_def_cfa_offset 12
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 18
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 18
 
 
  285              		@ sp needed
@@ -1078,7 +1078,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
  338              	.LBE27:
  397:bsp/src/bsp_uart_fifo.c **** 	{
  339              		.loc 1 397 0 discriminator 2
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 19
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 19
 
 
  340 0016 0135     		adds	r5, r5, #1
@@ -1138,7 +1138,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
  390 003e 4468     		ldr	r4, [r0, #4]
  391 0040 038A     		ldrh	r3, [r0, #16]
  392 0042 9BB2     		uxth	r3, r3
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 20
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 20
 
 
  393 0044 4E5D     		ldrb	r6, [r1, r5]	@ zero_extendqisi2
@@ -1198,7 +1198,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
  444              		.thumb_func
  445              		.fpu fpv4-sp-d16
  447              	UartIRQ:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 21
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 21
 
 
  448              	.LFB138:
@@ -1258,7 +1258,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
  496:bsp/src/bsp_uart_fifo.c ****     //transmit data process
  497:bsp/src/bsp_uart_fifo.c **** 	if (USART_GetITStatus(_pUart->uart, USART_INT_TDE) != RESET)
  468              		.loc 1 497 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 22
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 22
 
 
  469 0010 40F22771 		movw	r1, #1831
@@ -1318,7 +1318,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
  515:bsp/src/bsp_uart_fifo.c **** 	}
  516:bsp/src/bsp_uart_fifo.c **** 	else if (USART_GetITStatus(_pUart->uart, USART_INT_TRAC) != RESET)
  517:bsp/src/bsp_uart_fifo.c **** 	{
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 23
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 23
 
 
  518:bsp/src/bsp_uart_fifo.c **** 		//if (_pUart->usTxRead == _pUart->usTxWrite)
@@ -1378,7 +1378,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
  481:bsp/src/bsp_uart_fifo.c **** 		{
  534              		.loc 1 481 0
  535 0072 638B     		ldrh	r3, [r4, #26]
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 24
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 24
 
 
  536 0074 9BB2     		uxth	r3, r3
@@ -1438,7 +1438,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
  582 00bc 40F22661 		movw	r1, #1574
  583 00c0 2068     		ldr	r0, [r4]
  584 00c2 FFF7FEFF 		bl	USART_INTConfig
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 25
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 25
 
 
  585              	.LVL44:
@@ -1498,7 +1498,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
   75:bsp/src/bsp_uart_fifo.c **** 	if (_ucPort == COM2)
  635              		.loc 1 75 0
  636              		.cfi_startproc
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 26
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 26
 
 
  637              		@ args = 0, pretend = 0, frame = 0
@@ -1558,7 +1558,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
  686 0000 10B5     		push	{r4, lr}
  687              	.LCFI7:
  688              		.cfi_def_cfa_offset 8
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 27
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 27
 
 
  689              		.cfi_offset 4, -8
@@ -1618,7 +1618,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
  738              		.cfi_def_cfa_offset 16
  739              		.cfi_offset 4, -16
  740              		.cfi_offset 5, -12
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 28
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 28
 
 
  741              		.cfi_offset 6, -8
@@ -1678,7 +1678,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
  790              	.LCFI10:
  791              		.cfi_def_cfa_offset 16
  792 0004 02AB     		add	r3, sp, #8
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 29
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 29
 
 
  793 0006 03F8011D 		strb	r1, [r3, #-1]!
@@ -1738,7 +1738,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
  842              	.LVL69:
  843              	.L46:
  144:bsp/src/bsp_uart_fifo.c **** 	}
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 30
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 30
 
 
  844              		.loc 1 144 0
@@ -1798,7 +1798,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
  894              		.thumb_func
  895              		.fpu fpv4-sp-d16
  897              	comClearRxFifo:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 31
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 31
 
 
  898              	.LFB129:
@@ -1858,7 +1858,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
  946              		.cfi_offset 14, -4
  947 0002 84B0     		sub	sp, sp, #16
  948              	.LCFI16:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 32
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 32
 
 
  949              		.cfi_def_cfa_offset 24
@@ -1918,7 +1918,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
  994              		.align	1
  995              		.syntax unified
  996              		.thumb
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 33
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 33
 
 
  997              		.thumb_func
@@ -1978,7 +1978,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
  1043 0038 1823     		movs	r3, #24
  1044 003a 8DF80730 		strb	r3, [sp, #7]
  292:bsp/src/bsp_uart_fifo.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 34
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 34
 
 
  1045              		.loc 1 292 0
@@ -2038,7 +2038,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
  1096 000c 0121     		movs	r1, #1
  1097 000e 4FF48020 		mov	r0, #262144
  1098 0012 FFF7FEFF 		bl	RCC_APB1PeriphClockCmd
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 35
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 35
 
 
  1099              	.LVL87:
@@ -2098,7 +2098,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
  1145              		.align	1
  1146              		.global	bsp_InitUart
  1147              		.syntax unified
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 36
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 36
 
 
  1148              		.thumb
@@ -2158,7 +2158,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
  1197              	.LFB139:
  540:bsp/src/bsp_uart_fifo.c **** 
  541:bsp/src/bsp_uart_fifo.c **** /**
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 37
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 37
 
 
  542:bsp/src/bsp_uart_fifo.c ****  * @brief   This function handles USART2 exception
@@ -2218,7 +2218,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
  1236              		.cfi_def_cfa_offset 8
  1237              		.cfi_offset 3, -8
  1238              		.cfi_offset 14, -4
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 38
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 38
 
 
  560:bsp/src/bsp_uart_fifo.c **** 	UartIRQ(&g_tUart2);
@@ -2278,7 +2278,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
  1286 0000 00000000 		.space	40
  1286      00000000 
  1286      00000000 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 39
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 39
 
 
  1286      00000000 
@@ -2304,67 +2304,67 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 1
  1303              		.file 10 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/misc.h"
  1304              		.file 11 "bsp/inc/bsp_uart_fifo.h"
  1305              		.file 12 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_rcc.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 40
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 40
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 bsp_uart_fifo.c
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:17     .text.UartVarInit:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:23     .text.UartVarInit:0000000000000000 UartVarInit
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:102    .text.UartVarInit:0000000000000050 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:114    .text.UartGetChar:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:120    .text.UartGetChar:0000000000000000 UartGetChar
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:228    .text.ConfigUartNVIC:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:234    .text.ConfigUartNVIC:0000000000000000 ConfigUartNVIC
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:291    .text.UartSend:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:297    .text.UartSend:0000000000000000 UartSend
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:441    .text.UartIRQ:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:447    .text.UartIRQ:0000000000000000 UartIRQ
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:626    .text.ComToUart:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:633    .text.ComToUart:0000000000000000 ComToUart
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:667    .text.ComToUart:0000000000000014 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:673    .text.EnableUart:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:679    .text.EnableUart:0000000000000000 EnableUart
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:722    .text.comSendBuf:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:729    .text.comSendBuf:0000000000000000 comSendBuf
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:771    .text.comSendChar:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:778    .text.comSendChar:0000000000000000 comSendChar
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:810    .text.comGetChar:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:817    .text.comGetChar:0000000000000000 comGetChar
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:852    .text.comClearTxFifo:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:859    .text.comClearTxFifo:0000000000000000 comClearTxFifo
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:890    .text.comClearRxFifo:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:897    .text.comClearRxFifo:0000000000000000 comClearRxFifo
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:928    .text.bsp_SetUartBaud:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:935    .text.bsp_SetUartBaud:0000000000000000 bsp_SetUartBaud
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:994    .text.InitHardUart2:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1000   .text.InitHardUart2:0000000000000000 InitHardUart2
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1064   .text.InitHardUart2:0000000000000058 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1069   .text.InitHardUart3:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1075   .text.InitHardUart3:0000000000000000 InitHardUart3
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1140   .text.InitHardUart3:000000000000005c $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1145   .text.bsp_InitUart:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1152   .text.bsp_InitUart:0000000000000000 bsp_InitUart
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1189   .text.USART2_IRQHandler:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1196   .text.USART2_IRQHandler:0000000000000000 USART2_IRQHandler
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1216   .text.USART2_IRQHandler:000000000000000c $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1221   .text.USART3_IRQHandler:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1228   .text.USART3_IRQHandler:0000000000000000 USART3_IRQHandler
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1248   .text.USART3_IRQHandler:000000000000000c $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1253   .bss.g_RxBuf1:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1257   .bss.g_RxBuf1:0000000000000000 g_RxBuf1
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1260   .bss.g_RxBuf2:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1264   .bss.g_RxBuf2:0000000000000000 g_RxBuf2
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1267   .bss.g_TxBuf1:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1271   .bss.g_TxBuf1:0000000000000000 g_TxBuf1
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1274   .bss.g_TxBuf2:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1278   .bss.g_TxBuf2:0000000000000000 g_TxBuf2
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1281   .bss.g_tUart1:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1285   .bss.g_tUart1:0000000000000000 g_tUart1
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1288   .bss.g_tUart2:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s:1292   .bss.g_tUart2:0000000000000000 g_tUart2
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:17     .text.UartVarInit:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:23     .text.UartVarInit:0000000000000000 UartVarInit
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:102    .text.UartVarInit:0000000000000050 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:114    .text.UartGetChar:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:120    .text.UartGetChar:0000000000000000 UartGetChar
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:228    .text.ConfigUartNVIC:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:234    .text.ConfigUartNVIC:0000000000000000 ConfigUartNVIC
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:291    .text.UartSend:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:297    .text.UartSend:0000000000000000 UartSend
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:441    .text.UartIRQ:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:447    .text.UartIRQ:0000000000000000 UartIRQ
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:626    .text.ComToUart:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:633    .text.ComToUart:0000000000000000 ComToUart
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:667    .text.ComToUart:0000000000000014 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:673    .text.EnableUart:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:679    .text.EnableUart:0000000000000000 EnableUart
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:722    .text.comSendBuf:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:729    .text.comSendBuf:0000000000000000 comSendBuf
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:771    .text.comSendChar:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:778    .text.comSendChar:0000000000000000 comSendChar
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:810    .text.comGetChar:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:817    .text.comGetChar:0000000000000000 comGetChar
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:852    .text.comClearTxFifo:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:859    .text.comClearTxFifo:0000000000000000 comClearTxFifo
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:890    .text.comClearRxFifo:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:897    .text.comClearRxFifo:0000000000000000 comClearRxFifo
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:928    .text.bsp_SetUartBaud:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:935    .text.bsp_SetUartBaud:0000000000000000 bsp_SetUartBaud
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:994    .text.InitHardUart2:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:1000   .text.InitHardUart2:0000000000000000 InitHardUart2
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:1064   .text.InitHardUart2:0000000000000058 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:1069   .text.InitHardUart3:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:1075   .text.InitHardUart3:0000000000000000 InitHardUart3
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:1140   .text.InitHardUart3:000000000000005c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:1145   .text.bsp_InitUart:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:1152   .text.bsp_InitUart:0000000000000000 bsp_InitUart
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:1189   .text.USART2_IRQHandler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:1196   .text.USART2_IRQHandler:0000000000000000 USART2_IRQHandler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:1216   .text.USART2_IRQHandler:000000000000000c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:1221   .text.USART3_IRQHandler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:1228   .text.USART3_IRQHandler:0000000000000000 USART3_IRQHandler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:1248   .text.USART3_IRQHandler:000000000000000c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:1253   .bss.g_RxBuf1:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:1257   .bss.g_RxBuf1:0000000000000000 g_RxBuf1
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:1260   .bss.g_RxBuf2:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:1264   .bss.g_RxBuf2:0000000000000000 g_RxBuf2
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:1267   .bss.g_TxBuf1:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:1271   .bss.g_TxBuf1:0000000000000000 g_TxBuf1
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:1274   .bss.g_TxBuf2:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:1278   .bss.g_TxBuf2:0000000000000000 g_TxBuf2
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:1281   .bss.g_tUart1:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:1285   .bss.g_tUart1:0000000000000000 g_tUart1
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:1288   .bss.g_tUart2:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s:1292   .bss.g_tUart2:0000000000000000 g_tUart2
 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccuX99rx.s 			page 41
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccGgdldi.s 			page 41
 
 
 UNDEFINED SYMBOLS
