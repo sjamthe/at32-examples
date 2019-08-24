@@ -14,6 +14,7 @@
         "includes.h": "c",
         "freertosconfig.h": "c",
         "*.tcc": "c",
-        "service_client.h": "c"
+        "service_client.h": "c",
+        "comms.h": "c"
     }
 }
