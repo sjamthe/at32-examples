@@ -59,6 +59,7 @@ void bsp_InitUart(void)
 #endif
 #ifdef ENABLE_COM3
 	EnableUart(COM3);
+	#define PRINT_COM COM3
 #endif
 }
 
@@ -560,6 +561,53 @@ void USART3_IRQHandler(void)
 	UartIRQ(&g_tUart2);
 }
 
+
+/*
+* Setting to redirect STDOUT to COM PORT
+*/
+
+#ifdef PRINT_COM
+
+#ifdef __GNUC__
+  /* With GCC/RAISONANCE, small printf (option LD Linker->Libraries->Small printf
+     set to 'Yes') calls __io_putchar() */
+  #define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
+#else
+  #define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
+#endif /* __GNUC__ */
+
+int _write(int file, char *data, int len)
+{
+  int bytes_written;
+  char ch;
+
+  if ((file != 1) && (file != 2))
+  {
+    return -1;
+  }
+
+  for (bytes_written = 0; bytes_written < len; bytes_written++)
+  {
+    ch = *data;
+    data++;
+    __io_putchar(ch);
+  }
+
+  return bytes_written;
+}
+
+/**
+  * @brief  Retargets the C library printf function to the USART.
+  * @param  None
+  * @retval None
+  */
+PUTCHAR_PROTOTYPE
+{
+	comSendChar(PRINT_COM, ch);
+	return ch;
+}
+
+#endif // PRINT_COM
 
 //int fputc(int ch, FILE *f)
 //{

@@ -3,12 +3,10 @@
  **/ 
   
 /* Includes ------------------------------------------------------------------*/
-//#include "comms.h"
-
 #include "bsp_uart_fifo.h"
 //#include "bsp_delay.h"
 #include "bsp_timer.h"
-//#include "ros.h"
+#include "ros.h"
 #include <stdio.h>
 #include <string.h>
 
@@ -26,11 +24,9 @@ void Delay_sec(u16 sec);
 
 static volatile uint32_t ticks;
 
-//void uart_write(char *buf);
-
 #define TESTCOM COM3
 
-//ros::NodeHandle nh; /* ROS node handle */
+ros::NodeHandle nh; /* ROS node handle */
 
 // return the system clock as milliseconds
 inline uint32_t millis(void) {
@@ -69,7 +65,7 @@ void init()
 
   bsp_StartHardTimer(1, 1000, (void*)TMR_CallBack1);//after 1ms to execute ISR
   /* ROS init, we can start UART hear in not in bsp */ 
-  //nh.initNode();
+  nh.initNode();
 }
 
 int main(void)
@@ -84,30 +80,13 @@ int main(void)
   while (1)
   {
     
-    //nh_->spinOnce1(); 
+    nh.spinOnce1(); 
 
-    sprintf(buf,"Millis %d, %d\n",millis(),TMR_GetCounter(TMR3));
-    comSendBuf(TESTCOM, buf, strlen(buf));
+    //sprintf(buf,"Millis %d\n",millis());
+    //printf(buf);
+    //comSendBuf(TESTCOM, buf, strlen(buf));
     my_delay_ms(1000);
-    // Delay_ms(5000);
-    // i+
-    // if(written == 0) {
-    //   sprintf(buf,"Testing %d\n",i);
-    // }
-    // comSendBuf(TESTCOM, buf, strlen(buf));
 
-    // written = 0;
-    // int j=0;
-    // while(comGetChar(COM2, &ch) == 1) {
-    //   comSendChar(COM2, ch);
-    //   buf[j++] = ch;
-    //   written = 1;
-    // }
-
-    // if(written) {
-    //   buf[j++] = '\0';
-    //   comSendChar(COM2,'\n');
-    // }
   }
 
 }

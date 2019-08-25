@@ -47,13 +47,13 @@ Src/at32f4xx_it.c
 
 # CPP sources
 CPP_SOURCES = \
+./ROSSerial/duration.cpp \
+./ROSSerial/time.cpp \
 ./Src/main.cpp
 
-#./ROSTasks/Src/spin_task.cpp \
 #./ROSTasks/Src/subscribe_task.cpp \
 #./ROSTasks/Src/publish_task.cpp \
-#./ROSSerial/duration.cpp \
-#./ROSSerial/time.cpp \
+
 
 ASM_SOURCES =  \
 ../startup_at32f403xe.s
