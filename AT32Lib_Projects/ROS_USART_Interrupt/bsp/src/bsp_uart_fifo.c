@@ -337,7 +337,7 @@ static void InitHardUart3(void)
 static void ConfigUartNVIC(void)
 {
 	/* Configure the NVIC Preemption Priority Bits */  
-    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_0);
+    //NVIC_PriorityGroupConfig(NVIC_PriorityGroup_0); //changed to Group_4 in main.c
 
 	NVIC_InitType NVIC_InitStructure;
 
@@ -350,8 +350,8 @@ static void ConfigUartNVIC(void)
 #endif
 #ifdef ENABLE_COM3
     NVIC_InitStructure.NVIC_IRQChannel                      = USART3_IRQn;  
-    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority    = 0;
-    NVIC_InitStructure.NVIC_IRQChannelSubPriority           = 1;
+    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority    = 1;
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority           = 0;
     NVIC_InitStructure.NVIC_IRQChannelCmd                   = ENABLE;
     NVIC_Init(&NVIC_InitStructure);
 #endif

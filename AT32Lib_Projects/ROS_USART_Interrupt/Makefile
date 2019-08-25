@@ -39,14 +39,21 @@ C_SOURCES =  \
 ../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_gpio.c \
 ../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_rcc.c \
 ../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_usart.c \
+../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c \
 ../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c \
 bsp/src/bsp_uart_fifo.c \
-bsp/src/bsp_delay.c \
+bsp/src/bsp_timer.c \
 Src/at32f4xx_it.c 
 
 # CPP sources
 CPP_SOURCES = \
-Src/main.cpp
+./Src/main.cpp
+
+#./ROSTasks/Src/spin_task.cpp \
+#./ROSTasks/Src/subscribe_task.cpp \
+#./ROSTasks/Src/publish_task.cpp \
+#./ROSSerial/duration.cpp \
+#./ROSSerial/time.cpp \
 
 ASM_SOURCES =  \
 ../startup_at32f403xe.s
@@ -108,9 +115,14 @@ AS_INCLUDES =
 C_INCLUDES =  \
 -IInc \
 -Ibsp/inc \
+-IROSSerial \
+-IROSSerial/ros \
+-IROSSerial/rosserial_msgs \
+-IROSSerial/std_msgs \
 -I../Libraries/AT32F4xx_StdPeriph_Driver/inc \
 -I../Libraries/CMSIS/CM4/DeviceSupport \
 -I../Libraries/CMSIS/CM4/CoreSupport 
+
 
 # compile gcc flags
 ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections

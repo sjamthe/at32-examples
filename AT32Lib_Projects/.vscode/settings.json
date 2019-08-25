@@ -15,7 +15,9 @@
         "freertosconfig.h": "c",
         "*.tcc": "c",
         "service_client.h": "c",
-        "comms.h": "c"
+        "comms.h": "c",
+        "bsp_timer.h": "c",
+        "at32f4xx_it.h": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }

@@ -1,4 +1,4 @@
-build/bsp_delay.o: bsp/src/bsp_delay.c bsp/inc/bsp_delay.h \
+build/bsp_timer.o: bsp/src/bsp_timer.c bsp/inc/bsp_timer.h \
  ../Libraries/CMSIS/CM4/DeviceSupport/at32f4xx.h \
  ../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h \
  ../Libraries/CMSIS/CM4/CoreSupport/core_cmInstr.h \
@@ -30,7 +30,7 @@ build/bsp_delay.o: bsp/src/bsp_delay.c bsp/inc/bsp_delay.h \
  ../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_wwdg.h \
  ../Libraries/AT32F4xx_StdPeriph_Driver/inc/misc.h
 
-bsp/inc/bsp_delay.h:
+bsp/inc/bsp_timer.h:
 
 ../Libraries/CMSIS/CM4/DeviceSupport/at32f4xx.h:
 
