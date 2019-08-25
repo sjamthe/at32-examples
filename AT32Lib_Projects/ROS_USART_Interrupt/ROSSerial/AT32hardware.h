@@ -98,7 +98,7 @@ public:
 	uint32_t time(void)
 	{
 		//return (uint32_t) xTaskGetTickCount();
-		return ticks; 
+		return millis();
 	}
 
 };

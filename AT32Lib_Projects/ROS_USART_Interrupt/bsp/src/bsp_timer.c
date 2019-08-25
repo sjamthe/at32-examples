@@ -63,11 +63,36 @@
 
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
+
 /* Private function prototypes -----------------------------------------------*/
 static void (*s_TMR_CallBack1)(void);
 static void (*s_TMR_CallBack2)(void);
 static void (*s_TMR_CallBack3)(void);
 static void (*s_TMR_CallBack4)(void);
+
+/*
+* Use ticks from TMR_CallBack1 to keep milli second clock needed by ROS _hardware.time().
+*/
+static volatile uint32_t ticks;
+
+static void TMR_CallBack1(void)
+{
+  ticks++;
+}
+
+// return the system clock as milliseconds
+inline uint32_t millis(void) {
+  return ticks;
+  //return TMR_GetCounter(TMR3);
+}
+
+void delay_ms(uint32_t t) {
+  uint32_t elapsed;
+  uint32_t start = millis();
+  do {
+    elapsed = millis() - start;
+  } while (elapsed < t) ;
+}
 
 /* Private functions ---------------------------------------------------------*/
 #if defined (USE_TMR2) || defined (USE_TMR3)  || defined (USE_TMR4)	|| defined (USE_TMR5)
@@ -113,6 +138,9 @@ void bsp_InitHardTimer(void)
 	NVIC_InitStructure.NVIC_IRQChannelSubPriority           = 0;
 	NVIC_InitStructure.NVIC_IRQChannelCmd                   = ENABLE;
 	NVIC_Init(&NVIC_InitStructure);
+
+  /* Initialize TMR3 with 1ms timer, needed by ROS */
+  bsp_StartHardTimer(1, 1000, (void*)TMR_CallBack1);
 }
 
 /**
