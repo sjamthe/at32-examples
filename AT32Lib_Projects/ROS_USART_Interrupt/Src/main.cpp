@@ -4,13 +4,12 @@
   
 /* Includes ------------------------------------------------------------------*/
 #include "bsp_uart_fifo.h"
-//#include "bsp_delay.h"
 #include "bsp_timer.h"
-#include "ros.h"
 #include <stdio.h>
 #include <string.h>
 
-ros::NodeHandle nh; /* ROS node handle */
+void ros_init(void);
+void ros_run(void);
 
 /*
 * Initialize all functionslity needed
@@ -26,8 +25,7 @@ void init()
   /* Setup USART */
   bsp_InitUart();
 
-  /* ROS init, we can start UART hear in not in bsp */ 
-  nh.initNode();
+  ros_init();
 }
 
 int main(void)
@@ -38,8 +36,7 @@ int main(void)
   char buf[512];
   while (1)
   {
-    
-    nh.spinOnce1(); 
+    ros_run();
 
     // sprintf(buf,"Millis %d\n",millis());
     // printf(buf);

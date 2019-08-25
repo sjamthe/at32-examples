@@ -49,6 +49,7 @@ Src/at32f4xx_it.c
 CPP_SOURCES = \
 ./ROSSerial/duration.cpp \
 ./ROSSerial/time.cpp \
+./Src/ros.cpp \
 ./Src/main.cpp
 
 #./ROSTasks/Src/subscribe_task.cpp \

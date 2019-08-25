@@ -36,6 +36,7 @@
 #define STM32HARDWARE_H_
 
 #include "bsp_uart_fifo.h"
+#include "bsp_timer.h"
 #include <stdio.h>
 
 extern volatile uint32_t ticks;
