@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccEjdyxS.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -48,17 +48,17 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 1
   30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   32              	.LVL0:
-  33 0000 08B5     		push	{r3, lr}
-  34              		.save {r3, lr}
+  33 0000 10B5     		push	{r4, lr}
+  34              		.save {r4, lr}
   35              	.LCFI0:
   36              		.cfi_def_cfa_offset 8
-  37              		.cfi_offset 3, -8
+  37              		.cfi_offset 4, -8
   38              		.cfi_offset 14, -4
   39              	.LVL1:
   40              	.LBB20:
   41              	.LBB21:
   42              		.file 2 "ROSSerial/std_msgs/UInt16.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccEjdyxS.s 			page 2
 
 
    1:ROSSerial/std_msgs/UInt16.h **** #ifndef _ROS_std_msgs_UInt16_h
@@ -105,129 +105,155 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 1
   19:./Src/ros_subscribe.cpp **** 	
   20:./Src/ros_subscribe.cpp ****     ledState = cmd_msg.data;
   52              		.loc 1 20 0
-  53 000c 024B     		ldr	r3, .L3
-  54 000e 1980     		strh	r1, [r3]	@ movhi
+  53 000c 074C     		ldr	r4, .L6
+  54 000e 2180     		strh	r1, [r4]	@ movhi
   21:./Src/ros_subscribe.cpp ****     printf("ledState in CB %d\n",ledState);
   55              		.loc 1 21 0
-  56 0010 0248     		ldr	r0, .L3+4
+  56 0010 0748     		ldr	r0, .L6+4
   57              	.LVL3:
   58 0012 FFF7FEFF 		bl	printf
   59              	.LVL4:
-  22:./Src/ros_subscribe.cpp **** }
+  22:./Src/ros_subscribe.cpp ****     if(ledState) {
   60              		.loc 1 22 0
-  61 0016 08BD     		pop	{r3, pc}
-  62              	.L4:
-  63              		.align	2
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 3
+  61 0016 B4F90030 		ldrsh	r3, [r4]
+  62 001a 1BB9     		cbnz	r3, .L5
+  23:./Src/ros_subscribe.cpp ****         bsp_LedOn(2);
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccEjdyxS.s 			page 3
 
 
-  64              	.L3:
-  65 0018 00000000 		.word	.LANCHOR0
-  66 001c 00000000 		.word	.LC0
-  67              		.cfi_endproc
-  68              	.LFE474:
-  69              		.fnend
-  71              		.section	.text._Z11getLedStatev,"ax",%progbits
-  72              		.align	1
-  73              		.global	_Z11getLedStatev
-  74              		.syntax unified
-  75              		.thumb
-  76              		.thumb_func
-  77              		.fpu fpv4-sp-d16
-  79              	_Z11getLedStatev:
-  80              		.fnstart
-  81              	.LFB481:
-  23:./Src/ros_subscribe.cpp **** 
-  24:./Src/ros_subscribe.cpp **** int16_t getLedState()
-  25:./Src/ros_subscribe.cpp **** {
-  82              		.loc 1 25 0
-  83              		.cfi_startproc
-  84              		@ args = 0, pretend = 0, frame = 0
-  85              		@ frame_needed = 0, uses_anonymous_args = 0
-  86              		@ link register save eliminated.
-  26:./Src/ros_subscribe.cpp ****     return ledState;
-  27:./Src/ros_subscribe.cpp **** }
-  87              		.loc 1 27 0
-  88 0000 014B     		ldr	r3, .L6
-  89 0002 B3F90000 		ldrsh	r0, [r3]
-  90 0006 7047     		bx	lr
-  91              	.L7:
-  92              		.align	2
-  93              	.L6:
-  94 0008 00000000 		.word	.LANCHOR0
-  95              		.cfi_endproc
-  96              	.LFE481:
-  97              		.cantunwind
-  98              		.fnend
- 100              		.section	.text._Z16rosSubscribeInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE,"ax",
- 101              		.align	1
- 102              		.global	_Z16rosSubscribeInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE
- 103              		.syntax unified
- 104              		.thumb
- 105              		.thumb_func
- 106              		.fpu fpv4-sp-d16
- 108              	_Z16rosSubscribeInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:
- 109              		.fnstart
- 110              	.LFB482:
-  28:./Src/ros_subscribe.cpp **** 
-  29:./Src/ros_subscribe.cpp **** 
-  30:./Src/ros_subscribe.cpp **** uint32_t rosSubscribeInit(ros::NodeHandle *nh)
-  31:./Src/ros_subscribe.cpp **** {
- 111              		.loc 1 31 0
- 112              		.cfi_startproc
- 113              		@ args = 0, pretend = 0, frame = 40
- 114              		@ frame_needed = 0, uses_anonymous_args = 0
- 115              	.LVL5:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 4
+  24:./Src/ros_subscribe.cpp ****     }
+  25:./Src/ros_subscribe.cpp ****     else
+  26:./Src/ros_subscribe.cpp ****     {
+  27:./Src/ros_subscribe.cpp ****         bsp_LedOff(2);
+  63              		.loc 1 27 0
+  64 001c 0220     		movs	r0, #2
+  65 001e FFF7FEFF 		bl	bsp_LedOff
+  66              	.LVL5:
+  67              	.L1:
+  28:./Src/ros_subscribe.cpp ****     }
+  29:./Src/ros_subscribe.cpp ****     
+  30:./Src/ros_subscribe.cpp **** }
+  68              		.loc 1 30 0
+  69 0022 10BD     		pop	{r4, pc}
+  70              	.L5:
+  23:./Src/ros_subscribe.cpp ****         bsp_LedOn(2);
+  71              		.loc 1 23 0
+  72 0024 0220     		movs	r0, #2
+  73 0026 FFF7FEFF 		bl	bsp_LedOn
+  74              	.LVL6:
+  75 002a FAE7     		b	.L1
+  76              	.L7:
+  77              		.align	2
+  78              	.L6:
+  79 002c 00000000 		.word	.LANCHOR0
+  80 0030 00000000 		.word	.LC0
+  81              		.cfi_endproc
+  82              	.LFE474:
+  83              		.fnend
+  85              		.section	.text._Z11getLedStatev,"ax",%progbits
+  86              		.align	1
+  87              		.global	_Z11getLedStatev
+  88              		.syntax unified
+  89              		.thumb
+  90              		.thumb_func
+  91              		.fpu fpv4-sp-d16
+  93              	_Z11getLedStatev:
+  94              		.fnstart
+  95              	.LFB481:
+  31:./Src/ros_subscribe.cpp **** 
+  32:./Src/ros_subscribe.cpp **** int16_t getLedState()
+  33:./Src/ros_subscribe.cpp **** {
+  96              		.loc 1 33 0
+  97              		.cfi_startproc
+  98              		@ args = 0, pretend = 0, frame = 0
+  99              		@ frame_needed = 0, uses_anonymous_args = 0
+ 100              		@ link register save eliminated.
+  34:./Src/ros_subscribe.cpp ****     return ledState;
+  35:./Src/ros_subscribe.cpp **** }
+ 101              		.loc 1 35 0
+ 102 0000 014B     		ldr	r3, .L9
+ 103 0002 B3F90000 		ldrsh	r0, [r3]
+ 104 0006 7047     		bx	lr
+ 105              	.L10:
+ 106              		.align	2
+ 107              	.L9:
+ 108 0008 00000000 		.word	.LANCHOR0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccEjdyxS.s 			page 4
 
 
- 116 0000 F0B5     		push	{r4, r5, r6, r7, lr}
- 117              		.save {r4, r5, r6, r7, lr}
- 118              	.LCFI1:
- 119              		.cfi_def_cfa_offset 20
- 120              		.cfi_offset 4, -20
- 121              		.cfi_offset 5, -16
- 122              		.cfi_offset 6, -12
- 123              		.cfi_offset 7, -8
- 124              		.cfi_offset 14, -4
- 125              		.pad #44
- 126 0002 8BB0     		sub	sp, sp, #44
- 127              	.LCFI2:
- 128              		.cfi_def_cfa_offset 64
- 129 0004 0646     		mov	r6, r0
-  32:./Src/ros_subscribe.cpp ****     ros::SubscriberType sub ;
-  33:./Src/ros_subscribe.cpp **** 	//nh_ = nh;
-  34:./Src/ros_subscribe.cpp **** 
-  35:./Src/ros_subscribe.cpp **** 	const std_msgs::UInt16 msg;
-  36:./Src/ros_subscribe.cpp **** 	sub.topic_name = "led";
- 130              		.loc 1 36 0
- 131 0006 1D4B     		ldr	r3, .L14
- 132 0008 0693     		str	r3, [sp, #24]
- 133              	.LVL6:
-  37:./Src/ros_subscribe.cpp **** 	sub.message_type = msg.getType();
- 134              		.loc 1 37 0
- 135 000a 1D4B     		ldr	r3, .L14+4
- 136 000c 0793     		str	r3, [sp, #28]
- 137              	.LVL7:
-  38:./Src/ros_subscribe.cpp **** 	sub.md5sum = msg.getMD5();
- 138              		.loc 1 38 0
- 139 000e 1D4B     		ldr	r3, .L14+8
- 140 0010 0893     		str	r3, [sp, #32]
-  39:./Src/ros_subscribe.cpp **** 	sub.callback = led_cb;
- 141              		.loc 1 39 0
- 142 0012 1D4F     		ldr	r7, .L14+12
- 143 0014 0997     		str	r7, [sp, #36]
- 144              	.LVL8:
- 145 0016 6C46     		mov	r4, sp
- 146 0018 05AD     		add	r5, sp, #20
- 147 001a 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
- 148              	.LVL9:
- 149 001c 0FC4     		stmia	r4!, {r0, r1, r2, r3}
- 150 001e 2760     		str	r7, [r4]
- 151              	.LVL10:
- 152              	.LBB31:
- 153              	.LBB32:
- 154              		.file 3 "ROSSerial/ros/node_handle.h"
+ 109              		.cfi_endproc
+ 110              	.LFE481:
+ 111              		.cantunwind
+ 112              		.fnend
+ 114              		.section	.text._Z16rosSubscribeInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE,"ax",
+ 115              		.align	1
+ 116              		.global	_Z16rosSubscribeInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE
+ 117              		.syntax unified
+ 118              		.thumb
+ 119              		.thumb_func
+ 120              		.fpu fpv4-sp-d16
+ 122              	_Z16rosSubscribeInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:
+ 123              		.fnstart
+ 124              	.LFB482:
+  36:./Src/ros_subscribe.cpp **** 
+  37:./Src/ros_subscribe.cpp **** 
+  38:./Src/ros_subscribe.cpp **** uint32_t rosSubscribeInit(ros::NodeHandle *nh)
+  39:./Src/ros_subscribe.cpp **** {
+ 125              		.loc 1 39 0
+ 126              		.cfi_startproc
+ 127              		@ args = 0, pretend = 0, frame = 40
+ 128              		@ frame_needed = 0, uses_anonymous_args = 0
+ 129              	.LVL7:
+ 130 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 131              		.save {r4, r5, r6, r7, lr}
+ 132              	.LCFI1:
+ 133              		.cfi_def_cfa_offset 20
+ 134              		.cfi_offset 4, -20
+ 135              		.cfi_offset 5, -16
+ 136              		.cfi_offset 6, -12
+ 137              		.cfi_offset 7, -8
+ 138              		.cfi_offset 14, -4
+ 139              		.pad #44
+ 140 0002 8BB0     		sub	sp, sp, #44
+ 141              	.LCFI2:
+ 142              		.cfi_def_cfa_offset 64
+ 143 0004 0646     		mov	r6, r0
+  40:./Src/ros_subscribe.cpp ****     ros::SubscriberType sub ;
+  41:./Src/ros_subscribe.cpp **** 	//nh_ = nh;
+  42:./Src/ros_subscribe.cpp **** 
+  43:./Src/ros_subscribe.cpp **** 	const std_msgs::UInt16 msg;
+  44:./Src/ros_subscribe.cpp **** 	sub.topic_name = "led";
+ 144              		.loc 1 44 0
+ 145 0006 1D4B     		ldr	r3, .L17
+ 146 0008 0693     		str	r3, [sp, #24]
+ 147              	.LVL8:
+  45:./Src/ros_subscribe.cpp **** 	sub.message_type = msg.getType();
+ 148              		.loc 1 45 0
+ 149 000a 1D4B     		ldr	r3, .L17+4
+ 150 000c 0793     		str	r3, [sp, #28]
+ 151              	.LVL9:
+  46:./Src/ros_subscribe.cpp **** 	sub.md5sum = msg.getMD5();
+ 152              		.loc 1 46 0
+ 153 000e 1D4B     		ldr	r3, .L17+8
+ 154 0010 0893     		str	r3, [sp, #32]
+  47:./Src/ros_subscribe.cpp **** 	sub.callback = led_cb;
+ 155              		.loc 1 47 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccEjdyxS.s 			page 5
+
+
+ 156 0012 1D4F     		ldr	r7, .L17+12
+ 157 0014 0997     		str	r7, [sp, #36]
+ 158              	.LVL10:
+ 159 0016 6C46     		mov	r4, sp
+ 160 0018 05AD     		add	r5, sp, #20
+ 161 001a 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
+ 162              	.LVL11:
+ 163 001c 0FC4     		stmia	r4!, {r0, r1, r2, r3}
+ 164 001e 2760     		str	r7, [r4]
+ 165              	.LVL12:
+ 166              	.LBB31:
+ 167              	.LBB32:
+ 168              		.file 3 "ROSSerial/ros/node_handle.h"
    1:ROSSerial/ros/node_handle.h **** /*
    2:ROSSerial/ros/node_handle.h ****  * Software License Agreement (BSD License)
    3:ROSSerial/ros/node_handle.h ****  *
@@ -238,9 +264,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 1
    8:ROSSerial/ros/node_handle.h ****  * modification, are permitted provided that the following conditions
    9:ROSSerial/ros/node_handle.h ****  * are met:
   10:ROSSerial/ros/node_handle.h ****  *
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 5
-
-
   11:ROSSerial/ros/node_handle.h ****  *  * Redistributions of source code must retain the above copyright
   12:ROSSerial/ros/node_handle.h ****  *    notice, this list of conditions and the following disclaimer.
   13:ROSSerial/ros/node_handle.h ****  *  * Redistributions in binary form must reproduce the above
@@ -275,6 +298,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 1
   42:ROSSerial/ros/node_handle.h **** #include "rosserial_msgs/Log.h"
   43:ROSSerial/ros/node_handle.h **** #include "rosserial_msgs/RequestParam.h"
   44:ROSSerial/ros/node_handle.h **** #include "std_msgs/ROSString.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccEjdyxS.s 			page 6
+
+
   45:ROSSerial/ros/node_handle.h **** #include "ros/msg.h"
   46:ROSSerial/ros/node_handle.h **** 
   47:ROSSerial/ros/node_handle.h **** namespace ros
@@ -298,9 +324,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 1
   65:ROSSerial/ros/node_handle.h **** namespace ros
   66:ROSSerial/ros/node_handle.h **** {
   67:ROSSerial/ros/node_handle.h **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 6
-
-
   68:ROSSerial/ros/node_handle.h **** const int SPIN_OK = 0;
   69:ROSSerial/ros/node_handle.h **** const int SPIN_ERR = -1;
   70:ROSSerial/ros/node_handle.h **** const int SPIN_TIMEOUT = -2;
@@ -335,6 +358,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 1
   99:ROSSerial/ros/node_handle.h **** 
  100:ROSSerial/ros/node_handle.h **** typedef struct
  101:ROSSerial/ros/node_handle.h **** {
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccEjdyxS.s 			page 7
+
+
  102:ROSSerial/ros/node_handle.h ****     uint16_t topic_id;
  103:ROSSerial/ros/node_handle.h ****     const char* topic_name;
  104:ROSSerial/ros/node_handle.h ****     const char* message_type;
@@ -358,9 +384,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 1
  122:ROSSerial/ros/node_handle.h ****          int INPUT_SIZE = 512,
  123:ROSSerial/ros/node_handle.h ****          int OUTPUT_SIZE = 512>
  124:ROSSerial/ros/node_handle.h **** class NodeHandle_ : public NodeHandleBase_
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 7
-
-
  125:ROSSerial/ros/node_handle.h **** {
  126:ROSSerial/ros/node_handle.h **** protected:
  127:ROSSerial/ros/node_handle.h ****   Hardware hardware_;
@@ -395,6 +418,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 1
  156:ROSSerial/ros/node_handle.h ****     }
  157:ROSSerial/ros/node_handle.h **** 
  158:ROSSerial/ros/node_handle.h ****     for (unsigned int i = 0; i < MAX_SUBSCRIBERS; i++) {
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccEjdyxS.s 			page 8
+
+
  159:ROSSerial/ros/node_handle.h ****       subscribers[i] = 0;
  160:ROSSerial/ros/node_handle.h ****       subscribers2[i].topic_id = 0;
  161:ROSSerial/ros/node_handle.h ****     }
@@ -418,9 +444,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 1
  179:ROSSerial/ros/node_handle.h ****   Hardware* getHardware()
  180:ROSSerial/ros/node_handle.h ****   {
  181:ROSSerial/ros/node_handle.h ****     return &hardware_;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 8
-
-
  182:ROSSerial/ros/node_handle.h ****   }
  183:ROSSerial/ros/node_handle.h **** 
  184:ROSSerial/ros/node_handle.h ****   /* Start serial, initialize buffers */
@@ -455,6 +478,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 1
  213:ROSSerial/ros/node_handle.h ****   void setSpinTimeout(const uint32_t& timeout)
  214:ROSSerial/ros/node_handle.h ****   {
  215:ROSSerial/ros/node_handle.h ****      spin_timeout_ = timeout;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccEjdyxS.s 			page 9
+
+
  216:ROSSerial/ros/node_handle.h ****   }
  217:ROSSerial/ros/node_handle.h **** 
  218:ROSSerial/ros/node_handle.h **** protected:
@@ -478,9 +504,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 1
  236:ROSSerial/ros/node_handle.h ****    */
  237:ROSSerial/ros/node_handle.h **** 
  238:ROSSerial/ros/node_handle.h ****   virtual int spinOnce() {
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 9
-
-
  239:ROSSerial/ros/node_handle.h ****     return spinOnce1();
  240:ROSSerial/ros/node_handle.h ****   }
  241:ROSSerial/ros/node_handle.h **** 
@@ -515,6 +538,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 1
  270:ROSSerial/ros/node_handle.h ****       if (spin_timeout_ > 0)
  271:ROSSerial/ros/node_handle.h ****       {
  272:ROSSerial/ros/node_handle.h ****         // If the maximum processing timeout has been exceeded, exit with error.
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccEjdyxS.s 			page 10
+
+
  273:ROSSerial/ros/node_handle.h ****         // The next spinOnce can continue where it left off, or optionally
  274:ROSSerial/ros/node_handle.h ****         // based on the application in use, the hardware buffer could be flushed
  275:ROSSerial/ros/node_handle.h ****         // and start fresh.
@@ -538,9 +564,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 1
  293:ROSSerial/ros/node_handle.h ****       else if (mode_ == MODE_FIRST_FF)
  294:ROSSerial/ros/node_handle.h ****       {
  295:ROSSerial/ros/node_handle.h ****         if (data == 0xff)
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 10
-
-
  296:ROSSerial/ros/node_handle.h ****         {
  297:ROSSerial/ros/node_handle.h ****           mode_++;
  298:ROSSerial/ros/node_handle.h ****           last_msg_timeout_time = c_time + SERIAL_MSG_TIMEOUT;
@@ -575,6 +598,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 1
  327:ROSSerial/ros/node_handle.h ****       else if (mode_ == MODE_SIZE_H)      /* top half of message size */
  328:ROSSerial/ros/node_handle.h ****       {
  329:ROSSerial/ros/node_handle.h ****         bytes_ += data << 8;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccEjdyxS.s 			page 11
+
+
  330:ROSSerial/ros/node_handle.h ****         mode_++;
  331:ROSSerial/ros/node_handle.h ****       }
  332:ROSSerial/ros/node_handle.h ****       else if (mode_ == MODE_SIZE_CHECKSUM)
@@ -598,9 +624,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 1
  350:ROSSerial/ros/node_handle.h ****           mode_ = MODE_MSG_CHECKSUM;
  351:ROSSerial/ros/node_handle.h ****       }
  352:ROSSerial/ros/node_handle.h ****       else if (mode_ == MODE_MSG_CHECKSUM)    /* do checksum */
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 11
-
-
  353:ROSSerial/ros/node_handle.h ****       {
  354:ROSSerial/ros/node_handle.h ****         mode_ = MODE_FIRST_FF;
  355:ROSSerial/ros/node_handle.h ****         if ((checksum_ % 256) == 255)
@@ -635,6 +658,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 1
  384:ROSSerial/ros/node_handle.h ****             }
  385:ROSSerial/ros/node_handle.h ****           }
  386:ROSSerial/ros/node_handle.h ****         }
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccEjdyxS.s 			page 12
+
+
  387:ROSSerial/ros/node_handle.h ****       }
  388:ROSSerial/ros/node_handle.h ****     }
  389:ROSSerial/ros/node_handle.h **** 
@@ -658,9 +684,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 1
  407:ROSSerial/ros/node_handle.h ****   /********************************************************************
  408:ROSSerial/ros/node_handle.h ****    * Time functions
  409:ROSSerial/ros/node_handle.h ****    */
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 12
-
-
  410:ROSSerial/ros/node_handle.h **** 
  411:ROSSerial/ros/node_handle.h ****   void requestSyncTime()
  412:ROSSerial/ros/node_handle.h ****   {
@@ -695,6 +718,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 1
  441:ROSSerial/ros/node_handle.h ****   void setNow(Time & new_now)
  442:ROSSerial/ros/node_handle.h ****   {
  443:ROSSerial/ros/node_handle.h ****     uint32_t ms = hardware_.time();
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccEjdyxS.s 			page 13
+
+
  444:ROSSerial/ros/node_handle.h ****     sec_offset = new_now.sec - ms / 1000 - 1;
  445:ROSSerial/ros/node_handle.h ****     nsec_offset = new_now.nsec - (ms % 1000) * 1000000UL + 1000000000UL;
  446:ROSSerial/ros/node_handle.h ****     normalizeSecNSec(sec_offset, nsec_offset);
@@ -718,9 +744,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 1
  464:ROSSerial/ros/node_handle.h ****         publishers2[i].md5sum = msg->getMD5();
  465:ROSSerial/ros/node_handle.h **** 
  466:ROSSerial/ros/node_handle.h ****         return &publishers2[i];
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 13
-
-
  467:ROSSerial/ros/node_handle.h ****       }
  468:ROSSerial/ros/node_handle.h ****     }
  469:ROSSerial/ros/node_handle.h ****     return ;
@@ -755,190 +778,191 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 1
  498:ROSSerial/ros/node_handle.h ****         return true;
  499:ROSSerial/ros/node_handle.h ****       }
  500:ROSSerial/ros/node_handle.h ****     }
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccEjdyxS.s 			page 14
+
+
  501:ROSSerial/ros/node_handle.h ****     return false;
  502:ROSSerial/ros/node_handle.h ****   }
  503:ROSSerial/ros/node_handle.h **** 
  504:ROSSerial/ros/node_handle.h ****   bool addSubscriber(SubscriberType sub)
  505:ROSSerial/ros/node_handle.h ****   {
  506:ROSSerial/ros/node_handle.h ****     for (int i = 0; i < MAX_SUBSCRIBERS; i++)
- 155              		.loc 3 506 0
- 156 0020 0024     		movs	r4, #0
- 157              	.LVL11:
- 158              	.L11:
- 159 0022 042C     		cmp	r4, #4
- 160 0024 26DC     		bgt	.L9
- 161              	.LBB33:
+ 169              		.loc 3 506 0
+ 170 0020 0024     		movs	r4, #0
+ 171              	.LVL13:
+ 172              	.L14:
+ 173 0022 042C     		cmp	r4, #4
+ 174 0024 26DC     		bgt	.L12
+ 175              	.LBB33:
  507:ROSSerial/ros/node_handle.h ****     {
  508:ROSSerial/ros/node_handle.h ****       if (subscribers2[i].topic_id == 0) {// empty slot}
- 162              		.loc 3 508 0
- 163 0026 04EB8403 		add	r3, r4, r4, lsl #2
- 164 002a 06EB8303 		add	r3, r6, r3, lsl #2
- 165 002e B3F8A434 		ldrh	r3, [r3, #1188]
- 166 0032 0BB1     		cbz	r3, .L13
- 167              	.LBE33:
+ 176              		.loc 3 508 0
+ 177 0026 04EB8403 		add	r3, r4, r4, lsl #2
+ 178 002a 06EB8303 		add	r3, r6, r3, lsl #2
+ 179 002e B3F8A434 		ldrh	r3, [r3, #1188]
+ 180 0032 0BB1     		cbz	r3, .L16
+ 181              	.LBE33:
  506:ROSSerial/ros/node_handle.h ****     {
- 168              		.loc 3 506 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 14
-
-
- 169 0034 0134     		adds	r4, r4, #1
- 170              	.LVL12:
- 171 0036 F4E7     		b	.L11
- 172              	.L13:
- 173              	.LBB35:
- 174              	.LBB34:
+ 182              		.loc 3 506 0
+ 183 0034 0134     		adds	r4, r4, #1
+ 184              	.LVL14:
+ 185 0036 F4E7     		b	.L14
+ 186              	.L16:
+ 187              	.LBB35:
+ 188              	.LBB34:
  509:ROSSerial/ros/node_handle.h ****         void * ptr = &subscribers2[i];
- 175              		.loc 3 509 0
- 176 0038 4FEA840C 		lsl	ip, r4, #2
- 177 003c 0CEB0405 		add	r5, ip, r4
- 178 0040 AD00     		lsls	r5, r5, #2
- 179 0042 05F59465 		add	r5, r5, #1184
- 180 0046 3544     		add	r5, r5, r6
- 181              	.LVL13:
+ 189              		.loc 3 509 0
+ 190 0038 4FEA840C 		lsl	ip, r4, #2
+ 191 003c 0CEB0405 		add	r5, ip, r4
+ 192 0040 AD00     		lsls	r5, r5, #2
+ 193 0042 05F59465 		add	r5, r5, #1184
+ 194 0046 3544     		add	r5, r5, r6
+ 195              	.LVL15:
  510:ROSSerial/ros/node_handle.h ****         memcpy(ptr, &sub, sizeof(sub));
- 182              		.loc 3 510 0
- 183 0048 6F46     		mov	r7, sp
- 184 004a 0FCF     		ldmia	r7!, {r0, r1, r2, r3}
- 185 004c 6860     		str	r0, [r5, #4]	@ unaligned
- 186 004e A960     		str	r1, [r5, #8]	@ unaligned
- 187 0050 EA60     		str	r2, [r5, #12]	@ unaligned
- 188 0052 2B61     		str	r3, [r5, #16]	@ unaligned
- 189 0054 3868     		ldr	r0, [r7]
- 190 0056 6861     		str	r0, [r5, #20]	@ unaligned
+ 196              		.loc 3 510 0
+ 197 0048 6F46     		mov	r7, sp
+ 198 004a 0FCF     		ldmia	r7!, {r0, r1, r2, r3}
+ 199 004c 6860     		str	r0, [r5, #4]	@ unaligned
+ 200 004e A960     		str	r1, [r5, #8]	@ unaligned
+ 201 0050 EA60     		str	r2, [r5, #12]	@ unaligned
+ 202 0052 2B61     		str	r3, [r5, #16]	@ unaligned
+ 203 0054 3868     		ldr	r0, [r7]
+ 204 0056 6861     		str	r0, [r5, #20]	@ unaligned
  511:ROSSerial/ros/node_handle.h ****         subscribers2[i].topic_id = i + 100;
- 191              		.loc 3 511 0
- 192 0058 04F16402 		add	r2, r4, #100
- 193 005c 92B2     		uxth	r2, r2
- 194 005e 0CEB0403 		add	r3, ip, r4
- 195 0062 06EB8303 		add	r3, r6, r3, lsl #2
- 196 0066 A3F8A424 		strh	r2, [r3, #1188]	@ movhi
+ 205              		.loc 3 511 0
+ 206 0058 04F16402 		add	r2, r4, #100
+ 207 005c 92B2     		uxth	r2, r2
+ 208 005e 0CEB0403 		add	r3, ip, r4
+ 209 0062 06EB8303 		add	r3, r6, r3, lsl #2
+ 210 0066 A3F8A424 		strh	r2, [r3, #1188]	@ movhi
  512:ROSSerial/ros/node_handle.h ****         printf("Registered %s with id %d\n", \
- 197              		.loc 3 512 0
- 198 006a D3F8A814 		ldr	r1, [r3, #1192]
- 199 006e 0748     		ldr	r0, .L14+16
- 200 0070 FFF7FEFF 		bl	printf
- 201              	.LVL14:
- 202              	.L9:
- 203              	.LBE34:
- 204              	.LBE35:
- 205              	.LBE32:
- 206              	.LBE31:
-  40:./Src/ros_subscribe.cpp **** 	
-  41:./Src/ros_subscribe.cpp **** 	nh->addSubscriber(sub);
-  42:./Src/ros_subscribe.cpp **** 	
-  43:./Src/ros_subscribe.cpp ****     return 1;
-  44:./Src/ros_subscribe.cpp **** }
- 207              		.loc 1 44 0
- 208 0074 0120     		movs	r0, #1
- 209 0076 0BB0     		add	sp, sp, #44
- 210              	.LCFI3:
- 211              		.cfi_def_cfa_offset 20
- 212              		@ sp needed
- 213 0078 F0BD     		pop	{r4, r5, r6, r7, pc}
- 214              	.LVL15:
- 215              	.L15:
- 216 007a 00BF     		.align	2
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 15
+ 211              		.loc 3 512 0
+ 212 006a D3F8A814 		ldr	r1, [r3, #1192]
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccEjdyxS.s 			page 15
 
 
- 217              	.L14:
- 218 007c 00000000 		.word	.LC1
- 219 0080 04000000 		.word	.LC2
- 220 0084 14000000 		.word	.LC3
- 221 0088 00000000 		.word	_Z6led_cbPh
- 222 008c 38000000 		.word	.LC4
- 223              		.cfi_endproc
- 224              	.LFE482:
- 225              		.fnend
- 227              		.section	.data._ZL8ledState,"aw",%progbits
- 228              		.align	1
- 229              		.set	.LANCHOR0,. + 0
- 232              	_ZL8ledState:
- 233 0000 FFFF     		.short	-1
- 234              		.section	.rodata._Z16rosSubscribeInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE.str
- 235              		.align	2
- 236              	.LC1:
- 237 0000 6C656400 		.ascii	"led\000"
- 238              	.LC2:
- 239 0004 7374645F 		.ascii	"std_msgs/UInt16\000"
- 239      6D736773 
- 239      2F55496E 
- 239      74313600 
- 240              	.LC3:
- 241 0014 31646637 		.ascii	"1df79edf208b629fe6b81923a544552d\000"
- 241      39656466 
- 241      32303862 
- 241      36323966 
- 241      65366238 
- 242 0035 000000   		.space	3
- 243              	.LC4:
- 244 0038 52656769 		.ascii	"Registered %s with id %d\012\000"
- 244      73746572 
- 244      65642025 
- 244      73207769 
- 244      74682069 
- 245              		.section	.rodata._Z6led_cbPh.str1.4,"aMS",%progbits,1
- 246              		.align	2
- 247              	.LC0:
- 248 0000 6C656453 		.ascii	"ledState in CB %d\012\000"
- 248      74617465 
- 248      20696E20 
- 248      43422025 
- 248      640A00
- 249              		.text
- 250              	.Letext0:
- 251              		.file 4 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
- 252              		.file 5 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
- 253              		.file 6 "../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h"
- 254              		.file 7 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
- 255              		.file 8 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h
- 256              		.file 9 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
- 257              		.file 10 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
- 258              		.file 11 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
- 259              		.file 12 "ROSSerial/AT32hardware.h"
- 260              		.file 13 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/cstdlib"
- 261              		.file 14 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/cmath"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 16
+ 213 006e 0748     		ldr	r0, .L17+16
+ 214 0070 FFF7FEFF 		bl	printf
+ 215              	.LVL16:
+ 216              	.L12:
+ 217              	.LBE34:
+ 218              	.LBE35:
+ 219              	.LBE32:
+ 220              	.LBE31:
+  48:./Src/ros_subscribe.cpp **** 	
+  49:./Src/ros_subscribe.cpp **** 	nh->addSubscriber(sub);
+  50:./Src/ros_subscribe.cpp **** 	
+  51:./Src/ros_subscribe.cpp ****     return 1;
+  52:./Src/ros_subscribe.cpp **** }
+ 221              		.loc 1 52 0
+ 222 0074 0120     		movs	r0, #1
+ 223 0076 0BB0     		add	sp, sp, #44
+ 224              	.LCFI3:
+ 225              		.cfi_def_cfa_offset 20
+ 226              		@ sp needed
+ 227 0078 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 228              	.LVL17:
+ 229              	.L18:
+ 230 007a 00BF     		.align	2
+ 231              	.L17:
+ 232 007c 00000000 		.word	.LC1
+ 233 0080 04000000 		.word	.LC2
+ 234 0084 14000000 		.word	.LC3
+ 235 0088 00000000 		.word	_Z6led_cbPh
+ 236 008c 38000000 		.word	.LC4
+ 237              		.cfi_endproc
+ 238              	.LFE482:
+ 239              		.fnend
+ 241              		.section	.data._ZL8ledState,"aw",%progbits
+ 242              		.align	1
+ 243              		.set	.LANCHOR0,. + 0
+ 246              	_ZL8ledState:
+ 247 0000 FFFF     		.short	-1
+ 248              		.section	.rodata._Z16rosSubscribeInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE.str
+ 249              		.align	2
+ 250              	.LC1:
+ 251 0000 6C656400 		.ascii	"led\000"
+ 252              	.LC2:
+ 253 0004 7374645F 		.ascii	"std_msgs/UInt16\000"
+ 253      6D736773 
+ 253      2F55496E 
+ 253      74313600 
+ 254              	.LC3:
+ 255 0014 31646637 		.ascii	"1df79edf208b629fe6b81923a544552d\000"
+ 255      39656466 
+ 255      32303862 
+ 255      36323966 
+ 255      65366238 
+ 256 0035 000000   		.space	3
+ 257              	.LC4:
+ 258 0038 52656769 		.ascii	"Registered %s with id %d\012\000"
+ 258      73746572 
+ 258      65642025 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccEjdyxS.s 			page 16
 
 
- 262              		.file 15 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/cstring"
- 263              		.file 16 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/arm-none-ea
- 264              		.file 17 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdlib.h"
- 265              		.file 18 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/stdlib.h"
- 266              		.file 19 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/math.h"
- 267              		.file 20 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/math.h"
- 268              		.file 21 "<built-in>"
- 269              		.file 22 "ROSSerial/ros/msg.h"
- 270              		.file 23 "ROSSerial/ros.h"
- 271              		.file 24 "ROSSerial/rosserial_msgs/TopicInfo.h"
- 272              		.file 25 "ROSSerial/rosserial_msgs/RequestParam.h"
- 273              		.file 26 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/string.h"
- 274              		.file 27 "ROSSerial/std_msgs/Time.h"
- 275              		.file 28 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdio.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s 			page 17
+ 258      73207769 
+ 258      74682069 
+ 259              		.section	.rodata._Z6led_cbPh.str1.4,"aMS",%progbits,1
+ 260              		.align	2
+ 261              	.LC0:
+ 262 0000 6C656453 		.ascii	"ledState in CB %d\012\000"
+ 262      74617465 
+ 262      20696E20 
+ 262      43422025 
+ 262      640A00
+ 263              		.text
+ 264              	.Letext0:
+ 265              		.file 4 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
+ 266              		.file 5 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
+ 267              		.file 6 "../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h"
+ 268              		.file 7 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
+ 269              		.file 8 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h
+ 270              		.file 9 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
+ 271              		.file 10 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
+ 272              		.file 11 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
+ 273              		.file 12 "ROSSerial/AT32hardware.h"
+ 274              		.file 13 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/cstdlib"
+ 275              		.file 14 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/cmath"
+ 276              		.file 15 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/cstring"
+ 277              		.file 16 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/arm-none-ea
+ 278              		.file 17 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdlib.h"
+ 279              		.file 18 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/stdlib.h"
+ 280              		.file 19 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/math.h"
+ 281              		.file 20 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/math.h"
+ 282              		.file 21 "<built-in>"
+ 283              		.file 22 "ROSSerial/ros/msg.h"
+ 284              		.file 23 "ROSSerial/ros.h"
+ 285              		.file 24 "ROSSerial/rosserial_msgs/TopicInfo.h"
+ 286              		.file 25 "ROSSerial/rosserial_msgs/RequestParam.h"
+ 287              		.file 26 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/string.h"
+ 288              		.file 27 "ROSSerial/std_msgs/Time.h"
+ 289              		.file 28 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdio.h"
+ 290              		.file 29 "bsp/inc/bsp_led.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccEjdyxS.s 			page 17
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 ros_subscribe.cpp
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s:17     .text._Z6led_cbPh:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s:24     .text._Z6led_cbPh:0000000000000000 _Z6led_cbPh
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s:65     .text._Z6led_cbPh:0000000000000018 $d
-      .ARM.extab.text._Z6led_cbPh:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccEjdyxS.s:17     .text._Z6led_cbPh:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccEjdyxS.s:24     .text._Z6led_cbPh:0000000000000000 _Z6led_cbPh
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccEjdyxS.s:79     .text._Z6led_cbPh:000000000000002c $d
       .ARM.exidx.text._Z6led_cbPh:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s:72     .text._Z11getLedStatev:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s:79     .text._Z11getLedStatev:0000000000000000 _Z11getLedStatev
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s:94     .text._Z11getLedStatev:0000000000000008 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccEjdyxS.s:86     .text._Z11getLedStatev:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccEjdyxS.s:93     .text._Z11getLedStatev:0000000000000000 _Z11getLedStatev
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccEjdyxS.s:108    .text._Z11getLedStatev:0000000000000008 $d
  .ARM.exidx.text._Z11getLedStatev:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s:101    .text._Z16rosSubscribeInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s:108    .text._Z16rosSubscribeInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:0000000000000000 _Z16rosSubscribeInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s:218    .text._Z16rosSubscribeInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:000000000000007c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccEjdyxS.s:115    .text._Z16rosSubscribeInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccEjdyxS.s:122    .text._Z16rosSubscribeInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:0000000000000000 _Z16rosSubscribeInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccEjdyxS.s:232    .text._Z16rosSubscribeInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:000000000000007c $d
 .ARM.exidx.text._Z16rosSubscribeInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s:228    .data._ZL8ledState:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s:232    .data._ZL8ledState:0000000000000000 _ZL8ledState
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s:235    .rodata._Z16rosSubscribeInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE.str1.4:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccUT7YGQ.s:246    .rodata._Z6led_cbPh.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccEjdyxS.s:242    .data._ZL8ledState:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccEjdyxS.s:246    .data._ZL8ledState:0000000000000000 _ZL8ledState
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccEjdyxS.s:249    .rodata._Z16rosSubscribeInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccEjdyxS.s:260    .rodata._Z6led_cbPh.str1.4:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 printf
-__aeabi_unwind_cpp_pr1
+bsp_LedOff
+bsp_LedOn
 __aeabi_unwind_cpp_pr0

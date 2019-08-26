@@ -19,6 +19,14 @@ void led_cb(unsigned char* msg)
 	
     ledState = cmd_msg.data;
     printf("ledState in CB %d\n",ledState);
+    if(ledState) {
+        bsp_LedOn(2);
+    }
+    else
+    {
+        bsp_LedOff(2);
+    }
+    
 }
 
 int16_t getLedState()

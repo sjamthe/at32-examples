@@ -9,6 +9,7 @@
 #define INC_ROS_SUBSCRIBE_H_
 
 #include "ros.h"
+#include "bsp_led.h"
 #include "std_msgs/UInt16.h"
 
 uint32_t rosSubscribeInit(ros::NodeHandle *nh);

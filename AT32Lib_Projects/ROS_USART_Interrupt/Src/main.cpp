@@ -5,6 +5,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "bsp_uart_fifo.h"
 #include "bsp_timer.h"
+#include "bsp_led.h"
 #include <stdio.h>
 #include <string.h>
 
@@ -25,6 +26,9 @@ void init()
   /* Setup USART */
   bsp_InitUart();
 
+  /* LED and other IO pins */
+  bsp_InitLed();
+
   ros_init();
 }
 
@@ -33,6 +37,7 @@ int main(void)
 
   init();
 
+  sound_buzzer();
   //char buf[512];
   while (1)
   {
@@ -41,7 +46,6 @@ int main(void)
     // sprintf(buf,"Millis %d\n",millis());
     // printf(buf);
     delay_ms(1000);
-
   }
 
 }

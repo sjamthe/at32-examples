@@ -16,7 +16,8 @@
             "configFiles": [
                 "interface/stlink.cfg",
                 "target/stm32f3x.cfg"
-            ]        },
+            ]        
+        },
         {
             
             "name": "ROS_FreeRTOS_v2",

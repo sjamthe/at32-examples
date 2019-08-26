@@ -43,6 +43,7 @@ C_SOURCES =  \
 ../Libraries/AT32F4xx_StdPeriph_Driver/src/misc.c \
 bsp/src/bsp_uart_fifo.c \
 bsp/src/bsp_timer.c \
+bsp/src/bsp_led.c \
 Src/at32f4xx_it.c 
 
 # CPP sources
