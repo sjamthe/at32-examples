@@ -48,11 +48,13 @@ public:
   Publisher(const char * topic_name, Msg * msg, int endpoint = rosserial_msgs::TopicInfo::ID_PUBLISHER) :
     topic_(topic_name),
     msg_(msg),
-    endpoint_(endpoint) {};
+    endpoint_(endpoint) {
+      printf("in pub constructor"); //not working
+    };
 
   int publish(const Msg * msg)
   {
-    //printf("nh_ = %x, id_ = %d, chatter publishing %s\n",nh_, id_,msg->getType());
+    printf("nh_ = %x, id_ = %d, chatter publishing %x\n",nh_, id_,msg);
     return nh_->publish(id_, msg); //this doesn't work so moved to publish_task
   };
 

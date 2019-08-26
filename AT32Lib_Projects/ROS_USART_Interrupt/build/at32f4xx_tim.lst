@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
   31:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** 
   32:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** /** @defgroup TMR_Private_Defines
   33:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   * @{
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 2
 
 
   34:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   */
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
   88:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   */
   89:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** 
   90:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** /**
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 3
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 3
 
 
   91:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   * @}
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  145:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****     RCC_APB1PeriphResetCmd(RCC_APB1PERIPH_TMR6, DISABLE);
  146:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   }
  147:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   else if (TMRx == TMR7)
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 4
 
 
  148:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   {
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  202:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   *         structure that contains the configuration information for the
  203:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   *         specified TMR peripheral.
  204:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   * @retval None
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 5
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 5
 
 
  205:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   */
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  259:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** 
  260:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** /**
  261:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   * @brief  Initializes the TIMx Plus Mode according to the specified
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 6
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 6
 
 
  262:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   *         parameters.
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  316:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   tmpcr2 =  TMRx->CTRL2;
  317:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** 
  318:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   /* Get the TMRx CCMR1 register value */
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 7
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 7
 
 
  319:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   tmpccmrx = TMRx->CCM1;
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  373:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   /* Set the Capture Compare Register value */
  374:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   TMRx->CC1 = TMR_OCInitStruct->TMR_Pulse;
  375:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 8
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 8
 
 
  376:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   /* Write to TMRx CCE */
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  430:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****     assert_param(IS_TMR_OUTPUTN_STATE(TMR_OCInitStruct->TMR_OutputNState));
  431:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****     assert_param(IS_TMR_OCN_POLARITY(TMR_OCInitStruct->TMR_OCNPolarity));
  432:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****     assert_param(IS_TMR_OCNIDLE_STATE(TMR_OCInitStruct->TMR_OCNIdleState));
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 9
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 9
 
 
  433:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****     assert_param(IS_TMR_OCIDLE_STATE(TMR_OCInitStruct->TMR_OCIdleState));
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  487:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** 
  488:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   /* Get the TMRx CCE register value */
  489:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   tmpccer = TMRx->CCE;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 10
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 10
 
 
  490:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   /* Get the TMRx CR2 register value */
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  544:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** 
  545:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   /* Set the Capture Compare Register value */
  546:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   TMRx->CC3 = TMR_OCInitStruct->TMR_Pulse;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 11
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 11
 
 
  547:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** 
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  601:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****     assert_param(IS_TMR_OCIDLE_STATE(TMR_OCInitStruct->TMR_OCIdleState));
  602:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****     /* Reset the Output Compare IDLE State */
  603:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****     tmpcr2 &= (uint16_t)(~((uint16_t)TMR_CTRL2_OC4IS));
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 12
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 12
 
 
  604:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****     /* Set the Output Idle state */
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  658:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****     TMR_SetIC1DIV(TMRx, TMR_ICInitStruct->TMR_ICDIV);
  659:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   }
  660:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   else if (TMR_ICInitStruct->TMR_Channel == TMR_Channel_2)
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 13
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 13
 
 
  661:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   {
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  715:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   }
  716:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** 
  717:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   /* Select the Opposite Input */
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 14
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 14
 
 
  718:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   if (TMR_ICInitStruct->TMR_ICSelection == TMR_ICSelection_DirectTI)
@@ -838,7 +838,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  772:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****      the OSSI State, the dead time value and the Automatic Output Enable Bit */
  773:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   TMRx->BRKDT = (uint32_t)TMR_BDTRInitStruct->TMR_OSIMRState | TMR_BDTRInitStruct->TMR_OSIMIState |
  774:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****                 TMR_BDTRInitStruct->TMR_LOCKgrade | TMR_BDTRInitStruct->TMR_DeadTime |
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 15
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 15
 
 
  775:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****                 TMR_BDTRInitStruct->TMR_Break | TMR_BDTRInitStruct->TMR_BreakPolarity |
@@ -898,7 +898,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  829:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** 
  830:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** /**
  831:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   * @brief  Fills each TMR_BDTRInitStruct member with its default value.
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 16
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 16
 
 
  832:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   * @param  TMR_BDTRInitStruct: pointer to a TMR_BRKDTInitType structure which
@@ -958,7 +958,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  886:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   if (NewState != DISABLE)
  887:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   {
  888:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****     /* Enable the TMR Main Output */
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 17
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 17
 
 
  889:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****     TMRx->BRKDT |= TMR_BRKDT_MOEN;
@@ -1018,7 +1018,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  943:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   * @param  TMRx: where x can be 1 to 15 to select the TMR peripheral.
  944:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   * @param  TMR_EventSource: specifies the event source.
  945:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   *   This parameter can be one or more of the following values:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 18
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 18
 
 
  946:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   *     @arg TMR_EventSource_Update: Timer update Event source
@@ -1078,7 +1078,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 1000:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   *   to select the TMR peripheral.
 1001:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   * @param  TMR_DMASource: specifies the DMA Request sources.
 1002:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   *   This parameter can be any combination of the following values:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 19
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 19
 
 
 1003:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   *     @arg TMR_DMA_Update: TMR update Interrupt source
@@ -1138,7 +1138,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 1057:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   */
 1058:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** void TMR_ITRxExternalClockConfig(TMR_Type* TMRx, uint16_t TMR_InputTriggerSource)
 1059:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** {
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 20
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 20
 
 
 1060:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   /* Check the parameters */
@@ -1198,7 +1198,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 1114:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   *   This parameter can be one of the following values:
 1115:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   *     @arg TMR_ExtTRGDIV_OFF: ETRP Prescaler OFF.
 1116:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   *     @arg TMR_ExtTRGDIV_DIV2: ETRP frequency divided by 2.
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 21
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 21
 
 
 1117:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   *     @arg TMR_ExtTRGDIV_DIV4: ETRP frequency divided by 4.
@@ -1258,7 +1258,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 1171:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** {
 1172:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   /* Check the parameters */
 1173:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   assert_param(IS_TMR_LIST3_PERIPH(TMRx));
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 22
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 22
 
 
 1174:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   assert_param(IS_TMR_EXT_DIV(TMR_ExtTRGPrescaler));
@@ -1318,7 +1318,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 1228:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** void TMR_DIVConfig(TMR_Type* TMRx, uint16_t Prescaler, uint16_t TMR_PSCReloadMode)
 1229:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** {
 1230:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   /* Check the parameters */
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 23
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 23
 
 
 1231:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   assert_param(IS_TMR_ALL_PERIPH(TMRx));
@@ -1378,7 +1378,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 1285:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   assert_param(IS_TMR_LIST6_PERIPH(TMRx));
 1286:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   assert_param(IS_TMR_TRIGGER_SELECTION(TMR_InputTriggerSource));
 1287:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   /* Get the TMRx SMCR register value */
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 24
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 24
 
 
 1288:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   tmpsmcr = TMRx->SMC;
@@ -1438,7 +1438,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 1342:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   /* Select the Capture Compare 1 and the Capture Compare 2 as input */
 1343:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   tmpccmr1 &= (uint16_t)(((uint16_t)~((uint16_t)TMR_CCM1_C1SEL)) & (uint16_t)(~((uint16_t)TMR_CCM1_
 1344:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   tmpccmr1 |= TMR_CCM1_C1SEL_0 | TMR_CCM1_C2SEL_0;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 25
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 25
 
 
 1345:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** 
@@ -1498,7 +1498,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 1399:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   tmpccmr1 &= (uint16_t)~((uint16_t)TMR_CCM1_OC2MODE);
 1400:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   /* Configure The Forced output Mode */
 1401:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   tmpccmr1 |= (uint16_t)(TMR_ForcedAction << 8);
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 26
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 26
 
 
 1402:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   /* Write to TMRx CCMR1 register */
@@ -1558,7 +1558,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 1456:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   * @param  TMRx: where x can be  1 to 15 to select the TMR peripheral.
 1457:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   * @param  NewState: new state of the TMRx peripheral Preload register
 1458:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   *   This parameter can be: ENABLE or DISABLE.
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 27
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 27
 
 
 1459:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   * @retval None
@@ -1618,7 +1618,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 1513:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** {
 1514:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   /* Check the parameters */
 1515:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   assert_param(IS_TMR_LIST4_PERIPH(TMRx));
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 28
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 28
 
 
 1516:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
@@ -1678,7 +1678,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 1570:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   assert_param(IS_TMR_OCPRELOAD_STATE(TMR_OCPreload));
 1571:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   tmpccmr1 = TMRx->CCM1;
 1572:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   /* Reset the OC1PE Bit */
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 29
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 29
 
 
 1573:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   tmpccmr1 &= (uint16_t)~((uint16_t)TMR_CCM1_OC1PEN);
@@ -1738,7 +1738,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 1627:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** }
 1628:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** 
 1629:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** /**
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 30
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 30
 
 
 1630:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   * @brief  Enables or disables the TMRx peripheral Preload register on CCR4.
@@ -1798,7 +1798,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 1684:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   *     @arg TMR_OCFast_Enable: TMR output compare fast enable
 1685:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   *     @arg TMR_OCFast_Disable: TMR output compare fast disable
 1686:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   * @retval None
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 31
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 31
 
 
 1687:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   */
@@ -1858,7 +1858,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 1741:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   /* Check the parameters */
 1742:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   assert_param(IS_TMR_LIST3_PERIPH(TMRx));
 1743:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   assert_param(IS_TMR_OCFAST_STATE(TMR_OCFast));
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 32
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 32
 
 
 1744:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   /* Get the TMRx CCMR2 register value */
@@ -1918,7 +1918,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 1798:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   /* Enable or Disable the Output Compare Clear Bit */
 1799:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   tmpccmr1 |= (uint16_t)(TMR_OCClear << 8);
 1800:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   /* Write to TMRx CCMR1 register */
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 33
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 33
 
 
 1801:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   TMRx->CCM1 = tmpccmr1;
@@ -1978,7 +1978,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 1855:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   * @param  TMR_OCPolarity: specifies the OC1 Polarity
 1856:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   *   This parameter can be one of the following values:
 1857:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   *     @arg TMR_OCPolarity_High: Output Compare active high
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 34
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 34
 
 
 1858:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   *     @arg TMR_OCPolarity_Low: Output Compare active low
@@ -2038,7 +2038,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 1912:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   assert_param(IS_TMR_LIST6_PERIPH(TMRx));
 1913:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   assert_param(IS_TMR_OC_POLARITY(TMR_OCPolarity));
 1914:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   tmpccer = TMRx->CCE;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 35
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 35
 
 
 1915:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   /* Set or Reset the CC2P Bit */
@@ -2098,7 +2098,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 1969:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** /**
 1970:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   * @brief  Configures the TMRx Channel 3N polarity.
 1971:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   * @param  TMRx: where x can be 1 or 8 to select the TMR peripheral.
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 36
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 36
 
 
 1972:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   * @param  TMR_OCNPolarity: specifies the OC3N Polarity
@@ -2158,7 +2158,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 2026:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   * @param  TMR_CCx: specifies the TMR Channel CCxE bit new state.
 2027:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   *   This parameter can be: TMR_CCx_Enable or TMR_CCx_Disable.
 2028:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   * @retval None
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 37
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 37
 
 
 2029:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   */
@@ -2218,7 +2218,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 2083:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   * @param  TMRx: where x can be 1 to 15 except 6 and 7 to select the TMR peripheral.
 2084:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   * @param  TMR_Channel: specifies the TMR Channel
 2085:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   *   This parameter can be one of the following values:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 38
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 38
 
 
 2086:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   *     @arg TMR_Channel_1: TMR Channel 1
@@ -2278,7 +2278,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 2140:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** 
 2141:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** /**
 2142:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   * @brief  Enables or Disables the TMRx Update event.
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 39
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 39
 
 
 2143:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   * @param  TMRx: where x can be 1 to 15 to select the TMR peripheral.
@@ -2338,7 +2338,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 2197:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   * @param  TMRx: where x can be 1, 2, 3, 4, 5 or 8 to select the TMR peripheral.
 2198:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   * @param  NewState: new state of the TMRx Hall sensor interface.
 2199:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   *   This parameter can be: ENABLE or DISABLE.
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 40
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 40
 
 
 2200:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   * @retval None
@@ -2398,7 +2398,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 2254:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   *     @arg TMR_TRGOSource_OC1Ref: OC1REF signal is used as the trigger output (TRGO).
 2255:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   *     @arg TMR_TRGOSource_OC2Ref: OC2REF signal is used as the trigger output (TRGO).
 2256:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   *     @arg TMR_TRGOSource_OC3Ref: OC3REF signal is used as the trigger output (TRGO).
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 41
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 41
 
 
 2257:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   *     @arg TMR_TRGOSource_OC4Ref: OC4REF signal is used as the trigger output (TRGO).
@@ -2458,7 +2458,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 2311:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   TMRx->SMC &= (uint16_t)~((uint16_t)TMR_SMC_MSMODE);
 2312:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** 
 2313:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   /* Set or Reset the MSM Bit */
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 42
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 42
 
 
 2314:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   TMRx->SMC |= TMR_MasterSlaveMode;
@@ -2518,7 +2518,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 2368:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   assert_param(IS_TMR_LIST6_PERIPH(TMRx));
 2369:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   /* Set the Capture Compare2 Register value */
 2370:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   TMRx->CC2 = Compare2;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 43
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 43
 
 
 2371:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** }
@@ -2578,7 +2578,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 2425:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   * @param  TMRx: where x can be 1, 2, 3, 4, 5, 8, 9, 12 or 15 to select the TMR peripheral.
 2426:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   * @param  TMR_ICPSC: specifies the Input Capture2 prescaler new value.
 2427:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   *   This parameter can be one of the following values:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 44
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 44
 
 
 2428:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   *     @arg TMR_ICDIV_DIV1: no prescaler
@@ -2638,7 +2638,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 2482:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   assert_param(IS_TMR_IC_DIV(TMR_ICPSC));
 2483:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   /* Reset the IC4PSC Bits */
 2484:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   TMRx->CCM2 &= (uint16_t)~((uint16_t)TMR_CCM2_IC4DIV);
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 45
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 45
 
 
 2485:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   /* Set the IC4PSC value */
@@ -2698,7 +2698,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 2539:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   * @param  TMRx: where x can be 1, 2, 3, 4, 5 or 8 to select the TMR peripheral.
 2540:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   * @retval Capture Compare 3 Register value.
 2541:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   */
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 46
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 46
 
 
 2542:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** uint32_t TMR_GetCapture3(TMR_Type* TMRx)
@@ -2758,7 +2758,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 2596:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   *     @arg TMR_FLAG_CC2: TMR Capture Compare 2 Flag
 2597:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   *     @arg TMR_FLAG_CC3: TMR Capture Compare 3 Flag
 2598:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   *     @arg TMR_FLAG_CC4: TMR Capture Compare 4 Flag
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 47
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 47
 
 
 2599:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   *     @arg TMR_FLAG_HALL: TMR Commutation Flag
@@ -2818,7 +2818,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 2653:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   *   - TMR9, TMR12 and TMR15 can have only TMR_FLAG_Update, TMR_FLAG_CC1,
 2654:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   *      TMR_FLAG_CC2 or TMR_FLAG_Trigger.
 2655:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   *   - TMR10, TMR11, TMR13, TMR14 can have TMR_FLAG_Update or TMR_FLAG_CC1.
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 48
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 48
 
 
 2656:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   *   - TMR_FLAG_Break is used only with TMR1, TMR8 and TMR15.
@@ -2878,7 +2878,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 2710:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****     bitstatus = RESET;
 2711:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   }
 2712:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 49
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 49
 
 
 2713:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   return bitstatus;
@@ -2938,7 +2938,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
   27              		.cfi_startproc
   28              		@ args = 0, pretend = 0, frame = 0
   29              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 50
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 50
 
 
   30              		@ link register save eliminated.
@@ -2998,7 +2998,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
   73 0032 15D0     		beq	.L2
   74              		.loc 1 2776 0 discriminator 3
   75 0034 03F54063 		add	r3, r3, #3072
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 51
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 51
 
 
   76 0038 9842     		cmp	r0, r3
@@ -3058,7 +3058,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  110              		.loc 1 2794 0
  111 006a 0483     		strh	r4, [r0, #24]	@ movhi
 2795:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   TMRx->CCE = tmpccer;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 52
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 52
 
 
  112              		.loc 1 2795 0
@@ -3118,7 +3118,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  147              		.cfi_def_cfa_offset 8
  148              		.cfi_offset 4, -8
  149              		.cfi_offset 5, -4
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 53
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 53
 
 
  150              	.LVL17:
@@ -3178,7 +3178,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  192 0032 03F50063 		add	r3, r3, #2048
  193 0036 9842     		cmp	r0, r3
  194 0038 19D0     		beq	.L9
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 54
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 54
 
 
  195              		.loc 1 2828 0 discriminator 2
@@ -3238,7 +3238,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 2844:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** 
 2845:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   /* Write to TMRx CCMR1 and CCE registers */
 2846:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   TMRx->CCM1 = tmpccmr1 ;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 55
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 55
 
 
  232              		.loc 1 2846 0
@@ -3298,7 +3298,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  266 0000 70B4     		push	{r4, r5, r6}
  267              	.LCFI4:
  268              		.cfi_def_cfa_offset 12
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 56
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 56
 
 
  269              		.cfi_offset 4, -12
@@ -3358,7 +3358,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  312 0038 16D0     		beq	.L16
  313              		.loc 1 2879 0 discriminator 3
  314 003a 03F54063 		add	r3, r3, #3072
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 57
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 57
 
 
  315 003e 9842     		cmp	r0, r3
@@ -3418,7 +3418,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  349 0072 8483     		strh	r4, [r0, #28]	@ movhi
 2898:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   TMRx->CCE = tmpccer;
  350              		.loc 1 2898 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 58
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 58
 
 
  351 0074 0184     		strh	r1, [r0, #32]	@ movhi
@@ -3478,7 +3478,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  386              		.cfi_offset 4, -8
  387              		.cfi_offset 5, -4
  388              	.LVL51:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 59
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 59
 
 
 2920:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   uint16_t tmpccmr2 = 0, tmpccer = 0, tmp = 0;
@@ -3538,7 +3538,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  430 0032 02F50062 		add	r2, r2, #2048
  431 0036 9042     		cmp	r0, r2
  432 0038 1AD0     		beq	.L23
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 60
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 60
 
 
  433              		.loc 1 2932 0 discriminator 2
@@ -3598,7 +3598,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  471 0076 44F48054 		orr	r4, r4, #4096
  472              	.LVL68:
  473              	.L25:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 61
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 61
 
 
 2947:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   }
@@ -3658,7 +3658,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  520              		.loc 1 126 0
  521 000e 604B     		ldr	r3, .L60+4
  522 0010 9842     		cmp	r0, r3
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 62
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 62
 
 
  523 0012 45D0     		beq	.L48
@@ -3718,7 +3718,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  566 0056 9842     		cmp	r0, r3
  567 0058 00F08D80 		beq	.L59
  189:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   {
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 63
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 63
 
 
  568              		.loc 1 189 0
@@ -3778,7 +3778,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  614 009e F5E7     		b	.L29
  615              	.LVL82:
  616              	.L48:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 64
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 64
 
 
  128:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****     RCC_APB1PeriphResetCmd(RCC_APB1PERIPH_TMR3, DISABLE);
@@ -3838,7 +3838,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  664              	.LVL96:
  145:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   }
  665              		.loc 1 145 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 65
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 65
 
 
  666 00de 0021     		movs	r1, #0
@@ -3898,7 +3898,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  714              	.L55:
  165:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****     RCC_APB2PeriphResetCmd(RCC_APB2PERIPH_TMR10, DISABLE);
  715              		.loc 1 165 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 66
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 66
 
 
  716 0126 0121     		movs	r1, #1
@@ -3958,7 +3958,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  763              		.loc 1 182 0
  764 016c 0021     		movs	r1, #0
  765 016e 8020     		movs	r0, #128
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 67
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 67
 
 
  766 0170 FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
@@ -4018,7 +4018,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  215:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** 
  819              		.loc 1 215 0
  820 0000 0388     		ldrh	r3, [r0]
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 68
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 68
 
 
  821 0002 9BB2     		uxth	r3, r3
@@ -4078,7 +4078,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  229:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   {
  865              		.loc 1 229 0 is_stmt 0 discriminator 1
  866 0048 02F58062 		add	r2, r2, #1024
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 69
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 69
 
 
  867 004c 9042     		cmp	r0, r2
@@ -4138,7 +4138,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  910 0082 7047     		bx	lr
  911              	.L69:
  912              		.align	2
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 70
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 70
 
 
  913              	.L68:
@@ -4198,7 +4198,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  961              		.loc 1 290 0
  962 0022 F3E7     		b	.L70
  963              	.LVL144:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 71
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 71
 
 
  964              	.L74:
@@ -4258,7 +4258,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  1015              	.LVL148:
  316:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** 
  1016              		.loc 1 316 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 72
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 72
 
 
  1017 0012 8288     		ldrh	r2, [r0, #4]
@@ -4318,7 +4318,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  1060 004a 2B43     		orrs	r3, r3, r5
  1061              	.LVL157:
  353:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****     /* Set the Output N State */
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 73
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 73
 
 
  1062              		.loc 1 353 0
@@ -4378,7 +4378,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  1108              		.global	TMR_OC2Init
  1109              		.syntax unified
  1110              		.thumb
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 74
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 74
 
 
  1111              		.thumb_func
@@ -4438,7 +4438,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  419:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** 
  1158              		.loc 1 419 0
  1159 002a 8A89     		ldrh	r2, [r1, #12]
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 75
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 75
 
 
  1160 002c 1201     		lsls	r2, r2, #4
@@ -4498,7 +4498,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  1204              		.loc 1 450 0
  1205 006c 0A8A     		ldrh	r2, [r1, #16]
  1206 006e 9200     		lsls	r2, r2, #2
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 76
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 76
 
 
  1207 0070 92B2     		uxth	r2, r2
@@ -4558,7 +4558,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  1256              	.LVL183:
  1257 0000 30B4     		push	{r4, r5}
  1258              	.LCFI13:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 77
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 77
 
 
  1259              		.cfi_def_cfa_offset 8
@@ -4618,7 +4618,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  1303              		.loc 1 513 0
  1304 0036 144A     		ldr	r2, .L93
  1305 0038 9042     		cmp	r0, r2
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 78
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 78
 
 
  1306 003a 07D0     		beq	.L90
@@ -4678,7 +4678,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  1350              		.loc 1 540 0
  1351 0078 8480     		strh	r4, [r0, #4]	@ movhi
  543:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 79
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 79
 
 
  1352              		.loc 1 543 0
@@ -4738,7 +4738,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  1402              		.loc 1 573 0
  1403 000e 038C     		ldrh	r3, [r0, #32]
  1404 0010 9BB2     		uxth	r3, r3
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 80
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 80
 
 
  1405              	.LVL203:
@@ -4798,7 +4798,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  1449 004e 05D1     		bne	.L97
  1450              	.L96:
  603:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****     /* Set the Output Idle state */
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 81
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 81
 
 
  1451              		.loc 1 603 0 is_stmt 1
@@ -4858,7 +4858,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  1500              		@ frame_needed = 0, uses_anonymous_args = 0
  1501              		@ link register save eliminated.
  1502              	.LVL216:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 82
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 82
 
 
  1503 0000 F0B4     		push	{r4, r5, r6, r7}
@@ -4918,7 +4918,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  1552              		.loc 1 786 0
  1553              		.cfi_startproc
  1554              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 83
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 83
 
 
  1555              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -4978,7 +4978,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  808:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   TMR_OCInitStruct->TMR_OCNPolarity = TMR_OCPolarity_High;
  1600              		.loc 1 808 0
  1601 000a 8381     		strh	r3, [r0, #12]	@ movhi
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 84
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 84
 
 
  809:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   TMR_OCInitStruct->TMR_OCIdleState = TMR_OCIdleState_Reset;
@@ -5038,7 +5038,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  1648              		.global	TMR_BRKDTStructInit
  1649              		.syntax unified
  1650              		.thumb
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 85
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 85
 
 
  1651              		.thumb_func
@@ -5098,7 +5098,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  861:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   {
  1698              		.loc 1 861 0
  1699 0000 31B9     		cbnz	r1, .L110
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 86
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 86
 
 
  869:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   }
@@ -5158,7 +5158,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  1748              	.LFE138:
  1750              		.section	.text.TMR_INTConfig,"ax",%progbits
  1751              		.align	1
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 87
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 87
 
 
  1752              		.global	TMR_INTConfig
@@ -5218,7 +5218,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  1802              		.loc 1 966 0
  1803 0000 8182     		strh	r1, [r0, #20]	@ movhi
  967:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 88
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 88
 
 
  1804              		.loc 1 967 0
@@ -5278,7 +5278,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  1856 0008 8181     		strh	r1, [r0, #12]	@ movhi
 1031:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** 
  1857              		.loc 1 1031 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 89
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 89
 
 
  1858 000a 7047     		bx	lr
@@ -5338,7 +5338,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  1911              		@ link register save eliminated.
  1912              	.LVL236:
  1913 0000 10B4     		push	{r4}
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 90
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 90
 
 
  1914              	.LCFI19:
@@ -5398,7 +5398,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  1964              	.LVL243:
 1137:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** 
  1965              		.loc 1 1137 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 91
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 91
 
 
  1966 0004 FFF7FEFF 		bl	TMR_ETRConfig
@@ -5458,7 +5458,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  2015              		.align	1
  2016              		.global	TMR_DIVConfig
  2017              		.syntax unified
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 92
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 92
 
 
  2018              		.thumb
@@ -5518,7 +5518,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  2066 000a 0180     		strh	r1, [r0]	@ movhi
 1264:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** 
  2067              		.loc 1 1264 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 93
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 93
 
 
  2068 000c 7047     		bx	lr
@@ -5578,7 +5578,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  2119              	.LVL258:
  2120 0000 10B5     		push	{r4, lr}
  2121              	.LCFI23:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 94
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 94
 
 
  2122              		.cfi_def_cfa_offset 8
@@ -5638,7 +5638,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  2172              	.L139:
 1105:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   /* Select the External clock mode1 */
  2173              		.loc 1 1105 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 95
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 95
 
 
  2174 0012 2946     		mov	r1, r5
@@ -5698,7 +5698,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  2224 0008 A4B2     		uxth	r4, r4
  2225              	.LVL271:
 1336:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 96
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 96
 
 
  2226              		.loc 1 1336 0
@@ -5758,7 +5758,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  2270              	.LVL283:
  2271 0038 7047     		bx	lr
  2272              		.cfi_endproc
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 97
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 97
 
 
  2273              	.LFE152:
@@ -5818,7 +5818,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 1397:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   /* Reset the OC2M Bits */
  2324              		.loc 1 1397 0
  2325 0000 038B     		ldrh	r3, [r0, #24]
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 98
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 98
 
 
  2326 0002 9BB2     		uxth	r3, r3
@@ -5878,7 +5878,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  2372              		.loc 1 1428 0
  2373 000c 7047     		bx	lr
  2374              		.cfi_endproc
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 99
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 99
 
 
  2375              	.LFE155:
@@ -5938,7 +5938,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  2426              		@ frame_needed = 0, uses_anonymous_args = 0
  2427              		@ link register save eliminated.
  2428              	.LVL302:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 100
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 100
 
 
 1467:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   {
@@ -5998,7 +5998,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  2476 0010 8388     		ldrh	r3, [r0, #4]
  2477 0012 43F00403 		orr	r3, r3, #4
  2478 0016 8380     		strh	r3, [r0, #4]	@ movhi
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 101
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 101
 
 
  2479 0018 7047     		bx	lr
@@ -6058,7 +6058,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  2531              		@ frame_needed = 0, uses_anonymous_args = 0
  2532              		@ link register save eliminated.
  2533              	.LVL305:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 102
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 102
 
 
 1544:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   {
@@ -6118,7 +6118,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 1578:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** 
  2581              		.loc 1 1578 0
  2582 000c 7047     		bx	lr
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 103
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 103
 
 
  2583              		.cfi_endproc
@@ -6178,7 +6178,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  2634              		@ args = 0, pretend = 0, frame = 0
  2635              		@ frame_needed = 0, uses_anonymous_args = 0
  2636              		@ link register save eliminated.
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 104
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 104
 
 
  2637              	.LVL315:
@@ -6238,7 +6238,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 1650:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** }
  2684              		.loc 1 1650 0
  2685 000e 8383     		strh	r3, [r0, #28]	@ movhi
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 105
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 105
 
 
 1651:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** 
@@ -6298,7 +6298,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  2736              		@ args = 0, pretend = 0, frame = 0
  2737              		@ frame_needed = 0, uses_anonymous_args = 0
  2738              		@ link register save eliminated.
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 106
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 106
 
 
  2739              	.LVL328:
@@ -6358,7 +6358,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 1726:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** }
  2786              		.loc 1 1726 0
  2787 000a 8183     		strh	r1, [r0, #28]	@ movhi
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 107
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 107
 
 
 1727:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** 
@@ -6418,7 +6418,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 1764:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   uint16_t tmpccmr1 = 0;
  2839              		.loc 1 1764 0
  2840              		.cfi_startproc
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 108
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 108
 
 
  2841              		@ args = 0, pretend = 0, frame = 0
@@ -6478,7 +6478,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  2888 000a 1943     		orrs	r1, r1, r3
  2889              	.LVL350:
 1801:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** }
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 109
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 109
 
 
  2890              		.loc 1 1801 0
@@ -6538,7 +6538,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  2940              		.loc 1 1838 0
  2941              		.cfi_startproc
  2942              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 110
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 110
 
 
  2943              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -6598,7 +6598,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  2990              	.LVL363:
 1872:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** }
  2991              		.loc 1 1872 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 111
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 111
 
 
  2992 000a 0184     		strh	r1, [r0, #32]	@ movhi
@@ -6658,7 +6658,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  3042              		.cfi_startproc
  3043              		@ args = 0, pretend = 0, frame = 0
  3044              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 112
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 112
 
 
  3045              		@ link register save eliminated.
@@ -6718,7 +6718,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  3092              	.LVL376:
  3093 000a 89B2     		uxth	r1, r1
  3094 000c 0B43     		orrs	r3, r3, r1
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 113
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 113
 
 
  3095              	.LVL377:
@@ -6778,7 +6778,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  3144              		.thumb_func
  3145              		.fpu fpv4-sp-d16
  3147              	TMR_OC3NPolarityConfig:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 114
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 114
 
 
  3148              	.LFB178:
@@ -6838,7 +6838,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  3195              		.loc 1 2011 0
  3196 0004 23F40053 		bic	r3, r3, #8192
  3197              	.LVL390:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 115
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 115
 
 
 2012:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   /* Write to TMRx CCE register */
@@ -6898,7 +6898,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  3247 0018 1943     		orrs	r1, r1, r3
  3248 001a 0184     		strh	r1, [r0, #32]	@ movhi
 2046:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 116
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 116
 
 
  3249              		.loc 1 2046 0
@@ -6958,7 +6958,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  3300              		.cfi_def_cfa_offset 0
  3301 0020 7047     		bx	lr
  3302              		.cfi_endproc
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 117
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 117
 
 
  3303              	.LFE181:
@@ -7018,7 +7018,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  3351 0020 0B59     		ldr	r3, [r1, r4]
  3352 0022 23F4E043 		bic	r3, r3, #28672
  3353 0026 0B51     		str	r3, [r1, r4]
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 118
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 118
 
 
 2137:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   }
@@ -7078,7 +7078,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  3403              		@ link register save eliminated.
  3404              	.LVL415:
 2154:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   {
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 119
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 119
 
 
  3405              		.loc 1 2154 0
@@ -7138,7 +7138,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  3453 0012 43F00403 		orr	r3, r3, #4
  3454 0016 0380     		strh	r3, [r0]	@ movhi
  3455 0018 7047     		bx	lr
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 120
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 120
 
 
  3456              		.cfi_endproc
@@ -7198,7 +7198,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  3508              		@ link register save eliminated.
  3509              	.LVL418:
 2235:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   /* Configure the OPM Mode */
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 121
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 121
 
 
  3510              		.loc 1 2235 0
@@ -7258,7 +7258,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  3561              		.syntax unified
  3562              		.thumb
  3563              		.thumb_func
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 122
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 122
 
 
  3564              		.fpu fpv4-sp-d16
@@ -7318,7 +7318,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  3614 000e 1943     		orrs	r1, r1, r3
  3615              	.LVL425:
  3616 0010 0181     		strh	r1, [r0, #8]	@ movhi
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 123
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 123
 
 
 2315:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** 
@@ -7378,7 +7378,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  3669              		.align	1
  3670              		.global	TMR_SetCompare1
  3671              		.syntax unified
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 124
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 124
 
 
  3672              		.thumb
@@ -7438,7 +7438,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  3724              		.loc 1 2380 0
  3725              		.cfi_startproc
  3726              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 125
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 125
 
 
  3727              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -7498,7 +7498,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  3778 0002 9BB2     		uxth	r3, r3
  3779 0004 23F00C03 		bic	r3, r3, #12
  3780 0008 9BB2     		uxth	r3, r3
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 126
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 126
 
 
  3781 000a 0383     		strh	r3, [r0, #24]	@ movhi
@@ -7558,7 +7558,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  3832              		.fpu fpv4-sp-d16
  3834              	TMR_PWMIConfig:
  3835              	.LFB131:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 127
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 127
 
 
  701:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   uint16_t icoppositepolarity = TMR_ICPolarity_Rising;
@@ -7618,7 +7618,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  3882              	.LVL443:
  747:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****     /* Set the Input Capture Prescaler value */
  3883              		.loc 1 747 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 128
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 128
 
 
  3884 0028 2389     		ldrh	r3, [r4, #8]
@@ -7678,7 +7678,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  3930 0064 2846     		mov	r0, r5
  3931 0066 FFF7FEFF 		bl	TMR_SetIC2DIV
  3932              	.LVL453:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 129
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 129
 
 
  3933 006a E7E7     		b	.L216
@@ -7738,7 +7738,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  3985              		.loc 1 2484 0
  3986 0000 838B     		ldrh	r3, [r0, #28]
  3987 0002 9BB2     		uxth	r3, r3
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 130
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 130
 
 
  3988 0004 23F44063 		bic	r3, r3, #3072
@@ -7798,7 +7798,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  4037 0012 0B89     		ldrh	r3, [r1, #8]
  4038 0014 8A88     		ldrh	r2, [r1, #4]
  4039 0016 4988     		ldrh	r1, [r1, #2]
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 131
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 131
 
 
  4040              	.LVL459:
@@ -7858,7 +7858,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  4087              	.LVL471:
  4088 0054 FFF7FEFF 		bl	TI3_Config
  4089              	.LVL472:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 132
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 132
 
 
  678:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   }
@@ -7918,7 +7918,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  4142              		.cfi_startproc
  4143              		@ args = 0, pretend = 0, frame = 0
  4144              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 133
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 133
 
 
  4145              		@ link register save eliminated.
@@ -7978,7 +7978,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  4196 0000 C06B     		ldr	r0, [r0, #60]
  4197              	.LVL481:
 2548:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 134
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 134
 
 
  4198              		.loc 1 2548 0
@@ -8038,7 +8038,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  4251              		.section	.text.TMR_GetDIV,"ax",%progbits
  4252              		.align	1
  4253              		.global	TMR_GetDIV
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 135
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 135
 
 
  4254              		.syntax unified
@@ -8098,7 +8098,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  4303 000a 0120     		movs	r0, #1
  4304              	.LVL491:
  4305 000c 7047     		bx	lr
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 136
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 136
 
 
  4306              		.cfi_endproc
@@ -8158,7 +8158,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
 2704:../Libraries/AT32F4xx_StdPeriph_Driver/src/at32f4xx_tim.c ****   {
  4358              		.loc 1 2704 0
  4359 0006 1142     		tst	r1, r2
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 137
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 137
 
 
  4360 0008 02D0     		beq	.L251
@@ -8218,222 +8218,222 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 1
  4410              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
  4411              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
  4412              		.file 4 "../Libraries/CMSIS/CM4/CoreSupport/core_cm4.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 138
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 138
 
 
  4413              		.file 5 "../Libraries/CMSIS/CM4/DeviceSupport/system_at32f4xx.h"
  4414              		.file 6 "../Libraries/CMSIS/CM4/DeviceSupport/at32f4xx.h"
  4415              		.file 7 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_tim.h"
  4416              		.file 8 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_rcc.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 139
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 139
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 at32f4xx_tim.c
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:17     .text.TI1_Config:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:23     .text.TI1_Config:0000000000000000 TI1_Config
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:125    .text.TI1_Config:0000000000000074 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:131    .text.TI2_Config:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:137    .text.TI2_Config:0000000000000000 TI2_Config
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:247    .text.TI2_Config:0000000000000080 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:252    .text.TI3_Config:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:258    .text.TI3_Config:0000000000000000 TI3_Config
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:364    .text.TI3_Config:000000000000007c $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:369    .text.TI4_Config:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:375    .text.TI4_Config:0000000000000000 TI4_Config
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:489    .text.TI4_Config:0000000000000084 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:494    .text.TMR_Reset:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:501    .text.TMR_Reset:0000000000000000 TMR_Reset
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:786    .text.TMR_Reset:000000000000018c $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:804    .text.TMR_TimeBaseInit:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:811    .text.TMR_TimeBaseInit:0000000000000000 TMR_TimeBaseInit
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:914    .text.TMR_TimeBaseInit:0000000000000084 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:920    .text.TMR_SelectPlusMode:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:927    .text.TMR_SelectPlusMode:0000000000000000 TMR_SelectPlusMode
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:980    .text.TMR_SelectPlusMode:0000000000000038 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:985    .text.TMR_OC1Init:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:992    .text.TMR_OC1Init:0000000000000000 TMR_OC1Init
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1102   .text.TMR_OC1Init:0000000000000070 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1107   .text.TMR_OC2Init:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1114   .text.TMR_OC2Init:0000000000000000 TMR_OC2Init
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1237   .text.TMR_OC2Init:000000000000008c $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1242   .text.TMR_OC3Init:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1249   .text.TMR_OC3Init:0000000000000000 TMR_OC3Init
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1370   .text.TMR_OC3Init:0000000000000088 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1375   .text.TMR_OC4Init:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1382   .text.TMR_OC4Init:0000000000000000 TMR_OC4Init
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1483   .text.TMR_OC4Init:000000000000006c $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1488   .text.TMR_BRKDTConfig:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1495   .text.TMR_BRKDTConfig:0000000000000000 TMR_BRKDTConfig
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1543   .text.TMR_TimeBaseStructInit:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1550   .text.TMR_TimeBaseStructInit:0000000000000000 TMR_TimeBaseStructInit
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1576   .text.TMR_OCStructInit:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1583   .text.TMR_OCStructInit:0000000000000000 TMR_OCStructInit
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1614   .text.TMR_ICStructInit:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1621   .text.TMR_ICStructInit:0000000000000000 TMR_ICStructInit
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1647   .text.TMR_BRKDTStructInit:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1654   .text.TMR_BRKDTStructInit:0000000000000000 TMR_BRKDTStructInit
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1683   .text.TMR_Cmd:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1690   .text.TMR_Cmd:0000000000000000 TMR_Cmd
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1718   .text.TMR_CtrlPWMOutputs:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1725   .text.TMR_CtrlPWMOutputs:0000000000000000 TMR_CtrlPWMOutputs
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1751   .text.TMR_INTConfig:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1758   .text.TMR_INTConfig:0000000000000000 TMR_INTConfig
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1787   .text.TMR_GenerateEvent:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1794   .text.TMR_GenerateEvent:0000000000000000 TMR_GenerateEvent
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1810   .text.TMR_DMAConfig:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1817   .text.TMR_DMAConfig:0000000000000000 TMR_DMAConfig
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1835   .text.TMR_DMACmd:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1842   .text.TMR_DMACmd:0000000000000000 TMR_DMACmd
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 140
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:17     .text.TI1_Config:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:23     .text.TI1_Config:0000000000000000 TI1_Config
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:125    .text.TI1_Config:0000000000000074 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:131    .text.TI2_Config:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:137    .text.TI2_Config:0000000000000000 TI2_Config
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:247    .text.TI2_Config:0000000000000080 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:252    .text.TI3_Config:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:258    .text.TI3_Config:0000000000000000 TI3_Config
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:364    .text.TI3_Config:000000000000007c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:369    .text.TI4_Config:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:375    .text.TI4_Config:0000000000000000 TI4_Config
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:489    .text.TI4_Config:0000000000000084 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:494    .text.TMR_Reset:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:501    .text.TMR_Reset:0000000000000000 TMR_Reset
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:786    .text.TMR_Reset:000000000000018c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:804    .text.TMR_TimeBaseInit:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:811    .text.TMR_TimeBaseInit:0000000000000000 TMR_TimeBaseInit
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:914    .text.TMR_TimeBaseInit:0000000000000084 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:920    .text.TMR_SelectPlusMode:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:927    .text.TMR_SelectPlusMode:0000000000000000 TMR_SelectPlusMode
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:980    .text.TMR_SelectPlusMode:0000000000000038 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:985    .text.TMR_OC1Init:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:992    .text.TMR_OC1Init:0000000000000000 TMR_OC1Init
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1102   .text.TMR_OC1Init:0000000000000070 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1107   .text.TMR_OC2Init:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1114   .text.TMR_OC2Init:0000000000000000 TMR_OC2Init
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1237   .text.TMR_OC2Init:000000000000008c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1242   .text.TMR_OC3Init:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1249   .text.TMR_OC3Init:0000000000000000 TMR_OC3Init
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1370   .text.TMR_OC3Init:0000000000000088 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1375   .text.TMR_OC4Init:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1382   .text.TMR_OC4Init:0000000000000000 TMR_OC4Init
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1483   .text.TMR_OC4Init:000000000000006c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1488   .text.TMR_BRKDTConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1495   .text.TMR_BRKDTConfig:0000000000000000 TMR_BRKDTConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1543   .text.TMR_TimeBaseStructInit:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1550   .text.TMR_TimeBaseStructInit:0000000000000000 TMR_TimeBaseStructInit
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1576   .text.TMR_OCStructInit:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1583   .text.TMR_OCStructInit:0000000000000000 TMR_OCStructInit
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1614   .text.TMR_ICStructInit:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1621   .text.TMR_ICStructInit:0000000000000000 TMR_ICStructInit
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1647   .text.TMR_BRKDTStructInit:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1654   .text.TMR_BRKDTStructInit:0000000000000000 TMR_BRKDTStructInit
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1683   .text.TMR_Cmd:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1690   .text.TMR_Cmd:0000000000000000 TMR_Cmd
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1718   .text.TMR_CtrlPWMOutputs:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1725   .text.TMR_CtrlPWMOutputs:0000000000000000 TMR_CtrlPWMOutputs
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1751   .text.TMR_INTConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1758   .text.TMR_INTConfig:0000000000000000 TMR_INTConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1787   .text.TMR_GenerateEvent:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1794   .text.TMR_GenerateEvent:0000000000000000 TMR_GenerateEvent
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1810   .text.TMR_DMAConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1817   .text.TMR_DMAConfig:0000000000000000 TMR_DMAConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1835   .text.TMR_DMACmd:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1842   .text.TMR_DMACmd:0000000000000000 TMR_DMACmd
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 140
 
 
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1871   .text.TMR_InternalClockConfig:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1878   .text.TMR_InternalClockConfig:0000000000000000 TMR_InternalClockConfig
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1898   .text.TMR_ETRConfig:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1905   .text.TMR_ETRConfig:0000000000000000 TMR_ETRConfig
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1944   .text.TMR_ETRClockMode1Config:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1951   .text.TMR_ETRClockMode1Config:0000000000000000 TMR_ETRClockMode1Config
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1982   .text.TMR_ETRClockMode2Config:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:1989   .text.TMR_ETRClockMode2Config:0000000000000000 TMR_ETRClockMode2Config
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2015   .text.TMR_DIVConfig:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2022   .text.TMR_DIVConfig:0000000000000000 TMR_DIVConfig
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2040   .text.TMR_CounterModeConfig:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2047   .text.TMR_CounterModeConfig:0000000000000000 TMR_CounterModeConfig
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2073   .text.TMR_SelectInputTrigger:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2080   .text.TMR_SelectInputTrigger:0000000000000000 TMR_SelectInputTrigger
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2106   .text.TMR_ITRxExternalClockConfig:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2113   .text.TMR_ITRxExternalClockConfig:0000000000000000 TMR_ITRxExternalClockConfig
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2139   .text.TMR_TIxExternalClockConfig:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2146   .text.TMR_TIxExternalClockConfig:0000000000000000 TMR_TIxExternalClockConfig
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2196   .text.TMR_EncoderInterfaceConfig:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2203   .text.TMR_EncoderInterfaceConfig:0000000000000000 TMR_EncoderInterfaceConfig
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2276   .text.TMR_ForcedOC1Config:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2283   .text.TMR_ForcedOC1Config:0000000000000000 TMR_ForcedOC1Config
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2309   .text.TMR_ForcedOC2Config:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2316   .text.TMR_ForcedOC2Config:0000000000000000 TMR_ForcedOC2Config
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2345   .text.TMR_ForcedOC3Config:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2352   .text.TMR_ForcedOC3Config:0000000000000000 TMR_ForcedOC3Config
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2378   .text.TMR_ForcedOC4Config:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2385   .text.TMR_ForcedOC4Config:0000000000000000 TMR_ForcedOC4Config
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2414   .text.TMR_ARPreloadConfig:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2421   .text.TMR_ARPreloadConfig:0000000000000000 TMR_ARPreloadConfig
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2449   .text.TMR_SelectHALL:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2456   .text.TMR_SelectHALL:0000000000000000 TMR_SelectHALL
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2484   .text.TMR_SelectCCDMA:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2491   .text.TMR_SelectCCDMA:0000000000000000 TMR_SelectCCDMA
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2519   .text.TMR_CCPreloadControl:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2526   .text.TMR_CCPreloadControl:0000000000000000 TMR_CCPreloadControl
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2554   .text.TMR_OC1PreloadConfig:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2561   .text.TMR_OC1PreloadConfig:0000000000000000 TMR_OC1PreloadConfig
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2587   .text.TMR_OC2PreloadConfig:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2594   .text.TMR_OC2PreloadConfig:0000000000000000 TMR_OC2PreloadConfig
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2623   .text.TMR_OC3PreloadConfig:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2630   .text.TMR_OC3PreloadConfig:0000000000000000 TMR_OC3PreloadConfig
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2656   .text.TMR_OC4PreloadConfig:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2663   .text.TMR_OC4PreloadConfig:0000000000000000 TMR_OC4PreloadConfig
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2692   .text.TMR_OC1FastConfig:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2699   .text.TMR_OC1FastConfig:0000000000000000 TMR_OC1FastConfig
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2725   .text.TMR_OC2FastConfig:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2732   .text.TMR_OC2FastConfig:0000000000000000 TMR_OC2FastConfig
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2761   .text.TMR_OC3FastConfig:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2768   .text.TMR_OC3FastConfig:0000000000000000 TMR_OC3FastConfig
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2794   .text.TMR_OC4FastConfig:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2801   .text.TMR_OC4FastConfig:0000000000000000 TMR_OC4FastConfig
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2830   .text.TMR_ClearOC1Ref:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2837   .text.TMR_ClearOC1Ref:0000000000000000 TMR_ClearOC1Ref
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2863   .text.TMR_ClearOC2Ref:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2870   .text.TMR_ClearOC2Ref:0000000000000000 TMR_ClearOC2Ref
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2898   .text.TMR_ClearOC3Ref:0000000000000000 $t
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 141
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1871   .text.TMR_InternalClockConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1878   .text.TMR_InternalClockConfig:0000000000000000 TMR_InternalClockConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1898   .text.TMR_ETRConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1905   .text.TMR_ETRConfig:0000000000000000 TMR_ETRConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1944   .text.TMR_ETRClockMode1Config:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1951   .text.TMR_ETRClockMode1Config:0000000000000000 TMR_ETRClockMode1Config
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1982   .text.TMR_ETRClockMode2Config:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:1989   .text.TMR_ETRClockMode2Config:0000000000000000 TMR_ETRClockMode2Config
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2015   .text.TMR_DIVConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2022   .text.TMR_DIVConfig:0000000000000000 TMR_DIVConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2040   .text.TMR_CounterModeConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2047   .text.TMR_CounterModeConfig:0000000000000000 TMR_CounterModeConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2073   .text.TMR_SelectInputTrigger:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2080   .text.TMR_SelectInputTrigger:0000000000000000 TMR_SelectInputTrigger
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2106   .text.TMR_ITRxExternalClockConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2113   .text.TMR_ITRxExternalClockConfig:0000000000000000 TMR_ITRxExternalClockConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2139   .text.TMR_TIxExternalClockConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2146   .text.TMR_TIxExternalClockConfig:0000000000000000 TMR_TIxExternalClockConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2196   .text.TMR_EncoderInterfaceConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2203   .text.TMR_EncoderInterfaceConfig:0000000000000000 TMR_EncoderInterfaceConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2276   .text.TMR_ForcedOC1Config:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2283   .text.TMR_ForcedOC1Config:0000000000000000 TMR_ForcedOC1Config
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2309   .text.TMR_ForcedOC2Config:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2316   .text.TMR_ForcedOC2Config:0000000000000000 TMR_ForcedOC2Config
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2345   .text.TMR_ForcedOC3Config:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2352   .text.TMR_ForcedOC3Config:0000000000000000 TMR_ForcedOC3Config
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2378   .text.TMR_ForcedOC4Config:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2385   .text.TMR_ForcedOC4Config:0000000000000000 TMR_ForcedOC4Config
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2414   .text.TMR_ARPreloadConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2421   .text.TMR_ARPreloadConfig:0000000000000000 TMR_ARPreloadConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2449   .text.TMR_SelectHALL:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2456   .text.TMR_SelectHALL:0000000000000000 TMR_SelectHALL
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2484   .text.TMR_SelectCCDMA:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2491   .text.TMR_SelectCCDMA:0000000000000000 TMR_SelectCCDMA
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2519   .text.TMR_CCPreloadControl:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2526   .text.TMR_CCPreloadControl:0000000000000000 TMR_CCPreloadControl
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2554   .text.TMR_OC1PreloadConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2561   .text.TMR_OC1PreloadConfig:0000000000000000 TMR_OC1PreloadConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2587   .text.TMR_OC2PreloadConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2594   .text.TMR_OC2PreloadConfig:0000000000000000 TMR_OC2PreloadConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2623   .text.TMR_OC3PreloadConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2630   .text.TMR_OC3PreloadConfig:0000000000000000 TMR_OC3PreloadConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2656   .text.TMR_OC4PreloadConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2663   .text.TMR_OC4PreloadConfig:0000000000000000 TMR_OC4PreloadConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2692   .text.TMR_OC1FastConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2699   .text.TMR_OC1FastConfig:0000000000000000 TMR_OC1FastConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2725   .text.TMR_OC2FastConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2732   .text.TMR_OC2FastConfig:0000000000000000 TMR_OC2FastConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2761   .text.TMR_OC3FastConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2768   .text.TMR_OC3FastConfig:0000000000000000 TMR_OC3FastConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2794   .text.TMR_OC4FastConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2801   .text.TMR_OC4FastConfig:0000000000000000 TMR_OC4FastConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2830   .text.TMR_ClearOC1Ref:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2837   .text.TMR_ClearOC1Ref:0000000000000000 TMR_ClearOC1Ref
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2863   .text.TMR_ClearOC2Ref:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2870   .text.TMR_ClearOC2Ref:0000000000000000 TMR_ClearOC2Ref
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2898   .text.TMR_ClearOC3Ref:0000000000000000 $t
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 141
 
 
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2905   .text.TMR_ClearOC3Ref:0000000000000000 TMR_ClearOC3Ref
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2931   .text.TMR_ClearOC4Ref:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2938   .text.TMR_ClearOC4Ref:0000000000000000 TMR_ClearOC4Ref
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2966   .text.TMR_OC1PolarityConfig:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2973   .text.TMR_OC1PolarityConfig:0000000000000000 TMR_OC1PolarityConfig
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:2999   .text.TMR_OC1NPolarityConfig:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3006   .text.TMR_OC1NPolarityConfig:0000000000000000 TMR_OC1NPolarityConfig
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3032   .text.TMR_OC2PolarityConfig:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3039   .text.TMR_OC2PolarityConfig:0000000000000000 TMR_OC2PolarityConfig
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3068   .text.TMR_OC2NPolarityConfig:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3075   .text.TMR_OC2NPolarityConfig:0000000000000000 TMR_OC2NPolarityConfig
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3104   .text.TMR_OC3PolarityConfig:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3111   .text.TMR_OC3PolarityConfig:0000000000000000 TMR_OC3PolarityConfig
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3140   .text.TMR_OC3NPolarityConfig:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3147   .text.TMR_OC3NPolarityConfig:0000000000000000 TMR_OC3NPolarityConfig
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3176   .text.TMR_OC4PolarityConfig:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3183   .text.TMR_OC4PolarityConfig:0000000000000000 TMR_OC4PolarityConfig
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3212   .text.TMR_CCxCmd:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3219   .text.TMR_CCxCmd:0000000000000000 TMR_CCxCmd
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3259   .text.TMR_CCxNCmd:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3266   .text.TMR_CCxNCmd:0000000000000000 TMR_CCxNCmd
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3306   .text.TMR_SelectOCxM:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3313   .text.TMR_SelectOCxM:0000000000000000 TMR_SelectOCxM
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3390   .text.TMR_UpdateDisableConfig:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3397   .text.TMR_UpdateDisableConfig:0000000000000000 TMR_UpdateDisableConfig
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3425   .text.TMR_UpdateRequestConfig:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3432   .text.TMR_UpdateRequestConfig:0000000000000000 TMR_UpdateRequestConfig
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3460   .text.TMR_SelectHallSensor:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3467   .text.TMR_SelectHallSensor:0000000000000000 TMR_SelectHallSensor
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3495   .text.TMR_SelectOnePulseMode:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3502   .text.TMR_SelectOnePulseMode:0000000000000000 TMR_SelectOnePulseMode
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3527   .text.TMR_SelectOutputTrigger:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3534   .text.TMR_SelectOutputTrigger:0000000000000000 TMR_SelectOutputTrigger
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3559   .text.TMR_SelectSlaveMode:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3566   .text.TMR_SelectSlaveMode:0000000000000000 TMR_SelectSlaveMode
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3591   .text.TMR_SelectMasterSlaveMode:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3598   .text.TMR_SelectMasterSlaveMode:0000000000000000 TMR_SelectMasterSlaveMode
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3623   .text.TMR_SetCounter:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3630   .text.TMR_SetCounter:0000000000000000 TMR_SetCounter
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3646   .text.TMR_SetAutoreload:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3653   .text.TMR_SetAutoreload:0000000000000000 TMR_SetAutoreload
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3669   .text.TMR_SetCompare1:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3676   .text.TMR_SetCompare1:0000000000000000 TMR_SetCompare1
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3692   .text.TMR_SetCompare2:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3699   .text.TMR_SetCompare2:0000000000000000 TMR_SetCompare2
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3715   .text.TMR_SetCompare3:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3722   .text.TMR_SetCompare3:0000000000000000 TMR_SetCompare3
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3738   .text.TMR_SetCompare4:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3745   .text.TMR_SetCompare4:0000000000000000 TMR_SetCompare4
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3761   .text.TMR_SetIC1DIV:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3768   .text.TMR_SetIC1DIV:0000000000000000 TMR_SetIC1DIV
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3793   .text.TMR_SetIC2DIV:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3800   .text.TMR_SetIC2DIV:0000000000000000 TMR_SetIC2DIV
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3827   .text.TMR_PWMIConfig:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3834   .text.TMR_PWMIConfig:0000000000000000 TMR_PWMIConfig
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3938   .text.TMR_SetIC3DIV:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3945   .text.TMR_SetIC3DIV:0000000000000000 TMR_SetIC3DIV
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s 			page 142
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2905   .text.TMR_ClearOC3Ref:0000000000000000 TMR_ClearOC3Ref
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2931   .text.TMR_ClearOC4Ref:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2938   .text.TMR_ClearOC4Ref:0000000000000000 TMR_ClearOC4Ref
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2966   .text.TMR_OC1PolarityConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2973   .text.TMR_OC1PolarityConfig:0000000000000000 TMR_OC1PolarityConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:2999   .text.TMR_OC1NPolarityConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3006   .text.TMR_OC1NPolarityConfig:0000000000000000 TMR_OC1NPolarityConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3032   .text.TMR_OC2PolarityConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3039   .text.TMR_OC2PolarityConfig:0000000000000000 TMR_OC2PolarityConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3068   .text.TMR_OC2NPolarityConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3075   .text.TMR_OC2NPolarityConfig:0000000000000000 TMR_OC2NPolarityConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3104   .text.TMR_OC3PolarityConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3111   .text.TMR_OC3PolarityConfig:0000000000000000 TMR_OC3PolarityConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3140   .text.TMR_OC3NPolarityConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3147   .text.TMR_OC3NPolarityConfig:0000000000000000 TMR_OC3NPolarityConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3176   .text.TMR_OC4PolarityConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3183   .text.TMR_OC4PolarityConfig:0000000000000000 TMR_OC4PolarityConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3212   .text.TMR_CCxCmd:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3219   .text.TMR_CCxCmd:0000000000000000 TMR_CCxCmd
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3259   .text.TMR_CCxNCmd:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3266   .text.TMR_CCxNCmd:0000000000000000 TMR_CCxNCmd
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3306   .text.TMR_SelectOCxM:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3313   .text.TMR_SelectOCxM:0000000000000000 TMR_SelectOCxM
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3390   .text.TMR_UpdateDisableConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3397   .text.TMR_UpdateDisableConfig:0000000000000000 TMR_UpdateDisableConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3425   .text.TMR_UpdateRequestConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3432   .text.TMR_UpdateRequestConfig:0000000000000000 TMR_UpdateRequestConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3460   .text.TMR_SelectHallSensor:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3467   .text.TMR_SelectHallSensor:0000000000000000 TMR_SelectHallSensor
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3495   .text.TMR_SelectOnePulseMode:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3502   .text.TMR_SelectOnePulseMode:0000000000000000 TMR_SelectOnePulseMode
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3527   .text.TMR_SelectOutputTrigger:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3534   .text.TMR_SelectOutputTrigger:0000000000000000 TMR_SelectOutputTrigger
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3559   .text.TMR_SelectSlaveMode:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3566   .text.TMR_SelectSlaveMode:0000000000000000 TMR_SelectSlaveMode
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3591   .text.TMR_SelectMasterSlaveMode:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3598   .text.TMR_SelectMasterSlaveMode:0000000000000000 TMR_SelectMasterSlaveMode
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3623   .text.TMR_SetCounter:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3630   .text.TMR_SetCounter:0000000000000000 TMR_SetCounter
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3646   .text.TMR_SetAutoreload:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3653   .text.TMR_SetAutoreload:0000000000000000 TMR_SetAutoreload
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3669   .text.TMR_SetCompare1:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3676   .text.TMR_SetCompare1:0000000000000000 TMR_SetCompare1
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3692   .text.TMR_SetCompare2:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3699   .text.TMR_SetCompare2:0000000000000000 TMR_SetCompare2
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3715   .text.TMR_SetCompare3:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3722   .text.TMR_SetCompare3:0000000000000000 TMR_SetCompare3
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3738   .text.TMR_SetCompare4:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3745   .text.TMR_SetCompare4:0000000000000000 TMR_SetCompare4
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3761   .text.TMR_SetIC1DIV:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3768   .text.TMR_SetIC1DIV:0000000000000000 TMR_SetIC1DIV
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3793   .text.TMR_SetIC2DIV:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3800   .text.TMR_SetIC2DIV:0000000000000000 TMR_SetIC2DIV
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3827   .text.TMR_PWMIConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3834   .text.TMR_PWMIConfig:0000000000000000 TMR_PWMIConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3938   .text.TMR_SetIC3DIV:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3945   .text.TMR_SetIC3DIV:0000000000000000 TMR_SetIC3DIV
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s 			page 142
 
 
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3970   .text.TMR_SetIC4DIV:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:3977   .text.TMR_SetIC4DIV:0000000000000000 TMR_SetIC4DIV
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:4004   .text.TMR_ICInit:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:4011   .text.TMR_ICInit:0000000000000000 TMR_ICInit
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:4100   .text.TMR_SetClockDivision:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:4107   .text.TMR_SetClockDivision:0000000000000000 TMR_SetClockDivision
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:4132   .text.TMR_GetCapture1:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:4139   .text.TMR_GetCapture1:0000000000000000 TMR_GetCapture1
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:4156   .text.TMR_GetCapture2:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:4163   .text.TMR_GetCapture2:0000000000000000 TMR_GetCapture2
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:4180   .text.TMR_GetCapture3:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:4187   .text.TMR_GetCapture3:0000000000000000 TMR_GetCapture3
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:4204   .text.TMR_GetCapture4:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:4211   .text.TMR_GetCapture4:0000000000000000 TMR_GetCapture4
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:4228   .text.TMR_GetCounter:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:4235   .text.TMR_GetCounter:0000000000000000 TMR_GetCounter
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:4252   .text.TMR_GetDIV:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:4259   .text.TMR_GetDIV:0000000000000000 TMR_GetDIV
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:4276   .text.TMR_GetFlagStatus:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:4283   .text.TMR_GetFlagStatus:0000000000000000 TMR_GetFlagStatus
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:4310   .text.TMR_ClearFlag:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:4317   .text.TMR_ClearFlag:0000000000000000 TMR_ClearFlag
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:4336   .text.TMR_GetINTStatus:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:4343   .text.TMR_GetINTStatus:0000000000000000 TMR_GetINTStatus
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:4383   .text.TMR_ClearITPendingBit:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv41eDA.s:4390   .text.TMR_ClearITPendingBit:0000000000000000 TMR_ClearITPendingBit
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3970   .text.TMR_SetIC4DIV:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:3977   .text.TMR_SetIC4DIV:0000000000000000 TMR_SetIC4DIV
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:4004   .text.TMR_ICInit:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:4011   .text.TMR_ICInit:0000000000000000 TMR_ICInit
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:4100   .text.TMR_SetClockDivision:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:4107   .text.TMR_SetClockDivision:0000000000000000 TMR_SetClockDivision
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:4132   .text.TMR_GetCapture1:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:4139   .text.TMR_GetCapture1:0000000000000000 TMR_GetCapture1
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:4156   .text.TMR_GetCapture2:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:4163   .text.TMR_GetCapture2:0000000000000000 TMR_GetCapture2
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:4180   .text.TMR_GetCapture3:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:4187   .text.TMR_GetCapture3:0000000000000000 TMR_GetCapture3
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:4204   .text.TMR_GetCapture4:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:4211   .text.TMR_GetCapture4:0000000000000000 TMR_GetCapture4
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:4228   .text.TMR_GetCounter:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:4235   .text.TMR_GetCounter:0000000000000000 TMR_GetCounter
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:4252   .text.TMR_GetDIV:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:4259   .text.TMR_GetDIV:0000000000000000 TMR_GetDIV
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:4276   .text.TMR_GetFlagStatus:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:4283   .text.TMR_GetFlagStatus:0000000000000000 TMR_GetFlagStatus
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:4310   .text.TMR_ClearFlag:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:4317   .text.TMR_ClearFlag:0000000000000000 TMR_ClearFlag
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:4336   .text.TMR_GetINTStatus:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:4343   .text.TMR_GetINTStatus:0000000000000000 TMR_GetINTStatus
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:4383   .text.TMR_ClearITPendingBit:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccU21Ntp.s:4390   .text.TMR_ClearITPendingBit:0000000000000000 TMR_ClearITPendingBit
 
 UNDEFINED SYMBOLS
 RCC_APB2PeriphResetCmd

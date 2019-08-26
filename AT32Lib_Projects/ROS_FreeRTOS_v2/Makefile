@@ -156,13 +156,9 @@ CFLAGS = $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-
 
 CXXFLAGS = $(MCU) $(C_DEFS) $(C_INCLUDES) $(CXX_INCLUDES) $(OPT) -Wall  -fno-rtti
 CXXFLAGS += -fdata-sections -ffunction-sections -fpermissive
-#CXXFLAGS += -fPIC -Wshadow  
-
 ifeq ($(DEBUG), 1)
 CFLAGS += -g2  -gdwarf-2 
 CXXFLAGS += -g2 -gdwarf-2 
-#OPT = 
-#-gdwarf-2 
 endif
 
 

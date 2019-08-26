@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccp9r3zN.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXY020V.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccp9r3zN.s 			page 1
   19:./Src/main.cpp ****   /* It is recommended to assign all the priority bits to be preempt 
   20:./Src/main.cpp ****   * priority bits, leaving no priority bits as subpriority bits
   21:./Src/main.cpp ****   */
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccp9r3zN.s 			page 2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXY020V.s 			page 2
 
 
   22:./Src/main.cpp **** 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);
@@ -117,21 +117,21 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccp9r3zN.s 			page 1
   80              	.LVL4:
   81              	.L4:
   35:./Src/main.cpp **** 
-  36:./Src/main.cpp ****   char buf[512];
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccp9r3zN.s 			page 3
+  36:./Src/main.cpp ****   //char buf[512];
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXY020V.s 			page 3
 
 
   37:./Src/main.cpp ****   while (1)
   38:./Src/main.cpp ****   {
   39:./Src/main.cpp ****     ros_run();
-  82              		.loc 1 39 0
+  82              		.loc 1 39 0 discriminator 1
   83 0006 FFF7FEFF 		bl	_Z7ros_runv
   84              	.LVL5:
   40:./Src/main.cpp **** 
   41:./Src/main.cpp ****     // sprintf(buf,"Millis %d\n",millis());
   42:./Src/main.cpp ****     // printf(buf);
   43:./Src/main.cpp ****     delay_ms(1000);
-  85              		.loc 1 43 0
+  85              		.loc 1 43 0 discriminator 1
   86 000a 4FF47A70 		mov	r0, #1000
   87 000e FFF7FEFF 		bl	delay_ms
   88              	.LVL6:
@@ -152,17 +152,17 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccp9r3zN.s 			page 1
  104              		.file 10 "bsp/inc/bsp_timer.h"
  105              		.file 11 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/misc.h"
  106              		.file 12 "bsp/inc/bsp_uart_fifo.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccp9r3zN.s 			page 4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXY020V.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.cpp
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccp9r3zN.s:17     .text._Z4initv:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccp9r3zN.s:24     .text._Z4initv:0000000000000000 _Z4initv
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXY020V.s:17     .text._Z4initv:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXY020V.s:24     .text._Z4initv:0000000000000000 _Z4initv
          .ARM.extab.text._Z4initv:0000000000000000 $d
          .ARM.exidx.text._Z4initv:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccp9r3zN.s:58     .text.main:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccp9r3zN.s:65     .text.main:0000000000000000 main
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXY020V.s:58     .text.main:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccXY020V.s:65     .text.main:0000000000000000 main
              .ARM.extab.text.main:0000000000000000 $d
              .ARM.exidx.text.main:0000000000000000 $d
 

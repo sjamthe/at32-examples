@@ -33,7 +33,7 @@ int main(void)
 
   init();
 
-  char buf[512];
+  //char buf[512];
   while (1)
   {
     ros_run();

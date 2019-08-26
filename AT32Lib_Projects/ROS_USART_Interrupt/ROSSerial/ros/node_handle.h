@@ -41,7 +41,7 @@
 #include "rosserial_msgs/TopicInfo.h"
 #include "rosserial_msgs/Log.h"
 #include "rosserial_msgs/RequestParam.h"
-
+#include "std_msgs/ROSString.h"
 #include "ros/msg.h"
 
 namespace ros
@@ -61,9 +61,6 @@ public:
 #include "ros/service_server.h"
 #include "ros/service_client.h"
 #include "std_msgs/UInt16.h"
-
-
-extern void led_cb(unsigned char*);
 
 namespace ros
 {
@@ -107,9 +104,16 @@ typedef struct
     const char* message_type;
     const char* md5sum;
     void (*callback)(const Msg& );
-    //void * callback;
 } SubscriberType;
 
+typedef struct
+{
+    uint16_t topic_id;
+    const char* topic_name;
+    const Msg* msg; 
+    const char* message_type;
+    const char* md5sum;
+} PublisherType;
 
 /* Node Handle */
 template<class Hardware,
@@ -135,6 +139,7 @@ protected:
   uint8_t message_out[OUTPUT_SIZE];
 
   Publisher * publishers[MAX_PUBLISHERS];
+  PublisherType publishers2[MAX_PUBLISHERS];
   Subscriber_ * subscribers[MAX_SUBSCRIBERS];
   SubscriberType subscribers2[MAX_SUBSCRIBERS];
 
@@ -145,8 +150,10 @@ public:
   NodeHandle_() : configured_(false)
   {
 
-    for (unsigned int i = 0; i < MAX_PUBLISHERS; i++)
+    for (unsigned int i = 0; i < MAX_PUBLISHERS; i++) {
       publishers[i] = 0;
+      publishers2[i].topic_id = 0;
+    }
 
     for (unsigned int i = 0; i < MAX_SUBSCRIBERS; i++) {
       subscribers[i] = 0;
@@ -182,7 +189,7 @@ public:
     bytes_ = 0;
     index_ = 0;
     topic_ = 0;
-    printf("Node init\n");
+    //printf("Node init\n");
   };
 
   /* Start a named port, which may be network server IP, initialize buffers */
@@ -240,7 +247,7 @@ public:
     //printf("spinOnce\n");
     /* restart if timed out */
     uint32_t c_time = hardware_.time();
-    printf("spinOnce %ld\n",c_time);
+    //printf("spinOnce %ld\n",c_time);
 
     if ((c_time - last_sync_receive_time) > (SYNC_SECONDS * 2200))
     {
@@ -371,7 +378,6 @@ public:
           else
           {
             if (subscribers2[topic_ - 100].topic_id != 0) {
-              //subscribers[topic_ - 100]->callback(message_in);
               s_CallBack = (void (*)(char*))subscribers2[topic_ - 100].callback;
               s_CallBack(message_in);
             }
@@ -442,6 +448,25 @@ public:
   /********************************************************************
    * Topic Management
    */
+
+   /* Register a new publisher without C++ template */
+  PublisherType* addPublisher(char * topic_name, Msg * msg)
+  {
+    for (int i = 0; i < MAX_PUBLISHERS; i++)
+    {
+      if (publishers2[i].topic_id == 0) {// empty slot}
+
+        publishers2[i].topic_id = i + 100 + MAX_SUBSCRIBERS;
+        publishers2[i].topic_name = topic_name;
+        publishers2[i].msg = msg;
+        publishers2[i].message_type = msg->getType();
+        publishers2[i].md5sum = msg->getMD5();
+
+        return &publishers2[i];
+      }
+    }
+    return ;
+  }
 
   /* Register a new publisher */
   bool advertise(Publisher & p)
@@ -530,14 +555,21 @@ public:
     int i;
     for (i = 0; i < MAX_PUBLISHERS; i++)
     {
-      if (publishers[i] != 0) // non-empty slot
+      if (publishers2[i].topic_id != 0) // non-empty slot
       {
-        ti.topic_id = publishers[i]->id_;
-        ti.topic_name = (char *) publishers[i]->topic_;
-        ti.message_type = (char *) publishers[i]->msg_->getType();
-        ti.md5sum = (char *) publishers[i]->msg_->getMD5();
+        // ti.topic_id = publishers[i]->id_;
+        // ti.topic_name = (char *) publishers[i]->topic_;
+        // ti.message_type = (char *) publishers[i]->msg_->getType();
+        // ti.md5sum = (char *) publishers[i]->msg_->getMD5();
+        // ti.buffer_size = OUTPUT_SIZE;
+        // publish1(publishers[i]->getEndpointType(), &ti);
+
+        ti.topic_id = publishers2[i].topic_id;
+        ti.topic_name = publishers2[i].topic_name;
+        ti.message_type = publishers2[i].message_type;
+        ti.md5sum = publishers2[i].md5sum;
         ti.buffer_size = OUTPUT_SIZE;
-        publish1(publishers[i]->getEndpointType(), &ti);
+        publish1(TopicInfo::ID_PUBLISHER, &ti);
       }
     }
     for (i = 0; i < MAX_SUBSCRIBERS; i++)
@@ -564,15 +596,15 @@ public:
 
   virtual int publish(int id, const Msg * msg)
   {
-    return publish1(id, msg);
+    //return publish1(id, msg);
   }
 
-  int publish1(int id, const Msg * msg)
+  int publish1(int id, Msg * msg)
   {
-    //printf("in nh.publsh\n");
+    //printf("in nh.publsh %d\n",id);
     if (id >= 100 && !configured_)
       return 0;
-    //printf("in nh.publsh2\n");
+    //printf("in nh.publsh %s\n",msg->getType());
     /* serialize message */
     int l = msg->serialize(message_out + 7);
 
@@ -591,7 +623,7 @@ public:
       chk += message_out[i];
     l += 7;
     message_out[l++] = 255 - (chk % 256);
-    //printf("Sending message - %s\n",message_out);
+    //printf("Sending message - %s\n",msg->getType());
     if (l <= OUTPUT_SIZE)
     {
       hardware_.write(message_out, l);

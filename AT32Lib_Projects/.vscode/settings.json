@@ -17,7 +17,8 @@
         "service_client.h": "c",
         "comms.h": "c",
         "bsp_timer.h": "c",
-        "at32f4xx_it.h": "c"
+        "at32f4xx_it.h": "c",
+        "topicinfo.h": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }

@@ -567,12 +567,12 @@ public:
     return publish1(id, msg);
   }
 
-  int publish1(int id, const Msg * msg)
+  int publish1(int id, Msg * msg)
   {
     //printf("in nh.publsh\n");
     if (id >= 100 && !configured_)
       return 0;
-    //printf("in nh.publsh2\n");
+    printf("in nh.publsh2\n");
     /* serialize message */
     int l = msg->serialize(message_out + 7);
 
@@ -591,7 +591,7 @@ public:
       chk += message_out[i];
     l += 7;
     message_out[l++] = 255 - (chk % 256);
-    //printf("Sending message - %s\n",message_out);
+    printf("Sending message - %s\n",message_out);
     if (l <= OUTPUT_SIZE)
     {
       hardware_.write(message_out, l);
