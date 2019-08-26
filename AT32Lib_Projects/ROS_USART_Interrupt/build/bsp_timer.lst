@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s 			page 1
   31:bsp/src/bsp_timer.c ****   */ 
   32:bsp/src/bsp_timer.c ****   
   33:bsp/src/bsp_timer.c **** /* Private typedef -----------------------------------------------------------*/
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s 			page 2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s 			page 2
 
 
   34:bsp/src/bsp_timer.c **** /* Private define ------------------------------------------------------------*/  
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s 			page 1
   33 0002 1368     		ldr	r3, [r2]
   34 0004 0133     		adds	r3, r3, #1
   35 0006 1360     		str	r3, [r2]
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s 			page 3
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s 			page 3
 
 
   81:bsp/src/bsp_timer.c **** }
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s 			page 1
   85              		@ frame_needed = 0, uses_anonymous_args = 0
   86              		@ link register save eliminated.
   87              	.LVL0:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s 			page 4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s 			page 4
 
 
   88              	.LBB6:
@@ -238,17 +238,17 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s 			page 1
  104:bsp/src/bsp_timer.c ****   */
  105:bsp/src/bsp_timer.c **** void bsp_InitHardTimer(void)
  106:bsp/src/bsp_timer.c **** {
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s 			page 5
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s 			page 5
 
 
  107:bsp/src/bsp_timer.c **** 	TMR_TimerBaseInitType  TMR_TimeBaseStructure;
  108:bsp/src/bsp_timer.c **** 	uint32_t usPeriod;
  109:bsp/src/bsp_timer.c **** 	uint16_t usPrescaler;
- 110:bsp/src/bsp_timer.c **** 	uint32_t uiTMRxCLK;
+ 110:bsp/src/bsp_timer.c **** 	//uint32_t uiTMRxCLK;
  111:bsp/src/bsp_timer.c **** 
  112:bsp/src/bsp_timer.c **** 	RCC_APB1PeriphClockCmd(TMR_HARD_RCC, ENABLE);
  113:bsp/src/bsp_timer.c **** 	
- 114:bsp/src/bsp_timer.c **** 	uiTMRxCLK = SystemCoreClock ; /// 2;
+ 114:bsp/src/bsp_timer.c **** 	//uiTMRxCLK = SystemCoreClock ; /// 2;
  115:bsp/src/bsp_timer.c **** 
  116:bsp/src/bsp_timer.c **** 	//usPrescaler = uiTMRxCLK / 1000000 ;	//1us
  117:bsp/src/bsp_timer.c ****   usPrescaler = 8000000 / 1000000 ;	
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s 			page 1
  134              	.LCFI0:
  135              		.cfi_def_cfa_offset 16
  136              		.cfi_offset 4, -16
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s 			page 6
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s 			page 6
 
 
  137              		.cfi_offset 5, -12
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s 			page 1
  182:bsp/src/bsp_timer.c ****       TMR_SetCompare2(TMR_HARD, cnt_tar);      	
  183:bsp/src/bsp_timer.c **** 		  TMR_ClearITPendingBit(TMR_HARD, TMR_INT_CC2);
  184:bsp/src/bsp_timer.c **** 		  TMR_INTConfig(TMR_HARD, TMR_INT_CC2, ENABLE);	
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s 			page 7
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s 			page 7
 
 
  185:bsp/src/bsp_timer.c ****     }
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s 			page 1
  192 003c 0122     		movs	r2, #1
  193 003e 0221     		movs	r1, #2
  194 0040 2046     		mov	r0, r4
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s 			page 8
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s 			page 8
 
 
  195 0042 FFF7FEFF 		bl	TMR_INTConfig
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s 			page 1
  241 007e 0821     		movs	r1, #8
  242 0080 2046     		mov	r0, r4
  243 0082 FFF7FEFF 		bl	TMR_INTConfig
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s 			page 9
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s 			page 9
 
 
  244              	.LVL25:
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s 			page 1
  295 0000 70B5     		push	{r4, r5, r6, lr}
  296              	.LCFI1:
  297              		.cfi_def_cfa_offset 16
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s 			page 10
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s 			page 10
 
 
  298              		.cfi_offset 4, -16
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s 			page 1
  342 0042 8DF80530 		strb	r3, [sp, #5]
  138:bsp/src/bsp_timer.c **** 	NVIC_InitStructure.NVIC_IRQChannelCmd                   = ENABLE;
  343              		.loc 1 138 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s 			page 11
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s 			page 11
 
 
  344 0046 8DF80640 		strb	r4, [sp, #6]
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s 			page 1
  221:bsp/src/bsp_timer.c **** 
  222:bsp/src/bsp_timer.c **** #ifdef USE_TMR4
  223:bsp/src/bsp_timer.c **** void TMR4_GLOBAL_IRQHandler(void)
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s 			page 12
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s 			page 12
 
 
  224:bsp/src/bsp_timer.c **** #endif
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s 			page 1
  248:bsp/src/bsp_timer.c ****         TMR_ClearITPendingBit(TMR_HARD, TMR_INT_CC3);
  249:bsp/src/bsp_timer.c ****         TMR_INTConfig(TMR_HARD, TMR_INT_CC3, DISABLE);	
  250:bsp/src/bsp_timer.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s 			page 13
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s 			page 13
 
 
  251:bsp/src/bsp_timer.c ****         s_TMR_CallBack3();
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s 			page 1
  450              	.LVL46:
  451 0056 DEE7     		b	.L30
  452              	.L36:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s 			page 14
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s 			page 14
 
 
  248:bsp/src/bsp_timer.c ****         TMR_INTConfig(TMR_HARD, TMR_INT_CC3, DISABLE);	
@@ -838,7 +838,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s 			page 1
  502              		.section	.bss.s_TMR_CallBack1,"aw",%nobits
  503              		.align	2
  504              		.set	.LANCHOR1,. + 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s 			page 15
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s 			page 15
 
 
  507              	s_TMR_CallBack1:
@@ -873,39 +873,39 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s 			page 1
  544              		.file 7 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_tim.h"
  545              		.file 8 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/misc.h"
  546              		.file 9 "../Libraries/AT32F4xx_StdPeriph_Driver/inc/at32f4xx_rcc.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s 			page 16
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s 			page 16
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 bsp_timer.c
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s:17     .text.TMR_CallBack1:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s:23     .text.TMR_CallBack1:0000000000000000 TMR_CallBack1
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s:41     .text.TMR_CallBack1:000000000000000c $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s:46     .text.millis:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s:53     .text.millis:0000000000000000 millis
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s:68     .text.millis:0000000000000008 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s:73     .text.delay_ms:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s:80     .text.delay_ms:0000000000000000 delay_ms
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s:114    .text.delay_ms:0000000000000010 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s:119    .text.bsp_StartHardTimer:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s:126    .text.bsp_StartHardTimer:0000000000000000 bsp_StartHardTimer
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s:273    .text.bsp_StartHardTimer:00000000000000a8 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s:282    .text.bsp_InitHardTimer:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s:289    .text.bsp_InitHardTimer:0000000000000000 bsp_InitHardTimer
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s:367    .text.bsp_InitHardTimer:0000000000000068 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s:373    .text.TMR3_GLOBAL_IRQHandler:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s:380    .text.TMR3_GLOBAL_IRQHandler:0000000000000000 TMR3_GLOBAL_IRQHandler
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s:494    .text.TMR3_GLOBAL_IRQHandler:0000000000000090 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s:503    .bss.s_TMR_CallBack1:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s:507    .bss.s_TMR_CallBack1:0000000000000000 s_TMR_CallBack1
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s:510    .bss.s_TMR_CallBack2:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s:514    .bss.s_TMR_CallBack2:0000000000000000 s_TMR_CallBack2
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s:517    .bss.s_TMR_CallBack3:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s:521    .bss.s_TMR_CallBack3:0000000000000000 s_TMR_CallBack3
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s:524    .bss.s_TMR_CallBack4:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s:528    .bss.s_TMR_CallBack4:0000000000000000 s_TMR_CallBack4
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s:531    .bss.ticks:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYtdk3b.s:535    .bss.ticks:0000000000000000 ticks
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s:17     .text.TMR_CallBack1:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s:23     .text.TMR_CallBack1:0000000000000000 TMR_CallBack1
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s:41     .text.TMR_CallBack1:000000000000000c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s:46     .text.millis:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s:53     .text.millis:0000000000000000 millis
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s:68     .text.millis:0000000000000008 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s:73     .text.delay_ms:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s:80     .text.delay_ms:0000000000000000 delay_ms
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s:114    .text.delay_ms:0000000000000010 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s:119    .text.bsp_StartHardTimer:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s:126    .text.bsp_StartHardTimer:0000000000000000 bsp_StartHardTimer
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s:273    .text.bsp_StartHardTimer:00000000000000a8 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s:282    .text.bsp_InitHardTimer:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s:289    .text.bsp_InitHardTimer:0000000000000000 bsp_InitHardTimer
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s:367    .text.bsp_InitHardTimer:0000000000000068 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s:373    .text.TMR3_GLOBAL_IRQHandler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s:380    .text.TMR3_GLOBAL_IRQHandler:0000000000000000 TMR3_GLOBAL_IRQHandler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s:494    .text.TMR3_GLOBAL_IRQHandler:0000000000000090 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s:503    .bss.s_TMR_CallBack1:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s:507    .bss.s_TMR_CallBack1:0000000000000000 s_TMR_CallBack1
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s:510    .bss.s_TMR_CallBack2:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s:514    .bss.s_TMR_CallBack2:0000000000000000 s_TMR_CallBack2
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s:517    .bss.s_TMR_CallBack3:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s:521    .bss.s_TMR_CallBack3:0000000000000000 s_TMR_CallBack3
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s:524    .bss.s_TMR_CallBack4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s:528    .bss.s_TMR_CallBack4:0000000000000000 s_TMR_CallBack4
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s:531    .bss.ticks:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWA34qE.s:535    .bss.ticks:0000000000000000 ticks
 
 UNDEFINED SYMBOLS
 TMR_GetCounter

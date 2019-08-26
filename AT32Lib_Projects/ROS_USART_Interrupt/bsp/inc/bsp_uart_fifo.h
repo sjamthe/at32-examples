@@ -38,7 +38,7 @@ typedef enum
 #define UART1_RX_BUF_SIZE	512
 
 #define UART2_BAUD			115200
-#define UART2_TX_BUF_SIZE	512
+#define UART2_TX_BUF_SIZE	10 // DEBUG, default should be 512
 #define UART2_RX_BUF_SIZE	512
 
 typedef struct

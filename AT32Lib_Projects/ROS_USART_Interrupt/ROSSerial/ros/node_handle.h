@@ -189,7 +189,7 @@ public:
     bytes_ = 0;
     index_ = 0;
     topic_ = 0;
-    //printf("Node init\n");
+    printf("Node init\n");
   };
 
   /* Start a named port, which may be network server IP, initialize buffers */
@@ -379,6 +379,7 @@ public:
           {
             if (subscribers2[topic_ - 100].topic_id != 0) {
               s_CallBack = (void (*)(char*))subscribers2[topic_ - 100].callback;
+              printf("Calling callback with %id\n",subscribers2[topic_ - 100].topic_id);
               s_CallBack(message_in);
             }
           }
@@ -508,7 +509,8 @@ public:
         void * ptr = &subscribers2[i];
         memcpy(ptr, &sub, sizeof(sub));
         subscribers2[i].topic_id = i + 100;
-        
+        printf("Registered %s with id %d\n", \
+          subscribers2[i].topic_name,subscribers2[i].topic_id);
         return true;
       }
     }
@@ -557,13 +559,6 @@ public:
     {
       if (publishers2[i].topic_id != 0) // non-empty slot
       {
-        // ti.topic_id = publishers[i]->id_;
-        // ti.topic_name = (char *) publishers[i]->topic_;
-        // ti.message_type = (char *) publishers[i]->msg_->getType();
-        // ti.md5sum = (char *) publishers[i]->msg_->getMD5();
-        // ti.buffer_size = OUTPUT_SIZE;
-        // publish1(publishers[i]->getEndpointType(), &ti);
-
         ti.topic_id = publishers2[i].topic_id;
         ti.topic_name = publishers2[i].topic_name;
         ti.message_type = publishers2[i].message_type;
@@ -576,13 +571,6 @@ public:
     {
       if (subscribers2[i].topic_id != 0) // non-empty slot
       {
-        // ti.topic_id = subscribers[i]->id_;
-        // ti.topic_name = "led"; //(char *) subscribers[i]->topic_;
-        // ti.message_type = "std_msgs/UInt16" ; //(char *) subscribers[i]->getMsgType();
-        // ti.md5sum = "1df79edf208b629fe6b81923a544552d"; // (char *) subscribers[i]->getMsgMD5();
-        // ti.buffer_size = INPUT_SIZE;
-        // publish1(rosserial_msgs::TopicInfo::ID_SUBSCRIBER, &ti);
-
         ti.topic_id = subscribers2[i].topic_id;
         ti.topic_name = subscribers2[i].topic_name;
         ti.message_type = subscribers2[i].message_type;
@@ -596,7 +584,7 @@ public:
 
   virtual int publish(int id, const Msg * msg)
   {
-    //return publish1(id, msg);
+    return publish1(id, msg);
   }
 
   int publish1(int id, Msg * msg)

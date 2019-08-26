@@ -107,11 +107,11 @@ void bsp_InitHardTimer(void)
 	TMR_TimerBaseInitType  TMR_TimeBaseStructure;
 	uint32_t usPeriod;
 	uint16_t usPrescaler;
-	uint32_t uiTMRxCLK;
+	//uint32_t uiTMRxCLK;
 
 	RCC_APB1PeriphClockCmd(TMR_HARD_RCC, ENABLE);
 	
-	uiTMRxCLK = SystemCoreClock ; /// 2;
+	//uiTMRxCLK = SystemCoreClock ; /// 2;
 
 	//usPrescaler = uiTMRxCLK / 1000000 ;	//1us
   usPrescaler = 8000000 / 1000000 ;	

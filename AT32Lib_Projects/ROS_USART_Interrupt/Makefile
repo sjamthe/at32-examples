@@ -50,11 +50,8 @@ CPP_SOURCES = \
 ./ROSSerial/duration.cpp \
 ./ROSSerial/time.cpp \
 ./Src/ros.cpp \
+./ros_subscribe.cpp \
 ./Src/main.cpp
-
-#./ROSTasks/Src/subscribe_task.cpp \
-#./ROSTasks/Src/publish_task.cpp \
-
 
 ASM_SOURCES =  \
 ../startup_at32f403xe.s
